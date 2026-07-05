@@ -2,21 +2,10 @@ package com.example.backend.dto;
 
 import java.util.List;
 
-public class WritingQuestion {
-
-  private String prompt;
-
+public class ScoreRequest {
   private String topic;
-
   private List<String> points;
-
-  public String getPrompt() {
-    return prompt;
-  }
-
-  public void setPrompt(String prompt) {
-    this.prompt = prompt;
-  }
+  private String answer;
 
   public String getTopic() {
     return topic;
@@ -32,5 +21,13 @@ public class WritingQuestion {
 
   public void setPoints(List<String> points) {
     this.points = points;
+  }
+
+  public String getAnswer() {
+    return answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
   }
 }
