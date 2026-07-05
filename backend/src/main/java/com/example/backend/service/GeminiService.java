@@ -18,6 +18,8 @@ public class GeminiService {
   @Value("${gemini.api.key}")
   private String apiKey;
 
+  private static final String MODEL = "gemini-2.5-flash";
+
   private final WebClient webClient = WebClient.create(
       "https://generativelanguage.googleapis.com");
 
@@ -163,7 +165,7 @@ public class GeminiService {
         .formatted(request.getTopic(), String.join(", ", request.getPoints()), request.getAnswer());
 
     Map response = webClient.post()
-        .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
+        .uri("/v1beta/models/" + MODEL + ":generateContent?key=" + apiKey)
         .contentType(MediaType.APPLICATION_JSON)
         .bodyValue(Map.of(
             "contents", List.of(Map.of(
