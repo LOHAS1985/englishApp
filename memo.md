@@ -1,2 +1,4 @@
 git init - ローカルフォルダをGitリポジトリにするコマンド
 　→ .gitフォルダの作成 - コミット履歴、ブランチ情報等Git管理用の情報が保存される
+
+gir remote add origin
