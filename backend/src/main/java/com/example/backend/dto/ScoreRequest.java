@@ -4,6 +4,7 @@ import java.util.List;
 
 public class ScoreRequest {
   private String topic;
+  private String prompt;
   private List<String> points;
   private String answer;
 
@@ -13,6 +14,14 @@ public class ScoreRequest {
 
   public void setTopic(String topic) {
     this.topic = topic;
+  }
+
+  public String getPrompt() {
+    return prompt;
+  }
+
+  public void setPrompt(String prompt) {
+    this.prompt = prompt;
   }
 
   public List<String> getPoints() {

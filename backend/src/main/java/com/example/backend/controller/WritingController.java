@@ -1,26 +1,31 @@
 package com.example.backend.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.backend.service.GeminiService;
+import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.dto.ScoreRequest;
 import com.example.backend.dto.ScoreResult;
+import com.example.backend.dto.WritingHistoryItem;
 import com.example.backend.dto.WritingQuestion;
+import com.example.backend.entity.User;
+import com.example.backend.repository.WritingRecordRepository;
+import com.example.backend.service.GeminiService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/writing")
-@CrossOrigin(origins = { "http://localhost:5173", "https://lohas1985.github.io" })
 public class WritingController {
 
   private final GeminiService geminiService;
+  private final CurrentUserProvider currentUserProvider;
+  private final WritingRecordRepository writingRecordRepository;
 
-  public WritingController(GeminiService geminiService) {
+  public WritingController(GeminiService geminiService,
+      CurrentUserProvider currentUserProvider,
+      WritingRecordRepository writingRecordRepository) {
     this.geminiService = geminiService;
+    this.currentUserProvider = currentUserProvider;
+    this.writingRecordRepository = writingRecordRepository;
   }
 
   @GetMapping("/question")
@@ -31,5 +36,14 @@ public class WritingController {
   @PostMapping("/score")
   public ScoreResult scoreAnswer(@RequestBody ScoreRequest request) {
     return geminiService.scoreAnswer(request);
+  }
+
+  @GetMapping("/history")
+  public List<WritingHistoryItem> getHistory() {
+    User user = currentUserProvider.getCurrentUser();
+    return writingRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
+        .stream()
+        .map(WritingHistoryItem::from)
+        .toList();
   }
 }

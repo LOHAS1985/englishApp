@@ -4,6 +4,8 @@ import {
   scoreWritingAnswer,
   type ScoreResult,
 } from "../api/client";
+import { useAuth } from "../context/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const TARGET_MIN = 120;
 const TARGET_MAX = 150;
@@ -25,6 +27,9 @@ export default function Writing() {
   const [answer, setAnswer] = useState("");
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
+
+  const { token } = useAuth();
+  const navigate = useNavigate();
 
   const wordCount = useMemo(() => {
     const trimmed = answer.trim();
@@ -72,12 +77,18 @@ export default function Writing() {
 
   const handleScore = async () => {
     if (!question) return;
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     setScoring(true);
     try {
       const data = await scoreWritingAnswer(
         question.topic,
+        question.prompt,
         question.points,
         answer,
+        token,
       );
       setResult(data);
     } catch {

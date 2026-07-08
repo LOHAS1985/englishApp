@@ -1,8 +1,11 @@
 package com.example.backend.service;
 
+import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.dto.ScoreRequest;
 import com.example.backend.dto.ScoreResult;
 import com.example.backend.dto.WritingQuestion;
+import com.example.backend.entity.WritingRecord;
+import com.example.backend.repository.WritingRecordRepository;
 import tools.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -18,10 +21,17 @@ public class GeminiService {
   @Value("${gemini.api.key}")
   private String apiKey;
 
-  private static final String MODEL = "gemini-2.5-flash";
-
   private final WebClient webClient = WebClient.create(
       "https://generativelanguage.googleapis.com");
+
+  private final WritingRecordRepository writingRecordRepository;
+  private final CurrentUserProvider currentUserProvider;
+
+  public GeminiService(WritingRecordRepository writingRecordRepository,
+      CurrentUserProvider currentUserProvider) {
+    this.writingRecordRepository = writingRecordRepository;
+    this.currentUserProvider = currentUserProvider;
+  }
 
   public WritingQuestion generateWritingQuestion() {
     String prompt = """
@@ -139,12 +149,6 @@ public class GeminiService {
         - If a criterion has no issues, mention one specific strength by quoting the relevant part of the essay instead of a generic compliment.
         - Keep each feedback to 2-4 sentences, but every sentence must reference specific content from the essay.
 
-        Example of good feedback style (content criterion):
-        "第2文の 'It is convenient' は理由が説明されておらず主張が弱いです。'It saves commuters up to 30 minutes each day, which reduces stress and increases productivity' のように、便利さが具体的に何をもたらすかまで書くと説得力が増します。"
-
-        Example of bad feedback style (too generic, DO NOT do this):
-        "理由をもっと具体的に書きましょう。"
-
         TOPIC: %s
 
         POINTS: %s
@@ -165,7 +169,7 @@ public class GeminiService {
         .formatted(request.getTopic(), String.join(", ", request.getPoints()), request.getAnswer());
 
     Map response = webClient.post()
-        .uri("/v1beta/models/" + MODEL + ":generateContent?key=" + apiKey)
+        .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
         .contentType(MediaType.APPLICATION_JSON)
         .bodyValue(Map.of(
             "contents", List.of(Map.of(
@@ -177,7 +181,36 @@ public class GeminiService {
         .block();
 
     String text = extractText(response);
-    return parseScoreResult(text);
+    ScoreResult result = parseScoreResult(text);
+
+    saveRecord(request, result);
+
+    return result;
+  }
+
+  private void saveRecord(ScoreRequest request, ScoreResult result) {
+    WritingRecord record = new WritingRecord();
+    record.setUserId(currentUserProvider.getCurrentUser().getId());
+    record.setTopic(request.getTopic());
+    record.setPrompt(request.getPrompt());
+    record.setPoints(WritingRecord.joinPoints(request.getPoints()));
+    record.setAnswer(request.getAnswer());
+
+    String trimmed = request.getAnswer().trim();
+    int wordCount = trimmed.isEmpty() ? 0 : trimmed.split("\\s+").length;
+    record.setWordCount(wordCount);
+
+    record.setContentScore(result.getContent().getScore());
+    record.setContentFeedback(result.getContent().getFeedback());
+    record.setStructureScore(result.getStructure().getScore());
+    record.setStructureFeedback(result.getStructure().getFeedback());
+    record.setVocabularyScore(result.getVocabulary().getScore());
+    record.setVocabularyFeedback(result.getVocabulary().getFeedback());
+    record.setGrammarScore(result.getGrammar().getScore());
+    record.setGrammarFeedback(result.getGrammar().getFeedback());
+    record.setTotalScore(result.getTotal());
+
+    writingRecordRepository.save(record);
   }
 
   private ScoreResult parseScoreResult(String text) {
