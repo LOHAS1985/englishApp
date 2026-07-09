@@ -29,8 +29,8 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
+      <Header />
       <div className="w-full max-w-[400px] bg-white border border-slate-200 rounded-md p-9">
-        <Header />
         <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
           REGISTER
         </p>
