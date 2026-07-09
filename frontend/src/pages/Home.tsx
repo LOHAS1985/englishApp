@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/useAuth";
 
 const MENU_ITEMS = [
   {
@@ -24,10 +25,38 @@ const MENU_ITEMS = [
 
 export default function Home() {
   const navigate = useNavigate();
+  const { token, username, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
       <div className="w-full max-w-[640px]">
+        <div className="flex justify-end items-center gap-3 mb-6">
+          {token ? (
+            <>
+              <span className="text-sm text-slate-600">{username}</span>
+              <button
+                onClick={handleLogout}
+                className="text-sm font-semibold text-white bg-[#16233d] rounded px-4 py-2
+                           hover:bg-[#23365c] transition-colors"
+              >
+                ログアウト
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="text-sm font-semibold text-white bg-[#16233d] rounded px-4 py-2
+                         hover:bg-[#23365c] transition-colors"
+            >
+              ログイン
+            </button>
+          )}
+        </div>
         <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
           EIKEN PRACTICE
         </p>

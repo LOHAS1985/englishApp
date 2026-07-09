@@ -4,6 +4,7 @@ import {
   scoreWritingAnswer,
   type ScoreResult,
 } from "../api/client";
+import Header from "../components/Header";
 import { useAuth } from "../context/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -101,6 +102,7 @@ export default function Writing() {
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
       <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
+        <Header />
         <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
           WRITING TEST
         </p>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import { useAuth } from "../context/useAuth";
+import Header from "../components/Header";
 
 export default function History() {
   const { token } = useAuth();
@@ -31,6 +32,7 @@ export default function History() {
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
       <div className="w-full max-w-[640px]">
+        <Header />
         <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
           HISTORY
         </p>
