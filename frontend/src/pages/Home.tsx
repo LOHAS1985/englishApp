@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
@@ -26,6 +27,12 @@ const MENU_ITEMS = [
 export default function Home() {
   const navigate = useNavigate();
   const { token, username, logout } = useAuth();
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/health`).catch(() => {
+      // Renderがスリープ中でもエラーは無視
+    });
+  }, []);
 
   const handleLogout = () => {
     logout();
