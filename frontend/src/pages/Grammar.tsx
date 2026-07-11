@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   fetchGrammarQuestion,
@@ -14,24 +14,52 @@ export default function Grammar() {
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState<GrammarQuestion | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [result, setResult] = useState<GrammarAnswerResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleFetch = async () => {
+  const loadQuestion = async () => {
     setLoading(true);
+    setQuestion(null);
     setResult(null);
     setSelected(null);
     try {
       const data = await fetchGrammarQuestion();
       setQuestion(data);
+      setQuestionNumber((n) => n + 1);
     } catch {
       alert("出題に失敗しました");
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      setLoading(true);
+      try {
+        const data = await fetchGrammarQuestion();
+        if (!cancelled) {
+          setQuestion(data);
+          setQuestionNumber((n) => n + 1);
+        }
+      } catch {
+        if (!cancelled) alert("出題に失敗しました");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const handleSelect = async (label: string) => {
     if (!question || result) return;
@@ -51,27 +79,33 @@ export default function Grammar() {
     }
   };
 
+  const handleFinish = () => {
+    navigate("/");
+  };
+
   return (
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-5 py-12">
         <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
-          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-            TOEIC GRAMMAR
-          </p>
-          <h1 className="font-serif text-2xl text-slate-900 mb-6">文法問題</h1>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
+                TOEIC GRAMMAR
+              </p>
+              <h1 className="font-serif text-2xl text-slate-900">文法問題</h1>
+            </div>
+            {questionNumber > 0 && (
+              <span className="font-mono text-sm text-slate-400">
+                Q{questionNumber}
+              </span>
+            )}
+          </div>
 
-          <button
-            onClick={handleFetch}
-            disabled={loading}
-            className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
-                       hover:bg-[#23365c] disabled:bg-slate-400 transition-colors"
-          >
-            {loading ? "出題中…" : "問題を出題する"}
-          </button>
+          {loading && <p className="text-sm text-slate-400">出題中…</p>}
 
-          {question && (
-            <div className="mt-8">
+          {!loading && question && (
+            <div>
               <p className="font-serif text-lg text-slate-900 leading-relaxed mb-6">
                 {question.sentence}
               </p>
@@ -127,13 +161,22 @@ export default function Grammar() {
                     {result.translation}
                   </p>
 
-                  <button
-                    onClick={handleFetch}
-                    className="mt-5 text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
-                               hover:bg-[#23365c] transition-colors"
-                  >
-                    次の問題
-                  </button>
+                  <div className="mt-5 flex gap-3">
+                    <button
+                      onClick={loadQuestion}
+                      className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
+                                 hover:bg-[#23365c] transition-colors"
+                    >
+                      次の問題
+                    </button>
+                    <button
+                      onClick={handleFinish}
+                      className="text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded px-5 py-3
+                                 hover:border-slate-400 transition-colors"
+                    >
+                      終了する
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
