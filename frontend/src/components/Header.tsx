@@ -14,9 +14,9 @@ export default function Header() {
     <div className="flex items-center justify-between bg-[#16233d] px-5 py-4 w-full">
       <button
         onClick={() => navigate("/")}
-        className="text-sm font-semibold text-white/80 hover:text-white transition-colors"
+        className="font-serif text-lg text-white hover:text-white/80 transition-colors"
       >
-        ← ホームに戻る
+        英語学習アプリ
       </button>
 
       <div className="flex items-center gap-3">
