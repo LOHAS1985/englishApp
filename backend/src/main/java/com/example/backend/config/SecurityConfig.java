@@ -42,6 +42,7 @@ public class SecurityConfig {
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/writing/question").permitAll()
             .requestMatchers("/api/grammar/question").permitAll()
+            .requestMatchers("/api/reading/**").permitAll()
             .anyRequest().authenticated())
         .httpBasic(basic -> basic.disable())
         .formLogin(form -> form.disable())
