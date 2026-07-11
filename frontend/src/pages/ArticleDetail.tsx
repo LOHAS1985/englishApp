@@ -5,6 +5,7 @@ import {
   type ArticleDetail as ArticleDetailType,
 } from "../api/client";
 import Header from "../components/Header";
+import HighlightedBody from "../components/HighlightedBody";
 
 export default function ArticleDetail() {
   const [searchParams] = useSearchParams();
@@ -71,9 +72,10 @@ export default function ArticleDetail() {
                 </p>
               </div>
 
-              <p className="text-sm text-slate-700 leading-loose whitespace-pre-wrap mb-8">
-                {article.body}
-              </p>
+              <HighlightedBody
+                body={article.body}
+                vocabulary={article.vocabulary}
+              />
 
               {article.vocabulary.length > 0 && (
                 <div className="border-t border-slate-100 pt-6 mb-6">
