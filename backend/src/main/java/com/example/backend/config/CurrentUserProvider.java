@@ -1,7 +1,7 @@
 package com.example.backend.config;
 
-import com.example.backend.entity.User;
-import com.example.backend.repository.UserRepository;
+import com.example.backend.user.User;
+import com.example.backend.user.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
