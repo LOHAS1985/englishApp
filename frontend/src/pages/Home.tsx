@@ -11,6 +11,13 @@ const MENU_ITEMS = [
     available: true,
   },
   {
+    label: "文法(TOEIC)",
+    description:
+      "TOEIC Part 5形式の文法・語彙問題を解き、解説付きで確認できます。",
+    path: "/grammar",
+    available: true,
+  },
+  {
     label: "リーディング",
     description: "近日公開",
     path: "/reading",

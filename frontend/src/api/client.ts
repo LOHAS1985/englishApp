@@ -89,3 +89,67 @@ export async function fetchWritingHistory(token: string) {
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<WritingHistoryItem[]>;
 }
+
+export interface GrammarChoice {
+  label: string;
+  text: string;
+}
+
+export interface GrammarQuestion {
+  id: string;
+  sentence: string;
+  choices: GrammarChoice[];
+}
+
+export interface GrammarAnswerResult {
+  correct: boolean;
+  correctChoice: string;
+  explanation: string;
+  translation: string;
+}
+
+export async function fetchGrammarQuestion() {
+  const res = await fetch(`${API_BASE}/api/grammar/question`);
+  if (!res.ok) throw new Error("Failed to fetch grammar question");
+  return res.json() as Promise<GrammarQuestion>;
+}
+
+export async function submitGrammarAnswer(
+  questionId: string,
+  selectedChoice: string,
+  token: string,
+) {
+  const res = await fetch(`${API_BASE}/api/grammar/answer`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ questionId, selectedChoice }),
+  });
+  if (!res.ok) throw new Error("Failed to submit answer");
+  return res.json() as Promise<GrammarAnswerResult>;
+}
+
+export interface GrammarHistoryItem {
+  id: number;
+  sentence: string;
+  choiceA: string;
+  choiceB: string;
+  choiceC: string;
+  choiceD: string;
+  correctChoice: string;
+  selectedChoice: string;
+  correct: boolean;
+  explanation: string;
+  translation: string;
+  createdAt: string;
+}
+
+export async function fetchGrammarHistory(token: string) {
+  const res = await fetch(`${API_BASE}/api/grammar/history`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error("履歴の取得に失敗しました");
+  return res.json() as Promise<GrammarHistoryItem[]>;
+}
