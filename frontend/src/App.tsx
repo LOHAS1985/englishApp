@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import History from "./pages/History";
 import Grammar from "./pages/Grammar";
+import Reading from "./pages/Reading";
+import ArticleDetail from "./pages/ArticleDetail";
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/writing" element={<Writing />} />
           <Route path="/grammar" element={<Grammar />} />
+          <Route path="/reading" element={<Reading />} />
+          <Route path="/reading/article" element={<ArticleDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/history" element={<History />} />

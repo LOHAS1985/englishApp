@@ -28,9 +28,9 @@ public class ReadingController {
     return guardianService.searchArticles(query, page);
   }
 
-  @GetMapping("/articles/{articleId}")
-  public ArticleDetail getArticle(@PathVariable String articleId) {
-    ArticleDetail base = guardianService.getArticle(articleId);
+  @GetMapping("/article")
+  public ArticleDetail getArticle(@RequestParam String id) {
+    ArticleDetail base = guardianService.getArticle(id);
     String plainText = HtmlUtils.stripTags(base.body());
 
     ReadingAssistService.AssistResult assist = readingAssistService.generate(plainText);

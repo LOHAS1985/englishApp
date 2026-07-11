@@ -153,3 +153,49 @@ export async function fetchGrammarHistory(token: string) {
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<GrammarHistoryItem[]>;
 }
+
+export interface ArticleSummary {
+  id: string;
+  title: string;
+  section: string;
+  thumbnail: string | null;
+  publishedDate: string;
+}
+
+export interface VocabularyItem {
+  word: string;
+  meaning: string;
+  example: string;
+}
+
+export interface ArticleDetail {
+  id: string;
+  title: string;
+  byline: string | null;
+  body: string;
+  webUrl: string;
+  publishedDate: string;
+  summary: string;
+  vocabulary: VocabularyItem[];
+}
+
+export async function fetchArticles(query?: string, page = 1) {
+  const params = new URLSearchParams();
+  if (query) params.set("query", query);
+  params.set("page", String(page));
+
+  const res = await fetch(
+    `${API_BASE}/api/reading/articles?${params.toString()}`,
+  );
+  if (!res.ok) throw new Error("記事の取得に失敗しました");
+  return res.json() as Promise<ArticleSummary[]>;
+}
+
+export async function fetchArticleDetail(id: string) {
+  const params = new URLSearchParams({ id });
+  const res = await fetch(
+    `${API_BASE}/api/reading/article?${params.toString()}`,
+  );
+  if (!res.ok) throw new Error("記事の取得に失敗しました");
+  return res.json() as Promise<ArticleDetail>;
+}

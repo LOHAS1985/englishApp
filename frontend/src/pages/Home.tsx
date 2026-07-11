@@ -19,9 +19,10 @@ const MENU_ITEMS = [
   },
   {
     label: "リーディング",
-    description: "近日公開",
+    description:
+      "The Guardianの記事を読み、AIによる要約と語彙解説で読解を助けます。",
     path: "/reading",
-    available: false,
+    available: true,
   },
   {
     label: "リスニング",
