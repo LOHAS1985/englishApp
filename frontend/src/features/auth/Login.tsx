@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { register } from "../api/client";
-import { useAuth } from "../context/useAuth";
-import Header from "../components/Header";
+import { login } from "../../api/client";
+import { useAuth } from "../../shared/context/useAuth";
 
-export default function Register() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,11 +16,11 @@ export default function Register() {
     setError("");
     setLoading(true);
     try {
-      const data = await register(username, password);
+      const data = await login(username, password);
       setAuth(data.token, data.username);
       navigate("/");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "登録に失敗しました");
+      setError(err instanceof Error ? err.message : "ログインに失敗しました");
     } finally {
       setLoading(false);
     }
@@ -29,12 +28,11 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
-      <Header />
       <div className="w-full max-w-[400px] bg-white border border-slate-200 rounded-md p-9">
         <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-          REGISTER
+          LOGIN
         </p>
-        <h1 className="font-serif text-2xl text-slate-900 mb-6">新規登録</h1>
+        <h1 className="font-serif text-2xl text-slate-900 mb-6">ログイン</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -59,7 +57,6 @@ export default function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              minLength={8}
               className="w-full border border-slate-200 rounded px-3 py-2 text-sm
                          focus:outline-2 focus:outline-[#8fae4e] focus:outline-offset-1"
             />
@@ -73,14 +70,14 @@ export default function Register() {
             className="w-full text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
                        hover:bg-[#23365c] disabled:bg-slate-400 transition-colors"
           >
-            {loading ? "登録中…" : "登録する"}
+            {loading ? "ログイン中…" : "ログイン"}
           </button>
         </form>
 
         <p className="text-sm text-slate-500 mt-5 text-center">
-          既にアカウントをお持ちの方は{" "}
-          <Link to="/login" className="text-[#8fae4e] font-semibold">
-            ログイン
+          アカウントをお持ちでない方は{" "}
+          <Link to="/register" className="text-[#8fae4e] font-semibold">
+            新規登録
           </Link>
         </p>
       </div>

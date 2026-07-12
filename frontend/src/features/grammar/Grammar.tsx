@@ -5,9 +5,9 @@ import {
   submitGrammarAnswer,
   type GrammarQuestion,
   type GrammarAnswerResult,
-} from "../api/client";
-import { useAuth } from "../context/useAuth";
-import Header from "../components/Header";
+} from "../../api/client";
+import { useAuth } from "../../shared/context/useAuth";
+import Header from "../../shared/components/Header";
 
 export default function Grammar() {
   const { token } = useAuth();

@@ -3,9 +3,9 @@ import {
   fetchWritingQuestion,
   scoreWritingAnswer,
   type ScoreResult,
-} from "../api/client";
-import Header from "../components/Header";
-import { useAuth } from "../context/useAuth";
+} from "../../api/client";
+import { useAuth } from "../../shared/context/useAuth";
+import Header from "../../shared/components/Header";
 import { useNavigate } from "react-router-dom";
 
 const TARGET_MIN = 120;

@@ -3,9 +3,9 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import {
   fetchArticleDetail,
   type ArticleDetail as ArticleDetailType,
-} from "../api/client";
-import Header from "../components/Header";
-import HighlightedBody from "../components/HighlightedBody";
+} from "../../api/client";
+import Header from "../../shared/components/Header";
+import HighlightedBody from "./HighlightedBody";
 
 export default function ArticleDetail() {
   const [searchParams] = useSearchParams();

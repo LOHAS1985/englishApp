@@ -1,4 +1,4 @@
-import type { VocabularyItem } from "../api/client";
+import type { VocabularyItem } from "../../api/client";
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./shared/context/AuthContext";
 import Home from "./pages/Home";
-import Writing from "./pages/Writing";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import History from "./pages/History";
-import Grammar from "./pages/Grammar";
-import Reading from "./pages/Reading";
-import ArticleDetail from "./pages/ArticleDetail";
+import Writing from "./features/writing/Writing";
+import History from "./features/writing/History";
+import Login from "./features/auth/Login";
+import Register from "./features/auth/Register";
+import Grammar from "./features/grammar/Grammar";
+import Reading from "./features/reading/Reading";
+import ArticleDetail from "./features/reading/ArticleDetail";
 
 export default function App() {
   return (

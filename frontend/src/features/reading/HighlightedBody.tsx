@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { buildHighlightSegments } from "../utils/highlightVocabulary";
-import type { VocabularyItem } from "../api/client";
+import { buildHighlightSegments } from "./highlightVocabulary";
+import type { VocabularyItem } from "../../api/client";
 
 export default function HighlightedBody({
   body,

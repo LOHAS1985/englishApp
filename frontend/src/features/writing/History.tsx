@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
-import { useAuth } from "../context/useAuth";
-import Header from "../components/Header";
+import { fetchWritingHistory, type WritingHistoryItem } from "../../api/client";
+import { useAuth } from "../../shared/context/useAuth";
+import Header from "../../shared/components/Header";
 
 export default function History() {
   const { token } = useAuth();

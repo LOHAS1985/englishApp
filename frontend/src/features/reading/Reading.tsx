@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchArticles, type ArticleSummary } from "../api/client";
-import Header from "../components/Header";
+import { fetchArticles, type ArticleSummary } from "../../api/client";
+import Header from "../../shared/components/Header";
 
 export default function Reading() {
   const navigate = useNavigate();
