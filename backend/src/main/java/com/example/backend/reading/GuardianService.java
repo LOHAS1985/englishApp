@@ -3,6 +3,7 @@ package com.example.backend.reading;
 import com.example.backend.reading.dto.ArticleDetail;
 import com.example.backend.reading.dto.ArticleSummary;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -32,10 +33,11 @@ public class GuardianService {
         .build()
         .toUriString();
 
-    Map response = webClient.get()
+    Map<String, Object> response = webClient.get()
         .uri(uri)
         .retrieve()
-        .bodyToMono(Map.class)
+        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+        })
         .block();
 
     return parseArticleList(response);
@@ -51,22 +53,23 @@ public class GuardianService {
         .build(false)
         .toUriString();
 
-    Map response = webClient.get()
+    Map<String, Object> response = webClient.get()
         .uri(uri)
         .retrieve()
-        .bodyToMono(Map.class)
+        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+        })
         .block();
 
     return parseArticleDetail(response);
   }
 
   @SuppressWarnings("unchecked")
-  private List<ArticleSummary> parseArticleList(Map response) {
-    Map responseBody = (Map) response.get("response");
-    List<Map> results = (List<Map>) responseBody.get("results");
+  private List<ArticleSummary> parseArticleList(Map<String, Object> response) {
+    Map<String, Object> responseBody = (Map<String, Object>) response.get("response");
+    List<Map<String, Object>> results = (List<Map<String, Object>>) responseBody.get("results");
 
     return results.stream().map(item -> {
-      Map fields = (Map) item.get("fields");
+      Map<String, Object> fields = (Map<String, Object>) item.get("fields");
       String thumbnail = fields != null ? (String) fields.get("thumbnail") : null;
       return new ArticleSummary(
           (String) item.get("id"),
@@ -78,10 +81,10 @@ public class GuardianService {
   }
 
   @SuppressWarnings("unchecked")
-  private ArticleDetail parseArticleDetail(Map response) {
-    Map responseBody = (Map) response.get("response");
-    Map content = (Map) responseBody.get("content");
-    Map fields = (Map) content.get("fields");
+  private ArticleDetail parseArticleDetail(Map<String, Object> response) {
+    Map<String, Object> responseBody = (Map<String, Object>) response.get("response");
+    Map<String, Object> content = (Map<String, Object>) responseBody.get("content");
+    Map<String, Object> fields = (Map<String, Object>) content.get("fields");
 
     return new ArticleDetail(
         (String) content.get("id"),

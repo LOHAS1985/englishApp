@@ -7,6 +7,7 @@ import com.example.backend.grammar.dto.GrammarChoice;
 import com.example.backend.grammar.dto.GrammarQuestion;
 import tools.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -70,7 +71,7 @@ public class GrammarService {
         Do not include markdown. Do not wrap the JSON in triple backticks. Do not add explanations outside the JSON.
         """;
 
-    Map response = webClient.post()
+    Map<String, Object> response = webClient.post()
         .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
         .contentType(MediaType.APPLICATION_JSON)
         .bodyValue(Map.of(
@@ -79,7 +80,8 @@ public class GrammarService {
             "generationConfig", Map.of(
                 "responseMimeType", "application/json")))
         .retrieve()
-        .bodyToMono(Map.class)
+        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+        })
         .block();
 
     String text = extractText(response);
@@ -125,12 +127,13 @@ public class GrammarService {
         .orElse("");
   }
 
-  private String extractText(Map response) {
-    List candidates = (List) response.get("candidates");
-    Map candidate = (Map) candidates.get(0);
-    Map content = (Map) candidate.get("content");
-    List parts = (List) content.get("parts");
-    Map part = (Map) parts.get(0);
+  @SuppressWarnings("unchecked")
+  private String extractText(Map<String, Object> response) {
+    List<Object> candidates = (List<Object>) response.get("candidates");
+    Map<String, Object> candidate = (Map<String, Object>) candidates.get(0);
+    Map<String, Object> content = (Map<String, Object>) candidate.get("content");
+    List<Object> parts = (List<Object>) content.get("parts");
+    Map<String, Object> part = (Map<String, Object>) parts.get(0);
     return (String) part.get("text");
   }
 

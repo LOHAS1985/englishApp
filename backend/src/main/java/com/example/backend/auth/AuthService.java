@@ -5,7 +5,6 @@ import com.example.backend.auth.dto.LoginRequest;
 import com.example.backend.auth.dto.RegisterRequest;
 import com.example.backend.user.User;
 import com.example.backend.user.UserRepository;
-import com.example.backend.auth.JwtService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
