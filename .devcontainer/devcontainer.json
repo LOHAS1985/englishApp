@@ -1,0 +1,19 @@
+{
+  "name": "English App Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": "true"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.vscode-xml"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x backend/mvnw"
+}
