@@ -199,3 +199,28 @@ export async function fetchArticleDetail(id: string) {
   if (!res.ok) throw new Error("記事の取得に失敗しました");
   return res.json() as Promise<ArticleDetail>;
 }
+
+export interface ReadingRecordResult {
+  wordCount: number;
+  durationSeconds: number;
+  wpm: number;
+}
+
+export async function recordReading(
+  articleId: string,
+  articleTitle: string,
+  wordCount: number,
+  durationSeconds: number,
+  token: string
+) {
+  const res = await fetch(`${API_BASE}/api/reading/record`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ articleId, articleTitle, wordCount, durationSeconds }),
+  });
+  if (!res.ok) throw new Error("記録の保存に失敗しました");
+  return res.json() as Promise<ReadingRecordResult>;
+}
