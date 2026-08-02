@@ -4,37 +4,26 @@ import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.writing.dto.ScoreRequest;
 import com.example.backend.writing.dto.ScoreResult;
 import com.example.backend.writing.dto.WritingQuestion;
-import tools.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
-
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class GeminiService {
 
-  @Value("${gemini.api.key}")
-  private String apiKey;
-
-  private final WebClient webClient = WebClient.create(
-      "https://generativelanguage.googleapis.com");
-
+  private final GeminiApiClient geminiApiClient;
   private final WritingRecordRepository writingRecordRepository;
   private final CurrentUserProvider currentUserProvider;
 
-  public GeminiService(WritingRecordRepository writingRecordRepository,
+  public GeminiService(GeminiApiClient geminiApiClient,
+      WritingRecordRepository writingRecordRepository,
       CurrentUserProvider currentUserProvider) {
+    this.geminiApiClient = geminiApiClient;
     this.writingRecordRepository = writingRecordRepository;
     this.currentUserProvider = currentUserProvider;
   }
 
   public WritingQuestion generateWritingQuestion() {
     String prompt = """
-                You are an expert creator of Eiken Pre-1 writing questions.
+        You are an expert creator of Eiken Pre-1 writing questions.
 
         Generate ONE original writing question that closely follows the official Eiken Pre-1 format.
 
@@ -71,62 +60,10 @@ public class GeminiService {
         - The POINTS should represent different perspectives and should not overlap.
         - Ensure the question resembles the style and difficulty of official Eiken Pre-1 questions, while remaining completely original.
 
-        Return ONLY valid JSON in the following format:
+        Return the result as a JSON object with fields: prompt, topic, points (an array of 4 short strings).
+        """;
 
-        {
-          "prompt": "Write an essay on the given TOPIC. Use TWO of the POINTS below to support your answer.",
-          "topic": "Agree or disagree: ...",
-          "points": [
-            "...",
-            "...",
-            "...",
-            "..."
-          ]
-        }
-
-        Do not include markdown.
-        Do not wrap the JSON in triple backticks.
-        Do not add explanations.
-                """;
-
-    Map<String, Object> response = webClient.post()
-        .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
-        .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(Map.of(
-            "contents", List.of(Map.of(
-                "parts", List.of(Map.of("text", prompt)))),
-            "generationConfig", Map.of(
-                "responseMimeType", "application/json")))
-        .retrieve()
-        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-        })
-        .block();
-
-    String text = extractText(response);
-    System.out.println("Gemini response:");
-    System.out.println(text);
-
-    return parseJson(text);
-  }
-
-  @SuppressWarnings("unchecked")
-  private String extractText(Map<String, Object> response) {
-    List<Object> candidates = (List<Object>) response.get("candidates");
-    Map<String, Object> candidate = (Map<String, Object>) candidates.get(0);
-    Map<String, Object> content = (Map<String, Object>) candidate.get("content");
-    List<Object> parts = (List<Object>) content.get("parts");
-    Map<String, Object> part = (Map<String, Object>) parts.get(0);
-    return (String) part.get("text");
-  }
-
-  private WritingQuestion parseJson(String text) {
-    try {
-      ObjectMapper mapper = new ObjectMapper();
-      String cleaned = text.replaceAll("```json|```", "").trim();
-      return mapper.readValue(cleaned, WritingQuestion.class);
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to parse Gemini response", e);
-    }
+    return geminiApiClient.generate(prompt, WritingQuestion.class);
   }
 
   public ScoreResult scoreAnswer(ScoreRequest request) {
@@ -157,33 +94,18 @@ public class GeminiService {
         ESSAY:
         %s
 
-        Return ONLY valid JSON in the following format:
-        {
-          "content": {"score": 0, "feedback": "..."},
-          "structure": {"score": 0, "feedback": "..."},
-          "vocabulary": {"score": 0, "feedback": "..."},
-          "grammar": {"score": 0, "feedback": "..."}
-        }
-
-        Do not include markdown. Do not wrap the JSON in triple backticks. Do not add explanations.
+        Return the result as a JSON object with fields: content, structure, vocabulary, grammar,
+        each an object with "score" (integer 0-4) and "feedback" (Japanese string).
         """
         .formatted(request.getTopic(), String.join(", ", request.getPoints()), request.getAnswer());
 
-    Map<String, Object> response = webClient.post()
-        .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
-        .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(Map.of(
-            "contents", List.of(Map.of(
-                "parts", List.of(Map.of("text", prompt)))),
-            "generationConfig", Map.of(
-                "responseMimeType", "application/json")))
-        .retrieve()
-        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-        })
-        .block();
+    ScoreResult result = geminiApiClient.generate(prompt, ScoreResult.class);
 
-    String text = extractText(response);
-    ScoreResult result = parseScoreResult(text);
+    int total = result.getContent().getScore()
+        + result.getStructure().getScore()
+        + result.getVocabulary().getScore()
+        + result.getGrammar().getScore();
+    result.setTotal(total);
 
     saveRecord(request, result);
 
@@ -213,21 +135,5 @@ public class GeminiService {
     record.setTotalScore(result.getTotal());
 
     writingRecordRepository.save(record);
-  }
-
-  private ScoreResult parseScoreResult(String text) {
-    try {
-      ObjectMapper mapper = new ObjectMapper();
-      String cleaned = text.replaceAll("```json|```", "").trim();
-      ScoreResult result = mapper.readValue(cleaned, ScoreResult.class);
-      int total = result.getContent().getScore()
-          + result.getStructure().getScore()
-          + result.getVocabulary().getScore()
-          + result.getGrammar().getScore();
-      result.setTotal(total);
-      return result;
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to parse Gemini score response", e);
-    }
   }
 }

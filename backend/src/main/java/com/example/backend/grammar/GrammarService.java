@@ -5,32 +5,26 @@ import com.example.backend.grammar.dto.GrammarAnswerRequest;
 import com.example.backend.grammar.dto.GrammarAnswerResult;
 import com.example.backend.grammar.dto.GrammarChoice;
 import com.example.backend.grammar.dto.GrammarQuestion;
-import tools.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class GrammarService {
 
-  @Value("${gemini.api.key}")
-  private String apiKey;
-
-  private final WebClient webClient = WebClient.create(
-      "https://generativelanguage.googleapis.com");
-
+  private final GrammarApiClient grammarApiClient;
   private final GrammarRecordRepository grammarRecordRepository;
   private final CurrentUserProvider currentUserProvider;
 
   private final Map<String, PendingQuestion> pendingQuestions = new ConcurrentHashMap<>();
 
-  public GrammarService(GrammarRecordRepository grammarRecordRepository,
+  public GrammarService(GrammarApiClient grammarApiClient,
+      GrammarRecordRepository grammarRecordRepository,
       CurrentUserProvider currentUserProvider) {
+    this.grammarApiClient = grammarApiClient;
     this.grammarRecordRepository = grammarRecordRepository;
     this.currentUserProvider = currentUserProvider;
   }
@@ -54,38 +48,11 @@ public class GrammarService {
         - explanation must be written in Japanese, explaining why the correct choice is right and briefly why the others are wrong.
         - translation must be the Japanese translation of the complete, correct sentence.
 
-        Return ONLY valid JSON in this format:
-        {
-          "sentence": "... ------- ...",
-          "choices": [
-            {"label": "A", "text": "..."},
-            {"label": "B", "text": "..."},
-            {"label": "C", "text": "..."},
-            {"label": "D", "text": "..."}
-          ],
-          "correctChoice": "A",
-          "explanation": "...",
-          "translation": "..."
-        }
-
-        Do not include markdown. Do not wrap the JSON in triple backticks. Do not add explanations outside the JSON.
+        Return the result as a JSON object with fields: sentence, choices (array of 4 objects with "label" and "text"),
+        correctChoice (one of "A","B","C","D"), explanation (Japanese), translation (Japanese).
         """;
 
-    Map<String, Object> response = webClient.post()
-        .uri("/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey)
-        .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(Map.of(
-            "contents", List.of(Map.of(
-                "parts", List.of(Map.of("text", prompt)))),
-            "generationConfig", Map.of(
-                "responseMimeType", "application/json")))
-        .retrieve()
-        .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-        })
-        .block();
-
-    String text = extractText(response);
-    GeneratedQuestion generated = parseGeneratedQuestion(text);
+    GeneratedQuestion generated = grammarApiClient.generate(prompt, GeneratedQuestion.class);
 
     String id = UUID.randomUUID().toString();
     pendingQuestions.put(id, new PendingQuestion(generated));
@@ -125,26 +92,6 @@ public class GrammarService {
         .findFirst()
         .map(GrammarChoice::text)
         .orElse("");
-  }
-
-  @SuppressWarnings("unchecked")
-  private String extractText(Map<String, Object> response) {
-    List<Object> candidates = (List<Object>) response.get("candidates");
-    Map<String, Object> candidate = (Map<String, Object>) candidates.get(0);
-    Map<String, Object> content = (Map<String, Object>) candidate.get("content");
-    List<Object> parts = (List<Object>) content.get("parts");
-    Map<String, Object> part = (Map<String, Object>) parts.get(0);
-    return (String) part.get("text");
-  }
-
-  private GeneratedQuestion parseGeneratedQuestion(String text) {
-    try {
-      ObjectMapper mapper = new ObjectMapper();
-      String cleaned = text.replaceAll("```json|```", "").trim();
-      return mapper.readValue(cleaned, GeneratedQuestion.class);
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to parse Gemini grammar response", e);
-    }
   }
 
   private static class PendingQuestion {
