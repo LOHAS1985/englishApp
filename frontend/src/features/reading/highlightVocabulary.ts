@@ -31,7 +31,6 @@ export function buildHighlightSegments(
     ];
   }
 
-  // 長い語句から先にマッチさせる(例: "roll out" が "roll" に食われないように)
   const sorted = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
   const pattern = sorted.map((v) => escapeRegExp(v.word)).join("|");
   const regex = new RegExp(`(${pattern})`, "gi");
@@ -40,8 +39,20 @@ export function buildHighlightSegments(
   let lastIndex = 0;
   let match: RegExpExecArray | null;
   let groupCounter = 0;
+  const alreadyHighlighted = new Set<string>(); // ← 追加
 
   while ((match = regex.exec(body)) !== null) {
+    const matchedText = match[0];
+    const vocabItem =
+      sorted.find((v) => v.word.toLowerCase() === matchedText.toLowerCase()) ?? null;
+
+    // すでにハイライト済みの語彙は、通常テキストとして扱う(スキップ)
+    const key = vocabItem?.word.toLowerCase() ?? null;
+    if (key && alreadyHighlighted.has(key)) {
+      continue;
+    }
+    if (key) alreadyHighlighted.add(key);
+
     if (match.index > lastIndex) {
       segments.push({
         key: `t-${lastIndex}`,
@@ -51,12 +62,7 @@ export function buildHighlightSegments(
       });
     }
 
-    const matchedText = match[0];
-    const vocabItem =
-      sorted.find((v) => v.word.toLowerCase() === matchedText.toLowerCase()) ??
-      null;
     const groupId = `g-${groupCounter++}`;
-
     const wordTokens: WordToken[] = matchedText.split(/(\s+)/).map((token) => ({
       text: token,
       isWord: token.trim().length > 0,
