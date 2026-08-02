@@ -2,32 +2,47 @@ import { useState } from "react";
 import { buildHighlightSegments } from "./highlightVocabulary";
 import type { VocabularyItem } from "../../api/client";
 
-export default function HighlightedBody({
-  body,
+function Paragraph({
+  text,
   vocabulary,
+  isLead,
+  hoveredGroup,
+  setHoveredGroup,
+  paragraphIndex,
 }: {
-  body: string;
+  text: string;
   vocabulary: VocabularyItem[];
+  isLead: boolean;
+  hoveredGroup: string | null;
+  setHoveredGroup: (id: string | null) => void;
+  paragraphIndex: number;
 }) {
-  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null);
-  const segments = buildHighlightSegments(body, vocabulary);
+  const segments = buildHighlightSegments(text, vocabulary);
 
   return (
-    <p className="text-sm text-slate-700 leading-loose whitespace-pre-wrap mb-8">
-      {segments.map((seg) => {
+    <p
+      className={
+        isLead
+          ? "font-serif text-[19px] leading-9 text-slate-800 mb-6"
+          : "text-[15px] leading-8 text-slate-700 mb-5"
+      }
+    >
+      {segments.map((seg, segIdx) => {
+        const groupKey = seg.groupId ? `p${paragraphIndex}-${seg.groupId}` : null;
+
         if (!seg.vocab) {
-          return <span key={seg.key}>{seg.words[0].text}</span>;
+          return <span key={`${paragraphIndex}-${segIdx}`}>{seg.words[0].text}</span>;
         }
 
-        const isHovered = hoveredGroup === seg.groupId;
+        const isHovered = hoveredGroup === groupKey;
 
         return (
-          <span key={seg.key} className="relative">
+          <span key={`${paragraphIndex}-${segIdx}`} className="relative">
             {seg.words.map((w, i) =>
               w.isWord ? (
                 <span
                   key={i}
-                  onMouseEnter={() => setHoveredGroup(seg.groupId)}
+                  onMouseEnter={() => setHoveredGroup(groupKey)}
                   onMouseLeave={() => setHoveredGroup(null)}
                   className={`cursor-help border-b border-dashed transition-colors ${
                     isHovered
@@ -39,7 +54,7 @@ export default function HighlightedBody({
                 </span>
               ) : (
                 <span key={i}>{w.text}</span>
-              ),
+              )
             )}
             {isHovered && (
               <span
@@ -53,5 +68,36 @@ export default function HighlightedBody({
         );
       })}
     </p>
+  );
+}
+
+export default function HighlightedBody({
+  body,
+  vocabulary,
+}: {
+  body: string;
+  vocabulary: VocabularyItem[];
+}) {
+  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null);
+
+  const paragraphs = body
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0);
+
+  return (
+    <div className="mb-8">
+      {paragraphs.map((paragraph, i) => (
+        <Paragraph
+          key={i}
+          text={paragraph}
+          vocabulary={vocabulary}
+          isLead={i === 0}
+          hoveredGroup={hoveredGroup}
+          setHoveredGroup={setHoveredGroup}
+          paragraphIndex={i}
+        />
+      ))}
+    </div>
   );
 }
