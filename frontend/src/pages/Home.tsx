@@ -28,7 +28,13 @@ const MENU_ITEMS = [
     label: "リスニング",
     description: "近日公開",
     path: "/listening",
-    available: false,
+    available: true,
+  },
+  {
+    label: "スピーキング",
+    description: "録音して発音や流暢さをチェックします。",
+    path: "/speaking",
+    available: true,
   },
 ];
 
