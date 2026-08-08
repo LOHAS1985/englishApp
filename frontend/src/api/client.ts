@@ -224,3 +224,24 @@ export async function recordReading(
   if (!res.ok) throw new Error("記録の保存に失敗しました");
   return res.json() as Promise<ReadingRecordResult>;
 }
+
+// MCP proxy helpers (backend -> MCP server)
+export async function listMcpTools(apiKey?: string) {
+  const headers: Record<string, string> = {};
+  if (apiKey) headers['X-API-KEY'] = apiKey;
+  const res = await fetch(`${API_BASE}/api/mcp/list`, { headers });
+  if (!res.ok) throw new Error('Failed to list MCP tools');
+  return res.json() as Promise<any[]>;
+}
+
+export async function callMcpTool(name: string, args: any = {}, apiKey?: string) {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (apiKey) headers['X-API-KEY'] = apiKey;
+  const res = await fetch(`${API_BASE}/api/mcp/call`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ name, arguments: args }),
+  });
+  if (!res.ok) throw new Error('Failed to call MCP tool');
+  return res.json();
+}
