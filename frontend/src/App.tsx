@@ -8,6 +8,8 @@ import Register from "./features/auth/Register";
 import Grammar from "./features/grammar/Grammar";
 import Reading from "./features/reading/Reading";
 import ArticleDetail from "./features/reading/ArticleDetail";
+import Listening from "./features/listening/Listening";
+import Speaking from "./features/speaking/Speaking";
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/grammar" element={<Grammar />} />
           <Route path="/reading" element={<Reading />} />
           <Route path="/reading/article" element={<ArticleDetail />} />
+          <Route path="/listening" element={<Listening />} />
+          <Route path="/speaking" element={<Speaking />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/history" element={<History />} />
