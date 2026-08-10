@@ -26,7 +26,8 @@ public class RecordingService {
 
   public Recording save(MultipartFile file, Long userId) throws IOException {
     String original = file.getOriginalFilename();
-    String filename = System.currentTimeMillis() + "-" + (original == null ? "upload" : original.replaceAll("\\s+","_"));
+    String filename = System.currentTimeMillis() + "-"
+        + (original == null ? "upload" : original.replaceAll("\\s+", "_"));
     Path target = uploadDir.resolve(filename);
     try (var in = file.getInputStream()) {
       Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);

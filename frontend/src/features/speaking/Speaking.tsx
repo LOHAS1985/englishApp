@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { uploadRecording } from "../../api/audio";
+import Header from "../../shared/components/Header";
 
 export default function Speaking() {
   const [recording, setRecording] = useState<Blob | null>(null);
@@ -33,7 +34,10 @@ export default function Speaking() {
     mediaRef.current = mr;
     setStatus("recording");
     setSeconds(0);
-    intervalRef.current = window.setInterval(() => setSeconds((s) => s + 1), 1000);
+    intervalRef.current = window.setInterval(
+      () => setSeconds((s) => s + 1),
+      1000,
+    );
   };
 
   const stopRecording = () => {
@@ -56,45 +60,55 @@ export default function Speaking() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] p-6">
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-md shadow">
-        <h2 className="text-2xl font-serif mb-4">Speaking Practice</h2>
+    <div className="min-h-screen bg-[#f0f2f5]">
+      <Header />
+      <div className="flex justify-center px-5 py-12">
+        <div className="w-full max-w-[720px] bg-white border border-slate-200 rounded-md p-8">
+          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
+            SPEAKING
+          </p>
+          <h1 className="font-serif text-2xl text-slate-900 mb-4">
+            スピーキング練習
+          </h1>
 
-        <div className="flex items-center gap-3">
-          <button
-            onClick={startRecording}
-            disabled={status === "recording"}
-            className="px-4 py-2 bg-[#8fae4e] text-white rounded-md"
-          >
-            Start
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={startRecording}
+              disabled={status === "recording"}
+              className="px-4 py-2 bg-[#8fae4e] text-white rounded-md"
+            >
+              録音開始
+            </button>
 
-          <button
-            onClick={stopRecording}
-            disabled={status !== "recording"}
-            className="px-4 py-2 bg-slate-200 rounded-md"
-          >
-            Stop
-          </button>
+            <button
+              onClick={stopRecording}
+              disabled={status !== "recording"}
+              className="px-4 py-2 bg-slate-200 rounded-md"
+            >
+              停止
+            </button>
 
-          <button
-            onClick={upload}
-            disabled={!recording || status === "uploading"}
-            className="px-4 py-2 bg-[#16233d] text-white rounded-md"
-          >
-            Upload
-          </button>
+            <button
+              onClick={upload}
+              disabled={!recording || status === "uploading"}
+              className="px-4 py-2 bg-[#16233d] text-white rounded-md"
+            >
+              アップロード
+            </button>
 
-          <div className="ml-auto text-sm text-slate-600">Status: {status}</div>
-        </div>
-
-        <div className="mt-4">
-          <div className="text-sm text-slate-500">Duration: {seconds}s</div>
-          {recording && (
-            <div className="mt-3">
-              <audio controls src={URL.createObjectURL(recording)} />
+            <div className="ml-auto text-sm text-slate-600">
+              Status: {status}
             </div>
-          )}
+          </div>
+
+          <div className="mt-4">
+            <div className="text-sm text-slate-500">Duration: {seconds}s</div>
+            {recording && (
+              <div className="mt-3">
+                <audio controls src={URL.createObjectURL(recording)} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

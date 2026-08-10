@@ -19,7 +19,7 @@ public class SpeakingController {
 
   @PostMapping("/recordings")
   public ResponseEntity<?> uploadRecording(@RequestParam("file") MultipartFile file,
-                                           @RequestParam(value = "exerciseId", required = false) Long exerciseId) {
+      @RequestParam(value = "exerciseId", required = false) Long exerciseId) {
     try {
       Recording r = recordingService.save(file, null);
       return ResponseEntity.ok(Map.of("recordingId", r.getId()));

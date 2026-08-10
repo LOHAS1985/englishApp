@@ -45,6 +45,10 @@ public class SecurityConfig {
             .requestMatchers("/api/grammar/question").permitAll()
             .requestMatchers("/api/reading/articles").permitAll()
             .requestMatchers("/api/reading/article").permitAll()
+            .requestMatchers("/api/listening/**").permitAll()
+            .requestMatchers("/audio/**").permitAll()
+            .requestMatchers("/error").permitAll()
+            .requestMatchers("/favicon.ico").permitAll()
             .anyRequest().authenticated())
         .httpBasic(basic -> basic.disable())
         .formLogin(form -> form.disable())
@@ -59,6 +63,8 @@ public class SecurityConfig {
     configuration.setAllowedOrigins(List.of(
         "http://localhost:5173",
         "https://lohas1985.github.io"));
+    // allow origin patterns to tolerate 127.0.0.1 / dev host variants
+    configuration.setAllowedOriginPatterns(List.of("*"));
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);
