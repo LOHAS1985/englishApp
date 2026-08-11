@@ -211,7 +211,7 @@ export async function recordReading(
   articleTitle: string,
   wordCount: number,
   durationSeconds: number,
-  token: string
+  token: string,
 ) {
   const res = await fetch(`${API_BASE}/api/reading/record`, {
     method: "POST",
@@ -219,7 +219,12 @@ export async function recordReading(
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ articleId, articleTitle, wordCount, durationSeconds }),
+    body: JSON.stringify({
+      articleId,
+      articleTitle,
+      wordCount,
+      durationSeconds,
+    }),
   });
   if (!res.ok) throw new Error("記録の保存に失敗しました");
   return res.json() as Promise<ReadingRecordResult>;
@@ -228,20 +233,26 @@ export async function recordReading(
 // MCP proxy helpers (backend -> MCP server)
 export async function listMcpTools(apiKey?: string) {
   const headers: Record<string, string> = {};
-  if (apiKey) headers['X-API-KEY'] = apiKey;
+  if (apiKey) headers["X-API-KEY"] = apiKey;
   const res = await fetch(`${API_BASE}/api/mcp/list`, { headers });
-  if (!res.ok) throw new Error('Failed to list MCP tools');
+  if (!res.ok) throw new Error("Failed to list MCP tools");
   return res.json() as Promise<unknown[]>;
 }
 
-export async function callMcpTool(name: string, args: Record<string, unknown> = {}, apiKey?: string) {
-  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-  if (apiKey) headers['X-API-KEY'] = apiKey;
+export async function callMcpTool(
+  name: string,
+  args: Record<string, unknown> = {},
+  apiKey?: string,
+) {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+  if (apiKey) headers["X-API-KEY"] = apiKey;
   const res = await fetch(`${API_BASE}/api/mcp/call`, {
-    method: 'POST',
+    method: "POST",
     headers,
     body: JSON.stringify({ name, arguments: args }),
   });
-  if (!res.ok) throw new Error('Failed to call MCP tool');
+  if (!res.ok) throw new Error("Failed to call MCP tool");
   return res.json() as Promise<unknown>;
 }

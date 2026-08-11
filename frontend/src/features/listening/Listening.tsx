@@ -16,7 +16,11 @@ export default function Listening() {
     dialogText?: string;
     audioUrl?: string;
   }
-  type Group = { dialogText?: string; audioUrl?: string; items: ListeningItem[] };
+  type Group = {
+    dialogText?: string;
+    audioUrl?: string;
+    items: ListeningItem[];
+  };
 
   const [groups, setGroups] = useState<Group[]>([]);
   const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
@@ -104,7 +108,9 @@ export default function Listening() {
       return;
     }
     const cur = groups.findIndex(
-      (g) => g.dialogText === selectedGroup.dialogText && g.audioUrl === selectedGroup.audioUrl,
+      (g) =>
+        g.dialogText === selectedGroup.dialogText &&
+        g.audioUrl === selectedGroup.audioUrl,
     );
     const nextIdx = cur >= 0 ? (cur + 1) % groups.length : 0;
     start(groups[nextIdx], 0);
@@ -242,7 +248,10 @@ export default function Listening() {
     const out: string[] = [];
     if (Array.isArray(choices)) {
       for (let i = 0; i < 3; i++) {
-        if (i < (choices as unknown as string[]).length && (choices as unknown as string[])[i]) {
+        if (
+          i < (choices as unknown as string[]).length &&
+          (choices as unknown as string[])[i]
+        ) {
           // Normalize: if choices include 'A. ' prefix, keep it; otherwise add letter prefix
           const txt = String((choices as unknown as string[])[i]);
           if (/^[A-Ca-c]\.\s*/.test(txt)) out.push(txt);
