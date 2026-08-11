@@ -21,12 +21,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.Random;
-import java.util.Collections;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
@@ -34,7 +29,7 @@ import java.util.UUID;
 import java.nio.charset.StandardCharsets;
 
 import com.example.backend.listening.dto.GeneratedDialog;
-import com.example.backend.listening.ListeningGeminiService;
+import com.example.backend.listening.dto.GeneratedQuestion;
 
 @RestController
 @RequestMapping("/api/listening")
@@ -64,40 +59,47 @@ public class ListeningController {
 
     List<ListeningExercise> out = new ArrayList<>();
     long baseId = System.currentTimeMillis() % 100000;
+    long idCounter = 0;
     for (int i = 0; i < Math.min(desired, filtered.size()); i++) {
       GeneratedDialog g = filtered.get(i);
-      long id = baseId + i + 1;
-      String[] choices = g.getChoices();
-      if (choices == null)
-        choices = new String[0];
+      if (g.getQuestions() == null)
+        continue;
+      // For each dialog, produce up to 3 questions (TOEIC Part 3/4 style)
+      for (int q = 0; q < Math.min(3, g.getQuestions().length); q++) {
+        var ques = g.getQuestions()[q];
+        long id = baseId + (++idCounter);
 
-      // normalize to at least 3 choices; backend will not produce 'Fill the blank'
-      List<String> cs = new ArrayList<>();
-      for (int j = 0; j < Math.min(3, choices.length); j++)
-        cs.add(choices[j]);
-      while (cs.size() < 3)
-        cs.add("---");
+        String[] choices = ques.getChoices();
+        if (choices == null)
+          choices = new String[0];
 
-      // interpret correct: may be 'A'/'B'/'C' or full text
-      int correctIdx = 0;
-      String correct = g.getCorrect();
-      if (correct != null) {
-        String c = correct.trim();
-        if (c.length() == 1 && (c.equalsIgnoreCase("A") || c.equalsIgnoreCase("B") || c.equalsIgnoreCase("C"))) {
-          correctIdx = c.toUpperCase().charAt(0) - 'A';
-        } else {
-          for (int j = 0; j < cs.size(); j++)
-            if (cs.get(j).equals(c)) {
-              correctIdx = j;
-              break;
-            }
+        List<String> cs = new ArrayList<>();
+        for (int j = 0; j < Math.min(3, choices.length); j++)
+          cs.add(choices[j]);
+        while (cs.size() < 3)
+          cs.add("---");
+
+        // interpret correct: may be 'A'/'B'/'C' or full text
+        int correctIdx = 0;
+        String correct = ques.getCorrect();
+        if (correct != null) {
+          String c = correct.trim();
+          if (c.length() == 1 && (c.equalsIgnoreCase("A") || c.equalsIgnoreCase("B") || c.equalsIgnoreCase("C"))) {
+            correctIdx = c.toUpperCase().charAt(0) - 'A';
+          } else {
+            for (int j = 0; j < cs.size(); j++)
+              if (cs.get(j).equals(c)) {
+                correctIdx = j;
+                break;
+              }
+          }
         }
-      }
 
-      ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), null, g.getDialog(), g.getQuestion(),
-          cs.toArray(new String[0]));
-      ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
-      out.add(ex);
+        ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), null, g.getDialog(),
+            ques.getQuestion(), cs.toArray(new String[0]));
+        ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
+        out.add(ex);
+      }
     }
 
     return ResponseEntity.ok(out);
@@ -109,24 +111,31 @@ public class ListeningController {
     List<GeneratedDialog> gen = listeningGeminiService.generateDialogs(n);
     List<ListeningExercise> out = new ArrayList<>();
     long baseId = System.currentTimeMillis() % 100000;
+    long idCounter2 = 0;
     for (int i = 0; i < gen.size(); i++) {
       GeneratedDialog g = gen.get(i);
-      long id = baseId + i + 1;
-      String[] choices = g.getChoices();
-      if (choices == null)
-        choices = new String[0];
-      ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), "/audio/toeic_sample1.mp3",
-          g.getDialog(), g.getQuestion(), choices);
-      // find index of correct
-      int correctIdx = 0;
-      for (int j = 0; j < choices.length; j++) {
-        if (choices[j].equals(g.getCorrect())) {
-          correctIdx = j;
-          break;
+      if (g.getQuestions() == null)
+        continue;
+      for (int q = 0; q < Math.min(3, g.getQuestions().length); q++) {
+        var ques = g.getQuestions()[q];
+        long id = baseId + (++idCounter2);
+        String[] choices = ques.getChoices();
+        if (choices == null)
+          choices = new String[0];
+        ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), "/audio/toeic_sample1.mp3",
+            g.getDialog(), ques.getQuestion(), choices);
+        // find index of correct
+        int correctIdx = 0;
+        String corr = ques.getCorrect();
+        for (int j = 0; j < choices.length; j++) {
+          if (choices[j].equals(corr)) {
+            correctIdx = j;
+            break;
+          }
         }
+        ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
+        out.add(ex);
       }
-      ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
-      out.add(ex);
     }
     return ResponseEntity.ok(out);
   }
@@ -147,7 +156,8 @@ public class ListeningController {
 
     String correct = ANSWER_KEY.get(id);
     boolean ok = correct != null && correct.equalsIgnoreCase(String.valueOf(answer));
-    return ResponseEntity.ok(Map.of("score", ok ? 1 : 0, "correct", ok));
+    return ResponseEntity
+        .ok(Map.of("score", ok ? 1 : 0, "correct", ok, "correctAnswer", correct == null ? "" : correct));
   }
 
   @PostMapping("/synthesize")
@@ -316,16 +326,16 @@ public class ListeningController {
     }
     List<ListeningExercise> out = new ArrayList<>();
     long baseId = System.currentTimeMillis() % 100000;
+    long idCounter3 = 0;
     for (int i = 0; i < filtered.size(); i++) {
       GeneratedDialog g = filtered.get(i);
-      long id = baseId + i + 1;
-      String[] choices = g.getChoices();
-      if (choices == null)
-        choices = new String[0];
-      // synthesize the dialog and obtain audio URL(s)
+      if (g.getQuestions() == null)
+        continue;
+      // synthesize once per dialog
+      long synthId = baseId + i + 1;
       String audioUrl = "/audio/toeic_sample1.mp3";
       try {
-        String base = "ai_" + id;
+        String base = "ai_" + synthId;
         Map<String, Object> synth = synthesizeInternal(g.getDialog(), base);
         if (synth.containsKey("audioUrl")) {
           audioUrl = String.valueOf(synth.get("audioUrl"));
@@ -335,30 +345,38 @@ public class ListeningController {
             audioUrl = String.valueOf(arr.get(0));
         }
       } catch (Exception e) {
-        logger.warn("auto synth failed for ai dialog {}: {}", id, e.getMessage());
+        logger.warn("auto synth failed for ai dialog {}: {}", synthId, e.getMessage());
       }
 
-      ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), audioUrl, g.getDialog(),
-          g.getQuestion(), choices);
+      for (int q = 0; q < Math.min(3, g.getQuestions().length); q++) {
+        var ques = g.getQuestions()[q];
+        long id = baseId + (++idCounter3);
+        String[] choices = ques.getChoices();
+        if (choices == null)
+          choices = new String[0];
 
-      // determine correct index: support both 'A'/'B'/'C' letter or full text match
-      int correctIdx = 0;
-      String correct = g.getCorrect();
-      if (correct != null) {
-        String c = correct.trim();
-        if (c.length() == 1 && (c.equalsIgnoreCase("A") || c.equalsIgnoreCase("B") || c.equalsIgnoreCase("C"))) {
-          correctIdx = c.toUpperCase().charAt(0) - 'A';
-        } else {
-          for (int j = 0; j < choices.length; j++) {
-            if (choices[j].equals(c)) {
-              correctIdx = j;
-              break;
+        ListeningExercise ex = new ListeningExercise(id, "AI Generated: " + (i + 1), audioUrl, g.getDialog(),
+            ques.getQuestion(), choices);
+
+        // determine correct index: support both 'A'/'B'/'C' letter or full text match
+        int correctIdx = 0;
+        String correct = ques.getCorrect();
+        if (correct != null) {
+          String c = correct.trim();
+          if (c.length() == 1 && (c.equalsIgnoreCase("A") || c.equalsIgnoreCase("B") || c.equalsIgnoreCase("C"))) {
+            correctIdx = c.toUpperCase().charAt(0) - 'A';
+          } else {
+            for (int j = 0; j < choices.length; j++) {
+              if (choices[j].equals(c)) {
+                correctIdx = j;
+                break;
+              }
             }
           }
         }
+        ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
+        out.add(ex);
       }
-      ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
-      out.add(ex);
     }
     return ResponseEntity.ok(out);
   }
@@ -369,17 +387,28 @@ public class ListeningController {
     if (g == null)
       return false;
     String dialog = g.getDialog();
-    String question = g.getQuestion();
-    String[] choices = g.getChoices();
-    if (dialog == null || question == null || choices == null)
+    GeneratedQuestion[] questions = g.getQuestions();
+    if (dialog == null || questions == null || questions.length == 0)
       return false;
-    String combined = (dialog + " " + question + " " + String.join(" ", choices)).toLowerCase();
+
+    StringBuilder sb = new StringBuilder(dialog == null ? "" : dialog);
+    for (GeneratedQuestion qq : questions) {
+      if (qq == null)
+        return false;
+      String qtext = qq.getQuestion();
+      if (qtext == null)
+        return false;
+      sb.append(" ").append(qtext);
+      String[] ch = qq.getChoices();
+      if (ch == null)
+        return false;
+      for (String s : ch)
+        sb.append(" ").append(s);
+    }
+    String combined = sb.toString().toLowerCase();
     // reject if underscores or placeholder tokens appear
     if (combined.contains("___") || combined.contains("____") || combined.contains("underscore")
-        || combined.contains("blank"))
-      return false;
-    // reject if dialog contains literal '_' characters
-    if (dialog.indexOf('_') >= 0)
+        || combined.contains("blank") || combined.contains("_"))
       return false;
     return true;
   }

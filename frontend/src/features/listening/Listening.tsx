@@ -4,76 +4,118 @@ import {
   synthesizeDialog,
   API_BASE,
 } from "../../api/audio";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../../shared/components/Header";
 
 export default function Listening() {
-  const [exercises, setExercises] = useState<any[]>([]);
-  const [selected, setSelected] = useState<any | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [choice, setChoice] = useState<string>("");
+  // groups: one dialog -> multiple questions
+  const [groups, setGroups] = useState<any[]>([]);
+  const [selectedGroup, setSelectedGroup] = useState<any | null>(null);
+  const [questionIndex, setQuestionIndex] = useState<number>(0);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<string>("");
+  const [correctMap, setCorrectMap] = useState<Record<number, string>>({});
   const [isGenerating, setIsGenerating] = useState(false);
-  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
-    null,
-  );
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const [queue, setQueue] = useState<string[]>([]);
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
     getListeningExercises()
-      .then((data) => setExercises(data))
-      .catch(() => setExercises([]));
+      .then((data) => {
+        // group by dialogText + audioUrl
+        const map = new Map();
+        (data || []).forEach((ex: any) => {
+          const key = `${ex.dialogText || ""}||${ex.audioUrl || ""}`;
+          if (!map.has(key))
+            map.set(key, {
+              dialogText: ex.dialogText,
+              audioUrl: ex.audioUrl,
+              items: [],
+            });
+          map.get(key).items.push(ex);
+        });
+        setGroups(Array.from(map.values()));
+      })
+      .catch(() => {
+        setGroups([]);
+      });
   }, []);
 
-  const start = (ex: any, idx: number) => {
-    setSelected(ex);
-    setSelectedIndex(idx);
-    setChoice("");
+  const start = (group: any, idx: number) => {
+    stopPlayback();
+    setSelectedGroup(group);
+    setQuestionIndex(idx || 0);
+    setAnswers({});
     setResult("");
     setAnswered(false);
   };
 
-  const submit = async () => {
-    if (!selected) return;
-    try {
-      const r = await submitListeningAnswer(selected.id, choice);
-      setResult(`Score: ${r.score} ${r.correct ? "✅" : "❌"}`);
-      setAnswered(true);
-    } catch (e) {
-      setResult("Submit failed");
-    }
+  // Submit all answers for the current group at once
+  const submitAll = async () => {
+    if (!selectedGroup) return;
+    const items = selectedGroup.items || [];
+    const promises = items.slice(0, 3).map(async (it: any) => {
+      const ans = answers[it.id];
+      try {
+        const r = await submitListeningAnswer(it.id, ans || "");
+        return {
+          id: it.id,
+          score: r.score,
+          correct: r.correct,
+          correctAnswer: r.correctAnswer,
+        };
+      } catch (e) {
+        return { id: it.id, score: 0, correct: false, correctAnswer: "" };
+      }
+    });
+    const res = await Promise.all(promises);
+    const total = res.reduce((s, r) => s + (r.score || 0), 0);
+    setResult(`Total: ${total} / ${res.length}`);
+    // populate correctMap for display
+    const cm: Record<number, string> = {};
+    res.forEach((r) => {
+      cm[r.id] = r.correctAnswer || "";
+    });
+    setCorrectMap(cm);
+    setAnswered(true);
   };
 
   const goToNext = () => {
-    if (selectedIndex == null) return;
-    const next = selectedIndex + 1;
-    if (next < exercises.length) {
-      start(exercises[next], next);
-    } else {
-      // no more questions
-      setSelected(null);
-      setSelectedIndex(null);
+    // stop any ongoing playback when moving to next
+    stopPlayback();
+    if (!groups || groups.length === 0) {
+      setSelectedGroup(null);
+      return;
     }
+    const idx = Math.floor(Math.random() * groups.length);
+    start(groups[idx], 0);
   };
 
-  const stopServerAudio = () => {
-    if (currentAudio) {
-      try {
-        currentAudio.pause();
-      } catch {}
-      setCurrentAudio(null);
+  const stopPlayback = () => {
+    try {
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+        currentAudioRef.current.currentTime = 0;
+        currentAudioRef.current.onended = null;
+        currentAudioRef.current.onerror = null;
+        currentAudioRef.current = null;
+      }
+    } catch (e) {
+      // ignore
     }
     setQueue([]);
   };
+
+  // stopServerAudio removed (unused)
 
   const playSequential = async (urls: string[]) => {
     setQueue(urls);
     for (let i = 0; i < urls.length; i++) {
       const src = urls[i];
-      await new Promise<void>((resolve, reject) => {
+      await new Promise<void>((resolve) => {
         const a = new Audio(src);
-        setCurrentAudio(a);
+        currentAudioRef.current = a;
         a.onended = () => {
           resolve();
         };
@@ -84,16 +126,35 @@ export default function Listening() {
       });
       if (!queue || queue.length === 0) break; // stopped externally
     }
-    setCurrentAudio(null);
+    currentAudioRef.current = null;
     setQueue([]);
   };
 
+  // wait until a URL is available (HEAD returns OK) or timeout
+  const waitForUrl = async (
+    url: string,
+    timeoutMs = 8000,
+  ): Promise<boolean> => {
+    const start = Date.now();
+    const interval = 250;
+    while (Date.now() - start < timeoutMs) {
+      try {
+        const r = await fetch(url, { method: "HEAD" });
+        if (r.ok) return true;
+      } catch (e) {
+        // ignore
+      }
+      await new Promise((r) => setTimeout(r, interval));
+    }
+    return false;
+  };
+
   const generateAndPlay = async () => {
-    if (!selected || !selected.dialogText) return;
+    if (!selectedGroup || !selectedGroup.dialogText) return;
     setIsGenerating(true);
     try {
-      const base = `toeic_${selected.id}_${Date.now()}`;
-      const res = await synthesizeDialog(selected.dialogText, base);
+      const base = `toeic_${(selectedGroup.items && selectedGroup.items[0] && selectedGroup.items[0].id) || "0"}_${Date.now()}`;
+      const res = await synthesizeDialog(selectedGroup.dialogText, base);
       let urls: string[] = [];
       if (res.audioUrls && Array.isArray(res.audioUrls)) {
         urls = res.audioUrls;
@@ -117,25 +178,31 @@ export default function Listening() {
         // If there's only one combined url, set it on the selected item and play immediately.
         if (abs.length === 1) {
           const newUrl = abs[0];
-          // update selected.audioUrl so the UI audio control points to it
+          // update selectedGroup.audioUrl so the UI audio control points to it
           try {
-            setSelected({ ...selected, audioUrl: newUrl });
+            setSelectedGroup({ ...selectedGroup, audioUrl: newUrl });
           } catch {}
-          // play immediately using programmatic audio element
-          await new Promise<void>((resolve) => {
-            const a = new Audio(newUrl);
-            setCurrentAudio(a);
-            a.crossOrigin = "anonymous";
-            a.onended = () => {
-              resolve();
-            };
-            a.onerror = () => {
-              resolve();
-            };
-            // play may reject if blocked, but this is a user-initiated click
-            a.play().catch(() => resolve());
-          });
-          setCurrentAudio(null);
+          // wait until the backend file becomes available (avoid 404)
+          const ready = await waitForUrl(newUrl, 8000);
+          if (!ready) {
+            setResult("Audio not yet available, please try again in a moment");
+          } else {
+            // play immediately using programmatic audio element
+            await new Promise<void>((resolve) => {
+              const a = new Audio(newUrl);
+              currentAudioRef.current = a;
+              a.crossOrigin = "anonymous";
+              a.onended = () => {
+                resolve();
+              };
+              a.onerror = () => {
+                resolve();
+              };
+              // play may reject if blocked, but this is a user-initiated click
+              a.play().catch(() => resolve());
+            });
+          }
+          currentAudioRef.current = null;
         } else {
           await playSequential(abs);
         }
@@ -180,7 +247,7 @@ export default function Listening() {
             リスニング練習
           </h1>
 
-          {!selected && (
+          {!selectedGroup && (
             <div className="space-y-4">
               <div className="text-center">
                 <p className="text-sm text-slate-500 mb-3">
@@ -188,9 +255,9 @@ export default function Listening() {
                 </p>
                 <button
                   onClick={() => {
-                    if (!exercises || exercises.length === 0) return;
-                    const idx = Math.floor(Math.random() * exercises.length);
-                    start(exercises[idx], idx);
+                    if (!groups || groups.length === 0) return;
+                    const idx = Math.floor(Math.random() * groups.length);
+                    start(groups[idx], 0);
                   }}
                   className="bg-[#8fae4e] text-white px-6 py-3 rounded-md hover:bg-[#7a9843]"
                 >
@@ -200,12 +267,12 @@ export default function Listening() {
             </div>
           )}
 
-          {selected && (
+          {selectedGroup && (
             <div className="mt-6 bg-slate-50 p-6 rounded-lg">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-medium text-slate-900">
-                    {`問題 ${selectedIndex != null ? selectedIndex + 1 : ""}`}
+                    {`問題 ${questionIndex != null ? questionIndex + 1 : ""}`}
                   </h3>
                   <p className="text-sm text-slate-500">
                     音声を聞いて正しい答えを選んでください。
@@ -215,7 +282,9 @@ export default function Listening() {
                   <audio
                     controls
                     src={(() => {
-                      const u = selected.audioUrl;
+                      const u = selectedGroup
+                        ? selectedGroup.audioUrl
+                        : undefined;
                       if (!u) return undefined;
                       if (/^https?:\/\//i.test(u)) return u;
                       if (API_BASE) return API_BASE.replace(/\/$/, "") + u;
@@ -236,38 +305,50 @@ export default function Listening() {
                 </div>
               </div>
 
-              <div className="mt-4">
-                <p className="text-sm text-slate-700 mb-3">
-                  {selected.question}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {getThreeChoices(selected.choices).map(
-                    (text: string, i: number) => {
-                      const opt = String.fromCharCode(65 + i); // A, B, C
-                      const display = text
-                        ? text.replace(/^[A-Ca-c]\.\s*/i, "")
-                        : text;
-                      return (
-                        <button
-                          key={opt}
-                          onClick={() => !answered && setChoice(opt)}
-                          className={`py-3 rounded-md border text-sm font-medium text-left px-4 ${choice === opt ? "bg-[#8fae4e] text-white border-[#8fae4e]" : "bg-white text-slate-700 border-slate-200"}`}
-                          disabled={answered}
-                        >
-                          <div className="font-semibold">{opt}</div>
-                          <div className="text-sm text-slate-600">
-                            {display}
-                          </div>
-                        </button>
-                      );
-                    },
-                  )}
-                </div>
+              <div className="space-y-4">
+                {(selectedGroup.items || [])
+                  .slice(0, 3)
+                  .map((it: any, idx: number) => {
+                    const choices = getThreeChoices(it.choices || []);
+                    return (
+                      <div
+                        key={it.id}
+                        className="p-3 bg-white rounded-md border"
+                      >
+                        <div className="text-sm font-medium mb-2">{`Q${idx + 1}. ${it.question}`}</div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          {choices.map((text: string, i: number) => {
+                            const opt = String.fromCharCode(65 + i);
+                            const display = text
+                              ? text.replace(/^[A-Ca-c]\.\s*/i, "")
+                              : text;
+                            const selectedOpt = answers[it.id];
+                            return (
+                              <button
+                                key={opt}
+                                onClick={() =>
+                                  !answered &&
+                                  setAnswers({ ...answers, [it.id]: opt })
+                                }
+                                className={`py-3 rounded-md border text-sm font-medium text-left px-4 ${selectedOpt === opt ? "bg-[#8fae4e] text-white border-[#8fae4e]" : "bg-white text-slate-700 border-slate-200"}`}
+                                disabled={answered}
+                              >
+                                <div className="font-semibold">{opt}</div>
+                                <div className="text-sm text-slate-600">
+                                  {display}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
 
               <div className="mt-4 flex items-center gap-3">
                 <button
-                  onClick={submit}
+                  onClick={submitAll}
                   className="bg-[#16233d] text-white px-4 py-2 rounded-md"
                   disabled={answered}
                 >
@@ -281,18 +362,38 @@ export default function Listening() {
                     次の問題へ
                   </button>
                 )}
-                <button
-                  onClick={() => {
-                    setSelected(null);
-                    setResult("");
-                    setSelectedIndex(null);
-                  }}
-                  className="text-sm text-slate-600"
-                >
-                  閉じる
-                </button>
+
                 <div className="ml-auto text-sm text-slate-700">{result}</div>
               </div>
+              {/* show correct answers and script when answered */}
+              {answered && (
+                <div className="mt-4 bg-white border rounded-md p-4">
+                  <div className="text-sm font-medium mb-2">
+                    正答とスクリプト
+                  </div>
+                  <div className="space-y-2">
+                    {(selectedGroup.items || [])
+                      .slice(0, 3)
+                      .map((it: any, idx: number) => (
+                        <div key={`ans-${it.id}`} className="text-sm">
+                          <span className="font-semibold">Q{idx + 1}:</span>
+                          <span className="ml-2">
+                            正答: {correctMap[it.id] || "-"}
+                          </span>
+                          <div className="text-slate-600 mt-1">
+                            {it.question}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  <div className="mt-3 text-xs text-slate-500">
+                    スクリプト（全文）
+                  </div>
+                  <div className="mt-1 text-sm text-slate-700 whitespace-pre-wrap">
+                    {selectedGroup.dialogText}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

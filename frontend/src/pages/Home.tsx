@@ -26,7 +26,7 @@ const MENU_ITEMS = [
   },
   {
     label: "リスニング",
-    description: "近日公開",
+    description: "会話形式の音声で実践的にリスニングを練習できます。",
     path: "/listening",
     available: true,
   },

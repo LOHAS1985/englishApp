@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./shared/context/AuthContext";
 import Home from "./pages/Home";
 import Writing from "./features/writing/Writing";
@@ -26,6 +26,8 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/history" element={<History />} />
+          {/* catch-all: redirect unknown paths to home (handles invalid public base URLs) */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

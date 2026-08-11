@@ -8,6 +8,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        // ensure trailing slash for configured basename to avoid Vite dev-server message
+        var base = "/englishApp";
+        try {
+          if (location.pathname === base) {
+            var dest =
+              base + "/" + (location.search || "") + (location.hash || "");
+            location.replace(dest);
+          }
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

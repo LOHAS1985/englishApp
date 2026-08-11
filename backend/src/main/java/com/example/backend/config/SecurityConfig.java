@@ -47,6 +47,8 @@ public class SecurityConfig {
             .requestMatchers("/api/reading/article").permitAll()
             .requestMatchers("/api/listening/**").permitAll()
             .requestMatchers("/audio/**").permitAll()
+            .requestMatchers("/health").permitAll()
+            .requestMatchers("/actuator/**").permitAll()
             .requestMatchers("/error").permitAll()
             .requestMatchers("/favicon.ico").permitAll()
             .anyRequest().authenticated())
@@ -65,7 +67,7 @@ public class SecurityConfig {
         "https://lohas1985.github.io"));
     // allow origin patterns to tolerate 127.0.0.1 / dev host variants
     configuration.setAllowedOriginPatterns(List.of("*"));
-    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    configuration.setAllowedMethods(List.of("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);
 

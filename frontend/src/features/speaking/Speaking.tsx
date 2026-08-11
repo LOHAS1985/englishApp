@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { uploadRecording } from "../../api/audio";
 import Header from "../../shared/components/Header";
 
