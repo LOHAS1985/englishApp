@@ -231,10 +231,10 @@ export async function listMcpTools(apiKey?: string) {
   if (apiKey) headers['X-API-KEY'] = apiKey;
   const res = await fetch(`${API_BASE}/api/mcp/list`, { headers });
   if (!res.ok) throw new Error('Failed to list MCP tools');
-  return res.json() as Promise<any[]>;
+  return res.json() as Promise<unknown[]>;
 }
 
-export async function callMcpTool(name: string, args: any = {}, apiKey?: string) {
+export async function callMcpTool(name: string, args: Record<string, unknown> = {}, apiKey?: string) {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
   if (apiKey) headers['X-API-KEY'] = apiKey;
   const res = await fetch(`${API_BASE}/api/mcp/call`, {
@@ -243,5 +243,5 @@ export async function callMcpTool(name: string, args: any = {}, apiKey?: string)
     body: JSON.stringify({ name, arguments: args }),
   });
   if (!res.ok) throw new Error('Failed to call MCP tool');
-  return res.json();
+  return res.json() as Promise<unknown>;
 }

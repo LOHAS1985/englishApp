@@ -54,7 +54,7 @@ export default function Speaking() {
     try {
       const res = await uploadRecording(file);
       setStatus(`uploaded id=${res.recordingId}`);
-    } catch (e) {
+    } catch {
       setStatus("upload failed");
     }
   };

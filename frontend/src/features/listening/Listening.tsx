@@ -9,8 +9,17 @@ import Header from "../../shared/components/Header";
 
 export default function Listening() {
   // groups: one dialog -> multiple questions
-  const [groups, setGroups] = useState<any[]>([]);
-  const [selectedGroup, setSelectedGroup] = useState<any | null>(null);
+  interface ListeningItem {
+    id: number;
+    question: string;
+    choices?: string[];
+    dialogText?: string;
+    audioUrl?: string;
+  }
+  type Group = { dialogText?: string; audioUrl?: string; items: ListeningItem[] };
+
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
   const [questionIndex, setQuestionIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<string>("");
@@ -24,8 +33,9 @@ export default function Listening() {
     getListeningExercises()
       .then((data) => {
         // group by dialogText + audioUrl
-        const map = new Map();
-        (data || []).forEach((ex: any) => {
+        const map = new Map<string, Group>();
+        const list = (data || []) as ListeningItem[];
+        list.forEach((ex) => {
           const key = `${ex.dialogText || ""}||${ex.audioUrl || ""}`;
           if (!map.has(key))
             map.set(key, {
@@ -33,7 +43,7 @@ export default function Listening() {
               audioUrl: ex.audioUrl,
               items: [],
             });
-          map.get(key).items.push(ex);
+          map.get(key)!.items.push(ex);
         });
         setGroups(Array.from(map.values()));
       })
@@ -42,7 +52,7 @@ export default function Listening() {
       });
   }, []);
 
-  const start = (group: any, idx: number) => {
+  const start = (group: Group, idx: number) => {
     stopPlayback();
     setSelectedGroup(group);
     setQuestionIndex(idx || 0);
@@ -55,7 +65,7 @@ export default function Listening() {
   const submitAll = async () => {
     if (!selectedGroup) return;
     const items = selectedGroup.items || [];
-    const promises = items.slice(0, 3).map(async (it: any) => {
+    const promises = items.slice(0, 3).map(async (it: ListeningItem) => {
       const ans = answers[it.id];
       try {
         const r = await submitListeningAnswer(it.id, ans || "");
@@ -65,7 +75,7 @@ export default function Listening() {
           correct: r.correct,
           correctAnswer: r.correctAnswer,
         };
-      } catch (e) {
+      } catch {
         return { id: it.id, score: 0, correct: false, correctAnswer: "" };
       }
     });
@@ -88,8 +98,16 @@ export default function Listening() {
       setSelectedGroup(null);
       return;
     }
-    const idx = Math.floor(Math.random() * groups.length);
-    start(groups[idx], 0);
+    // pick next group deterministically based on current group's index
+    if (!selectedGroup) {
+      start(groups[0], 0);
+      return;
+    }
+    const cur = groups.findIndex(
+      (g) => g.dialogText === selectedGroup.dialogText && g.audioUrl === selectedGroup.audioUrl,
+    );
+    const nextIdx = cur >= 0 ? (cur + 1) % groups.length : 0;
+    start(groups[nextIdx], 0);
   };
 
   const stopPlayback = () => {
@@ -101,8 +119,8 @@ export default function Listening() {
         currentAudioRef.current.onerror = null;
         currentAudioRef.current = null;
       }
-    } catch (e) {
-      // ignore
+    } catch {
+      void 0;
     }
     setQueue([]);
   };
@@ -141,8 +159,8 @@ export default function Listening() {
       try {
         const r = await fetch(url, { method: "HEAD" });
         if (r.ok) return true;
-      } catch (e) {
-        // ignore
+      } catch {
+        void 0;
       }
       await new Promise((r) => setTimeout(r, interval));
     }
@@ -181,7 +199,9 @@ export default function Listening() {
           // update selectedGroup.audioUrl so the UI audio control points to it
           try {
             setSelectedGroup({ ...selectedGroup, audioUrl: newUrl });
-          } catch {}
+          } catch {
+            void 0;
+          }
           // wait until the backend file becomes available (avoid 404)
           const ready = await waitForUrl(newUrl, 8000);
           if (!ready) {
@@ -208,6 +228,8 @@ export default function Listening() {
         }
       }
     } catch (e) {
+      // log error for debugging
+      // eslint-disable-next-line no-console
       console.error(e);
       setResult("Synthesize failed");
     } finally {
@@ -216,13 +238,13 @@ export default function Listening() {
   };
 
   // Ensure choices are always 3 options (A/B/C) for display
-  const getThreeChoices = (choices: any) => {
+  const getThreeChoices = (choices: unknown) => {
     const out: string[] = [];
     if (Array.isArray(choices)) {
       for (let i = 0; i < 3; i++) {
-        if (i < choices.length && choices[i]) {
+        if (i < (choices as unknown as string[]).length && (choices as unknown as string[])[i]) {
           // Normalize: if choices include 'A. ' prefix, keep it; otherwise add letter prefix
-          const txt = String(choices[i]);
+          const txt = String((choices as unknown as string[])[i]);
           if (/^[A-Ca-c]\.\s*/.test(txt)) out.push(txt);
           else out.push(`${String.fromCharCode(65 + i)}. ${txt}`);
         } else {
@@ -308,7 +330,7 @@ export default function Listening() {
               <div className="space-y-4">
                 {(selectedGroup.items || [])
                   .slice(0, 3)
-                  .map((it: any, idx: number) => {
+                  .map((it: ListeningItem, idx: number) => {
                     const choices = getThreeChoices(it.choices || []);
                     return (
                       <div
@@ -374,7 +396,7 @@ export default function Listening() {
                   <div className="space-y-2">
                     {(selectedGroup.items || [])
                       .slice(0, 3)
-                      .map((it: any, idx: number) => (
+                      .map((it: ListeningItem, idx: number) => (
                         <div key={`ans-${it.id}`} className="text-sm">
                           <span className="font-semibold">Q{idx + 1}:</span>
                           <span className="ml-2">
