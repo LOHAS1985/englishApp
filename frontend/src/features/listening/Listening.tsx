@@ -366,7 +366,7 @@ export default function Listening() {
                       disabled={isGenerating}
                       className="text-sm px-3 py-1 bg-[#2463a8] text-white rounded-md"
                     >
-                      {isGenerating ? "Generating..." : "Play (Server TTS)"}
+                      {isGenerating ? "生成中..." : "再生"}
                     </button>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ export default function Listening() {
                         className="p-3 bg-white rounded-md border"
                       >
                         <div className="text-sm font-medium mb-2">{`Q${idx + 1}. ${it.question}`}</div>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-1 gap-3">
                           {choices.map((text: string, i: number) => {
                             const opt = String.fromCharCode(65 + i);
                             const display = text
