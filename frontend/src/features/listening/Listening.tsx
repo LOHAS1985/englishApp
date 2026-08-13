@@ -184,7 +184,10 @@ export default function Listening() {
     setIsGenerating(true);
     const playWithBrowserTts = async () => {
       try {
-        if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window))
+        if (
+          !("speechSynthesis" in window) ||
+          !("SpeechSynthesisUtterance" in window)
+        )
           return false;
         const lines = dialogText
           .split(/\n+/)
@@ -245,7 +248,9 @@ export default function Listening() {
           if (!ready) {
             const played = await playWithBrowserTts();
             if (!played)
-              setResult("Audio not yet available, please try again in a moment");
+              setResult(
+                "Audio not yet available, please try again in a moment",
+              );
           } else {
             // play immediately using programmatic audio element
             await new Promise<void>((resolve) => {
