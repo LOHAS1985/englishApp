@@ -128,6 +128,11 @@ export default function Listening() {
     } catch {
       void 0;
     }
+    try {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    } catch {
+      void 0;
+    }
     setQueue([]);
   };
 
@@ -175,10 +180,37 @@ export default function Listening() {
 
   const generateAndPlay = async () => {
     if (!selectedGroup || !selectedGroup.dialogText) return;
+    const dialogText = selectedGroup.dialogText;
     setIsGenerating(true);
+    const playWithBrowserTts = async () => {
+      try {
+        if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window))
+          return false;
+        const lines = dialogText
+          .split(/\n+/)
+          .map((s) => s.trim())
+          .filter(Boolean);
+        const chunks = lines.length ? lines : [dialogText];
+        window.speechSynthesis.cancel();
+        for (const chunk of chunks) {
+          await new Promise<void>((resolve) => {
+            const u = new SpeechSynthesisUtterance(chunk);
+            u.lang = "en-US";
+            u.rate = 0.95;
+            u.onend = () => resolve();
+            u.onerror = () => resolve();
+            window.speechSynthesis.speak(u);
+          });
+        }
+        setResult("Server TTS unavailable. Browser speech was used.");
+        return true;
+      } catch {
+        return false;
+      }
+    };
     try {
       const base = `toeic_${(selectedGroup.items && selectedGroup.items[0] && selectedGroup.items[0].id) || "0"}_${Date.now()}`;
-      const res = await synthesizeDialog(selectedGroup.dialogText, base);
+      const res = await synthesizeDialog(dialogText, base);
       let urls: string[] = [];
       if (res.audioUrls && Array.isArray(res.audioUrls)) {
         urls = res.audioUrls;
@@ -211,7 +243,9 @@ export default function Listening() {
           // wait until the backend file becomes available (avoid 404)
           const ready = await waitForUrl(newUrl, 8000);
           if (!ready) {
-            setResult("Audio not yet available, please try again in a moment");
+            const played = await playWithBrowserTts();
+            if (!played)
+              setResult("Audio not yet available, please try again in a moment");
           } else {
             // play immediately using programmatic audio element
             await new Promise<void>((resolve) => {
@@ -232,12 +266,14 @@ export default function Listening() {
         } else {
           await playSequential(abs);
         }
+      } else {
+        const played = await playWithBrowserTts();
+        if (!played) setResult("Synthesize failed");
       }
     } catch (e) {
-      // log error for debugging
-      // eslint-disable-next-line no-console
       console.error(e);
-      setResult("Synthesize failed");
+      const played = await playWithBrowserTts();
+      if (!played) setResult("Synthesize failed");
     } finally {
       setIsGenerating(false);
     }
