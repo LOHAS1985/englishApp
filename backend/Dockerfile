@@ -10,10 +10,14 @@ COPY tts ./tts
 RUN ./mvnw clean package -DskipTests
 
 # 実行ステージ
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 COPY --from=build /app/tts ./tts
-RUN apt-get update && apt-get install -y python3 python3-pip ffmpeg && ln -s /usr/bin/python3 /usr/bin/python && pip3 install --no-cache-dir edge-tts
+RUN apt-get update \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3 python3-pip ffmpeg \
+	&& ln -sf /usr/bin/python3 /usr/bin/python || true \
+	&& pip3 install --no-cache-dir edge-tts \
+	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
