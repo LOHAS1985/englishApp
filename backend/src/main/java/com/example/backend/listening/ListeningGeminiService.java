@@ -2,6 +2,8 @@ package com.example.backend.listening;
 
 import com.example.backend.writing.GeminiApiClient;
 import com.example.backend.listening.dto.GeneratedDialog;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class ListeningGeminiService {
   private final GeminiApiClient geminiApiClient;
   // indicates whether the last generateDialogs call returned fallback dialogs due to quota/errors
   private final AtomicBoolean lastCallUsedFallback = new AtomicBoolean(false);
+  private static final Logger logger = LoggerFactory.getLogger(ListeningGeminiService.class);
 
   public ListeningGeminiService(GeminiApiClient geminiApiClient) {
     this.geminiApiClient = geminiApiClient;
@@ -36,8 +39,12 @@ public class ListeningGeminiService {
 
     int attempts = 0;
     while (true) {
+      attempts++;
+      long attemptStart = System.currentTimeMillis();
       try {
         GeneratedDialog[] arr = geminiApiClient.generate(prompt, GeneratedDialog[].class);
+        long attemptDur = System.currentTimeMillis() - attemptStart;
+        logger.info("generateDialogs attempt {} succeeded in {}ms", attempts, attemptDur);
         List<GeneratedDialog> out = new ArrayList<>();
         if (arr != null) {
           for (GeneratedDialog g : arr)
@@ -46,8 +53,8 @@ public class ListeningGeminiService {
         lastCallUsedFallback.set(false);
         return out;
       } catch (Exception e) {
-        attempts++;
-        logger.warn("generateDialogs attempt {} failed: {}", attempts, e.getMessage());
+        long attemptDur = System.currentTimeMillis() - attemptStart;
+        logger.warn("generateDialogs attempt {} failed after {}ms: {}", attempts, attemptDur, e.getMessage());
         // if it's a quota error (429) or we've exhausted retries, return a small fallback set
         String msg = e.getMessage() == null ? "" : e.getMessage().toLowerCase();
         boolean isQuota = msg.contains("429") || msg.contains("quota") || msg.contains("exceeded");
@@ -95,7 +102,9 @@ public class ListeningGeminiService {
     }
     return out;
   }
+
+  public boolean wasLastCallFallback() {
+    return lastCallUsedFallback.get();
+  }
+
 }
-    public boolean wasLastCallFallback() {
-      return lastCallUsedFallback.get();
-    }

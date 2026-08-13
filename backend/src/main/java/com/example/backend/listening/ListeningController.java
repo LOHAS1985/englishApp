@@ -50,19 +50,28 @@ public class ListeningController {
     int desired = (count == null || count <= 0) ? 4 : Math.min(Math.max(count, 1), 12);
     ANSWER_KEY.clear();
     List<GeneratedDialog> gen;
+    long genStart = System.currentTimeMillis();
     try {
       gen = listeningGeminiService.generateDialogs(desired);
     } catch (Exception e) {
-      logger.error("listExercises: generateDialogs failed", e);
+      long genDur = System.currentTimeMillis() - genStart;
+      logger.error("listExercises: generateDialogs failed after {}ms", genDur, e);
       return ResponseEntity.status(500).body(Map.of("error", "generateDialogs failed: " + e.getMessage()));
     }
+    long genDur = System.currentTimeMillis() - genStart;
+    logger.info("listExercises: generateDialogs returned {} items in {}ms", gen == null ? 0 : gen.size(), genDur);
     // filter out invalid/placeholder dialogs
+    long filterStart = System.currentTimeMillis();
     List<GeneratedDialog> filtered = gen.stream().filter(this::isValidGeneratedDialog).collect(Collectors.toList());
-    if (filtered.size() < gen.size()) {
-      logger.info("listExercises: filtered out {} invalid generated dialogs", gen.size() - filtered.size());
+    long filterDur = System.currentTimeMillis() - filterStart;
+    if (filtered.size() < (gen == null ? 0 : gen.size())) {
+      logger.info("listExercises: filtered out {} invalid generated dialogs (filterTime={}ms)", gen.size() - filtered.size(), filterDur);
+    } else {
+      logger.info("listExercises: filtering completed ({}ms)", filterDur);
     }
 
     List<ListeningExercise> out = new ArrayList<>();
+    long buildStart = System.currentTimeMillis();
     long baseId = System.currentTimeMillis() % 100000;
     long idCounter = 0;
     for (int i = 0; i < Math.min(desired, filtered.size()); i++) {
@@ -108,8 +117,12 @@ public class ListeningController {
     }
 
     if (listeningGeminiService.wasLastCallFallback()) {
+      long buildDur = System.currentTimeMillis() - buildStart;
+      logger.info("listExercises: built {} exercises in {}ms (fallback)", out.size(), buildDur);
       return ResponseEntity.ok().header("X-AI-Quota", "fallback").body(out);
     }
+    long buildDur = System.currentTimeMillis() - buildStart;
+    logger.info("listExercises: built {} exercises in {}ms", out.size(), buildDur);
     return ResponseEntity.ok(out);
   }
 
@@ -191,6 +204,7 @@ public class ListeningController {
 
   // shared synthesize implementation used by endpoints
   private Map<String, Object> synthesizeInternal(String dialog, String base) throws IOException, InterruptedException {
+    long synthTotalStart = System.currentTimeMillis();
     // compute deterministic key from dialog text to avoid duplicate generation
     MessageDigest md;
     try {
@@ -216,13 +230,18 @@ public class ListeningController {
 
     Path finalCombined = genDir.resolve(key + ".mp3");
     if (Files.exists(finalCombined)) {
+      long cacheHitDur = System.currentTimeMillis() - synthTotalStart;
+      logger.info("synthesizeInternal: cache hit for key {}, returning in {}ms", key, cacheHitDur);
       String url = "/audio/generated/" + finalCombined.getFileName().toString();
       return Map.of("audioUrl", url);
     }
 
     // write dialog to temp file for tts script
+    long writeStart = System.currentTimeMillis();
     Path tmp = Files.createTempFile("dialog", ".txt");
     Files.writeString(tmp, dialog, StandardOpenOption.TRUNCATE_EXISTING);
+    long writeDur = System.currentTimeMillis() - writeStart;
+    logger.info("synthesizeInternal: wrote dialog temp file {} ({}ms)", tmp.toString(), writeDur);
 
     // resolve python script path from several common locations
     Path cwd = Path.of(".").toAbsolutePath().normalize();
@@ -240,6 +259,8 @@ public class ListeningController {
       }
     }
     if (script == null) {
+      long totalDur = System.currentTimeMillis() - synthTotalStart;
+      logger.error("synthesizeInternal: tts script missing, aborting (total {}ms)", totalDur);
       throw new IOException("tts script missing: cwd=" + cwd.toString());
     }
 
@@ -249,18 +270,25 @@ public class ListeningController {
     ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase);
     pb.directory(new File("."));
     pb.redirectErrorStream(true);
+    long procStart = System.currentTimeMillis();
     Process proc = pb.start();
     int exit = proc.waitFor();
+    long procDur = System.currentTimeMillis() - procStart;
+    logger.info("synthesizeInternal: tts script executed in {}ms (exit={})", procDur, exit);
     if (exit != 0) {
       String out = new String(proc.getInputStream().readAllBytes());
+      logger.error("synthesizeInternal: tts script failed output: {}", out);
       throw new IOException("tts failed: " + out);
     }
 
     // collect files produced for tempBase
+    long collectStart = System.currentTimeMillis();
     List<Path> generatedFiles = Files.list(genDir)
-        .filter(path -> path.getFileName().toString().startsWith(tempBase))
-        .sorted()
-        .collect(Collectors.toList());
+      .filter(path -> path.getFileName().toString().startsWith(tempBase))
+      .sorted()
+      .collect(Collectors.toList());
+    long collectDur = System.currentTimeMillis() - collectStart;
+    logger.info("synthesizeInternal: found {} generated files in {}ms", generatedFiles.size(), collectDur);
 
     if (generatedFiles.isEmpty()) {
       throw new IOException("no generated files");
@@ -324,6 +352,8 @@ public class ListeningController {
         .map(path -> "/audio/generated/" + path.getFileName().toString())
         .collect(Collectors.toList());
 
+    long totalDur = System.currentTimeMillis() - synthTotalStart;
+    logger.info("synthesizeInternal: returning {} urls (total {}ms)", urls.size(), totalDur);
     return Map.of("audioUrls", urls);
   }
 
