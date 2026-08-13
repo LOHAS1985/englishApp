@@ -43,29 +43,55 @@ def main():
     tasks = []
     idx = 1
     alt = 0
-    for line in lines:
-        # remove leading speaker label like "Woman: text" using regex
-        m = re.match(r"^\s*([A-Za-z][A-Za-z0-9_\- ]{0,30})\s*:\s*(.*)$", line)
-        if m:
-            speaker = m.group(1).strip().lower()
-            content = m.group(2).strip()
+    # map canonical speaker -> voice to keep voice consistent across lines
+    speaker_voice = {}
+    last_speaker = None
+
+    def choose_voice_for_speaker(s: str) -> str:
+        if not s:
+            return None
+        key = s.lower()
+        if key in speaker_voice:
+            return speaker_voice[key]
+        # female keywords
+        if any(k in key for k in ['woman', 'female', 'she', 'lady', 'girl']):
+            v = 'en-US-JennyNeural'
+        # male keywords
+        elif any(k in key for k in ['man', 'male', 'he', 'guy', 'gent']):
+            v = 'en-US-GuyNeural'
+        # agent / staff
+        elif any(k in key for k in ['agent', 'staff', 'operator', 'desk']):
+            v = 'en-GB-LibbyNeural'
         else:
-            speaker = ''
+            # deterministic pick based on hash for consistency
+            v = 'en-US-JennyNeural' if (abs(hash(key)) % 2 == 0) else 'en-US-GuyNeural'
+        speaker_voice[key] = v
+        return v
+
+    for line in lines:
+        # match leading speaker labels like: Woman: text OR [Woman]: text OR Woman - text
+        m = re.match(r"^\s*(?:\[|\()?\s*([A-Za-z][A-Za-z0-9_\- ]{0,50})\s*(?:\]|\))?\s*[:\-—]\s*(.*)$", line)
+        if m:
+            speaker_raw = m.group(1).strip()
+            speaker = speaker_raw
+            content = m.group(2).strip()
+            last_speaker = speaker
+        else:
+            # no explicit speaker label; attribute to last speaker if present
+            speaker = last_speaker
             content = line
 
+        # final cleanup: remove any residual leading speaker label patterns
+        content = re.sub(r"^\s*([A-Za-z][A-Za-z0-9_\- ]{0,50})\s*[:\-—]\s*", "", content)
+        content = content.strip()
         if not content:
             continue
 
-        # choose voice by speaker keywords (case-insensitive)
-        if speaker and any(k in speaker for k in ['woman', 'female', 'she', 'lady', 'girl']):
-            voice = 'en-US-JennyNeural'
-        elif speaker and any(k in speaker for k in ['man', 'male', 'he', 'guy', 'gent']):
-            voice = 'en-US-GuyNeural'
-        elif speaker and ('agent' in speaker or 'staff' in speaker or 'agent:' in speaker):
-            # use a distinct agent voice (UK English neutral)
-            voice = 'en-GB-LibbyNeural'
-        else:
-            # alternate when no explicit speaker label
+        voice = None
+        if speaker:
+            voice = choose_voice_for_speaker(speaker)
+        if not voice:
+            # fall back to alternating for unlabeled initial lines
             voice = 'en-US-JennyNeural' if (alt % 2 == 0) else 'en-US-GuyNeural'
             alt += 1
 
