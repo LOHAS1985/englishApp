@@ -4,15 +4,13 @@ import os
 import asyncio
 import pathlib
 import re
-
-try:
-    import edge_tts
-except Exception:
-    print('edge-tts not installed. Run: pip install edge-tts', file=sys.stderr)
-    raise
-
+import argparse
 
 async def synth(text: str, voice: str, out_path: str):
+    try:
+        import edge_tts
+    except Exception:
+        raise RuntimeError('edge-tts not installed. Run: pip install edge-tts')
     communicate = edge_tts.Communicate(text, voice)
     await communicate.save(out_path)
 
@@ -22,12 +20,15 @@ def sanitize_filename(name: str) -> str:
 
 
 def main():
-    if len(sys.argv) < 3:
-        print('Usage: generate_tts.py <input_text_file> <base_name>', file=sys.stderr)
-        sys.exit(2)
+    parser = argparse.ArgumentParser(description='Generate TTS audio per-speaker')
+    parser.add_argument('input_file')
+    parser.add_argument('base_name')
+    parser.add_argument('--dry-run', action='store_true', help='Do not call TTS, only print mapping and content')
+    args = parser.parse_args()
 
-    input_file = sys.argv[1]
-    base_name = sanitize_filename(sys.argv[2])
+    input_file = args.input_file
+    base_name = sanitize_filename(args.base_name)
+    dry_run = args.dry_run
 
     with open(input_file, 'r', encoding='utf-8') as f:
         text = f.read()
@@ -136,7 +137,10 @@ def main():
             content = line
 
         # final cleanup: remove any residual leading speaker label patterns
-        content = re.sub(r"^\s*([A-Za-z][A-Za-z0-9_\- ]{0,50})\s*[:\-—]\s*", "", content)
+        # remove common label prefixes (Man:/Woman:) at start-of-line or anywhere obvious
+        content = re.sub(r"(?i)^\s*(?:\[|\()??\s*(?:man|woman|speaker)\s*(?:\]|\))?\s*[:\-—]\s*", "", content)
+        # also strip any stray 'Man:' or 'Woman:' tokens appearing in the content
+        content = re.sub(r"(?i)\b(?:man|woman)\s*[:\-—]\s*", "", content)
         content = content.strip()
         if not content:
             continue
@@ -156,8 +160,18 @@ def main():
 
     async def run_all():
         for (content, voice, out_path) in tasks:
-            print(f'Synthesizing -> {out_path} ({voice})')
-            await synth(content, voice, out_path)
+            print(f'[TTS TASK] -> {out_path} ({voice})')
+            print(f'[TTS TASK] content preview: "{content[:140]}"')
+            if dry_run:
+                # in dry-run mode, do not call TTS; just create a tiny marker file so the flow can be inspected
+                try:
+                    with open(out_path + '.txt', 'w', encoding='utf-8') as f:
+                        f.write(f'VOICE: {voice}\n')
+                        f.write(content)
+                except Exception:
+                    pass
+            else:
+                await synth(content, voice, out_path)
 
     asyncio.run(run_all())
 
