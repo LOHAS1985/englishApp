@@ -1,0 +1,10 @@
+Woman: Excuse me, is this the line for flight BA245 to London?
+Man: Yes, it is. But it looks like it's been delayed. I just checked the departures board.
+Woman: Oh no, not again! I have a connecting flight from London to Edinburgh this evening.
+Man: Me too. My connection is at 7 PM. This delay could mean we miss it.
+Woman: I really can't afford to miss this. I have an important meeting first thing tomorrow morning.
+Agent: Good afternoon. How can I help you?
+Woman: Hi, our flight BA245 to London is delayed. We both have connecting flights and are worried about missing them.
+Agent: Let me check. BA245 is now estimated to depart in three hours. We can rebook you onto the next available flight to Edinburgh, but it might be tomorrow morning.
+Man: Tomorrow morning? That won't work for me either.
+Agent: I understand. Let me see if there's an earlier option with a different airline. Please have your booking references ready.

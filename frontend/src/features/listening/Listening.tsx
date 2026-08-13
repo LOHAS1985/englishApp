@@ -330,10 +330,15 @@ export default function Listening() {
                 </p>
                 {loadingExercises ? (
                   <div className="flex flex-col items-center">
-                    <button disabled className="bg-slate-300 text-white px-6 py-3 rounded-md cursor-not-allowed">
+                    <button
+                      disabled
+                      className="bg-slate-300 text-white px-6 py-3 rounded-md cursor-not-allowed"
+                    >
                       読み込み中...
                     </button>
-                    <p className="text-xs text-slate-400 mt-2">問題を取得しています。しばらくお待ちください。</p>
+                    <p className="text-xs text-slate-400 mt-2">
+                      問題を取得しています。しばらくお待ちください。
+                    </p>
                   </div>
                 ) : (
                   <button
