@@ -3,6 +3,7 @@ import sys
 import os
 import asyncio
 import pathlib
+import re
 
 try:
     import edge_tts
@@ -43,11 +44,11 @@ def main():
     idx = 1
     alt = 0
     for line in lines:
-        # remove speaker label if present
-        if ':' in line:
-            parts = line.split(':', 1)
-            speaker = parts[0].strip().lower()
-            content = parts[1].strip()
+        # remove leading speaker label like "Woman: text" using regex
+        m = re.match(r"^\s*([A-Za-z][A-Za-z0-9_\- ]{0,30})\s*:\s*(.*)$", line)
+        if m:
+            speaker = m.group(1).strip().lower()
+            content = m.group(2).strip()
         else:
             speaker = ''
             content = line
@@ -55,13 +56,16 @@ def main():
         if not content:
             continue
 
-        # choose voice by speaker
-        if any(k in speaker for k in ['woman', 'female', 'she']):
+        # choose voice by speaker keywords (case-insensitive)
+        if speaker and any(k in speaker for k in ['woman', 'female', 'she', 'lady', 'girl']):
             voice = 'en-US-JennyNeural'
-        elif any(k in speaker for k in ['man', 'male', 'he']):
+        elif speaker and any(k in speaker for k in ['man', 'male', 'he', 'guy', 'gent']):
             voice = 'en-US-GuyNeural'
+        elif speaker and ('agent' in speaker or 'staff' in speaker or 'agent:' in speaker):
+            # use a distinct agent voice (UK English neutral)
+            voice = 'en-GB-LibbyNeural'
         else:
-            # alternate
+            # alternate when no explicit speaker label
             voice = 'en-US-JennyNeural' if (alt % 2 == 0) else 'en-US-GuyNeural'
             alt += 1
 
