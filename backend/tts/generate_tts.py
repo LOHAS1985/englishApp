@@ -53,19 +53,42 @@ def main():
         key = s.lower()
         if key in speaker_voice:
             return speaker_voice[key]
-        # female keywords
+        # voice pools (expandable)
+        FEMALE_VOICES = ['en-US-JennyNeural', 'en-GB-LibbyNeural', 'en-AU-NatashaNeural']
+        MALE_VOICES = ['en-US-GuyNeural', 'en-GB-RyanNeural', 'en-AU-WilliamNeural']
+        ALL_VOICES = FEMALE_VOICES + MALE_VOICES
+
+        # track used voices to ensure uniqueness per speaker when possible
+        if 'used_voices' not in choose_voice_for_speaker.__dict__:
+            choose_voice_for_speaker.used_voices = set()
+
+        used = choose_voice_for_speaker.used_voices
+
+        # helper to pick first unused from a list
+        def pick_unused(candidates):
+            for vv in candidates:
+                if vv not in used:
+                    return vv
+            return None
+
+        # prefer gendered pools when keywords present
         if any(k in key for k in ['woman', 'female', 'she', 'lady', 'girl']):
-            v = 'en-US-JennyNeural'
-        # male keywords
+            v = pick_unused(FEMALE_VOICES) or pick_unused(ALL_VOICES)
         elif any(k in key for k in ['man', 'male', 'he', 'guy', 'gent']):
-            v = 'en-US-GuyNeural'
-        # agent / staff
+            v = pick_unused(MALE_VOICES) or pick_unused(ALL_VOICES)
         elif any(k in key for k in ['agent', 'staff', 'operator', 'desk']):
-            v = 'en-GB-LibbyNeural'
+            # prefer a neutral/agent-like voice
+            v = pick_unused(['en-GB-LibbyNeural']) or pick_unused(ALL_VOICES)
         else:
-            # deterministic pick based on hash for consistency
-            v = 'en-US-JennyNeural' if (abs(hash(key)) % 2 == 0) else 'en-US-GuyNeural'
+            # for arbitrary names (Mark, David, Sarah...), try to give each a unique voice
+            v = pick_unused(ALL_VOICES)
+
+        # if all voices are used, fall back to deterministic mapping to keep consistency
+        if not v:
+            v = ALL_VOICES[abs(hash(key)) % len(ALL_VOICES)]
+
         speaker_voice[key] = v
+        used.add(v)
         return v
 
     for line in lines:
