@@ -50,12 +50,35 @@ def main():
     def choose_voice_for_speaker(s: str) -> str:
         if not s:
             return None
-        key = s.lower()
+        key = s.lower().strip()
+        # explicit mapping for canonical Man/Woman labels to fixed en-US voices
+        if key == 'woman':
+            v = 'en-US-JennyNeural'
+            speaker_voice[key] = v
+            if 'used_voices' not in choose_voice_for_speaker.__dict__:
+                choose_voice_for_speaker.used_voices = set()
+            choose_voice_for_speaker.used_voices.add(v)
+            try:
+                print(f"[TTS] speaker -> voice: '{s}' -> '{v}'")
+            except Exception:
+                pass
+            return v
+        if key == 'man':
+            v = 'en-US-GuyNeural'
+            speaker_voice[key] = v
+            if 'used_voices' not in choose_voice_for_speaker.__dict__:
+                choose_voice_for_speaker.used_voices = set()
+            choose_voice_for_speaker.used_voices.add(v)
+            try:
+                print(f"[TTS] speaker -> voice: '{s}' -> '{v}'")
+            except Exception:
+                pass
+            return v
         if key in speaker_voice:
             return speaker_voice[key]
-        # voice pools (expandable)
-        FEMALE_VOICES = ['en-US-JennyNeural', 'en-GB-LibbyNeural', 'en-AU-NatashaNeural']
-        MALE_VOICES = ['en-US-GuyNeural', 'en-GB-RyanNeural', 'en-AU-WilliamNeural']
+        # voice pools: prefer en-US voices to keep accent consistent
+        FEMALE_VOICES = ['en-US-JennyNeural', 'en-US-AriaNeural']
+        MALE_VOICES = ['en-US-GuyNeural', 'en-US-AntonioNeural']
         ALL_VOICES = FEMALE_VOICES + MALE_VOICES
 
         # track used voices to ensure uniqueness per speaker when possible
@@ -71,16 +94,17 @@ def main():
                     return vv
             return None
 
-        # prefer gendered pools when keywords present
-        if any(k in key for k in ['woman', 'female', 'she', 'lady', 'girl']):
+        # Prefer deterministic, readable mappings for very common labels
+        if any(k in key for k in ['^female$', 'female', 'she', 'lady', 'girl']):
+            # prefer a female en-US voice
             v = pick_unused(FEMALE_VOICES) or pick_unused(ALL_VOICES)
-        elif any(k in key for k in ['man', 'male', 'he', 'guy', 'gent']):
+        elif any(k in key for k in ['^male$', 'man', 'male', 'he', 'guy', 'gent']):
+            # prefer a male en-US voice
             v = pick_unused(MALE_VOICES) or pick_unused(ALL_VOICES)
         elif any(k in key for k in ['agent', 'staff', 'operator', 'desk']):
-            # prefer a neutral/agent-like voice
-            v = pick_unused(['en-GB-LibbyNeural']) or pick_unused(ALL_VOICES)
+            v = pick_unused(ALL_VOICES)
         else:
-            # for arbitrary names (Mark, David, Sarah...), try to give each a unique voice
+            # for arbitrary names (Tom, Sarah...), try to give each a unique voice
             v = pick_unused(ALL_VOICES)
 
         # if all voices are used, fall back to deterministic mapping to keep consistency
@@ -89,6 +113,13 @@ def main():
 
         speaker_voice[key] = v
         used.add(v)
+
+        # log mapping so it's easy to debug which voice is used for which speaker
+        try:
+            print(f"[TTS] speaker -> voice: '{s}' -> '{v}'")
+        except Exception:
+            pass
+
         return v
 
     for line in lines:

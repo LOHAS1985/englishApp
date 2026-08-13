@@ -19,10 +19,10 @@ public class ListeningGeminiService {
   public List<GeneratedDialog> generateDialogs(int count) {
     if (count <= 0)
       count = 4;
-    String prompt = "You are an expert creator of long multi-turn dialogue listening exercises (TOEIC Part 3/4 style)."
+      String prompt = "You are an expert creator of long multi-turn dialogue listening exercises (TOEIC Part 3/4 style)."
         + "\nGenerate " + count
-        + " unique dialogs. Each dialog must be a natural conversation between multiple speakers (2 or 3 different speakers) and be long enough to support multiple comprehension questions."
-        + "\nStructure each dialog as 4-10 short speaker lines, each line starting with a speaker label (e.g. 'Man:', 'Woman:', 'Student:', 'Announcer:')."
+        + " unique dialogs. Each dialog must be a natural conversation between two speakers only (Man and Woman) and be long enough to support multiple comprehension questions."
+        + "\nStructure each dialog as 4-10 short speaker lines, each line starting with a speaker label exactly 'Man:' or 'Woman:' (use ONLY these two labels). Do not include any other speaker labels or metadata."
         + "\nFor each dialog, provide EXACTLY THREE distinct listening-comprehension questions about that dialog. Each question should be a separate object and should test different aspects (detail, main idea, inference)."
         + "\nFor each question, provide exactly three answer choices (A, B, C). One choice must be correct."
         + "\nReturn the result strictly as a JSON array of objects with the fields:"
