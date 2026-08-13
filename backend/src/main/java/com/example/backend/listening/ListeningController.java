@@ -49,8 +49,13 @@ public class ListeningController {
     // dialogs.
     int desired = (count == null || count <= 0) ? 4 : Math.min(Math.max(count, 1), 12);
     ANSWER_KEY.clear();
-
-    List<GeneratedDialog> gen = listeningGeminiService.generateDialogs(desired);
+    List<GeneratedDialog> gen;
+    try {
+      gen = listeningGeminiService.generateDialogs(desired);
+    } catch (Exception e) {
+      logger.error("listExercises: generateDialogs failed", e);
+      return ResponseEntity.status(500).body(Map.of("error", "generateDialogs failed: " + e.getMessage()));
+    }
     // filter out invalid/placeholder dialogs
     List<GeneratedDialog> filtered = gen.stream().filter(this::isValidGeneratedDialog).collect(Collectors.toList());
     if (filtered.size() < gen.size()) {
@@ -102,6 +107,9 @@ public class ListeningController {
       }
     }
 
+    if (listeningGeminiService.wasLastCallFallback()) {
+      return ResponseEntity.ok().header("X-AI-Quota", "fallback").body(out);
+    }
     return ResponseEntity.ok(out);
   }
 
@@ -136,6 +144,9 @@ public class ListeningController {
         ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
         out.add(ex);
       }
+    }
+    if (listeningGeminiService.wasLastCallFallback()) {
+      return ResponseEntity.ok().header("X-AI-Quota", "fallback").body(out);
     }
     return ResponseEntity.ok(out);
   }
@@ -173,7 +184,8 @@ public class ListeningController {
       Map<String, Object> res = synthesizeInternal(dialog, base);
       return ResponseEntity.ok(res);
     } catch (IOException | InterruptedException e) {
-      return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
+      logger.error("synthesize failed", e);
+      return ResponseEntity.status(500).body(Map.of("error", e.getMessage(), "detail", e.toString()));
     }
   }
 
@@ -377,6 +389,9 @@ public class ListeningController {
         ANSWER_KEY.put(id, String.valueOf((char) ('A' + correctIdx)));
         out.add(ex);
       }
+    }
+    if (listeningGeminiService.wasLastCallFallback()) {
+      return ResponseEntity.ok().header("X-AI-Quota", "fallback").body(out);
     }
     return ResponseEntity.ok(out);
   }

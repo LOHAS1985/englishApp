@@ -167,7 +167,8 @@ export default function Listening() {
     timeoutMs = 8000,
   ): Promise<boolean> => {
     const start = Date.now();
-    const interval = 250;
+    let delay = 250; // initial delay
+    const maxDelay = 2000; // cap backoff to avoid very long sleeps
     while (Date.now() - start < timeoutMs) {
       try {
         const r = await fetch(url, { method: "HEAD" });
@@ -175,7 +176,10 @@ export default function Listening() {
       } catch {
         void 0;
       }
-      await new Promise((r) => setTimeout(r, interval));
+      // exponential backoff with jitter
+      const jitter = Math.floor(Math.random() * 200);
+      await new Promise((res) => setTimeout(res, delay + jitter));
+      delay = Math.min(maxDelay, delay * 2);
     }
     return false;
   };
