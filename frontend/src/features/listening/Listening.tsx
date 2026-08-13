@@ -23,7 +23,7 @@ export default function Listening() {
   };
 
   const [groups, setGroups] = useState<Group[]>([]);
-  const [loadingExercises, setLoadingExercises] = useState<boolean>(false);
+  const [loadingExercises, setLoadingExercises] = useState<boolean>(true);
   const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
   const [questionIndex, setQuestionIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -35,7 +35,6 @@ export default function Listening() {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
-    setLoadingExercises(true);
     getListeningExercises()
       .then((data) => {
         // group by dialogText + audioUrl
