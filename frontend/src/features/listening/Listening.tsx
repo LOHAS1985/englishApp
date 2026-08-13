@@ -23,6 +23,7 @@ export default function Listening() {
   };
 
   const [groups, setGroups] = useState<Group[]>([]);
+  const [loadingExercises, setLoadingExercises] = useState<boolean>(false);
   const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
   const [questionIndex, setQuestionIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -34,6 +35,7 @@ export default function Listening() {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
+    setLoadingExercises(true);
     getListeningExercises()
       .then((data) => {
         // group by dialogText + audioUrl
@@ -53,7 +55,8 @@ export default function Listening() {
       })
       .catch(() => {
         setGroups([]);
-      });
+      })
+      .finally(() => setLoadingExercises(false));
   }, []);
 
   const start = (group: Group, idx: number) => {
@@ -325,16 +328,25 @@ export default function Listening() {
                 <p className="text-sm text-slate-500 mb-3">
                   問題をランダムに出題します。すぐ始めるには下のボタンを押してください。
                 </p>
-                <button
-                  onClick={() => {
-                    if (!groups || groups.length === 0) return;
-                    const idx = Math.floor(Math.random() * groups.length);
-                    start(groups[idx], 0);
-                  }}
-                  className="bg-[#8fae4e] text-white px-6 py-3 rounded-md hover:bg-[#7a9843]"
-                >
-                  練習を開始
-                </button>
+                {loadingExercises ? (
+                  <div className="flex flex-col items-center">
+                    <button disabled className="bg-slate-300 text-white px-6 py-3 rounded-md cursor-not-allowed">
+                      読み込み中...
+                    </button>
+                    <p className="text-xs text-slate-400 mt-2">問題を取得しています。しばらくお待ちください。</p>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      if (!groups || groups.length === 0) return;
+                      const idx = Math.floor(Math.random() * groups.length);
+                      start(groups[idx], 0);
+                    }}
+                    className="bg-[#8fae4e] text-white px-6 py-3 rounded-md hover:bg-[#7a9843]"
+                  >
+                    練習を開始
+                  </button>
+                )}
               </div>
             </div>
           )}
