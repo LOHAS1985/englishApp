@@ -390,6 +390,7 @@ export default function Listening() {
                               ? text.replace(/^[A-Ca-c]\.\s*/i, "")
                               : text;
                             const selectedOpt = answers[it.id];
+                            const isSelected = selectedOpt === opt;
                             return (
                               <button
                                 key={opt}
@@ -397,12 +398,18 @@ export default function Listening() {
                                   !answered &&
                                   setAnswers({ ...answers, [it.id]: opt })
                                 }
-                                className={`py-3 rounded-md border text-sm font-medium text-left px-4 ${selectedOpt === opt ? "bg-[#8fae4e] text-white border-[#8fae4e]" : "bg-white text-slate-700 border-slate-200"}`}
+                                className={`w-full text-left rounded-xl border px-4 py-3 transition-colors ${isSelected ? "bg-[#f2f7ea] border-[#8fae4e] shadow-[0_0_0_1px_rgba(143,174,78,0.2)]" : "bg-white border-slate-200 hover:border-[#8fae4e]"}`}
                                 disabled={answered}
                               >
-                                <div className="font-semibold">{opt}</div>
-                                <div className="text-sm text-slate-600">
-                                  {display}
+                                <div className="flex items-start gap-3">
+                                  <div
+                                    className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${isSelected ? "border-[#8fae4e] bg-[#8fae4e] text-white" : "border-slate-300 bg-white text-slate-500"}`}
+                                  >
+                                    {opt}
+                                  </div>
+                                  <div className="text-sm leading-relaxed text-slate-700">
+                                    {display}
+                                  </div>
                                 </div>
                               </button>
                             );
