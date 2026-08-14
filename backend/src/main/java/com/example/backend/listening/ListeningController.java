@@ -34,6 +34,7 @@ import java.util.HexFormat;
 import java.util.UUID;
 import java.nio.charset.StandardCharsets;
 import jakarta.annotation.PreDestroy;
+import jakarta.annotation.PostConstruct;
 
 import com.example.backend.listening.dto.GeneratedDialog;
 import com.example.backend.listening.dto.GeneratedQuestion;
@@ -52,13 +53,24 @@ public class ListeningController {
   @Autowired
   private MeterRegistry meterRegistry;
 
-  private final Counter ttsRequests = Counter.builder("tts.requests.total").description("Total TTS requests").register(MeterRegistry.NOOP);
-  private final Counter ttsFailures = Counter.builder("tts.failures.total").description("Total TTS failures").register(MeterRegistry.NOOP);
-  private final Timer ttsPollTimer = Timer.builder("tts.poll.wait.millis").description("Polling wait time in ms").publishPercentiles(0.5,0.95).register(MeterRegistry.NOOP);
+  private Counter ttsRequests;
+  private Counter ttsFailures;
+  private Timer ttsPollTimer;
 
   // Executor for offloading blocking TTS work so request threads are not blocked.
   private final ExecutorService ttsExecutor = Executors
       .newFixedThreadPool(Math.max(2, Runtime.getRuntime().availableProcessors() / 2));
+
+  @PostConstruct
+  public void initMetrics() {
+    try {
+      ttsRequests = meterRegistry.counter("tts.requests.total");
+      ttsFailures = meterRegistry.counter("tts.failures.total");
+      ttsPollTimer = Timer.builder("tts.poll.wait.millis").description("Polling wait time in ms").publishPercentiles(0.5,0.95).register(meterRegistry);
+    } catch (Exception e) {
+      logger.warn("initMetrics: failed to initialize metrics", e);
+    }
+  }
 
   @GetMapping("/exercises")
   public ResponseEntity<?> listExercises(@RequestParam(name = "count", required = false) Integer count) {
