@@ -23,6 +23,7 @@ def main():
     parser = argparse.ArgumentParser(description='Generate TTS audio per-speaker')
     parser.add_argument('input_file')
     parser.add_argument('base_name')
+    parser.add_argument('--out-dir', dest='out_dir', help='Optional output directory to write files into')
     parser.add_argument('--dry-run', action='store_true', help='Do not call TTS, only print mapping and content')
     args = parser.parse_args()
 
@@ -36,9 +37,12 @@ def main():
     # split lines, keep non-empty
     lines = [l.strip() for l in text.splitlines() if l.strip()]
 
-    # output dir: backend/src/main/resources/static/audio/generated
-    repo_root = pathlib.Path(__file__).resolve().parents[1]
-    out_dir = repo_root / 'src' / 'main' / 'resources' / 'static' / 'audio' / 'generated'
+    # output dir: by default repo/src/main/resources/static/audio/generated
+    if args.out_dir:
+        out_dir = pathlib.Path(args.out_dir).resolve()
+    else:
+        repo_root = pathlib.Path(__file__).resolve().parents[1]
+        out_dir = repo_root / 'src' / 'main' / 'resources' / 'static' / 'audio' / 'generated'
     out_dir.mkdir(parents=True, exist_ok=True)
 
     tasks = []

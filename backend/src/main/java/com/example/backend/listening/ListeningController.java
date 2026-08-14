@@ -3,6 +3,9 @@ package com.example.backend.listening;
 import org.springframework.http.ResponseEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,9 +49,16 @@ public class ListeningController {
 
   @Autowired
   private ListeningGeminiService listeningGeminiService;
+  @Autowired
+  private MeterRegistry meterRegistry;
+
+  private final Counter ttsRequests = Counter.builder("tts.requests.total").description("Total TTS requests").register(MeterRegistry.NOOP);
+  private final Counter ttsFailures = Counter.builder("tts.failures.total").description("Total TTS failures").register(MeterRegistry.NOOP);
+  private final Timer ttsPollTimer = Timer.builder("tts.poll.wait.millis").description("Polling wait time in ms").publishPercentiles(0.5,0.95).register(MeterRegistry.NOOP);
 
   // Executor for offloading blocking TTS work so request threads are not blocked.
-  private final ExecutorService ttsExecutor = Executors.newFixedThreadPool(Math.max(2, Runtime.getRuntime().availableProcessors() / 2));
+  private final ExecutorService ttsExecutor = Executors
+      .newFixedThreadPool(Math.max(2, Runtime.getRuntime().availableProcessors() / 2));
 
   @GetMapping("/exercises")
   public ResponseEntity<?> listExercises(@RequestParam(name = "count", required = false) Integer count) {
@@ -198,7 +208,8 @@ public class ListeningController {
     String base = body.getOrDefault("base", "toeic_" + System.currentTimeMillis());
     logger.info("synthesize called, base={}, dialogLen={}", base, dialog == null ? 0 : dialog.length());
     if (dialog == null || dialog.isBlank()) {
-      return CompletableFuture.completedFuture(ResponseEntity.badRequest().body(Map.of("error", "dialogText required")));
+      return CompletableFuture
+          .completedFuture(ResponseEntity.badRequest().body(Map.of("error", "dialogText required")));
     }
 
     return CompletableFuture.supplyAsync(() -> {
@@ -285,7 +296,7 @@ public class ListeningController {
     // use temp base name to avoid colliding with concurrently generated jobs
     String tempBase = base + "_" + UUID.randomUUID().toString().replace("-", "");
 
-    ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase);
+    ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase, "--out-dir", genDir.toAbsolutePath().toString());
     pb.directory(new File("."));
     pb.redirectErrorStream(true);
     long procStart = System.currentTimeMillis();
@@ -316,6 +327,7 @@ public class ListeningController {
       // Poll for a short period waiting for files to appear.
       int maxRetries = 20; // 20 * 250ms = 5s
       int retry = 0;
+      Timer.Sample pollSample = Timer.start(meterRegistry);
       while (retry < maxRetries && generatedFiles.isEmpty()) {
         retry++;
         try {
@@ -334,6 +346,7 @@ public class ListeningController {
         }
       }
       long totalPollMs = retry * 250;
+      try { pollSample.stop(meterRegistry.timer("tts.poll.wait.millis")); } catch (Exception ignored) {}
       logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs,
           generatedFiles.size());
 
@@ -352,6 +365,7 @@ public class ListeningController {
               .collect(Collectors.toList());
           logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
               tempBase, procOut, snapshot);
+          try { meterRegistry.counter("tts.failures.total").increment(); } catch (Exception ignored) {}
         } catch (IOException ioe) {
           logger.error("synthesizeInternal: no generated files and failed to list dir", ioe);
         }
