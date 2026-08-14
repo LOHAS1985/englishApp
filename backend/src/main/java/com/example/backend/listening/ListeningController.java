@@ -66,7 +66,8 @@ public class ListeningController {
     try {
       ttsRequests = meterRegistry.counter("tts.requests.total");
       ttsFailures = meterRegistry.counter("tts.failures.total");
-      ttsPollTimer = Timer.builder("tts.poll.wait.millis").description("Polling wait time in ms").publishPercentiles(0.5,0.95).register(meterRegistry);
+      ttsPollTimer = Timer.builder("tts.poll.wait.millis").description("Polling wait time in ms")
+          .publishPercentiles(0.5, 0.95).register(meterRegistry);
     } catch (Exception e) {
       logger.warn("initMetrics: failed to initialize metrics", e);
     }
@@ -308,7 +309,8 @@ public class ListeningController {
     // use temp base name to avoid colliding with concurrently generated jobs
     String tempBase = base + "_" + UUID.randomUUID().toString().replace("-", "");
 
-    ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase, "--out-dir", genDir.toAbsolutePath().toString());
+    ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase,
+        "--out-dir", genDir.toAbsolutePath().toString());
     pb.directory(new File("."));
     pb.redirectErrorStream(true);
     long procStart = System.currentTimeMillis();
@@ -358,7 +360,10 @@ public class ListeningController {
         }
       }
       long totalPollMs = retry * 250;
-      try { pollSample.stop(meterRegistry.timer("tts.poll.wait.millis")); } catch (Exception ignored) {}
+      try {
+        pollSample.stop(meterRegistry.timer("tts.poll.wait.millis"));
+      } catch (Exception ignored) {
+      }
       logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs,
           generatedFiles.size());
 
@@ -377,7 +382,10 @@ public class ListeningController {
               .collect(Collectors.toList());
           logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
               tempBase, procOut, snapshot);
-          try { meterRegistry.counter("tts.failures.total").increment(); } catch (Exception ignored) {}
+          try {
+            meterRegistry.counter("tts.failures.total").increment();
+          } catch (Exception ignored) {
+          }
         } catch (IOException ioe) {
           logger.error("synthesizeInternal: no generated files and failed to list dir", ioe);
         }
