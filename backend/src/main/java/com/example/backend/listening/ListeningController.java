@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,6 +30,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
 import java.util.UUID;
 import java.nio.charset.StandardCharsets;
+import jakarta.annotation.PreDestroy;
 
 import com.example.backend.listening.dto.GeneratedDialog;
 import com.example.backend.listening.dto.GeneratedQuestion;
@@ -42,6 +46,9 @@ public class ListeningController {
 
   @Autowired
   private ListeningGeminiService listeningGeminiService;
+
+  // Executor for offloading blocking TTS work so request threads are not blocked.
+  private final ExecutorService ttsExecutor = Executors.newFixedThreadPool(Math.max(2, Runtime.getRuntime().availableProcessors() / 2));
 
   @GetMapping("/exercises")
   public ResponseEntity<?> listExercises(@RequestParam(name = "count", required = false) Integer count) {
@@ -186,20 +193,30 @@ public class ListeningController {
   }
 
   @PostMapping("/synthesize")
-  public ResponseEntity<?> synthesize(@RequestBody Map<String, String> body) {
+  public CompletableFuture<ResponseEntity<?>> synthesize(@RequestBody Map<String, String> body) {
     String dialog = body.get("dialogText");
     String base = body.getOrDefault("base", "toeic_" + System.currentTimeMillis());
     logger.info("synthesize called, base={}, dialogLen={}", base, dialog == null ? 0 : dialog.length());
     if (dialog == null || dialog.isBlank()) {
-      return ResponseEntity.badRequest().body(Map.of("error", "dialogText required"));
+      return CompletableFuture.completedFuture(ResponseEntity.badRequest().body(Map.of("error", "dialogText required")));
     }
 
+    return CompletableFuture.supplyAsync(() -> {
+      try {
+        Map<String, Object> res = synthesizeInternal(dialog, base);
+        return ResponseEntity.ok(res);
+      } catch (IOException | InterruptedException e) {
+        logger.error("synthesize failed", e);
+        return ResponseEntity.status(500).body(Map.of("error", e.getMessage(), "detail", e.toString()));
+      }
+    }, ttsExecutor);
+  }
+
+  @PreDestroy
+  public void shutdownExecutor() {
     try {
-      Map<String, Object> res = synthesizeInternal(dialog, base);
-      return ResponseEntity.ok(res);
-    } catch (IOException | InterruptedException e) {
-      logger.error("synthesize failed", e);
-      return ResponseEntity.status(500).body(Map.of("error", e.getMessage(), "detail", e.toString()));
+      ttsExecutor.shutdownNow();
+    } catch (Exception ignored) {
     }
   }
 
@@ -317,7 +334,8 @@ public class ListeningController {
         }
       }
       long totalPollMs = retry * 250;
-      logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs, generatedFiles.size());
+      logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs,
+          generatedFiles.size());
 
       if (generatedFiles.isEmpty()) {
         // log directory snapshot for debugging when no files were produced
