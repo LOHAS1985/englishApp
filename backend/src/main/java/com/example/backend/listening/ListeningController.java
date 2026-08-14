@@ -284,34 +284,61 @@ public class ListeningController {
       throw new IOException("tts failed: " + procOut);
     }
 
-    // collect files produced for tempBase
+    // collect files produced for tempBase; allow short polling window in case
+    // files appear slightly after the script exits (filesystem sync, background
+    // processes, etc.).
     long collectStart = System.currentTimeMillis();
     List<Path> generatedFiles = Files.list(genDir)
         .filter(path -> path.getFileName().toString().startsWith(tempBase))
         .sorted()
         .collect(Collectors.toList());
     long collectDur = System.currentTimeMillis() - collectStart;
-    logger.info("synthesizeInternal: found {} generated files in {}ms", generatedFiles.size(), collectDur);
+    logger.info("synthesizeInternal: initial found {} generated files in {}ms", generatedFiles.size(), collectDur);
 
     if (generatedFiles.isEmpty()) {
-      // log directory snapshot for debugging when no files were produced
-      try {
-        List<String> snapshot = Files.list(genDir)
-            .map(p -> {
-              try {
-                return String.format("%s %d", p.getFileName().toString(), Files.size(p));
-              } catch (IOException e) {
-                return String.format("%s -", p.getFileName().toString());
-              }
-            })
-            .limit(50)
-            .collect(Collectors.toList());
-        logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
-            tempBase, procOut, snapshot);
-      } catch (IOException ioe) {
-        logger.error("synthesizeInternal: no generated files and failed to list dir", ioe);
+      // Poll for a short period waiting for files to appear.
+      int maxRetries = 20; // 20 * 250ms = 5s
+      int retry = 0;
+      while (retry < maxRetries && generatedFiles.isEmpty()) {
+        retry++;
+        try {
+          Thread.sleep(250);
+        } catch (InterruptedException ie) {
+          Thread.currentThread().interrupt();
+          break;
+        }
+        try {
+          generatedFiles = Files.list(genDir)
+              .filter(path -> path.getFileName().toString().startsWith(tempBase))
+              .sorted()
+              .collect(Collectors.toList());
+        } catch (IOException ioe) {
+          logger.debug("synthesizeInternal: retry {} failed to list dir", retry, ioe);
+        }
       }
-      throw new IOException("no generated files");
+      long totalPollMs = retry * 250;
+      logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs, generatedFiles.size());
+
+      if (generatedFiles.isEmpty()) {
+        // log directory snapshot for debugging when no files were produced
+        try {
+          List<String> snapshot = Files.list(genDir)
+              .map(p -> {
+                try {
+                  return String.format("%s %d", p.getFileName().toString(), Files.size(p));
+                } catch (IOException e) {
+                  return String.format("%s -", p.getFileName().toString());
+                }
+              })
+              .limit(50)
+              .collect(Collectors.toList());
+          logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
+              tempBase, procOut, snapshot);
+        } catch (IOException ioe) {
+          logger.error("synthesizeInternal: no generated files and failed to list dir", ioe);
+        }
+        throw new IOException("no generated files");
+      }
     }
 
     // If only one file, move it into finalCombined atomically
