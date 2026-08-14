@@ -275,11 +275,13 @@ public class ListeningController {
     Process proc = pb.start();
     int exit = proc.waitFor();
     long procDur = System.currentTimeMillis() - procStart;
+    // always capture script stdout/stderr for debugging
+    String procOut = new String(proc.getInputStream().readAllBytes());
     logger.info("synthesizeInternal: tts script executed in {}ms (exit={})", procDur, exit);
+    logger.debug("synthesizeInternal: tts script output: {}", procOut);
     if (exit != 0) {
-      String out = new String(proc.getInputStream().readAllBytes());
-      logger.error("synthesizeInternal: tts script failed output: {}", out);
-      throw new IOException("tts failed: " + out);
+      logger.error("synthesizeInternal: tts script failed output: {}", procOut);
+      throw new IOException("tts failed: " + procOut);
     }
 
     // collect files produced for tempBase
@@ -292,6 +294,17 @@ public class ListeningController {
     logger.info("synthesizeInternal: found {} generated files in {}ms", generatedFiles.size(), collectDur);
 
     if (generatedFiles.isEmpty()) {
+      // log directory snapshot for debugging when no files were produced
+      try {
+        List<String> snapshot = Files.list(genDir)
+            .map(p -> String.format("%s %d", p.getFileName().toString(), Files.size(p)))
+            .limit(50)
+            .collect(Collectors.toList());
+        logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
+            tempBase, procOut, snapshot);
+      } catch (IOException ioe) {
+        logger.error("synthesizeInternal: no generated files and failed to list dir", ioe);
+      }
       throw new IOException("no generated files");
     }
 
