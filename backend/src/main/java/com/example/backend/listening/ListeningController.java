@@ -297,7 +297,13 @@ public class ListeningController {
       // log directory snapshot for debugging when no files were produced
       try {
         List<String> snapshot = Files.list(genDir)
-            .map(p -> String.format("%s %d", p.getFileName().toString(), Files.size(p)))
+            .map(p -> {
+              try {
+                return String.format("%s %d", p.getFileName().toString(), Files.size(p));
+              } catch (IOException e) {
+                return String.format("%s -", p.getFileName().toString());
+              }
+            })
             .limit(50)
             .collect(Collectors.toList());
         logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
