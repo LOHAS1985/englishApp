@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -65,7 +66,8 @@ public class ListeningController {
     List<GeneratedDialog> filtered = gen.stream().filter(this::isValidGeneratedDialog).collect(Collectors.toList());
     long filterDur = System.currentTimeMillis() - filterStart;
     if (filtered.size() < (gen == null ? 0 : gen.size())) {
-      logger.info("listExercises: filtered out {} invalid generated dialogs (filterTime={}ms)", gen.size() - filtered.size(), filterDur);
+      logger.info("listExercises: filtered out {} invalid generated dialogs (filterTime={}ms)",
+          gen.size() - filtered.size(), filterDur);
     } else {
       logger.info("listExercises: filtering completed ({}ms)", filterDur);
     }
@@ -202,6 +204,93 @@ public class ListeningController {
     }
   }
 
+  @PostMapping("/synthesize-debug")
+  public ResponseEntity<?> synthesizeDebug(@RequestBody Map<String, String> body,
+      @RequestHeader(value = "X-Admin-Token", required = false) String adminToken) {
+    // protected debug endpoint: require ADMIN_DEBUG_TOKEN env to be set and
+    // matching
+    String expected = System.getenv("ADMIN_DEBUG_TOKEN");
+    if (expected == null || expected.isBlank()) {
+      return ResponseEntity.status(403).body(Map.of("error", "debug endpoint not enabled"));
+    }
+    if (adminToken == null || !adminToken.equals(expected)) {
+      return ResponseEntity.status(403).body(Map.of("error", "invalid admin token"));
+    }
+
+    String dialog = body.get("dialogText");
+    String base = body.getOrDefault("base", "debug_" + System.currentTimeMillis());
+    if (dialog == null || dialog.isBlank()) {
+      return ResponseEntity.badRequest().body(Map.of("error", "dialogText required"));
+    }
+
+    try {
+      // write dialog temp file
+      Path tmp = Files.createTempFile("dialog_debug", ".txt");
+      Files.writeString(tmp, dialog, StandardOpenOption.TRUNCATE_EXISTING);
+
+      // locate script (reuse same candidate logic)
+      Path[] candidates = new Path[] {
+          Path.of("tts", "generate_tts.py"),
+          Path.of("backend", "tts", "generate_tts.py"),
+          Path.of("src", "main", "resources", "tts", "generate_tts.py"),
+          Path.of("backend", "src", "main", "resources", "tts", "generate_tts.py")
+      };
+      Path script = null;
+      for (Path cand : candidates) {
+        if (Files.exists(cand)) {
+          script = cand.toAbsolutePath().normalize();
+          break;
+        }
+      }
+      if (script == null) {
+        return ResponseEntity.status(500)
+            .body(Map.of("error", "tts script missing", "cwd", Path.of(".").toAbsolutePath().toString()));
+      }
+
+      // run script with --dry-run and capture output
+      List<String> cmd = new ArrayList<>();
+      cmd.add("python");
+      cmd.add(script.toString());
+      cmd.add(tmp.toAbsolutePath().toString());
+      cmd.add(base);
+      cmd.add("--dry-run");
+      ProcessBuilder pb = new ProcessBuilder(cmd);
+      pb.directory(new File("."));
+      pb.redirectErrorStream(true);
+      Process p = pb.start();
+      String out = new String(p.getInputStream().readAllBytes());
+      int rc = p.waitFor();
+
+      // look for generated files matching base
+      Path genDir1 = Path.of("src", "main", "resources", "static", "audio", "generated");
+      Path genDir2 = Path.of("backend", "src", "main", "resources", "static", "audio", "generated");
+      Path genDir = Files.exists(genDir1) ? genDir1 : genDir2;
+      List<String> found = new ArrayList<>();
+      if (Files.exists(genDir)) {
+        try {
+          found = Files.list(genDir)
+              .filter(path -> path.getFileName().toString().startsWith(base))
+              .map(path -> path.toString())
+              .sorted()
+              .collect(Collectors.toList());
+        } catch (IOException ioe) {
+          // ignore
+        }
+      }
+
+      Map<String, Object> res = new ConcurrentHashMap<>();
+      res.put("exit", rc);
+      res.put("scriptPath", script.toString());
+      res.put("scriptOutput", out);
+      res.put("generatedFiles", found);
+      res.put("cwd", Path.of(".").toAbsolutePath().toString());
+      return ResponseEntity.ok(res);
+    } catch (IOException | InterruptedException e) {
+      logger.error("synthesizeDebug failed", e);
+      return ResponseEntity.status(500).body(Map.of("error", e.getMessage(), "detail", e.toString()));
+    }
+  }
+
   // shared synthesize implementation used by endpoints
   private Map<String, Object> synthesizeInternal(String dialog, String base) throws IOException, InterruptedException {
     long synthTotalStart = System.currentTimeMillis();
@@ -284,9 +373,9 @@ public class ListeningController {
     // collect files produced for tempBase
     long collectStart = System.currentTimeMillis();
     List<Path> generatedFiles = Files.list(genDir)
-      .filter(path -> path.getFileName().toString().startsWith(tempBase))
-      .sorted()
-      .collect(Collectors.toList());
+        .filter(path -> path.getFileName().toString().startsWith(tempBase))
+        .sorted()
+        .collect(Collectors.toList());
     long collectDur = System.currentTimeMillis() - collectStart;
     logger.info("synthesizeInternal: found {} generated files in {}ms", generatedFiles.size(), collectDur);
 
