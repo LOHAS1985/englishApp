@@ -257,14 +257,11 @@ public class ListeningController {
     byte[] digest = md.digest(dialog.getBytes(StandardCharsets.UTF_8));
     String key = HexFormat.of().formatHex(digest);
 
-    // choose generated dir
-    Path genDir1 = Path.of("src", "main", "resources", "static", "audio", "generated");
-    Path genDir2 = Path.of("backend", "src", "main", "resources", "static", "audio", "generated");
-    Path genDir = Files.exists(genDir1) ? genDir1 : genDir2;
+    // choose generated dir: use runtime-served filesystem directory
+    Path genDir = Path.of("static", "audio", "generated");
     if (!Files.exists(genDir)) {
       try {
-        Files.createDirectories(genDir2);
-        genDir = genDir2;
+        Files.createDirectories(genDir);
       } catch (IOException ioe) {
         throw new IOException("generated dir missing");
       }
