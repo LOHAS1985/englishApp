@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../shared/context/useAuth";
 
 interface AdminWord {
   id: number;
@@ -17,19 +18,17 @@ export default function Admin() {
   const [saved, setSaved] = useState<AdminWord | null>(null);
   const [words, setWords] = useState<AdminWord[]>([]);
   const [loading, setLoading] = useState(false);
+  const { token } = useAuth();
 
   const submitWord = async () => {
     if (!word || word.trim() === "") return alert("単語を入力してください");
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ word: word.trim() }),
-        },
-      );
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/admin/words`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        body: JSON.stringify({ word: word.trim() }),
+      });
       if (!res.ok) {
         const err = (await res.json().catch(() => null)) as
           | { error?: string }
@@ -52,9 +51,9 @@ export default function Admin() {
   const loadWords = async () => {
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
-      );
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/admin/words`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
       if (!res.ok) throw new Error(String(res.status));
       const data = (await res.json()) as AdminWord[];
       setWords(data || []);
