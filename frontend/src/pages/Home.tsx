@@ -12,6 +12,7 @@ const CATEGORIES = [
       { label: "英検形式の意見陳述", path: "/writing" },
       { label: "添削履歴", path: "/writing/history" },
     ],
+    icon: "✍️",
   },
   {
     key: "reading",
@@ -22,6 +23,7 @@ const CATEGORIES = [
       { label: "文法 (TOEIC)", path: "/grammar" },
       { label: "The Guardian 記事", path: "/reading" },
     ],
+    icon: "📖",
   },
   {
     key: "listening",
@@ -32,6 +34,7 @@ const CATEGORIES = [
       { label: "会話トピック", path: "/listening" },
       { label: "ディクテーション", path: "/listening/dictation" },
     ],
+    icon: "🎧",
   },
   {
     key: "speaking",
@@ -42,6 +45,7 @@ const CATEGORIES = [
       { label: "音声録音", path: "/speaking" },
       { label: "模擬面接", path: "/speaking/mock" },
     ],
+    icon: "🗣️",
   },
 ];
 
@@ -65,7 +69,7 @@ export default function Home() {
       {/* ヘッダー */}
       <div className="flex justify-between items-center gap-3 bg-transparent px-6 py-5 w-full max-w-[1200px] mx-auto">
         <div>
-          <h2 className="text-xl font-bold">EIKEN PRACTICE</h2>
+           <h2 className="text-xl font-bold">英語学習アプリ</h2>
         </div>
         <div className="flex items-center gap-3">
           {token ? (
@@ -112,7 +116,7 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-slate-900">
                       {cat.label}
                     </h3>
-                    <p className="mt-1 text-sm text-slate-800">
+                    <div className="text-4xl">{cat.icon}</div>
                       {cat.subtitle}
                     </p>
                   </div>
