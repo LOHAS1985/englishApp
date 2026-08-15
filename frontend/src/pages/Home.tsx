@@ -2,39 +2,46 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../shared/context/useAuth";
 
-const MENU_ITEMS = [
+const CATEGORIES = [
   {
+    key: "writing",
     label: "ライティング",
-    description:
-      "英検準1級形式の問題で意見論述を練習し、AIが4観点で採点します。",
-    path: "/writing",
-    available: true,
+    subtitle: "意見を論述して添削と採点を受ける",
+    color: "bg-gradient-to-br from-[#f6d365] to-[#fda085]",
+    items: [
+      { label: "英検形式の意見陳述", path: "/writing" },
+      { label: "添削履歴", path: "/writing/history" },
+    ],
   },
   {
-    label: "文法(TOEIC)",
-    description:
-      "TOEIC Part 5形式の文法・語彙問題を解き、解説付きで確認できます。",
-    path: "/grammar",
-    available: true,
-  },
-  {
+    key: "reading",
     label: "リーディング",
-    description:
-      "The Guardianの記事を読み、AIによる要約と語彙解説で読解を助けます。",
-    path: "/reading",
-    available: true,
+    subtitle: "文法問題と The Guardian 記事で読解力を伸ばす",
+    color: "bg-gradient-to-br from-[#a1c4fd] to-[#c2e9fb]",
+    items: [
+      { label: "文法 (TOEIC)", path: "/grammar" },
+      { label: "The Guardian 記事", path: "/reading" },
+    ],
   },
   {
+    key: "listening",
     label: "リスニング",
-    description: "会話形式の音声で実践的にリスニングを練習できます。",
-    path: "/listening",
-    available: true,
+    subtitle: "会話形式の音声で実践リスニング",
+    color: "bg-gradient-to-br from-[#d4fc79] to-[#96e6a1]",
+    items: [
+      { label: "会話トピック", path: "/listening" },
+      { label: "ディクテーション", path: "/listening/dictation" },
+    ],
   },
   {
+    key: "speaking",
     label: "スピーキング",
-    description: "録音して発音や流暢さをチェックします。",
-    path: "/speaking",
-    available: true,
+    subtitle: "録音で発音・流暢さをチェック",
+    color: "bg-gradient-to-br from-[#fbc2eb] to-[#a6c1ee]",
+    items: [
+      { label: "音声録音", path: "/speaking" },
+      { label: "模擬面接", path: "/speaking/mock" },
+    ],
   },
 ];
 
@@ -54,71 +61,73 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5]">
-      {/* 全幅ヘッダー */}
-      <div className="flex justify-end items-center gap-3 bg-[#16233d] px-5 py-4 w-full">
-        {token ? (
-          <>
-            <span className="text-sm text-white/80">{username}</span>
-            <button
-              onClick={handleLogout}
-              className="text-sm font-semibold text-[#16233d] bg-[#8fae4e] rounded px-4 py-2
+    <div className="min-h-screen bg-[#0f1724] text-slate-200">
+      {/* ヘッダー */}
+      <div className="flex justify-between items-center gap-3 bg-transparent px-6 py-5 w-full max-w-[1200px] mx-auto">
+        <div>
+          <h2 className="text-xl font-bold">EIKEN PRACTICE</h2>
+        </div>
+        <div className="flex items-center gap-3">
+          {token ? (
+            <>
+              <span className="text-sm text-white/80">{username}</span>
+              <button
+                onClick={handleLogout}
+                className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2
                          hover:bg-[#7a9843] transition-colors"
-            >
-              ログアウト
-            </button>
-          </>
-        ) : (
-          <button
-            onClick={() => navigate("/login")}
-            className="text-sm font-semibold text-[#16233d] bg-[#8fae4e] rounded px-4 py-2
+              >
+                ログアウト
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2
                        hover:bg-[#7a9843] transition-colors"
-          >
-            ログイン
-          </button>
-        )}
+            >
+              ログイン
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* 本文コンテンツ(中央寄せ) */}
-      <div className="flex justify-center px-5 py-12">
-        <div className="w-full max-w-[640px]">
-          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-            EIKEN PRACTICE
-          </p>
-          <h1 className="font-serif text-3xl text-slate-900 mb-2">
-            英語学習アプリ
-          </h1>
-          <p className="text-sm text-slate-600 mb-10">
-            練習したい項目を選んでください。
-          </p>
+      {/* メイン */}
+      <div className="max-w-[1200px] mx-auto px-6 py-12">
+        <div className="mb-8">
+          <h1 className="text-4xl font-extrabold">英語学習アプリ</h1>
+          <p className="text-slate-300 mt-2">学習したい分野を選んでください。</p>
+        </div>
 
-          <div className="space-y-3">
-            {MENU_ITEMS.map((item) => (
-              <button
-                key={item.path}
-                onClick={() => item.available && navigate(item.path)}
-                disabled={!item.available}
-                className={`w-full text-left bg-white border rounded-md p-6 transition-colors
-                  ${
-                    item.available
-                      ? "border-slate-200 hover:border-[#8fae4e] cursor-pointer"
-                      : "border-slate-200 opacity-50 cursor-default"
-                  }`}
-              >
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-serif text-lg text-slate-900">
-                    {item.label}
-                  </span>
-                  {item.available && (
-                    <span className="text-[#8fae4e] text-lg">→</span>
-                  )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {CATEGORIES.map((cat) => (
+            <div
+              key={cat.key}
+              className={`rounded-lg overflow-hidden shadow-lg transform transition hover:scale-[1.02] ${cat.color}`}
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900">{cat.label}</h3>
+                    <p className="mt-1 text-sm text-slate-800">{cat.subtitle}</p>
+                  </div>
+                  <div className="text-4xl">🎯</div>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </button>
-            ))}
-          </div>
+
+                <div className="mt-4 bg-white/70 rounded-md p-3">
+                  {cat.items.map((it) => (
+                    <button
+                      key={it.path}
+                      onClick={() => navigate(it.path)}
+                      className="w-full text-left py-2 px-2 rounded-md hover:bg-slate-100/60 transition-colors flex items-center justify-between"
+                    >
+                      <span className="text-slate-900">{it.label}</span>
+                      <span className="text-slate-500">→</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
