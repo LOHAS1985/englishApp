@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface AdminWord {
+  id: number;
+  word: string;
+  meaningEn: string;
+  exampleEn: string;
+  meaningJa: string;
+  exampleJa: string;
+  createdAt: string;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [word, setWord] = useState("");
-  const [saved, setSaved] = useState<any | null>(null);
-  const [words, setWords] = useState<any[]>([]);
+  const [saved, setSaved] = useState<AdminWord | null>(null);
+  const [words, setWords] = useState<AdminWord[]>([]);
   const [loading, setLoading] = useState(false);
 
   const submitWord = async () => {
@@ -21,14 +31,19 @@ export default function Admin() {
         },
       );
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.error || String(res.status));
+        const err = (await res.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        throw new Error(err?.error || String(res.status));
       }
-      const data = await res.json();
+      const data = (await res.json()) as AdminWord;
       setSaved(data);
       setWord("");
-    } catch (e: any) {
-      alert("登録に失敗しました: " + (e.message || e));
+    } catch (error: unknown) {
+      alert(
+        "登録に失敗しました: " +
+          (error instanceof Error ? error.message : String(error)),
+      );
     } finally {
       setLoading(false);
     }
@@ -41,9 +56,9 @@ export default function Admin() {
         `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
       );
       if (!res.ok) throw new Error(String(res.status));
-      const data = await res.json();
+      const data = (await res.json()) as AdminWord[];
       setWords(data || []);
-    } catch (e) {
+    } catch {
       alert("単語一覧の取得に失敗しました");
     } finally {
       setLoading(false);
