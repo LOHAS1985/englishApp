@@ -69,7 +69,7 @@ export default function Home() {
       {/* ヘッダー */}
       <div className="flex justify-between items-center gap-3 bg-transparent px-6 py-5 w-full max-w-[1200px] mx-auto">
         <div>
-           <h2 className="text-xl font-bold">英語学習アプリ</h2>
+          <h2 className="text-xl font-bold">英語学習アプリ</h2>
         </div>
         <div className="flex items-center gap-3">
           {token ? (
@@ -117,12 +117,10 @@ export default function Home() {
                       {cat.label}
                     </h3>
                     <div className="text-4xl">{cat.icon}</div>
-                      {cat.subtitle}
-                    </p>
+                    {cat.subtitle}
                   </div>
                   <div className="text-4xl">🎯</div>
                 </div>
-
                 <div className="mt-4 bg-white/70 rounded-md p-3">
                   {cat.items.map((it) => (
                     <button
