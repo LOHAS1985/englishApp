@@ -39,7 +39,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         java.util.List<String> roles = jwtService.extractRoles(token);
         java.util.List<SimpleGrantedAuthority> auths = new java.util.ArrayList<>();
         for (String r : roles) {
-          if (r == null || r.isBlank()) continue;
+          if (r == null || r.isBlank())
+            continue;
           auths.add(new SimpleGrantedAuthority("ROLE_" + r));
         }
 

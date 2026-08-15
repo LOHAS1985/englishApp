@@ -45,7 +45,7 @@ public class AuthService {
     }
 
     java.util.List<String> roles = java.util.Arrays.stream(user.getRoles().split(","))
-      .map(String::trim).filter(s -> !s.isEmpty()).toList();
+        .map(String::trim).filter(s -> !s.isEmpty()).toList();
     String token = jwtService.generateToken(user.getUsername(), roles);
     return new AuthResponse(token, user.getUsername());
   }
