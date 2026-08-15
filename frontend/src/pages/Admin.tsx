@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface User {
+  id: string | number;
+  username: string;
+  email: string;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [word, setWord] = useState("");
   const [meaning, setMeaning] = useState("");
   const [example, setExample] = useState("");
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   const submitWord = async () => {
     // backend エンドポイントはまだ無い想定。将来は POST /api/admin/words へ送る
@@ -24,7 +30,7 @@ export default function Admin() {
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
       setUsers(data || []);
-    } catch (e) {
+    } catch {
       alert(
         "ユーザー一覧の取得に失敗しました（エンドポイント未実装か権限エラー）",
       );
