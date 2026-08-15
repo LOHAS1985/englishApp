@@ -113,13 +113,10 @@ export default function Home() {
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">
-                      {cat.label}
-                    </h3>
-                    <div className="text-4xl">{cat.icon}</div>
-                    {cat.subtitle}
+                    <h3 className="text-2xl font-bold text-slate-900">{cat.label}</h3>
+                    <p className="mt-1 text-sm text-black">{cat.subtitle}</p>
                   </div>
-                  <div className="text-4xl">🎯</div>
+                  <div className="text-4xl">{cat.icon}</div>
                 </div>
                 <div className="mt-4 bg-white/70 rounded-md p-3">
                   {cat.items.map((it) => (
