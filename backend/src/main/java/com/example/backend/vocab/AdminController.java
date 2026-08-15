@@ -18,14 +18,14 @@ public class AdminController {
   }
 
   @PostMapping("/words")
-  public ResponseEntity<?> createWord(@RequestBody Map<String,String> body) {
+  public ResponseEntity<?> createWord(@RequestBody Map<String, String> body) {
     String word = body.get("word");
     if (word == null || word.isBlank()) {
-      return ResponseEntity.badRequest().body(Map.of("error","word is required"));
+      return ResponseEntity.badRequest().body(Map.of("error", "word is required"));
     }
     // prevent duplicates
     if (wordRepository.existsByWord(word)) {
-      return ResponseEntity.status(409).body(Map.of("error","already exists"));
+      return ResponseEntity.status(409).body(Map.of("error", "already exists"));
     }
 
     Word saved = wordService.fetchAndSave(word.trim().toLowerCase());

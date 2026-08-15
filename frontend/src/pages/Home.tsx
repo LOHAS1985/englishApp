@@ -113,7 +113,9 @@ export default function Home() {
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">{cat.label}</h3>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      {cat.label}
+                    </h3>
                     <p className="mt-1 text-sm text-black">{cat.subtitle}</p>
                   </div>
                   <div className="text-4xl">{cat.icon}</div>

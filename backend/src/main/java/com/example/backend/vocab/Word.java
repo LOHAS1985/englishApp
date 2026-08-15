@@ -23,25 +23,67 @@ public class Word {
 
   private LocalDateTime createdAt = LocalDateTime.now();
 
-  public Word() {}
+  public Word() {
+  }
 
   public Word(String word) {
     this.word = word;
   }
 
   // getters and setters
-  public Long getId() { return id; }
-  public void setId(Long id) { this.id = id; }
-  public String getWord() { return word; }
-  public void setWord(String word) { this.word = word; }
-  public String getMeaningEn() { return meaningEn; }
-  public void setMeaningEn(String meaningEn) { this.meaningEn = meaningEn; }
-  public String getExampleEn() { return exampleEn; }
-  public void setExampleEn(String exampleEn) { this.exampleEn = exampleEn; }
-  public String getMeaningJa() { return meaningJa; }
-  public void setMeaningJa(String meaningJa) { this.meaningJa = meaningJa; }
-  public String getExampleJa() { return exampleJa; }
-  public void setExampleJa(String exampleJa) { this.exampleJa = exampleJa; }
-  public LocalDateTime getCreatedAt() { return createdAt; }
-  public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getWord() {
+    return word;
+  }
+
+  public void setWord(String word) {
+    this.word = word;
+  }
+
+  public String getMeaningEn() {
+    return meaningEn;
+  }
+
+  public void setMeaningEn(String meaningEn) {
+    this.meaningEn = meaningEn;
+  }
+
+  public String getExampleEn() {
+    return exampleEn;
+  }
+
+  public void setExampleEn(String exampleEn) {
+    this.exampleEn = exampleEn;
+  }
+
+  public String getMeaningJa() {
+    return meaningJa;
+  }
+
+  public void setMeaningJa(String meaningJa) {
+    this.meaningJa = meaningJa;
+  }
+
+  public String getExampleJa() {
+    return exampleJa;
+  }
+
+  public void setExampleJa(String exampleJa) {
+    this.exampleJa = exampleJa;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 }

@@ -23,24 +23,26 @@ public class WordService {
     // call dictionaryapi.dev
     try {
       String dictUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
-      List<Map<String,Object>> response = webClient.get()
+      List<Map<String, Object>> response = webClient.get()
           .uri(dictUrl)
           .retrieve()
           .bodyToMono(List.class)
           .block();
 
       if (response != null && !response.isEmpty()) {
-        Map<String,Object> first = response.get(0);
-        List<Map<String,Object>> meanings = (List<Map<String,Object>>) first.get("meanings");
+        Map<String, Object> first = response.get(0);
+        List<Map<String, Object>> meanings = (List<Map<String, Object>>) first.get("meanings");
         if (meanings != null && !meanings.isEmpty()) {
-          Map<String,Object> m = meanings.get(0);
-          List<Map<String,Object>> defs = (List<Map<String,Object>>) m.get("definitions");
+          Map<String, Object> m = meanings.get(0);
+          List<Map<String, Object>> defs = (List<Map<String, Object>>) m.get("definitions");
           if (defs != null && !defs.isEmpty()) {
-            Map<String,Object> def = defs.get(0);
+            Map<String, Object> def = defs.get(0);
             Object defText = def.get("definition");
             Object example = def.get("example");
-            if (defText != null) w.setMeaningEn(defText.toString());
-            if (example != null) w.setExampleEn(example.toString());
+            if (defText != null)
+              w.setMeaningEn(defText.toString());
+            if (example != null)
+              w.setExampleEn(example.toString());
           }
         }
       }
@@ -51,9 +53,9 @@ public class WordService {
     // translate to Japanese using LibreTranslate public instance
     try {
       if (w.getMeaningEn() != null && !w.getMeaningEn().isBlank()) {
-        Map<String,Object> resp = webClient.post()
+        Map<String, Object> resp = webClient.post()
             .uri("https://libretranslate.com/translate")
-            .header("Content-Type","application/json")
+            .header("Content-Type", "application/json")
             .bodyValue(Map.of("q", w.getMeaningEn(), "source", "en", "target", "ja"))
             .retrieve()
             .bodyToMono(Map.class)
@@ -64,9 +66,9 @@ public class WordService {
       }
 
       if (w.getExampleEn() != null && !w.getExampleEn().isBlank()) {
-        Map<String,Object> resp2 = webClient.post()
+        Map<String, Object> resp2 = webClient.post()
             .uri("https://libretranslate.com/translate")
-            .header("Content-Type","application/json")
+            .header("Content-Type", "application/json")
             .bodyValue(Map.of("q", w.getExampleEn(), "source", "en", "target", "ja"))
             .retrieve()
             .bodyToMono(Map.class)
