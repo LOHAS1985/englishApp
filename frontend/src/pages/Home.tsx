@@ -76,6 +76,13 @@ export default function Home() {
             <>
               <span className="text-sm text-white/80">{username}</span>
               <button
+                onClick={() => navigate("/admin")}
+                className="text-sm font-semibold text-[#0f1724] bg-[#f59e0b] rounded px-4 py-2
+                         hover:bg-[#d97706] transition-colors"
+              >
+                管理画面
+              </button>
+              <button
                 onClick={handleLogout}
                 className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2
                          hover:bg-[#7a9843] transition-colors"
