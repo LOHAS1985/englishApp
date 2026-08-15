@@ -95,7 +95,9 @@ export default function Home() {
       <div className="max-w-[1200px] mx-auto px-6 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-extrabold">英語学習アプリ</h1>
-          <p className="text-slate-300 mt-2">学習したい分野を選んでください。</p>
+          <p className="text-slate-300 mt-2">
+            学習したい分野を選んでください。
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -107,8 +109,12 @@ export default function Home() {
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">{cat.label}</h3>
-                    <p className="mt-1 text-sm text-slate-800">{cat.subtitle}</p>
+                    <h3 className="text-2xl font-bold text-slate-900">
+                      {cat.label}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-800">
+                      {cat.subtitle}
+                    </p>
                   </div>
                   <div className="text-4xl">🎯</div>
                 </div>
