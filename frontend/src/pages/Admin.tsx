@@ -1,113 +1,97 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface User {
-  id: string | number;
-  username: string;
-  email: string;
-}
-
 export default function Admin() {
   const navigate = useNavigate();
   const [word, setWord] = useState("");
-  const [meaning, setMeaning] = useState("");
-  const [example, setExample] = useState("");
-  const [users, setUsers] = useState<User[]>([]);
+  const [saved, setSaved] = useState<any | null>(null);
+  const [words, setWords] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const submitWord = async () => {
-    // backend エンドポイントはまだ無い想定。将来は POST /api/admin/words へ送る
-    alert(`単語を登録: ${word} — 意味: ${meaning} — 例: ${example}`);
-    setWord("");
-    setMeaning("");
-    setExample("");
+    if (!word || word.trim() === "") return alert("単語を入力してください");
+    setLoading(true);
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/admin/words`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ word: word.trim() }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || String(res.status));
+      }
+      const data = await res.json();
+      setSaved(data);
+      setWord("");
+    } catch (e: any) {
+      alert("登録に失敗しました: " + (e.message || e));
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const loadUsers = async () => {
+  const loadWords = async () => {
+    setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/users`,
-      );
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/admin/words`);
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
-      setUsers(data || []);
-    } catch {
-      alert(
-        "ユーザー一覧の取得に失敗しました（エンドポイント未実装か権限エラー）",
-      );
+      setWords(data || []);
+    } catch (e) {
+      alert("単語一覧の取得に失敗しました");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 p-8">
+    <div className="min-h-screen bg-[#0f1724] text-slate-200 p-8">
       <div className="max-w-[1000px] mx-auto">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold">管理ページ</h1>
-          <button
-            onClick={() => navigate("/")}
-            className="text-sm px-3 py-2 bg-slate-200 rounded"
-          >
-            ホームへ戻る
-          </button>
+          <button onClick={() => navigate('/')} className="text-sm px-3 py-2 bg-slate-200 rounded text-slate-900">ホームへ戻る</button>
         </div>
 
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-2">単語管理</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
-            <input
-              className="p-2 border"
-              placeholder="単語 (English)"
-              value={word}
-              onChange={(e) => setWord(e.target.value)}
-            />
-            <input
-              className="p-2 border"
-              placeholder="意味 (日本語)"
-              value={meaning}
-              onChange={(e) => setMeaning(e.target.value)}
-            />
-            <input
-              className="p-2 border"
-              placeholder="例文 (English)"
-              value={example}
-              onChange={(e) => setExample(e.target.value)}
-            />
+        <section className="mb-8 bg-white/5 p-6 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold mb-4 text-white">単語登録</h2>
+          <div className="flex gap-3">
+            <input className="flex-1 p-3 rounded bg-white/90 text-slate-900" placeholder="単語 (English)" value={word} onChange={e => setWord(e.target.value)} />
+            <button onClick={submitWord} disabled={loading} className="px-4 py-3 bg-[#8fae4e] text-white rounded">{loading ? '登録中...' : '登録'}</button>
+            <button onClick={loadWords} disabled={loading} className="px-4 py-3 bg-slate-700 text-white rounded">一覧取得</button>
           </div>
-          <div>
-            <button
-              onClick={submitWord}
-              className="px-4 py-2 bg-[#8fae4e] text-white rounded"
-            >
-              登録（ダミー）
-            </button>
-          </div>
+
+          {saved && (
+            <div className="mt-4 bg-white/90 rounded p-4 text-slate-900">
+              <h3 className="font-semibold">保存結果</h3>
+              <p><strong>単語:</strong> {saved.word}</p>
+              <p><strong>英語定義:</strong> {saved.meaningEn}</p>
+              <p><strong>英語例文:</strong> {saved.exampleEn}</p>
+              <p><strong>日本語訳(定義):</strong> {saved.meaningJa}</p>
+              <p><strong>日本語訳(例文):</strong> {saved.exampleJa}</p>
+            </div>
+          )}
         </section>
 
-        <section>
-          <h2 className="text-lg font-semibold mb-2">ユーザー記録</h2>
-          <div className="mb-3">
-            <button
-              onClick={loadUsers}
-              className="px-3 py-2 bg-blue-500 text-white rounded"
-            >
-              ユーザー一覧を取得
-            </button>
-          </div>
-
-          <div className="bg-slate-50 border rounded p-3">
-            {users.length === 0 ? (
-              <p className="text-sm text-slate-500">
-                ユーザーが読み込まれていません。
-              </p>
-            ) : (
-              <ul>
-                {users.map((u) => (
-                  <li key={u.id} className="py-2 border-b">
-                    {u.username} — {u.email}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+        <section className="bg-white/5 p-6 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold mb-4">DB に保存されている単語</h2>
+          {words.length === 0 ? (
+            <p className="text-sm text-slate-400">まだデータがありません。『一覧取得』をクリックしてください。</p>
+          ) : (
+            <div className="space-y-3">
+              {words.map(w => (
+                <div key={w.id} className="bg-white/90 p-3 rounded text-slate-900">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="font-semibold">{w.word}</div>
+                      <div className="text-sm text-slate-700">{w.meaningJa || w.meaningEn}</div>
+                    </div>
+                    <div className="text-sm text-slate-500">{new Date(w.createdAt).toLocaleString()}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </div>

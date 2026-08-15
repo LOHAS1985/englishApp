@@ -37,4 +37,9 @@ public class AdminController {
     // placeholder: real implementation should return user list with auth checks
     return ResponseEntity.ok(Map.of());
   }
+
+  @GetMapping("/words")
+  public ResponseEntity<?> listWords() {
+    return ResponseEntity.ok(wordRepository.findAll());
+  }
 }
