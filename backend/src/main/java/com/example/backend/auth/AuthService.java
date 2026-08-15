@@ -29,9 +29,10 @@ public class AuthService {
     User user = new User();
     user.setUsername(request.getUsername());
     user.setPasswordHash(passwordEncoder.encode(request.getPassword()));
+    user.setRoles("USER");
     userRepository.save(user);
 
-    String token = jwtService.generateToken(user.getUsername());
+    String token = jwtService.generateToken(user.getUsername(), java.util.List.of("USER"));
     return new AuthResponse(token, user.getUsername());
   }
 
@@ -43,7 +44,9 @@ public class AuthService {
       throw new IllegalArgumentException("ユーザー名またはパスワードが間違っています");
     }
 
-    String token = jwtService.generateToken(user.getUsername());
+    java.util.List<String> roles = java.util.Arrays.stream(user.getRoles().split(","))
+      .map(String::trim).filter(s -> !s.isEmpty()).toList();
+    String token = jwtService.generateToken(user.getUsername(), roles);
     return new AuthResponse(token, user.getUsername());
   }
 }

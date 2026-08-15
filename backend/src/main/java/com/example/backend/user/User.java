@@ -51,4 +51,15 @@ public class User {
   public void setCreatedAt(LocalDateTime createdAt) {
     this.createdAt = createdAt;
   }
+
+  @Column(name = "roles", nullable = false)
+  private String roles = "USER";
+
+  public String getRoles() {
+    return roles;
+  }
+
+  public void setRoles(String roles) {
+    this.roles = roles;
+  }
 }
