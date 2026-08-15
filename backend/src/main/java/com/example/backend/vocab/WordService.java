@@ -34,7 +34,8 @@ public class WordService {
 
     // call dictionaryapi.dev only if no meaning/example provided
     try {
-      if ((w.getMeaningEn() == null || w.getMeaningEn().isBlank()) || (w.getExampleEn() == null || w.getExampleEn().isBlank())) {
+      if ((w.getMeaningEn() == null || w.getMeaningEn().isBlank())
+          || (w.getExampleEn() == null || w.getExampleEn().isBlank())) {
         String dictUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
         List<Map<String, Object>> response = webClient.get()
             .uri(dictUrl)
