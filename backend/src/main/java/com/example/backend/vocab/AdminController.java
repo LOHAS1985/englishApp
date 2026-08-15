@@ -20,6 +20,9 @@ public class AdminController {
   @PostMapping("/words")
   public ResponseEntity<?> createWord(@RequestBody Map<String, String> body) {
     String word = body.get("word");
+    String meaningEn = body.get("meaningEn");
+    String exampleEn = body.get("exampleEn");
+
     if (word == null || word.isBlank()) {
       return ResponseEntity.badRequest().body(Map.of("error", "word is required"));
     }
@@ -28,7 +31,7 @@ public class AdminController {
       return ResponseEntity.status(409).body(Map.of("error", "already exists"));
     }
 
-    Word saved = wordService.fetchAndSave(word.trim().toLowerCase());
+    Word saved = wordService.fetchAndSave(word.trim().toLowerCase(), meaningEn, exampleEn);
     return ResponseEntity.ok(saved);
   }
 

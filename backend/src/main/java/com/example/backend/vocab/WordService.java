@@ -18,36 +18,50 @@ public class WordService {
   }
 
   public Word fetchAndSave(String word) {
+    return fetchAndSave(word, null, null);
+  }
+
+  public Word fetchAndSave(String word, String meaningEnOverride, String exampleEnOverride) {
     Word w = new Word(word);
 
-    // call dictionaryapi.dev
-    try {
-      String dictUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
-      List<Map<String, Object>> response = webClient.get()
-          .uri(dictUrl)
-          .retrieve()
-          .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-          })
-          .block();
+    // if overrides provided, use them first
+    if (meaningEnOverride != null && !meaningEnOverride.isBlank()) {
+      w.setMeaningEn(meaningEnOverride);
+    }
+    if (exampleEnOverride != null && !exampleEnOverride.isBlank()) {
+      w.setExampleEn(exampleEnOverride);
+    }
 
-      if (response != null && !response.isEmpty()) {
-        Map<String, Object> first = response.get(0);
-        Object meaningsObj = first.get("meanings");
-        if (meaningsObj instanceof List) {
-          List<?> meanings = (List<?>) meaningsObj;
-          if (!meanings.isEmpty() && meanings.get(0) instanceof Map) {
-            Map<?, ?> m = (Map<?, ?>) meanings.get(0);
-            Object defsObj = m.get("definitions");
-            if (defsObj instanceof List) {
-              List<?> defs = (List<?>) defsObj;
-              if (!defs.isEmpty() && defs.get(0) instanceof Map) {
-                Map<?, ?> def = (Map<?, ?>) defs.get(0);
-                Object defText = def.get("definition");
-                Object example = def.get("example");
-                if (defText != null)
-                  w.setMeaningEn(defText.toString());
-                if (example != null)
-                  w.setExampleEn(example.toString());
+    // call dictionaryapi.dev only if no meaning/example provided
+    try {
+      if ((w.getMeaningEn() == null || w.getMeaningEn().isBlank()) || (w.getExampleEn() == null || w.getExampleEn().isBlank())) {
+        String dictUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+        List<Map<String, Object>> response = webClient.get()
+            .uri(dictUrl)
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+            })
+            .block();
+
+        if (response != null && !response.isEmpty()) {
+          Map<String, Object> first = response.get(0);
+          Object meaningsObj = first.get("meanings");
+          if (meaningsObj instanceof List) {
+            List<?> meanings = (List<?>) meaningsObj;
+            if (!meanings.isEmpty() && meanings.get(0) instanceof Map) {
+              Map<?, ?> m = (Map<?, ?>) meanings.get(0);
+              Object defsObj = m.get("definitions");
+              if (defsObj instanceof List) {
+                List<?> defs = (List<?>) defsObj;
+                if (!defs.isEmpty() && defs.get(0) instanceof Map) {
+                  Map<?, ?> def = (Map<?, ?>) defs.get(0);
+                  Object defText = def.get("definition");
+                  Object example = def.get("example");
+                  if (defText != null && (w.getMeaningEn() == null || w.getMeaningEn().isBlank()))
+                    w.setMeaningEn(defText.toString());
+                  if (example != null && (w.getExampleEn() == null || w.getExampleEn().isBlank()))
+                    w.setExampleEn(example.toString());
+                }
               }
             }
           }
