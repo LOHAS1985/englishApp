@@ -40,7 +40,8 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/admin/**").hasRole("ADMIN")
+            // 開発・デバッグ用: 一時的に管理APIを認証不要にする
+            .requestMatchers("/api/admin/**").permitAll()
 
             .requestMatchers("/api/writing/question").permitAll()
             .requestMatchers("/api/grammar/question").permitAll()
