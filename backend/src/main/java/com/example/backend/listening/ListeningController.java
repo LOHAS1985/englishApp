@@ -227,10 +227,21 @@ public class ListeningController {
 
     return CompletableFuture.supplyAsync(() -> {
       try {
+        try {
+          if (ttsRequests != null)
+            ttsRequests.increment();
+        } catch (Exception ignored) {
+        }
+
         Map<String, Object> res = synthesizeInternal(dialog, base);
         return ResponseEntity.ok(res);
       } catch (IOException | InterruptedException e) {
         logger.error("synthesize failed", e);
+        try {
+          if (ttsFailures != null)
+            ttsFailures.increment();
+        } catch (Exception ignored) {
+        }
         return ResponseEntity.status(500).body(Map.of("error", e.getMessage(), "detail", e.toString()));
       }
     }, ttsExecutor);
@@ -358,7 +369,11 @@ public class ListeningController {
       }
       long totalPollMs = retry * 250;
       try {
-        pollSample.stop(meterRegistry.timer("tts.poll.wait.millis"));
+        if (ttsPollTimer != null) {
+          pollSample.stop(ttsPollTimer);
+        } else {
+          pollSample.stop(meterRegistry.timer("tts.poll.wait.millis"));
+        }
       } catch (Exception ignored) {
       }
       logger.info("synthesizeInternal: after polling ({}ms) found {} generated files", totalPollMs,
@@ -380,7 +395,8 @@ public class ListeningController {
           logger.error("synthesizeInternal: no generated files for tempBase={}, scriptOutput={}, dirSnapshot={}",
               tempBase, procOut, snapshot);
           try {
-            meterRegistry.counter("tts.failures.total").increment();
+            if (ttsFailures != null)
+              ttsFailures.increment();
           } catch (Exception ignored) {
           }
         } catch (IOException ioe) {

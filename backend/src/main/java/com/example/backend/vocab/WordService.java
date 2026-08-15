@@ -2,7 +2,7 @@ package com.example.backend.vocab;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.core.ParameterizedTypeReference;
 
 import java.util.List;
 import java.util.Map;
@@ -26,23 +26,30 @@ public class WordService {
       List<Map<String, Object>> response = webClient.get()
           .uri(dictUrl)
           .retrieve()
-          .bodyToMono(List.class)
+          .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+          })
           .block();
 
       if (response != null && !response.isEmpty()) {
         Map<String, Object> first = response.get(0);
-        List<Map<String, Object>> meanings = (List<Map<String, Object>>) first.get("meanings");
-        if (meanings != null && !meanings.isEmpty()) {
-          Map<String, Object> m = meanings.get(0);
-          List<Map<String, Object>> defs = (List<Map<String, Object>>) m.get("definitions");
-          if (defs != null && !defs.isEmpty()) {
-            Map<String, Object> def = defs.get(0);
-            Object defText = def.get("definition");
-            Object example = def.get("example");
-            if (defText != null)
-              w.setMeaningEn(defText.toString());
-            if (example != null)
-              w.setExampleEn(example.toString());
+        Object meaningsObj = first.get("meanings");
+        if (meaningsObj instanceof List) {
+          List<?> meanings = (List<?>) meaningsObj;
+          if (!meanings.isEmpty() && meanings.get(0) instanceof Map) {
+            Map<?, ?> m = (Map<?, ?>) meanings.get(0);
+            Object defsObj = m.get("definitions");
+            if (defsObj instanceof List) {
+              List<?> defs = (List<?>) defsObj;
+              if (!defs.isEmpty() && defs.get(0) instanceof Map) {
+                Map<?, ?> def = (Map<?, ?>) defs.get(0);
+                Object defText = def.get("definition");
+                Object example = def.get("example");
+                if (defText != null)
+                  w.setMeaningEn(defText.toString());
+                if (example != null)
+                  w.setExampleEn(example.toString());
+              }
+            }
           }
         }
       }
@@ -58,7 +65,8 @@ public class WordService {
             .header("Content-Type", "application/json")
             .bodyValue(Map.of("q", w.getMeaningEn(), "source", "en", "target", "ja"))
             .retrieve()
-            .bodyToMono(Map.class)
+            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+            })
             .block();
         if (resp != null && resp.get("translatedText") != null) {
           w.setMeaningJa(resp.get("translatedText").toString());
@@ -71,7 +79,8 @@ public class WordService {
             .header("Content-Type", "application/json")
             .bodyValue(Map.of("q", w.getExampleEn(), "source", "en", "target", "ja"))
             .retrieve()
-            .bodyToMono(Map.class)
+            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+            })
             .block();
         if (resp2 != null && resp2.get("translatedText") != null) {
           w.setExampleJa(resp2.get("translatedText").toString());
