@@ -72,39 +72,52 @@ public class WordService {
       // ignore and continue
     }
 
-    // translate to Japanese using LibreTranslate public instance
+    // translate to Japanese using LibreTranslate (try multiple instances as fallback)
     try {
       if (w.getMeaningEn() != null && !w.getMeaningEn().isBlank()) {
-        Map<String, Object> resp = webClient.post()
-            .uri("https://libretranslate.com/translate")
-            .header("Content-Type", "application/json")
-            .bodyValue(Map.of("q", w.getMeaningEn(), "source", "en", "target", "ja"))
-            .retrieve()
-            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-            })
-            .block();
-        if (resp != null && resp.get("translatedText") != null) {
-          w.setMeaningJa(resp.get("translatedText").toString());
-        }
+        String t = tryTranslateWithFallback(w.getMeaningEn());
+        if (t != null) w.setMeaningJa(t);
+        else System.err.println("[WordService] failed to translate meaningEn for: " + word);
       }
 
       if (w.getExampleEn() != null && !w.getExampleEn().isBlank()) {
-        Map<String, Object> resp2 = webClient.post()
-            .uri("https://libretranslate.com/translate")
-            .header("Content-Type", "application/json")
-            .bodyValue(Map.of("q", w.getExampleEn(), "source", "en", "target", "ja"))
-            .retrieve()
-            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-            })
-            .block();
-        if (resp2 != null && resp2.get("translatedText") != null) {
-          w.setExampleJa(resp2.get("translatedText").toString());
-        }
+        String t2 = tryTranslateWithFallback(w.getExampleEn());
+        if (t2 != null) w.setExampleJa(t2);
+        else System.err.println("[WordService] failed to translate exampleEn for: " + word);
       }
     } catch (Exception e) {
-      // ignore translation errors
+      System.err.println("[WordService] translation error for " + word + ": " + e.getMessage());
     }
 
     return repo.save(w);
+  }
+
+  private String tryTranslateWithFallback(String text) {
+    String[] endpoints = new String[] {
+        "https://libretranslate.com/translate",
+        "https://translate.argosopentech.com/translate",
+        "https://libretranslate.de/translate"
+    };
+    for (String ep : endpoints) {
+      try {
+        Map<String, Object> resp = webClient.post()
+            .uri(ep)
+            .header("Content-Type", "application/json")
+            .bodyValue(Map.of("q", text, "source", "en", "target", "ja"))
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {})
+            .block();
+        if (resp != null) {
+          Object tr = resp.get("translatedText");
+          if (tr != null) return tr.toString();
+          // some instances return 'translation' or 'translated_text'
+          if (resp.get("translation") != null) return resp.get("translation").toString();
+          if (resp.get("translated_text") != null) return resp.get("translated_text").toString();
+        }
+      } catch (Exception ex) {
+        System.err.println("[WordService] translate failed on " + ep + ": " + ex.getMessage());
+      }
+    }
+    return null;
   }
 }
