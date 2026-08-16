@@ -18,13 +18,16 @@ public class WordService {
   private final WebClient webClient = WebClient.create();
   private final String deeplAuthKey;
   private final String deeplApiUrl;
+  private final String wordnikApiKey;
 
   public WordService(WordRepository repo,
       @Value("${deepl.auth-key:}") String deeplAuthKey,
-      @Value("${deepl.api-url:https://api-free.deepl.com/v2/translate}") String deeplApiUrl) {
+      @Value("${deepl.api-url:https://api-free.deepl.com/v2/translate}") String deeplApiUrl,
+      @Value("${wordnik.api-key:}") String wordnikApiKey) {
     this.repo = repo;
     this.deeplAuthKey = deeplAuthKey;
     this.deeplApiUrl = deeplApiUrl;
+    this.wordnikApiKey = wordnikApiKey;
   }
 
   public Word fetchAndSave(String word) {
@@ -68,6 +71,49 @@ public class WordService {
   private void fetchDictionaryDetails(String word, Word wordEntity) {
     if (!isBlank(wordEntity.getMeaningEn()) && !isBlank(wordEntity.getExampleEn())) {
       return;
+    }
+
+    // Try Wordnik first if API key is provided — Wordnik often contains example sentences.
+    if (!isBlank(wordnikApiKey)) {
+      try {
+        List<Map<String, Object>> defs = webClient.get()
+            .uri("https://api.wordnik.com/v4/word.json/" + word
+                + "/definitions?limit=1&includeRelated=false&useCanonical=false&api_key=" + wordnikApiKey)
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+            })
+            .block();
+
+        if (defs != null && !defs.isEmpty() && defs.get(0).get("text") != null) {
+          if (isBlank(wordEntity.getMeaningEn())) {
+            wordEntity.setMeaningEn(defs.get(0).get("text").toString());
+          }
+        }
+
+        Map<String, Object> examplesResp = webClient.get()
+            .uri("https://api.wordnik.com/v4/word.json/" + word
+                + "/examples?includeDuplicates=false&useCanonical=false&limit=1&api_key=" + wordnikApiKey)
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+            })
+            .block();
+
+        if (examplesResp != null && examplesResp.get("examples") instanceof List<?> exList && !exList.isEmpty()) {
+          Object ex0 = exList.get(0);
+          if (ex0 instanceof Map<?, ?> exMap && exMap.get("text") != null) {
+            if (isBlank(wordEntity.getExampleEn())) {
+              wordEntity.setExampleEn(exMap.get("text").toString());
+            }
+          }
+        }
+
+        if (!isBlank(wordEntity.getMeaningEn()) || !isBlank(wordEntity.getExampleEn())) {
+          return;
+        }
+      } catch (Exception e) {
+        System.err.println("[WordService] Wordnik lookup failed: " + e.getMessage());
+        // fall through to existing dictionaryapi.dev logic
+      }
     }
 
     int maxAttempts = 3;
@@ -117,7 +163,8 @@ public class WordService {
 
         return;
       } catch (Exception exception) {
-        System.err.println("[WordService] dictionary lookup failed (attempt " + attempt + "): " + exception.getMessage());
+        System.err
+            .println("[WordService] dictionary lookup failed (attempt " + attempt + "): " + exception.getMessage());
         if (attempt < maxAttempts) {
           try {
             Thread.sleep(500);
