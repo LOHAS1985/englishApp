@@ -70,38 +70,65 @@ public class WordService {
       return;
     }
 
-    try {
-      List<Map<String, Object>> response = webClient.get()
-          .uri("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
-          .retrieve()
-          .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-          })
-          .block();
+    int maxAttempts = 3;
+    for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        List<Map<String, Object>> response = webClient.get()
+            .uri("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
+            .retrieve()
+            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+            })
+            .block();
 
-      if (response == null || response.isEmpty()) {
+        if (response == null || response.isEmpty()) {
+          System.err.println("[WordService] dictionary lookup returned empty (attempt " + attempt + ")");
+          if (attempt < maxAttempts) {
+            try {
+              Thread.sleep(500);
+            } catch (InterruptedException ie) {
+              Thread.currentThread().interrupt();
+              return;
+            }
+            continue;
+          }
+          return;
+        }
+
+        Object meanings = response.get(0).get("meanings");
+        if (!(meanings instanceof List<?> meaningItems) || meaningItems.isEmpty()
+            || !(meaningItems.get(0) instanceof Map<?, ?> meaning)) {
+          System.err.println("[WordService] dictionary response missing meanings (attempt " + attempt + ")");
+          return;
+        }
+
+        Object definitions = meaning.get("definitions");
+        if (!(definitions instanceof List<?> definitionItems) || definitionItems.isEmpty()
+            || !(definitionItems.get(0) instanceof Map<?, ?> definition)) {
+          System.err.println("[WordService] dictionary response missing definitions (attempt " + attempt + ")");
+          return;
+        }
+
+        if (isBlank(wordEntity.getMeaningEn()) && definition.get("definition") != null) {
+          wordEntity.setMeaningEn(definition.get("definition").toString());
+        }
+        if (isBlank(wordEntity.getExampleEn()) && definition.get("example") != null) {
+          wordEntity.setExampleEn(definition.get("example").toString());
+        }
+
+        return;
+      } catch (Exception exception) {
+        System.err.println("[WordService] dictionary lookup failed (attempt " + attempt + "): " + exception.getMessage());
+        if (attempt < maxAttempts) {
+          try {
+            Thread.sleep(500);
+          } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+            return;
+          }
+          continue;
+        }
         return;
       }
-
-      Object meanings = response.get(0).get("meanings");
-      if (!(meanings instanceof List<?> meaningItems) || meaningItems.isEmpty()
-          || !(meaningItems.get(0) instanceof Map<?, ?> meaning)) {
-        return;
-      }
-
-      Object definitions = meaning.get("definitions");
-      if (!(definitions instanceof List<?> definitionItems) || definitionItems.isEmpty()
-          || !(definitionItems.get(0) instanceof Map<?, ?> definition)) {
-        return;
-      }
-
-      if (isBlank(wordEntity.getMeaningEn()) && definition.get("definition") != null) {
-        wordEntity.setMeaningEn(definition.get("definition").toString());
-      }
-      if (isBlank(wordEntity.getExampleEn()) && definition.get("example") != null) {
-        wordEntity.setExampleEn(definition.get("example").toString());
-      }
-    } catch (Exception exception) {
-      System.err.println("[WordService] dictionary lookup failed: " + exception.getMessage());
     }
   }
 
