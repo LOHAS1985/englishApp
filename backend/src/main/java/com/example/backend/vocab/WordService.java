@@ -73,7 +73,8 @@ public class WordService {
       return;
     }
 
-    // Try Wordnik first if API key is provided — Wordnik often contains example sentences.
+    // Try Wordnik first if API key is provided — Wordnik often contains example
+    // sentences.
     if (!isBlank(wordnikApiKey)) {
       try {
         List<Map<String, Object>> defs = webClient.get()
@@ -219,5 +220,51 @@ public class WordService {
 
   private boolean isBlank(String value) {
     return value == null || value.isBlank();
+  }
+
+  /**
+   * Fetch definition and example from Wordnik without saving.
+   * Returns a map with keys "definition" and "example" (values may be null).
+   */
+  public Map<String, String> fetchFromWordnik(String word) {
+    if (isBlank(word) || isBlank(wordnikApiKey)) {
+      return Map.of("definition", null, "example", null);
+    }
+
+    try {
+      List<Map<String, Object>> defs = webClient.get()
+          .uri("https://api.wordnik.com/v4/word.json/" + word
+              + "/definitions?limit=1&includeRelated=false&useCanonical=false&api_key=" + wordnikApiKey)
+          .retrieve()
+          .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
+          })
+          .block();
+
+      String def = null;
+      if (defs != null && !defs.isEmpty() && defs.get(0).get("text") != null) {
+        def = defs.get(0).get("text").toString();
+      }
+
+      Map<String, Object> examplesResp = webClient.get()
+          .uri("https://api.wordnik.com/v4/word.json/" + word
+              + "/examples?includeDuplicates=false&useCanonical=false&limit=1&api_key=" + wordnikApiKey)
+          .retrieve()
+          .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+          })
+          .block();
+
+      String ex = null;
+      if (examplesResp != null && examplesResp.get("examples") instanceof List<?> exList && !exList.isEmpty()) {
+        Object ex0 = exList.get(0);
+        if (ex0 instanceof Map<?, ?> exMap && exMap.get("text") != null) {
+          ex = exMap.get("text").toString();
+        }
+      }
+
+      return Map.of("definition", def, "example", ex);
+    } catch (Exception e) {
+      System.err.println("[WordService] Wordnik fetch failed: " + e.getMessage());
+      return Map.of("definition", null, "example", null);
+    }
   }
 }

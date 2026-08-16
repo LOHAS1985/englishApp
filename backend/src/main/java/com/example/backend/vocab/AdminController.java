@@ -52,6 +52,15 @@ public class AdminController {
     return ResponseEntity.ok(wordRepository.findAll());
   }
 
+  @GetMapping("/wordnik-test")
+  public ResponseEntity<?> wordnikTest(@RequestParam String word) {
+    if (word == null || word.isBlank()) {
+      return ResponseEntity.badRequest().body(Map.of("error", "word is required"));
+    }
+    Map<String, String> result = wordService.fetchFromWordnik(word.trim().toLowerCase());
+    return ResponseEntity.ok(result);
+  }
+
   @PutMapping("/words/{id}")
   public ResponseEntity<?> updateWord(@PathVariable Long id, @RequestBody Map<String, String> body) {
     Word word = wordRepository.findById(id).orElse(null);
