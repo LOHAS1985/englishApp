@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./shared/context/AuthContext";
 import Home from "./pages/Home";
 import Writing from "./features/writing/Writing";
-import History from "./features/writing/History";
 import Login from "./features/auth/Login";
 import Register from "./features/auth/Register";
 import Grammar from "./features/grammar/Grammar";
@@ -11,6 +10,7 @@ import ArticleDetail from "./features/reading/ArticleDetail";
 import Listening from "./features/listening/Listening";
 import Speaking from "./features/speaking/Speaking";
 import Admin from "./pages/Admin";
+import MyPage from "./pages/MyPage";
 
 export default function App() {
   return (
@@ -25,9 +25,9 @@ export default function App() {
           <Route path="/listening" element={<Listening />} />
           <Route path="/speaking" element={<Speaking />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/mypage" element={<MyPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/history" element={<History />} />
           {/* catch-all: redirect unknown paths to home (handles invalid public base URLs) */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

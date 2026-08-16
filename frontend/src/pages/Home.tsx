@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../shared/context/useAuth";
+import Header from "../shared/components/Header";
 
 const CATEGORIES = [
   {
@@ -8,10 +8,7 @@ const CATEGORIES = [
     label: "ライティング",
     subtitle: "意見を論述して添削と採点を受ける",
     color: "bg-gradient-to-br from-[#f6d365] to-[#fda085]",
-    items: [
-      { label: "英検形式の意見陳述", path: "/writing" },
-      { label: "添削履歴", path: "/writing/history" },
-    ],
+    items: [{ label: "英検形式の意見陳述", path: "/writing" }],
     icon: "✍️",
   },
   {
@@ -30,10 +27,7 @@ const CATEGORIES = [
     label: "リスニング",
     subtitle: "会話形式の音声で実践リスニング",
     color: "bg-gradient-to-br from-[#d4fc79] to-[#96e6a1]",
-    items: [
-      { label: "会話トピック", path: "/listening" },
-      { label: "ディクテーション", path: "/listening/dictation" },
-    ],
+    items: [{ label: "会話トピック", path: "/listening" }],
     icon: "🎧",
   },
   {
@@ -41,17 +35,14 @@ const CATEGORIES = [
     label: "スピーキング",
     subtitle: "録音で発音・流暢さをチェック",
     color: "bg-gradient-to-br from-[#fbc2eb] to-[#a6c1ee]",
-    items: [
-      { label: "音声録音", path: "/speaking" },
-      { label: "模擬面接", path: "/speaking/mock" },
-    ],
+    items: [{ label: "音声録音", path: "/speaking" }],
     icon: "🗣️",
   },
 ];
 
 export default function Home() {
   const navigate = useNavigate();
-  const { token, username, logout } = useAuth();
+  // header and auth controls are handled by shared Header component
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/health`).catch(() => {
@@ -59,56 +50,14 @@ export default function Home() {
     });
   }, []);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
-
   return (
-    <div className="min-h-screen bg-[#0f1724] text-slate-200">
-      {/* ヘッダー */}
-      <div className="flex justify-between items-center gap-3 bg-transparent px-6 py-5 w-full max-w-[1200px] mx-auto">
-        <div>
-          <h2 className="text-xl font-bold">英語学習アプリ</h2>
-        </div>
-        <div className="flex items-center gap-3">
-          {token ? (
-            <>
-              <span className="text-sm text-white/80">{username}</span>
-              <button
-                onClick={() => navigate("/admin")}
-                className="text-sm font-semibold text-[#0f1724] bg-[#f59e0b] rounded px-4 py-2
-                         hover:bg-[#d97706] transition-colors"
-              >
-                管理画面
-              </button>
-              <button
-                onClick={handleLogout}
-                className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2
-                         hover:bg-[#7a9843] transition-colors"
-              >
-                ログアウト
-              </button>
-            </>
-          ) : (
-            <button
-              onClick={() => navigate("/login")}
-              className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2
-                       hover:bg-[#7a9843] transition-colors"
-            >
-              ログイン
-            </button>
-          )}
-        </div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#071122] to-[#0f1724] text-slate-200">
+      <Header />
 
       {/* メイン */}
       <div className="max-w-[1200px] mx-auto px-6 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-extrabold">英語学習アプリ</h1>
-          <p className="text-slate-300 mt-2">
-            学習したい分野を選んでください。
-          </p>
+          {/* ヘッダーにサイトタイトルを表示しているためここでは説明文を表示しない */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
