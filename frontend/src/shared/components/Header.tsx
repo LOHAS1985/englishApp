@@ -11,11 +11,11 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-[#1f6aa5] shadow-sm border-b border-slate-300">
+    <header className="w-full bg-slate-700 shadow-sm border-b border-slate-600">
       <div className="max-w-[1200px] mx-auto w-full px-6 py-4 flex items-center justify-between">
         <button
           onClick={() => navigate("/")}
-          className="font-serif text-lg text-white hover:text-white/90 transition-colors"
+          className="text-lg text-white hover:text-white/90 transition-colors"
         >
           英語学習アプリ
         </button>

@@ -51,7 +51,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#071122] to-[#0f1724] text-slate-200">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
 
       {/* メイン */}

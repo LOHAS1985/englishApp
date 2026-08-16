@@ -35,7 +35,7 @@ export default function MyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5] flex flex-col items-center px-5 py-12">
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center px-5 py-12 text-slate-900">
       <Header />
       <main className="w-full max-w-[840px] mt-8">
         <div className="flex items-center justify-between mb-6">
