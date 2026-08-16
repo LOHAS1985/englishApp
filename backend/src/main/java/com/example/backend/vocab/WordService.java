@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Service
 public class WordService {
@@ -40,12 +42,22 @@ public class WordService {
 
     fetchDictionaryDetails(word, wordEntity);
 
+    if (isBlank(wordEntity.getMeaningEn()) && isBlank(wordEntity.getExampleEn())) {
+      throw new IllegalStateException("English definition and example could not be retrieved");
+    }
+
     String meaningJa = translateToJapanese(wordEntity.getMeaningEn());
+    if (!isBlank(wordEntity.getMeaningEn()) && meaningJa == null) {
+      throw new IllegalStateException("DeepL translation failed for the English definition");
+    }
     if (meaningJa != null) {
       wordEntity.setMeaningJa(meaningJa);
     }
 
     String exampleJa = translateToJapanese(wordEntity.getExampleEn());
+    if (!isBlank(wordEntity.getExampleEn()) && exampleJa == null) {
+      throw new IllegalStateException("DeepL translation failed for the English example");
+    }
     if (exampleJa != null) {
       wordEntity.setExampleJa(exampleJa);
     }
@@ -94,17 +106,23 @@ public class WordService {
   }
 
   private String translateToJapanese(String text) {
-    if (isBlank(text) || deeplAuthKey.isBlank()) {
+    if (isBlank(text)) {
+      return null;
+    }
+    if (deeplAuthKey.isBlank()) {
+      System.err.println("[WordService] DEEPL_AUTH_KEY is not configured");
       return null;
     }
 
     try {
       Map<String, Object> response = webClient.post()
           .uri(deeplApiUrl)
-          .body(BodyInserters.fromFormData("auth_key", deeplAuthKey)
-              .with("text", text)
-              .with("source_lang", "EN")
-              .with("target_lang", "JA"))
+          .header(HttpHeaders.AUTHORIZATION, "DeepL-Auth-Key " + deeplAuthKey)
+          .contentType(MediaType.APPLICATION_JSON)
+          .bodyValue(Map.of(
+              "text", List.of(text),
+              "source_lang", "EN",
+              "target_lang", "JA"))
           .retrieve()
           .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
           })
@@ -116,6 +134,9 @@ public class WordService {
         Object translatedText = translation.get("text");
         return translatedText == null ? null : translatedText.toString();
       }
+    } catch (WebClientResponseException exception) {
+      System.err.println("[WordService] DeepL translation failed with HTTP "
+          + exception.getStatusCode().value() + ": " + exception.getResponseBodyAsString());
     } catch (Exception exception) {
       System.err.println("[WordService] DeepL translation failed: " + exception.getMessage());
     }
