@@ -35,9 +35,9 @@ export default function MyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5] flex justify-center px-5 py-12">
+    <div className="min-h-screen bg-[#f0f2f5] flex flex-col items-center px-5 py-12">
       <Header />
-      <div className="w-full max-w-[840px]">
+      <main className="w-full max-w-[840px] mt-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <p className="font-mono text-xs font-semibold tracking-widest text-slate-400">
@@ -107,7 +107,7 @@ export default function MyPage() {
             ))}
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 }
