@@ -161,7 +161,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 
 1. frontend を変更した → `npm run lint` と `npm run build` が通る(CI と同じ)
 2. backend を変更した → `./mvnw test` が通る。スキーマ変更があればマイグレーションを追加し、prod プロファイルのテストも通る(GitHub Actions の Backend CI でも実行される)
-3. 新機能・APIを追加した → [techStack.md](techStack.md) / [file-structure.md](file-structure.md) と、本ファイル「試験形式と対応機能」の表を更新
+3. 新機能・APIを追加した → [techStack.md](techStack.md) と、本ファイル「試験形式と対応機能」の表を更新
 4. 秘密情報がコミットに含まれていない
 
 ## 9. コミット規約
