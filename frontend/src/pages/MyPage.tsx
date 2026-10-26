@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import Header from "../shared/components/Header";
+import AccessLogSection from "./AccessLogSection";
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ export default function MyPage() {
             </button>
           </div>
         </div>
+
+        <AccessLogSection />
 
         <section className="mb-8">
           <h2 className="font-serif text-xl text-slate-900 mb-3">

@@ -20,4 +20,5 @@ RUN apt-get update \
 	&& pip3 install --no-cache-dir edge-tts \
 	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# 記録の日時(LocalDateTime)を日本時間で保存する
+ENTRYPOINT ["java", "-Duser.timezone=Asia/Tokyo", "-jar", "app.jar"]

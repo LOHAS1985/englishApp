@@ -1,0 +1,61 @@
+name: Weekly access report
+
+# 週1回(月曜 7:00 JST)、直近7日のアクセス履歴をバックエンドから取得し、Gmail で自分宛てに送る。
+# 公開リポジトリの Actions は実行ログも公開されるため、レポートの中身はログに出さない。
+# 必要な secrets: VITE_API_BASE_URL(既存)、ACCESS_LOG_KEY、GMAIL_ADDRESS、GMAIL_APP_PASSWORD
+on:
+  schedule:
+    - cron: "0 22 * * 0" # UTC 日曜 22:00 = JST 月曜 7:00(keep-alive の稼働時間内)
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fetch report and send email
+        env:
+          API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+          ACCESS_LOG_KEY: ${{ secrets.ACCESS_LOG_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import os, smtplib, sys, time, urllib.error, urllib.request
+          from email.message import EmailMessage
+
+          env = {k: os.environ.get(k, "") for k in
+                 ["API_BASE_URL", "ACCESS_LOG_KEY", "GMAIL_ADDRESS", "GMAIL_APP_PASSWORD"]}
+          missing = [k for k, v in env.items() if not v]
+          if missing:
+              sys.exit("missing secrets: " + ", ".join(missing))
+
+          url = env["API_BASE_URL"].rstrip("/") + "/api/access-logs/report?days=7"
+          req = urllib.request.Request(url, headers={"X-Access-Log-Key": env["ACCESS_LOG_KEY"]})
+          body = None
+          # Render が停止中だと起動に時間がかかるため、間隔を空けて数回試す
+          for attempt in range(1, 5):
+              try:
+                  with urllib.request.urlopen(req, timeout=120) as res:
+                      body = res.read().decode("utf-8")
+                  break
+              except urllib.error.HTTPError as e:
+                  sys.exit(f"report request failed: HTTP {e.code}")
+              except Exception as e:
+                  print(f"attempt {attempt} failed: {type(e).__name__}")
+                  time.sleep(30)
+          if body is None:
+              sys.exit("could not reach the backend")
+
+          msg = EmailMessage()
+          msg["Subject"] = "英語学習アプリ 週次アクセスレポート"
+          msg["From"] = env["GMAIL_ADDRESS"]
+          msg["To"] = env["GMAIL_ADDRESS"]
+          msg.set_content(body)
+          with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as smtp:
+              smtp.login(env["GMAIL_ADDRESS"], env["GMAIL_APP_PASSWORD"])
+              smtp.send_message(msg)
+          print(f"report sent ({len(body.splitlines())} lines)")
+          PY

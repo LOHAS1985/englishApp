@@ -342,3 +342,49 @@ export async function fetchSpeakingSet(exclude?: string | null) {
   if (!res.ok) throw new Error("問題の取得に失敗しました");
   return res.json() as Promise<SpeakingSet>;
 }
+
+// アクセス履歴(閲覧キーが必要。キーはサーバーの環境変数 ACCESS_LOG_KEY と同じ値)
+export interface AccessIpSummary {
+  ip: string;
+  count: number;
+  firstSeen: string;
+  lastSeen: string;
+  devices: string;
+  country: string | null;
+  region: string | null;
+  city: string | null;
+  isp: string | null;
+}
+
+export interface AccessLogItem {
+  createdAt: string;
+  ip: string;
+  method: string;
+  path: string;
+  device: string;
+  country: string | null;
+  region: string | null;
+  city: string | null;
+  isp: string | null;
+}
+
+export interface AccessLogResponse {
+  days: number;
+  total: number;
+  summaries: AccessIpSummary[];
+  recent: AccessLogItem[];
+}
+
+export class AccessLogKeyError extends Error {}
+
+export async function fetchAccessLogs(key: string, days: number) {
+  const res = await fetch(`${API_BASE}/api/access-logs?days=${days}`, {
+    headers: { "X-Access-Log-Key": key },
+  });
+  if (res.status === 403) {
+    const body = await res.json().catch(() => ({}));
+    throw new AccessLogKeyError(body.error ?? "閲覧キーが違います");
+  }
+  if (!res.ok) throw new Error("アクセス履歴の取得に失敗しました");
+  return res.json() as Promise<AccessLogResponse>;
+}
