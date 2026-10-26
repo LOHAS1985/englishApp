@@ -12,7 +12,7 @@
 | 読解 TOEIC Part 7 | `reading`(`toeic-part7`) | 〃 | 50セット | 50 | 100 |
 | 読解 英検 大問2(空所補充) | `reading`(`eiken-cloze`) | 〃 | 25セット | 25 | 50 |
 | 読解 英検 大問3(内容一致) | `reading`(`eiken-long`) | 〃 | 25セット | 25 | 50 |
-| リスニング | `listening` | `l0001`〜 | 2セット | 150 | 300 |
+| リスニング | `listening` | `l0001`〜 | 150セット(TOEIC Part 3: 40、Part 4: 30、英検 Part 1: 30、Part 2: 25、Part 3: 25) | 150 | 300 |
 | ライティング | `writing` | `w0001`〜 | 75題 | 75 | 150 |
 | スピーキング(英検二次) | `speaking` | `s0001`〜 | 25セット | 25 | 50 |
 
