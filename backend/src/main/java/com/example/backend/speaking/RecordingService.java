@@ -24,9 +24,10 @@ public class RecordingService {
   }
 
   public Recording save(MultipartFile file, Long userId) throws IOException {
+    // クライアント由来のファイル名はパス区切り等を含み得るため、英数字・._- 以外を除去する
     String original = file.getOriginalFilename();
-    String filename = System.currentTimeMillis() + "-"
-        + (original == null ? "upload" : original.replaceAll("\\s+", "_"));
+    String safeName = original == null ? "upload" : original.replaceAll("[^A-Za-z0-9._-]", "_");
+    String filename = System.currentTimeMillis() + "-" + safeName;
     Path target = uploadDir.resolve(filename);
     try (var in = file.getInputStream()) {
       Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);

@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { uploadRecording } from "../../api/audio";
 import Header from "../../shared/components/Header";
+import { useAuth } from "../../shared/context/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Speaking() {
   const [recording, setRecording] = useState<Blob | null>(null);
@@ -8,6 +10,8 @@ export default function Speaking() {
   const [seconds, setSeconds] = useState(0);
   const mediaRef = useRef<MediaRecorder | null>(null);
   const intervalRef = useRef<number | null>(null);
+  const { token } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     return () => {
@@ -47,12 +51,16 @@ export default function Speaking() {
 
   const upload = async () => {
     if (!recording) return;
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     setStatus("uploading");
     const file = new File([recording], "recording.webm", {
       type: "audio/webm",
     });
     try {
-      const res = await uploadRecording(file);
+      const res = await uploadRecording(file, token);
       setStatus(`uploaded id=${res.recordingId}`);
     } catch {
       setStatus("upload failed");

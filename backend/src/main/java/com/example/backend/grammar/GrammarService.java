@@ -7,10 +7,9 @@ import com.example.backend.grammar.dto.GrammarChoice;
 import com.example.backend.grammar.dto.GrammarQuestion;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class GrammarService {
@@ -18,15 +17,16 @@ public class GrammarService {
   private final GrammarApiClient grammarApiClient;
   private final GrammarRecordRepository grammarRecordRepository;
   private final CurrentUserProvider currentUserProvider;
-
-  private final Map<String, PendingQuestion> pendingQuestions = new ConcurrentHashMap<>();
+  private final PendingGrammarQuestionRepository pendingQuestionRepository;
 
   public GrammarService(GrammarApiClient grammarApiClient,
       GrammarRecordRepository grammarRecordRepository,
-      CurrentUserProvider currentUserProvider) {
+      CurrentUserProvider currentUserProvider,
+      PendingGrammarQuestionRepository pendingQuestionRepository) {
     this.grammarApiClient = grammarApiClient;
     this.grammarRecordRepository = grammarRecordRepository;
     this.currentUserProvider = currentUserProvider;
+    this.pendingQuestionRepository = pendingQuestionRepository;
   }
 
   public GrammarQuestion generateQuestion() {
@@ -54,36 +54,46 @@ public class GrammarService {
 
     GeneratedQuestion generated = grammarApiClient.generate(prompt, GeneratedQuestion.class);
 
-    String id = UUID.randomUUID().toString();
-    pendingQuestions.put(id, new PendingQuestion(generated));
+    // 回答されずに残った問題は1日で破棄する
+    pendingQuestionRepository.deleteOlderThan(LocalDateTime.now().minusDays(1));
 
-    return new GrammarQuestion(id, generated.sentence, generated.choices);
+    PendingGrammarQuestion pending = new PendingGrammarQuestion();
+    pending.setId(UUID.randomUUID().toString());
+    pending.setSentence(generated.sentence);
+    pending.setChoiceA(textFor(generated.choices, "A"));
+    pending.setChoiceB(textFor(generated.choices, "B"));
+    pending.setChoiceC(textFor(generated.choices, "C"));
+    pending.setChoiceD(textFor(generated.choices, "D"));
+    pending.setCorrectChoice(generated.correctChoice);
+    pending.setExplanation(generated.explanation);
+    pending.setTranslation(generated.translation);
+    pendingQuestionRepository.save(pending);
+
+    return new GrammarQuestion(pending.getId(), generated.sentence, generated.choices);
   }
 
   public GrammarAnswerResult answer(GrammarAnswerRequest request) {
-    PendingQuestion pending = pendingQuestions.remove(request.getQuestionId());
-    if (pending == null) {
-      throw new IllegalArgumentException("問題が見つかりません。再度出題してください。");
-    }
+    PendingGrammarQuestion q = pendingQuestionRepository.findById(request.getQuestionId())
+        .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
 
-    GeneratedQuestion q = pending.question;
-    boolean isCorrect = q.correctChoice.equalsIgnoreCase(request.getSelectedChoice());
+    boolean isCorrect = q.getCorrectChoice().equalsIgnoreCase(request.getSelectedChoice());
 
     GrammarRecord record = new GrammarRecord();
     record.setUserId(currentUserProvider.getCurrentUser().getId());
-    record.setSentence(q.sentence);
-    record.setChoiceA(textFor(q.choices, "A"));
-    record.setChoiceB(textFor(q.choices, "B"));
-    record.setChoiceC(textFor(q.choices, "C"));
-    record.setChoiceD(textFor(q.choices, "D"));
-    record.setCorrectChoice(q.correctChoice);
+    record.setSentence(q.getSentence());
+    record.setChoiceA(q.getChoiceA());
+    record.setChoiceB(q.getChoiceB());
+    record.setChoiceC(q.getChoiceC());
+    record.setChoiceD(q.getChoiceD());
+    record.setCorrectChoice(q.getCorrectChoice());
     record.setSelectedChoice(request.getSelectedChoice());
     record.setCorrect(isCorrect);
-    record.setExplanation(q.explanation);
-    record.setTranslation(q.translation);
+    record.setExplanation(q.getExplanation());
+    record.setTranslation(q.getTranslation());
     grammarRecordRepository.save(record);
+    pendingQuestionRepository.delete(q);
 
-    return new GrammarAnswerResult(isCorrect, q.correctChoice, q.explanation, q.translation);
+    return new GrammarAnswerResult(isCorrect, q.getCorrectChoice(), q.getExplanation(), q.getTranslation());
   }
 
   private String textFor(List<GrammarChoice> choices, String label) {
@@ -92,14 +102,6 @@ public class GrammarService {
         .findFirst()
         .map(GrammarChoice::text)
         .orElse("");
-  }
-
-  private static class PendingQuestion {
-    final GeneratedQuestion question;
-
-    PendingQuestion(GeneratedQuestion question) {
-      this.question = question;
-    }
   }
 
   public static class GeneratedQuestion {

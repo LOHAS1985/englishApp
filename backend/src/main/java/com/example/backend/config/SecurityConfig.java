@@ -40,17 +40,15 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/api/auth/**").permitAll()
-            // 開発・デバッグ用: 一時的に管理APIを認証不要にする
-            .requestMatchers("/api/admin/**").permitAll()
+            .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
             .requestMatchers("/api/writing/question").permitAll()
             .requestMatchers("/api/grammar/question").permitAll()
             .requestMatchers("/api/reading/articles").permitAll()
             .requestMatchers("/api/reading/article").permitAll()
-            .requestMatchers("/api/listening/**").permitAll()
+            // /api/listening/** は音声合成(CPU負荷)と Gemini 無料枠を消費するためログイン必須
             .requestMatchers("/audio/**").permitAll()
             .requestMatchers("/health").permitAll()
-            .requestMatchers("/actuator/**").permitAll()
             .requestMatchers("/error").permitAll()
             .requestMatchers("/favicon.ico").permitAll()
             .anyRequest().authenticated())
@@ -64,11 +62,11 @@ public class SecurityConfig {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of(
-        "http://localhost:5173",
+    // 本番フロント(GitHub Pages)とローカル開発のみ許可。ポート違い・127.0.0.1 も許容する
+    configuration.setAllowedOriginPatterns(List.of(
+        "http://localhost:[*]",
+        "http://127.0.0.1:[*]",
         "https://lohas1985.github.io"));
-    // allow origin patterns to tolerate 127.0.0.1 / dev host variants
-    configuration.setAllowedOriginPatterns(List.of("*"));
     configuration.setAllowedMethods(List.of("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);

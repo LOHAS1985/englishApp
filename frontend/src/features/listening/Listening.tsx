@@ -6,6 +6,8 @@ import {
 } from "../../api/audio";
 import { useEffect, useState, useRef } from "react";
 import Header from "../../shared/components/Header";
+import { useAuth } from "../../shared/context/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Listening() {
   // groups: one dialog -> multiple questions
@@ -33,9 +35,16 @@ export default function Listening() {
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const [queue, setQueue] = useState<string[]>([]);
   const [answered, setAnswered] = useState(false);
+  const { token } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getListeningExercises()
+    // 出題・音声合成は Gemini 無料枠を消費するためログイン必須
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+    getListeningExercises(token)
       .then((data) => {
         // group by dialogText + audioUrl
         const map = new Map<string, Group>();
@@ -56,7 +65,7 @@ export default function Listening() {
         setGroups([]);
       })
       .finally(() => setLoadingExercises(false));
-  }, []);
+  }, [token, navigate]);
 
   const start = (group: Group, idx: number) => {
     stopPlayback();
@@ -69,12 +78,12 @@ export default function Listening() {
 
   // Submit all answers for the current group at once
   const submitAll = async () => {
-    if (!selectedGroup) return;
+    if (!selectedGroup || !token) return;
     const items = selectedGroup.items || [];
     const promises = items.slice(0, 3).map(async (it: ListeningItem) => {
       const ans = answers[it.id];
       try {
-        const r = await submitListeningAnswer(it.id, ans || "");
+        const r = await submitListeningAnswer(it.id, ans || "", token);
         return {
           id: it.id,
           score: r.score,
@@ -185,7 +194,7 @@ export default function Listening() {
   };
 
   const generateAndPlay = async () => {
-    if (!selectedGroup || !selectedGroup.dialogText) return;
+    if (!selectedGroup || !selectedGroup.dialogText || !token) return;
     const dialogText = selectedGroup.dialogText;
     setIsGenerating(true);
     const playWithBrowserTts = async () => {
@@ -219,7 +228,7 @@ export default function Listening() {
     };
     try {
       const base = `toeic_${(selectedGroup.items && selectedGroup.items[0] && selectedGroup.items[0].id) || "0"}_${Date.now()}`;
-      const res = await synthesizeDialog(dialogText, base);
+      const res = await synthesizeDialog(dialogText, token, base);
       let urls: string[] = [];
       if (res.audioUrls && Array.isArray(res.audioUrls)) {
         urls = res.audioUrls;
