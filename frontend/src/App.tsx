@@ -9,6 +9,8 @@ import Reading from "./features/reading/Reading";
 import ArticleDetail from "./features/reading/ArticleDetail";
 import Listening from "./features/listening/Listening";
 import Speaking from "./features/speaking/Speaking";
+import Vocab from "./features/vocab/Vocab";
+import ReadingPractice from "./features/reading/ReadingPractice";
 import Admin from "./pages/Admin";
 import MyPage from "./pages/MyPage";
 
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/grammar" element={<Grammar />} />
           <Route path="/reading" element={<Reading />} />
           <Route path="/reading/article" element={<ArticleDetail />} />
+          <Route path="/reading/practice" element={<ReadingPractice />} />
+          <Route path="/vocab" element={<Vocab />} />
           <Route path="/listening" element={<Listening />} />
           <Route path="/speaking" element={<Speaking />} />
           <Route path="/admin" element={<Admin />} />

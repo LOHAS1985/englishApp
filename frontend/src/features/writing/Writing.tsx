@@ -3,13 +3,17 @@ import {
   fetchWritingQuestion,
   scoreWritingAnswer,
   type ScoreResult,
+  type WritingQuestion,
+  type WritingType,
 } from "../../api/client";
 import { useAuth } from "../../shared/context/useAuth";
 import Header from "../../shared/components/Header";
 import { useNavigate } from "react-router-dom";
 
-const TARGET_MIN = 120;
-const TARGET_MAX = 150;
+const TYPE_LABELS: Record<WritingType, string> = {
+  opinion: "意見論述(120〜150語)",
+  summary: "要約(60〜70語)",
+};
 
 const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
   { key: "content", label: "内容" },
@@ -19,11 +23,8 @@ const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
 ];
 
 export default function Writing() {
-  const [question, setQuestion] = useState<{
-    prompt: string;
-    topic: string;
-    points: string[];
-  } | null>(null);
+  const [type, setType] = useState<WritingType>("opinion");
+  const [question, setQuestion] = useState<WritingQuestion | null>(null);
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
   const [scoring, setScoring] = useState(false);
@@ -36,6 +37,9 @@ export default function Writing() {
     const trimmed = answer.trim();
     return trimmed === "" ? 0 : trimmed.split(/\s+/).length;
   }, [answer]);
+
+  const TARGET_MIN = question?.minWords ?? 120;
+  const TARGET_MAX = question?.maxWords ?? 150;
 
   const countState =
     wordCount === 0
@@ -66,7 +70,7 @@ export default function Writing() {
     setLoading(true);
     setResult(null);
     try {
-      const data = await fetchWritingQuestion();
+      const data = await fetchWritingQuestion(type);
       setQuestion(data);
       setAnswer("");
     } catch {
@@ -84,13 +88,7 @@ export default function Writing() {
     }
     setScoring(true);
     try {
-      const data = await scoreWritingAnswer(
-        question.topic,
-        question.prompt,
-        question.points,
-        answer,
-        token,
-      );
+      const data = await scoreWritingAnswer(question.id, answer, token);
       setResult(data);
     } catch {
       alert("採点に失敗しました");
@@ -111,6 +109,22 @@ export default function Writing() {
             ライティング問題
           </h1>
 
+          <div className="flex flex-wrap gap-2 mb-5">
+            {(Object.keys(TYPE_LABELS) as WritingType[]).map((key) => (
+              <button
+                key={key}
+                onClick={() => setType(key)}
+                className={`text-sm rounded-full border px-3 py-1.5 transition-colors ${
+                  type === key
+                    ? "bg-[#16233d] border-[#16233d] text-white"
+                    : "bg-white border-slate-300 text-slate-600 hover:border-[#16233d]"
+                }`}
+              >
+                {TYPE_LABELS[key]}
+              </button>
+            ))}
+          </div>
+
           <button
             onClick={handleFetch}
             disabled={loading}
@@ -130,11 +144,18 @@ export default function Writing() {
                 <h2 className="font-serif text-lg text-slate-900 mb-3 leading-relaxed">
                   {question.topic}
                 </h2>
-                <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
-                  {question.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
+                {question.passage && (
+                  <p className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap">
+                    {question.passage}
+                  </p>
+                )}
+                {question.points.length > 0 && (
+                  <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
+                    {question.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="mt-7">

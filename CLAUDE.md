@@ -31,15 +31,18 @@
 
 | 試験 | パート | アプリ側の機能 | 状態 |
 | --- | --- | --- | --- |
-| TOEIC | Part 1–4(写真描写・応答・会話・説明文) | Listening | 会話+設問の生成・TTSあり。Part別の出題は未対応 |
-| TOEIC | Part 5–6(短文・長文穴埋め) | Grammar / Vocab | 文法4択あり。Part 6形式は未対応 |
-| TOEIC | Part 7(読解) | Reading | Guardian記事の読解あり。TOEIC形式(メール・広告・複数文書)は未対応 |
-| 英検準1級 | 一次 語彙(短文空所補充) | Vocab / Grammar | 単語登録(管理画面)あり。出題・復習は未対応 |
-| 英検準1級 | 一次 長文(空所補充・内容一致) | Reading | 一部対応 |
-| 英検準1級 | 一次 ライティング(意見論述 120–150語) | Writing | **対応済**(4観点16点満点のAI採点) |
-| 英検準1級 | 一次 ライティング(要約 60–70語) | Writing | 未対応 |
-| 英検準1級 | 一次 リスニング(会話・説明文・Real-Life) | Listening | 会話形式のみ |
-| 英検準1級 | 二次 面接(4コマナレーション・Q&A) | Speaking | 録音アップロードのみ。評価・フィードバックは未対応 |
+| TOEIC | Part 1(写真描写) | — | 未対応(写真を用意できないため) |
+| TOEIC | Part 2(応答問題) | — | 未対応(選択肢も音声で流す形式が必要) |
+| TOEIC | Part 3・4(会話・説明文) | Listening(`questions/listening`) | **対応済**(問題集+音声生成、米国英語の音声のみ) |
+| TOEIC | Part 5(短文穴埋め) | Grammar(`questions/grammar`) | **対応済** |
+| TOEIC | Part 6(長文穴埋め) | Reading 読解問題(`questions/reading`, `toeic-part6`) | **対応済** |
+| TOEIC | Part 7(読解) | Reading 読解問題(`toeic-part7`) | **対応済**(単一文書。複数文書は未対応) |
+| 英検準1級 | 一次 大問1 語彙 | Vocab(`questions/vocab`) | **対応済**(間違えた語の復習は未対応) |
+| 英検準1級 | 一次 大問2・3 長文 | Reading 読解問題(`eiken-cloze`, `eiken-long`) | **対応済** |
+| 英検準1級 | 一次 ライティング(意見論述 120–150語) | Writing(`questions/writing`, `opinion`) | **対応済**(Gemini で4観点16点満点採点) |
+| 英検準1級 | 一次 ライティング(要約 60–70語) | Writing(`summary`) | **対応済**(Gemini で4観点16点満点採点) |
+| 英検準1級 | 一次 リスニング Part 1〜3 | Listening(`eiken-part1`〜`eiken-part3`) | **対応済** |
+| 英検準1級 | 二次 面接(ナレーション・Q&A) | Speaking(`questions/speaking`) | 出題・録音・模範解答あり。4コマは文章で代用。AI 採点は未対応 |
 
 新機能を追加したら、この表の「状態」を更新すること。
 
@@ -215,9 +218,8 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [ ] **新規登録が誰でもできる**: 自分専用なのに、URL を知っていれば誰でも登録して Gemini 枠を使える。自分の登録後は環境変数で登録を閉じられるようにする
 - [ ] **生成音声・録音が Render のディスクに保存されている**: 再デプロイで消える。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
 - [ ] **Writing / Grammar / Reading の出題は未ログインでも Gemini を呼べる**: 「未ログインでも試せる」方針(2章)とのトレードオフ。枠を使われるようならログイン必須にする
-- [ ] **Speaking に出題・文字起こし・採点が無い**(英検二次対策ができない)
-- [ ] **Vocab に学習画面が無い**(登録のみ)
-- [ ] **Reading に設問が無い**(読みっぱなしで理解度を測れない)
+- [ ] **Speaking の AI 採点が無い**(出題・録音・模範解答は実装済み。文字起こし+Gemini 採点が次の候補)
+- [ ] **間違えた問題の復習機能が無い**(解答記録は grammar_records / practice_records に保存済み)
 - [ ] **MyPage にライティング以外の履歴が無い**(Grammar / Reading の履歴 API は実装済み、リスニングは記録のみで API 未実装)
 - [ ] **Gemini 呼び出しクラスが3つ重複**(`GeminiApiClient` / `GrammarApiClient` / `ReadingApiClient`)。共通化する
 - [ ] **テストがコンテキスト起動のみ**: 採点ロジック・認可ルールのテストを追加する

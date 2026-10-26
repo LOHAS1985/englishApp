@@ -1,6 +1,6 @@
 package com.example.backend.grammar;
 
-import com.example.backend.grammar.GrammarQuestionBank.BankQuestion;
+import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
 import com.example.backend.grammar.dto.GrammarChoice;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
@@ -14,15 +14,15 @@ class GrammarQuestionBankTests {
 
   private final GrammarQuestionBank bank = new GrammarQuestionBank(JsonMapper.builder().build());
 
-  GrammarQuestionBankTests() throws Exception {
+  GrammarQuestionBankTests() {
   }
 
   @Test
   void everyQuestionIsWellFormed() {
-    List<BankQuestion> all = bank.all();
+    List<ChoiceQuestion> all = bank.all();
     assertThat(all).isNotEmpty();
 
-    for (BankQuestion q : all) {
+    for (ChoiceQuestion q : all) {
       assertThat(q.id()).as("id").matches("g\\d{4}");
       assertThat(q.sentence()).as(q.id() + " sentence").contains("-------");
       assertThat(q.choices()).as(q.id() + " choices")

@@ -46,6 +46,10 @@ public class SecurityConfig {
             .requestMatchers("/api/grammar/question").permitAll()
             .requestMatchers("/api/reading/articles").permitAll()
             .requestMatchers("/api/reading/article").permitAll()
+            // 問題集からの出題は AI を使わないので未ログインでも試せる(採点・記録はログイン必須)
+            .requestMatchers(HttpMethod.GET, "/api/vocab/question").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/reading/practice", "/api/reading/practice/types").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/speaking/question").permitAll()
             // /api/listening/** は音声合成(CPU負荷)と Gemini 無料枠を消費するためログイン必須
             .requestMatchers("/audio/**").permitAll()
             .requestMatchers("/health").permitAll()

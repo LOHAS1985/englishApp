@@ -2,35 +2,17 @@ package com.example.backend.writing.dto;
 
 import java.util.List;
 
-public class WritingQuestion {
-
-  private String prompt;
-
-  private String topic;
-
-  private List<String> points;
-
-  public String getPrompt() {
-    return prompt;
-  }
-
-  public void setPrompt(String prompt) {
-    this.prompt = prompt;
-  }
-
-  public String getTopic() {
-    return topic;
-  }
-
-  public void setTopic(String topic) {
-    this.topic = topic;
-  }
-
-  public List<String> getPoints() {
-    return points;
-  }
-
-  public void setPoints(List<String> points) {
-    this.points = points;
-  }
+/**
+ * 画面に渡すお題。
+ * prompt は指示文、passage は要約問題の本文(意見論述では null)、points は意見論述の観点(要約では空)
+ */
+public record WritingQuestion(
+    String id,
+    String type,
+    String prompt,
+    String topic,
+    List<String> points,
+    String passage,
+    int minWords,
+    int maxWords) {
 }

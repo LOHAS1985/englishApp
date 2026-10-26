@@ -27,8 +27,8 @@ public class WritingController {
   }
 
   @GetMapping("/question")
-  public WritingQuestion getQuestion() {
-    return geminiService.generateWritingQuestion();
+  public WritingQuestion getQuestion(@RequestParam(required = false) String type) {
+    return geminiService.generateWritingQuestion(type);
   }
 
   @PostMapping("/score")

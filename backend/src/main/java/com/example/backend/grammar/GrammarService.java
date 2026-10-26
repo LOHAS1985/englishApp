@@ -1,7 +1,7 @@
 package com.example.backend.grammar;
 
 import com.example.backend.config.CurrentUserProvider;
-import com.example.backend.grammar.GrammarQuestionBank.BankQuestion;
+import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
 import com.example.backend.grammar.dto.GrammarAnswerResult;
 import com.example.backend.grammar.dto.GrammarChoice;
@@ -27,12 +27,12 @@ public class GrammarService {
   }
 
   public GrammarQuestion generateQuestion() {
-    BankQuestion q = questionBank.random();
+    ChoiceQuestion q = questionBank.random();
     return new GrammarQuestion(q.id(), q.sentence(), q.choices());
   }
 
   public GrammarAnswerResult answer(GrammarAnswerRequest request) {
-    BankQuestion q = questionBank.findById(request.getQuestionId())
+    ChoiceQuestion q = questionBank.findById(request.getQuestionId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
 
     boolean isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());

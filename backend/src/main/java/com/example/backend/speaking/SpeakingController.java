@@ -1,6 +1,7 @@
 package com.example.backend.speaking;
 
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.speaking.SpeakingQuestionBank.SpeakingSet;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,10 +15,19 @@ public class SpeakingController {
 
   private final RecordingService recordingService;
   private final CurrentUserProvider currentUserProvider;
+  private final SpeakingQuestionBank questionBank;
 
-  public SpeakingController(RecordingService recordingService, CurrentUserProvider currentUserProvider) {
+  public SpeakingController(RecordingService recordingService, CurrentUserProvider currentUserProvider,
+      SpeakingQuestionBank questionBank) {
     this.recordingService = recordingService;
     this.currentUserProvider = currentUserProvider;
+    this.questionBank = questionBank;
+  }
+
+  /** 面接形式の問題を1セット返す。自己採点用に模範解答も含める */
+  @GetMapping("/question")
+  public SpeakingSet getQuestion() {
+    return questionBank.random();
   }
 
   @PostMapping("/recordings")
