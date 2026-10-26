@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface WritingRecordRepository extends JpaRepository<WritingRecord, Long> {
   List<WritingRecord> findByUserIdOrderByCreatedAtDesc(Long userId);
+
+  List<WritingRecord> findByUserIdOrderByIdDesc(Long userId);
 }

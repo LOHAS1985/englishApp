@@ -41,10 +41,19 @@ public class QuestionSetPractice {
 
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
+  private final QuestionSelector questionSelector;
 
-  public QuestionSetPractice(PracticeRecordRepository recordRepository, CurrentUserProvider currentUserProvider) {
+  public QuestionSetPractice(PracticeRecordRepository recordRepository, CurrentUserProvider currentUserProvider,
+      QuestionSelector questionSelector) {
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
+    this.questionSelector = questionSelector;
+  }
+
+  /** 解答履歴をもとに次のセットを選ぶ。exclude は画面に表示中のセットの ID */
+  public QuestionSetView next(QuestionSetBank bank, String feature, String type, String exclude) {
+    String id = questionSelector.pick(feature, bank.ids(type), exclude);
+    return toView(bank.findById(id).orElseThrow());
   }
 
   public QuestionSetView toView(QuestionSet set) {
@@ -54,13 +63,12 @@ public class QuestionSetPractice {
     return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), questions);
   }
 
-  /** 採点し、ログイン中なら設問ごとに記録を保存する */
+  /** 採点し、設問ごとに記録を保存する */
   public SetAnswerResult grade(QuestionSetBank bank, String feature, SetAnswerRequest request) {
     QuestionSet set = bank.findById(request.setId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
     List<String> answers = request.answers() == null ? List.of() : request.answers();
-    // 記録はログイン中のみ保存する(未ログインでも採点結果は返す)
-    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
+    Long userId = currentUserProvider.getCurrentUserId();
 
     List<SetQuestionResult> results = new ArrayList<>();
     int score = 0;
@@ -71,8 +79,7 @@ public class QuestionSetPractice {
       if (correct)
         score++;
       results.add(new SetQuestionResult(correct, selected, q.answer(), q.explanation()));
-      if (userId != null)
-        recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
+      recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
             selected.isEmpty() ? null : selected, correct));
     }
     return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());

@@ -38,8 +38,9 @@ public class ListeningController {
   }
 
   @GetMapping
-  public QuestionSetView getSet(@RequestParam(required = false) String type) {
-    return practice.toView(questionBank.random(type));
+  public QuestionSetView getSet(@RequestParam(required = false) String type,
+      @RequestParam(required = false) String exclude) {
+    return practice.next(questionBank, "listening", type, exclude);
   }
 
   /** セットの台本を音声化して URL を返す。同じ台本は2回目以降キャッシュから返る */

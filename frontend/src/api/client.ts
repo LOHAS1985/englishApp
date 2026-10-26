@@ -1,8 +1,8 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
-// ログインは任意。トークンがあるときだけ送り、サーバー側で記録を保存させる
-const authHeaders = (token?: string | null): Record<string, string> =>
-  token ? { Authorization: `Bearer ${token}` } : {};
+/** 画面に表示中の問題を exclude で渡し、次の問題(先読み)で同じ問題が選ばれないようにする */
+const excludeParam = (exclude?: string | null) =>
+  exclude ? `exclude=${encodeURIComponent(exclude)}` : "";
 
 export type WritingType = "opinion" | "summary";
 
@@ -17,8 +17,10 @@ export interface WritingQuestion {
   maxWords: number;
 }
 
-export async function fetchWritingQuestion(type: WritingType) {
-  const res = await fetch(`${API_BASE}/api/writing/question?type=${type}`);
+export async function fetchWritingQuestion(type: WritingType, exclude?: string | null) {
+  const res = await fetch(
+    `${API_BASE}/api/writing/question?type=${type}&${excludeParam(exclude)}`,
+  );
   if (!res.ok) throw new Error("Failed to fetch question");
   return res.json() as Promise<WritingQuestion>;
 }
@@ -38,41 +40,17 @@ export interface ScoreResult {
 
 export async function scoreWritingAnswer(
   questionId: string,
-  answer: string,
-  token?: string | null,
+  answer: string
 ) {
   const res = await fetch(`${API_BASE}/api/writing/score`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, answer }),
   });
   if (!res.ok) throw new Error("Failed to score answer");
   return res.json() as Promise<ScoreResult>;
-}
-
-export async function register(username: string, password: string) {
-  const res = await fetch(`${API_BASE}/api/auth/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password }),
-  });
-  if (!res.ok)
-    throw new Error((await res.json()).message ?? "登録に失敗しました");
-  return res.json() as Promise<{ token: string; username: string }>;
-}
-
-export async function login(username: string, password: string) {
-  const res = await fetch(`${API_BASE}/api/auth/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password }),
-  });
-  if (!res.ok)
-    throw new Error((await res.json()).message ?? "ログインに失敗しました");
-  return res.json() as Promise<{ token: string; username: string }>;
 }
 
 export interface WritingHistoryItem {
@@ -93,10 +71,8 @@ export interface WritingHistoryItem {
   createdAt: string;
 }
 
-export async function fetchWritingHistory(token?: string | null) {
-  const res = await fetch(`${API_BASE}/api/writing/history`, {
-    headers: authHeaders(token),
-  });
+export async function fetchWritingHistory() {
+  const res = await fetch(`${API_BASE}/api/writing/history`);
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<WritingHistoryItem[]>;
 }
@@ -119,22 +95,20 @@ export interface GrammarAnswerResult {
   translation: string;
 }
 
-export async function fetchGrammarQuestion() {
-  const res = await fetch(`${API_BASE}/api/grammar/question`);
+export async function fetchGrammarQuestion(exclude?: string | null) {
+  const res = await fetch(`${API_BASE}/api/grammar/question?${excludeParam(exclude)}`);
   if (!res.ok) throw new Error("Failed to fetch grammar question");
   return res.json() as Promise<GrammarQuestion>;
 }
 
 export async function submitGrammarAnswer(
   questionId: string,
-  selectedChoice: string,
-  token?: string | null,
+  selectedChoice: string
 ) {
   const res = await fetch(`${API_BASE}/api/grammar/answer`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, selectedChoice }),
   });
@@ -143,22 +117,20 @@ export async function submitGrammarAnswer(
 }
 
 // 語彙問題(形は文法問題と同じ)
-export async function fetchVocabQuestion() {
-  const res = await fetch(`${API_BASE}/api/vocab/question`);
+export async function fetchVocabQuestion(exclude?: string | null) {
+  const res = await fetch(`${API_BASE}/api/vocab/question?${excludeParam(exclude)}`);
   if (!res.ok) throw new Error("Failed to fetch vocab question");
   return res.json() as Promise<GrammarQuestion>;
 }
 
 export async function submitVocabAnswer(
   questionId: string,
-  selectedChoice: string,
-  token?: string | null,
+  selectedChoice: string
 ) {
   const res = await fetch(`${API_BASE}/api/vocab/answer`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, selectedChoice }),
   });
@@ -181,10 +153,8 @@ export interface GrammarHistoryItem {
   createdAt: string;
 }
 
-export async function fetchGrammarHistory(token?: string | null) {
-  const res = await fetch(`${API_BASE}/api/grammar/history`, {
-    headers: authHeaders(token),
-  });
+export async function fetchGrammarHistory() {
+  const res = await fetch(`${API_BASE}/api/grammar/history`);
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<GrammarHistoryItem[]>;
 }
@@ -245,14 +215,12 @@ export async function recordReading(
   articleId: string,
   articleTitle: string,
   wordCount: number,
-  durationSeconds: number,
-  token?: string | null,
+  durationSeconds: number
 ) {
   const res = await fetch(`${API_BASE}/api/reading/record`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...authHeaders(token),
     },
     body: JSON.stringify({
       articleId,
@@ -297,13 +265,8 @@ export interface SetAnswerResult {
 
 type PracticeFeature = "reading" | "listening";
 
-export async function fetchPracticeTypes(
-  feature: PracticeFeature,
-  token?: string | null,
-) {
-  const res = await fetch(`${API_BASE}/api/${feature}/practice/types`, {
-    headers: authHeaders(token),
-  });
+export async function fetchPracticeTypes(feature: PracticeFeature) {
+  const res = await fetch(`${API_BASE}/api/${feature}/practice/types`);
   if (!res.ok) throw new Error("形式の取得に失敗しました");
   return res.json() as Promise<Record<string, number>>;
 }
@@ -311,11 +274,10 @@ export async function fetchPracticeTypes(
 export async function fetchPracticeSet(
   feature: PracticeFeature,
   type: string,
-  token?: string | null,
+  exclude?: string | null,
 ) {
   const res = await fetch(
-    `${API_BASE}/api/${feature}/practice?type=${encodeURIComponent(type)}`,
-    { headers: authHeaders(token) },
+    `${API_BASE}/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}`,
   );
   if (!res.ok) throw new Error("問題の取得に失敗しました");
   return res.json() as Promise<QuestionSetView>;
@@ -325,11 +287,10 @@ export async function submitPracticeAnswers(
   feature: PracticeFeature,
   setId: string,
   answers: string[],
-  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/${feature}/practice/answer`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", ...authHeaders(token) },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ setId, answers }),
   });
   if (!res.ok) throw new Error("採点に失敗しました");
@@ -337,20 +298,18 @@ export async function submitPracticeAnswers(
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
-export async function synthesizeListeningAudio(setId: string, token?: string | null) {
+export async function synthesizeListeningAudio(setId: string) {
   const res = await fetch(`${API_BASE}/api/listening/practice/${setId}/audio`, {
     method: "POST",
-    headers: authHeaders(token),
   });
   if (!res.ok) throw new Error("音声の生成に失敗しました");
   return res.json() as Promise<{ audioUrl?: string; audioUrls?: string[] }>;
 }
 
 /** ブラウザの読み上げ機能で再生するための台本(画面には表示しない) */
-export async function fetchListeningScript(setId: string, token?: string | null) {
+export async function fetchListeningScript(setId: string) {
   const res = await fetch(
     `${API_BASE}/api/listening/practice/${setId}/script`,
-    { headers: authHeaders(token) },
   );
   if (!res.ok) throw new Error("台本の取得に失敗しました");
   return (await res.json()).script as string;
@@ -378,8 +337,8 @@ export interface SpeakingSet {
   questions: InterviewQuestion[];
 }
 
-export async function fetchSpeakingSet() {
-  const res = await fetch(`${API_BASE}/api/speaking/question`);
+export async function fetchSpeakingSet(exclude?: string | null) {
+  const res = await fetch(`${API_BASE}/api/speaking/question?${excludeParam(exclude)}`);
   if (!res.ok) throw new Error("問題の取得に失敗しました");
   return res.json() as Promise<SpeakingSet>;
 }

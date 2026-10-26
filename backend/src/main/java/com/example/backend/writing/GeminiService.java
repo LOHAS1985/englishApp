@@ -1,5 +1,6 @@
 package com.example.backend.writing;
 
+import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.writing.WritingPromptBank.WritingPrompt;
 import com.example.backend.writing.dto.ScoreRequest;
@@ -16,20 +17,24 @@ public class GeminiService {
   private final GeminiApiClient geminiApiClient;
   private final WritingRecordRepository writingRecordRepository;
   private final CurrentUserProvider currentUserProvider;
+  private final QuestionSelector questionSelector;
   private final WritingPromptBank promptBank;
 
   public GeminiService(GeminiApiClient geminiApiClient,
       WritingRecordRepository writingRecordRepository,
       CurrentUserProvider currentUserProvider,
-      WritingPromptBank promptBank) {
+      WritingPromptBank promptBank,
+      QuestionSelector questionSelector) {
+    this.questionSelector = questionSelector;
     this.geminiApiClient = geminiApiClient;
     this.writingRecordRepository = writingRecordRepository;
     this.currentUserProvider = currentUserProvider;
     this.promptBank = promptBank;
   }
 
-  public WritingQuestion generateWritingQuestion(String type) {
-    WritingPrompt p = promptBank.random(type);
+  public WritingQuestion generateWritingQuestion(String type, String exclude) {
+    String id = questionSelector.pick("writing", promptBank.ids(type), exclude);
+    WritingPrompt p = promptBank.findById(id).orElseThrow();
     return new WritingQuestion(p.id(), p.type(), p.instruction(), p.topic(),
         p.points() == null ? List.of() : p.points(), p.passage(), p.minWords(), p.maxWords());
   }
@@ -127,13 +132,9 @@ public class GeminiService {
       each an object with "score" (integer 0-4) and "feedback" (Japanese string).
       """;
 
-  /** 記録はログイン中のみ保存する(未ログインでも採点結果は返す) */
   private void saveRecord(WritingPrompt p, String answer, ScoreResult result) {
-    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
-    if (userId == null)
-      return;
     WritingRecord record = new WritingRecord();
-    record.setUserId(userId);
+    record.setUserId(currentUserProvider.getCurrentUserId());
     record.setTopic(p.topic());
     record.setPrompt(p.isSummary() ? "summary:" + p.id() : "opinion:" + p.id());
     record.setPoints(WritingRecord.joinPoints(p.points() == null ? List.of() : p.points()));

@@ -9,7 +9,7 @@ import tools.jackson.databind.json.JsonMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Optional;
 
 /**
  * 英検準1級 二次試験(面接)形式の問題集(resources/questions/speaking/*.json)。
@@ -40,20 +40,25 @@ public class SpeakingQuestionBank {
       List<InterviewQuestion> questions) {
   }
 
+  private final Map<String, SpeakingSet> byId;
   private final List<SpeakingSet> all;
 
   public SpeakingQuestionBank(JsonMapper jsonMapper) {
-    Map<String, SpeakingSet> byId = QuestionBankLoader.load(jsonMapper, "speaking", SpeakingSet[].class,
-        SpeakingSet::id);
+    this.byId = QuestionBankLoader.load(jsonMapper, "speaking", SpeakingSet[].class, SpeakingSet::id);
     this.all = new ArrayList<>(byId.values());
     logger.info("speaking question bank loaded: {} sets", all.size());
   }
 
-  public SpeakingSet random() {
+  /** 出題候補の ID(どれを出すかは QuestionSelector が出題記録から決める) */
+  public List<String> ids() {
     if (all.isEmpty()) {
       throw new IllegalArgumentException("スピーキングの問題がまだ登録されていません");
     }
-    return all.get(ThreadLocalRandom.current().nextInt(all.size()));
+    return all.stream().map(SpeakingSet::id).toList();
+  }
+
+  public Optional<SpeakingSet> findById(String id) {
+    return Optional.ofNullable(byId.get(id));
   }
 
   public List<SpeakingSet> all() {

@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface GrammarRecordRepository extends JpaRepository<GrammarRecord, Long> {
   List<GrammarRecord> findByUserIdOrderByCreatedAtDesc(Long userId);
+
+  List<GrammarRecord> findByUserIdOrderByIdDesc(Long userId);
 }

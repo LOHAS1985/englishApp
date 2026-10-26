@@ -1,30 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
-import { useAuth } from "../shared/context/useAuth";
 import Header from "../shared/components/Header";
 
 export default function MyPage() {
-  const { token, username, logout } = useAuth();
   const navigate = useNavigate();
   const [items, setItems] = useState<WritingHistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [openId, setOpenId] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
-    fetchWritingHistory(token)
+    fetchWritingHistory()
       .then(setItems)
+      .catch(() => setItems([]))
       .finally(() => setLoading(false));
-  }, [token, navigate]);
-
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
+  }, []);
 
   if (loading) {
     return (
@@ -43,9 +33,7 @@ export default function MyPage() {
             <p className="font-mono text-xs font-semibold tracking-widest text-slate-400">
               MY PAGE
             </p>
-            <h1 className="font-serif text-2xl text-slate-900">
-              {username} のマイページ
-            </h1>
+            <h1 className="font-serif text-2xl text-slate-900">学習記録</h1>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -53,12 +41,6 @@ export default function MyPage() {
               className="text-sm font-semibold text-[#0f1724] bg-[#f59e0b] rounded px-4 py-2 hover:bg-[#d97706] transition-colors"
             >
               管理画面
-            </button>
-            <button
-              onClick={handleLogout}
-              className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2 hover:bg-[#7a9843] transition-colors"
-            >
-              ログアウト
             </button>
           </div>
         </div>

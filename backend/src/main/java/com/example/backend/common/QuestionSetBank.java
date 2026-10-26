@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 文章(またはリスニングのスクリプト)1つに複数の設問が付くセット問題の問題集。
@@ -50,15 +49,16 @@ public class QuestionSetBank {
     logger.info("{} question set bank loaded: {} sets", feature, all.size());
   }
 
-  /** type を指定するとその形式だけから選ぶ(null なら全形式から) */
-  public QuestionSet random(String type) {
-    List<QuestionSet> candidates = type == null || type.isBlank()
-        ? all
-        : all.stream().filter(s -> s.type().equals(type)).toList();
-    if (candidates.isEmpty()) {
+  /** 出題候補の ID。type を指定するとその形式だけ(null なら全形式) */
+  public List<String> ids(String type) {
+    List<String> ids = all.stream()
+        .filter(s -> type == null || type.isBlank() || s.type().equals(type))
+        .map(QuestionSet::id)
+        .toList();
+    if (ids.isEmpty()) {
       throw new IllegalArgumentException("この形式の問題はまだ登録されていません: " + type);
     }
-    return candidates.get(ThreadLocalRandom.current().nextInt(candidates.size()));
+    return ids;
   }
 
   public Optional<QuestionSet> findById(String id) {

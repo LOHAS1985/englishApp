@@ -1,18 +1,34 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
-import { useAuth } from "../context/useAuth";
+import { LETTERS, shuffle } from "../shuffle";
 import Header from "./Header";
+
+/** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
+interface DisplayChoice {
+  label: string;
+  text: string;
+  original: string;
+}
+
+/** 正解の位置を覚えてしまわないよう、選択肢を毎回並べ替えて A〜D を振り直す */
+function toDisplayChoices(question: GrammarQuestion): DisplayChoice[] {
+  return shuffle(question.choices).map((c, i) => ({
+    label: LETTERS[i],
+    text: c.text,
+    original: c.label,
+  }));
+}
 
 interface ChoiceQuizProps {
   /** 画面上部の小見出し(例: TOEIC GRAMMAR) */
   eyebrow: string;
   title: string;
-  fetchQuestion: () => Promise<GrammarQuestion>;
+  /** exclude: 画面に表示中の問題の ID(先読みで同じ問題を選ばせない) */
+  fetchQuestion: (exclude?: string | null) => Promise<GrammarQuestion>;
   submitAnswer: (
     questionId: string,
     selectedChoice: string,
-    token?: string | null,
   ) => Promise<GrammarAnswerResult>;
 }
 
@@ -23,10 +39,10 @@ export default function ChoiceQuiz({
   fetchQuestion,
   submitAnswer,
 }: ChoiceQuizProps) {
-  const { token } = useAuth();
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState<GrammarQuestion | null>(null);
+  const [choices, setChoices] = useState<DisplayChoice[]>([]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
@@ -36,14 +52,11 @@ export default function ChoiceQuiz({
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
 
-  const prefetchNext = () => {
-    prefetchRef.current = fetchQuestion().catch(() => null);
-  };
-
   const showQuestion = (data: GrammarQuestion) => {
     setQuestion(data);
+    setChoices(toDisplayChoices(data));
     setQuestionNumber((n) => n + 1);
-    prefetchNext();
+    prefetchRef.current = fetchQuestion(data.id).catch(() => null);
   };
 
   const loadQuestion = async () => {
@@ -54,7 +67,7 @@ export default function ChoiceQuiz({
     try {
       const prefetched = prefetchRef.current ? await prefetchRef.current : null;
       prefetchRef.current = null;
-      showQuestion(prefetched ?? (await fetchQuestion()));
+      showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
     } catch {
       alert("出題に失敗しました");
     } finally {
@@ -71,8 +84,9 @@ export default function ChoiceQuiz({
         const data = await fetchQuestion();
         if (!cancelled) {
           setQuestion(data);
+          setChoices(toDisplayChoices(data));
           setQuestionNumber((n) => n + 1);
-          prefetchRef.current = fetchQuestion().catch(() => null);
+          prefetchRef.current = fetchQuestion(data.id).catch(() => null);
         }
       } catch {
         if (!cancelled) alert("出題に失敗しました");
@@ -88,12 +102,12 @@ export default function ChoiceQuiz({
     };
   }, [fetchQuestion]);
 
-  const handleSelect = async (label: string) => {
+  const handleSelect = async (choice: DisplayChoice) => {
     if (!question || result) return;
-    setSelected(label);
+    setSelected(choice.label);
     setSubmitting(true);
     try {
-      const data = await submitAnswer(question.id, label, token);
+      const data = await submitAnswer(question.id, choice.original);
       setResult(data);
     } catch {
       alert("採点に失敗しました");
@@ -101,6 +115,11 @@ export default function ChoiceQuiz({
       setSubmitting(false);
     }
   };
+
+  // 正解は元の記号で返るので、画面上の記号に読み替える
+  const correctLabel = result
+    ? choices.find((c) => c.original === result.correctChoice)?.label
+    : undefined;
 
   const handleFinish = () => {
     navigate("/");
@@ -134,10 +153,9 @@ export default function ChoiceQuiz({
               </p>
 
               <div className="space-y-2">
-                {question.choices.map((choice) => {
+                {choices.map((choice) => {
                   const isSelected = selected === choice.label;
-                  const isCorrectChoice =
-                    result?.correctChoice === choice.label;
+                  const isCorrectChoice = correctLabel === choice.label;
 
                   let style = "border-slate-200 hover:border-[#8fae4e]";
                   if (result) {
@@ -153,7 +171,7 @@ export default function ChoiceQuiz({
                   return (
                     <button
                       key={choice.label}
-                      onClick={() => handleSelect(choice.label)}
+                      onClick={() => handleSelect(choice)}
                       disabled={!!result || submitting}
                       className={`w-full text-left border rounded px-4 py-3 text-sm transition-colors ${style}`}
                     >
@@ -175,7 +193,7 @@ export default function ChoiceQuiz({
                   >
                     {result.correct
                       ? "正解です"
-                      : `不正解です(正解: ${result.correctChoice})`}
+                      : `不正解です(正解: ${correctLabel})`}
                   </p>
                   <p className="text-sm text-slate-600 leading-relaxed mb-3">
                     {result.explanation}

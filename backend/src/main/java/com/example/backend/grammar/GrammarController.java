@@ -1,7 +1,6 @@
 package com.example.backend.grammar;
 
 import com.example.backend.config.CurrentUserProvider;
-import com.example.backend.user.User;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
 import com.example.backend.grammar.dto.GrammarAnswerResult;
 import com.example.backend.grammar.dto.GrammarHistoryItem;
@@ -27,8 +26,8 @@ public class GrammarController {
   }
 
   @GetMapping("/question")
-  public GrammarQuestion getQuestion() {
-    return grammarService.generateQuestion();
+  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude) {
+    return grammarService.generateQuestion(exclude);
   }
 
   @PostMapping("/answer")
@@ -38,10 +37,7 @@ public class GrammarController {
 
   @GetMapping("/history")
   public List<GrammarHistoryItem> getHistory() {
-    User user = currentUserProvider.findCurrentUser().orElse(null);
-    if (user == null)
-      return List.of();
-    return grammarRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
+    return grammarRecordRepository.findByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
         .stream()
         .map(GrammarHistoryItem::from)
         .toList();

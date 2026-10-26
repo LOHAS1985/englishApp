@@ -28,8 +28,9 @@ public class ReadingPracticeController {
   }
 
   @GetMapping
-  public QuestionSetView getSet(@RequestParam(required = false) String type) {
-    return practice.toView(questionBank.random(type));
+  public QuestionSetView getSet(@RequestParam(required = false) String type,
+      @RequestParam(required = false) String exclude) {
+    return practice.next(questionBank, "reading", type, exclude);
   }
 
   @PostMapping("/answer")

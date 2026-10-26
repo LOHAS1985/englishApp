@@ -51,10 +51,11 @@
 - **1回の学習は5〜10分で完結させる**: どの機能も1セット5〜10分で終わる単位で出題し、30分で複数技能を回せるようにする。途中でやめても記録が残るようにする。
 - **4技能を均等に回す**: 技能ごとの学習時間・回数を記録し、少ない技能を優先して出す。
 - **アウトプットには必ずフィードバックを返す**: ライティング・スピーキングは AI 採点+改善点+模範解答をセットで返す。採点観点は試験の公式観点に合わせる(英検ライティング: 内容・構成・語彙・文法 各4点)。
-- **学習記録はすべて保存する**: ログイン中の解答は `*Record` エンティティとして保存し、MyPage で振り返れるようにする。正誤・スコア・所要時間・日時を最低限持つ。
+- **学習記録はすべて保存する**: 解答は `*Record` エンティティとして保存し、MyPage で振り返れるようにする。正誤・スコア・所要時間・日時を最低限持つ。
 - **弱点の可視化と復習**: 間違えた問題・知らなかった単語は後から復習できる形で残す(将来的に間隔反復)。
+- **出題順**: `QuestionSelector` / `QuestionPicker` が解答記録から選ぶ。一巡するまで重複なし、最後に間違えた問題を約3割の確率で出し直す、直近5問と表示中の問題(`exclude`)は出さない。選択肢の並びは画面側で毎回シャッフルし、採点には元の記号を送る。
 - **試験と同じ制約で練習できる**: 語数カウント、制限時間、音声の再生回数制限など、本番と同じ条件を選べるようにする。
-- **ログインは任意**: 管理画面(`/api/admin/**`)以外の全機能をログインなしで使える。ログイン中(JWT あり)は解答・採点の記録を保存し、未ログインなら結果だけを返す(`CurrentUserProvider.findCurrentUser()` で判定)。
+- **ログインは設けない**: 利用者は本人1人だけなので、全 API をログインなしで使える。記録はすべて `CurrentUserProvider` が返す owner ユーザーに保存する(初回アクセス時に自動作成)。
 
 ## 3. 技術スタック
 
@@ -62,7 +63,7 @@
 
 - **モノレポ**: `frontend/`(React 19 + TypeScript + Vite + Tailwind CSS v4 + React Router 7)、`backend/`(Java 21 + Spring Boot 4 + Maven Wrapper)
 - **DB**: プロファイルで切り替える。`dev`(既定): H2 インメモリ + `ddl-auto=update` + Flyway 無効 / `prod`: `SPRING_DATASOURCE_URL` の DB + Flyway でスキーマ管理(`ddl-auto=none`)
-- **認証**: Spring Security + JWT(jjwt)。ロール `ADMIN` は `/api/admin/**` 用。それ以外の API はログインなしで利用可(ログイン時のみ記録を保存)
+- **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: Guardian(記事)、DeepL(翻訳)、Wordnik(辞書)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
@@ -78,7 +79,6 @@
 
 ```
 backend/src/main/java/com/example/backend/
-├── auth/        認証(Controller, Service, JwtService, dto/)
 ├── config/      Security, CORS, フィルタなど横断設定
 ├── user/        User エンティティ
 ├── writing/     ライティング
@@ -107,7 +107,7 @@ frontend/src/
 
 ### 共通
 - 既存コードの命名・書き方に合わせる。コメントは「なぜ」を書く(日本語可)。
-- 秘密情報(APIキー、JWT_SECRET、DBパスワード)はコード・properties にハードコードしない。必ず `${ENV_VAR}` 経由。
+- 秘密情報(APIキー、DBパスワード)はコード・properties にハードコードしない。必ず `${ENV_VAR}` 経由。
 - デバッグ用の一時的な緩和(例: `/api/admin/**` の permitAll、`show-sql`、Security の DEBUG ログ)は、入れたら同じ作業の中で戻す。残す場合は `TODO(security):` を付ける。
 
 ### Backend (Java / Spring Boot)
@@ -153,7 +153,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ./scripts/push.sh "修正内容の要約"
 ```
 
-ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `JWT_SECRET`, `GUARDIAN_API_KEY`, `DEEPL_AUTH_KEY`, `WORDNIK_API_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
+ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `GUARDIAN_API_KEY`, `DEEPL_AUTH_KEY`, `WORDNIK_API_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
 
 ## 8. 作業完了の定義
 
@@ -202,8 +202,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 
 ### 本人の作業が必要(コード外の設定)
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
-- [ ] **自分のアカウントに ADMIN ロールを付ける**: `/api/admin/**` は ADMIN 限定になった。Render に `ADMIN_REGISTRATION_SECRET` を設定し `POST /api/auth/register-admin`(ヘッダー `X-Admin-Secret`)で管理者を作るか、DB で `users.roles` を `ADMIN,USER` にする
-- [ ] **反映後に一度ログインし直す**: 古いトークンには roles が入っていないため
+- [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
 
 ### 対応済み(20261026)
 - [x] 録音アップロードにトークンを付与し、ログインユーザーに紐づけて保存(ファイル名も無害化)
@@ -215,11 +214,10 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在100問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
-- [ ] **新規登録が誰でもできる**: 自分専用なのに、URL を知っていれば誰でも登録して Gemini 枠を使える。自分の登録後は環境変数で登録を閉じられるようにする
+- [ ] **ログインが無いため、URL を知っていれば誰でも使える**: 記録の混入・Gemini 枠の消費・管理画面(`/api/admin/**`)の操作が可能。問題になったら、環境変数の合言葉をヘッダーで送る簡易な保護を入れる
 - [ ] **生成音声・録音が Render のディスクに保存されている**: 再デプロイで消える。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
-- [ ] **Writing / Grammar / Reading の出題は未ログインでも Gemini を呼べる**: 「未ログインでも試せる」方針(2章)とのトレードオフ。枠を使われるようならログイン必須にする
 - [ ] **Speaking の AI 採点が無い**(出題・録音・模範解答は実装済み。文字起こし+Gemini 採点が次の候補)
-- [ ] **間違えた問題の復習機能が無い**(解答記録は grammar_records / practice_records に保存済み)
+- [x] 出題順の改善(一巡するまで重複なし・選択肢のシャッフル・間違えた問題の優先)とログイン廃止(20261026)
 - [ ] **MyPage にライティング以外の履歴が無い**(Grammar / Reading の履歴 API は実装済み、リスニングは記録のみで API 未実装)
 - [ ] **Gemini 呼び出しクラスが3つ重複**(`GeminiApiClient` / `GrammarApiClient` / `ReadingApiClient`)。共通化する
 - [ ] **テストがコンテキスト起動のみ**: 採点ロジック・認可ルールのテストを追加する

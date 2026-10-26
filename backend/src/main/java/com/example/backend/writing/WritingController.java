@@ -1,7 +1,6 @@
 package com.example.backend.writing;
 
 import com.example.backend.config.CurrentUserProvider;
-import com.example.backend.user.User;
 import com.example.backend.writing.dto.ScoreRequest;
 import com.example.backend.writing.dto.ScoreResult;
 import com.example.backend.writing.dto.WritingHistoryItem;
@@ -27,8 +26,9 @@ public class WritingController {
   }
 
   @GetMapping("/question")
-  public WritingQuestion getQuestion(@RequestParam(required = false) String type) {
-    return geminiService.generateWritingQuestion(type);
+  public WritingQuestion getQuestion(@RequestParam(required = false) String type,
+      @RequestParam(required = false) String exclude) {
+    return geminiService.generateWritingQuestion(type, exclude);
   }
 
   @PostMapping("/score")
@@ -38,10 +38,7 @@ public class WritingController {
 
   @GetMapping("/history")
   public List<WritingHistoryItem> getHistory() {
-    User user = currentUserProvider.findCurrentUser().orElse(null);
-    if (user == null)
-      return List.of();
-    return writingRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
+    return writingRecordRepository.findByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
         .stream()
         .map(WritingHistoryItem::from)
         .toList();

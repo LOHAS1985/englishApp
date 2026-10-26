@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 /** 短文の空所に4択で答える問題(文法・語彙)の問題集 */
 public class ChoiceQuestionBank {
@@ -36,11 +35,9 @@ public class ChoiceQuestionBank {
     logger.info("{} question bank loaded: {} questions", feature, all.size());
   }
 
-  public ChoiceQuestion random() {
-    if (all.isEmpty()) {
-      throw new IllegalStateException("問題が登録されていません");
-    }
-    return all.get(ThreadLocalRandom.current().nextInt(all.size()));
+  /** 出題候補の ID(どれを出すかは QuestionSelector が解答履歴から決める) */
+  public List<String> ids() {
+    return all.stream().map(ChoiceQuestion::id).toList();
   }
 
   public Optional<ChoiceQuestion> findById(String id) {

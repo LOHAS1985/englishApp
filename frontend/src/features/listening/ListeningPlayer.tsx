@@ -4,14 +4,12 @@ import {
   synthesizeListeningAudio,
   toAbsoluteApiUrl,
 } from "../../api/client";
-import { useAuth } from "../../shared/context/useAuth";
 
 /**
  * リスニングの音声再生。サーバーで台本を音声化して再生し、
  * 失敗したときはブラウザの読み上げ機能(Web Speech API)で台本を読み上げる。
  */
 export default function ListeningPlayer({ setId }: { setId: string }) {
-  const { token } = useAuth();
   const [urls, setUrls] = useState<string[] | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "playing" | "browser" | "error">("idle");
   const [playCount, setPlayCount] = useState(0);
@@ -48,7 +46,7 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
       setStatus("error");
       return;
     }
-    const script = await fetchListeningScript(setId, token);
+    const script = await fetchListeningScript(setId);
     const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
     const voiceFor = (speaker: string) =>
       voices.length === 0
@@ -80,7 +78,7 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
     }
     setStatus("loading");
     try {
-      const res = await synthesizeListeningAudio(setId, token);
+      const res = await synthesizeListeningAudio(setId);
       const list = (res.audioUrls ?? (res.audioUrl ? [res.audioUrl] : [])).map(toAbsoluteApiUrl);
       if (list.length === 0) throw new Error("no audio");
       setUrls(list);

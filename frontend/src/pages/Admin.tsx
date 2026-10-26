@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../shared/context/useAuth";
 
 interface AdminWord {
   id: number;
@@ -27,7 +26,6 @@ export default function Admin() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<WordForm | null>(null);
   const [loading, setLoading] = useState(false);
-  const { token } = useAuth();
 
   const submitWord = async () => {
     if (!word || word.trim() === "") return alert("単語を入力してください");
@@ -39,7 +37,6 @@ export default function Admin() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
           body: JSON.stringify({
             word: word.trim(),
@@ -75,7 +72,6 @@ export default function Admin() {
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
         {
-          headers: token ? { Authorization: `Bearer ${token}` } : {},
         },
       );
       if (!res.ok) throw new Error(String(res.status));
@@ -111,7 +107,6 @@ export default function Admin() {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
           body: JSON.stringify(editForm),
         },
@@ -146,7 +141,6 @@ export default function Admin() {
         `${import.meta.env.VITE_API_BASE_URL}/api/admin/words/${selectedWord.id}`,
         {
           method: "DELETE",
-          headers: token ? { Authorization: `Bearer ${token}` } : {},
         },
       );
       if (!res.ok) throw new Error(String(res.status));

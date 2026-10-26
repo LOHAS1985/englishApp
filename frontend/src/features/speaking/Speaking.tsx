@@ -77,12 +77,18 @@ export default function Speaking() {
   const [prepLeft, setPrepLeft] = useState<number | null>(null);
   const [shown, setShown] = useState<Record<string, boolean>>({});
 
+  // 「次の問題」で表示中のセットが選ばれないよう、表示中の ID を覚えておく
+  const currentIdRef = useRef<string | null>(null);
+  useEffect(() => {
+    currentIdRef.current = set?.id ?? null;
+  }, [set]);
+
   const load = useCallback(async () => {
     setLoading(true);
     setShown({});
     setPrepLeft(null);
     try {
-      setSet(await fetchSpeakingSet());
+      setSet(await fetchSpeakingSet(currentIdRef.current));
     } catch {
       setSet(null);
     } finally {

@@ -1,5 +1,6 @@
 package com.example.backend.grammar;
 
+import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
@@ -17,17 +18,22 @@ public class GrammarService {
   private final GrammarQuestionBank questionBank;
   private final GrammarRecordRepository grammarRecordRepository;
   private final CurrentUserProvider currentUserProvider;
+  private final QuestionSelector questionSelector;
 
   public GrammarService(GrammarQuestionBank questionBank,
       GrammarRecordRepository grammarRecordRepository,
-      CurrentUserProvider currentUserProvider) {
+      CurrentUserProvider currentUserProvider,
+      QuestionSelector questionSelector) {
     this.questionBank = questionBank;
     this.grammarRecordRepository = grammarRecordRepository;
     this.currentUserProvider = currentUserProvider;
+    this.questionSelector = questionSelector;
   }
 
-  public GrammarQuestion generateQuestion() {
-    ChoiceQuestion q = questionBank.random();
+  /** @param exclude 画面に表示中の問題の ID(先読みで同じ問題を選ばないため) */
+  public GrammarQuestion generateQuestion(String exclude) {
+    String id = questionSelector.pick("grammar", questionBank.ids(), exclude);
+    ChoiceQuestion q = questionBank.findById(id).orElseThrow();
     return new GrammarQuestion(q.id(), q.sentence(), q.choices());
   }
 
@@ -37,10 +43,8 @@ public class GrammarService {
 
     boolean isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());
 
-    // 記録はログイン中のみ保存する(未ログインでも採点結果は返す)
-    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
     GrammarRecord record = new GrammarRecord();
-    record.setUserId(userId);
+    record.setUserId(currentUserProvider.getCurrentUserId());
     record.setQuestionId(q.id());
     record.setSentence(q.sentence());
     record.setChoiceA(textFor(q.choices(), "A"));
@@ -52,8 +56,7 @@ public class GrammarService {
     record.setCorrect(isCorrect);
     record.setExplanation(q.explanation());
     record.setTranslation(q.translation());
-    if (userId != null)
-      grammarRecordRepository.save(record);
+    grammarRecordRepository.save(record);
 
     return new GrammarAnswerResult(isCorrect, q.answer(), q.explanation(), q.translation());
   }

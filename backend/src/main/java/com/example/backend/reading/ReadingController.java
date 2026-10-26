@@ -8,7 +8,6 @@ import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.reading.dto.ReadingHistoryItem;
 import com.example.backend.reading.dto.ReadingRecordRequest;
 import com.example.backend.reading.dto.ReadingRecordResult;
-import com.example.backend.user.User;
 import java.util.List;
 
 @RestController
@@ -51,31 +50,25 @@ public class ReadingController {
 
   @PostMapping("/record")
   public ReadingRecordResult recordReading(@RequestBody ReadingRecordRequest request) {
-    User user = currentUserProvider.findCurrentUser().orElse(null);
-
     int wpm = request.getDurationSeconds() > 0
         ? (int) Math.round(request.getWordCount() / (request.getDurationSeconds() / 60.0))
         : 0;
 
     ReadingRecord record = new ReadingRecord();
-    record.setUserId(user == null ? null : user.getId());
+    record.setUserId(currentUserProvider.getCurrentUserId());
     record.setArticleId(request.getArticleId());
     record.setArticleTitle(request.getArticleTitle());
     record.setWordCount(request.getWordCount());
     record.setDurationSeconds(request.getDurationSeconds());
     record.setWpm(wpm);
-    if (user != null)
-      readingRecordRepository.save(record);
+    readingRecordRepository.save(record);
 
     return new ReadingRecordResult(request.getWordCount(), request.getDurationSeconds(), wpm);
   }
 
   @GetMapping("/history")
   public List<ReadingHistoryItem> getHistory() {
-    User user = currentUserProvider.findCurrentUser().orElse(null);
-    if (user == null)
-      return List.of();
-    return readingRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
+    return readingRecordRepository.findByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
         .stream()
         .map(ReadingHistoryItem::from)
         .toList();

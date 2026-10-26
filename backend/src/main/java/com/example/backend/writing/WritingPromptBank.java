@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 英検準1級ライティングのお題集(resources/questions/writing/*.json)。
@@ -54,14 +53,16 @@ public class WritingPromptBank {
     logger.info("writing prompt bank loaded: {} prompts", all.size());
   }
 
-  public WritingPrompt random(String type) {
-    List<WritingPrompt> candidates = type == null || type.isBlank()
-        ? all
-        : all.stream().filter(p -> p.type().equals(type)).toList();
-    if (candidates.isEmpty()) {
+  /** 出題候補の ID。type を指定するとその形式だけ(null なら全形式) */
+  public List<String> ids(String type) {
+    List<String> ids = all.stream()
+        .filter(p -> type == null || type.isBlank() || p.type().equals(type))
+        .map(WritingPrompt::id)
+        .toList();
+    if (ids.isEmpty()) {
       throw new IllegalArgumentException("この形式のお題はまだ登録されていません: " + type);
     }
-    return candidates.get(ThreadLocalRandom.current().nextInt(candidates.size()));
+    return ids;
   }
 
   public Optional<WritingPrompt> findById(String id) {

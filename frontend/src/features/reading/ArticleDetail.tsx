@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { fetchArticleDetail, recordReading, type ArticleDetail as ArticleDetailType, type ReadingRecordResult } from "../../api/client";
-import { useAuth } from "../../shared/context/useAuth";
 import Header from "../../shared/components/Header";
 import HighlightedBody from "./HighlightedBody";
 
 export default function ArticleDetail() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { token } = useAuth();
   const id = searchParams.get("id");
 
   const [article, setArticle] = useState<ArticleDetailType | null>(null);
@@ -72,7 +70,7 @@ export default function ArticleDetail() {
     if (!article) return;
 
     try {
-      const data = await recordReading(article.id, article.title, wordCount, elapsedSeconds, token);
+      const data = await recordReading(article.id, article.title, wordCount, elapsedSeconds);
       setResult(data);
     } catch {
       alert("記録の保存に失敗しました");

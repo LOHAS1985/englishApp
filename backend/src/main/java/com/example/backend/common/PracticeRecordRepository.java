@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PracticeRecordRepository extends JpaRepository<PracticeRecord, Long> {
-  List<PracticeRecord> findByUserIdAndFeatureOrderByCreatedAtDesc(Long userId, String feature);
+  List<PracticeRecord> findByUserIdAndFeatureOrderByIdDesc(Long userId, String feature);
 }

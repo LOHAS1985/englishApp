@@ -6,10 +6,8 @@ import {
   type QuestionSetView,
   type SetAnswerResult,
 } from "../../api/client";
-import { useAuth } from "../context/useAuth";
+import { LETTERS, shuffle } from "../shuffle";
 import Header from "./Header";
-
-const LETTERS = ["A", "B", "C", "D"];
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
@@ -29,12 +27,13 @@ export default function PracticeSetPage({
   typeLabels,
   renderMaterial,
 }: PracticeSetPageProps) {
-  const { token } = useAuth();
-
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [type, setType] = useState(Object.keys(typeLabels)[0]);
   const [set, setSet] = useState<QuestionSetView | null>(null);
+  /** 解答(元の記号)。採点にはこの記号を送る */
   const [answers, setAnswers] = useState<string[]>([]);
+  /** 設問ごとの選択肢の表示順(元の位置の並び)。正解の位置を覚えないよう毎回並べ替える */
+  const [order, setOrder] = useState<number[][]>([]);
   const [result, setResult] = useState<SetAnswerResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -43,46 +42,43 @@ export default function PracticeSetPage({
   const showSet = (data: QuestionSetView | null) => {
     setSet(data);
     setAnswers(data ? data.questions.map(() => "") : []);
+    setOrder(data ? data.questions.map((q) => shuffle(q.choices.map((_, i) => i))) : []);
     setResult(null);
     setError(data ? "" : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。");
     setLoading(false);
   };
 
-  // 「次の問題」用。同じセットが続けて出ないよう、同じ ID なら1回だけ取り直す
+  // 「次の問題」用。表示中のセットはサーバー側で候補から外す
   const loadNext = async () => {
     setLoading(true);
     try {
-      let data = await fetchPracticeSet(feature, type, token);
-      if (set && data.id === set.id && (counts[type] ?? 0) > 1) {
-        data = await fetchPracticeSet(feature, type, token);
-      }
-      showSet(data);
+      showSet(await fetchPracticeSet(feature, type, set?.id));
     } catch {
       showSet(null);
     }
   };
 
   useEffect(() => {
-    fetchPracticeTypes(feature, token)
+    fetchPracticeTypes(feature)
       .then(setCounts)
       .catch(() => setCounts({}));
-  }, [feature, token]);
+  }, [feature]);
 
   useEffect(() => {
     let cancelled = false;
-    fetchPracticeSet(feature, type, token)
+    fetchPracticeSet(feature, type)
       .then((data) => !cancelled && showSet(data))
       .catch(() => !cancelled && showSet(null));
     return () => {
       cancelled = true;
     };
-  }, [feature, type, token]);
+  }, [feature, type]);
 
   const handleSubmit = async () => {
     if (!set) return;
     setSubmitting(true);
     try {
-      setResult(await submitPracticeAnswers(feature, set.id, answers, token));
+      setResult(await submitPracticeAnswers(feature, set.id, answers));
     } catch {
       alert("採点に失敗しました");
     } finally {
@@ -141,20 +137,26 @@ export default function PracticeSetPage({
               <div className="space-y-5 mt-6">
                 {set.questions.map((q, qi) => {
                   const r = result?.results[qi];
+                  const qOrder = order[qi] ?? q.choices.map((_, i) => i);
+                  // 正解・選択は元の記号なので、画面上の記号に読み替えて表示する
+                  const toDisplay = (original: string) =>
+                    LETTERS[qOrder.indexOf(LETTERS.indexOf(original))];
                   return (
                     <div key={qi} className="border border-slate-200 rounded-md p-4">
                       <p className="text-sm font-semibold text-slate-900 mb-3">
                         Q{qi + 1}. {q.question}
                       </p>
                       <div className="space-y-2">
-                        {q.choices.map((choice, ci) => {
+                        {qOrder.map((originalIndex, ci) => {
                           const letter = LETTERS[ci];
-                          const isSelected = answers[qi] === letter;
+                          const original = LETTERS[originalIndex];
+                          const choice = q.choices[originalIndex];
+                          const isSelected = answers[qi] === original;
                           let style = isSelected
                             ? "border-[#8fae4e] bg-[#f2f7ea]"
                             : "border-slate-200 hover:border-[#8fae4e]";
                           if (r) {
-                            if (letter === r.answer) style = "border-[#8fae4e] bg-[#f2f7ea]";
+                            if (original === r.answer) style = "border-[#8fae4e] bg-[#f2f7ea]";
                             else if (isSelected) style = "border-[#c0392b] bg-[#fbeceb]";
                             else style = "border-slate-200 opacity-60";
                           }
@@ -163,7 +165,7 @@ export default function PracticeSetPage({
                               key={letter}
                               disabled={!!result}
                               onClick={() =>
-                                setAnswers((prev) => prev.map((a, i) => (i === qi ? letter : a)))
+                                setAnswers((prev) => prev.map((a, i) => (i === qi ? original : a)))
                               }
                               className={`w-full text-left border rounded px-3 py-2.5 text-sm transition-colors ${style}`}
                             >
@@ -176,7 +178,7 @@ export default function PracticeSetPage({
                       {r && (
                         <div className="mt-3 text-sm leading-relaxed">
                           <p className={`font-semibold ${r.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
-                            {r.correct ? "正解" : `不正解(正解: ${r.answer})`}
+                            {r.correct ? "正解" : `不正解(正解: ${toDisplay(r.answer)})`}
                           </p>
                           <p className="text-slate-600 mt-1">{r.explanation}</p>
                         </div>

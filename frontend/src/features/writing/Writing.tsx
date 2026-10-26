@@ -6,7 +6,6 @@ import {
   type WritingQuestion,
   type WritingType,
 } from "../../api/client";
-import { useAuth } from "../../shared/context/useAuth";
 import Header from "../../shared/components/Header";
 
 const TYPE_LABELS: Record<WritingType, string> = {
@@ -29,7 +28,6 @@ export default function Writing() {
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
 
-  const { token } = useAuth();
 
   const wordCount = useMemo(() => {
     const trimmed = answer.trim();
@@ -68,7 +66,7 @@ export default function Writing() {
     setLoading(true);
     setResult(null);
     try {
-      const data = await fetchWritingQuestion(type);
+      const data = await fetchWritingQuestion(type, question?.id);
       setQuestion(data);
       setAnswer("");
     } catch {
@@ -82,7 +80,7 @@ export default function Writing() {
     if (!question) return;
     setScoring(true);
     try {
-      const data = await scoreWritingAnswer(question.id, answer, token);
+      const data = await scoreWritingAnswer(question.id, answer);
       setResult(data);
     } catch {
       alert("採点に失敗しました");
