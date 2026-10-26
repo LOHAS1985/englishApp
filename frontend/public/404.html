@@ -5,10 +5,13 @@
     <meta name="robots" content="noindex">
     <title>Redirecting…</title>
     <script>
-      // GitHub Pages SPA fallback: load the app's index.html so the client router can handle the path
+      // GitHub Pages SPA fallback: load the app's index.html so the client router can handle the path.
+      // 相対パス(./index.html)だと /englishApp/reading/article のような2階層のURLで解決先がずれるため、
+      // アプリのベースパス(vite.config.ts の base と同じ)からの絶対パスで読み込む
+      var BASE = '/englishApp/';
       (function() {
         try {
-          fetch('./index.html')
+          fetch(BASE + 'index.html')
             .then(function(r){ if (r.ok) return r.text(); throw new Error('index.html not found'); })
             .then(function(t){
               document.open();
@@ -17,15 +20,15 @@
             })
             .catch(function(){
               // fallback to a simple redirect to root
-              location.replace('./');
+              location.replace(BASE);
             });
         } catch (e) {
-          location.replace('./');
+          location.replace(BASE);
         }
       })();
     </script>
   </head>
   <body>
-    <p>Redirecting to the app… If you are not redirected, <a href="./">click here</a>.</p>
+    <p>Redirecting to the app… If you are not redirected, <a href="/englishApp/">click here</a>.</p>
   </body>
 </html>
