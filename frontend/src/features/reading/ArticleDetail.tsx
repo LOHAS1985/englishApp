@@ -71,11 +71,6 @@ export default function ArticleDetail() {
     setIsRunning(false);
     if (!article) return;
 
-    if (!token) {
-      navigate("/login");
-      return;
-    }
-
     try {
       const data = await recordReading(article.id, article.title, wordCount, elapsedSeconds, token);
       setResult(data);

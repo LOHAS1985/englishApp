@@ -37,8 +37,10 @@ public class GrammarService {
 
     boolean isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());
 
+    // 記録はログイン中のみ保存する(未ログインでも採点結果は返す)
+    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
     GrammarRecord record = new GrammarRecord();
-    record.setUserId(currentUserProvider.getCurrentUser().getId());
+    record.setUserId(userId);
     record.setQuestionId(q.id());
     record.setSentence(q.sentence());
     record.setChoiceA(textFor(q.choices(), "A"));
@@ -50,7 +52,8 @@ public class GrammarService {
     record.setCorrect(isCorrect);
     record.setExplanation(q.explanation());
     record.setTranslation(q.translation());
-    grammarRecordRepository.save(record);
+    if (userId != null)
+      grammarRecordRepository.save(record);
 
     return new GrammarAnswerResult(isCorrect, q.answer(), q.explanation(), q.translation());
   }

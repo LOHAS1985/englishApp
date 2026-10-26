@@ -54,12 +54,13 @@ public class QuestionSetPractice {
     return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), questions);
   }
 
-  /** 採点し、ログイン中のユーザーの記録として設問ごとに保存する */
+  /** 採点し、ログイン中なら設問ごとに記録を保存する */
   public SetAnswerResult grade(QuestionSetBank bank, String feature, SetAnswerRequest request) {
     QuestionSet set = bank.findById(request.setId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
     List<String> answers = request.answers() == null ? List.of() : request.answers();
-    Long userId = currentUserProvider.getCurrentUser().getId();
+    // 記録はログイン中のみ保存する(未ログインでも採点結果は返す)
+    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
 
     List<SetQuestionResult> results = new ArrayList<>();
     int score = 0;
@@ -70,8 +71,9 @@ public class QuestionSetPractice {
       if (correct)
         score++;
       results.add(new SetQuestionResult(correct, selected, q.answer(), q.explanation()));
-      recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
-          selected.isEmpty() ? null : selected, correct));
+      if (userId != null)
+        recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
+            selected.isEmpty() ? null : selected, correct));
     }
     return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());
   }

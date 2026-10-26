@@ -39,23 +39,9 @@ public class SecurityConfig {
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/admin/**").hasRole("ADMIN")
-
-            .requestMatchers("/api/writing/question").permitAll()
-            .requestMatchers("/api/grammar/question").permitAll()
-            .requestMatchers("/api/reading/articles").permitAll()
-            .requestMatchers("/api/reading/article").permitAll()
-            // 問題集からの出題は AI を使わないので未ログインでも試せる(採点・記録はログイン必須)
-            .requestMatchers(HttpMethod.GET, "/api/vocab/question").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/reading/practice", "/api/reading/practice/types").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/speaking/question").permitAll()
-            // /api/listening/** は音声合成(CPU負荷)と Gemini 無料枠を消費するためログイン必須
-            .requestMatchers("/audio/**").permitAll()
-            .requestMatchers("/health").permitAll()
-            .requestMatchers("/error").permitAll()
-            .requestMatchers("/favicon.ico").permitAll()
-            .anyRequest().authenticated())
+            // 管理画面以外はログインなしで利用できる。ログイン中(JWT あり)は解答・採点の記録を保存する
+            .anyRequest().permitAll())
         .httpBasic(basic -> basic.disable())
         .formLogin(form -> form.disable())
         .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

@@ -51,27 +51,30 @@ public class ReadingController {
 
   @PostMapping("/record")
   public ReadingRecordResult recordReading(@RequestBody ReadingRecordRequest request) {
-    User user = currentUserProvider.getCurrentUser();
+    User user = currentUserProvider.findCurrentUser().orElse(null);
 
     int wpm = request.getDurationSeconds() > 0
         ? (int) Math.round(request.getWordCount() / (request.getDurationSeconds() / 60.0))
         : 0;
 
     ReadingRecord record = new ReadingRecord();
-    record.setUserId(user.getId());
+    record.setUserId(user == null ? null : user.getId());
     record.setArticleId(request.getArticleId());
     record.setArticleTitle(request.getArticleTitle());
     record.setWordCount(request.getWordCount());
     record.setDurationSeconds(request.getDurationSeconds());
     record.setWpm(wpm);
-    readingRecordRepository.save(record);
+    if (user != null)
+      readingRecordRepository.save(record);
 
     return new ReadingRecordResult(request.getWordCount(), request.getDurationSeconds(), wpm);
   }
 
   @GetMapping("/history")
   public List<ReadingHistoryItem> getHistory() {
-    User user = currentUserProvider.getCurrentUser();
+    User user = currentUserProvider.findCurrentUser().orElse(null);
+    if (user == null)
+      return List.of();
     return readingRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
         .stream()
         .map(ReadingHistoryItem::from)

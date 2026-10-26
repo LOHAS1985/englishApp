@@ -8,7 +8,6 @@ import {
 } from "../../api/client";
 import { useAuth } from "../../shared/context/useAuth";
 import Header from "../../shared/components/Header";
-import { useNavigate } from "react-router-dom";
 
 const TYPE_LABELS: Record<WritingType, string> = {
   opinion: "意見論述(120〜150語)",
@@ -31,7 +30,6 @@ export default function Writing() {
   const [result, setResult] = useState<ScoreResult | null>(null);
 
   const { token } = useAuth();
-  const navigate = useNavigate();
 
   const wordCount = useMemo(() => {
     const trimmed = answer.trim();
@@ -82,10 +80,6 @@ export default function Writing() {
 
   const handleScore = async () => {
     if (!question) return;
-    if (!token) {
-      navigate("/login");
-      return;
-    }
     setScoring(true);
     try {
       const data = await scoreWritingAnswer(question.id, answer, token);

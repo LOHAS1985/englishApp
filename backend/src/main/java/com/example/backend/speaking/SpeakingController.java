@@ -34,7 +34,8 @@ public class SpeakingController {
   public ResponseEntity<?> uploadRecording(@RequestParam("file") MultipartFile file,
       @RequestParam(value = "exerciseId", required = false) Long exerciseId) {
     try {
-      Recording r = recordingService.save(file, currentUserProvider.getCurrentUser().getId());
+      Recording r = recordingService.save(file,
+          currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null));
       return ResponseEntity.ok(Map.of("recordingId", r.getId()));
     } catch (IOException e) {
       return ResponseEntity.status(500).body(Map.of("error", "upload failed"));

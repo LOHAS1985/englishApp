@@ -54,7 +54,7 @@
 - **学習記録はすべて保存する**: ログイン中の解答は `*Record` エンティティとして保存し、MyPage で振り返れるようにする。正誤・スコア・所要時間・日時を最低限持つ。
 - **弱点の可視化と復習**: 間違えた問題・知らなかった単語は後から復習できる形で残す(将来的に間隔反復)。
 - **試験と同じ制約で練習できる**: 語数カウント、制限時間、音声の再生回数制限など、本番と同じ条件を選べるようにする。
-- **未ログインでも試せる**: 出題・閲覧は未ログインで可、採点・記録はログイン必須(現行の Writing の方針を全機能で踏襲)。
+- **ログインは任意**: 管理画面(`/api/admin/**`)以外の全機能をログインなしで使える。ログイン中(JWT あり)は解答・採点の記録を保存し、未ログインなら結果だけを返す(`CurrentUserProvider.findCurrentUser()` で判定)。
 
 ## 3. 技術スタック
 
@@ -62,7 +62,7 @@
 
 - **モノレポ**: `frontend/`(React 19 + TypeScript + Vite + Tailwind CSS v4 + React Router 7)、`backend/`(Java 21 + Spring Boot 4 + Maven Wrapper)
 - **DB**: プロファイルで切り替える。`dev`(既定): H2 インメモリ + `ddl-auto=update` + Flyway 無効 / `prod`: `SPRING_DATASOURCE_URL` の DB + Flyway でスキーマ管理(`ddl-auto=none`)
-- **認証**: Spring Security + JWT(jjwt)。ロール `ADMIN` は `/api/admin/**` 用。AI・TTS を消費する `/api/listening/**` などはログイン必須
+- **認証**: Spring Security + JWT(jjwt)。ロール `ADMIN` は `/api/admin/**` 用。それ以外の API はログインなしで利用可(ログイン時のみ記録を保存)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: Guardian(記事)、DeepL(翻訳)、Wordnik(辞書)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック

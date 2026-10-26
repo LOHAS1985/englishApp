@@ -1,5 +1,4 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   fetchPracticeSet,
   fetchPracticeTypes,
@@ -18,8 +17,6 @@ interface PracticeSetPageProps {
   title: string;
   /** 形式(type)の表示名。並び順もこの順になる */
   typeLabels: Record<string, string>;
-  /** 出題の取得からログインが必要か(リスニングは音声生成にサーバー負荷がかかるため必要) */
-  requireLogin?: boolean;
   /** 設問の上に表示する教材(読解の本文、リスニングの再生ボタンなど) */
   renderMaterial: (set: QuestionSetView, result: SetAnswerResult | null) => ReactNode;
 }
@@ -30,11 +27,9 @@ export default function PracticeSetPage({
   eyebrow,
   title,
   typeLabels,
-  requireLogin = false,
   renderMaterial,
 }: PracticeSetPageProps) {
   const { token } = useAuth();
-  const navigate = useNavigate();
 
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [type, setType] = useState(Object.keys(typeLabels)[0]);
@@ -68,17 +63,12 @@ export default function PracticeSetPage({
   };
 
   useEffect(() => {
-    if (requireLogin && !token) {
-      navigate("/login");
-      return;
-    }
     fetchPracticeTypes(feature, token)
       .then(setCounts)
       .catch(() => setCounts({}));
-  }, [feature, requireLogin, token, navigate]);
+  }, [feature, token]);
 
   useEffect(() => {
-    if (requireLogin && !token) return;
     let cancelled = false;
     fetchPracticeSet(feature, type, token)
       .then((data) => !cancelled && showSet(data))
@@ -86,14 +76,10 @@ export default function PracticeSetPage({
     return () => {
       cancelled = true;
     };
-  }, [feature, type, requireLogin, token]);
+  }, [feature, type, token]);
 
   const handleSubmit = async () => {
     if (!set) return;
-    if (!token) {
-      navigate("/login");
-      return;
-    }
     setSubmitting(true);
     try {
       setResult(await submitPracticeAnswers(feature, set.id, answers, token));

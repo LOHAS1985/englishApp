@@ -42,8 +42,8 @@ public class VocabController {
     }
     String selected = request.getSelectedChoice() == null ? "" : request.getSelectedChoice().trim().toUpperCase();
     boolean correct = q.answer().equals(selected);
-    recordRepository.save(new PracticeRecord(currentUserProvider.getCurrentUser().getId(), "vocab", q.id(), 1,
-        selected.isEmpty() ? null : selected, correct));
+    currentUserProvider.findCurrentUser().ifPresent(user -> recordRepository.save(
+        new PracticeRecord(user.getId(), "vocab", q.id(), 1, selected.isEmpty() ? null : selected, correct)));
     return ResponseEntity.ok(new GrammarAnswerResult(correct, q.answer(), q.explanation(), q.translation()));
   }
 }

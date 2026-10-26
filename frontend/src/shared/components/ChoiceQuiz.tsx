@@ -12,7 +12,7 @@ interface ChoiceQuizProps {
   submitAnswer: (
     questionId: string,
     selectedChoice: string,
-    token: string,
+    token?: string | null,
   ) => Promise<GrammarAnswerResult>;
 }
 
@@ -90,10 +90,6 @@ export default function ChoiceQuiz({
 
   const handleSelect = async (label: string) => {
     if (!question || result) return;
-    if (!token) {
-      navigate("/login");
-      return;
-    }
     setSelected(label);
     setSubmitting(true);
     try {

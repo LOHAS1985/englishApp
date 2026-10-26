@@ -44,7 +44,7 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
   };
 
   const playWithBrowser = async () => {
-    if (!token || !("speechSynthesis" in window)) {
+    if (!("speechSynthesis" in window)) {
       setStatus("error");
       return;
     }
@@ -73,7 +73,6 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
   };
 
   const handlePlay = async () => {
-    if (!token) return;
     setPlayCount((n) => n + 1);
     if (urls) {
       await playUrls(urls);

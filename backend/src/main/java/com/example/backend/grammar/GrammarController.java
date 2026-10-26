@@ -38,7 +38,9 @@ public class GrammarController {
 
   @GetMapping("/history")
   public List<GrammarHistoryItem> getHistory() {
-    User user = currentUserProvider.getCurrentUser();
+    User user = currentUserProvider.findCurrentUser().orElse(null);
+    if (user == null)
+      return List.of();
     return grammarRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
         .stream()
         .map(GrammarHistoryItem::from)

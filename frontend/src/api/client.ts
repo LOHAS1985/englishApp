@@ -1,5 +1,9 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
+// ログインは任意。トークンがあるときだけ送り、サーバー側で記録を保存させる
+const authHeaders = (token?: string | null): Record<string, string> =>
+  token ? { Authorization: `Bearer ${token}` } : {};
+
 export type WritingType = "opinion" | "summary";
 
 export interface WritingQuestion {
@@ -35,13 +39,13 @@ export interface ScoreResult {
 export async function scoreWritingAnswer(
   questionId: string,
   answer: string,
-  token: string,
+  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/writing/score`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, answer }),
   });
@@ -89,9 +93,9 @@ export interface WritingHistoryItem {
   createdAt: string;
 }
 
-export async function fetchWritingHistory(token: string) {
+export async function fetchWritingHistory(token?: string | null) {
   const res = await fetch(`${API_BASE}/api/writing/history`, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: authHeaders(token),
   });
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<WritingHistoryItem[]>;
@@ -124,13 +128,13 @@ export async function fetchGrammarQuestion() {
 export async function submitGrammarAnswer(
   questionId: string,
   selectedChoice: string,
-  token: string,
+  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/grammar/answer`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, selectedChoice }),
   });
@@ -148,13 +152,13 @@ export async function fetchVocabQuestion() {
 export async function submitVocabAnswer(
   questionId: string,
   selectedChoice: string,
-  token: string,
+  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/vocab/answer`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      ...authHeaders(token),
     },
     body: JSON.stringify({ questionId, selectedChoice }),
   });
@@ -177,9 +181,9 @@ export interface GrammarHistoryItem {
   createdAt: string;
 }
 
-export async function fetchGrammarHistory(token: string) {
+export async function fetchGrammarHistory(token?: string | null) {
   const res = await fetch(`${API_BASE}/api/grammar/history`, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: authHeaders(token),
   });
   if (!res.ok) throw new Error("履歴の取得に失敗しました");
   return res.json() as Promise<GrammarHistoryItem[]>;
@@ -242,13 +246,13 @@ export async function recordReading(
   articleTitle: string,
   wordCount: number,
   durationSeconds: number,
-  token: string,
+  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/reading/record`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      ...authHeaders(token),
     },
     body: JSON.stringify({
       articleId,
@@ -291,9 +295,6 @@ export interface SetAnswerResult {
   translation: string | null;
 }
 
-const authHeaders = (token?: string | null): Record<string, string> =>
-  token ? { Authorization: `Bearer ${token}` } : {};
-
 type PracticeFeature = "reading" | "listening";
 
 export async function fetchPracticeTypes(
@@ -324,7 +325,7 @@ export async function submitPracticeAnswers(
   feature: PracticeFeature,
   setId: string,
   answers: string[],
-  token: string,
+  token?: string | null,
 ) {
   const res = await fetch(`${API_BASE}/api/${feature}/practice/answer`, {
     method: "POST",
@@ -336,7 +337,7 @@ export async function submitPracticeAnswers(
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
-export async function synthesizeListeningAudio(setId: string, token: string) {
+export async function synthesizeListeningAudio(setId: string, token?: string | null) {
   const res = await fetch(`${API_BASE}/api/listening/practice/${setId}/audio`, {
     method: "POST",
     headers: authHeaders(token),
@@ -346,7 +347,7 @@ export async function synthesizeListeningAudio(setId: string, token: string) {
 }
 
 /** ブラウザの読み上げ機能で再生するための台本(画面には表示しない) */
-export async function fetchListeningScript(setId: string, token: string) {
+export async function fetchListeningScript(setId: string, token?: string | null) {
   const res = await fetch(
     `${API_BASE}/api/listening/practice/${setId}/script`,
     { headers: authHeaders(token) },

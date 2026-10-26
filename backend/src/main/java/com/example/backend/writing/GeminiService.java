@@ -127,9 +127,13 @@ public class GeminiService {
       each an object with "score" (integer 0-4) and "feedback" (Japanese string).
       """;
 
+  /** 記録はログイン中のみ保存する(未ログインでも採点結果は返す) */
   private void saveRecord(WritingPrompt p, String answer, ScoreResult result) {
+    Long userId = currentUserProvider.findCurrentUser().map(u -> u.getId()).orElse(null);
+    if (userId == null)
+      return;
     WritingRecord record = new WritingRecord();
-    record.setUserId(currentUserProvider.getCurrentUser().getId());
+    record.setUserId(userId);
     record.setTopic(p.topic());
     record.setPrompt(p.isSummary() ? "summary:" + p.id() : "opinion:" + p.id());
     record.setPoints(WritingRecord.joinPoints(p.points() == null ? List.of() : p.points()));

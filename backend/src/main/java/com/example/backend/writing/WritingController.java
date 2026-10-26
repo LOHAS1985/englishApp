@@ -38,7 +38,9 @@ public class WritingController {
 
   @GetMapping("/history")
   public List<WritingHistoryItem> getHistory() {
-    User user = currentUserProvider.getCurrentUser();
+    User user = currentUserProvider.findCurrentUser().orElse(null);
+    if (user == null)
+      return List.of();
     return writingRecordRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
         .stream()
         .map(WritingHistoryItem::from)

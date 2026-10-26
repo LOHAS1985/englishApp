@@ -16,7 +16,6 @@ export default function Listening() {
       eyebrow="LISTENING"
       title="リスニング問題"
       typeLabels={TYPE_LABELS}
-      requireLogin
       renderMaterial={(set) => <ListeningPlayer key={set.id} setId={set.id} />}
     />
   );
