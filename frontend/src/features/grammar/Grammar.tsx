@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   fetchGrammarQuestion,
@@ -20,15 +20,28 @@ export default function Grammar() {
   const [result, setResult] = useState<GrammarAnswerResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
+  const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
+
+  const prefetchNext = () => {
+    prefetchRef.current = fetchGrammarQuestion().catch(() => null);
+  };
+
+  const showQuestion = (data: GrammarQuestion) => {
+    setQuestion(data);
+    setQuestionNumber((n) => n + 1);
+    prefetchNext();
+  };
+
   const loadQuestion = async () => {
     setLoading(true);
     setQuestion(null);
     setResult(null);
     setSelected(null);
     try {
-      const data = await fetchGrammarQuestion();
-      setQuestion(data);
-      setQuestionNumber((n) => n + 1);
+      const prefetched = prefetchRef.current ? await prefetchRef.current : null;
+      prefetchRef.current = null;
+      showQuestion(prefetched ?? (await fetchGrammarQuestion()));
     } catch {
       alert("出題に失敗しました");
     } finally {
@@ -46,6 +59,7 @@ export default function Grammar() {
         if (!cancelled) {
           setQuestion(data);
           setQuestionNumber((n) => n + 1);
+          prefetchRef.current = fetchGrammarQuestion().catch(() => null);
         }
       } catch {
         if (!cancelled) alert("出題に失敗しました");

@@ -208,6 +208,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法・リスニングの正解を DB に保存(再起動しても採点できる)。リスニングの解答も記録するように
 - [x] CORS を GitHub Pages とローカルのみに制限、`/env` エンドポイントの公開を停止
 - [x] `ListeningController` を `ListeningService` / `TtsService` に分割し、未使用の `/generate`・`/auto-generate` を削除
+- [x] 文法問題の出題が遅い: 思考(thinking)を無効化、5問ずつ事前生成して DB にストック、画面側で次の問題を先読み、日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
 - [ ] **新規登録が誰でもできる**: 自分専用なのに、URL を知っていれば誰でも登録して Gemini 枠を使える。自分の登録後は環境変数で登録を閉じられるようにする

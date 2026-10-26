@@ -1,0 +1,25 @@
+name: Keep backend awake
+
+# Render 無料プランは15分アクセスが無いと停止し、次のアクセスで起動に30秒〜1分かかる。
+# 学習する時間帯(日本時間 6:00〜翌1:00)だけ14分ごとに /health を叩いて停止を防ぐ。
+# 24時間にしないのは、Render 無料枠(月750時間)を他のサービスと分け合えるようにするため。
+on:
+  schedule:
+    - cron: "*/14 21-23,0-15 * * *" # UTC。JST 6:00〜翌0:59
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping /health
+        env:
+          API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+        run: |
+          if [ -z "$API_BASE_URL" ]; then
+            echo "secret VITE_API_BASE_URL is not set"; exit 1
+          fi
+          curl -fsS --max-time 90 --retry 2 "${API_BASE_URL%/}/health" -o /dev/null -w "status=%{http_code} time=%{time_total}s\n"

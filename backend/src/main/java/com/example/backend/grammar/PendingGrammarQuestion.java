@@ -36,8 +36,15 @@ public class PendingGrammarQuestion {
   @Column(nullable = false, columnDefinition = "TEXT")
   private String translation;
 
+  /** false = 事前生成したストック(未出題)、true = 出題済み・回答待ち */
+  @Column(nullable = false)
+  private boolean served;
+
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt = LocalDateTime.now();
+
+  public boolean isServed() { return served; }
+  public void setServed(boolean served) { this.served = served; }
 
   public String getId() { return id; }
   public void setId(String id) { this.id = id; }
