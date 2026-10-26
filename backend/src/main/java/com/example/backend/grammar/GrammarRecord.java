@@ -14,6 +14,13 @@ public class GrammarRecord {
   @Column(name = "user_id", nullable = false)
   private Long userId;
 
+  /** 問題集(questions/grammar/*.json)の問題ID。苦手問題の復習に使う */
+  @Column(name = "question_id", length = 20)
+  private String questionId;
+
+  public String getQuestionId() { return questionId; }
+  public void setQuestionId(String questionId) { this.questionId = questionId; }
+
   @Column(nullable = false, columnDefinition = "TEXT")
   private String sentence;
 

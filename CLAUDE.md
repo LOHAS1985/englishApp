@@ -96,7 +96,8 @@ frontend/src/
 - backend の各機能パッケージは `XxxController` / `XxxService` / `XxxRecord`(エンティティ)/ `XxxRecordRepository` / `dto/` の構成に揃える。
 - 外部API呼び出しは `XxxApiClient` に分離し、Controller から直接 HTTP を叩かない。
 - Controller は薄く保つ(入力受け取り・レスポンス整形のみ)。プロンプト組み立て・パース・保存は Service に置く(例: `ListeningService` / `TtsService`)。
-- 出題した問題の正解はメモリに持たず DB に保存する(サーバー再起動で消えないように)。
+- **出題する問題は、リポジトリ内の問題集(`backend/src/main/resources/questions/<機能>/*.json`)に置くのを基本とする。** 実行時に AI で生成しない(出題が遅い・無料枠を消費する・再起動で消えるため)。AI をその場で使うのは、ライティング採点のように答えが毎回異なるものに限る。
+- 問題集を追加したら、形式チェックのテスト(例: `GrammarQuestionBankTests`)も用意し、ID の重複・選択肢数・正解記号の偏りを CI で検出する。
 - API パスは `/api/<feature>/...`。履歴取得は `GET /api/<feature>/history` に統一する。
 
 ## 5. コーディング規約
@@ -123,9 +124,9 @@ frontend/src/
 
 ## 6. AI(Gemini)利用方針
 
-- 問題生成・採点は Gemini を使う。プロンプトには **試験名・パート・形式・難易度(CEFR B2〜C1 / 英検準1級レベル)** を明示する。
+- **問題作成**: 問題集の問題は Claude(Claude Code)が作成し、レビューしてからコミットする。正解が2つ取れる選択肢、不自然な英文がないかを必ず見直す。
+- **採点**: ライティング・スピーキングの採点など、その場で AI が必要な処理は Gemini を使う。プロンプトには **試験名・パート・形式・難易度(CEFR B2〜C1 / 英検準1級レベル)** を明示する。
 - 採点結果は観点別スコア+フィードバック+改善例を構造化 JSON で返させる。
-- 生成した問題は可能な限り DB に保存し、同じ問題を再利用できるようにする(API コスト・レート制限対策)。
 - 無料枠のレート制限に当たる前提で設計する(キャッシュ、事前生成、失敗時のメッセージ表示)。
 
 ## 7. 開発コマンド
@@ -208,7 +209,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法・リスニングの正解を DB に保存(再起動しても採点できる)。リスニングの解答も記録するように
 - [x] CORS を GitHub Pages とローカルのみに制限、`/env` エンドポイントの公開を停止
 - [x] `ListeningController` を `ListeningService` / `TtsService` に分割し、未使用の `/generate`・`/auto-generate` を削除
-- [x] 文法問題の出題が遅い: 思考(thinking)を無効化、5問ずつ事前生成して DB にストック、画面側で次の問題を先読み、日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
+- [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在100問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
 - [ ] **新規登録が誰でもできる**: 自分専用なのに、URL を知っていれば誰でも登録して Gemini 枠を使える。自分の登録後は環境変数で登録を閉じられるようにする
