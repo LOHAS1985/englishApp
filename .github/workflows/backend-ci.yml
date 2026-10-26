@@ -1,0 +1,44 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-ci.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      - name: Test (dev profile)
+        run: chmod +x mvnw && ./mvnw -B test
+        env:
+          # テストはコンテキスト起動のみのため、ダミー値でよい
+          GEMINI_API_KEY: dummy
+          JWT_SECRET: ci-test-secret-ci-test-secret-0123456789
+
+      - name: Test (prod profile, Flyway + schema validation)
+        run: ./mvnw -B test
+        env:
+          SPRING_PROFILES_ACTIVE: prod
+          SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+          GEMINI_API_KEY: dummy
+          JWT_SECRET: ci-test-secret-ci-test-secret-0123456789

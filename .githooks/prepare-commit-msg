@@ -1,0 +1,20 @@
+#!/bin/sh
+# コミットメッセージの1行目に日付(YYYYMMDD - )を自動で付ける。
+# 有効化: git config core.hooksPath .githooks (scripts/push.sh が自動で設定する)
+MSG_FILE="$1"
+SOURCE="$2"
+
+# マージ・squash・amend(既存メッセージの再利用)はそのままにする
+case "$SOURCE" in
+  merge|squash|commit) exit 0 ;;
+esac
+
+FIRST_LINE=$(head -n 1 "$MSG_FILE")
+# 既に日付が付いている、または空メッセージなら何もしない
+if echo "$FIRST_LINE" | grep -qE '^[0-9]{8} - ' || [ -z "$FIRST_LINE" ]; then
+  exit 0
+fi
+
+TODAY=$(date +%Y%m%d)
+TMP="$MSG_FILE.tmp"
+{ echo "$TODAY - $FIRST_LINE"; tail -n +2 "$MSG_FILE"; } > "$TMP" && mv "$TMP" "$MSG_FILE"

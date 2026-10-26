@@ -1,0 +1,3 @@
+# シェルスクリプトとGitフックはLFで保持する(CRLFだと実行できない)
+*.sh text eol=lf
+.githooks/* text eol=lf
