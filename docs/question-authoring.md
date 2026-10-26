@@ -9,7 +9,7 @@
 | 文法(TOEIC Part 5) | `grammar` | `g0001`〜 | 500問 | 500 | 1000 |
 | 語彙(英検準1級 大問1・TOEIC) | `vocab` | `v0001`〜 | 500問 | 500 | 1000 |
 | 読解 TOEIC Part 6 | `reading`(`toeic-part6`) | `r0001`〜 | 50セット | 50 | 100 |
-| 読解 TOEIC Part 7 | `reading`(`toeic-part7`) | 〃 | 21セット | 50 | 100 |
+| 読解 TOEIC Part 7 | `reading`(`toeic-part7`) | 〃 | 50セット | 50 | 100 |
 | 読解 英検 大問2(空所補充) | `reading`(`eiken-cloze`) | 〃 | 1セット | 25 | 50 |
 | 読解 英検 大問3(内容一致) | `reading`(`eiken-long`) | 〃 | 1セット | 25 | 50 |
 | リスニング | `listening` | `l0001`〜 | 2セット | 150 | 300 |
