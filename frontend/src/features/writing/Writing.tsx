@@ -82,8 +82,9 @@ export default function Writing() {
     try {
       const data = await scoreWritingAnswer(question.id, answer);
       setResult(data);
-    } catch {
-      alert("採点に失敗しました");
+    } catch (e: unknown) {
+      // AI のレート制限などはサーバーが理由を返すので、そのまま見せる
+      alert(e instanceof Error ? e.message : "採点に失敗しました");
     } finally {
       setScoring(false);
     }

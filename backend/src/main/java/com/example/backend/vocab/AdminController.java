@@ -57,8 +57,7 @@ public class AdminController {
     if (word == null || word.isBlank()) {
       return ResponseEntity.badRequest().body(Map.of("error", "word is required"));
     }
-    Map<String, String> result = wordService.fetchFromWordnik(word.trim().toLowerCase());
-    return ResponseEntity.ok(result);
+    return ResponseEntity.ok(wordService.fetchFromWordnik(word.trim().toLowerCase()));
   }
 
   @PutMapping("/words/{id}")

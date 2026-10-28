@@ -1,5 +1,6 @@
 package com.example.backend.reading;
 
+import com.example.backend.common.GeminiApiClient;
 import com.example.backend.reading.dto.VocabularyItem;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,10 @@ import java.util.List;
 @Service
 public class ReadingAssistService {
 
-  private final ReadingApiClient readingApiClient;
+  private final GeminiApiClient geminiApiClient;
 
-  public ReadingAssistService(ReadingApiClient readingApiClient) {
-    this.readingApiClient = readingApiClient;
+  public ReadingAssistService(GeminiApiClient geminiApiClient) {
+    this.geminiApiClient = geminiApiClient;
   }
 
   public AssistResult generate(String plainTextBody) {
@@ -36,7 +37,7 @@ public class ReadingAssistService {
         vocabulary (array of objects with "word", "meaning", "example").
         """.formatted(truncated);
 
-    return readingApiClient.generate(prompt, AssistResult.class);
+    return geminiApiClient.generate(prompt, AssistResult.class);
   }
 
   public static class AssistResult {

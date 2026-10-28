@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  createAdminWord,
+  deleteAdminWord,
+  fetchAdminWords,
+  updateAdminWord,
+  type AdminWord,
+  type AdminWordForm,
+} from "../api/client";
 
-interface AdminWord {
-  id: number;
-  word: string;
-  meaningEn: string;
-  exampleEn: string;
-  meaningJa: string;
-  exampleJa: string;
-  createdAt: string;
+// 編集フォームの英語定義以降の入力欄(単語は1行の input、残りは textarea)
+const TEXT_FIELDS = ["meaningEn", "exampleEn", "meaningJa", "exampleJa"] as const;
+
+/** API 側の既定文言とサーバーのエラー文言の両方に対応する */
+function alertFailure(action: string, error: unknown) {
+  const message = error instanceof Error ? error.message : String(error);
+  alert(message === action ? action : `${action}: ${message}`);
 }
-
-type WordForm = Pick<
-  AdminWord,
-  "word" | "meaningEn" | "exampleEn" | "meaningJa" | "exampleJa"
->;
 
 export default function Admin() {
   const navigate = useNavigate();
@@ -24,43 +26,29 @@ export default function Admin() {
   const [saved, setSaved] = useState<AdminWord | null>(null);
   const [words, setWords] = useState<AdminWord[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
-  const [editForm, setEditForm] = useState<WordForm | null>(null);
+  const [editForm, setEditForm] = useState<AdminWordForm | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const cancelEditing = () => {
+    setEditingId(null);
+    setEditForm(null);
+  };
 
   const submitWord = async () => {
     if (!word || word.trim() === "") return alert("単語を入力してください");
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            word: word.trim(),
-            meaningEn: meaningEn.trim() || undefined,
-            exampleEn: exampleEn.trim() || undefined,
-          }),
-        },
-      );
-      if (!res.ok) {
-        const err = (await res.json().catch(() => null)) as {
-          error?: string;
-        } | null;
-        throw new Error(err?.error || String(res.status));
-      }
-      const data = (await res.json()) as AdminWord;
+      const data = await createAdminWord({
+        word: word.trim(),
+        meaningEn: meaningEn.trim() || undefined,
+        exampleEn: exampleEn.trim() || undefined,
+      });
       setSaved(data);
       setWord("");
       setMeaningEn("");
       setExampleEn("");
     } catch (error: unknown) {
-      alert(
-        "登録に失敗しました: " +
-          (error instanceof Error ? error.message : String(error)),
-      );
+      alertFailure("登録に失敗しました", error);
     } finally {
       setLoading(false);
     }
@@ -69,14 +57,7 @@ export default function Admin() {
   const loadWords = async () => {
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words`,
-        {
-        },
-      );
-      if (!res.ok) throw new Error(String(res.status));
-      const data = (await res.json()) as AdminWord[];
-      setWords(data || []);
+      setWords((await fetchAdminWords()) || []);
     } catch {
       alert("単語一覧の取得に失敗しました");
     } finally {
@@ -101,33 +82,13 @@ export default function Admin() {
     }
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words/${editingId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(editForm),
-        },
-      );
-      if (!res.ok) {
-        const err = (await res.json().catch(() => null)) as {
-          error?: string;
-        } | null;
-        throw new Error(err?.error || String(res.status));
-      }
-      const updated = (await res.json()) as AdminWord;
+      const updated = await updateAdminWord(editingId, editForm);
       setWords((current) =>
         current.map((item) => (item.id === updated.id ? updated : item)),
       );
-      setEditingId(null);
-      setEditForm(null);
+      cancelEditing();
     } catch (error: unknown) {
-      alert(
-        "更新に失敗しました: " +
-          (error instanceof Error ? error.message : String(error)),
-      );
+      alertFailure("更新に失敗しました", error);
     } finally {
       setLoading(false);
     }
@@ -137,25 +98,13 @@ export default function Admin() {
     if (!window.confirm(`「${selectedWord.word}」を削除しますか？`)) return;
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/admin/words/${selectedWord.id}`,
-        {
-          method: "DELETE",
-        },
-      );
-      if (!res.ok) throw new Error(String(res.status));
+      await deleteAdminWord(selectedWord.id);
       setWords((current) =>
         current.filter((item) => item.id !== selectedWord.id),
       );
-      if (editingId === selectedWord.id) {
-        setEditingId(null);
-        setEditForm(null);
-      }
+      if (editingId === selectedWord.id) cancelEditing();
     } catch (error: unknown) {
-      alert(
-        "削除に失敗しました: " +
-          (error instanceof Error ? error.message : String(error)),
-      );
+      alertFailure("削除に失敗しました", error);
     } finally {
       setLoading(false);
     }
@@ -259,46 +208,16 @@ export default function Admin() {
                           setEditForm({ ...editForm, word: event.target.value })
                         }
                       />
-                      <textarea
-                        className="p-2 border rounded"
-                        value={editForm.meaningEn}
-                        onChange={(event) =>
-                          setEditForm({
-                            ...editForm,
-                            meaningEn: event.target.value,
-                          })
-                        }
-                      />
-                      <textarea
-                        className="p-2 border rounded"
-                        value={editForm.exampleEn}
-                        onChange={(event) =>
-                          setEditForm({
-                            ...editForm,
-                            exampleEn: event.target.value,
-                          })
-                        }
-                      />
-                      <textarea
-                        className="p-2 border rounded"
-                        value={editForm.meaningJa}
-                        onChange={(event) =>
-                          setEditForm({
-                            ...editForm,
-                            meaningJa: event.target.value,
-                          })
-                        }
-                      />
-                      <textarea
-                        className="p-2 border rounded"
-                        value={editForm.exampleJa}
-                        onChange={(event) =>
-                          setEditForm({
-                            ...editForm,
-                            exampleJa: event.target.value,
-                          })
-                        }
-                      />
+                      {TEXT_FIELDS.map((field) => (
+                        <textarea
+                          key={field}
+                          className="p-2 border rounded"
+                          value={editForm[field]}
+                          onChange={(event) =>
+                            setEditForm({ ...editForm, [field]: event.target.value })
+                          }
+                        />
+                      ))}
                       <div className="flex gap-3">
                         <button
                           onClick={saveEdit}
@@ -308,10 +227,7 @@ export default function Admin() {
                           保存
                         </button>
                         <button
-                          onClick={() => {
-                            setEditingId(null);
-                            setEditForm(null);
-                          }}
+                          onClick={cancelEditing}
                           className="px-3 py-2 bg-slate-300 rounded"
                         >
                           キャンセル

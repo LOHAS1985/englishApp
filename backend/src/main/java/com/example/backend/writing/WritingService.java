@@ -1,5 +1,7 @@
 package com.example.backend.writing;
 
+import com.example.backend.common.ExternalApiException;
+import com.example.backend.common.GeminiApiClient;
 import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.writing.WritingPromptBank.WritingPrompt;
@@ -12,7 +14,7 @@ import java.util.List;
 
 /** 英検準1級ライティング。お題は問題集から出し、採点だけを Gemini で行う(答案が毎回異なるため) */
 @Service
-public class GeminiService {
+public class WritingService {
 
   private final GeminiApiClient geminiApiClient;
   private final WritingRecordRepository writingRecordRepository;
@@ -20,7 +22,7 @@ public class GeminiService {
   private final QuestionSelector questionSelector;
   private final WritingPromptBank promptBank;
 
-  public GeminiService(GeminiApiClient geminiApiClient,
+  public WritingService(GeminiApiClient geminiApiClient,
       WritingRecordRepository writingRecordRepository,
       CurrentUserProvider currentUserProvider,
       WritingPromptBank promptBank,
@@ -48,6 +50,10 @@ public class GeminiService {
 
     String prompt = p.isSummary() ? summaryScoringPrompt(p, request.answer()) : opinionScoringPrompt(p, request.answer());
     ScoreResult result = geminiApiClient.generate(prompt, ScoreResult.class);
+    if (result.getContent() == null || result.getStructure() == null
+        || result.getVocabulary() == null || result.getGrammar() == null) {
+      throw new ExternalApiException("AI の採点結果が不完全でした。再度採点してください。", null);
+    }
 
     int total = result.getContent().getScore()
         + result.getStructure().getScore()

@@ -4,7 +4,7 @@ import com.example.backend.reading.dto.ArticleDetail;
 import com.example.backend.reading.dto.ArticleSummary;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -13,8 +13,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
-@Service
-public class GuardianService {
+@Component
+/** Guardian Open Platform(記事の検索・本文取得) */
+public class GuardianApiClient {
 
   @Value("${guardian.api.key}")
   private String apiKey;

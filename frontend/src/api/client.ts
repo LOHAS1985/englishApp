@@ -4,6 +4,40 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL;
 const excludeParam = (exclude?: string | null) =>
   exclude ? `exclude=${encodeURIComponent(exclude)}` : "";
 
+/** サーバーが {"error": "..."} を返していればその文言を、無ければ既定の文言を使う */
+async function errorMessage(res: Response, fallback: string) {
+  const body = (await res.json().catch(() => null)) as { error?: string } | null;
+  return body?.error || fallback;
+}
+
+async function send(path: string, fallbackError: string, init?: RequestInit) {
+  const res = await fetch(`${API_BASE}${path}`, init);
+  if (!res.ok) throw new Error(await errorMessage(res, fallbackError));
+  return res;
+}
+
+async function getJson<T>(path: string, fallbackError: string, init?: RequestInit) {
+  const res = await send(path, fallbackError, init);
+  return res.json() as Promise<T>;
+}
+
+function jsonBody(method: "POST" | "PUT", body: unknown): RequestInit {
+  return {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
+}
+
+async function postJson<T>(path: string, body: unknown, fallbackError: string) {
+  return getJson<T>(path, fallbackError, jsonBody("POST", body));
+}
+
+/** Render の無料枠はスリープするので、画面を開いた時点で起こしておく(失敗は無視) */
+export function wakeUpServer() {
+  fetch(`${API_BASE}/health`).catch(() => {});
+}
+
 export type WritingType = "opinion" | "summary";
 
 export interface WritingQuestion {
@@ -18,11 +52,10 @@ export interface WritingQuestion {
 }
 
 export async function fetchWritingQuestion(type: WritingType, exclude?: string | null) {
-  const res = await fetch(
-    `${API_BASE}/api/writing/question?type=${type}&${excludeParam(exclude)}`,
+  return getJson<WritingQuestion>(
+    `/api/writing/question?type=${type}&${excludeParam(exclude)}`,
+    "お題の取得に失敗しました",
   );
-  if (!res.ok) throw new Error("Failed to fetch question");
-  return res.json() as Promise<WritingQuestion>;
 }
 
 export interface CriterionScore {
@@ -38,19 +71,8 @@ export interface ScoreResult {
   total: number;
 }
 
-export async function scoreWritingAnswer(
-  questionId: string,
-  answer: string
-) {
-  const res = await fetch(`${API_BASE}/api/writing/score`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ questionId, answer }),
-  });
-  if (!res.ok) throw new Error("Failed to score answer");
-  return res.json() as Promise<ScoreResult>;
+export async function scoreWritingAnswer(questionId: string, answer: string) {
+  return postJson<ScoreResult>("/api/writing/score", { questionId, answer }, "採点に失敗しました");
 }
 
 export interface WritingHistoryItem {
@@ -72,9 +94,7 @@ export interface WritingHistoryItem {
 }
 
 export async function fetchWritingHistory() {
-  const res = await fetch(`${API_BASE}/api/writing/history`);
-  if (!res.ok) throw new Error("履歴の取得に失敗しました");
-  return res.json() as Promise<WritingHistoryItem[]>;
+  return getJson<WritingHistoryItem[]>("/api/writing/history", "履歴の取得に失敗しました");
 }
 
 export interface GrammarChoice {
@@ -96,46 +116,34 @@ export interface GrammarAnswerResult {
 }
 
 export async function fetchGrammarQuestion(exclude?: string | null) {
-  const res = await fetch(`${API_BASE}/api/grammar/question?${excludeParam(exclude)}`);
-  if (!res.ok) throw new Error("Failed to fetch grammar question");
-  return res.json() as Promise<GrammarQuestion>;
+  return getJson<GrammarQuestion>(
+    `/api/grammar/question?${excludeParam(exclude)}`,
+    "問題の取得に失敗しました",
+  );
 }
 
-export async function submitGrammarAnswer(
-  questionId: string,
-  selectedChoice: string
-) {
-  const res = await fetch(`${API_BASE}/api/grammar/answer`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ questionId, selectedChoice }),
-  });
-  if (!res.ok) throw new Error("Failed to submit answer");
-  return res.json() as Promise<GrammarAnswerResult>;
+export async function submitGrammarAnswer(questionId: string, selectedChoice: string) {
+  return postJson<GrammarAnswerResult>(
+    "/api/grammar/answer",
+    { questionId, selectedChoice },
+    "採点に失敗しました",
+  );
 }
 
 // 語彙問題(形は文法問題と同じ)
 export async function fetchVocabQuestion(exclude?: string | null) {
-  const res = await fetch(`${API_BASE}/api/vocab/question?${excludeParam(exclude)}`);
-  if (!res.ok) throw new Error("Failed to fetch vocab question");
-  return res.json() as Promise<GrammarQuestion>;
+  return getJson<GrammarQuestion>(
+    `/api/vocab/question?${excludeParam(exclude)}`,
+    "問題の取得に失敗しました",
+  );
 }
 
-export async function submitVocabAnswer(
-  questionId: string,
-  selectedChoice: string
-) {
-  const res = await fetch(`${API_BASE}/api/vocab/answer`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ questionId, selectedChoice }),
-  });
-  if (!res.ok) throw new Error("Failed to submit answer");
-  return res.json() as Promise<GrammarAnswerResult>;
+export async function submitVocabAnswer(questionId: string, selectedChoice: string) {
+  return postJson<GrammarAnswerResult>(
+    "/api/vocab/answer",
+    { questionId, selectedChoice },
+    "採点に失敗しました",
+  );
 }
 
 export interface GrammarHistoryItem {
@@ -154,9 +162,7 @@ export interface GrammarHistoryItem {
 }
 
 export async function fetchGrammarHistory() {
-  const res = await fetch(`${API_BASE}/api/grammar/history`);
-  if (!res.ok) throw new Error("履歴の取得に失敗しました");
-  return res.json() as Promise<GrammarHistoryItem[]>;
+  return getJson<GrammarHistoryItem[]>("/api/grammar/history", "履歴の取得に失敗しました");
 }
 
 export interface ArticleSummary {
@@ -188,21 +194,12 @@ export async function fetchArticles(query?: string, page = 1) {
   const params = new URLSearchParams();
   if (query) params.set("query", query);
   params.set("page", String(page));
-
-  const res = await fetch(
-    `${API_BASE}/api/reading/articles?${params.toString()}`,
-  );
-  if (!res.ok) throw new Error("記事の取得に失敗しました");
-  return res.json() as Promise<ArticleSummary[]>;
+  return getJson<ArticleSummary[]>(`/api/reading/articles?${params}`, "記事の取得に失敗しました");
 }
 
 export async function fetchArticleDetail(id: string) {
   const params = new URLSearchParams({ id });
-  const res = await fetch(
-    `${API_BASE}/api/reading/article?${params.toString()}`,
-  );
-  if (!res.ok) throw new Error("記事の取得に失敗しました");
-  return res.json() as Promise<ArticleDetail>;
+  return getJson<ArticleDetail>(`/api/reading/article?${params}`, "記事の取得に失敗しました");
 }
 
 export interface ReadingRecordResult {
@@ -215,22 +212,13 @@ export async function recordReading(
   articleId: string,
   articleTitle: string,
   wordCount: number,
-  durationSeconds: number
+  durationSeconds: number,
 ) {
-  const res = await fetch(`${API_BASE}/api/reading/record`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      articleId,
-      articleTitle,
-      wordCount,
-      durationSeconds,
-    }),
-  });
-  if (!res.ok) throw new Error("記録の保存に失敗しました");
-  return res.json() as Promise<ReadingRecordResult>;
+  return postJson<ReadingRecordResult>(
+    "/api/reading/record",
+    { articleId, articleTitle, wordCount, durationSeconds },
+    "記録の保存に失敗しました",
+  );
 }
 
 // セット問題(読解・リスニング):文章や音声1つに複数の設問が付く
@@ -266,9 +254,10 @@ export interface SetAnswerResult {
 type PracticeFeature = "reading" | "listening";
 
 export async function fetchPracticeTypes(feature: PracticeFeature) {
-  const res = await fetch(`${API_BASE}/api/${feature}/practice/types`);
-  if (!res.ok) throw new Error("形式の取得に失敗しました");
-  return res.json() as Promise<Record<string, number>>;
+  return getJson<Record<string, number>>(
+    `/api/${feature}/practice/types`,
+    "形式の取得に失敗しました",
+  );
 }
 
 export async function fetchPracticeSet(
@@ -276,11 +265,10 @@ export async function fetchPracticeSet(
   type: string,
   exclude?: string | null,
 ) {
-  const res = await fetch(
-    `${API_BASE}/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}`,
+  return getJson<QuestionSetView>(
+    `/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}`,
+    "問題の取得に失敗しました",
   );
-  if (!res.ok) throw new Error("問題の取得に失敗しました");
-  return res.json() as Promise<QuestionSetView>;
 }
 
 export async function submitPracticeAnswers(
@@ -288,31 +276,29 @@ export async function submitPracticeAnswers(
   setId: string,
   answers: string[],
 ) {
-  const res = await fetch(`${API_BASE}/api/${feature}/practice/answer`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ setId, answers }),
-  });
-  if (!res.ok) throw new Error("採点に失敗しました");
-  return res.json() as Promise<SetAnswerResult>;
+  return postJson<SetAnswerResult>(
+    `/api/${feature}/practice/answer`,
+    { setId, answers },
+    "採点に失敗しました",
+  );
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
 export async function synthesizeListeningAudio(setId: string) {
-  const res = await fetch(`${API_BASE}/api/listening/practice/${setId}/audio`, {
-    method: "POST",
-  });
-  if (!res.ok) throw new Error("音声の生成に失敗しました");
-  return res.json() as Promise<{ audioUrl?: string; audioUrls?: string[] }>;
+  return getJson<{ audioUrl?: string; audioUrls?: string[] }>(
+    `/api/listening/practice/${setId}/audio`,
+    "音声の生成に失敗しました",
+    { method: "POST" },
+  );
 }
 
 /** ブラウザの読み上げ機能で再生するための台本(画面には表示しない) */
 export async function fetchListeningScript(setId: string) {
-  const res = await fetch(
-    `${API_BASE}/api/listening/practice/${setId}/script`,
+  const body = await getJson<{ script: string }>(
+    `/api/listening/practice/${setId}/script`,
+    "台本の取得に失敗しました",
   );
-  if (!res.ok) throw new Error("台本の取得に失敗しました");
-  return (await res.json()).script as string;
+  return body.script;
 }
 
 export function toAbsoluteApiUrl(path: string) {
@@ -338,9 +324,47 @@ export interface SpeakingSet {
 }
 
 export async function fetchSpeakingSet(exclude?: string | null) {
-  const res = await fetch(`${API_BASE}/api/speaking/question?${excludeParam(exclude)}`);
-  if (!res.ok) throw new Error("問題の取得に失敗しました");
-  return res.json() as Promise<SpeakingSet>;
+  return getJson<SpeakingSet>(
+    `/api/speaking/question?${excludeParam(exclude)}`,
+    "問題の取得に失敗しました",
+  );
+}
+
+// 管理画面(単語の登録・編集)
+export interface AdminWord {
+  id: number;
+  word: string;
+  meaningEn: string;
+  exampleEn: string;
+  meaningJa: string;
+  exampleJa: string;
+  createdAt: string;
+}
+
+export type AdminWordForm = Pick<
+  AdminWord,
+  "word" | "meaningEn" | "exampleEn" | "meaningJa" | "exampleJa"
+>;
+
+/** meaningEn / exampleEn を省略すると、サーバーが辞書から補う */
+export async function createAdminWord(input: {
+  word: string;
+  meaningEn?: string;
+  exampleEn?: string;
+}) {
+  return postJson<AdminWord>("/api/admin/words", input, "登録に失敗しました");
+}
+
+export async function fetchAdminWords() {
+  return getJson<AdminWord[]>("/api/admin/words", "単語一覧の取得に失敗しました");
+}
+
+export async function updateAdminWord(id: number, form: AdminWordForm) {
+  return getJson<AdminWord>(`/api/admin/words/${id}`, "更新に失敗しました", jsonBody("PUT", form));
+}
+
+export async function deleteAdminWord(id: number) {
+  await send(`/api/admin/words/${id}`, "削除に失敗しました", { method: "DELETE" });
 }
 
 // アクセス履歴(閲覧キーが必要。キーはサーバーの環境変数 ACCESS_LOG_KEY と同じ値)
@@ -382,8 +406,7 @@ export async function fetchAccessLogs(key: string, days: number) {
     headers: { "X-Access-Log-Key": key },
   });
   if (res.status === 403) {
-    const body = await res.json().catch(() => ({}));
-    throw new AccessLogKeyError(body.error ?? "閲覧キーが違います");
+    throw new AccessLogKeyError(await errorMessage(res, "閲覧キーが違います"));
   }
   if (!res.ok) throw new Error("アクセス履歴の取得に失敗しました");
   return res.json() as Promise<AccessLogResponse>;

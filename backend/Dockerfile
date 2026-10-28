@@ -1,5 +1,5 @@
 # ビルドステージ
-FROM eclipse-temurin:21-jdk AS build
+FROM eclipse-temurin:25-jdk AS build
 WORKDIR /app
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
@@ -10,7 +10,7 @@ COPY tts ./tts
 RUN ./mvnw clean package -DskipTests
 
 # 実行ステージ
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:25-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 COPY --from=build /app/tts ./tts

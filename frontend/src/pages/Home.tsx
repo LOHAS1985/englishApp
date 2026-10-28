@@ -1,5 +1,6 @@
 ﻿import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { wakeUpServer } from "../api/client";
 import Header from "../shared/components/Header";
 
 const CATEGORIES = [
@@ -47,9 +48,7 @@ export default function Home() {
   // header and auth controls are handled by shared Header component
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/health`).catch(() => {
-      // Renderがスリープ中でもエラーは無視
-    });
+    wakeUpServer();
   }, []);
 
   return (

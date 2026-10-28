@@ -1,33 +1,21 @@
 package com.example.backend.vocab;
 
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import com.example.backend.vocab.DictionaryApiClient.DictionaryEntry;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+/** 管理画面からの単語登録。辞書で英語の意味・例文を補い、DeepL で日本語訳を付けて保存する */
 @Service
 public class WordService {
 
   private final WordRepository repo;
-  private final WebClient webClient = WebClient.create();
-  private final String deeplAuthKey;
-  private final String deeplApiUrl;
-  private final String wordnikApiKey;
+  private final DictionaryApiClient dictionaryApiClient;
+  private final DeepLApiClient deepLApiClient;
 
-  public WordService(WordRepository repo,
-      @Value("${deepl.auth-key:}") String deeplAuthKey,
-      @Value("${deepl.api-url:https://api-free.deepl.com/v2/translate}") String deeplApiUrl,
-      @Value("${wordnik.api-key:}") String wordnikApiKey) {
+  public WordService(WordRepository repo, DictionaryApiClient dictionaryApiClient,
+      DeepLApiClient deepLApiClient) {
     this.repo = repo;
-    this.deeplAuthKey = deeplAuthKey;
-    this.deeplApiUrl = deeplApiUrl;
-    this.wordnikApiKey = wordnikApiKey;
+    this.dictionaryApiClient = dictionaryApiClient;
+    this.deepLApiClient = deepLApiClient;
   }
 
   public Word fetchAndSave(String word) {
@@ -36,10 +24,10 @@ public class WordService {
 
   public Word fetchAndSave(String word, String meaningEnOverride, String exampleEnOverride) {
     Word wordEntity = new Word(word);
-    if (meaningEnOverride != null && !meaningEnOverride.isBlank()) {
+    if (!isBlank(meaningEnOverride)) {
       wordEntity.setMeaningEn(meaningEnOverride);
     }
-    if (exampleEnOverride != null && !exampleEnOverride.isBlank()) {
+    if (!isBlank(exampleEnOverride)) {
       wordEntity.setExampleEn(exampleEnOverride);
     }
 
@@ -49,7 +37,7 @@ public class WordService {
       throw new IllegalStateException("English definition and example could not be retrieved");
     }
 
-    String meaningJa = translateToJapanese(wordEntity.getMeaningEn());
+    String meaningJa = deepLApiClient.translateToJapanese(wordEntity.getMeaningEn());
     if (!isBlank(wordEntity.getMeaningEn()) && meaningJa == null) {
       throw new IllegalStateException("DeepL translation failed for the English definition");
     }
@@ -57,7 +45,7 @@ public class WordService {
       wordEntity.setMeaningJa(meaningJa);
     }
 
-    String exampleJa = translateToJapanese(wordEntity.getExampleEn());
+    String exampleJa = deepLApiClient.translateToJapanese(wordEntity.getExampleEn());
     if (!isBlank(wordEntity.getExampleEn()) && exampleJa == null) {
       throw new IllegalStateException("DeepL translation failed for the English example");
     }
@@ -68,203 +56,41 @@ public class WordService {
     return repo.save(wordEntity);
   }
 
+  /** 入力済みの項目は上書きせず、空欄だけを辞書で埋める */
   private void fetchDictionaryDetails(String word, Word wordEntity) {
     if (!isBlank(wordEntity.getMeaningEn()) && !isBlank(wordEntity.getExampleEn())) {
       return;
     }
 
-    // Try Wordnik first if API key is provided — Wordnik often contains example
-    // sentences.
-    if (!isBlank(wordnikApiKey)) {
-      try {
-        List<Map<String, Object>> defs = webClient.get()
-            .uri("https://api.wordnik.com/v4/word.json/" + word
-                + "/definitions?limit=1&includeRelated=false&useCanonical=false&api_key=" + wordnikApiKey)
-            .retrieve()
-            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-            })
-            .block();
-
-        if (defs != null && !defs.isEmpty() && defs.get(0).get("text") != null) {
-          if (isBlank(wordEntity.getMeaningEn())) {
-            wordEntity.setMeaningEn(defs.get(0).get("text").toString());
-          }
-        }
-
-        Map<String, Object> examplesResp = webClient.get()
-            .uri("https://api.wordnik.com/v4/word.json/" + word
-                + "/examples?includeDuplicates=false&useCanonical=false&limit=1&api_key=" + wordnikApiKey)
-            .retrieve()
-            .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-            })
-            .block();
-
-        if (examplesResp != null && examplesResp.get("examples") instanceof List<?> exList && !exList.isEmpty()) {
-          Object ex0 = exList.get(0);
-          if (ex0 instanceof Map<?, ?> exMap && exMap.get("text") != null) {
-            if (isBlank(wordEntity.getExampleEn())) {
-              wordEntity.setExampleEn(exMap.get("text").toString());
-            }
-          }
-        }
-
-        if (!isBlank(wordEntity.getMeaningEn()) || !isBlank(wordEntity.getExampleEn())) {
-          return;
-        }
-      } catch (Exception e) {
-        System.err.println("[WordService] Wordnik lookup failed: " + e.getMessage());
-        // fall through to existing dictionaryapi.dev logic
+    // Wordnik は例文を持っていることが多いので先に試し、何も取れなければ dictionaryapi.dev へ
+    if (dictionaryApiClient.isWordnikEnabled()) {
+      fillBlanks(wordEntity, dictionaryApiClient.lookupWordnik(word));
+      if (!isBlank(wordEntity.getMeaningEn()) || !isBlank(wordEntity.getExampleEn())) {
+        return;
       }
     }
 
-    int maxAttempts = 3;
-    for (int attempt = 1; attempt <= maxAttempts; attempt++) {
-      try {
-        List<Map<String, Object>> response = webClient.get()
-            .uri("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
-            .retrieve()
-            .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-            })
-            .block();
+    fillBlanks(wordEntity, dictionaryApiClient.lookupFreeDictionary(word));
+  }
 
-        if (response == null || response.isEmpty()) {
-          System.err.println("[WordService] dictionary lookup returned empty (attempt " + attempt + ")");
-          if (attempt < maxAttempts) {
-            try {
-              Thread.sleep(500);
-            } catch (InterruptedException ie) {
-              Thread.currentThread().interrupt();
-              return;
-            }
-            continue;
-          }
-          return;
-        }
-
-        Object meanings = response.get(0).get("meanings");
-        if (!(meanings instanceof List<?> meaningItems) || meaningItems.isEmpty()
-            || !(meaningItems.get(0) instanceof Map<?, ?> meaning)) {
-          System.err.println("[WordService] dictionary response missing meanings (attempt " + attempt + ")");
-          return;
-        }
-
-        Object definitions = meaning.get("definitions");
-        if (!(definitions instanceof List<?> definitionItems) || definitionItems.isEmpty()
-            || !(definitionItems.get(0) instanceof Map<?, ?> definition)) {
-          System.err.println("[WordService] dictionary response missing definitions (attempt " + attempt + ")");
-          return;
-        }
-
-        if (isBlank(wordEntity.getMeaningEn()) && definition.get("definition") != null) {
-          wordEntity.setMeaningEn(definition.get("definition").toString());
-        }
-        if (isBlank(wordEntity.getExampleEn()) && definition.get("example") != null) {
-          wordEntity.setExampleEn(definition.get("example").toString());
-        }
-
-        return;
-      } catch (Exception exception) {
-        System.err
-            .println("[WordService] dictionary lookup failed (attempt " + attempt + "): " + exception.getMessage());
-        if (attempt < maxAttempts) {
-          try {
-            Thread.sleep(500);
-          } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-            return;
-          }
-          continue;
-        }
-        return;
-      }
+  private void fillBlanks(Word wordEntity, DictionaryEntry entry) {
+    if (isBlank(wordEntity.getMeaningEn()) && entry.definition() != null) {
+      wordEntity.setMeaningEn(entry.definition());
+    }
+    if (isBlank(wordEntity.getExampleEn()) && entry.example() != null) {
+      wordEntity.setExampleEn(entry.example());
     }
   }
 
-  private String translateToJapanese(String text) {
-    if (isBlank(text)) {
-      return null;
+  /** 保存せずに Wordnik の定義・例文だけを取得する(管理画面の動作確認用) */
+  public DictionaryEntry fetchFromWordnik(String word) {
+    if (isBlank(word)) {
+      return DictionaryEntry.EMPTY;
     }
-    if (deeplAuthKey.isBlank()) {
-      System.err.println("[WordService] DEEPL_AUTH_KEY is not configured");
-      return null;
-    }
-
-    try {
-      Map<String, Object> response = webClient.post()
-          .uri(deeplApiUrl)
-          .header(HttpHeaders.AUTHORIZATION, "DeepL-Auth-Key " + deeplAuthKey)
-          .contentType(MediaType.APPLICATION_JSON)
-          .bodyValue(Map.of(
-              "text", List.of(text),
-              "source_lang", "EN",
-              "target_lang", "JA"))
-          .retrieve()
-          .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-          })
-          .block();
-
-      Object translations = response == null ? null : response.get("translations");
-      if (translations instanceof List<?> translationItems && !translationItems.isEmpty()
-          && translationItems.get(0) instanceof Map<?, ?> translation) {
-        Object translatedText = translation.get("text");
-        return translatedText == null ? null : translatedText.toString();
-      }
-    } catch (WebClientResponseException exception) {
-      System.err.println("[WordService] DeepL translation failed with HTTP "
-          + exception.getStatusCode().value() + ": " + exception.getResponseBodyAsString());
-    } catch (Exception exception) {
-      System.err.println("[WordService] DeepL translation failed: " + exception.getMessage());
-    }
-    return null;
+    return dictionaryApiClient.lookupWordnik(word);
   }
 
   private boolean isBlank(String value) {
     return value == null || value.isBlank();
-  }
-
-  /**
-   * Fetch definition and example from Wordnik without saving.
-   * Returns a map with keys "definition" and "example" (values may be null).
-   */
-  public Map<String, String> fetchFromWordnik(String word) {
-    if (isBlank(word) || isBlank(wordnikApiKey)) {
-      return Map.of("definition", null, "example", null);
-    }
-
-    try {
-      List<Map<String, Object>> defs = webClient.get()
-          .uri("https://api.wordnik.com/v4/word.json/" + word
-              + "/definitions?limit=1&includeRelated=false&useCanonical=false&api_key=" + wordnikApiKey)
-          .retrieve()
-          .bodyToMono(new ParameterizedTypeReference<List<Map<String, Object>>>() {
-          })
-          .block();
-
-      String def = null;
-      if (defs != null && !defs.isEmpty() && defs.get(0).get("text") != null) {
-        def = defs.get(0).get("text").toString();
-      }
-
-      Map<String, Object> examplesResp = webClient.get()
-          .uri("https://api.wordnik.com/v4/word.json/" + word
-              + "/examples?includeDuplicates=false&useCanonical=false&limit=1&api_key=" + wordnikApiKey)
-          .retrieve()
-          .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-          })
-          .block();
-
-      String ex = null;
-      if (examplesResp != null && examplesResp.get("examples") instanceof List<?> exList && !exList.isEmpty()) {
-        Object ex0 = exList.get(0);
-        if (ex0 instanceof Map<?, ?> exMap && exMap.get("text") != null) {
-          ex = exMap.get("text").toString();
-        }
-      }
-
-      return Map.of("definition", def, "example", ex);
-    } catch (Exception e) {
-      System.err.println("[WordService] Wordnik fetch failed: " + e.getMessage());
-      return Map.of("definition", null, "example", null);
-    }
   }
 }

@@ -62,7 +62,7 @@
 
 詳細は [techStack.md](techStack.md)。要点のみ:
 
-- **モノレポ**: `frontend/`(React 19 + TypeScript + Vite + Tailwind CSS v4 + React Router 7)、`backend/`(Java 21 + Spring Boot 4 + Maven Wrapper)
+- **モノレポ**: `frontend/`(React 19 + TypeScript + Vite + Tailwind CSS v4 + React Router 7)、`backend/`(Java 25 + Spring Boot 4 + Maven Wrapper)
 - **DB**: プロファイルで切り替える。`dev`(既定): H2 インメモリ + `ddl-auto=update` + Flyway 無効 / `prod`: `SPRING_DATASOURCE_URL` の DB + Flyway でスキーマ管理(`ddl-auto=none`)
 - **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
@@ -221,5 +221,5 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [ ] **Speaking の AI 採点が無い**(出題・録音・模範解答は実装済み。文字起こし+Gemini 採点が次の候補)
 - [x] 出題順の改善(一巡するまで重複なし・選択肢のシャッフル・間違えた問題の優先)とログイン廃止(20261026)
 - [ ] **MyPage にライティング以外の履歴が無い**(Grammar / Reading の履歴 API は実装済み、リスニングは記録のみで API 未実装)
-- [ ] **Gemini 呼び出しクラスが3つ重複**(`GeminiApiClient` / `GrammarApiClient` / `ReadingApiClient`)。共通化する
+- [x] Gemini 呼び出しを `common/GeminiApiClient` に共通化(失敗時は 502 とメッセージを返す)。外部APIを `XxxApiClient` に分離し、Reading の処理を `ReadingService` に移動(20261028)
 - [ ] **テストがコンテキスト起動のみ**: 採点ロジック・認可ルールのテストを追加する

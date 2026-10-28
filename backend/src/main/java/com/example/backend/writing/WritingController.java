@@ -13,14 +13,14 @@ import java.util.List;
 @RequestMapping("/api/writing")
 public class WritingController {
 
-  private final GeminiService geminiService;
+  private final WritingService writingService;
   private final CurrentUserProvider currentUserProvider;
   private final WritingRecordRepository writingRecordRepository;
 
-  public WritingController(GeminiService geminiService,
+  public WritingController(WritingService writingService,
       CurrentUserProvider currentUserProvider,
       WritingRecordRepository writingRecordRepository) {
-    this.geminiService = geminiService;
+    this.writingService = writingService;
     this.currentUserProvider = currentUserProvider;
     this.writingRecordRepository = writingRecordRepository;
   }
@@ -28,12 +28,12 @@ public class WritingController {
   @GetMapping("/question")
   public WritingQuestion getQuestion(@RequestParam(required = false) String type,
       @RequestParam(required = false) String exclude) {
-    return geminiService.generateWritingQuestion(type, exclude);
+    return writingService.generateWritingQuestion(type, exclude);
   }
 
   @PostMapping("/score")
   public ScoreResult scoreAnswer(@RequestBody ScoreRequest request) {
-    return geminiService.scoreAnswer(request);
+    return writingService.scoreAnswer(request);
   }
 
   @GetMapping("/history")

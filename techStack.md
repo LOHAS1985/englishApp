@@ -33,7 +33,7 @@ english-app/
 
 | 項目             | 使用技術                             |
 | ---------------- | ------------------------------------ |
-| 言語             | Java 21                              |
+| 言語             | Java 25                              |
 | フレームワーク   | Spring Boot                          |
 | ビルドツール     | Maven (Maven Wrapper)                |
 | HTTPクライアント | Spring WebFlux (WebClient)           |
@@ -58,8 +58,8 @@ english-app/
 
 **Dockerfileの構成(マルチステージビルド)**
 
-- ビルドステージ: `eclipse-temurin:21-jdk` でMavenビルドを実行し、jarファイルを生成
-- 実行ステージ: `eclipse-temurin:21-jre` に生成済みjarのみをコピーし、軽量なイメージで実行
+- ビルドステージ: `eclipse-temurin:25-jdk` でMavenビルドを実行し、jarファイルを生成
+- 実行ステージ: `eclipse-temurin:25-jre` に生成済みjarのみをコピーし、軽量なイメージで実行
 
 ## CI/CD (GitHub Actions)
 
