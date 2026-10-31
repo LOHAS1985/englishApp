@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   fetchWritingQuestion,
@@ -32,6 +32,8 @@ export default function Writing() {
   const [answer, setAnswer] = useState("");
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
+  /** お題を表示した時刻(学習時間の記録用) */
+  const shownAtRef = useRef(0);
 
 
   const wordCount = useMemo(() => {
@@ -74,6 +76,7 @@ export default function Writing() {
       const data = await fetchWritingQuestion(type, question?.id);
       setQuestion(data);
       setAnswer("");
+      shownAtRef.current = Date.now();
     } catch {
       alert("取得に失敗しました");
     } finally {
@@ -85,7 +88,11 @@ export default function Writing() {
     if (!question) return;
     setScoring(true);
     try {
-      const data = await scoreWritingAnswer(question.id, answer);
+      const data = await scoreWritingAnswer(
+        question.id,
+        answer,
+        Math.round((Date.now() - shownAtRef.current) / 1000),
+      );
       setResult(data);
     } catch (e: unknown) {
       // AI のレート制限などはサーバーが理由を返すので、そのまま見せる

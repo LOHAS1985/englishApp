@@ -5,6 +5,7 @@ import com.example.backend.common.PracticeRecordRepository;
 import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.speaking.SpeakingQuestionBank.SpeakingSet;
+import com.example.backend.stats.StudyLogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,15 +22,21 @@ public class SpeakingController {
   private final SpeakingQuestionBank questionBank;
   private final QuestionSelector questionSelector;
   private final PracticeRecordRepository recordRepository;
+  private final StudyLogService studyLogService;
 
   public SpeakingController(RecordingService recordingService, CurrentUserProvider currentUserProvider,
       SpeakingQuestionBank questionBank, QuestionSelector questionSelector,
-      PracticeRecordRepository recordRepository) {
+      PracticeRecordRepository recordRepository, StudyLogService studyLogService) {
     this.recordingService = recordingService;
     this.currentUserProvider = currentUserProvider;
     this.questionBank = questionBank;
     this.questionSelector = questionSelector;
     this.recordRepository = recordRepository;
+    this.studyLogService = studyLogService;
+  }
+
+  /** @param durationSeconds 出題から模範解答を見るまでの秒数 */
+  public record CompleteRequest(String setId, Integer durationSeconds) {
   }
 
   /**
@@ -52,5 +59,13 @@ public class SpeakingController {
     } catch (IOException e) {
       return ResponseEntity.status(500).body(Map.of("error", "upload failed"));
     }
+  }
+
+  /** 1セット取り組んだ(模範解答を見た)ことを学習ログに残す。正誤が無いので時間と回数だけ */
+  @PostMapping("/complete")
+  public void complete(@RequestBody CompleteRequest request) {
+    SpeakingSet set = questionBank.findById(request.setId())
+        .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません: " + request.setId()));
+    studyLogService.log("speaking", "eiken-interview", set.id(), null, null, request.durationSeconds());
   }
 }

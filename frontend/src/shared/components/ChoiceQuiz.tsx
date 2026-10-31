@@ -29,8 +29,12 @@ interface ChoiceQuizProps {
   submitAnswer: (
     questionId: string,
     selectedChoice: string,
+    durationSeconds: number,
   ) => Promise<GrammarAnswerResult>;
 }
+
+/** 出題から解答までの秒数(学習時間の記録用) */
+const secondsSince = (start: number) => Math.round((Date.now() - start) / 1000);
 
 /** 短文の空所に4択で答える問題(文法・語彙)の共通画面 */
 export default function ChoiceQuiz({
@@ -48,6 +52,9 @@ export default function ChoiceQuiz({
   const [selected, setSelected] = useState<string | null>(null);
   const [result, setResult] = useState<GrammarAnswerResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  /** 出題できなかったときの文言(復習モードで「今日の復習はすべて終わりました」など) */
+  const [error, setError] = useState("");
+  const shownAtRef = useRef(0);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
@@ -56,6 +63,7 @@ export default function ChoiceQuiz({
     setQuestion(data);
     setChoices(toDisplayChoices(data));
     setQuestionNumber((n) => n + 1);
+    shownAtRef.current = Date.now();
     prefetchRef.current = fetchQuestion(data.id).catch(() => null);
   };
 
@@ -68,8 +76,8 @@ export default function ChoiceQuiz({
       const prefetched = prefetchRef.current ? await prefetchRef.current : null;
       prefetchRef.current = null;
       showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
-    } catch {
-      alert("出題に失敗しました");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "出題に失敗しました");
     } finally {
       setLoading(false);
     }
@@ -86,10 +94,11 @@ export default function ChoiceQuiz({
           setQuestion(data);
           setChoices(toDisplayChoices(data));
           setQuestionNumber((n) => n + 1);
+          shownAtRef.current = Date.now();
           prefetchRef.current = fetchQuestion(data.id).catch(() => null);
         }
-      } catch {
-        if (!cancelled) alert("出題に失敗しました");
+      } catch (e) {
+        if (!cancelled) setError(e instanceof Error ? e.message : "出題に失敗しました");
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -107,7 +116,7 @@ export default function ChoiceQuiz({
     setSelected(choice.label);
     setSubmitting(true);
     try {
-      const data = await submitAnswer(question.id, choice.original);
+      const data = await submitAnswer(question.id, choice.original, secondsSince(shownAtRef.current));
       setResult(data);
     } catch {
       alert("採点に失敗しました");
@@ -145,6 +154,17 @@ export default function ChoiceQuiz({
           </div>
 
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
+          {!loading && error && (
+            <div>
+              <p className="text-sm text-slate-600 mb-4">{error}</p>
+              <button
+                onClick={handleFinish}
+                className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3 hover:bg-[#23365c] transition-colors"
+              >
+                ホームに戻る
+              </button>
+            </div>
+          )}
 
           {!loading && question && (
             <div>

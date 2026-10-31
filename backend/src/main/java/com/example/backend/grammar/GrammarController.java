@@ -26,8 +26,9 @@ public class GrammarController {
   }
 
   @GetMapping("/question")
-  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude) {
-    return grammarService.generateQuestion(exclude);
+  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude,
+      @RequestParam(defaultValue = "false") boolean review) {
+    return grammarService.generateQuestion(exclude, review);
   }
 
   @PostMapping("/answer")

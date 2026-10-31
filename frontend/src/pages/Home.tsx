@@ -1,8 +1,13 @@
-﻿import { useEffect } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { wakeUpServer } from "../api/client";
+import { fetchReviewSummary, wakeUpServer, type ReviewSummary } from "../api/client";
 import Header from "../shared/components/Header";
 import { EXAM_MENUS } from "../shared/exams";
+
+const REVIEW_LINKS = [
+  { feature: "vocab", label: "語彙", path: "/vocab?review=1" },
+  { feature: "grammar", label: "文法", path: "/grammar?review=1" },
+];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -10,15 +15,37 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const menu = EXAM_MENUS.find((m) => m.exam === searchParams.get("exam"));
 
+  // 間違えた問題のうち、今日復習する数。サーバーが寝ている間は出さない
+  const [review, setReview] = useState<Record<string, ReviewSummary>>({});
+
   useEffect(() => {
     wakeUpServer();
+    fetchReviewSummary()
+      .then(setReview)
+      .catch(() => setReview({}));
   }, []);
+
+  const dueItems = REVIEW_LINKS.filter((r) => (review[r.feature]?.due ?? 0) > 0);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        {dueItems.length > 0 && (
+          <div className="mb-6 rounded-lg bg-white border-l-4 border-[#c0392b] border-y border-r border-slate-200 p-4 flex flex-wrap items-center gap-3">
+            <span className="text-sm font-semibold text-slate-800">今日の復習</span>
+            {dueItems.map((r) => (
+              <button
+                key={r.feature}
+                onClick={() => navigate(r.path)}
+                className="text-sm rounded-full border border-slate-300 px-3 py-1 hover:border-[#c0392b] transition-colors"
+              >
+                {r.label} {review[r.feature].due}問 →
+              </button>
+            ))}
+          </div>
+        )}
         {!menu ? (
           <>
             <h2 className="text-lg font-semibold text-slate-700 mb-4">どの試験の対策をしますか?</h2>

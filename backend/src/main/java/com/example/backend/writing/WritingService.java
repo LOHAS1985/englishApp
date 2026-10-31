@@ -4,6 +4,7 @@ import com.example.backend.common.ExternalApiException;
 import com.example.backend.common.GeminiApiClient;
 import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.stats.StudyLogService;
 import com.example.backend.writing.WritingPromptBank.WritingPrompt;
 import com.example.backend.writing.dto.ScoreRequest;
 import com.example.backend.writing.dto.ScoreResult;
@@ -21,17 +22,20 @@ public class WritingService {
   private final CurrentUserProvider currentUserProvider;
   private final QuestionSelector questionSelector;
   private final WritingPromptBank promptBank;
+  private final StudyLogService studyLogService;
 
   public WritingService(GeminiApiClient geminiApiClient,
       WritingRecordRepository writingRecordRepository,
       CurrentUserProvider currentUserProvider,
       WritingPromptBank promptBank,
-      QuestionSelector questionSelector) {
+      QuestionSelector questionSelector,
+      StudyLogService studyLogService) {
     this.questionSelector = questionSelector;
     this.geminiApiClient = geminiApiClient;
     this.writingRecordRepository = writingRecordRepository;
     this.currentUserProvider = currentUserProvider;
     this.promptBank = promptBank;
+    this.studyLogService = studyLogService;
   }
 
   public WritingQuestion generateWritingQuestion(String type, String exclude) {
@@ -62,6 +66,7 @@ public class WritingService {
     result.setTotal(total);
 
     saveRecord(p, request.answer(), result);
+    studyLogService.log("writing", "eiken-" + p.type(), p.id(), total, 16, request.durationSeconds());
 
     return result;
   }

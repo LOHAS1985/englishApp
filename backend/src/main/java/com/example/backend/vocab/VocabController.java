@@ -8,6 +8,8 @@ import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
 import com.example.backend.grammar.dto.GrammarAnswerResult;
 import com.example.backend.grammar.dto.GrammarQuestion;
+import com.example.backend.review.ReviewService;
+import com.example.backend.stats.StudyLogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,18 +24,27 @@ public class VocabController {
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
   private final QuestionSelector questionSelector;
+  private final StudyLogService studyLogService;
+  private final ReviewService reviewService;
 
   public VocabController(VocabQuestionBank questionBank, PracticeRecordRepository recordRepository,
-      CurrentUserProvider currentUserProvider, QuestionSelector questionSelector) {
+      CurrentUserProvider currentUserProvider, QuestionSelector questionSelector,
+      StudyLogService studyLogService, ReviewService reviewService) {
     this.questionBank = questionBank;
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
     this.questionSelector = questionSelector;
+    this.studyLogService = studyLogService;
+    this.reviewService = reviewService;
   }
 
+  /** @param review true なら復習日が来た間違えた問題から出す */
   @GetMapping("/question")
-  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude) {
-    String id = questionSelector.pick("vocab", questionBank.ids(), exclude);
+  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude,
+      @RequestParam(defaultValue = "false") boolean review) {
+    String id = review
+        ? reviewService.pickDue("vocab", exclude)
+        : questionSelector.pick("vocab", questionBank.ids(), exclude);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
     return new GrammarQuestion(q.id(), q.sentence(), q.choices());
   }
@@ -48,6 +59,8 @@ public class VocabController {
     boolean correct = q.answer().equals(selected);
     recordRepository.save(new PracticeRecord(currentUserProvider.getCurrentUserId(), "vocab", q.id(), 1,
         selected.isEmpty() ? null : selected, correct));
+    studyLogService.log("vocab", "vocab", q.id(), correct ? 1 : 0, 1, request.getDurationSeconds());
+    reviewService.record("vocab", q.id(), correct);
     return ResponseEntity.ok(new GrammarAnswerResult(correct, q.answer(), q.explanation(), q.translation()));
   }
 }

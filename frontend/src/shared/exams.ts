@@ -101,3 +101,40 @@ export const EXAM_MENUS: ExamMenu[] = [
     ],
   },
 ];
+
+/** 学習ログの形式(type)の表示名 */
+export const TYPE_LABELS: Record<string, string> = {
+  "toeic-part2": "TOEIC Part 2",
+  "toeic-part3": "TOEIC Part 3",
+  "toeic-part4": "TOEIC Part 4",
+  "toeic-part5": "TOEIC Part 5",
+  "toeic-part6": "TOEIC Part 6",
+  "toeic-part7": "TOEIC Part 7",
+  vocab: "語彙(英検 大問1・TOEIC)",
+  "eiken-cloze": "英検 大問2",
+  "eiken-long": "英検 大問3",
+  "eiken-summary": "英検 要約",
+  "eiken-opinion": "英検 意見論述",
+  "eiken-part1": "英検 リスニング Part 1",
+  "eiken-part2": "英検 リスニング Part 2",
+  "eiken-part3": "英検 リスニング Part 3",
+  "eiken-interview": "英検 二次面接",
+  guardian: "Guardian 記事",
+};
+
+export const SKILL_LABELS = {
+  listening: "リスニング",
+  reading: "リーディング",
+  writing: "ライティング",
+  speaking: "スピーキング",
+  vocab: "語彙",
+} as const;
+
+/** 技能ごとの色(MyPage のグラフ用) */
+export const SKILL_COLORS = {
+  listening: "bg-[#5b9a3c]",
+  reading: "bg-[#2463a8]",
+  writing: "bg-[#e07b39]",
+  speaking: "bg-[#b0569b]",
+  vocab: "bg-[#c9a227]",
+} as const;

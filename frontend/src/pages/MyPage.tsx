@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import Header from "../shared/components/Header";
 import AccessLogSection from "./AccessLogSection";
+import StudyStatsSection from "./StudyStatsSection";
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -45,6 +46,8 @@ export default function MyPage() {
             </button>
           </div>
         </div>
+
+        <StudyStatsSection />
 
         <AccessLogSection />
 

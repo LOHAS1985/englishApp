@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import {
   fetchPracticeSet,
@@ -47,8 +47,11 @@ export default function PracticeSetPage({
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  /** セットを表示した時刻(学習時間の記録用) */
+  const shownAtRef = useRef(0);
 
   const showSet = (data: QuestionSetView | null) => {
+    shownAtRef.current = Date.now();
     setSet(data);
     setAnswers(data ? data.questions.map(() => "") : []);
     // 選択肢が音声だけの形式(TOEIC Part 2)は文字が空で届き、音声の (A)〜(C) の順と合わせるため並べ替えない
@@ -96,7 +99,14 @@ export default function PracticeSetPage({
     if (!set) return;
     setSubmitting(true);
     try {
-      setResult(await submitPracticeAnswers(feature, set.id, answers));
+      setResult(
+        await submitPracticeAnswers(
+          feature,
+          set.id,
+          answers,
+          Math.round((Date.now() - shownAtRef.current) / 1000),
+        ),
+      );
     } catch {
       alert("採点に失敗しました");
     } finally {

@@ -71,8 +71,16 @@ export interface ScoreResult {
   total: number;
 }
 
-export async function scoreWritingAnswer(questionId: string, answer: string) {
-  return postJson<ScoreResult>("/api/writing/score", { questionId, answer }, "採点に失敗しました");
+export async function scoreWritingAnswer(
+  questionId: string,
+  answer: string,
+  durationSeconds?: number,
+) {
+  return postJson<ScoreResult>(
+    "/api/writing/score",
+    { questionId, answer, durationSeconds },
+    "採点に失敗しました",
+  );
 }
 
 export interface WritingHistoryItem {
@@ -115,33 +123,42 @@ export interface GrammarAnswerResult {
   translation: string;
 }
 
-export async function fetchGrammarQuestion(exclude?: string | null) {
+/** review: true なら復習日が来た間違えた問題から出す(無ければエラー「今日の復習はすべて終わりました」) */
+export async function fetchGrammarQuestion(exclude?: string | null, review = false) {
   return getJson<GrammarQuestion>(
-    `/api/grammar/question?${excludeParam(exclude)}`,
+    `/api/grammar/question?review=${review}&${excludeParam(exclude)}`,
     "問題の取得に失敗しました",
   );
 }
 
-export async function submitGrammarAnswer(questionId: string, selectedChoice: string) {
+export async function submitGrammarAnswer(
+  questionId: string,
+  selectedChoice: string,
+  durationSeconds?: number,
+) {
   return postJson<GrammarAnswerResult>(
     "/api/grammar/answer",
-    { questionId, selectedChoice },
+    { questionId, selectedChoice, durationSeconds },
     "採点に失敗しました",
   );
 }
 
 // 語彙問題(形は文法問題と同じ)
-export async function fetchVocabQuestion(exclude?: string | null) {
+export async function fetchVocabQuestion(exclude?: string | null, review = false) {
   return getJson<GrammarQuestion>(
-    `/api/vocab/question?${excludeParam(exclude)}`,
+    `/api/vocab/question?review=${review}&${excludeParam(exclude)}`,
     "問題の取得に失敗しました",
   );
 }
 
-export async function submitVocabAnswer(questionId: string, selectedChoice: string) {
+export async function submitVocabAnswer(
+  questionId: string,
+  selectedChoice: string,
+  durationSeconds?: number,
+) {
   return postJson<GrammarAnswerResult>(
     "/api/vocab/answer",
-    { questionId, selectedChoice },
+    { questionId, selectedChoice, durationSeconds },
     "採点に失敗しました",
   );
 }
@@ -275,10 +292,11 @@ export async function submitPracticeAnswers(
   feature: PracticeFeature,
   setId: string,
   answers: string[],
+  durationSeconds?: number,
 ) {
   return postJson<SetAnswerResult>(
     `/api/${feature}/practice/answer`,
-    { setId, answers },
+    { setId, answers, durationSeconds },
     "採点に失敗しました",
   );
 }
@@ -328,6 +346,58 @@ export async function fetchSpeakingSet(exclude?: string | null) {
     `/api/speaking/question?${excludeParam(exclude)}`,
     "問題の取得に失敗しました",
   );
+}
+
+/** 1セット取り組んだ(模範解答を見た)ことを学習ログに残す */
+export async function completeSpeakingSet(setId: string, durationSeconds: number) {
+  await send("/api/speaking/complete", "記録の保存に失敗しました", jsonBody("POST", { setId, durationSeconds }));
+}
+
+// 学習ログの集計と復習(間隔反復)
+export type Skill = "listening" | "reading" | "writing" | "speaking" | "vocab";
+
+export interface StudyTotals {
+  sessions: number;
+  seconds: number;
+  correct: number;
+  total: number;
+}
+
+export interface ReviewSummary {
+  feature: "vocab" | "grammar";
+  due: number;
+  pending: number;
+}
+
+export interface StatsSummary {
+  today: StudyTotals;
+  skills: { skill: Skill; week: StudyTotals; month: StudyTotals }[];
+  types: { type: string; month: StudyTotals }[];
+  daily: { date: string; seconds: Record<Skill, number> }[];
+  review: Record<string, ReviewSummary>;
+}
+
+export interface StudyLogItem {
+  id: number;
+  feature: string;
+  type: string;
+  itemId: string | null;
+  correct: number | null;
+  total: number | null;
+  durationSeconds: number;
+  createdAt: string;
+}
+
+export async function fetchStatsSummary() {
+  return getJson<StatsSummary>("/api/stats/summary", "学習記録の取得に失敗しました");
+}
+
+export async function fetchStudyHistory() {
+  return getJson<StudyLogItem[]>("/api/stats/history", "履歴の取得に失敗しました");
+}
+
+export async function fetchReviewSummary() {
+  return getJson<Record<string, ReviewSummary>>("/api/review/summary", "復習の件数の取得に失敗しました");
 }
 
 // 管理画面(単語の登録・編集)

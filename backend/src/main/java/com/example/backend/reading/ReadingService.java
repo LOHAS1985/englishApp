@@ -6,6 +6,7 @@ import com.example.backend.reading.dto.ArticleSummary;
 import com.example.backend.reading.dto.ReadingHistoryItem;
 import com.example.backend.reading.dto.ReadingRecordRequest;
 import com.example.backend.reading.dto.ReadingRecordResult;
+import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,15 +19,18 @@ public class ReadingService {
   private final ReadingAssistService readingAssistService;
   private final CurrentUserProvider currentUserProvider;
   private final ReadingRecordRepository readingRecordRepository;
+  private final StudyLogService studyLogService;
 
   public ReadingService(GuardianApiClient guardianApiClient,
       ReadingAssistService readingAssistService,
       CurrentUserProvider currentUserProvider,
-      ReadingRecordRepository readingRecordRepository) {
+      ReadingRecordRepository readingRecordRepository,
+      StudyLogService studyLogService) {
     this.guardianApiClient = guardianApiClient;
     this.readingAssistService = readingAssistService;
     this.currentUserProvider = currentUserProvider;
     this.readingRecordRepository = readingRecordRepository;
+    this.studyLogService = studyLogService;
   }
 
   public List<ArticleSummary> searchArticles(String query, int page) {
@@ -57,6 +61,8 @@ public class ReadingService {
     record.setDurationSeconds(request.getDurationSeconds());
     record.setWpm(wpm);
     readingRecordRepository.save(record);
+    // 記事 ID は長いので学習ログには入れない(履歴は reading_records にある)
+    studyLogService.log("reading", "guardian", null, null, null, request.getDurationSeconds());
 
     return new ReadingRecordResult(request.getWordCount(), request.getDurationSeconds(), wpm);
   }

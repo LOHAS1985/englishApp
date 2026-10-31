@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { fetchSpeakingSet, type SpeakingSet } from "../../api/client";
+import { completeSpeakingSet, fetchSpeakingSet, type SpeakingSet } from "../../api/client";
 import Header from "../../shared/components/Header";
 
 /** 録音して聞き直すための小さな録音機。録音データはブラウザ内だけで扱う */
@@ -79,8 +79,13 @@ export default function Speaking() {
 
   // 「次の問題」で表示中のセットが選ばれないよう、表示中の ID を覚えておく
   const currentIdRef = useRef<string | null>(null);
+  // 学習ログ用。最初に模範解答を見た時点で、そのセットに取り組んだものとして記録する
+  const shownAtRef = useRef(0);
+  const loggedRef = useRef(false);
   useEffect(() => {
     currentIdRef.current = set?.id ?? null;
+    shownAtRef.current = Date.now();
+    loggedRef.current = false;
   }, [set]);
 
   const load = useCallback(async () => {
@@ -113,7 +118,13 @@ export default function Speaking() {
     return () => window.clearTimeout(id);
   }, [prepLeft]);
 
-  const toggle = (key: string) => setShown((prev) => ({ ...prev, [key]: !prev[key] }));
+  const toggle = (key: string) => {
+    if (set && !loggedRef.current) {
+      loggedRef.current = true;
+      completeSpeakingSet(set.id, Math.round((Date.now() - shownAtRef.current) / 1000)).catch(() => {});
+    }
+    setShown((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   return (
     <div className="min-h-screen bg-[#f0f2f5]">

@@ -3,6 +3,7 @@ package com.example.backend.common;
 import com.example.backend.common.QuestionSetBank.QuestionSet;
 import com.example.backend.common.QuestionSetBank.SetQuestion;
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class QuestionSetPractice {
   public record SetQuestionView(String question, List<String> choices) {
   }
 
-  public record SetAnswerRequest(String setId, List<String> answers) {
+  /** @param durationSeconds 出題から解答までの秒数(学習時間の記録用) */
+  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds) {
   }
 
   public record SetQuestionResult(boolean correct, String selected, String answer, String explanation) {
@@ -46,12 +48,14 @@ public class QuestionSetPractice {
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
   private final QuestionSelector questionSelector;
+  private final StudyLogService studyLogService;
 
   public QuestionSetPractice(PracticeRecordRepository recordRepository, CurrentUserProvider currentUserProvider,
-      QuestionSelector questionSelector) {
+      QuestionSelector questionSelector, StudyLogService studyLogService) {
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
     this.questionSelector = questionSelector;
+    this.studyLogService = studyLogService;
   }
 
   /** 解答履歴をもとに次のセットを選ぶ。exclude は画面に表示中のセットの ID */
@@ -89,6 +93,7 @@ public class QuestionSetPractice {
       recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
             selected.isEmpty() ? null : selected, correct));
     }
+    studyLogService.log(feature, set.type(), set.id(), score, set.questions().size(), request.durationSeconds());
     return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());
   }
 }
