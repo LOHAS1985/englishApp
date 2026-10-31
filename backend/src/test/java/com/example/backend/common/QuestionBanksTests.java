@@ -65,6 +65,11 @@ class QuestionBanksTests {
           assertThat(s.passage()).as(s.id() + " blank " + i).contains("[" + i + "]");
         }
       }
+      if (s.type().equals("eiken-long")) {
+        // 本番の英検準1級 大問3 と同じ長さで練習する
+        int words = s.passage().trim().split("\\s+").length;
+        assertThat(words).as(s.id() + " passage words").isBetween(400, 550);
+      }
     }
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
     assertThat(all).extracting(s -> s.title().trim().toLowerCase()).as("reading titles").doesNotHaveDuplicates();
