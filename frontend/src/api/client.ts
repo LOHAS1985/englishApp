@@ -426,6 +426,19 @@ export async function fetchStudyHistory() {
   return getJson<StudyLogItem[]>("/api/stats/history", "履歴の取得に失敗しました");
 }
 
+/** 文法の分野・語彙の品詞・読解/リスニングの設問タイプ別の成績(全期間) */
+export interface WeaknessItem {
+  feature: "grammar" | "vocab" | "reading" | "listening";
+  type: string;
+  category: string;
+  correct: number;
+  total: number;
+}
+
+export async function fetchWeakness() {
+  return getJson<WeaknessItem[]>("/api/stats/weakness", "弱点分析の取得に失敗しました");
+}
+
 export async function fetchReviewSummary() {
   return getJson<Record<string, ReviewSummary>>("/api/review/summary", "復習の件数の取得に失敗しました");
 }

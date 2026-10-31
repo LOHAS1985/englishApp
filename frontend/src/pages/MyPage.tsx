@@ -4,6 +4,7 @@ import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import Header from "../shared/components/Header";
 import AccessLogSection from "./AccessLogSection";
 import StudyStatsSection from "./StudyStatsSection";
+import WeaknessSection from "./WeaknessSection";
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -48,6 +49,8 @@ export default function MyPage() {
         </div>
 
         <StudyStatsSection />
+
+        <WeaknessSection />
 
         <AccessLogSection />
 
