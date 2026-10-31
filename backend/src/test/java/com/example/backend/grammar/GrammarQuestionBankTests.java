@@ -37,6 +37,12 @@ class GrammarQuestionBankTests {
   }
 
   @Test
+  void sentencesAreNotDuplicated() {
+    // 同じ英文の問題が2つあると、一巡するまでに同じ問題を2回解くことになる
+    assertThat(bank.all()).extracting(q -> q.sentence().trim().toLowerCase()).doesNotHaveDuplicates();
+  }
+
+  @Test
   void answersAreSpreadAcrossAllLetters() {
     // 正解の記号が偏ると、問題を読まずに当てられてしまう
     long total = bank.all().size();

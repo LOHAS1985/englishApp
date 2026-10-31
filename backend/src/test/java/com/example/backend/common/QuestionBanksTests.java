@@ -46,6 +46,8 @@ class QuestionBanksTests {
       assertThat(q.translation()).as(q.id()).isNotBlank();
     }
     assertSpread(all.stream().map(ChoiceQuestion::answer).toList());
+    // 同じ英文の問題が2つあると、一巡するまでに同じ問題を2回解くことになる
+    assertThat(all).extracting(q -> q.sentence().trim().toLowerCase()).doesNotHaveDuplicates();
   }
 
   @Test
@@ -65,6 +67,7 @@ class QuestionBanksTests {
       }
     }
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
+    assertThat(all).extracting(s -> s.title().trim().toLowerCase()).as("reading titles").doesNotHaveDuplicates();
   }
 
   @Test
@@ -113,6 +116,8 @@ class QuestionBanksTests {
         assertThat(p.points()).as(p.id()).hasSize(4).doesNotHaveDuplicates();
       }
     }
+    // 同じお題が2回出ないようにする
+    assertThat(all).extracting(p -> p.topic().trim().toLowerCase()).as("writing topics").doesNotHaveDuplicates();
   }
 
   @Test
