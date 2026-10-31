@@ -42,7 +42,7 @@ public class WritingService {
     String id = questionSelector.pick("writing", promptBank.ids(type), exclude);
     WritingPrompt p = promptBank.findById(id).orElseThrow();
     return new WritingQuestion(p.id(), p.type(), p.instruction(), p.topic(),
-        p.points() == null ? List.of() : p.points(), p.passage(), p.minWords(), p.maxWords());
+        p.points() == null ? List.of() : p.points(), p.passage(), p.minWords(), p.maxWords(), p.theme());
   }
 
   public ScoreResult scoreAnswer(ScoreRequest request) {

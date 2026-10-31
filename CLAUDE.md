@@ -32,13 +32,13 @@
 | 試験 | パート | アプリ側の機能 | 状態 |
 | --- | --- | --- | --- |
 | TOEIC | Part 1(写真描写) | — | 未対応(写真を用意できないため) |
-| TOEIC | Part 2(応答問題) | Listening(`toeic-part2`) | **対応済**(5問1セット。問いかけ・選択肢とも音声のみ。台本は設問から自動で組み立てる) |
+| TOEIC | Part 2(応答問題) | Listening(`toeic-part2`) | **対応済**(5問1セット・36セット。問いかけ・選択肢とも音声のみ。台本は設問から自動で組み立てる) |
 | TOEIC | Part 3・4(会話・説明文) | Listening(`questions/listening`) | **対応済**(問題集+音声生成、3人の会話・発言の意図・図表問題あり。米国英語の音声のみ) |
 | TOEIC | Part 5(短文穴埋め) | Grammar(`questions/grammar`) | **対応済** |
 | TOEIC | Part 6(長文穴埋め) | Reading 読解問題(`questions/reading`, `toeic-part6`) | **対応済** |
-| TOEIC | Part 7(読解) | Reading 読解問題(`toeic-part7`) | **対応済**(単一文書・複数文書(2〜3文書)・文挿入問題。複数文書はまだ少数) |
+| TOEIC | Part 7(読解) | Reading 読解問題(`toeic-part7`) | **対応済**(単一文書・複数文書(2〜3文書)・文挿入問題。88セットのうち3文書は12セット) |
 | 英検準1級 | 一次 大問1 語彙 | Vocab(`questions/vocab`) | **対応済**(間違えた語は間隔反復で復習:`/vocab?review=1`) |
-| 英検準1級 | 一次 大問2・3 長文 | Reading 読解問題(`eiken-cloze`, `eiken-long`) | **対応済** |
+| 英検準1級 | 一次 大問2・3 長文 | Reading 読解問題(`eiken-cloze`, `eiken-long`) | **対応済**(話題 `theme` の偏りをテストで検査) |
 | 英検準1級 | 一次 ライティング(意見論述 120–150語) | Writing(`questions/writing`, `opinion`) | **対応済**(Gemini で4観点16点満点採点) |
 | 英検準1級 | 一次 ライティング(要約 60–70語) | Writing(`summary`) | **対応済**(Gemini で4観点16点満点採点) |
 | 英検準1級 | 一次 リスニング Part 1〜3 | Listening(`eiken-part1`〜`eiken-part3`) | **対応済** |

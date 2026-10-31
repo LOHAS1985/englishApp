@@ -14,5 +14,6 @@ public record WritingQuestion(
     List<String> points,
     String passage,
     int minWords,
-    int maxWords) {
+    int maxWords,
+    String theme) {
 }

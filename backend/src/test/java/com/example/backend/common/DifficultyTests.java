@@ -82,10 +82,10 @@ class DifficultyTests {
   @Test
   void multiDocumentSetsScoreHigherThanSingleDocuments() {
     QuestionSet single = new QuestionSet("r1", "toeic-part7", "t", "word ".repeat(150), null, null, null, null,
-        List.of(), null);
+        List.of(), null, null);
     QuestionSet multi = new QuestionSet("r2", "toeic-part7", "t",
         "【Document 1: E-mail】 " + "word ".repeat(100) + "【Document 2: Form】 " + "word ".repeat(50), null, null,
-        null, null, List.of(), null);
+        null, null, List.of(), null, null);
     assertThat(Difficulty.setScore(multi)).isGreaterThan(Difficulty.setScore(single));
   }
 }

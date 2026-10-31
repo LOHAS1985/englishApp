@@ -31,6 +31,7 @@ public class QuestionSetBank {
    * @param situation  英検リスニング Part 3 の状況説明など、画面に先に表示する文。不要なら null
    * @param graphic    TOEIC Part 3/4 の図表問題で見る表・図(等幅フォントで表示するテキスト)。不要なら null
    * @param difficulty 難易度(1〜3)。省略時は Difficulty が形式ごとに推定する
+   * @param theme      話題({@link Themes} のいずれか)。英検の大問2・3・リスニング Part 2 は必須(話題の偏りをテストで検査)
    */
   public record QuestionSet(
       String id,
@@ -42,7 +43,8 @@ public class QuestionSetBank {
       String graphic,
       String translation,
       List<SetQuestion> questions,
-      Integer difficulty) {
+      Integer difficulty,
+      String theme) {
   }
 
   private final Map<String, QuestionSet> byId;

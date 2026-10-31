@@ -173,7 +173,14 @@ export default function PracticeSetPage({
             <div>
               <div className="flex items-start justify-between gap-3 mb-3">
                 <h2 className="font-serif text-lg text-slate-900">{set.title}</h2>
-                <DifficultyBadge level={set.difficulty} />
+                <div className="flex shrink-0 items-center gap-1.5">
+                  {set.theme && (
+                    <span className="text-xs text-slate-500 border border-slate-200 rounded px-2 py-0.5">
+                      {set.theme}
+                    </span>
+                  )}
+                  <DifficultyBadge level={set.difficulty} />
+                </div>
               </div>
               {set.situation && (
                 <p className="text-sm text-slate-700 bg-amber-50 border border-amber-200 rounded p-3 mb-4">

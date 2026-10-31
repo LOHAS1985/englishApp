@@ -15,7 +15,10 @@ import java.util.Set;
 public class QuestionSetPractice {
 
   /** 解答前に画面へ渡す形。正解・解説・リスニングの台本は含めない */
-  /** @param difficulty 1=基礎 / 2=標準 / 3=発展 */
+  /**
+   * @param difficulty 1=基礎 / 2=標準 / 3=発展
+   * @param theme      話題(英検の長文・説明文のみ。無ければ null)
+   */
   public record QuestionSetView(
       String id,
       String type,
@@ -24,7 +27,8 @@ public class QuestionSetPractice {
       String situation,
       String graphic,
       List<SetQuestionView> questions,
-      int difficulty) {
+      int difficulty,
+      String theme) {
   }
 
   public record SetQuestionView(String question, List<String> choices) {
@@ -80,7 +84,7 @@ public class QuestionSetPractice {
             : new SetQuestionView(q.question(), q.choices()))
         .toList();
     return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), set.graphic(),
-        questions, bank.difficulty(set.id()));
+        questions, bank.difficulty(set.id()), set.theme());
   }
 
   /** 採点し、設問ごとに記録を保存する */

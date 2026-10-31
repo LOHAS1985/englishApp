@@ -143,6 +143,11 @@ export default function Writing() {
           {question && (
             <>
               <div className="mt-8 pl-4 border-l-4 border-[#8fae4e]">
+                {question.theme && (
+                  <span className="inline-block text-xs text-slate-500 border border-slate-200 rounded px-2 py-0.5 mb-2">
+                    {question.theme}
+                  </span>
+                )}
                 <p className="text-sm text-slate-600 leading-relaxed mb-3">
                   {question.prompt}
                 </p>

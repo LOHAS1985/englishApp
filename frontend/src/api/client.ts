@@ -77,6 +77,8 @@ export interface WritingQuestion {
   passage: string | null;
   minWords: number;
   maxWords: number;
+  /** 話題(社会・政治、環境・エネルギーなど) */
+  theme: string | null;
 }
 
 export async function fetchWritingQuestion(type: WritingType, exclude?: string | null) {
@@ -288,6 +290,8 @@ export interface QuestionSetView {
   questions: SetQuestionView[];
   /** 1=基礎 / 2=標準 / 3=発展 */
   difficulty: number;
+  /** 話題(英検の長文・説明文のみ) */
+  theme: string | null;
 }
 
 export interface SetQuestionResult {

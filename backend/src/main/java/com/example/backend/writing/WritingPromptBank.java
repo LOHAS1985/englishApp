@@ -20,7 +20,9 @@ public class WritingPromptBank {
 
   private static final Logger logger = LoggerFactory.getLogger(WritingPromptBank.class);
 
-  public record WritingPrompt(String id, String type, String topic, List<String> points, String passage) {
+  /** theme は話題({@link com.example.backend.common.Themes} のいずれか。偏りをテストで検査) */
+  public record WritingPrompt(String id, String type, String theme, String topic, List<String> points,
+      String passage) {
 
     public boolean isSummary() {
       return "summary".equals(type);
