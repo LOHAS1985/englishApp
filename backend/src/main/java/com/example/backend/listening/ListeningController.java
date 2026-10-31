@@ -37,10 +37,11 @@ public class ListeningController {
     return questionBank.countByType();
   }
 
+  /** @param level 難易度(1〜3)。省略時は直近の正答率に合わせて自動で選ぶ */
   @GetMapping
   public QuestionSetView getSet(@RequestParam(required = false) String type,
-      @RequestParam(required = false) String exclude) {
-    return practice.next(questionBank, "listening", type, exclude);
+      @RequestParam(required = false) String exclude, @RequestParam(required = false) Integer level) {
+    return practice.next(questionBank, "listening", type, exclude, level);
   }
 
   /** セットの台本を音声化して URL を返す。同じ台本は2回目以降キャッシュから返る */

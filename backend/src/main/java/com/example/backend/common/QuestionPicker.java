@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.ToIntFunction;
 
 /**
  * 解答履歴をもとに次の問題を選ぶ。
@@ -14,6 +15,7 @@ import java.util.Set;
  * <li>一巡するまで重複なし:解答回数が最も少ない問題から選ぶ(全問解くと次の周に入る)</li>
  * <li>間違えた問題を優先:最後の解答が不正解の問題を {@link #REVIEW_RATE} の確率で出し直す</li>
  * <li>直近に解いた問題と、画面に表示中の問題(exclude)は続けて出さない</li>
+ * <li>難易度の目標(target)があれば、未出題の候補のうち目標に最も近い難易度の問題から選ぶ</li>
  * </ul>
  */
 public final class QuestionPicker {
@@ -38,6 +40,15 @@ public final class QuestionPicker {
    * @param exclude    出さない ID(画面に表示中の問題)。null 可
    */
   public static String pick(List<String> candidates, List<Attempt> history, String exclude, Random random) {
+    return pick(candidates, history, exclude, random, null, null);
+  }
+
+  /**
+   * @param difficulty 問題 ID → 難易度(1〜3)。target が null なら使わない
+   * @param target     中心に出す難易度。null なら難易度で絞らない
+   */
+  public static String pick(List<String> candidates, List<Attempt> history, String exclude, Random random,
+      ToIntFunction<String> difficulty, Integer target) {
     if (candidates.isEmpty()) {
       throw new IllegalArgumentException("問題が登録されていません");
     }
@@ -77,7 +88,16 @@ public final class QuestionPicker {
     if (pool.isEmpty()) {
       pool = candidates;
     }
+    if (difficulty != null && target != null) {
+      pool = closestDifficulty(pool, difficulty, target);
+    }
     return pool.get(random.nextInt(pool.size()));
+  }
+
+  /** 目標の難易度の問題が残っていなければ、隣の難易度の問題を出す(一巡の順番は崩さない) */
+  static List<String> closestDifficulty(List<String> pool, ToIntFunction<String> difficulty, int target) {
+    int best = pool.stream().mapToInt(id -> Math.abs(difficulty.applyAsInt(id) - target)).min().orElse(0);
+    return pool.stream().filter(id -> Math.abs(difficulty.applyAsInt(id) - target) == best).toList();
   }
 
   private static List<String> leastAnswered(List<String> candidates, Map<String, Integer> counts,

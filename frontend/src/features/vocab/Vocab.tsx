@@ -7,7 +7,7 @@ export default function Vocab() {
   // ?review=1 のときは、間違えた問題のうち復習日が来たものだけを出す
   const review = useSearchParams()[0].get("review") === "1";
   const fetchQuestion = useCallback(
-    (exclude?: string | null) => fetchVocabQuestion(exclude, review),
+    (exclude?: string | null, level?: number) => fetchVocabQuestion(exclude, review, level),
     [review],
   );
   return (
@@ -15,6 +15,7 @@ export default function Vocab() {
       eyebrow={review ? "VOCABULARY REVIEW" : "VOCABULARY"}
       title={review ? "語彙の復習" : "語彙問題(英検準1級・TOEIC)"}
       fetchQuestion={fetchQuestion}
+      showLevel={!review}
       submitAnswer={submitVocabAnswer}
     />
   );

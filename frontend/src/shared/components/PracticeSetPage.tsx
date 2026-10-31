@@ -10,6 +10,7 @@ import {
 import { LETTERS, shuffle } from "../shuffle";
 import { examOf, EXAM_LABELS } from "../exams";
 import Header from "./Header";
+import { DifficultyBadge, DifficultySelect } from "./Difficulty";
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
@@ -49,6 +50,8 @@ export default function PracticeSetPage({
   const [error, setError] = useState("");
   /** セットを表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
+  /** 選んだ難易度(1〜3)。undefined なら直近の正答率に合わせてサーバーが選ぶ */
+  const [level, setLevel] = useState<number | undefined>(undefined);
 
   const showSet = (data: QuestionSetView | null) => {
     shownAtRef.current = Date.now();
@@ -73,7 +76,7 @@ export default function PracticeSetPage({
   const loadNext = async () => {
     setLoading(true);
     try {
-      showSet(await fetchPracticeSet(feature, type, set?.id));
+      showSet(await fetchPracticeSet(feature, type, set?.id, level));
     } catch {
       showSet(null);
     }
@@ -87,13 +90,13 @@ export default function PracticeSetPage({
 
   useEffect(() => {
     let cancelled = false;
-    fetchPracticeSet(feature, type)
+    fetchPracticeSet(feature, type, undefined, level)
       .then((data) => !cancelled && showSet(data))
       .catch(() => !cancelled && showSet(null));
     return () => {
       cancelled = true;
     };
-  }, [feature, type]);
+  }, [feature, type, level]);
 
   const handleSubmit = async () => {
     if (!set) return;
@@ -153,12 +156,25 @@ export default function PracticeSetPage({
             ))}
           </div>
 
+          <div className="mb-5">
+            <DifficultySelect
+              value={level}
+              onChange={(l) => {
+                setLoading(true);
+                setLevel(l);
+              }}
+            />
+          </div>
+
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {error && <p className="text-sm text-[#c0392b]">{error}</p>}
 
           {!loading && set && (
             <div>
-              <h2 className="font-serif text-lg text-slate-900 mb-3">{set.title}</h2>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h2 className="font-serif text-lg text-slate-900">{set.title}</h2>
+                <DifficultyBadge level={set.difficulty} />
+              </div>
               {set.situation && (
                 <p className="text-sm text-slate-700 bg-amber-50 border border-amber-200 rounded p-3 mb-4">
                   <span className="font-semibold">Situation: </span>

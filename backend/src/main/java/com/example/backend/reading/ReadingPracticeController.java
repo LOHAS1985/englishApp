@@ -27,10 +27,11 @@ public class ReadingPracticeController {
     return questionBank.countByType();
   }
 
+  /** @param level 難易度(1〜3)。省略時は直近の正答率に合わせて自動で選ぶ */
   @GetMapping
   public QuestionSetView getSet(@RequestParam(required = false) String type,
-      @RequestParam(required = false) String exclude) {
-    return practice.next(questionBank, "reading", type, exclude);
+      @RequestParam(required = false) String exclude, @RequestParam(required = false) Integer level) {
+    return practice.next(questionBank, "reading", type, exclude, level);
   }
 
   @PostMapping("/answer")

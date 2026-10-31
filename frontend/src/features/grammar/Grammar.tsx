@@ -7,7 +7,7 @@ export default function Grammar() {
   // ?review=1 のときは、間違えた問題のうち復習日が来たものだけを出す
   const review = useSearchParams()[0].get("review") === "1";
   const fetchQuestion = useCallback(
-    (exclude?: string | null) => fetchGrammarQuestion(exclude, review),
+    (exclude?: string | null, level?: number) => fetchGrammarQuestion(exclude, review, level),
     [review],
   );
   return (
@@ -15,6 +15,7 @@ export default function Grammar() {
       eyebrow={review ? "TOEIC GRAMMAR REVIEW" : "TOEIC GRAMMAR"}
       title={review ? "文法の復習" : "文法問題"}
       fetchQuestion={fetchQuestion}
+      showLevel={!review}
       submitAnswer={submitGrammarAnswer}
     />
   );

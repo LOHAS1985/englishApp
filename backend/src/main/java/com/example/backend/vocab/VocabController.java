@@ -38,15 +38,18 @@ public class VocabController {
     this.reviewService = reviewService;
   }
 
-  /** @param review true なら復習日が来た間違えた問題から出す */
+  /**
+   * @param review true なら復習日が来た間違えた問題から出す
+   * @param level  難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ(復習では使わない)
+   */
   @GetMapping("/question")
   public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude,
-      @RequestParam(defaultValue = "false") boolean review) {
+      @RequestParam(defaultValue = "false") boolean review, @RequestParam(required = false) Integer level) {
     String id = review
         ? reviewService.pickDue("vocab", exclude)
-        : questionSelector.pick("vocab", questionBank.ids(), exclude);
+        : questionSelector.pick("vocab", questionBank.ids(), exclude, questionBank::difficulty, level);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
-    return new GrammarQuestion(q.id(), q.sentence(), q.choices());
+    return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }
 
   @PostMapping("/answer")

@@ -15,6 +15,7 @@ import java.util.Set;
 public class QuestionSetPractice {
 
   /** 解答前に画面へ渡す形。正解・解説・リスニングの台本は含めない */
+  /** @param difficulty 1=基礎 / 2=標準 / 3=発展 */
   public record QuestionSetView(
       String id,
       String type,
@@ -22,7 +23,8 @@ public class QuestionSetPractice {
       String passage,
       String situation,
       String graphic,
-      List<SetQuestionView> questions) {
+      List<SetQuestionView> questions,
+      int difficulty) {
   }
 
   public record SetQuestionView(String question, List<String> choices) {
@@ -59,13 +61,18 @@ public class QuestionSetPractice {
     this.studyLogService = studyLogService;
   }
 
-  /** 解答履歴をもとに次のセットを選ぶ。exclude は画面に表示中のセットの ID */
-  public QuestionSetView next(QuestionSetBank bank, String feature, String type, String exclude) {
-    String id = questionSelector.pick(feature, bank.ids(type), exclude);
-    return toView(bank.findById(id).orElseThrow());
+  /**
+   * 解答履歴をもとに次のセットを選ぶ。
+   *
+   * @param exclude 画面に表示中のセットの ID
+   * @param level   画面で選んだ難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ
+   */
+  public QuestionSetView next(QuestionSetBank bank, String feature, String type, String exclude, Integer level) {
+    String id = questionSelector.pick(feature, bank.ids(type), exclude, bank::difficulty, level);
+    return toView(bank, bank.findById(id).orElseThrow());
   }
 
-  public QuestionSetView toView(QuestionSet set) {
+  public QuestionSetView toView(QuestionSetBank bank, QuestionSet set) {
     boolean audioOnly = AUDIO_ONLY_TYPES.contains(set.type());
     List<SetQuestionView> questions = set.questions().stream()
         .map(q -> audioOnly
@@ -73,7 +80,7 @@ public class QuestionSetPractice {
             : new SetQuestionView(q.question(), q.choices()))
         .toList();
     return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), set.graphic(),
-        questions);
+        questions, bank.difficulty(set.id()));
   }
 
   /** 採点し、設問ごとに記録を保存する */

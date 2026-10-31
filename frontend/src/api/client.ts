@@ -142,7 +142,12 @@ export interface GrammarQuestion {
   id: string;
   sentence: string;
   choices: GrammarChoice[];
+  /** 1=基礎 / 2=標準 / 3=発展 */
+  difficulty: number;
 }
+
+/** level(1〜3)を省略すると、サーバーが直近の正答率に合わせて難易度を選ぶ */
+const levelParam = (level?: number) => (level ? `&level=${level}` : "");
 
 export interface GrammarAnswerResult {
   correct: boolean;
@@ -152,9 +157,9 @@ export interface GrammarAnswerResult {
 }
 
 /** review: true なら復習日が来た間違えた問題から出す(無ければエラー「今日の復習はすべて終わりました」) */
-export async function fetchGrammarQuestion(exclude?: string | null, review = false) {
+export async function fetchGrammarQuestion(exclude?: string | null, review = false, level?: number) {
   return getJson<GrammarQuestion>(
-    `/api/grammar/question?review=${review}&${excludeParam(exclude)}`,
+    `/api/grammar/question?review=${review}&${excludeParam(exclude)}${levelParam(level)}`,
     "問題の取得に失敗しました",
   );
 }
@@ -172,9 +177,9 @@ export async function submitGrammarAnswer(
 }
 
 // 語彙問題(形は文法問題と同じ)
-export async function fetchVocabQuestion(exclude?: string | null, review = false) {
+export async function fetchVocabQuestion(exclude?: string | null, review = false, level?: number) {
   return getJson<GrammarQuestion>(
-    `/api/vocab/question?review=${review}&${excludeParam(exclude)}`,
+    `/api/vocab/question?review=${review}&${excludeParam(exclude)}${levelParam(level)}`,
     "問題の取得に失敗しました",
   );
 }
@@ -281,6 +286,8 @@ export interface QuestionSetView {
   /** TOEIC Part 3/4 の図表問題で見る表・図。等幅フォントで表示する */
   graphic: string | null;
   questions: SetQuestionView[];
+  /** 1=基礎 / 2=標準 / 3=発展 */
+  difficulty: number;
 }
 
 export interface SetQuestionResult {
@@ -311,9 +318,10 @@ export async function fetchPracticeSet(
   feature: PracticeFeature,
   type: string,
   exclude?: string | null,
+  level?: number,
 ) {
   return getJson<QuestionSetView>(
-    `/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}`,
+    `/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}${levelParam(level)}`,
     "問題の取得に失敗しました",
   );
 }

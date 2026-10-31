@@ -30,6 +30,7 @@ public class QuestionSetBank {
    * @param script     リスニングの台本("Man: ..." のように話者ラベル付き)。リーディングでは null
    * @param situation  英検リスニング Part 3 の状況説明など、画面に先に表示する文。不要なら null
    * @param graphic    TOEIC Part 3/4 の図表問題で見る表・図(等幅フォントで表示するテキスト)。不要なら null
+   * @param difficulty 難易度(1〜3)。省略時は Difficulty が形式ごとに推定する
    */
   public record QuestionSet(
       String id,
@@ -40,11 +41,13 @@ public class QuestionSetBank {
       String situation,
       String graphic,
       String translation,
-      List<SetQuestion> questions) {
+      List<SetQuestion> questions,
+      Integer difficulty) {
   }
 
   private final Map<String, QuestionSet> byId;
   private final List<QuestionSet> all;
+  private final Map<String, Integer> difficulty;
 
   public QuestionSetBank(JsonMapper jsonMapper, String feature) {
     this(jsonMapper, feature, UnaryOperator.identity());
@@ -57,6 +60,8 @@ public class QuestionSetBank {
     this.byId = new java.util.LinkedHashMap<>();
     loaded.forEach((id, set) -> byId.put(id, normalizer.apply(set)));
     this.all = new ArrayList<>(byId.values());
+    this.difficulty = Difficulty.assign(all, QuestionSet::id, QuestionSet::difficulty, QuestionSet::type,
+        Difficulty::setScore);
     logger.info("{} question set bank loaded: {} sets", feature, all.size());
   }
 
@@ -70,6 +75,11 @@ public class QuestionSetBank {
       throw new IllegalArgumentException("この形式の問題はまだ登録されていません: " + type);
     }
     return ids;
+  }
+
+  /** 難易度(1=基礎 / 2=標準 / 3=発展) */
+  public int difficulty(String id) {
+    return difficulty.getOrDefault(id, Difficulty.NORMAL);
   }
 
   public Optional<QuestionSet> findById(String id) {

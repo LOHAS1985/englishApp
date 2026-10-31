@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
 import Header from "./Header";
+import { DifficultyBadge, DifficultySelect } from "./Difficulty";
 
 /** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
 interface DisplayChoice {
@@ -24,8 +25,13 @@ interface ChoiceQuizProps {
   /** 画面上部の小見出し(例: TOEIC GRAMMAR) */
   eyebrow: string;
   title: string;
-  /** exclude: 画面に表示中の問題の ID(先読みで同じ問題を選ばせない) */
-  fetchQuestion: (exclude?: string | null) => Promise<GrammarQuestion>;
+  /**
+   * exclude: 画面に表示中の問題の ID(先読みで同じ問題を選ばせない)
+   * level: 選んだ難易度(1〜3)。undefined なら自動
+   */
+  fetchQuestion: (exclude?: string | null, level?: number) => Promise<GrammarQuestion>;
+  /** 難易度の選択を出すか(復習モードでは出さない) */
+  showLevel?: boolean;
   submitAnswer: (
     questionId: string,
     selectedChoice: string,
@@ -42,6 +48,7 @@ export default function ChoiceQuiz({
   title,
   fetchQuestion,
   submitAnswer,
+  showLevel = false,
 }: ChoiceQuizProps) {
   const navigate = useNavigate();
 
@@ -55,6 +62,7 @@ export default function ChoiceQuiz({
   /** 出題できなかったときの文言(復習モードで「今日の復習はすべて終わりました」など) */
   const [error, setError] = useState("");
   const shownAtRef = useRef(0);
+  const [level, setLevel] = useState<number | undefined>(undefined);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
@@ -64,7 +72,7 @@ export default function ChoiceQuiz({
     setChoices(toDisplayChoices(data));
     setQuestionNumber((n) => n + 1);
     shownAtRef.current = Date.now();
-    prefetchRef.current = fetchQuestion(data.id).catch(() => null);
+    prefetchRef.current = fetchQuestion(data.id, level).catch(() => null);
   };
 
   const loadQuestion = async () => {
@@ -75,7 +83,7 @@ export default function ChoiceQuiz({
     try {
       const prefetched = prefetchRef.current ? await prefetchRef.current : null;
       prefetchRef.current = null;
-      showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
+      showQuestion(prefetched ?? (await fetchQuestion(question?.id, level)));
     } catch (e) {
       setError(e instanceof Error ? e.message : "出題に失敗しました");
     } finally {
@@ -88,14 +96,17 @@ export default function ChoiceQuiz({
 
     async function load() {
       setLoading(true);
+      setError("");
+      setResult(null);
+      setSelected(null);
       try {
-        const data = await fetchQuestion();
+        const data = await fetchQuestion(undefined, level);
         if (!cancelled) {
           setQuestion(data);
           setChoices(toDisplayChoices(data));
           setQuestionNumber((n) => n + 1);
           shownAtRef.current = Date.now();
-          prefetchRef.current = fetchQuestion(data.id).catch(() => null);
+          prefetchRef.current = fetchQuestion(data.id, level).catch(() => null);
         }
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : "出題に失敗しました");
@@ -109,7 +120,7 @@ export default function ChoiceQuiz({
     return () => {
       cancelled = true;
     };
-  }, [fetchQuestion]);
+  }, [fetchQuestion, level]);
 
   const handleSelect = async (choice: DisplayChoice) => {
     if (!question || result) return;
@@ -152,6 +163,13 @@ export default function ChoiceQuiz({
               </span>
             )}
           </div>
+
+          {(showLevel || question) && (
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
+              {showLevel ? <DifficultySelect value={level} onChange={setLevel} /> : <span />}
+              {!loading && question && <DifficultyBadge level={question.difficulty} />}
+            </div>
+          )}
 
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {!loading && error && (
