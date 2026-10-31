@@ -46,6 +46,6 @@ public class ListeningQuestionBank extends QuestionSetBank {
       }
     }
     return new QuestionSet(set.id(), set.type(), set.title(), set.passage(), script.toString(), set.situation(),
-        set.translation(), questions);
+        set.graphic(), set.translation(), questions);
   }
 }

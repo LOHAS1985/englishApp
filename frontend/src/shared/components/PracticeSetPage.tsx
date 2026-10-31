@@ -166,6 +166,12 @@ export default function PracticeSetPage({
                 </p>
               )}
 
+              {set.graphic && (
+                <pre className="text-xs sm:text-sm font-mono text-slate-800 bg-white border border-slate-300 rounded p-3 mb-4 overflow-x-auto">
+                  {set.graphic}
+                </pre>
+              )}
+
               {renderMaterial(set, result)}
 
               <div className="space-y-5 mt-6">

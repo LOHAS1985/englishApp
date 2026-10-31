@@ -29,6 +29,7 @@ public class QuestionSetBank {
    * @param passage    リーディングの本文(Part 6 の空所は [1] [2] ... と表記)。リスニングでは null
    * @param script     リスニングの台本("Man: ..." のように話者ラベル付き)。リーディングでは null
    * @param situation  英検リスニング Part 3 の状況説明など、画面に先に表示する文。不要なら null
+   * @param graphic    TOEIC Part 3/4 の図表問題で見る表・図(等幅フォントで表示するテキスト)。不要なら null
    */
   public record QuestionSet(
       String id,
@@ -37,6 +38,7 @@ public class QuestionSetBank {
       String passage,
       String script,
       String situation,
+      String graphic,
       String translation,
       List<SetQuestion> questions) {
   }

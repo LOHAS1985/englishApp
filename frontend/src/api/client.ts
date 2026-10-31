@@ -250,6 +250,8 @@ export interface QuestionSetView {
   title: string;
   passage: string | null;
   situation: string | null;
+  /** TOEIC Part 3/4 の図表問題で見る表・図。等幅フォントで表示する */
+  graphic: string | null;
   questions: SetQuestionView[];
 }
 

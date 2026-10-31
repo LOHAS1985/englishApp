@@ -21,6 +21,7 @@ public class QuestionSetPractice {
       String title,
       String passage,
       String situation,
+      String graphic,
       List<SetQuestionView> questions) {
   }
 
@@ -71,7 +72,8 @@ public class QuestionSetPractice {
             ? new SetQuestionView("", q.choices().stream().map(c -> "").toList())
             : new SetQuestionView(q.question(), q.choices()))
         .toList();
-    return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), questions);
+    return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), set.graphic(),
+        questions);
   }
 
   /** 採点し、設問ごとに記録を保存する */

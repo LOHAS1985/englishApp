@@ -82,6 +82,10 @@ class QuestionBanksTests {
       for (String line : s.script().split("\n")) {
         assertThat(line).as(s.id() + " script line").matches("^(Man|Woman|Man 2|Woman 2|Narrator): .+");
       }
+      // 図表問題(Look at the graphic.)には、画面に表示する図表が必要
+      if (s.questions().stream().anyMatch(q -> q.question().startsWith("Look at the graphic"))) {
+        assertThat(s.graphic()).as(s.id() + " graphic").isNotBlank();
+      }
       if (s.type().equals("eiken-part3")) {
         assertThat(s.situation()).as(s.id() + " situation").isNotBlank();
       }
