@@ -82,6 +82,8 @@ english-app/
 | ------------------- | ----------------------------------------- | -------------- |
 | `VITE_API_BASE_URL` | フロントエンドが呼び出すバックエンドのURL | frontend/.env  |
 | `GEMINI_API_KEY`    | Gemini API認証キー                        | Render環境変数 |
+| `APP_ACCESS_KEY`    | 簡易アクセス保護の合言葉。設定すると `/api/**` はヘッダー `X-App-Key` が一致したときだけ使える(画面で一度入力するとブラウザに保存) | Render環境変数 |
+| `ACCESS_LOG_KEY`    | アクセス履歴の閲覧キー                    | Render環境変数・GitHub Actions secrets |
 
 ## 学習を通じて扱った主なトラブルシューティング
 

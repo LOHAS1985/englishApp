@@ -57,6 +57,7 @@
 - **試験と同じ制約で練習できる**: 語数カウント、制限時間、音声の再生回数制限など、本番と同じ条件を選べるようにする。
 - **ホームは試験→パートの2段階**: まず TOEIC / 英検準1級を選び、次にパートを選ぶ(`shared/exams.ts` の `EXAM_MENUS`)。問題画面は `?type=` で形式を受け取り、同じ試験の形式だけを切り替え候補に出す。
 - **ログインは設けない**: 利用者は本人1人だけなので、全 API をログインなしで使える。記録はすべて `CurrentUserProvider` が返す owner ユーザーに保存する(初回アクセス時に自動作成)。
+- **簡易アクセス保護**: 環境変数 `APP_ACCESS_KEY`(合言葉)を設定すると、`/api/**` はヘッダー `X-App-Key` が一致したときだけ使える(`AppKeyFilter`)。画面は 401 を受けると合言葉の入力欄を出し(`AppKeyGate`)、ブラウザに保存する。`/health`・生成音声・`/api/access-logs`(独自キー)は対象外。
 - **アクセスログ**: `/api/**` へのアクセスを `access_logs` に保存し(IP・端末・ip-api.com で推定した地域、90日で削除)、マイページで確認する。IP を含むので閲覧 API は `ACCESS_LOG_KEY` と一致するヘッダー `X-Access-Log-Key` が必須。週1回 `weekly-access-report.yml` が Gmail で自分宛てに送る。**IP を含むログを公開リポジトリにコミットしない**(Actions の実行ログにも出さない)。
 
 ## 3. 技術スタック
@@ -205,6 +206,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ### 本人の作業が必要(コード外の設定)
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
+- [ ] **Render に `APP_ACCESS_KEY`(合言葉)を設定する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作)。設定後、アプリを開くと合言葉の入力欄が出るので同じ値を入れる(端末ごとに1回)
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
 ### 対応済み(20261026)
@@ -217,7 +219,6 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在100問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
-- [ ] **ログインが無いため、URL を知っていれば誰でも使える**: 記録の混入・Gemini 枠の消費・管理画面(`/api/admin/**`)の操作が可能。問題になったら、環境変数の合言葉をヘッダーで送る簡易な保護を入れる
 - [ ] **生成音声・録音が Render のディスクに保存されている**: 再デプロイで消える。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
 - [ ] **Speaking の AI 採点が無い**(出題・録音・模範解答は実装済み。文字起こし+Gemini 採点が次の候補)
 - [x] 出題順の改善(一巡するまで重複なし・選択肢のシャッフル・間違えた問題の優先)とログイン廃止(20261026)

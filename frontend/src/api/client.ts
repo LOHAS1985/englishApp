@@ -10,8 +10,36 @@ async function errorMessage(res: Response, fallback: string) {
   return body?.error || fallback;
 }
 
+// 簡易アクセス保護の合言葉(サーバーの環境変数 APP_ACCESS_KEY と同じ値)。この端末のブラウザに保存する
+const APP_KEY_STORAGE = "englishApp.appKey";
+/** サーバーが合言葉を求めた(401)ときに投げるイベント。AppKeyGate が入力画面を出す */
+export const APP_KEY_REQUIRED_EVENT = "englishApp:app-key-required";
+
+function loadAppKey() {
+  try {
+    return localStorage.getItem(APP_KEY_STORAGE) ?? "";
+  } catch {
+    return "";
+  }
+}
+
+export function saveAppKey(key: string) {
+  try {
+    localStorage.setItem(APP_KEY_STORAGE, key);
+  } catch {
+    // プライベートモードなどで保存できない場合は、この画面を開いている間だけ使えない(再入力になる)
+  }
+}
+
 async function send(path: string, fallbackError: string, init?: RequestInit) {
-  const res = await fetch(`${API_BASE}${path}`, init);
+  const headers = new Headers(init?.headers);
+  const appKey = loadAppKey();
+  if (appKey) headers.set("X-App-Key", appKey);
+  const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
+  if (res.status === 401) {
+    window.dispatchEvent(new Event(APP_KEY_REQUIRED_EVENT));
+    throw new Error(await errorMessage(res, "合言葉を入力してください"));
+  }
   if (!res.ok) throw new Error(await errorMessage(res, fallbackError));
   return res;
 }

@@ -10,10 +10,12 @@ import Vocab from "./features/vocab/Vocab";
 import ReadingPractice from "./features/reading/ReadingPractice";
 import Admin from "./pages/Admin";
 import MyPage from "./pages/MyPage";
+import AppKeyGate from "./shared/components/AppKeyGate";
 
 export default function App() {
   return (
     <BrowserRouter basename="/englishApp">
+      <AppKeyGate />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/writing" element={<Writing />} />
