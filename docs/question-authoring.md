@@ -78,6 +78,7 @@
 - **TOEIC Part 2**:`question` に問いかけ、`choices` に応答3つを書く。台本(`Narrator: Number 1.` → 問いかけ → `(A)`〜`(C)`)と男女の声の割り当ては `ListeningQuestionBank` が設問から組み立てるので、`balance.py` で並べ替えてもずれない。解答前の画面には文字を出さない。誤答は本番のひっかけ(同じ音・似た音の語、連想される語、疑問詞の質問に Yes/No で答える)に合わせ、正解が2つ取れないようにする。`translation` は null にし、和訳は解説に含める。
 - **リスニングの `script`**:全行を `Man: ` / `Woman: ` / `Man 2: ` / `Woman 2: ` / `Narrator: ` のいずれかで始める(テストで検査)。TTS が話者名で声を選び、`Man 2` / `Woman 2` には別の声が付くので、TOEIC Part 3 の3人の会話に使う。台本は解答後にだけ画面に表示される。
 - **TOEIC Part 3/4 の設問**:本番と同じく、詳細・推測の設問に加えて「What does the woman mean when she says, "..."?」形式の発言の意図を問う設問を入れる。Part 3 には3人の会話も混ぜる。
+- **図表問題(TOEIC Part 3/4)**:セットに `graphic`(表・地図・グラフをテキストで表したもの。等幅フォントで表示される)を入れ、設問の1つを「Look at the graphic. ...」で始める。台本だけ、図表だけでは答えが決まらず、両方を組み合わせて初めて答えが出るように作る。「Look at the graphic」で始まる設問があるのに `graphic` が空だとテストで失敗する。
 
 ### ライティング
 

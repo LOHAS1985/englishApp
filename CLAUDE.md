@@ -33,7 +33,7 @@
 | --- | --- | --- | --- |
 | TOEIC | Part 1(写真描写) | — | 未対応(写真を用意できないため) |
 | TOEIC | Part 2(応答問題) | Listening(`toeic-part2`) | **対応済**(5問1セット。問いかけ・選択肢とも音声のみ。台本は設問から自動で組み立てる) |
-| TOEIC | Part 3・4(会話・説明文) | Listening(`questions/listening`) | **対応済**(問題集+音声生成、米国英語の音声のみ) |
+| TOEIC | Part 3・4(会話・説明文) | Listening(`questions/listening`) | **対応済**(問題集+音声生成、3人の会話・発言の意図・図表問題あり。米国英語の音声のみ) |
 | TOEIC | Part 5(短文穴埋め) | Grammar(`questions/grammar`) | **対応済** |
 | TOEIC | Part 6(長文穴埋め) | Reading 読解問題(`questions/reading`, `toeic-part6`) | **対応済** |
 | TOEIC | Part 7(読解) | Reading 読解問題(`toeic-part7`) | **対応済**(単一文書・複数文書(2〜3文書)・文挿入問題。複数文書はまだ少数) |
