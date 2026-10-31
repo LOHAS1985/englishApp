@@ -48,16 +48,18 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
     }
     const script = await fetchListeningScript(setId);
     const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
+    // 3人の会話(TOEIC Part 3)では "Man 2" / "Woman 2" にも別の声を割り当てる
+    const VOICE_SLOTS = ["Woman", "Man", "Narrator", "Woman 2", "Man 2"];
     const voiceFor = (speaker: string) =>
       voices.length === 0
         ? undefined
-        : voices[(speaker === "Man" ? 1 : speaker === "Narrator" ? 2 : 0) % voices.length];
+        : voices[Math.max(0, VOICE_SLOTS.indexOf(speaker)) % voices.length];
     stoppedRef.current = false;
     setStatus("browser");
     window.speechSynthesis.cancel();
     for (const [i, line] of script.split("\n").entries()) {
       if (stoppedRef.current) break;
-      const m = line.match(/^(\w+):\s*(.*)$/);
+      const m = line.match(/^(\w+(?: \d)?):\s*(.*)$/);
       // TOEIC Part 2 は「Number N.」の前に解答時間を取る(サーバーの音声と同じ)
       if (i > 0 && m && /^Number \d+\.$/.test(m[2])) {
         await new Promise((resolve) => setTimeout(resolve, 4000));

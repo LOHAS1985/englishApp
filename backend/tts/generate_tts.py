@@ -117,7 +117,8 @@ def main():
             return None
 
         # Prefer deterministic, readable mappings for very common labels
-        if any(k in key for k in ['^female$', 'female', 'she', 'lady', 'girl']):
+        # 'woman' は 'man' を含むので、男性の判定より先に女性として扱う('Woman 2' が男性の声になるのを防ぐ)
+        if any(k in key for k in ['^female$', 'female', 'woman', 'she', 'lady', 'girl']):
             # prefer a female en-US voice
             v = pick_unused(FEMALE_VOICES) or pick_unused(ALL_VOICES)
         elif any(k in key for k in ['^male$', 'man', 'male', 'he', 'guy', 'gent']):

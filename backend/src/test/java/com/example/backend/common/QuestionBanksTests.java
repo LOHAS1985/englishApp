@@ -78,9 +78,9 @@ class QuestionBanksTests {
       assertThat(s.id()).matches("l\\d{4}");
       assertThat(s.type()).as(s.id()).isIn(LISTENING_TYPES);
       assertThat(s.script()).as(s.id()).isNotBlank();
-      // TTS は行頭の「話者:」で声を切り替える。"Woman 2" のような名前は男性の声になるため3種類に限定
+      // TTS は行頭の「話者:」で声を切り替える。3人の会話(TOEIC Part 3)用に "Man 2" / "Woman 2" まで使える
       for (String line : s.script().split("\n")) {
-        assertThat(line).as(s.id() + " script line").matches("^(Man|Woman|Narrator): .+");
+        assertThat(line).as(s.id() + " script line").matches("^(Man|Woman|Man 2|Woman 2|Narrator): .+");
       }
       if (s.type().equals("eiken-part3")) {
         assertThat(s.situation()).as(s.id() + " situation").isNotBlank();
