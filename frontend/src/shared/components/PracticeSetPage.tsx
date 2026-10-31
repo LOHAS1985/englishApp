@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   fetchPracticeSet,
   fetchPracticeTypes,
@@ -7,6 +8,7 @@ import {
   type SetAnswerResult,
 } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
+import { examOf, EXAM_LABELS } from "../exams";
 import Header from "./Header";
 
 interface PracticeSetPageProps {
@@ -27,8 +29,15 @@ export default function PracticeSetPage({
   typeLabels,
   renderMaterial,
 }: PracticeSetPageProps) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [counts, setCounts] = useState<Record<string, number>>({});
-  const [type, setType] = useState(Object.keys(typeLabels)[0]);
+  // ホームで選んだ形式(?type=)から始め、同じ試験の形式だけを切り替え候補に出す
+  const initialType = searchParams.get("type");
+  const [type, setType] = useState(
+    initialType && initialType in typeLabels ? initialType : Object.keys(typeLabels)[0],
+  );
+  const exam = initialType && initialType in typeLabels ? examOf(initialType) : null;
+  const visibleTypes = Object.entries(typeLabels).filter(([key]) => !exam || examOf(key) === exam);
   const [set, setSet] = useState<QuestionSetView | null>(null);
   /** 解答(元の記号)。採点にはこの記号を送る */
   const [answers, setAnswers] = useState<string[]>([]);
@@ -42,7 +51,16 @@ export default function PracticeSetPage({
   const showSet = (data: QuestionSetView | null) => {
     setSet(data);
     setAnswers(data ? data.questions.map(() => "") : []);
-    setOrder(data ? data.questions.map((q) => shuffle(q.choices.map((_, i) => i))) : []);
+    // 選択肢が音声だけの形式(TOEIC Part 2)は文字が空で届き、音声の (A)〜(C) の順と合わせるため並べ替えない
+    setOrder(
+      data
+        ? data.questions.map((q) =>
+            q.choices.every((c) => c === "")
+              ? q.choices.map((_, i) => i)
+              : shuffle(q.choices.map((_, i) => i)),
+          )
+        : [],
+    );
     setResult(null);
     setError(data ? "" : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。");
     setLoading(false);
@@ -93,19 +111,25 @@ export default function PracticeSetPage({
       <Header />
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
         <div className="w-full max-w-[760px] bg-white border border-slate-200 rounded-md p-5 sm:p-8">
+          {exam && (
+            <Link to={`/?exam=${exam}`} className="inline-block text-xs text-[#2463a8] hover:underline mb-3">
+              ← {EXAM_LABELS[exam]} のメニュー
+            </Link>
+          )}
           <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
             {eyebrow}
           </p>
           <h1 className="font-serif text-2xl text-slate-900 mb-4">{title}</h1>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {Object.entries(typeLabels).map(([key, label]) => (
+            {visibleTypes.map(([key, label]) => (
               <button
                 key={key}
                 onClick={() => {
                   if (key === type) return;
                   setLoading(true);
                   setType(key);
+                  if (exam) setSearchParams({ type: key }, { replace: true });
                 }}
                 className={`text-xs sm:text-sm rounded-full border px-3 py-1.5 transition-colors ${
                   type === key
@@ -144,7 +168,7 @@ export default function PracticeSetPage({
                   return (
                     <div key={qi} className="border border-slate-200 rounded-md p-4">
                       <p className="text-sm font-semibold text-slate-900 mb-3">
-                        Q{qi + 1}. {q.question}
+                        {q.question ? `Q${qi + 1}. ${q.question}` : `No. ${qi + 1}`}
                       </p>
                       <div className="space-y-2">
                         {qOrder.map((originalIndex, ci) => {

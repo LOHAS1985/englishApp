@@ -28,7 +28,7 @@ class QuestionBanksTests {
   private static final JsonMapper MAPPER = JsonMapper.builder().build();
   private static final List<String> LETTERS = List.of("A", "B", "C", "D");
   private static final Set<String> READING_TYPES = Set.of("toeic-part6", "toeic-part7", "eiken-cloze", "eiken-long");
-  private static final Set<String> LISTENING_TYPES = Set.of("toeic-part3", "toeic-part4", "eiken-part1",
+  private static final Set<String> LISTENING_TYPES = Set.of("toeic-part2", "toeic-part3", "toeic-part4", "eiken-part1",
       "eiken-part2", "eiken-part3");
 
   @Test
@@ -82,7 +82,17 @@ class QuestionBanksTests {
       if (s.type().equals("eiken-part3")) {
         assertThat(s.situation()).as(s.id() + " situation").isNotBlank();
       }
-      assertQuestions(s, 4);
+      if (s.type().equals("toeic-part2")) {
+        // 本番と同じ3択。台本は設問から組み立てる(ListeningQuestionBank)ので、解説は記号でなく語句で書く
+        assertThat(s.questions()).as(s.id()).hasSize(5);
+        assertQuestions(s, 3);
+        for (SetQuestion q : s.questions()) {
+          assertThat(s.script()).as(s.id() + " script").contains(q.question())
+              .contains("(A) " + q.choices().get(0)).contains("(C) " + q.choices().get(2));
+        }
+      } else {
+        assertQuestions(s, 4);
+      }
     }
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
   }

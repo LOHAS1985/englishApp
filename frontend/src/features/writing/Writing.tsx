@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   fetchWritingQuestion,
   scoreWritingAnswer,
@@ -21,7 +22,11 @@ const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
 ];
 
 export default function Writing() {
-  const [type, setType] = useState<WritingType>("opinion");
+  // ホームのメニューから ?type=summary などで開かれる
+  const [searchParams] = useSearchParams();
+  const [type, setType] = useState<WritingType>(
+    searchParams.get("type") === "summary" ? "summary" : "opinion",
+  );
   const [question, setQuestion] = useState<WritingQuestion | null>(null);
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");

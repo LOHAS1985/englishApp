@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /** セット問題の出題(正解を隠した形への変換)と採点・記録。リーディングとリスニングで共通 */
 @Service
@@ -39,6 +40,9 @@ public class QuestionSetPractice {
       String translation) {
   }
 
+  /** 問いかけと選択肢を音声だけで出す形式(TOEIC Part 2)。解答前は文字を渡さない */
+  private static final Set<String> AUDIO_ONLY_TYPES = Set.of("toeic-part2");
+
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
   private final QuestionSelector questionSelector;
@@ -57,8 +61,11 @@ public class QuestionSetPractice {
   }
 
   public QuestionSetView toView(QuestionSet set) {
+    boolean audioOnly = AUDIO_ONLY_TYPES.contains(set.type());
     List<SetQuestionView> questions = set.questions().stream()
-        .map(q -> new SetQuestionView(q.question(), q.choices()))
+        .map(q -> audioOnly
+            ? new SetQuestionView("", q.choices().stream().map(c -> "").toList())
+            : new SetQuestionView(q.question(), q.choices()))
         .toList();
     return new QuestionSetView(set.id(), set.type(), set.title(), set.passage(), set.situation(), questions);
   }

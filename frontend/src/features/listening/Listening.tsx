@@ -2,6 +2,7 @@ import PracticeSetPage from "../../shared/components/PracticeSetPage";
 import ListeningPlayer from "./ListeningPlayer";
 
 const TYPE_LABELS = {
+  "toeic-part2": "TOEIC Part 2(応答)",
   "toeic-part3": "TOEIC Part 3(会話)",
   "toeic-part4": "TOEIC Part 4(説明文)",
   "eiken-part1": "英検 Part 1(会話)",

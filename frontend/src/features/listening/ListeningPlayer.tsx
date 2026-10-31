@@ -55,9 +55,13 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
     stoppedRef.current = false;
     setStatus("browser");
     window.speechSynthesis.cancel();
-    for (const line of script.split("\n")) {
+    for (const [i, line] of script.split("\n").entries()) {
       if (stoppedRef.current) break;
       const m = line.match(/^(\w+):\s*(.*)$/);
+      // TOEIC Part 2 は「Number N.」の前に解答時間を取る(サーバーの音声と同じ)
+      if (i > 0 && m && /^Number \d+\.$/.test(m[2])) {
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+      }
       const utterance = new SpeechSynthesisUtterance(m ? m[2] : line);
       utterance.lang = "en-US";
       utterance.voice = voiceFor(m ? m[1] : "") ?? null;

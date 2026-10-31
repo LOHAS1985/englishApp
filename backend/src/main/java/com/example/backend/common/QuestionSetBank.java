@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 
 /**
  * 文章(またはリスニングのスクリプト)1つに複数の設問が付くセット問題の問題集。
@@ -44,7 +45,15 @@ public class QuestionSetBank {
   private final List<QuestionSet> all;
 
   public QuestionSetBank(JsonMapper jsonMapper, String feature) {
-    this.byId = QuestionBankLoader.load(jsonMapper, feature, QuestionSet[].class, QuestionSet::id);
+    this(jsonMapper, feature, UnaryOperator.identity());
+  }
+
+  /** @param normalizer 読み込んだセットを補完する処理(TOEIC Part 2 の台本を設問から組み立てるなど) */
+  protected QuestionSetBank(JsonMapper jsonMapper, String feature, UnaryOperator<QuestionSet> normalizer) {
+    Map<String, QuestionSet> loaded = QuestionBankLoader.load(jsonMapper, feature, QuestionSet[].class,
+        QuestionSet::id);
+    this.byId = new java.util.LinkedHashMap<>();
+    loaded.forEach((id, set) -> byId.put(id, normalizer.apply(set)));
     this.all = new ArrayList<>(byId.values());
     logger.info("{} question set bank loaded: {} sets", feature, all.size());
   }

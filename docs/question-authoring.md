@@ -12,7 +12,7 @@
 | 読解 TOEIC Part 7 | `reading`(`toeic-part7`) | 〃 | 50セット | 50 | 100 |
 | 読解 英検 大問2(空所補充) | `reading`(`eiken-cloze`) | 〃 | 25セット | 25 | 50 |
 | 読解 英検 大問3(内容一致) | `reading`(`eiken-long`) | 〃 | 25セット | 25 | 50 |
-| リスニング | `listening` | `l0001`〜 | 150セット(TOEIC Part 3: 40、Part 4: 30、英検 Part 1: 30、Part 2: 25、Part 3: 25) | 150 | 300 |
+| リスニング | `listening` | `l0001`〜 | 170セット(TOEIC Part 2: 20、Part 3: 40、Part 4: 30、英検 Part 1: 30、Part 2: 25、Part 3: 25) | 170 | 300 |
 | ライティング | `writing` | `w0001`〜 | 75題 | 75 | 150 |
 | スピーキング(英検二次) | `speaking` | `s0001`〜 | 25セット | 25 | 50 |
 
@@ -65,6 +65,7 @@
 | `toeic-part7` | 単一文書(メール・広告・記事・チャット等)120〜250語 | `passage` | 2〜4問 |
 | `eiken-cloze` | 英検 大問2。説明文250語前後、空所 `[1]`〜`[3]` | `passage` | 3問(選択肢は語句) |
 | `eiken-long` | 英検 大問3。説明文400〜500語 | `passage` | 3〜4問 |
+| `toeic-part2` | 応答問題(問いかけ+応答3つ) | `questions` のみ(`script` は null) | 5問(3択) |
 | `toeic-part3` | 2人の会話 | `script` | 3問 |
 | `toeic-part4` | 1人のアナウンス・説明 | `script` | 3問 |
 | `eiken-part1` | 会話 | `script` | 1問 |
@@ -73,6 +74,7 @@
 
 - 選択肢は文字列の配列で4つ(記号は付けない)。`answer` は `A`〜`D`。
 - `passage` の空所番号は設問の数だけ必要(テストで検査)。
+- **TOEIC Part 2**:`question` に問いかけ、`choices` に応答3つを書く。台本(`Narrator: Number 1.` → 問いかけ → `(A)`〜`(C)`)と男女の声の割り当ては `ListeningQuestionBank` が設問から組み立てるので、`balance.py` で並べ替えてもずれない。解答前の画面には文字を出さない。誤答は本番のひっかけ(同じ音・似た音の語、連想される語、疑問詞の質問に Yes/No で答える)に合わせ、正解が2つ取れないようにする。`translation` は null にし、和訳は解説に含める。
 - **リスニングの `script`**:全行を `Man: ` / `Woman: ` / `Narrator: ` のいずれかで始める。TTS が話者名で声を選ぶため、`Woman 2` のような名前は男性の声になるので使わない(テストで検査)。台本は解答後にだけ画面に表示される。
 
 ### ライティング

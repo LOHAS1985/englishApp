@@ -5,6 +5,23 @@ import asyncio
 import pathlib
 import re
 import argparse
+import shutil
+import subprocess
+
+# edge-tts の出力(24kHz モノラル mp3)と揃えた無音。ffmpeg の concat でつなぐため形式を合わせる
+LINE_GAP_SECONDS = 0.5
+# TOEIC Part 2 の「Number N.」の前に置く解答時間
+ANSWER_GAP_SECONDS = 4.0
+NUMBER_LINE = re.compile(r"^Number \d+\.$")
+
+
+def make_silence(seconds: float, out_path: str) -> bool:
+    if not shutil.which('ffmpeg'):
+        return False
+    rc = subprocess.run(['ffmpeg', '-y', '-f', 'lavfi', '-i', 'anullsrc=r=24000:cl=mono', '-t', str(seconds),
+                         '-c:a', 'libmp3lame', '-b:a', '48k', out_path],
+                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+    return rc == 0
 
 async def synth(text: str, voice: str, out_path: str):
     try:
@@ -157,13 +174,24 @@ def main():
             voice = 'en-US-JennyNeural' if (alt % 2 == 0) else 'en-US-GuyNeural'
             alt += 1
 
-        out_name = f"{base_name}_{idx}.mp3"
+        # 行の間に無音を入れる(Part 2 では「Number N.」の前に解答時間を取る)
+        if tasks:
+            gap = ANSWER_GAP_SECONDS if NUMBER_LINE.match(content) else LINE_GAP_SECONDS
+            tasks.append((None, gap, str(out_dir / f"{base_name}_{idx:03d}.mp3")))
+            idx += 1
+
+        # TtsService がファイル名順に結合するので、桁をそろえる(_10 が _2 より前に来ないように)
+        out_name = f"{base_name}_{idx:03d}.mp3"
         out_path = str(out_dir / out_name)
         idx += 1
         tasks.append((content, voice, out_path))
 
     async def run_all():
         for (content, voice, out_path) in tasks:
+            if content is None:
+                if not dry_run and not make_silence(voice, out_path):
+                    print(f'[TTS TASK] skip silence (ffmpeg unavailable) -> {out_path}')
+                continue
             print(f'[TTS TASK] -> {out_path} ({voice})')
             print(f'[TTS TASK] content preview: "{content[:140]}"')
             if dry_run:
