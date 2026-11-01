@@ -85,6 +85,33 @@ public class QuestionSelector {
         .toList();
   }
 
+  /** 画面側で出題するための解答履歴1行(設問ごと。新しい順) */
+  public record AnswerRow(String itemId, int questionNo, Boolean correct) {
+  }
+
+  /** 画面側で出題を選ぶ機能(問題集を画面に同梱しているもの) */
+  static final Set<String> CLIENT_PICK_FEATURES = Set.of("grammar", "vocab", "reading", "listening");
+
+  /**
+   * 画面側の出題(QuestionPicker の移植)に使う解答履歴。画面はこれをブラウザに保存しておき、
+   * サーバーの起動を待たずに次の問題を選ぶ。
+   */
+  public List<AnswerRow> answerRows(String feature) {
+    if (!CLIENT_PICK_FEATURES.contains(feature)) {
+      throw new IllegalArgumentException("この機能の履歴は取得できません: " + feature);
+    }
+    Long userId = currentUserProvider.getCurrentUserId();
+    if ("grammar".equals(feature)) {
+      return grammarRecordRepository.findByUserIdOrderByIdDesc(userId).stream()
+          .filter(r -> r.getQuestionId() != null)
+          .map(r -> new AnswerRow(r.getQuestionId(), 1, r.isCorrect()))
+          .toList();
+    }
+    return practiceRecordRepository.findByUserIdAndFeatureOrderByIdDesc(userId, feature).stream()
+        .map(r -> new AnswerRow(r.getItemId(), r.getQuestionNo(), r.getCorrect()))
+        .toList();
+  }
+
   /** 解答履歴(新しい順) */
   private List<Attempt> history(String feature) {
     Long userId = currentUserProvider.getCurrentUserId();

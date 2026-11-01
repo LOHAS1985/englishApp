@@ -1,65 +1,27 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+import {
+  API_BASE,
+  errorMessage,
+  getJson,
+  jsonBody,
+  postJson,
+  send,
+} from "./http";
+
+import {
+  countSetTypes,
+  gradeChoiceQuestion,
+  gradeQuestionSet,
+  localScript,
+  pickChoiceQuestion,
+  pickQuestionSet,
+} from "./localQuestions";
+
+export { APP_KEY_REQUIRED_EVENT, saveAppKey } from "./http";
+export { flushOutbox, pendingCount } from "./outbox";
 
 /** 画面に表示中の問題を exclude で渡し、次の問題(先読み)で同じ問題が選ばれないようにする */
 const excludeParam = (exclude?: string | null) =>
   exclude ? `exclude=${encodeURIComponent(exclude)}` : "";
-
-/** サーバーが {"error": "..."} を返していればその文言を、無ければ既定の文言を使う */
-async function errorMessage(res: Response, fallback: string) {
-  const body = (await res.json().catch(() => null)) as { error?: string } | null;
-  return body?.error || fallback;
-}
-
-// 簡易アクセス保護の合言葉(サーバーの環境変数 APP_ACCESS_KEY と同じ値)。この端末のブラウザに保存する
-const APP_KEY_STORAGE = "englishApp.appKey";
-/** サーバーが合言葉を求めた(401)ときに投げるイベント。AppKeyGate が入力画面を出す */
-export const APP_KEY_REQUIRED_EVENT = "englishApp:app-key-required";
-
-function loadAppKey() {
-  try {
-    return localStorage.getItem(APP_KEY_STORAGE) ?? "";
-  } catch {
-    return "";
-  }
-}
-
-export function saveAppKey(key: string) {
-  try {
-    localStorage.setItem(APP_KEY_STORAGE, key);
-  } catch {
-    // プライベートモードなどで保存できない場合は、この画面を開いている間だけ使えない(再入力になる)
-  }
-}
-
-async function send(path: string, fallbackError: string, init?: RequestInit) {
-  const headers = new Headers(init?.headers);
-  const appKey = loadAppKey();
-  if (appKey) headers.set("X-App-Key", appKey);
-  const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
-  if (res.status === 401) {
-    window.dispatchEvent(new Event(APP_KEY_REQUIRED_EVENT));
-    throw new Error(await errorMessage(res, "合言葉を入力してください"));
-  }
-  if (!res.ok) throw new Error(await errorMessage(res, fallbackError));
-  return res;
-}
-
-async function getJson<T>(path: string, fallbackError: string, init?: RequestInit) {
-  const res = await send(path, fallbackError, init);
-  return res.json() as Promise<T>;
-}
-
-function jsonBody(method: "POST" | "PUT", body: unknown): RequestInit {
-  return {
-    method,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  };
-}
-
-async function postJson<T>(path: string, body: unknown, fallbackError: string) {
-  return getJson<T>(path, fallbackError, jsonBody("POST", body));
-}
 
 /** Render の無料枠はスリープするので、画面を開いた時点で起こしておく(失敗は無視) */
 export function wakeUpServer() {
@@ -158,12 +120,42 @@ export interface GrammarAnswerResult {
   translation: string;
 }
 
-/** review: true なら復習日が来た間違えた問題から出す(無ければエラー「今日の復習はすべて終わりました」) */
-export async function fetchGrammarQuestion(exclude?: string | null, review = false, level?: number) {
+/**
+ * 通常の出題は画面に同梱した問題集から選ぶ(サーバーの起動を待たない)。
+ * review: true のときだけ、復習日の管理(review_items)を持つサーバーに問い合わせる
+ * (無ければエラー「今日の復習はすべて終わりました」)。
+ */
+async function fetchChoiceQuestion(
+  feature: "grammar" | "vocab",
+  exclude: string | null | undefined,
+  review: boolean,
+  level: number | undefined,
+) {
+  if (!review) return pickChoiceQuestion(feature, exclude, level);
   return getJson<GrammarQuestion>(
-    `/api/grammar/question?review=${review}&${excludeParam(exclude)}${levelParam(level)}`,
+    `/api/${feature}/question?review=true&${excludeParam(exclude)}${levelParam(level)}`,
     "問題の取得に失敗しました",
   );
+}
+
+/** 画面で採点してすぐ結果を返し、記録は裏でサーバーに送る(問題集に無い問題だけサーバーで採点) */
+async function submitChoiceAnswer(
+  feature: "grammar" | "vocab",
+  questionId: string,
+  selectedChoice: string,
+  durationSeconds?: number,
+) {
+  const local = await gradeChoiceQuestion(feature, questionId, selectedChoice, durationSeconds);
+  if (local) return local;
+  return postJson<GrammarAnswerResult>(
+    `/api/${feature}/answer`,
+    { questionId, selectedChoice, durationSeconds },
+    "採点に失敗しました",
+  );
+}
+
+export async function fetchGrammarQuestion(exclude?: string | null, review = false, level?: number) {
+  return fetchChoiceQuestion("grammar", exclude, review, level);
 }
 
 export async function submitGrammarAnswer(
@@ -171,19 +163,12 @@ export async function submitGrammarAnswer(
   selectedChoice: string,
   durationSeconds?: number,
 ) {
-  return postJson<GrammarAnswerResult>(
-    "/api/grammar/answer",
-    { questionId, selectedChoice, durationSeconds },
-    "採点に失敗しました",
-  );
+  return submitChoiceAnswer("grammar", questionId, selectedChoice, durationSeconds);
 }
 
 // 語彙問題(形は文法問題と同じ)
 export async function fetchVocabQuestion(exclude?: string | null, review = false, level?: number) {
-  return getJson<GrammarQuestion>(
-    `/api/vocab/question?review=${review}&${excludeParam(exclude)}${levelParam(level)}`,
-    "問題の取得に失敗しました",
-  );
+  return fetchChoiceQuestion("vocab", exclude, review, level);
 }
 
 export async function submitVocabAnswer(
@@ -191,11 +176,7 @@ export async function submitVocabAnswer(
   selectedChoice: string,
   durationSeconds?: number,
 ) {
-  return postJson<GrammarAnswerResult>(
-    "/api/vocab/answer",
-    { questionId, selectedChoice, durationSeconds },
-    "採点に失敗しました",
-  );
+  return submitChoiceAnswer("vocab", questionId, selectedChoice, durationSeconds);
 }
 
 export interface GrammarHistoryItem {
@@ -311,11 +292,9 @@ export interface SetAnswerResult {
 
 type PracticeFeature = "reading" | "listening";
 
-export async function fetchPracticeTypes(feature: PracticeFeature) {
-  return getJson<Record<string, number>>(
-    `/api/${feature}/practice/types`,
-    "形式の取得に失敗しました",
-  );
+// セット問題も画面に同梱した問題集から出題・採点し、記録は裏でサーバーに送る
+export async function fetchPracticeTypes(feature: PracticeFeature): Promise<Record<string, number>> {
+  return countSetTypes(feature);
 }
 
 export async function fetchPracticeSet(
@@ -323,11 +302,8 @@ export async function fetchPracticeSet(
   type: string,
   exclude?: string | null,
   level?: number,
-) {
-  return getJson<QuestionSetView>(
-    `/api/${feature}/practice?type=${encodeURIComponent(type)}&${excludeParam(exclude)}${levelParam(level)}`,
-    "問題の取得に失敗しました",
-  );
+): Promise<QuestionSetView> {
+  return pickQuestionSet(feature, type, exclude, level);
 }
 
 export async function submitPracticeAnswers(
@@ -335,12 +311,8 @@ export async function submitPracticeAnswers(
   setId: string,
   answers: string[],
   durationSeconds?: number,
-) {
-  return postJson<SetAnswerResult>(
-    `/api/${feature}/practice/answer`,
-    { setId, answers, durationSeconds },
-    "採点に失敗しました",
-  );
+): Promise<SetAnswerResult> {
+  return gradeQuestionSet(feature, setId, answers, durationSeconds);
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
@@ -352,8 +324,10 @@ export async function synthesizeListeningAudio(setId: string) {
   );
 }
 
-/** ブラウザの読み上げ機能で再生するための台本(画面には表示しない) */
+/** ブラウザの読み上げ機能で再生するための台本(画面には表示しない)。同梱の問題集から取るのでサーバーを待たない */
 export async function fetchListeningScript(setId: string) {
+  const script = await localScript(setId);
+  if (script) return script;
   const body = await getJson<{ script: string }>(
     `/api/listening/practice/${setId}/script`,
     "台本の取得に失敗しました",

@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { flushOutbox } from "./api/client";
 import Home from "./pages/Home";
 import Writing from "./features/writing/Writing";
 import Grammar from "./features/grammar/Grammar";
@@ -13,6 +15,19 @@ import MyPage from "./pages/MyPage";
 import AppKeyGate from "./shared/components/AppKeyGate";
 
 export default function App() {
+  // 前回送れなかった解答記録を送る。オンラインに戻ったとき・画面に戻ってきたときにも再送する
+  useEffect(() => {
+    const flush = () => void flushOutbox();
+    const onVisible = () => document.visibilityState === "visible" && flush();
+    flush();
+    window.addEventListener("online", flush);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      window.removeEventListener("online", flush);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, []);
+
   return (
     <BrowserRouter basename="/englishApp">
       <AppKeyGate />

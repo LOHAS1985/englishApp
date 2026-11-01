@@ -64,6 +64,7 @@
 - **弱点の可視化と復習**: 間違えた語彙・文法問題は `ReviewService` が `review_items` に登録し、1→3→7→14日の間隔で出し直す(14日後の復習に正解したら外す)。復習日より前の通常出題で正解しても間隔は進めない。
 - **レベル(学習ペースの管理)**: 解答・学習時間・継続で経験値を貯め、**1日30分(約600XP)を続けると 2027年3月31日にちょうど Lv.100** になるように設計している(`level/XpRules`)。経験値は保存せず `study_logs` からその都度計算する(規則を変えると過去にもさかのぼって反映される)。正解は形式ごとに1問の所要時間に比例し、難易度で 0.8〜1.3倍、不正解は3割、同じ日の解き直しは0、前に間違えた問題を後日克服すると1.5倍。時間は1分1XP(1日60まで)、30分達成+50、技能1つにつき+10、10分以上の日の連続で最大1.3倍。ヘッダーにレベル、マイページに予定ペース(`GET /api/level`)を出す。新しい形式を足したら `XpRules.BASE_XP` に1問あたりの経験値を追加する
 - **弱点分析**: MyPage に、文法の分野(時制・関係詞など)・語彙の品詞・読解/リスニングの設問タイプ(推測・NOT問題・発言の意図・Part 2 の問いかけの形など)別の正答率を出す(`GET /api/stats/weakness`)。分類は解答記録に保存せず、問題集の `point` や設問文から `QuestionTags` がその都度決める。新しい書き方の `point` や設問を足したら `QuestionTagsTests` で分類漏れを確認する。
+- **問題の表示はサーバーを待たない**: 文法・語彙・読解・リスニングの問題集は画面に同梱し(`frontend/src/generated/questions/*.json`)、出題と採点は画面で行う(`api/localQuestions.ts`、`api/picker.ts` は `QuestionPicker` の移植)。解答記録は送信待ちの列(`api/outbox.ts`、ブラウザに保存)から従来の解答 API に裏で送り、送れなければ次回に再送する。解答履歴は `GET /api/practice/history` で裏で取得してブラウザに保存し、出題に使う。同梱の問題集は `QuestionExportTests` が書き出す(難易度・Part 2 の台本は Java 側が正)。問題集を変えたら `./scripts/export-questions.sh`(`push.sh` が自動実行。書き出し忘れは CI で失敗)。出題規則を変えるときは `QuestionPicker` と `picker.ts` の両方を揃える。復習モード(`?review=1`)・ライティング・スピーキングはサーバーで出題する
 - **出題順**: `QuestionSelector` / `QuestionPicker` が解答記録から選ぶ。一巡するまで重複なし、最後に間違えた問題を約3割の確率で出し直す、直近5問と表示中の問題(`exclude`)は出さない。選択肢の並びは画面側で毎回シャッフルし、採点には元の記号を送る。
 - **難易度**: 問題は 1=基礎 / 2=標準 / 3=発展 の難易度を持つ(`Difficulty`)。JSON の `difficulty` があればそれを使い(語彙は語ごとに判定済み)、無ければ文の長さ・文法分野・設問タイプから形式ごとに3等分して推定する。出題は「自動」なら直近30設問の正答率(85%以上→発展、60%未満→基礎)に合う難易度を、未出題の候補の中から優先する。画面で難易度を固定することもできる(`?level=1〜3`)。
 - **試験と同じ制約で練習できる**: 語数カウント、制限時間、音声の再生回数制限など、本番と同じ条件を選べるようにする。
@@ -82,7 +83,7 @@
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: Guardian(記事)、DeepL(翻訳)、Wordnik(辞書)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
-- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)
+- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備
 
 **運用は無料枠のみ。** 新しいライブラリ・外部サービスを導入する場合は、無料で使えることを確認し、techStack.md に追記する。有料プランが必要なサービスは導入しない(音声認識はブラウザの Web Speech API など、無料の手段を先に検討する)。
 
@@ -218,6 +219,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ### 本人の作業が必要(コード外の設定)
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
+- [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)
 - [ ] **Render に `APP_ACCESS_KEY`(合言葉)を設定する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作)。設定後、アプリを開くと合言葉の入力欄が出るので同じ値を入れる(端末ごとに1回)
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 

@@ -27,6 +27,14 @@ cd "$ROOT"
 # 日付付与フックを有効化(初回のみ実質的に効く)
 git config core.hooksPath .githooks
 
+# 問題集を変えたら、画面に同梱する問題集(frontend/src/generated/questions)も書き出し直す
+if [ -n "$(git status --porcelain -- backend/src/main/resources/questions backend/src/main/java/com/example/backend/common)" ]; then
+  if command -v java >/dev/null 2>&1 || [ -n "${JAVA_HOME:-}" ]; then
+    echo "== export questions for frontend =="
+    ./scripts/export-questions.sh
+  fi
+fi
+
 git add -A
 if git diff --cached --quiet; then
   echo "コミットする変更がありません" >&2

@@ -1,11 +1,12 @@
 name: Keep backend awake
 
-# Render 無料プランは15分アクセスが無いと停止し、次のアクセスで起動に30秒〜1分かかる。
-# 学習する時間帯(日本時間 6:00〜翌1:00)だけ14分ごとに /health を叩いて停止を防ぐ。
+# Render 無料プランは15分アクセスが無いと停止し、次のアクセスで起動に約1分かかる。
+# 停止を防ぐ主な手段は外部の cron-job.org(日本時間 6:00〜23:00 に10分ごとに /health を叩く)。
+# GitHub の定期実行は混雑時に数時間遅れる・間引かれる(実測で5〜8時間おきだった)ので、これは予備として残す。
 # 24時間にしないのは、Render 無料枠(月750時間)を他のサービスと分け合えるようにするため。
 on:
   schedule:
-    - cron: "*/14 21-23,0-15 * * *" # UTC。JST 6:00〜翌0:59
+    - cron: "*/14 21-23,0-13 * * *" # UTC。JST 6:00〜22:59
   workflow_dispatch:
 
 permissions: {}
@@ -13,7 +14,7 @@ permissions: {}
 jobs:
   ping:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       - name: Ping /health
         env:
