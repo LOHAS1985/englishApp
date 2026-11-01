@@ -85,7 +85,7 @@
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: Guardian(記事)、DeepL(翻訳)、Wordnik(辞書)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
-- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備
+- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
 **運用は無料枠のみ。** 新しいライブラリ・外部サービスを導入する場合は、無料で使えることを確認し、techStack.md に追記する。有料プランが必要なサービスは導入しない(音声認識はブラウザの Web Speech API など、無料の手段を先に検討する)。
 
