@@ -48,6 +48,7 @@ english-app/
 | POST     | `/api/writing/score`    | 回答をGeminiに送り、内容・構成・語彙・文法の4観点で採点させる |
 | GET      | `/api/stats/summary`    | 学習ログ(`study_logs`)を技能別・形式別・日別に集計する(MyPage) |
 | GET      | `/api/stats/history`    | 全技能の最近の学習50件                                         |
+| GET      | `/api/level`            | 学習ログから経験値・レベル・期限(2027年3月末に Lv.100)までのペースを計算する |
 | GET      | `/api/review/summary`   | 間違えた語彙・文法問題のうち今日復習する数                     |
 | GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日が来た問題を出題する(1→3→7→14日の間隔反復) |
 
