@@ -9,11 +9,6 @@ import {
 } from "../../api/client";
 import Header from "../../shared/components/Header";
 
-const TYPE_LABELS: Record<WritingType, string> = {
-  opinion: "意見論述(120〜150語)",
-  summary: "要約(60〜70語)",
-};
-
 const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
   { key: "content", label: "内容" },
   { key: "structure", label: "構成" },
@@ -24,9 +19,7 @@ const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
 export default function Writing() {
   // ホームのメニューから ?type=summary などで開かれる
   const [searchParams] = useSearchParams();
-  const [type, setType] = useState<WritingType>(
-    searchParams.get("type") === "summary" ? "summary" : "opinion",
-  );
+  const type: WritingType = searchParams.get("type") === "summary" ? "summary" : "opinion";
   const [question, setQuestion] = useState<WritingQuestion | null>(null);
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -107,47 +100,22 @@ export default function Writing() {
       <Header />
       <div className="flex justify-center px-5 py-12">
         <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
-          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-            WRITING TEST
-          </p>
-          <h1 className="font-serif text-2xl text-slate-900 mb-6">
-            ライティング問題
-          </h1>
-
-          <div className="flex flex-wrap gap-2 mb-5">
-            {(Object.keys(TYPE_LABELS) as WritingType[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => setType(key)}
-                className={`text-sm rounded-full border px-3 py-1.5 transition-colors ${
-                  type === key
-                    ? "bg-[#16233d] border-[#16233d] text-white"
-                    : "bg-white border-slate-300 text-slate-600 hover:border-[#16233d]"
-                }`}
-              >
-                {TYPE_LABELS[key]}
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={handleFetch}
-            disabled={loading}
-            className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
-                     hover:bg-[#23365c] disabled:bg-slate-400 disabled:cursor-default
-                     transition-colors"
-          >
-            {loading ? "出題中…" : "問題を出題する"}
-          </button>
+          {/* 形式(意見論述・要約)はホームで選ぶ。お題は採点に AI を使うサーバーから出す */}
+          {!question && (
+            <button
+              onClick={handleFetch}
+              disabled={loading}
+              className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
+                       hover:bg-[#23365c] disabled:bg-slate-400 disabled:cursor-default
+                       transition-colors"
+            >
+              {loading ? "出題中…" : "問題を出題する"}
+            </button>
+          )}
 
           {question && (
             <>
-              <div className="mt-8 pl-4 border-l-4 border-[#8fae4e]">
-                {question.theme && (
-                  <span className="inline-block text-xs text-slate-500 border border-slate-200 rounded px-2 py-0.5 mb-2">
-                    {question.theme}
-                  </span>
-                )}
+              <div className="pl-4 border-l-4 border-[#8fae4e]">
                 <p className="text-sm text-slate-600 leading-relaxed mb-3">
                   {question.prompt}
                 </p>
@@ -258,6 +226,14 @@ export default function Writing() {
                         );
                       })}
                     </div>
+                    <button
+                      onClick={handleFetch}
+                      disabled={loading}
+                      className="mt-6 text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
+                               hover:bg-[#23365c] disabled:bg-slate-400 transition-colors"
+                    >
+                      {loading ? "出題中…" : "次のお題"}
+                    </button>
                   </div>
                 )}
               </div>

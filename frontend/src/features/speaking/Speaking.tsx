@@ -131,14 +131,6 @@ export default function Speaking() {
       <Header />
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
         <div className="w-full max-w-[760px] bg-white border border-slate-200 rounded-md p-5 sm:p-8">
-          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-            SPEAKING
-          </p>
-          <h1 className="font-serif text-2xl text-slate-900 mb-2">英検準1級 二次試験(面接)練習</h1>
-          <p className="text-sm text-slate-500 mb-6">
-            4コマのイラストの代わりに、各コマの場面を文章で示しています。録音して聞き直し、模範解答と比べてみましょう。
-          </p>
-
           {loading && <p className="text-sm text-slate-400">読み込み中…</p>}
           {!loading && !set && <p className="text-sm text-[#c0392b]">問題の取得に失敗しました。</p>}
 

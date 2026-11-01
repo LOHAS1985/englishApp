@@ -1,8 +1,10 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { fetchReviewSummary, wakeUpServer, type ReviewSummary } from "../api/client";
 import Header from "../shared/components/Header";
 import { EXAM_MENUS } from "../shared/exams";
+import { DifficultySelect } from "../shared/components/Difficulty";
+import { loadSavedLevel, saveLevel, withLevel } from "../shared/level";
 
 const REVIEW_LINKS = [
   { feature: "vocab", label: "語彙", path: "/vocab?review=1" },
@@ -17,6 +19,12 @@ export default function Home() {
 
   // 間違えた問題のうち、今日復習する数。サーバーが寝ている間は出さない
   const [review, setReview] = useState<Record<string, ReviewSummary>>({});
+  // 難易度は問題を解く前にここで一度だけ選ぶ(問題画面には ?level= で渡す)
+  const [level, setLevel] = useState<number | undefined>(loadSavedLevel);
+  const changeLevel = (l: number | undefined) => {
+    setLevel(l);
+    saveLevel(l);
+  };
 
   useEffect(() => {
     wakeUpServer();
@@ -89,6 +97,13 @@ export default function Home() {
               <p className="mt-1 text-sm text-black">{menu.goal}</p>
             </div>
 
+            <div className="mb-6 rounded-lg bg-white border border-slate-200 p-4">
+              <DifficultySelect value={level} onChange={changeLevel} />
+              <p className="mt-2 text-xs text-slate-500">
+                文法・語彙・読解・リスニングに適用されます(ライティング・面接は対象外)。
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {menu.sections.map((section) => (
                 <div key={section.skill} className="rounded-lg bg-white border border-slate-200 shadow-sm p-5">
@@ -99,7 +114,7 @@ export default function Home() {
                   {section.items.map((it) => (
                     <button
                       key={it.path}
-                      onClick={() => navigate(it.path)}
+                      onClick={() => navigate(withLevel(it.path, level))}
                       className="w-full text-left py-2.5 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between gap-3"
                     >
                       <span>

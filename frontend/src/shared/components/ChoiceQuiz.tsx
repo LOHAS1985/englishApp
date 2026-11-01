@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
 import Header from "./Header";
-import { DifficultyBadge, DifficultySelect } from "./Difficulty";
 
 /** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
 interface DisplayChoice {
@@ -22,16 +21,8 @@ function toDisplayChoices(question: GrammarQuestion): DisplayChoice[] {
 }
 
 interface ChoiceQuizProps {
-  /** 画面上部の小見出し(例: TOEIC GRAMMAR) */
-  eyebrow: string;
-  title: string;
-  /**
-   * exclude: 画面に表示中の問題の ID(先読みで同じ問題を選ばせない)
-   * level: 選んだ難易度(1〜3)。undefined なら自動
-   */
-  fetchQuestion: (exclude?: string | null, level?: number) => Promise<GrammarQuestion>;
-  /** 難易度の選択を出すか(復習モードでは出さない) */
-  showLevel?: boolean;
+  /** exclude: 画面に表示中の問題の ID(先読みで同じ問題を選ばせない)。難易度はホームで選んだもの(呼び出し側が渡す) */
+  fetchQuestion: (exclude?: string | null) => Promise<GrammarQuestion>;
   submitAnswer: (
     questionId: string,
     selectedChoice: string,
@@ -42,19 +33,12 @@ interface ChoiceQuizProps {
 /** 出題から解答までの秒数(学習時間の記録用) */
 const secondsSince = (start: number) => Math.round((Date.now() - start) / 1000);
 
-/** 短文の空所に4択で答える問題(文法・語彙)の共通画面 */
-export default function ChoiceQuiz({
-  eyebrow,
-  title,
-  fetchQuestion,
-  submitAnswer,
-  showLevel = false,
-}: ChoiceQuizProps) {
+/** 短文の空所に4択で答える問題(文法・語彙)の共通画面。問題文と選択肢だけを表示する */
+export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizProps) {
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState<GrammarQuestion | null>(null);
   const [choices, setChoices] = useState<DisplayChoice[]>([]);
-  const [questionNumber, setQuestionNumber] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<string | null>(null);
   const [result, setResult] = useState<GrammarAnswerResult | null>(null);
@@ -62,7 +46,6 @@ export default function ChoiceQuiz({
   /** 出題できなかったときの文言(復習モードで「今日の復習はすべて終わりました」など) */
   const [error, setError] = useState("");
   const shownAtRef = useRef(0);
-  const [level, setLevel] = useState<number | undefined>(undefined);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
@@ -70,9 +53,8 @@ export default function ChoiceQuiz({
   const showQuestion = (data: GrammarQuestion) => {
     setQuestion(data);
     setChoices(toDisplayChoices(data));
-    setQuestionNumber((n) => n + 1);
     shownAtRef.current = Date.now();
-    prefetchRef.current = fetchQuestion(data.id, level).catch(() => null);
+    prefetchRef.current = fetchQuestion(data.id).catch(() => null);
   };
 
   const loadQuestion = async () => {
@@ -83,7 +65,7 @@ export default function ChoiceQuiz({
     try {
       const prefetched = prefetchRef.current ? await prefetchRef.current : null;
       prefetchRef.current = null;
-      showQuestion(prefetched ?? (await fetchQuestion(question?.id, level)));
+      showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
     } catch (e) {
       setError(e instanceof Error ? e.message : "出題に失敗しました");
     } finally {
@@ -100,13 +82,12 @@ export default function ChoiceQuiz({
       setResult(null);
       setSelected(null);
       try {
-        const data = await fetchQuestion(undefined, level);
+        const data = await fetchQuestion();
         if (!cancelled) {
           setQuestion(data);
           setChoices(toDisplayChoices(data));
-          setQuestionNumber((n) => n + 1);
           shownAtRef.current = Date.now();
-          prefetchRef.current = fetchQuestion(data.id, level).catch(() => null);
+          prefetchRef.current = fetchQuestion(data.id).catch(() => null);
         }
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : "出題に失敗しました");
@@ -120,7 +101,7 @@ export default function ChoiceQuiz({
     return () => {
       cancelled = true;
     };
-  }, [fetchQuestion, level]);
+  }, [fetchQuestion]);
 
   const handleSelect = async (choice: DisplayChoice) => {
     if (!question || result) return;
@@ -150,27 +131,6 @@ export default function ChoiceQuiz({
       <Header />
       <div className="flex justify-center px-5 py-12">
         <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-                {eyebrow}
-              </p>
-              <h1 className="font-serif text-2xl text-slate-900">{title}</h1>
-            </div>
-            {questionNumber > 0 && (
-              <span className="font-mono text-sm text-slate-400">
-                Q{questionNumber}
-              </span>
-            )}
-          </div>
-
-          {(showLevel || question) && (
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
-              {showLevel ? <DifficultySelect value={level} onChange={setLevel} /> : <span />}
-              {!loading && question && <DifficultyBadge level={question.difficulty} />}
-            </div>
-          )}
-
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {!loading && error && (
             <div>

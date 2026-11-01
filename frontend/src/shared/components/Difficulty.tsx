@@ -1,20 +1,14 @@
-/** 問題の難易度(サーバーの Difficulty と同じ 1〜3) */
-const LABELS: Record<number, string> = { 1: "基礎", 2: "標準", 3: "発展" };
-const BADGE_STYLES: Record<number, string> = {
-  1: "bg-sky-50 text-sky-700 border-sky-200",
-  2: "bg-slate-50 text-slate-600 border-slate-200",
-  3: "bg-amber-50 text-amber-700 border-amber-300",
-};
+const OPTIONS: { value: number | undefined; label: string; note: string }[] = [
+  { value: undefined, label: "自動", note: "正答率に合わせる" },
+  { value: 1, label: "基礎", note: "" },
+  { value: 2, label: "標準", note: "" },
+  { value: 3, label: "発展", note: "" },
+];
 
-export function DifficultyBadge({ level }: { level: number }) {
-  return (
-    <span className={`inline-block text-xs border rounded px-2 py-0.5 ${BADGE_STYLES[level] ?? BADGE_STYLES[2]}`}>
-      {LABELS[level] ?? LABELS[2]}
-    </span>
-  );
-}
-
-/** 出題する難易度の選択。undefined は「自動」(直近の正答率に合わせてサーバーが選ぶ) */
+/**
+ * 出題する難易度の選択(サーバーの Difficulty と同じ 1〜3)。問題を解く前にホームで一度だけ選ぶ。
+ * undefined は「自動」(直近の正答率に合わせて選ぶ)
+ */
 export function DifficultySelect({
   value,
   onChange,
@@ -23,18 +17,22 @@ export function DifficultySelect({
   onChange: (level: number | undefined) => void;
 }) {
   return (
-    <label className="inline-flex items-center gap-2 text-xs text-slate-500">
-      難易度
-      <select
-        value={value ?? ""}
-        onChange={(e) => onChange(e.target.value ? Number(e.target.value) : undefined)}
-        className="border border-slate-300 rounded px-2 py-1 text-sm text-slate-700 bg-white"
-      >
-        <option value="">自動(正答率に合わせる)</option>
-        <option value="1">基礎</option>
-        <option value="2">標準</option>
-        <option value="3">発展</option>
-      </select>
-    </label>
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-sm font-semibold text-slate-700">難易度</span>
+      {OPTIONS.map((o) => (
+        <button
+          key={o.label}
+          onClick={() => onChange(o.value)}
+          className={`text-sm rounded-full border px-3 py-1.5 transition-colors ${
+            value === o.value
+              ? "bg-[#16233d] border-[#16233d] text-white"
+              : "bg-white border-slate-300 text-slate-600 hover:border-[#16233d]"
+          }`}
+        >
+          {o.label}
+          {o.note && <span className="ml-1 text-xs opacity-70">({o.note})</span>}
+        </button>
+      ))}
+    </div>
   );
 }

@@ -1,44 +1,34 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import {
   fetchPracticeSet,
-  fetchPracticeTypes,
   submitPracticeAnswers,
   type QuestionSetView,
   type SetAnswerResult,
 } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
-import { examOf, EXAM_LABELS } from "../exams";
+import { levelFromParams } from "../level";
 import Header from "./Header";
-import { DifficultyBadge, DifficultySelect } from "./Difficulty";
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
-  eyebrow: string;
-  title: string;
-  /** 形式(type)の表示名。並び順もこの順になる */
-  typeLabels: Record<string, string>;
+  /** 形式(type)の一覧。?type= が無いときは先頭の形式を出す */
+  types: string[];
+  /** セットの題名を出すか(リスニングは題名で内容が分かってしまうので出さない) */
+  showTitle: boolean;
   /** 設問の上に表示する教材(読解の本文、リスニングの再生ボタンなど) */
   renderMaterial: (set: QuestionSetView, result: SetAnswerResult | null) => ReactNode;
 }
 
-/** 文章または音声1つに複数の設問が付くセット問題(読解・リスニング)の共通画面 */
-export default function PracticeSetPage({
-  feature,
-  eyebrow,
-  title,
-  typeLabels,
-  renderMaterial,
-}: PracticeSetPageProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [counts, setCounts] = useState<Record<string, number>>({});
-  // ホームで選んだ形式(?type=)から始め、同じ試験の形式だけを切り替え候補に出す
-  const initialType = searchParams.get("type");
-  const [type, setType] = useState(
-    initialType && initialType in typeLabels ? initialType : Object.keys(typeLabels)[0],
-  );
-  const exam = initialType && initialType in typeLabels ? examOf(initialType) : null;
-  const visibleTypes = Object.entries(typeLabels).filter(([key]) => !exam || examOf(key) === exam);
+/**
+ * 文章または音声1つに複数の設問が付くセット問題(読解・リスニング)の共通画面。
+ * 形式(?type=)と難易度(?level=)はホームで選ぶので、ここでは教材と設問だけを表示する。
+ */
+export default function PracticeSetPage({ feature, types, showTitle, renderMaterial }: PracticeSetPageProps) {
+  const [searchParams] = useSearchParams();
+  const requestedType = searchParams.get("type");
+  const type = requestedType && types.includes(requestedType) ? requestedType : types[0];
+  const level = levelFromParams(searchParams);
   const [set, setSet] = useState<QuestionSetView | null>(null);
   /** 解答(元の記号)。採点にはこの記号を送る */
   const [answers, setAnswers] = useState<string[]>([]);
@@ -50,8 +40,6 @@ export default function PracticeSetPage({
   const [error, setError] = useState("");
   /** セットを表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
-  /** 選んだ難易度(1〜3)。undefined なら直近の正答率に合わせてサーバーが選ぶ */
-  const [level, setLevel] = useState<number | undefined>(undefined);
 
   const showSet = (data: QuestionSetView | null) => {
     shownAtRef.current = Date.now();
@@ -81,12 +69,6 @@ export default function PracticeSetPage({
       showSet(null);
     }
   };
-
-  useEffect(() => {
-    fetchPracticeTypes(feature)
-      .then(setCounts)
-      .catch(() => setCounts({}));
-  }, [feature]);
 
   useEffect(() => {
     let cancelled = false;
@@ -124,64 +106,12 @@ export default function PracticeSetPage({
       <Header />
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
         <div className="w-full max-w-[760px] bg-white border border-slate-200 rounded-md p-5 sm:p-8">
-          {exam && (
-            <Link to={`/?exam=${exam}`} className="inline-block text-xs text-[#2463a8] hover:underline mb-3">
-              ← {EXAM_LABELS[exam]} のメニュー
-            </Link>
-          )}
-          <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-2">
-            {eyebrow}
-          </p>
-          <h1 className="font-serif text-2xl text-slate-900 mb-4">{title}</h1>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            {visibleTypes.map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => {
-                  if (key === type) return;
-                  setLoading(true);
-                  setType(key);
-                  if (exam) setSearchParams({ type: key }, { replace: true });
-                }}
-                className={`text-xs sm:text-sm rounded-full border px-3 py-1.5 transition-colors ${
-                  type === key
-                    ? "bg-[#16233d] border-[#16233d] text-white"
-                    : "bg-white border-slate-300 text-slate-600 hover:border-[#16233d]"
-                }`}
-              >
-                {label}
-                <span className="ml-1 opacity-60">({counts[key] ?? 0})</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="mb-5">
-            <DifficultySelect
-              value={level}
-              onChange={(l) => {
-                setLoading(true);
-                setLevel(l);
-              }}
-            />
-          </div>
-
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {error && <p className="text-sm text-[#c0392b]">{error}</p>}
 
           {!loading && set && (
             <div>
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <h2 className="font-serif text-lg text-slate-900">{set.title}</h2>
-                <div className="flex shrink-0 items-center gap-1.5">
-                  {set.theme && (
-                    <span className="text-xs text-slate-500 border border-slate-200 rounded px-2 py-0.5">
-                      {set.theme}
-                    </span>
-                  )}
-                  <DifficultyBadge level={set.difficulty} />
-                </div>
-              </div>
+              {showTitle && <h2 className="font-serif text-lg text-slate-900 mb-3">{set.title}</h2>}
               {set.situation && (
                 <p className="text-sm text-slate-700 bg-amber-50 border border-amber-200 rounded p-3 mb-4">
                   <span className="font-semibold">Situation: </span>
