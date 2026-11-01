@@ -4,6 +4,7 @@ import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 /** アクセスの記録(地域の推定は応答を待たせないよう別スレッドで行う)と、閲覧・週次レポート用の集計 */
+// 本番は遅延初期化で起動するが、古い記録の定期削除(@Scheduled)を登録するため起動時に作る
+@Lazy(false)
 @Service
 public class AccessLogService {
 
