@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import LevelBadge from "../../features/level/LevelBadge";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -13,12 +14,15 @@ export default function Header() {
           英語学習アプリ
         </button>
 
-        <button
-          onClick={() => navigate("/mypage")}
-          className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2 hover:bg-[#7a9843] transition-colors"
-        >
-          学習記録
-        </button>
+        <div className="flex items-center gap-3">
+          <LevelBadge />
+          <button
+            onClick={() => navigate("/mypage")}
+            className="text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2 hover:bg-[#7a9843] transition-colors"
+          >
+            学習記録
+          </button>
+        </div>
       </div>
     </header>
   );

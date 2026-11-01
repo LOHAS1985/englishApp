@@ -451,6 +451,41 @@ export async function fetchWeakness() {
   return getJson<WeaknessItem[]>("/api/stats/weakness", "弱点分析の取得に失敗しました");
 }
 
+// レベル(経験値)と、期限(2027年3月末に Lv.100)までの学習ペース
+export interface LevelSummary {
+  level: number;
+  maxLevel: number;
+  totalXp: number;
+  /** 今のレベルに上がった累計経験値 */
+  levelStartXp: number;
+  /** 次のレベルに必要な累計経験値(Lv.100 なら null) */
+  nextLevelXp: number | null;
+  /** 今日の内訳。total = (answers + time + bonus) × multiplier */
+  today: {
+    total: number;
+    answers: number;
+    time: number;
+    bonus: number;
+    multiplier: number;
+    minutes: number;
+    skills: number;
+  };
+  streakDays: number;
+  dailyTargetXp: number;
+  /** 予定どおりなら今日の始まりに持っているはずの累計経験値 */
+  expectedXp: number;
+  expectedLevel: number;
+  pace: "ahead" | "onTrack" | "behind";
+  xpPerDayToGoal: number;
+  daysLeft: number;
+  goalDate: string;
+  recentDays: { date: string; xp: number }[];
+}
+
+export async function fetchLevel() {
+  return getJson<LevelSummary>("/api/level", "レベルの取得に失敗しました");
+}
+
 export async function fetchReviewSummary() {
   return getJson<Record<string, ReviewSummary>>("/api/review/summary", "復習の件数の取得に失敗しました");
 }
