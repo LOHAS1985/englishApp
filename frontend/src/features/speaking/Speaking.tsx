@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { completeSpeakingSet, fetchSpeakingSet, type SpeakingSet } from "../../api/client";
 import Header from "../../shared/components/Header";
+import QuestionNumber from "../../shared/components/QuestionNumber";
 
 /** 録音して聞き直すための小さな録音機。録音データはブラウザ内だけで扱う */
 function Recorder({ maxSeconds }: { maxSeconds: number }) {
@@ -76,6 +77,8 @@ export default function Speaking() {
   const [loading, setLoading] = useState(true);
   const [prepLeft, setPrepLeft] = useState<number | null>(null);
   const [shown, setShown] = useState<Record<string, boolean>>({});
+  /** この画面で何問目か */
+  const [count, setCount] = useState(1);
 
   // 「次の問題」で表示中のセットが選ばれないよう、表示中の ID を覚えておく
   const currentIdRef = useRef<string | null>(null);
@@ -94,6 +97,7 @@ export default function Speaking() {
     setPrepLeft(null);
     try {
       setSet(await fetchSpeakingSet(currentIdRef.current));
+      setCount((c) => c + 1);
     } catch {
       setSet(null);
     } finally {
@@ -137,6 +141,7 @@ export default function Speaking() {
           {!loading && set && (
             <div className="space-y-6">
               <section className="border border-slate-200 rounded-md p-4">
+                <QuestionNumber n={count} />
                 <h2 className="font-serif text-lg text-slate-900 mb-2">{set.title}</h2>
                 <p className="text-sm text-slate-600 mb-3">{set.instruction}</p>
                 <p className="text-sm text-slate-900 bg-amber-50 border border-amber-200 rounded p-3 mb-4">

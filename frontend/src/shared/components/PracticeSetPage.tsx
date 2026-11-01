@@ -9,6 +9,7 @@ import {
 import { LETTERS, shuffle } from "../shuffle";
 import { levelFromParams } from "../level";
 import Header from "./Header";
+import QuestionNumber from "./QuestionNumber";
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
@@ -38,6 +39,8 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  /** この画面で何問目(何セット目)か */
+  const [count, setCount] = useState(1);
   /** セットを表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
 
@@ -64,7 +67,9 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
   const loadNext = async () => {
     setLoading(true);
     try {
-      showSet(await fetchPracticeSet(feature, type, set?.id, level));
+      const data = await fetchPracticeSet(feature, type, set?.id, level);
+      showSet(data);
+      if (data) setCount((c) => c + 1);
     } catch {
       showSet(null);
     }
@@ -73,7 +78,11 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
   useEffect(() => {
     let cancelled = false;
     fetchPracticeSet(feature, type, undefined, level)
-      .then((data) => !cancelled && showSet(data))
+      .then((data) => {
+        if (cancelled) return;
+        setCount(1);
+        showSet(data);
+      })
       .catch(() => !cancelled && showSet(null));
     return () => {
       cancelled = true;
@@ -111,6 +120,7 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
 
           {!loading && set && (
             <div>
+              <QuestionNumber n={count} />
               {showTitle && <h2 className="font-serif text-lg text-slate-900 mb-3">{set.title}</h2>}
               {set.situation && (
                 <p className="text-sm text-slate-700 bg-amber-50 border border-amber-200 rounded p-3 mb-4">

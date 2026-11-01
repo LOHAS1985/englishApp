@@ -8,6 +8,7 @@ import {
   type WritingType,
 } from "../../api/client";
 import Header from "../../shared/components/Header";
+import QuestionNumber from "../../shared/components/QuestionNumber";
 
 const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
   { key: "content", label: "内容" },
@@ -25,6 +26,8 @@ export default function Writing() {
   const [answer, setAnswer] = useState("");
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
+  /** この画面で何問目か(お題を出すたびに増える) */
+  const [count, setCount] = useState(0);
   /** お題を表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
 
@@ -68,6 +71,7 @@ export default function Writing() {
     try {
       const data = await fetchWritingQuestion(type, question?.id);
       setQuestion(data);
+      setCount((c) => c + 1);
       setAnswer("");
       shownAtRef.current = Date.now();
     } catch {
@@ -115,6 +119,7 @@ export default function Writing() {
 
           {question && (
             <>
+              <QuestionNumber n={count} />
               <div className="pl-4 border-l-4 border-[#8fae4e]">
                 <p className="text-sm text-slate-600 leading-relaxed mb-3">
                   {question.prompt}

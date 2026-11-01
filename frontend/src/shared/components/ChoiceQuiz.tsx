@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
 import Header from "./Header";
+import QuestionNumber from "./QuestionNumber";
 
 /** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
 interface DisplayChoice {
@@ -45,6 +46,8 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
   const [submitting, setSubmitting] = useState(false);
   /** 出題できなかったときの文言(復習モードで「今日の復習はすべて終わりました」など) */
   const [error, setError] = useState("");
+  /** この画面で何問目か */
+  const [count, setCount] = useState(1);
   const shownAtRef = useRef(0);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
@@ -66,6 +69,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
       const prefetched = prefetchRef.current ? await prefetchRef.current : null;
       prefetchRef.current = null;
       showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
+      setCount((c) => c + 1);
     } catch (e) {
       setError(e instanceof Error ? e.message : "出題に失敗しました");
     } finally {
@@ -84,6 +88,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
       try {
         const data = await fetchQuestion();
         if (!cancelled) {
+          setCount(1);
           setQuestion(data);
           setChoices(toDisplayChoices(data));
           shownAtRef.current = Date.now();
@@ -146,6 +151,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
 
           {!loading && question && (
             <div>
+              <QuestionNumber n={count} />
               <p className="font-serif text-lg text-slate-900 leading-relaxed mb-6">
                 {question.sentence}
               </p>
