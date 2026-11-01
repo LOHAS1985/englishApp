@@ -72,7 +72,7 @@
 - **問題画面は最低限の表示にする**: 問題文・本文・選択肢・解答後の結果だけを出す。見出し、形式の切り替え、難易度の選択やバッジ、話題のバッジは出さない(形式は `?type=`、難易度は `?level=` で受け取る)。リスニングはセットの題名も出さない(内容が分かってしまうため)。
 - **途中でやめても記録は残す**: 文法・語彙は1問ごと、読解・リスニングは1セットの「解答する」ごとに、記録をブラウザの送信待ちの列に保存してから送る。画面を閉じても次に開いたときに再送する。ライティングは採点時、スピーキングは模範解答を見たときにサーバーへ保存する。
 - **ログインは設けない**: 利用者は本人1人だけなので、全 API をログインなしで使える。記録はすべて `CurrentUserProvider` が返す owner ユーザーに保存する(初回アクセス時に自動作成)。
-- **簡易アクセス保護**: 環境変数 `APP_ACCESS_KEY`(合言葉)を設定すると、`/api/**` はヘッダー `X-App-Key` が一致したときだけ使える(`AppKeyFilter`)。画面は 401 を受けると合言葉の入力欄を出し(`AppKeyGate`)、ブラウザに保存する。`/health`・生成音声・`/api/access-logs`(独自キー)は対象外。
+- **端末登録(使える端末を限定)**: 利用者は本人の端末(PC 2台・スマホ1台)だけなので、`/api/**` は登録済みの端末だけが使える(`device/DeviceFilter`)。初回に合言葉(環境変数 `APP_ACCESS_KEY`)で登録すると端末専用の鍵が発行され、ブラウザに保存して `X-Device-Token` で送る(`features/device/DeviceGate`)。登録は最大 `MAX_DEVICES`(既定3)台で、上限に達すると合言葉が正しくても登録できない。鍵は SHA-256 のハッシュだけを `devices` テーブルに保存する。マイページで端末ごとに削除できる。端末をすべて失くしたら `MAX_DEVICES` を一時的に増やして登録し直す。`/health`・生成音声・`/api/access-logs`(独自キー)・`/api/devices/register` は対象外。`APP_ACCESS_KEY` が未設定なら保護しない(ローカル開発用)。画面(GitHub Pages)と同梱の問題集は誰でも取得できるが、未登録の端末では登録画面が重なり、記録・採点・レベルなどは一切使えない。
 - **アクセスログ**: `/api/**` へのアクセスを `access_logs` に保存し(IP・端末・ip-api.com で推定した地域、90日で削除)、マイページで確認する。IP を含むので閲覧 API は `ACCESS_LOG_KEY` と一致するヘッダー `X-Access-Log-Key` が必須。週1回 `weekly-access-report.yml` が Gmail で自分宛てに送る。**IP を含むログを公開リポジトリにコミットしない**(Actions の実行ログにも出さない)。
 
 ## 3. 技術スタック
@@ -222,7 +222,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
 - [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)
-- [ ] **Render に `APP_ACCESS_KEY`(合言葉)を設定する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作)。設定後、アプリを開くと合言葉の入力欄が出るので同じ値を入れる(端末ごとに1回)
+- [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点で未設定を確認)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、マイページの「登録済みの端末」で心当たりのない端末がないか確認する
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
 ### 対応済み(20261026)

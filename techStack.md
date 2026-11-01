@@ -49,6 +49,8 @@ english-app/
 | GET      | `/api/stats/summary`    | 学習ログ(`study_logs`)を技能別・形式別・日別に集計する(MyPage) |
 | GET      | `/api/stats/history`    | 全技能の最近の学習50件                                         |
 | GET      | `/api/practice/history?feature=` | 文法・語彙・読解・リスニングの解答履歴(画面側で出題するため。画面がブラウザに保存する) |
+| POST     | `/api/devices/register` | 合言葉でこの端末を登録し、端末専用の鍵を発行する(最大3台) |
+| GET / DELETE | `/api/devices`(`/{id}`) | 登録済み端末の一覧・削除(マイページ) |
 | GET      | `/api/level`            | 学習ログから経験値・レベル・期限(2027年3月末に Lv.100)までのペースを計算する |
 | GET      | `/api/review/summary`   | 間違えた語彙・文法問題のうち今日復習する数                     |
 | GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日が来た問題を出題する(1→3→7→14日の間隔反復) |
@@ -84,7 +86,8 @@ english-app/
 | ------------------- | ----------------------------------------- | -------------- |
 | `VITE_API_BASE_URL` | フロントエンドが呼び出すバックエンドのURL | frontend/.env  |
 | `GEMINI_API_KEY`    | Gemini API認証キー                        | Render環境変数 |
-| `APP_ACCESS_KEY`    | 簡易アクセス保護の合言葉。設定すると `/api/**` はヘッダー `X-App-Key` が一致したときだけ使える(画面で一度入力するとブラウザに保存) | Render環境変数 |
+| `APP_ACCESS_KEY`    | 端末登録の合言葉。設定すると `/api/**` は登録済みの端末(ヘッダー `X-Device-Token`)だけが使える。各端末で初回に一度入力して登録する | Render環境変数 |
+| `MAX_DEVICES`       | 登録できる端末の台数(既定3)。端末をすべて失くしたときに一時的に増やして登録し直す | Render環境変数(通常は未設定) |
 | `ACCESS_LOG_KEY`    | アクセス履歴の閲覧キー                    | Render環境変数・GitHub Actions secrets |
 
 ## 学習を通じて扱った主なトラブルシューティング

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import Header from "../shared/components/Header";
 import AccessLogSection from "./AccessLogSection";
+import DeviceSection from "../features/device/DeviceSection";
 import StudyStatsSection from "./StudyStatsSection";
 import LevelSection from "../features/level/LevelSection";
 import WeaknessSection from "./WeaknessSection";
@@ -54,6 +55,8 @@ export default function MyPage() {
         <StudyStatsSection />
 
         <WeaknessSection />
+
+        <DeviceSection />
 
         <AccessLogSection />
 

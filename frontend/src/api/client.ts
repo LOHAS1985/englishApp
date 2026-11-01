@@ -16,7 +16,7 @@ import {
   pickQuestionSet,
 } from "./localQuestions";
 
-export { APP_KEY_REQUIRED_EVENT, saveAppKey } from "./http";
+export { DEVICE_REGISTRATION_REQUIRED_EVENT, hasDeviceToken, saveDeviceToken } from "./http";
 export { flushOutbox, pendingCount } from "./outbox";
 
 /** 画面に表示中の問題を exclude で渡し、次の問題(先読み)で同じ問題が選ばれないようにする */
@@ -544,4 +544,31 @@ export async function fetchAccessLogs(key: string, days: number) {
   }
   if (!res.ok) throw new Error("アクセス履歴の取得に失敗しました");
   return res.json() as Promise<AccessLogResponse>;
+}
+
+// 端末登録(この API を使えるのは登録済みの端末だけ。最大3台)
+export interface DeviceView {
+  id: number;
+  name: string;
+  createdAt: string;
+  lastUsedAt: string | null;
+  /** この端末なら true */
+  current: boolean;
+}
+
+/** 合言葉(サーバーの APP_ACCESS_KEY)で、この端末を登録する。発行された鍵は呼び出し側が saveDeviceToken で保存する */
+export async function registerDevice(key: string, name: string) {
+  return postJson<{ token: string; device: DeviceView }>(
+    "/api/devices/register",
+    { key, name },
+    "端末の登録に失敗しました",
+  );
+}
+
+export async function fetchDevices() {
+  return getJson<DeviceView[]>("/api/devices", "端末の一覧の取得に失敗しました");
+}
+
+export async function deleteDevice(id: number) {
+  await send(`/api/devices/${id}`, "端末の削除に失敗しました", { method: "DELETE" });
 }

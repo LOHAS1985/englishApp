@@ -16,35 +16,44 @@ export class HttpError extends Error {
   }
 }
 
-// 簡易アクセス保護の合言葉(サーバーの環境変数 APP_ACCESS_KEY と同じ値)。この端末のブラウザに保存する
-const APP_KEY_STORAGE = "englishApp.appKey";
-/** サーバーが合言葉を求めた(401)ときに投げるイベント。AppKeyGate が入力画面を出す */
-export const APP_KEY_REQUIRED_EVENT = "englishApp:app-key-required";
+// 端末の鍵。登録済みの端末(最大3台)だけが API を使える。初回に合言葉で登録するとサーバーが発行し、
+// この端末のブラウザに保存する(ブラウザのデータを消すと登録し直しになる)
+const DEVICE_TOKEN_STORAGE = "englishApp.deviceToken";
+/** サーバーが「この端末は登録されていない」(401)と返したときに投げるイベント。DeviceGate が登録画面を出す */
+export const DEVICE_REGISTRATION_REQUIRED_EVENT = "englishApp:device-registration-required";
 
-function loadAppKey() {
+function loadDeviceToken() {
   try {
-    return localStorage.getItem(APP_KEY_STORAGE) ?? "";
+    return localStorage.getItem(DEVICE_TOKEN_STORAGE) ?? "";
   } catch {
     return "";
   }
 }
 
-export function saveAppKey(key: string) {
+/** 保存できたら true。保存できない環境(プライベートモードなど)では登録しても使えないので、画面側で知らせる */
+export function saveDeviceToken(token: string) {
   try {
-    localStorage.setItem(APP_KEY_STORAGE, key);
+    localStorage.setItem(DEVICE_TOKEN_STORAGE, token);
+    // 以前の簡易保護(合言葉をそのまま送る方式)で保存した値は使わないので消す
+    localStorage.removeItem("englishApp.appKey");
+    return localStorage.getItem(DEVICE_TOKEN_STORAGE) === token;
   } catch {
-    // プライベートモードなどで保存できない場合は、この画面を開いている間だけ使えない(再入力になる)
+    return false;
   }
+}
+
+export function hasDeviceToken() {
+  return loadDeviceToken() !== "";
 }
 
 export async function send(path: string, fallbackError: string, init?: RequestInit) {
   const headers = new Headers(init?.headers);
-  const appKey = loadAppKey();
-  if (appKey) headers.set("X-App-Key", appKey);
+  const token = loadDeviceToken();
+  if (token) headers.set("X-Device-Token", token);
   const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
   if (res.status === 401) {
-    window.dispatchEvent(new Event(APP_KEY_REQUIRED_EVENT));
-    throw new HttpError(401, await errorMessage(res, "合言葉を入力してください"));
+    window.dispatchEvent(new Event(DEVICE_REGISTRATION_REQUIRED_EVENT));
+    throw new HttpError(401, await errorMessage(res, "この端末は登録されていません"));
   }
   if (!res.ok) throw new HttpError(res.status, await errorMessage(res, fallbackError));
   return res;

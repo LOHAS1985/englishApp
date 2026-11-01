@@ -12,7 +12,7 @@ import Vocab from "./features/vocab/Vocab";
 import ReadingPractice from "./features/reading/ReadingPractice";
 import Admin from "./pages/Admin";
 import MyPage from "./pages/MyPage";
-import AppKeyGate from "./shared/components/AppKeyGate";
+import DeviceGate from "./features/device/DeviceGate";
 
 export default function App() {
   // 前回送れなかった解答記録を送る。オンラインに戻ったとき・画面に戻ってきたときにも再送する
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <BrowserRouter basename="/englishApp">
-      <AppKeyGate />
+      <DeviceGate />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/writing" element={<Writing />} />
