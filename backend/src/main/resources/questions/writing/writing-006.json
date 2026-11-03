@@ -1,0 +1,18 @@
+[
+  {"id":"w0120","type":"opinion","theme":"文化・歴史・生活","topic":"Should Japan abolish the use of personal seals (hanko) on official documents?","points":["Efficiency","Tradition","Security","Digital transformation"],"passage":null},
+  {"id":"w0121","type":"opinion","theme":"科学・技術","topic":"Agree or disagree: Brain-computer interfaces should be developed for healthy people, not only for patients.","points":["Human enhancement","Privacy","Equality","Safety"],"passage":null},
+  {"id":"w0122","type":"opinion","theme":"医療・健康","topic":"Should Japan adopt an opt-out system for organ donation?","points":["Organ shortage","Personal choice","Family role","Medical ethics"],"passage":null},
+  {"id":"w0123","type":"opinion","theme":"環境・エネルギー","topic":"Agree or disagree: Companies should be required to report their carbon emissions to the public.","points":["Transparency","Compliance costs","Investors","Small businesses"],"passage":null},
+  {"id":"w0124","type":"opinion","theme":"社会・政治","topic":"Should married couples in Japan be allowed to keep separate surnames?","points":["Gender equality","Family unity","Legal rights","Tradition"],"passage":null},
+  {"id":"w0125","type":"opinion","theme":"ビジネス・経済","topic":"Should the government raise the minimum wage significantly?","points":["Poverty","Small businesses","Inflation","Employment"],"passage":null},
+  {"id":"w0126","type":"opinion","theme":"教育・心理","topic":"Should schools start classes later in the morning for teenagers?","points":["Sleep","Academic performance","Club activities","Parents' schedules"],"passage":null},
+  {"id":"w0127","type":"opinion","theme":"文化・歴史・生活","topic":"Agree or disagree: Local shopping streets should receive government subsidies to survive.","points":["Local identity","Local economy","Convenience","Taxpayers' money"],"passage":null},
+  {"id":"w0128","type":"opinion","theme":"科学・技術","topic":"Should access to the internet be recognized as a basic human right?","points":["Education","Digital divide","Costs","Government responsibility"],"passage":null},
+  {"id":"w0129","type":"opinion","theme":"医療・健康","topic":"Should the government force pharmaceutical companies to lower the prices of new medicines?","points":["Affordability","Innovation","Profits","Patients"],"passage":null},
+  {"id":"w0130","type":"opinion","theme":"環境・エネルギー","topic":"Should governments build more offshore wind farms even if they affect fishing communities?","points":["Fishing industry","Energy independence","Landscape","Costs"],"passage":null},
+  {"id":"w0131","type":"opinion","theme":"社会・政治","topic":"Agree or disagree: Japan should allow its citizens to hold dual citizenship.","points":["Global talent","Loyalty","Identity","Legal complications"],"passage":null},
+  {"id":"w0132","type":"opinion","theme":"ビジネス・経済","topic":"Should Japan allow casino resorts to be built?","points":["Tax revenue","Gambling addiction","Crime","Tourism"],"passage":null},
+  {"id":"w0133","type":"opinion","theme":"教育・心理","topic":"Agree or disagree: Schools should ban homework.","points":["Learning","Family time","Stress","Equality"],"passage":null},
+  {"id":"w0134","type":"opinion","theme":"文化・歴史・生活","topic":"Should countries make serious efforts to preserve endangered languages?","points":["Cultural heritage","Identity","Economic value","Costs"],"passage":null},
+  {"id":"w0135","type":"opinion","theme":"科学・技術","topic":"Should scientists be required to make all of their research data publicly available?","points":["Public access","Commercial interests","Errors","Research funding"],"passage":null}
+]
