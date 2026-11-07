@@ -51,7 +51,7 @@
 | 英検準1級 | 一次 ライティング(意見論述 120–150語) | Writing(`questions/writing`, `opinion`) | **対応済**(Gemini で4観点16点満点採点) |
 | 英検準1級 | 一次 ライティング(要約 60–70語) | Writing(`summary`) | **対応済**(Gemini で4観点16点満点採点) |
 | 英検準1級 | 一次 リスニング Part 1〜3 | Listening(`eiken-part1`〜`eiken-part3`) | **対応済** |
-| 英検準1級 | 二次 面接(ナレーション・Q&A) | Speaking(`questions/speaking`) | 出題・録音・模範解答あり。4コマは文章で代用。AI 採点は未対応 |
+| 英検準1級 | 二次 面接(ナレーション・Q&A) | Speaking(`questions/speaking`) | 出題・模範解答あり(録音はブラウザ内だけで扱い、保存しない)。4コマは文章で代用。AI 採点は未対応 |
 
 新機能を追加したら、この表の「状態」を更新すること。
 
@@ -64,7 +64,7 @@
 - **弱点の可視化と復習**: 間違えた語彙・文法問題は `ReviewService` が `review_items` に登録し、1→3→7→14日の間隔で出し直す(14日後の復習に正解したら外す)。復習日より前の通常出題で正解しても間隔は進めない。
 - **レベル(学習ペースの管理)**: 解答・学習時間・継続で経験値を貯め、**1日30分(約600XP)を続けると 2027年3月31日にちょうど Lv.100** になるように設計している(`level/XpRules`)。経験値は保存せず `study_logs` からその都度計算する(規則を変えると過去にもさかのぼって反映される)。正解は形式ごとに1問の所要時間に比例し、難易度で 0.8〜1.3倍、不正解は3割、同じ日の解き直しは0、前に間違えた問題を後日克服すると1.5倍。時間は1分1XP(1日60まで)、30分達成+50、技能1つにつき+10、10分以上の日の連続で最大1.3倍。ヘッダーにレベル、マイページに予定ペース(`GET /api/level`)を出す。新しい形式を足したら `XpRules.BASE_XP` に1問あたりの経験値を追加する
 - **弱点分析**: MyPage に、文法の分野(時制・関係詞など)・語彙の品詞・読解/リスニングの設問タイプ(推測・NOT問題・発言の意図・Part 2 の問いかけの形など)別の正答率を出す(`GET /api/stats/weakness`)。分類は解答記録に保存せず、問題集の `point` や設問文から `QuestionTags` がその都度決める。新しい書き方の `point` や設問を足したら `QuestionTagsTests` で分類漏れを確認する。
-- **問題の表示はサーバーを待たない**: 文法・語彙・読解・リスニングの問題集は画面に同梱し(`frontend/src/generated/questions/*.json`)、出題と採点は画面で行う(`api/localQuestions.ts`、`api/picker.ts` は `QuestionPicker` の移植)。解答記録は送信待ちの列(`api/outbox.ts`、ブラウザに保存)から従来の解答 API に裏で送り、送れなければ次回に再送する。解答履歴は `GET /api/practice/history` で裏で取得してブラウザに保存し、出題に使う。同梱の問題集は `QuestionExportTests` が書き出す(難易度・Part 2 の台本は Java 側が正)。問題集を変えたら `./scripts/export-questions.sh`(`push.sh` が自動実行。書き出し忘れは CI で失敗)。出題規則を変えるときは `QuestionPicker` と `picker.ts` の両方を揃える。復習モード(`?review=1`)・ライティング・スピーキングはサーバーで出題する
+- **問題の表示はサーバーを待たない**: 文法・語彙・読解・リスニングの問題集は画面に同梱し(`frontend/src/generated/questions/*.json`)、出題と採点は画面で行う(`api/localQuestions.ts`、`api/picker.ts` は `QuestionPicker` の移植)。解答記録は送信待ちの列(`api/outbox.ts`、ブラウザに保存)から従来の解答 API に裏で送り、送れなければ次回に再送する。解答履歴は `GET /api/practice/history` で裏で取得してブラウザに保存し、出題に使う。同梱の問題集は `QuestionExportTests` が書き出す(難易度・Part 2 の台本は Java 側が正)。リスニングの台本と和訳は同梱しない(解答後は `reveal`、音声が使えないときの読み上げは `script` から API で取る)。問題集を変えたら `./scripts/export-questions.sh`(`push.sh` が自動実行。書き出し忘れは CI で失敗)。出題規則を変えるときは `QuestionPicker` と `picker.ts` の両方を揃える。復習モード(`?review=1`)・ライティング・スピーキングはサーバーで出題する
 - **出題順**: `QuestionSelector` / `QuestionPicker` が解答記録から選ぶ。一巡するまで重複なし、最後に間違えた問題を約3割の確率で出し直す、直近5問と表示中の問題(`exclude`)は出さない。選択肢の並びは画面側で毎回シャッフルし、採点には元の記号を送る。
 - **難易度**: 問題は 1=基礎 / 2=標準 / 3=発展 の難易度を持つ(`Difficulty`)。JSON の `difficulty` があればそれを使い(語彙は語ごとに判定済み)、無ければ文の長さ・文法分野・設問タイプから形式ごとに3等分して推定する。出題は「自動」なら直近30設問の正答率(85%以上→発展、60%未満→基礎)に合う難易度を、未出題の候補の中から優先する。画面で難易度を固定することもできる(`?level=1〜3`)。
 - **試験と同じ制約で練習できる**: 語数カウント、制限時間、音声の再生回数制限など、本番と同じ条件を選べるようにする。
@@ -226,19 +226,20 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
 ### 対応済み(20261026)
-- [x] 録音アップロードにトークンを付与し、ログインユーザーに紐づけて保存(ファイル名も無害化)
 - [x] dev / prod の DB 設定を分離。prod は Flyway でスキーマ管理(V5: roles 列・words・recordings、V6: 出題中の問題・リスニング記録)
-- [x] `/api/admin/**` を ADMIN 限定、`/api/listening/**` をログイン必須に変更
 - [x] 文法・リスニングの正解を DB に保存(再起動しても採点できる)。リスニングの解答も記録するように
 - [x] CORS を GitHub Pages とローカルのみに制限、`/env` エンドポイントの公開を停止
 - [x] `ListeningController` を `ListeningService` / `TtsService` に分割し、未使用の `/generate`・`/auto-generate` を削除
 - [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在100問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
-- [ ] **生成音声・録音が Render のディスクに保存されている**: 再デプロイで消える。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
+- [ ] **生成音声が Render のディスクに保存されている**: 再デプロイで消える(音声は台本から再生成できる)。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
 - [ ] **Speaking の AI 採点が無い**(出題・録音・模範解答は実装済み。文字起こし+Gemini 採点が次の候補)
 - [x] 出題順の改善(一巡するまで重複なし・選択肢のシャッフル・間違えた問題の優先)とログイン廃止(20261026)
 - [x] MyPage に全技能の学習ログ(技能別の時間・正答率、日別グラフ、苦手な形式、最近の履歴)を表示(20261031)
 - [x] 間違えた語彙・文法問題の間隔反復(20261031)
+- [x] リスニングの台本・和訳を問題集に同梱しない(公開サイトの配信ファイルから読めないように)。解答後は `/api/listening/practice/{id}/reveal` から取る(20261103)
+- [x] 録音アップロードの API を削除(録音はブラウザ内だけで扱う)。CI の `JWT_SECRET` を削除(20261103)
 - [x] Gemini 呼び出しを `common/GeminiApiClient` に共通化(失敗時は 502 とメッセージを返す)。外部APIを `XxxApiClient` に分離し、Reading の処理を `ReadingService` に移動(20261028)
-- [ ] **テストがコンテキスト起動のみ**: 採点ロジック・認可ルールのテストを追加する
+- [x] 採点ロジックのテスト(`WritingServiceTests`)と端末認可のテスト(`DeviceTests`)を追加(20261103)
+- [ ] **テストが不足**: 読解・リスニング・スピーキングの Controller、フロントエンド(現状は lint と build のみ)のテストがない

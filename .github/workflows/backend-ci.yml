@@ -31,9 +31,8 @@ jobs:
       - name: Test (dev profile)
         run: chmod +x mvnw && ./mvnw -B test
         env:
-          # テストはコンテキスト起動のみのため、ダミー値でよい
+          # テストは Gemini を呼ばない(採点の計算は WritingServiceTests が確かめる)
           GEMINI_API_KEY: dummy
-          JWT_SECRET: ci-test-secret-ci-test-secret-0123456789
 
       - name: Test (prod profile, Flyway + schema validation)
         run: ./mvnw -B test
@@ -41,4 +40,3 @@ jobs:
           SPRING_PROFILES_ACTIVE: prod
           SPRING_JPA_HIBERNATE_DDL_AUTO: validate
           GEMINI_API_KEY: dummy
-          JWT_SECRET: ci-test-secret-ci-test-secret-0123456789
