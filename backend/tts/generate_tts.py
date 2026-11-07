@@ -85,6 +85,14 @@ def main():
             except Exception:
                 pass
             return v
+        if key == 'narrator':
+            # 説明役は男女の声と区別できる声にする(Part 2 は説明役と問いかけ・応答の3人)
+            v = 'en-US-ChristopherNeural'
+            speaker_voice[key] = v
+            if 'used_voices' not in choose_voice_for_speaker.__dict__:
+                choose_voice_for_speaker.used_voices = set()
+            choose_voice_for_speaker.used_voices.add(v)
+            return v
         if key == 'man':
             v = 'en-US-GuyNeural'
             speaker_voice[key] = v
@@ -100,7 +108,8 @@ def main():
             return speaker_voice[key]
         # voice pools: prefer en-US voices to keep accent consistent
         FEMALE_VOICES = ['en-US-JennyNeural', 'en-US-AriaNeural']
-        MALE_VOICES = ['en-US-GuyNeural', 'en-US-AntonioNeural']
+        # en-US-AntonioNeural は en-US の声に無く、使うと音声生成が全体ごと失敗する(edge-tts の一覧で確認済み)
+        MALE_VOICES = ['en-US-GuyNeural', 'en-US-EricNeural']
         ALL_VOICES = FEMALE_VOICES + MALE_VOICES
 
         # track used voices to ensure uniqueness per speaker when possible

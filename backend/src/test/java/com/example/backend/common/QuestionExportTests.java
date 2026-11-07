@@ -55,8 +55,8 @@ class QuestionExportTests {
 
     check("grammar", render(grammar.all().stream().map(q -> choice(grammar, q)).toList()));
     check("vocab", render(vocab.all().stream().map(q -> choice(vocab, q)).toList()));
-    check("reading", render(reading.all().stream().map(s -> set(reading, s)).toList()));
-    check("listening", render(listening.all().stream().map(s -> set(listening, s)).toList()));
+    check("reading", render(reading.all().stream().map(s -> set(reading, s, true)).toList()));
+    check("listening", render(listening.all().stream().map(s -> set(listening, s, false)).toList()));
   }
 
   private static ChoiceExport choice(ChoiceQuestionBank bank, ChoiceQuestion q) {
@@ -64,12 +64,17 @@ class QuestionExportTests {
         bank.difficulty(q.id()));
   }
 
-  private static SetExport set(QuestionSetBank bank, QuestionSet s) {
+  /**
+   * bundleTranscript: 台本と和訳を同梱するか。リスニングは同梱しない(公開サイトの配信ファイルから全文を読めないように)。
+   * 解答後は ListeningController の reveal から、解答前の読み上げ用は script から取る。
+   */
+  private static SetExport set(QuestionSetBank bank, QuestionSet s, boolean bundleTranscript) {
     List<SetQuestionExport> questions = s.questions().stream()
         .map((SetQuestion q) -> new SetQuestionExport(q.question(), q.choices(), q.answer(), q.explanation()))
         .toList();
-    return new SetExport(s.id(), s.type(), s.title(), s.passage(), s.situation(), s.graphic(), s.script(),
-        s.translation(), questions, bank.difficulty(s.id()), s.theme());
+    return new SetExport(s.id(), s.type(), s.title(), s.passage(), s.situation(), s.graphic(),
+        bundleTranscript ? s.script() : null, bundleTranscript ? s.translation() : null, questions,
+        bank.difficulty(s.id()), s.theme());
   }
 
   /** 1問1行・ID 順にして、問題を足したときの差分を読みやすくする */
@@ -87,7 +92,8 @@ class QuestionExportTests {
       Files.writeString(file, expected, StandardCharsets.UTF_8);
       return;
     }
-    assertThat(Files.exists(file) ? Files.readString(file, StandardCharsets.UTF_8) : "")
+    // Windows の autocrlf で CRLF になっていても同じ内容とみなす(書き出しは LF)
+    assertThat(Files.exists(file) ? Files.readString(file, StandardCharsets.UTF_8).replace("\r\n", "\n") : "")
         .as(file + " が古くなっています。./scripts/export-questions.sh を実行してください")
         .isEqualTo(expected);
   }

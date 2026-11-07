@@ -6,13 +6,25 @@ import {
 } from "../../api/client";
 
 /**
+ * 話者ごとの読み上げの高さ・速さ。ブラウザの声が1種類しか無くても、話者の区別がつくようにする
+ * (サーバーの音声では話者ごとに別の声を使う)。
+ */
+const SPEAKER_STYLE: Record<string, { pitch: number; rate: number }> = {
+  Narrator: { pitch: 1, rate: 0.95 },
+  Woman: { pitch: 1.3, rate: 1 },
+  Man: { pitch: 0.75, rate: 0.95 },
+  "Woman 2": { pitch: 1.5, rate: 1.05 },
+  "Man 2": { pitch: 0.6, rate: 0.9 },
+};
+
+/**
  * リスニングの音声再生。サーバーで台本を音声化して再生し、
  * 失敗したときはブラウザの読み上げ機能(Web Speech API)で台本を読み上げる。
  */
 export default function ListeningPlayer({ setId }: { setId: string }) {
   const [urls, setUrls] = useState<string[] | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "playing" | "browser" | "error">("idle");
-  const [playCount, setPlayCount] = useState(0);
+  const [played, setPlayed] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const stoppedRef = useRef(false);
 
@@ -48,25 +60,25 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
     }
     const script = await fetchListeningScript(setId);
     const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
-    // 3人の会話(TOEIC Part 3)では "Man 2" / "Woman 2" にも別の声を割り当てる
-    const VOICE_SLOTS = ["Woman", "Man", "Narrator", "Woman 2", "Man 2"];
-    const voiceFor = (speaker: string) =>
-      voices.length === 0
-        ? undefined
-        : voices[Math.max(0, VOICE_SLOTS.indexOf(speaker)) % voices.length];
     stoppedRef.current = false;
     setStatus("browser");
     window.speechSynthesis.cancel();
     for (const [i, line] of script.split("\n").entries()) {
       if (stoppedRef.current) break;
       const m = line.match(/^(\w+(?: \d)?):\s*(.*)$/);
+      const speaker = m ? m[1] : "Narrator";
       // TOEIC Part 2 は「Number N.」の前に解答時間を取る(サーバーの音声と同じ)
       if (i > 0 && m && /^Number \d+\.$/.test(m[2])) {
         await new Promise((resolve) => setTimeout(resolve, 4000));
       }
       const utterance = new SpeechSynthesisUtterance(m ? m[2] : line);
       utterance.lang = "en-US";
-      utterance.voice = voiceFor(m ? m[1] : "") ?? null;
+      const style = SPEAKER_STYLE[speaker] ?? SPEAKER_STYLE.Narrator;
+      utterance.pitch = style.pitch;
+      utterance.rate = style.rate;
+      // 声が2種類以上あるときは、話者ごとに別の声を使う
+      const slot = Math.max(0, Object.keys(SPEAKER_STYLE).indexOf(speaker));
+      utterance.voice = voices.length > 1 ? voices[slot % voices.length] : null;
       await new Promise<void>((resolve) => {
         utterance.onend = () => resolve();
         utterance.onerror = () => resolve();
@@ -77,7 +89,7 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
   };
 
   const handlePlay = async () => {
-    setPlayCount((n) => n + 1);
+    setPlayed(true);
     if (urls) {
       await playUrls(urls);
       return;
@@ -110,15 +122,8 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
         disabled={status === "loading"}
         className="text-sm font-semibold text-white bg-[#2463a8] rounded px-5 py-2.5 disabled:bg-slate-400"
       >
-        {status === "loading" ? "音声を準備中…" : busy ? "停止" : playCount === 0 ? "▶ 音声を再生" : "▶ もう一度聞く"}
+        {status === "loading" ? "音声を準備中…" : busy ? "停止" : played ? "▶ もう一度聞く" : "▶ 音声を再生"}
       </button>
-      <span className="text-xs text-slate-500">
-        再生回数: {playCount}
-        {playCount > 1 && "(本番では英検は1回、TOEIC は1回のみ)"}
-      </span>
-      {status === "browser" && (
-        <span className="text-xs text-slate-500">サーバーの音声を準備できなかったため、ブラウザの読み上げで再生しています</span>
-      )}
       {status === "error" && (
         <span className="text-xs text-[#c0392b]">音声を再生できませんでした</span>
       )}

@@ -104,6 +104,8 @@ public class TtsService {
     Path cwd = Path.of(".").toAbsolutePath().normalize();
     Path[] candidates = new Path[] {
         Path.of("tts", "generate_tts.py"),
+        // Docker では作業フォルダが /app/application で、tts は /app/tts に置く(Dockerfile)
+        Path.of("..", "tts", "generate_tts.py"),
         Path.of("backend", "tts", "generate_tts.py"),
         Path.of("src", "main", "resources", "tts", "generate_tts.py"),
         Path.of("backend", "src", "main", "resources", "tts", "generate_tts.py")

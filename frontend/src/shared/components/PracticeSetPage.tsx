@@ -19,13 +19,24 @@ interface PracticeSetPageProps {
   showTitle: boolean;
   /** 設問の上に表示する教材(読解の本文、リスニングの再生ボタンなど) */
   renderMaterial: (set: QuestionSetView, result: SetAnswerResult | null) => ReactNode;
+  /** 解答後に、設問ごとに表示する教材(TOEIC Part 2 の各問題の台本など) */
+  renderQuestionNote?: (set: QuestionSetView, result: SetAnswerResult, qi: number) => ReactNode;
+  /** 解答後に、設問の後ろに表示する教材(台本・和訳など) */
+  renderAfterAnswer?: (set: QuestionSetView, result: SetAnswerResult) => ReactNode;
 }
 
 /**
  * 文章または音声1つに複数の設問が付くセット問題(読解・リスニング)の共通画面。
  * 形式(?type=)と難易度(?level=)はホームで選ぶので、ここでは教材と設問だけを表示する。
  */
-export default function PracticeSetPage({ feature, types, showTitle, renderMaterial }: PracticeSetPageProps) {
+export default function PracticeSetPage({
+  feature,
+  types,
+  showTitle,
+  renderMaterial,
+  renderQuestionNote,
+  renderAfterAnswer,
+}: PracticeSetPageProps) {
   const [searchParams] = useSearchParams();
   const requestedType = searchParams.get("type");
   const type = requestedType && types.includes(requestedType) ? requestedType : types[0];
@@ -186,6 +197,7 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
                           <p className="text-slate-600 mt-1">{r.explanation}</p>
                         </div>
                       )}
+                      {result && renderQuestionNote?.(set, result, qi)}
                     </div>
                   );
                 })}
@@ -205,26 +217,7 @@ export default function PracticeSetPage({ feature, types, showTitle, renderMater
                   <p className="font-mono text-lg font-semibold text-slate-900 mb-4">
                     {result.score} / {result.total}
                   </p>
-                  {result.script && (
-                    <details className="mb-3 border border-slate-200 rounded-md p-4" open>
-                      <summary className="text-sm font-semibold text-slate-700 cursor-pointer">
-                        スクリプト
-                      </summary>
-                      <p className="mt-2 text-sm text-slate-700 whitespace-pre-wrap leading-relaxed">
-                        {result.script}
-                      </p>
-                    </details>
-                  )}
-                  {result.translation && (
-                    <details className="mb-4 border border-slate-200 rounded-md p-4">
-                      <summary className="text-sm font-semibold text-slate-700 cursor-pointer">
-                        和訳
-                      </summary>
-                      <p className="mt-2 text-sm text-slate-600 whitespace-pre-wrap leading-relaxed">
-                        {result.translation}
-                      </p>
-                    </details>
-                  )}
+                  {renderAfterAnswer?.(set, result)}
                   <button
                     onClick={loadNext}
                     className="text-sm font-semibold text-white bg-[#8fae4e] rounded px-5 py-3 hover:bg-[#7a9843] transition-colors"

@@ -312,7 +312,11 @@ export async function submitPracticeAnswers(
   answers: string[],
   durationSeconds?: number,
 ): Promise<SetAnswerResult> {
-  return gradeQuestionSet(feature, setId, answers, durationSeconds);
+  const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds);
+  if (feature !== "listening") return graded;
+  // リスニングの台本と和訳は画面に同梱していないので、解答後にサーバーから取る(取れなくても採点結果は出す)
+  const reveal = await fetchListeningReveal(setId).catch(() => null);
+  return { ...graded, script: reveal?.script ?? null, translation: reveal?.translation ?? null };
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
@@ -324,7 +328,15 @@ export async function synthesizeListeningAudio(setId: string) {
   );
 }
 
-/** ブラウザの読み上げ機能で再生するための台本(画面には表示しない)。同梱の問題集から取るのでサーバーを待たない */
+/** 解答後に見せる台本と和訳(リスニングは問題集に同梱していない) */
+export async function fetchListeningReveal(setId: string) {
+  return getJson<{ script: string | null; translation: string | null }>(
+    `/api/listening/practice/${setId}/reveal`,
+    "台本の取得に失敗しました",
+  );
+}
+
+/** ブラウザの読み上げ機能で再生するための台本(画面には表示しない)。音声は解答の前に聞くので、解答前にもサーバーから取る */
 export async function fetchListeningScript(setId: string) {
   const script = await localScript(setId);
   if (script) return script;
