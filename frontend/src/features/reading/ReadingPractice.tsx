@@ -8,10 +8,19 @@ export default function ReadingPractice() {
       feature="reading"
       types={TYPES}
       showTitle
-      renderMaterial={(set) => (
-        <div className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
-          {set.passage}
-        </div>
+      renderMaterial={(set, result) => (
+        <>
+          <div className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
+            {set.passage}
+          </div>
+          {/* 和訳は解答後に、英文の下に並べて読み比べられるようにする */}
+          {result?.translation && (
+            <div className="mt-3 text-sm leading-7 text-slate-600 whitespace-pre-wrap border border-slate-200 rounded-md p-4">
+              <p className="text-xs font-semibold text-slate-500 mb-2">和訳</p>
+              {result.translation}
+            </div>
+          )}
+        </>
       )}
     />
   );
