@@ -4,7 +4,7 @@ import { TYPE_LABELS } from "../shared/exams";
 
 /** 1〜2問の結果で苦手と決めつけないよう、この数以上解いた分類だけを苦手に挙げる */
 const MIN_ANSWERS = 5;
-/** これ未満の正答率を苦手として赤で示す(930点の目安は各パート9割前後) */
+/** これ未満の正答率を苦手として赤で示す */
 const WEAK_RATE = 70;
 
 const rate = (i: WeaknessItem) => Math.round((i.correct / i.total) * 100);

@@ -65,7 +65,6 @@ export default function Home() {
                   className={`text-left rounded-lg shadow-lg p-6 transform transition hover:scale-[1.02] ${m.color}`}
                 >
                   <h3 className="text-2xl font-bold text-slate-900">{m.title}</h3>
-                  <p className="mt-1 text-sm text-black">{m.goal}</p>
                   <p className="mt-4 text-sm text-slate-800">
                     {m.sections.map((s) => s.skill).join(" / ")}
                   </p>
@@ -94,14 +93,10 @@ export default function Home() {
             </button>
             <div className={`rounded-lg shadow-lg p-6 mb-6 ${menu.color}`}>
               <h2 className="text-2xl font-bold text-slate-900">{menu.title}</h2>
-              <p className="mt-1 text-sm text-black">{menu.goal}</p>
             </div>
 
             <div className="mb-6 rounded-lg bg-white border border-slate-200 p-4">
               <DifficultySelect value={level} onChange={changeLevel} />
-              <p className="mt-2 text-xs text-slate-500">
-                文法・語彙・読解・リスニングに適用されます(ライティング・面接は対象外)。
-              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

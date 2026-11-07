@@ -28,7 +28,6 @@ export interface ExamMenuSection {
 export interface ExamMenu {
   exam: Exam;
   title: string;
-  goal: string;
   color: string;
   sections: ExamMenuSection[];
 }
@@ -37,7 +36,6 @@ export const EXAM_MENUS: ExamMenu[] = [
   {
     exam: "toeic",
     title: "TOEIC L&R",
-    goal: "目標 930点(L 475 / R 455)",
     color: "bg-gradient-to-br from-[#a1c4fd] to-[#c2e9fb]",
     sections: [
       {
@@ -64,7 +62,6 @@ export const EXAM_MENUS: ExamMenu[] = [
   {
     exam: "eiken",
     title: "英検準1級",
-    goal: "一次・二次とも合格",
     color: "bg-gradient-to-br from-[#f6d365] to-[#fda085]",
     sections: [
       {

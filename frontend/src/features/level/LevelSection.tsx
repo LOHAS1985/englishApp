@@ -2,13 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchLevel, type LevelSummary } from "../../api/client";
 import { levelProgress } from "./levelProgress";
 
-const PACE_LABELS: Record<LevelSummary["pace"], { text: string; style: string }> = {
-  ahead: { text: "予定より進んでいます", style: "text-[#6a8a3e]" },
-  onTrack: { text: "ほぼ予定どおりです", style: "text-slate-700" },
-  behind: { text: "予定より遅れています", style: "text-[#c0392b]" },
-};
-
-/** マイページのレベル欄:現在のレベル、今日の経験値、期限(3月末に Lv.100)までのペース */
+/** マイページのレベル欄:現在のレベル、今日の経験値、直近の経験値 */
 export default function LevelSection() {
   const [level, setLevel] = useState<LevelSummary | null>(null);
   const [error, setError] = useState("");
@@ -22,10 +16,7 @@ export default function LevelSection() {
   if (error) return <p className="text-sm text-[#c0392b] mb-8">{error}</p>;
   if (!level) return null;
 
-  const pace = PACE_LABELS[level.pace];
-  const todayRate = Math.min(1, level.today.total / level.dailyTargetXp);
-  const maxDay = Math.max(level.dailyTargetXp, ...level.recentDays.map((d) => d.xp));
-  const behindXp = level.expectedXp - level.totalXp;
+  const maxDay = Math.max(1, ...level.recentDays.map((d) => d.xp));
 
   return (
     <section className="mb-8">
@@ -35,7 +26,6 @@ export default function LevelSection() {
           <div>
             <p className="font-mono text-4xl font-semibold text-slate-900">
               Lv.{level.level}
-              <span className="text-base text-slate-400"> / {level.maxLevel}</span>
             </p>
             <p className="text-xs text-slate-500 mt-1">
               累計 {level.totalXp.toLocaleString()} XP
@@ -55,43 +45,21 @@ export default function LevelSection() {
         <div>
           <div className="flex justify-between text-sm mb-1">
             <span>今日の経験値</span>
-            <span className="font-mono">
-              {level.today.total} / {level.dailyTargetXp} XP
-            </span>
-          </div>
-          <div className="h-1.5 bg-slate-100 rounded">
-            <div className="h-1.5 bg-[#2463a8] rounded" style={{ width: `${todayRate * 100}%` }} />
+            <span className="font-mono">{level.today.total} XP</span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
             解答 {level.today.answers} + 時間 {level.today.time} + ボーナス {level.today.bonus}
             {level.today.multiplier > 1 && ` × 連続 ${level.today.multiplier.toFixed(2)}`}
-            (1日の目安 {level.dailyTargetXp} XP ≒ 30分)
-          </p>
-        </div>
-
-        <div className="border-t border-slate-100 pt-4">
-          <p className={`text-sm font-semibold ${pace.style}`}>{pace.text}</p>
-          <p className="text-sm text-slate-600 mt-1">
-            予定では今日の時点で Lv.{level.expectedLevel}(現在 Lv.{level.level})。
-            {behindXp > 0 && `予定まであと ${behindXp.toLocaleString()} XP です。`}
-          </p>
-          <p className="text-xs text-slate-500 mt-1">
-            {level.goalDate.replace(/-/g, "/")} に Lv.{level.maxLevel} にするには、残り {level.daysLeft} 日で
-            1日あたり約 {level.xpPerDayToGoal.toLocaleString()} XP が必要です。
           </p>
         </div>
 
         <div>
-          <p className="text-xs text-slate-500 mb-1">日別の経験値(14日・点線は1日の目安)</p>
-          <div className="relative flex items-end gap-1 h-20">
-            <div
-              className="absolute left-0 right-0 border-t border-dashed border-slate-300"
-              style={{ bottom: `${(level.dailyTargetXp / maxDay) * 100}%` }}
-            />
+          <p className="text-xs text-slate-500 mb-1">日別の経験値(直近14日)</p>
+          <div className="flex items-end gap-1 h-20">
             {level.recentDays.map((d) => (
               <div
                 key={d.date}
-                className={`flex-1 rounded-t ${d.xp >= level.dailyTargetXp ? "bg-[#8fae4e]" : "bg-slate-300"}`}
+                className="flex-1 rounded-t bg-[#8fae4e]"
                 style={{ height: `${(d.xp / maxDay) * 100}%` }}
                 title={`${d.date}: ${d.xp} XP`}
               />
