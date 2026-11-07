@@ -31,6 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Speaking recordings saved at runtime
-uploads/

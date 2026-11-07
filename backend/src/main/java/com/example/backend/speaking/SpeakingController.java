@@ -6,28 +6,22 @@ import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.speaking.SpeakingQuestionBank.SpeakingSet;
 import com.example.backend.stats.StudyLogService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.Map;
-
+/** 録音はブラウザの中だけで扱い、サーバーには保存しない(面接練習は自己採点のため。Render のディスクは再デプロイで消える) */
 @RestController
 @RequestMapping("/api/speaking")
 public class SpeakingController {
 
-  private final RecordingService recordingService;
   private final CurrentUserProvider currentUserProvider;
   private final SpeakingQuestionBank questionBank;
   private final QuestionSelector questionSelector;
   private final PracticeRecordRepository recordRepository;
   private final StudyLogService studyLogService;
 
-  public SpeakingController(RecordingService recordingService, CurrentUserProvider currentUserProvider,
+  public SpeakingController(CurrentUserProvider currentUserProvider,
       SpeakingQuestionBank questionBank, QuestionSelector questionSelector,
       PracticeRecordRepository recordRepository, StudyLogService studyLogService) {
-    this.recordingService = recordingService;
     this.currentUserProvider = currentUserProvider;
     this.questionBank = questionBank;
     this.questionSelector = questionSelector;
@@ -50,18 +44,6 @@ public class SpeakingController {
     return questionBank.findById(id).orElseThrow();
   }
 
-  @PostMapping("/recordings")
-  public ResponseEntity<?> uploadRecording(@RequestParam("file") MultipartFile file,
-      @RequestParam(value = "exerciseId", required = false) Long exerciseId) {
-    try {
-      Recording r = recordingService.save(file, currentUserProvider.getCurrentUserId());
-      return ResponseEntity.ok(Map.of("recordingId", r.getId()));
-    } catch (IOException e) {
-      return ResponseEntity.status(500).body(Map.of("error", "upload failed"));
-    }
-  }
-
-  /** 1セット取り組んだ(模範解答を見た)ことを学習ログに残す。正誤が無いので時間と回数だけ */
   @PostMapping("/complete")
   public void complete(@RequestBody CompleteRequest request) {
     SpeakingSet set = questionBank.findById(request.setId())
