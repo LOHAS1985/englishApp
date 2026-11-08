@@ -5,3 +5,6 @@ node_modules/
 
 # Ignore generated audio files anywhere under a static/audio/generated folder
 **/static/audio/generated/**
+
+# Claude Code の個人設定(サンドボックス・権限の制限を含む)。git には含めない
+.claude/settings.local.json
