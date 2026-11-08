@@ -30,6 +30,7 @@ node scripts/questions/plan.js           # 形式ごとの現状・最終目標�
 node scripts/questions/plan.js today 8   # 今日の作業(書き直しの対象、または追加する形式とレベルの内訳)
 ```
 
+- `DifficultyTests` は、形式ごとにレベル1を1割以上、レベル2・3を2割以上求める(リスニング以外はレベル1も2割以上)。書き直しでこれを割る日は、その形式の書き直しを後回しにする。
 - すべてのリスニングのセットに `difficulty` を書いてある(2026-11-08 に推定値を書き込んで固定した)。追加・書き直しのセットにも **必ず書く**。省略すると推定(1〜3 の3等分)に回る。
 - 書き直しの対象は `node scripts/questions/plan.js select <history.json>` で一度だけ選んだ(`history.json` はブラウザの localStorage `englishApp.history.listening` を保存したもの)。
 
