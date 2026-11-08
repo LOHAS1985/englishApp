@@ -100,6 +100,8 @@ public final class XpRules {
       case "eiken-summary" -> score(log) * SUMMARY_XP_PER_POINT;
       case "eiken-interview" -> SPEAKING_XP;
       case "guardian" -> ARTICLE_XP;
+      // 模試は点数を測るための区切り。解答の経験値は与えず、かかった時間(時間 XP)だけを数える
+      case "toeic-mock" -> 0;
       default -> {
         if (log.correct() == null || log.total() == null) {
           yield 0;

@@ -20,8 +20,9 @@ const SPEAKER_STYLE: Record<string, { pitch: number; rate: number }> = {
 /**
  * リスニングの音声再生。サーバーで台本を音声化して再生し、
  * 失敗したときはブラウザの読み上げ機能(Web Speech API)で台本を読み上げる。
+ * allowReplay=false のときは1回聞いたら聞き直せない(模試の本番と同じ条件)。
  */
-export default function ListeningPlayer({ setId }: { setId: string }) {
+export default function ListeningPlayer({ setId, allowReplay = true }: { setId: string; allowReplay?: boolean }) {
   const [urls, setUrls] = useState<string[] | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "playing" | "browser" | "error">("idle");
   const [played, setPlayed] = useState(false);
@@ -114,15 +115,24 @@ export default function ListeningPlayer({ setId }: { setId: string }) {
   };
 
   const busy = status === "loading" || status === "playing" || status === "browser";
+  const replayBlocked = played && !allowReplay;
 
   return (
     <div className="flex flex-wrap items-center gap-3 border border-slate-200 rounded-md p-4 bg-slate-50">
       <button
         onClick={busy ? handleStop : handlePlay}
-        disabled={status === "loading"}
+        disabled={status === "loading" || (replayBlocked && !busy)}
         className="text-sm font-semibold text-white bg-[#2463a8] rounded px-5 py-2.5 disabled:bg-slate-400"
       >
-        {status === "loading" ? "音声を準備中…" : busy ? "停止" : played ? "▶ もう一度聞く" : "▶ 音声を再生"}
+        {status === "loading"
+          ? "音声を準備中…"
+          : busy
+            ? "停止"
+            : replayBlocked
+              ? "再生済み(もう一度は聞けません)"
+              : played
+                ? "▶ もう一度聞く"
+                : "▶ 音声を再生"}
       </button>
       {status === "error" && (
         <span className="text-xs text-[#c0392b]">音声を再生できませんでした</span>

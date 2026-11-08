@@ -1,0 +1,19 @@
+{
+  "id": "/englishApp/",
+  "name": "英語学習",
+  "short_name": "英語学習",
+  "description": "TOEIC L&R 930点・英検準1級に向けて4技能を学習するアプリ",
+  "lang": "ja",
+  "start_url": "/englishApp/",
+  "scope": "/englishApp/",
+  "display": "standalone",
+  "theme_color": "#8fae4e",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/englishApp/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

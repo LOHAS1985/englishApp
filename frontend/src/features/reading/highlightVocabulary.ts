@@ -33,7 +33,8 @@ export function buildHighlightSegments(
 
   const sorted = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
   const pattern = sorted.map((v) => escapeRegExp(v.word)).join("|");
-  const regex = new RegExp(`(${pattern})`, "gi");
+  // 英字の途中に一致しても当てない(rate が accurate の中で色付かないように)
+  const regex = new RegExp(`(?<![A-Za-z])(${pattern})(?![A-Za-z])`, "gi");
 
   const segments: HighlightSegment[] = [];
   let lastIndex = 0;

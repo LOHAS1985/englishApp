@@ -55,7 +55,19 @@ public class GrammarService {
     ChoiceQuestion q = questionBank.findById(request.getQuestionId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
 
-    boolean isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());
+    boolean isCorrect = saveRecord(q, request.getSelectedChoice());
+    studyLogService.log("grammar", "toeic-part5", q.id(), isCorrect ? 1 : 0, 1, request.getDurationSeconds());
+
+    return new GrammarAnswerResult(isCorrect, q.answer(), q.explanation(), q.translation());
+  }
+
+  /**
+   * 解答記録と復習(間隔反復)の登録だけを行う。学習ログは呼び出し側で書く(模試は区切りごとにまとめて書くため)。
+   *
+   * @return 正解なら true
+   */
+  public boolean saveRecord(ChoiceQuestion q, String selectedChoice) {
+    boolean isCorrect = q.answer().equalsIgnoreCase(selectedChoice);
 
     GrammarRecord record = new GrammarRecord();
     record.setUserId(currentUserProvider.getCurrentUserId());
@@ -66,15 +78,13 @@ public class GrammarService {
     record.setChoiceC(textFor(q.choices(), "C"));
     record.setChoiceD(textFor(q.choices(), "D"));
     record.setCorrectChoice(q.answer());
-    record.setSelectedChoice(request.getSelectedChoice());
+    record.setSelectedChoice(selectedChoice);
     record.setCorrect(isCorrect);
     record.setExplanation(q.explanation());
     record.setTranslation(q.translation());
     grammarRecordRepository.save(record);
-    studyLogService.log("grammar", "toeic-part5", q.id(), isCorrect ? 1 : 0, 1, request.getDurationSeconds());
     reviewService.record("grammar", q.id(), isCorrect);
-
-    return new GrammarAnswerResult(isCorrect, q.answer(), q.explanation(), q.translation());
+    return isCorrect;
   }
 
   private String textFor(List<GrammarChoice> choices, String label) {

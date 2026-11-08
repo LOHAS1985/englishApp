@@ -34,8 +34,11 @@ public class QuestionSetPractice {
   public record SetQuestionView(String question, List<String> choices) {
   }
 
-  /** @param durationSeconds 出題から解答までの秒数(学習時間の記録用) */
-  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds) {
+  /**
+   * @param durationSeconds 出題から解答までの秒数(学習時間の記録用)
+   * @param readingSeconds  読解速度の計測で「本文を読み終えるまで」の秒数。計測していなければ null
+   */
+  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds, Integer readingSeconds) {
   }
 
   public record SetQuestionResult(boolean correct, String selected, String answer, String explanation) {
@@ -51,6 +54,11 @@ public class QuestionSetPractice {
 
   /** 問いかけと選択肢を音声だけで出す形式(TOEIC Part 2)。解答前は文字を渡さない */
   private static final Set<String> AUDIO_ONLY_TYPES = Set.of("toeic-part2");
+
+  /** 問いかけと選択肢が音声だけの形式か(解答前に文字を渡さないための判定。模試も同じ判定を使う) */
+  public static boolean isAudioOnly(String type) {
+    return AUDIO_ONLY_TYPES.contains(type);
+  }
 
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
@@ -77,7 +85,7 @@ public class QuestionSetPractice {
   }
 
   public QuestionSetView toView(QuestionSetBank bank, QuestionSet set) {
-    boolean audioOnly = AUDIO_ONLY_TYPES.contains(set.type());
+    boolean audioOnly = isAudioOnly(set.type());
     List<SetQuestionView> questions = set.questions().stream()
         .map(q -> audioOnly
             ? new SetQuestionView("", q.choices().stream().map(c -> "").toList())
@@ -91,22 +99,28 @@ public class QuestionSetPractice {
   public SetAnswerResult grade(QuestionSetBank bank, String feature, SetAnswerRequest request) {
     QuestionSet set = bank.findById(request.setId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
-    List<String> answers = request.answers() == null ? List.of() : request.answers();
-    Long userId = currentUserProvider.getCurrentUserId();
+    List<SetQuestionResult> results = scoreAndRecord(feature, set, request.answers());
+    int score = (int) results.stream().filter(SetQuestionResult::correct).count();
+    studyLogService.log(feature, set.type(), set.id(), score, set.questions().size(), request.durationSeconds());
+    return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());
+  }
 
+  /**
+   * 設問ごとに採点し、解答記録(PracticeRecord)を保存する。学習ログは書かない(模試は区切りごとに別に書く)。
+   * 解答が足りない設問は未解答(selected 無し・不正解)として扱う。
+   */
+  public List<SetQuestionResult> scoreAndRecord(String feature, QuestionSet set, List<String> answers) {
+    List<String> given = answers == null ? List.of() : answers;
+    Long userId = currentUserProvider.getCurrentUserId();
     List<SetQuestionResult> results = new ArrayList<>();
-    int score = 0;
     for (int i = 0; i < set.questions().size(); i++) {
       SetQuestion q = set.questions().get(i);
-      String selected = i < answers.size() && answers.get(i) != null ? answers.get(i).trim().toUpperCase() : "";
+      String selected = i < given.size() && given.get(i) != null ? given.get(i).trim().toUpperCase() : "";
       boolean correct = q.answer().equalsIgnoreCase(selected);
-      if (correct)
-        score++;
       results.add(new SetQuestionResult(correct, selected, q.answer(), q.explanation()));
       recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
             selected.isEmpty() ? null : selected, correct));
     }
-    studyLogService.log(feature, set.type(), set.id(), score, set.questions().size(), request.durationSeconds());
-    return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());
+    return results;
   }
 }

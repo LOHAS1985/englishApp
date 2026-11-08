@@ -53,6 +53,10 @@ english-app/
 | GET / DELETE | `/api/devices`(`/{id}`) | 登録済み端末の一覧・削除(マイページ) |
 | GET      | `/api/level`            | 学習ログから経験値・レベル・期限(2027年3月末に Lv.100)までのペースを計算する |
 | GET      | `/api/review/summary`   | 間違えた語彙・文法問題のうち今日復習する数                     |
+| GET      | `/api/reading/practice/speed` | 読解速度(語/分)の直近の計測(Part 7 などの速度計測モード)    |
+| POST     | `/api/mock/start`       | TOEIC 模試の問題一式を組む(リスニング 94 問・45分、リーディング 100 問・75分) |
+| POST     | `/api/mock/submit`      | 模試の解答を区切りごとに採点し、推定点(参考値)を返して保存する |
+| GET      | `/api/mock/history`     | 過去の模試の結果(新しい順。MyPage の推定点の推移に使う)         |
 | GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日が来た問題を出題する(1→3→7→14日の間隔反復) |
 
 ## インフラ / デプロイ
@@ -100,3 +104,9 @@ english-app/
 - Docker実行権限エラー(`chmod +x mvnw`)
 - CORS設定によるローカル/本番環境の切り分け
 - Gemini APIのモデル名変更・レート制限・APIキー制限
+
+## テスト・PWA(2026-11-08 追加)
+
+- **フロントエンドのテスト**: Vitest 5.1.0(devDependency、無料)。`npm test`(`vitest run`)。対象は純粋関数(出題の選び方 `picker.ts`、レベル計算、語彙ハイライト、読解速度、模試の表示用関数)と送信待ちの列(`outbox.ts`、fetch と localStorage をモック)。CI の build ジョブで Lint と Build の間に実行する。
+- **PWA**: `public/manifest.webmanifest` と `public/sw.js`。本番のみ登録する(`main.tsx`)。navigate は network-first(失敗時はキャッシュの index.html)、同一オリジンの `assets/`・問題集・favicon・manifest は cache-first、`/api/` と別オリジンはキャッシュしない。`CACHE_NAME` で世代を管理し、`skipWaiting` は使わない。アイコンは SVG のみ(Chrome のインストール条件を満たさない可能性があり、192px・512px の PNG は未作成)。
+- **DB マイグレーション**: `V13__reading_speeds_and_mock_exams.sql`(`reading_speeds`、`mock_exams`)。

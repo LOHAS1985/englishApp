@@ -311,8 +311,9 @@ export async function submitPracticeAnswers(
   setId: string,
   answers: string[],
   durationSeconds?: number,
+  readingSeconds?: number,
 ): Promise<SetAnswerResult> {
-  const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds);
+  const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds, readingSeconds);
   if (feature !== "listening") return graded;
   // リスニングの台本と和訳は画面に同梱していないので、解答後にサーバーから取る(取れなくても採点結果は出す)
   const reveal = await fetchListeningReveal(setId).catch(() => null);
@@ -350,6 +351,108 @@ export async function fetchListeningScript(setId: string) {
 export function toAbsoluteApiUrl(path: string) {
   if (/^https?:\/\//i.test(path)) return path;
   return `${String(API_BASE ?? "").replace(/\/$/, "")}${encodeURI(path)}`;
+}
+
+/** 読解速度の1回分(本文を読み終えるまでの秒数と語数から、語/分を出す) */
+export interface ReadingSpeedItem {
+  itemType: string;
+  words: number;
+  readingSeconds: number;
+  wpm: number;
+  createdAt: string;
+}
+
+export async function fetchReadingSpeed() {
+  return getJson<ReadingSpeedItem[]>("/api/reading/practice/speed", "読解速度の取得に失敗しました");
+}
+
+// TOEIC 模試(本番と同じ区切り・制限時間。採点はサーバーで行う)
+export interface MockQuestion {
+  question: string;
+  choices: string[];
+}
+
+export interface MockItem {
+  /** 解答を送るときの区分(listening / reading / grammar) */
+  feature: "listening" | "reading" | "grammar";
+  id: string;
+  type: string;
+  title: string | null;
+  passage: string | null;
+  situation: string | null;
+  graphic: string | null;
+  questions: MockQuestion[];
+}
+
+export interface MockSection {
+  skill: "listening" | "reading";
+  minutes: number;
+  items: MockItem[];
+}
+
+export interface MockExamView {
+  sections: MockSection[];
+}
+
+export interface MockSectionScore {
+  skill: "listening" | "reading";
+  correct: number;
+  total: number;
+  /** 推定点(参考値。換算は仮のもの) */
+  estimated: number;
+  target: number;
+  seconds: number;
+}
+
+export interface MockPartScore {
+  type: string;
+  correct: number;
+  total: number;
+}
+
+export interface MockResult {
+  id: number;
+  listening: MockSectionScore;
+  reading: MockSectionScore;
+  estimatedTotal: number;
+  targetTotal: number;
+  parts: MockPartScore[];
+}
+
+export interface MockSubmitItem {
+  feature: MockItem["feature"];
+  id: string;
+  answers: string[];
+}
+
+export interface MockSubmitSection {
+  skill: MockSection["skill"];
+  durationSeconds: number;
+  items: MockSubmitItem[];
+}
+
+export interface MockHistoryItem {
+  id: number;
+  listeningCorrect: number;
+  listeningTotal: number;
+  readingCorrect: number;
+  readingTotal: number;
+  listeningScore: number;
+  readingScore: number;
+  estimatedTotal: number;
+  createdAt: string;
+}
+
+export async function startMockExam() {
+  return postJson<MockExamView>("/api/mock/start", {}, "模試の問題を用意できませんでした");
+}
+
+export async function submitMockExam(sections: MockSubmitSection[]) {
+  return postJson<MockResult>("/api/mock/submit", { sections }, "模試の採点に失敗しました");
+}
+
+export async function fetchMockHistory() {
+  return getJson<MockHistoryItem[]>("/api/mock/history", "模試の履歴の取得に失敗しました");
 }
 
 // スピーキング(英検二次の面接形式)

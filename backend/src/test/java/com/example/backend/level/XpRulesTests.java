@@ -17,6 +17,13 @@ class XpRulesTests {
 
   private static final LocalDate DAY = LocalDate.of(2026, 11, 2);
 
+  @Test
+  void mockSectionGivesNoAnswerXpButStillCountsTime() {
+    // 模試は点数を測る区切りなので、正解で経験値を稼げないようにする(時間の経験値は別に入る)
+    assertThat(XpRules.answerXp(log("listening", "toeic-mock", "mock-1", 80, 94, 2700, DAY), 2)).isZero();
+    assertThat(XpRules.answerXp(log("listening", "toeic-part2", "x", 4, 5, 0, DAY), 2)).isPositive();
+  }
+
   private static LogEntry log(String feature, String type, String id, Integer correct, Integer total, int seconds,
       LocalDate date) {
     return new LogEntry(feature, type, id, correct, total, seconds, date.atTime(20, 0));

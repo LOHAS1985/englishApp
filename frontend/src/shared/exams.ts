@@ -54,7 +54,15 @@ export const EXAM_MENUS: ExamMenu[] = [
           { label: "Part 5 短文穴埋め", note: "文法・語法の4択", path: "/grammar" },
           { label: "Part 6 長文穴埋め", note: "メール・告知の空所4問", path: "/reading/practice?type=toeic-part6" },
           { label: "Part 7 読解", note: "メール・広告・記事の設問", path: "/reading/practice?type=toeic-part7" },
+          { label: "Part 7 読解速度", note: "本文だけ先に読み、読み終えるまでの時間から語/分を測る", path: "/reading/practice?type=toeic-part7&speed=1" },
           { label: "語彙", note: "ビジネス語彙・句動詞を含む4択", path: "/vocab" },
+        ],
+      },
+      {
+        skill: "模試",
+        icon: "📝",
+        items: [
+          { label: "L&R 模試", note: "本番と同じ区切り・制限時間(Part 1 を除く)。推定点を出す", path: "/mock" },
         ],
       },
     ],
@@ -107,6 +115,7 @@ export const TYPE_LABELS: Record<string, string> = {
   "toeic-part5": "TOEIC Part 5",
   "toeic-part6": "TOEIC Part 6",
   "toeic-part7": "TOEIC Part 7",
+  "toeic-mock": "TOEIC 模試",
   vocab: "語彙(英検 大問1・TOEIC)",
   "eiken-cloze": "英検 大問2",
   "eiken-long": "英検 大問3",

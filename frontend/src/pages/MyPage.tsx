@@ -7,6 +7,8 @@ import DeviceSection from "../features/device/DeviceSection";
 import StudyStatsSection from "./StudyStatsSection";
 import LevelSection from "../features/level/LevelSection";
 import WeaknessSection from "./WeaknessSection";
+import ReadingSpeedSection from "./ReadingSpeedSection";
+import MockHistorySection from "../features/mock/MockHistorySection";
 
 export default function MyPage() {
   const navigate = useNavigate();
@@ -55,6 +57,10 @@ export default function MyPage() {
         <StudyStatsSection />
 
         <WeaknessSection />
+
+        <MockHistorySection />
+
+        <ReadingSpeedSection />
 
         <DeviceSection />
 

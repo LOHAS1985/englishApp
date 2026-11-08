@@ -15,6 +15,9 @@ public class StudyLogService {
   /** 画面を開いたまま放置した分を学習時間に数えないよう、1回あたりの上限を設ける */
   static final int MAX_DURATION_SECONDS = 30 * 60;
 
+  /** 模試の1区切り(リーディング 75 分)を上限で切らないよう、通常より長く数える */
+  static final int MAX_SESSION_SECONDS = 2 * 60 * 60;
+
   private final StudyLogRepository repository;
   private final CurrentUserProvider currentUserProvider;
 
@@ -31,6 +34,16 @@ public class StudyLogService {
       Integer durationSeconds) {
     repository.save(new StudyLog(currentUserProvider.getCurrentUserId(), feature, itemType, itemId, correct, total,
         clampDuration(durationSeconds), LocalDateTime.now(JST)));
+  }
+
+  /**
+   * 模試のように1回の時間が長い区切り(TOEIC のリスニング 45 分・リーディング 75 分)を1行で記録する。
+   * 通常の解答より長いので、上限は {@link #MAX_SESSION_SECONDS} を使う。
+   */
+  public void logSession(String feature, String itemType, String itemId, int correct, int total,
+      int durationSeconds) {
+    repository.save(new StudyLog(currentUserProvider.getCurrentUserId(), feature, itemType, itemId, correct, total,
+        Math.min(Math.max(durationSeconds, 0), MAX_SESSION_SECONDS), LocalDateTime.now(JST)));
   }
 
   static int clampDuration(Integer seconds) {
