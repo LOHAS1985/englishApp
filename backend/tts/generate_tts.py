@@ -9,7 +9,10 @@ import shutil
 import subprocess
 
 # edge-tts の出力(24kHz モノラル mp3)と揃えた無音。ffmpeg の concat でつなぐため形式を合わせる
-LINE_GAP_SECONDS = 0.5
+# 同じ話者の続きの行は、間をほとんど空けない(実際の会話に近づけるため)
+SAME_SPEAKER_GAP_SECONDS = 0.2
+# 話者が替わるときは、少し間を空ける
+SPEAKER_CHANGE_GAP_SECONDS = 0.45
 # TOEIC Part 2 の「Number N.」の前に置く解答時間
 ANSWER_GAP_SECONDS = 4.0
 NUMBER_LINE = re.compile(r"^Number \d+\.$")
@@ -30,6 +33,37 @@ async def synth(text: str, voice: str, out_path: str):
         raise RuntimeError('edge-tts not installed. Run: pip install edge-tts')
     communicate = edge_tts.Communicate(text, voice)
     await communicate.save(out_path)
+    trim_edge_silence(out_path)
+
+
+# edge-tts は各行の前に約0.2秒、後に約0.9秒の無音を入れる。残すと行間が設定値より約1秒長くなり、
+# 同じ話者の続き(0.2秒)と話者の交代(0.45秒)の差も聞き取れなくなるので、前後を切り落とす。
+# 子音の立ち上がりと語尾を欠かないよう、前後に少しだけ無音を残す
+EDGE_KEEP_SECONDS = 0.05
+SILENCE_THRESHOLD = '-50dB'
+
+
+def trim_edge_silence(path: str) -> None:
+    if not shutil.which('ffmpeg'):
+        return
+    trim = (f'silenceremove=start_periods=1:start_threshold={SILENCE_THRESHOLD}'
+            f':start_silence={EDGE_KEEP_SECONDS}')
+    # edge-tts は1行の中の文と文の間にも約1秒の無音を入れる。同じ話者の続きなので、行をまたぐ
+    # 同じ話者の間とほぼ同じ長さ(実測で約0.25秒。文末の弱い音も無音に数えるため、残すのは少しだけ)まで縮める。
+    # 読点などの短い間はそのまま残る
+    cap = (f'silenceremove=stop_periods=-1:stop_threshold={SILENCE_THRESHOLD}'
+           f':stop_duration={SAME_SPEAKER_GAP_SECONDS}:stop_silence={EDGE_KEEP_SECONDS}')
+    # 末尾は逆再生して先頭として切る
+    af = f'{trim},areverse,{trim},areverse,{cap}'
+    tmp_path = path + '.trim.mp3'
+    rc = subprocess.run(['ffmpeg', '-y', '-i', path, '-af', af, '-ar', '24000', '-ac', '1',
+                         '-c:a', 'libmp3lame', '-b:a', '48k', tmp_path],
+                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+    if rc == 0 and os.path.getsize(tmp_path) > 0:
+        os.replace(tmp_path, path)
+    elif os.path.exists(tmp_path):
+        # 切り落としに失敗しても、元の音声はそのまま使う
+        os.remove(tmp_path)
 
 
 def sanitize_filename(name: str) -> str:
@@ -68,6 +102,8 @@ def main():
     # map canonical speaker -> voice to keep voice consistent across lines
     speaker_voice = {}
     last_speaker = None
+    # 直前に読んだ行の話者(行の間の長さを、話者が替わったかどうかで決めるため)
+    prev_speaker = None
 
     def choose_voice_for_speaker(s: str) -> str:
         if not s:
@@ -184,11 +220,18 @@ def main():
             voice = 'en-US-JennyNeural' if (alt % 2 == 0) else 'en-US-GuyNeural'
             alt += 1
 
-        # 行の間に無音を入れる(Part 2 では「Number N.」の前に解答時間を取る)
+        # 行の間に無音を入れる。Part 2 では「Number N.」の前に解答時間を取る。
+        # それ以外は、同じ話者の続きなら短く、話者が替わるなら少し長く空ける
         if tasks:
-            gap = ANSWER_GAP_SECONDS if NUMBER_LINE.match(content) else LINE_GAP_SECONDS
+            if NUMBER_LINE.match(content):
+                gap = ANSWER_GAP_SECONDS
+            elif speaker is not None and speaker == prev_speaker:
+                gap = SAME_SPEAKER_GAP_SECONDS
+            else:
+                gap = SPEAKER_CHANGE_GAP_SECONDS
             tasks.append((None, gap, str(out_dir / f"{base_name}_{idx:03d}.mp3")))
             idx += 1
+        prev_speaker = speaker
 
         # TtsService がファイル名順に結合するので、桁をそろえる(_10 が _2 より前に来ないように)
         out_name = f"{base_name}_{idx:03d}.mp3"
