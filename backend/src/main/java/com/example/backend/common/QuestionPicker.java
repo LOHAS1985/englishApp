@@ -44,7 +44,7 @@ public final class QuestionPicker {
   }
 
   /**
-   * @param difficulty 問題 ID → 難易度(1〜3)。target が null なら使わない
+   * @param difficulty 問題 ID → 難易度(1〜5)。target が null なら使わない
    * @param target     中心に出す難易度。null なら難易度で絞らない
    */
   public static String pick(List<String> candidates, List<Attempt> history, String exclude, Random random,

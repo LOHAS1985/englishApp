@@ -9,7 +9,6 @@ import com.example.backend.vocab.VocabQuestionBank;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -33,13 +32,29 @@ class DifficultyTests {
         .containsEntry("e", 3).containsEntry("f", 3).containsEntry("g", 1);
   }
 
+  private static List<Difficulty.Answer> answers(int level, int total, int correct) {
+    return java.util.stream.IntStream.range(0, total).mapToObj(i -> new Difficulty.Answer(level, i < correct))
+        .toList();
+  }
+
   @Test
-  void targetFollowsRecentAccuracy() {
-    assertThat(Difficulty.target(List.of(true, true, true))).as("解答が少ないうちは絞らない").isNull();
-    assertThat(Difficulty.target(Collections.nCopies(10, true))).isEqualTo(Difficulty.HARD);
-    assertThat(Difficulty.target(Collections.nCopies(10, false))).isEqualTo(Difficulty.EASY);
-    List<Boolean> seventy = List.of(true, true, true, true, true, true, true, false, false, false);
-    assertThat(Difficulty.target(seventy)).isEqualTo(Difficulty.NORMAL);
+  void targetStepsFromTheLevelBeingSolvedByRecentAccuracy() {
+    assertThat(Difficulty.target(answers(2, 3, 3))).as("解答が少ないうちは絞らない").isNull();
+    assertThat(Difficulty.target(answers(2, 10, 10))).as("85%以上は1つ上").isEqualTo(3);
+    assertThat(Difficulty.target(answers(2, 10, 7))).as("60〜85%は同じ").isEqualTo(2);
+    assertThat(Difficulty.target(answers(2, 10, 5))).as("60%未満は1つ下").isEqualTo(1);
+    assertThat(Difficulty.target(answers(1, 10, 0))).isEqualTo(Difficulty.EASY);
+  }
+
+  @Test
+  void targetReachesLevelsFourAndFive() {
+    assertThat(Difficulty.target(answers(3, 10, 10))).isEqualTo(4);
+    assertThat(Difficulty.target(answers(4, 10, 10))).isEqualTo(5);
+    assertThat(Difficulty.target(answers(5, 10, 10))).isEqualTo(Difficulty.MAX_LEVEL);
+    // 新しい順に 難関 6問・発展 4問 → 平均 3.6 → 4。全問正解なので 5
+    List<Difficulty.Answer> mixed = new java.util.ArrayList<>(answers(4, 6, 6));
+    mixed.addAll(answers(3, 4, 4));
+    assertThat(Difficulty.target(mixed)).isEqualTo(5);
   }
 
   @Test

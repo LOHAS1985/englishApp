@@ -144,31 +144,47 @@ describe("attemptsFromRows", () => {
 });
 
 describe("difficultyTarget", () => {
+  // a は標準(2)、b は発展(3)、d は難関(4)、e は最難関(5)
+  const levels: Record<string, number> = { a: 2, b: 3, d: 4, e: 5, one: 1 };
+  const level = (id: string) => levels[id] ?? 2;
+
   it("解答が8件未満なら null を返す", () => {
-    expect(difficultyTarget(results("a", 7, 7), new Set(["a"]))).toBeNull();
+    expect(difficultyTarget(results("a", 7, 7), new Set(["a"]), level)).toBeNull();
   });
 
-  it("正答率で 1(基礎)・2(標準)・3(発展)を返す", () => {
+  it("解いている問題の難易度を基準に、正答率で1段ずつ上げ下げする", () => {
     const candidates = new Set(["a"]);
-    // 85% 以上は発展(境界を含む)
-    expect(difficultyTarget(results("a", 8, 8), candidates)).toBe(3);
-    expect(difficultyTarget(results("a", 20, 17), candidates)).toBe(3);
-    // 60% 以上 85% 未満は標準(境界を含む)
-    expect(difficultyTarget(results("a", 20, 16), candidates)).toBe(2);
-    expect(difficultyTarget(results("a", 20, 12), candidates)).toBe(2);
-    // 60% 未満は基礎
-    expect(difficultyTarget(results("a", 20, 11), candidates)).toBe(1);
-    expect(difficultyTarget(results("a", 8, 0), candidates)).toBe(1);
+    // 85% 以上は1つ上(境界を含む)
+    expect(difficultyTarget(results("a", 8, 8), candidates, level)).toBe(3);
+    expect(difficultyTarget(results("a", 20, 17), candidates, level)).toBe(3);
+    // 60% 以上 85% 未満は同じ(境界を含む)
+    expect(difficultyTarget(results("a", 20, 16), candidates, level)).toBe(2);
+    expect(difficultyTarget(results("a", 20, 12), candidates, level)).toBe(2);
+    // 60% 未満は1つ下
+    expect(difficultyTarget(results("a", 20, 11), candidates, level)).toBe(1);
+  });
+
+  it("正答率が高ければ難関・最難関まで上がり、1〜5 の範囲に収まる", () => {
+    expect(difficultyTarget(results("b", 10, 10), new Set(["b"]), level)).toBe(4);
+    expect(difficultyTarget(results("d", 10, 10), new Set(["d"]), level)).toBe(5);
+    expect(difficultyTarget(results("e", 10, 10), new Set(["e"]), level)).toBe(5);
+    expect(difficultyTarget(results("one", 10, 0), new Set(["one"]), level)).toBe(1);
+  });
+
+  it("基準は直近に解いた問題の平均の難易度(四捨五入)", () => {
+    // 新しい順に 難関 6問・発展 4問 → 平均 3.6 → 4。全問正解なので 5
+    const rows = [...results("d", 6, 6), ...results("b", 4, 4)];
+    expect(difficultyTarget(rows, new Set(["b", "d"]), level)).toBe(5);
   });
 
   it("直近30設問だけで判断する", () => {
     // 新しい順。直近30設問は全部不正解、その前の30設問は全部正解
     const rows = [...results("a", 30, 0), ...results("a", 30, 30)];
-    expect(difficultyTarget(rows, new Set(["a"]))).toBe(1);
+    expect(difficultyTarget(rows, new Set(["a"]), level)).toBe(1);
   });
 
   it("候補外の問題と正誤のない設問は数えない", () => {
     const rows = [...results("a", 8, 8), ...results("other", 20, 0), ...results("a", 5, 0).map((r) => ({ ...r, correct: null }))];
-    expect(difficultyTarget(rows, new Set(["a"]))).toBe(3);
+    expect(difficultyTarget(rows, new Set(["a"]), level)).toBe(3);
   });
 });
