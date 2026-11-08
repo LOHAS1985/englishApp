@@ -1,18 +1,18 @@
 /**
- * 出題の難易度(1=基礎 / 2=標準 / 3=発展)。問題を解く前にホームで一度だけ選び、問題画面へは ?level= で渡す。
+ * 出題の難易度(1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関)。問題を解く前にホームで一度だけ選び、問題画面へは ?level= で渡す。
  * 選んだ値はこの端末のブラウザに覚えておき、次にホームを開いたときの初期値にする。
  */
 const LEVEL_KEY = "englishApp.level";
 
 export function levelFromParams(params: URLSearchParams): number | undefined {
   const level = Number(params.get("level"));
-  return level >= 1 && level <= 3 ? level : undefined;
+  return level >= 1 && level <= 5 ? level : undefined;
 }
 
 export function loadSavedLevel(): number | undefined {
   try {
     const level = Number(localStorage.getItem(LEVEL_KEY));
-    return level >= 1 && level <= 3 ? level : undefined;
+    return level >= 1 && level <= 5 ? level : undefined;
   } catch {
     return undefined;
   }

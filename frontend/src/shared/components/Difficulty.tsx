@@ -3,10 +3,12 @@ const OPTIONS: { value: number | undefined; label: string; note: string }[] = [
   { value: 1, label: "基礎", note: "" },
   { value: 2, label: "標準", note: "" },
   { value: 3, label: "発展", note: "" },
+  { value: 4, label: "難関", note: "" },
+  { value: 5, label: "最難関", note: "" },
 ];
 
 /**
- * 出題する難易度の選択(サーバーの Difficulty と同じ 1〜3)。問題を解く前にホームで一度だけ選ぶ。
+ * 出題する難易度の選択(サーバーの Difficulty と同じ 1〜5)。問題を解く前にホームで一度だけ選ぶ。
  * undefined は「自動」(直近の正答率に合わせて選ぶ)
  */
 export function DifficultySelect({

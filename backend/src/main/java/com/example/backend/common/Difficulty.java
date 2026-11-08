@@ -27,6 +27,8 @@ public final class Difficulty {
   public static final int EASY = 1;
   public static final int NORMAL = 2;
   public static final int HARD = 3;
+  /** 問題集の JSON に書ける難易度の最大(1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関)。自動推定は 1〜3 のまま */
+  public static final int MAX_LEVEL = 5;
 
   /** 目標を決めるのに使う直近の設問数と、これ未満なら目標を決めない(標準的な出題のまま)数 */
   static final int RECENT_ANSWERS = 30;
@@ -50,7 +52,7 @@ public final class Difficulty {
     for (T item : items) {
       Integer d = explicit.apply(item);
       if (d != null) {
-        result.put(id.apply(item), Math.max(EASY, Math.min(HARD, d)));
+        result.put(id.apply(item), Math.max(EASY, Math.min(MAX_LEVEL, d)));
       } else {
         estimated.computeIfAbsent(group.apply(item), k -> new ArrayList<>()).add(item);
       }

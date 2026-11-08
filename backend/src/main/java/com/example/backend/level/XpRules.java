@@ -84,13 +84,15 @@ public final class XpRules {
       int skills, int streak) {
   }
 
-  /** 難易度 1〜3 の正解時の倍率 */
+  /**
+   * 難易度 1〜5 の正解時の倍率。4・5 も 3 と同じ 1.3 倍にする(上限を上げると Lv.100 に届く時期の設計がずれるため。
+   * 1.0 に落ちると難しい問題ほど経験値が減ってしまう)
+   */
   static double difficultyRate(int difficulty) {
-    return switch (difficulty) {
-      case 1 -> 0.8;
-      case 3 -> 1.3;
-      default -> 1.0;
-    };
+    if (difficulty <= 1) {
+      return 0.8;
+    }
+    return difficulty >= 3 ? 1.3 : 1.0;
   }
 
   /** 1件の学習ログの解答分の経験値(同日の解き直し・克服ボーナスは calculate で扱う) */
@@ -125,7 +127,7 @@ public final class XpRules {
    * 日ごとの経験値を計算する。
    *
    * @param logs       学習ログ(古い順)
-   * @param difficulty (形式, 問題ID) → 難易度 1〜3
+   * @param difficulty (形式, 問題ID) → 難易度 1〜5
    */
   public static Map<LocalDate, DayXp> calculate(List<LogEntry> logs, BiFunction<String, String, Integer> difficulty) {
     Map<LocalDate, int[]> raw = new TreeMap<>(); // 0: 解答, 1: 学習秒数

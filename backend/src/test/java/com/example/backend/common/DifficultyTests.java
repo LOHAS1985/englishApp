@@ -54,7 +54,7 @@ class DifficultyTests {
   @Test
   void everyVocabQuestionHasAnAuthoredDifficulty() {
     for (ChoiceQuestion q : new VocabQuestionBank(MAPPER).all()) {
-      assertThat(q.difficulty()).as(q.id()).isNotNull().isBetween(1, 3);
+      assertThat(q.difficulty()).as(q.id()).isNotNull().isBetween(1, Difficulty.MAX_LEVEL);
     }
   }
 
