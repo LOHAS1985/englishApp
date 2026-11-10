@@ -111,8 +111,8 @@
     "situation": null,
     "graphic": null,
     "difficulty": 4,
-    "script": "Narrator: Good morning, everyone, and welcome to the Halvorsen chocolate factory. I'm Dana, and I'll be your guide today.\nNarrator: Our tour usually begins in the roasting room, but the equipment there is being serviced this week, so we'll start in the packaging hall instead.\nNarrator: Before we go in, please put on one of the hairnets from the basket by the door.\nNarrator: You may notice some signs inside saying that photography is allowed. Unfortunately, that rule changed last month when a new production line was installed, so please keep your phones in your pockets.\nNarrator: At the end, we'll stop at our shop, where every visitor receives a free sample box.\nNarrator: One more thing: the café next to the shop closes at noon today, and we won't be finished until twelve thirty.\nNarrator: All right, please follow me.",
-    "translation": "皆さん、おはようございます。ハルボーセン・チョコレート工場へようこそ。本日ご案内を担当するダナです。\nツアーは通常、焙煎室から始まりますが、今週はそこの機械が点検中のため、代わりに包装ホールから始めます。\n中に入る前に、ドアのそばのかごにあるヘアネットを1つ着けてください。\n中には撮影可と書かれた掲示がいくつか目に入るかもしれません。残念ながら、先月新しい製造ラインを入れたときにその規則が変わりましたので、携帯電話はポケットにしまっておいてください。\n最後に当社のショップに立ち寄り、来場者の皆さんに無料の試食用の箱をお渡しします。\nもう1つ、ショップの隣のカフェは本日正午で閉まりますが、ツアーが終わるのは12時半です。\nそれでは、ついて来てください。",
+    "script": "Narrator: Good morning, everyone, and welcome to the Halvorsen chocolate factory. I'm Daniel, and I'll be your guide today.\nNarrator: Our tour usually begins in the roasting room, but the equipment there is being serviced this week, so we'll start in the packaging hall instead.\nNarrator: Before we go in, please put on one of the hairnets from the basket by the door.\nNarrator: You may notice some signs inside saying that photography is allowed. Unfortunately, that rule changed last month when a new production line was installed, so please keep your phones in your pockets.\nNarrator: At the end, we'll stop at our shop, where every visitor receives a free sample box.\nNarrator: One more thing: the café next to the shop closes at noon today, and we won't be finished until twelve thirty.\nNarrator: All right, please follow me.",
+    "translation": "皆さん、おはようございます。ハルボーセン・チョコレート工場へようこそ。本日ご案内を担当するダニエルです。\nツアーは通常、焙煎室から始まりますが、今週はそこの機械が点検中のため、代わりに包装ホールから始めます。\n中に入る前に、ドアのそばのかごにあるヘアネットを1つ着けてください。\n中には撮影可と書かれた掲示がいくつか目に入るかもしれません。残念ながら、先月新しい製造ラインを入れたときにその規則が変わりましたので、携帯電話はポケットにしまっておいてください。\n最後に当社のショップに立ち寄り、来場者の皆さんに無料の試食用の箱をお渡しします。\nもう1つ、ショップの隣のカフェは本日正午で閉まりますが、ツアーが終わるのは12時半です。\nそれでは、ついて来てください。",
     "questions": [
       {
         "question": "Where will the tour begin?",
@@ -137,7 +137,7 @@
         "explanation": "掲示には「photography is allowed」とあるが、「that rule changed last month」と言い、携帯電話をしまうように頼んでいる。掲示に書かれた規則はもう有効ではないと伝えるために触れている。ヘアネットの場所は「the basket by the door」と別に案内している。新しい製造ラインは規則が変わったきっかけで、掲示の内容ではない。"
       },
       {
-        "question": "What does the speaker imply when she says, \"the café next to the shop closes at noon today\"?",
+        "question": "What does the speaker imply when he says, \"the café next to the shop closes at noon today\"?",
         "choices": [
           "Listeners will not be able to use the café after the tour.",
           "The tour will be shorter than it usually is.",
