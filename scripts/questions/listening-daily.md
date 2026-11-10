@@ -7,7 +7,7 @@
 
 ```bash
 git checkout main && git pull --ff-only origin main
-java -version   # 21 ではビルドできない。JDK 25 が必要
+./backend/mvnw -v | grep "Java version"   # Maven が使う JDK を確認。25 でなければ JAVA_HOME を JDK 25 に向ける(push.sh は JDK 25 を自動で探す)
 node -v && python3 --version
 (cd frontend && npm ci)   # node_modules が無いときだけ
 ```
