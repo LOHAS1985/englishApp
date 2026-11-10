@@ -1,0 +1,295 @@
+[
+  {
+    "id": "l0627",
+    "type": "eiken-part2",
+    "theme": "文化・歴史・生活",
+    "title": "Repair cafés",
+    "passage": null,
+    "situation": null,
+    "difficulty": 3,
+    "script": "Narrator: In many European towns, volunteers now run events called repair cafés. Once a month, residents bring broken lamps, toasters, or torn clothes to a community hall, where skilled volunteers help them fix the items for free. The first repair café opened in Amsterdam in 2009, and today there are thousands around the world. Organizers say the main goal is not simply to save money. Rather, they want visitors to watch and learn, so that next time they can make simple repairs on their own. However, the cafés face a growing difficulty. Many modern products are glued shut or require special tools to open, and some manufacturers refuse to sell spare parts to the public. For this reason, several repair café groups have joined campaigns asking governments to pass laws that require companies to make their products easier to repair.",
+    "translation": "ヨーロッパの多くの町では、今、ボランティアが「リペアカフェ」と呼ばれる催しを開いている。月に1回、住民が壊れた電気スタンドやトースター、破れた服を公民館に持ち込み、腕のあるボランティアが無料で修理を手伝う。最初のリペアカフェは2009年にアムステルダムで開かれ、今では世界中に数千か所ある。主催者によると、主な目的は単にお金を節約することではない。むしろ、来場者に修理を見て学んでもらい、次からは簡単な修理を自分でできるようにしたいのだという。しかし、リペアカフェは大きくなりつつある問題を抱えている。最近の製品の多くは接着剤で閉じられていたり、開けるのに特殊な工具が必要だったりし、一般の人に交換部品を売らないメーカーもある。このため、いくつかのリペアカフェの団体は、製品を修理しやすくするよう企業に義務づける法律を作ることを政府に求める運動に加わっている。",
+    "questions": [
+      {
+        "question": "According to the organizers, what is the main aim of repair cafés?",
+        "choices": [
+          "To help residents save money on new products.",
+          "To teach people how to fix things by themselves.",
+          "To sell spare parts to the public at low prices.",
+          "To collect broken items so they can be recycled."
+        ],
+        "answer": "B",
+        "explanation": "「the main goal is not simply to save money. Rather, they want visitors to watch and learn, so that next time they can make simple repairs on their own」と言っている。来場者が自分で修理できるようになることが目的で、正解はその言い換え。お金の節約は「not simply」で主な目的ではないと否定されている。交換部品を売らないのはメーカーの話で、リサイクルのために集めるという話はない。"
+      },
+      {
+        "question": "What is suggested about the laws the groups are asking for?",
+        "choices": [
+          "They would allow the cafés to charge for repairs.",
+          "They would make the volunteers' work easier.",
+          "They would ban the use of glue in all products.",
+          "They have already been passed in Amsterdam."
+        ],
+        "answer": "B",
+        "explanation": "製品が「glued shut or require special tools to open」で、メーカーが「refuse to sell spare parts」という問題を挙げ、「For this reason」と続けて、製品を「easier to repair」にする法律を求めていると言っている。法律ができればボランティアが修理しやすくなるということ。有料にする話はなく、接着剤を全面的に禁止するとも言っていない。アムステルダムは最初のリペアカフェが開かれた場所で、法律の話ではない。"
+      }
+    ]
+  },
+  {
+    "id": "l0628",
+    "type": "eiken-part3",
+    "title": "Real-Life: Umbrella left on a bus",
+    "passage": null,
+    "situation": "You left your umbrella on a city bus five days ago. You finish work at six p.m. on weekdays and are busy all weekend. You call the bus company and hear the following message.",
+    "script": "Narrator: Thank you for calling Metro Bus lost property.\nNarrator: Items found on our buses are kept for two days at the depot where the bus ends its route. After that, they are sent to our central lost property office on King Street.\nNarrator: The depots are open from seven a.m. to five p.m. on weekdays only.\nNarrator: The central office is open until eight p.m. on weekdays, and from ten a.m. to four p.m. on Saturdays.\nNarrator: Please bring photo identification when you collect an item.",
+    "translation": "メトロバスの忘れ物係にお電話いただきありがとうございます。\nバスの車内で見つかった物は、そのバスの路線の終点にある車庫で2日間保管します。その後、キング通りにある中央忘れ物センターに送ります。\n車庫の受付時間は平日のみ、午前7時から午後5時までです。\n中央センターは平日は午後8時まで、土曜日は午前10時から午後4時まで開いています。\nお受け取りの際は、写真付きの身分証明書をお持ちください。",
+    "difficulty": 3,
+    "questions": [
+      {
+        "question": "What should you do?",
+        "choices": [
+          "Visit the depot at the end of the bus route.",
+          "Go to the central office on Saturday morning.",
+          "Send a photo of the umbrella to the depot.",
+          "Go to the King Street office on a weekday evening."
+        ],
+        "answer": "D",
+        "explanation": "落とし物は「kept for two days at the depot」の後、「sent to our central lost property office on King Street」となる。5日前に置き忘れたので、傘はもうキング通りの中央センターにある。中央センターは「open until eight p.m. on weekdays」なので、6時に仕事が終わった後の平日の夕方に行ける。車庫は2日しか保管せず、平日5時までしか開いていない。土曜日は週末で予定がある。写真を送るという案内はなく、写真付きの身分証を持参するように言っているだけ。"
+      }
+    ]
+  },
+  {
+    "id": "l0629",
+    "type": "toeic-part3",
+    "title": "Desks for the new Denver office",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "difficulty": 4,
+    "script": "Woman: Hi, Marcus. The desks for the new Denver office were supposed to arrive Monday, but the supplier just called. They won't ship them until the twentieth.\nMan: That's after our new staff start. Could we rent desks for a couple of weeks?\nWoman: I looked into that. The rental company requires a three-week contract, and that costs almost as much as buying.\nMan: Hmm. What about the old desks in our storage room here? There are about fifteen of them.\nWoman: Those would work, but the building only lets us use the freight elevator on weekends.\nMan: Well, I'm in the office this Saturday anyway, finishing the budget report.\nWoman: Really? Then I'll book a moving van for Saturday morning.\nMan: Great. And let's ask the new staff to work from home on their first day, just in case.",
+    "translation": "女性:こんにちは、マーカス。デンバーの新しいオフィスの机が月曜日に届くはずだったのだけど、さっき業者から電話があって、20日まで発送できないそうなの。\n男性:それだと新しいスタッフが働き始めた後だね。2週間ほど机を借りられないかな?\n女性:それは調べたわ。レンタル会社は3週間の契約が必要で、それだと買うのとほとんど同じ金額になるの。\n男性:うーん。ここの倉庫にある古い机はどう?15台くらいあるよ。\n女性:あれなら使えるけど、ビルの規則で貨物用エレベーターは週末しか使えないのよ。\n男性:そうだ、僕はどのみち今週の土曜日は出社して、予算報告書を仕上げるんだ。\n女性:本当?それなら土曜日の朝に引っ越し用のバンを予約するわ。\n男性:よかった。それと、念のため、新しいスタッフには初日は在宅で働いてもらうように頼もう。",
+    "questions": [
+      {
+        "question": "What problem does the woman mention?",
+        "choices": [
+          "Some furniture was damaged during shipping.",
+          "New employees will start on the twentieth.",
+          "A delivery will come later than expected.",
+          "A supplier has raised the price of its desks."
+        ],
+        "answer": "C",
+        "explanation": "女性は「were supposed to arrive Monday」と「They won't ship them until the twentieth」と言っており、机の到着が予定より遅れることが問題。正解はその言い換え。20日は発送の日で、男性は「That's after our new staff start」とスタッフはその前に働き始めると言っている。破損や値上げの話はない。"
+      },
+      {
+        "question": "Why does the woman reject the idea of renting desks?",
+        "choices": [
+          "The rental company has no desks available now.",
+          "The rental contract would last only two weeks.",
+          "It would cost nearly as much as purchasing them.",
+          "The rented desks would not fit in the elevator."
+        ],
+        "answer": "C",
+        "explanation": "男性の「Could we rent desks」に、女性は「The rental company requires a three-week contract, and that costs almost as much as buying」と答えている。借りても買うのとほぼ同じ費用がかかるのが理由。2週間は男性が借りたかった期間で、契約は3週間。在庫がない、エレベーターに入らないという話はない。"
+      },
+      {
+        "question": "What does the man imply when he says, \"I'm in the office this Saturday anyway\"?",
+        "choices": [
+          "He would prefer to work from home on Monday.",
+          "He will not be able to meet the new staff.",
+          "He would like to arrange the rental himself.",
+          "He can help move the desks from storage."
+        ],
+        "answer": "D",
+        "explanation": "女性が倉庫の机について「the building only lets us use the freight elevator on weekends」と言ったのを受けて、男性は土曜日に出社すると言っている。女性も「Then I'll book a moving van for Saturday morning」と応じており、土曜日に倉庫の机を運ぶのを手伝えるという意味。在宅勤務は新しいスタッフの初日の話。レンタルは女性が費用の理由で退けた案で、男性が手配するとは言っていない。"
+      }
+    ]
+  },
+  {
+    "id": "l0630",
+    "type": "toeic-part4",
+    "title": "Tour: Chocolate factory visit",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "difficulty": 4,
+    "script": "Narrator: Good morning, everyone, and welcome to the Halvorsen chocolate factory. I'm Dana, and I'll be your guide today.\nNarrator: Our tour usually begins in the roasting room, but the equipment there is being serviced this week, so we'll start in the packaging hall instead.\nNarrator: Before we go in, please put on one of the hairnets from the basket by the door.\nNarrator: You may notice some signs inside saying that photography is allowed. Unfortunately, that rule changed last month when a new production line was installed, so please keep your phones in your pockets.\nNarrator: At the end, we'll stop at our shop, where every visitor receives a free sample box.\nNarrator: One more thing: the café next to the shop closes at noon today, and we won't be finished until twelve thirty.\nNarrator: All right, please follow me.",
+    "translation": "皆さん、おはようございます。ハルボーセン・チョコレート工場へようこそ。本日ご案内を担当するダナです。\nツアーは通常、焙煎室から始まりますが、今週はそこの機械が点検中のため、代わりに包装ホールから始めます。\n中に入る前に、ドアのそばのかごにあるヘアネットを1つ着けてください。\n中には撮影可と書かれた掲示がいくつか目に入るかもしれません。残念ながら、先月新しい製造ラインを入れたときにその規則が変わりましたので、携帯電話はポケットにしまっておいてください。\n最後に当社のショップに立ち寄り、来場者の皆さんに無料の試食用の箱をお渡しします。\nもう1つ、ショップの隣のカフェは本日正午で閉まりますが、ツアーが終わるのは12時半です。\nそれでは、ついて来てください。",
+    "questions": [
+      {
+        "question": "Where will the tour begin?",
+        "choices": [
+          "Where cocoa beans are roasted",
+          "At the factory's gift shop",
+          "Where products are packed",
+          "At the café next to the shop"
+        ],
+        "answer": "C",
+        "explanation": "「Our tour usually begins in the roasting room」の後に「the equipment there is being serviced this week, so we'll start in the packaging hall instead」と言っている。正解は packaging hall(包装ホール)の言い換え。焙煎室はいつもの出発点で、今週は使えない。ショップはツアーの最後に寄る場所で、カフェはその隣にある店。"
+      },
+      {
+        "question": "Why does the speaker mention the signs?",
+        "choices": [
+          "They point the way to the packaging hall.",
+          "They show a rule that is no longer in effect.",
+          "They explain where to find the hairnets.",
+          "They describe the new production line."
+        ],
+        "answer": "B",
+        "explanation": "掲示には「photography is allowed」とあるが、「that rule changed last month」と言い、携帯電話をしまうように頼んでいる。掲示に書かれた規則はもう有効ではないと伝えるために触れている。ヘアネットの場所は「the basket by the door」と別に案内している。新しい製造ラインは規則が変わったきっかけで、掲示の内容ではない。"
+      },
+      {
+        "question": "What does the speaker imply when she says, \"the café next to the shop closes at noon today\"?",
+        "choices": [
+          "Listeners will not be able to use the café after the tour.",
+          "The tour will be shorter than it usually is.",
+          "The shop will close earlier than the café today.",
+          "Free sample boxes will be handed out at the café."
+        ],
+        "answer": "A",
+        "explanation": "カフェが正午に閉まると言った直後に「we won't be finished until twelve thirty」と続けている。ツアーが終わるころにはカフェはもう閉まっているので、ツアーの後にはカフェを利用できないことを伝えている。ツアーが短くなる、ショップが早く閉まるという話はない。試食用の箱は「our shop」で渡される。"
+      }
+    ]
+  },
+  {
+    "id": "l0631",
+    "type": "toeic-part2",
+    "difficulty": 5,
+    "title": "Part 2 Set 77",
+    "passage": null,
+    "script": null,
+    "situation": null,
+    "translation": null,
+    "questions": [
+      {
+        "question": "Is the shipment to Lisbon going out today?",
+        "choices": [
+          "It was, until the customer changed the delivery address.",
+          "Yes, I shipped my luggage ahead of the trip.",
+          "The Lisbon office opens at nine in the morning."
+        ],
+        "answer": "A",
+        "explanation": "「リスボン向けの荷物は今日出荷されますか」。出荷の予定だったが、顧客が配送先を変えたので今日は出ないと、取りやめになった予定を伝えている。「shipped my luggage」は ship を「(自分の荷物を)送る」の意味で繰り返したひっかけで、Yes の後が質問と関係ない。「Lisbon office opens」は Lisbon を繰り返しただけで、出荷に答えていない。"
+      },
+      {
+        "question": "Who's presenting the quarterly results at the board meeting?",
+        "choices": [
+          "The results were better than we had expected.",
+          "Mr. Diaz was, but the board wants to hear from the CFO directly.",
+          "Yes, it starts at ten in the main boardroom."
+        ],
+        "answer": "B",
+        "explanation": "「取締役会で四半期の業績を発表するのは誰ですか」。ディアスさんの予定だったが、取締役会が最高財務責任者(CFO)から直接聞きたいと言っていると、変更後の発表者を伝えている。「results were better」は results を繰り返しただけで、誰が発表するかに答えていない。「Yes, it starts …」は疑問詞の質問に Yes で答えている。"
+      },
+      {
+        "question": "Why hasn't the new printer been installed yet?",
+        "choices": [
+          "Facilities decided to send it back for a faster model.",
+          "Please print twenty copies of the agenda.",
+          "On the second floor, next to the kitchen."
+        ],
+        "answer": "A",
+        "explanation": "「新しいプリンターがまだ設置されていないのはなぜですか」。設備部がもっと速い機種と取り替えるために返品することにしたと、理由を答えている。「print twenty copies」は printer から連想される print を使ったひっかけ。「On the second floor」は場所を答えており、理由を聞く質問に合わない。"
+      },
+      {
+        "question": "Let's take the client to the seafood restaurant on Friday.",
+        "choices": [
+          "The client list was updated on Friday.",
+          "The sea was calm during the ferry ride.",
+          "She mentioned last week that she's allergic to shellfish."
+        ],
+        "answer": "C",
+        "explanation": "「金曜日に顧客をシーフードレストランに連れて行きましょう」という提案に、顧客は先週、貝類にアレルギーがあると言っていたと答え、その店はふさわしくないことを遠回しに伝えている。「client list」「on Friday」は client と Friday を繰り返しただけ。「The sea was calm」は seafood と音の似た sea を使ったひっかけ。"
+      },
+      {
+        "question": "Didn't you say the training would be held online?",
+        "choices": [
+          "That was the plan, but most staff voted to meet in person.",
+          "The line for the elevator was very long this morning.",
+          "Yes, I'll hold the door open for you."
+        ],
+        "answer": "A",
+        "explanation": "「研修はオンラインで行うと言っていませんでしたか」。そういう予定だったが、ほとんどのスタッフが対面で行うほうに投票したと、変わった方針を伝えている。「The line for the elevator」は online と音の似た line を使ったひっかけ。「hold the door」は held と同じ hold を別の意味で使ったひっかけ。"
+      }
+    ]
+  },
+  {
+    "id": "l0632",
+    "type": "eiken-part1",
+    "title": "A leaking kitchen roof",
+    "passage": null,
+    "situation": null,
+    "script": "Man: The roof over the kitchen is leaking again. I think we should call the roofer who fixed it last spring.\nWoman: Him? He charged us a lot, and the leak came back within six months.\nMan: True. My brother mentioned a company that gives a five-year guarantee on its repairs.\nWoman: That sounds much better. But they'll probably be busy with all this rain.\nMan: Probably. Still, if we call them today, they might be able to come before the weekend.\nWoman: OK. In the meantime, let's put a bucket under the drip and move the rice cooker off that counter.",
+    "translation": "男性:台所の上の屋根がまた雨漏りしているよ。去年の春に直してくれた屋根屋さんに電話したほうがいいと思う。\n女性:あの人?料金が高かったし、半年もしないうちにまた漏れ出したじゃない。\n男性:確かに。兄が、修理に5年の保証を付けてくれる会社の話をしていたよ。\n女性:そのほうがずっといいわね。でも、この雨続きだから、きっと忙しいでしょうね。\n男性:たぶんね。それでも、今日電話すれば、週末までに来てもらえるかもしれない。\n女性:わかったわ。それまでは、水が垂れるところにバケツを置いて、炊飯器をあのカウンターからどかしましょう。",
+    "difficulty": 4,
+    "questions": [
+      {
+        "question": "What will the couple probably do about the roof?",
+        "choices": [
+          "Ask the roofer from last spring to repair it again.",
+          "Contact the company the man's brother told him about.",
+          "Try to fix the leak by themselves before the weekend.",
+          "Wait until the rainy weather has come to an end."
+        ],
+        "answer": "B",
+        "explanation": "男性が兄から聞いた「a company that gives a five-year guarantee」に女性は「That sounds much better」と賛成し、男性の「if we call them today」にも「OK」と答えている。2か所をつなぐと、兄が教えてくれた会社に連絡するとわかる。去年の屋根屋は「the leak came back within six months」で退けられた。自分たちでするのはバケツを置くことだけで、屋根は直さない。雨が忙しさの理由として出るが、やむのを待つとは言っていない。"
+      }
+    ]
+  },
+  {
+    "id": "l0633",
+    "type": "eiken-part2",
+    "theme": "ビジネス・経済",
+    "title": "Charging for online returns",
+    "passage": null,
+    "situation": null,
+    "difficulty": 5,
+    "script": "Narrator: For years, online clothing retailers competed by offering free returns, believing that customers would buy more if they could send items back at no cost. Sales did rise, but so did returns. Some shoppers began ordering the same dress in three sizes and keeping only one. In 2022, a large British retailer announced it would charge a fee for all returns by mail. Analysts predicted that customers would move to rival stores, and early surveys seemed to support this. However, the company's later figures showed that its sales had hardly changed, while the cost of handling returns fell sharply. Several competitors then introduced similar fees. Even so, most of them made one exception: returns brought to a physical store remain free. Retailers say this not only reduces shipping costs but also brings customers into their stores, where many end up buying something else.",
+    "translation": "何年もの間、ネットの衣料品店は返品無料を掲げて競い合ってきた。無料で返品できれば客はもっと買うだろうと考えたからだ。確かに売り上げは伸びたが、返品も増えた。同じドレスを3つのサイズで注文し、1着だけを手元に残す客も現れた。2022年、イギリスのある大手小売業者は、郵送による返品はすべて有料にすると発表した。専門家は客が競合店に移るだろうと予想し、初めのころの調査もそれを裏づけているように見えた。しかし、その会社のその後の数字では、売り上げはほとんど変わらず、返品の処理にかかる費用は大きく減っていた。その後、いくつかの競合他社も同じような料金を導入した。それでも、そのほとんどは1つの例外を設けている。実店舗に持ち込む返品は無料のままなのだ。小売業者によると、これは配送費を減らすだけでなく、客を店に呼び込むことにもなり、そこで多くの客が結局ほかの物を買っていくという。",
+    "questions": [
+      {
+        "question": "What happened after the British retailer introduced the fee?",
+        "choices": [
+          "Its sales stayed about the same while its costs went down.",
+          "Many of its customers left for rival clothing stores.",
+          "It canceled the fee because of the early survey results.",
+          "Its competitors started offering free returns by mail."
+        ],
+        "answer": "A",
+        "explanation": "専門家は客が競合店に移ると予想し、初期の調査も「seemed to support this」だったが、「However, the company's later figures showed that its sales had hardly changed, while the cost of handling returns fell sharply」と覆されている。最終的に有効なのは、売り上げはほぼ変わらず費用が減ったという結果。客が競合店に移ったというのは否定された予想。料金を取りやめたという話はなく、競合他社は「introduced similar fees」と同じく有料にした。"
+      },
+      {
+        "question": "Why do most of the retailers keep in-store returns free?",
+        "choices": [
+          "Customers are less likely to order several sizes there.",
+          "Analysts warned that store sales would fall without it.",
+          "Returns by mail have become free again in Britain.",
+          "Shoppers who come in often buy other items as well."
+        ],
+        "answer": "D",
+        "explanation": "「returns brought to a physical store remain free」の理由として「brings customers into their stores, where many end up buying something else」と言っている。店に来た客の多くがほかの物も買うからで、正解はその言い換え。複数のサイズを注文するのはネット通販で返品が増えた例で、店頭との比較はしていない。専門家が警告したのは客が競合店に移ることで、外れた予想。郵送の返品は有料にした話で、無料に戻ったとは言っていない。"
+      }
+    ]
+  },
+  {
+    "id": "l0634",
+    "type": "eiken-part3",
+    "title": "Real-Life: Spanish class canceled",
+    "passage": null,
+    "situation": "You signed up for a beginner Spanish class at a community center that was going to start next Tuesday. You work late on Tuesdays and Wednesdays. You want to keep learning Spanish, and you prefer to study in person. You hear the following voicemail from the center.",
+    "script": "Narrator: Hello, this is Grace from Lakeside Community Center, calling about the beginner Spanish course.\nNarrator: Because the teacher has moved away, the Tuesday class has been canceled. You can get a full refund, or move to another class at no extra cost.\nNarrator: The Thursday evening class still has a few seats left. There is also a Wednesday evening class, but that one is now held online only.\nNarrator: Oh, I'm sorry. I've just been told that the last seats in the Thursday class were taken this morning.\nNarrator: However, we will start a new Saturday morning class here at the center next month.\nNarrator: If you'd like to change classes or get a refund, please call us back by Friday.",
+    "translation": "もしもし、レイクサイド・コミュニティーセンターのグレースです。初級スペイン語講座の件でお電話しました。\n講師が転居したため、火曜日のクラスは中止になりました。全額返金を受けるか、追加料金なしでほかのクラスに移ることができます。\n木曜日の夜のクラスにはまだ少し空きがあります。水曜日の夜のクラスもありますが、そちらは現在オンラインのみで行っています。\nあ、すみません。木曜日のクラスの最後の席は今朝埋まってしまったと、たった今聞きました。\nですが、来月からこのセンターで、土曜日の朝の新しいクラスを始めます。\nクラスの変更や返金をご希望の場合は、金曜日までに折り返しお電話ください。",
+    "difficulty": 5,
+    "questions": [
+      {
+        "question": "What should you do?",
+        "choices": [
+          "Call back and ask to join the Thursday class.",
+          "Call back and sign up for the Wednesday class.",
+          "Call back and ask for a refund of your fee.",
+          "Call back and ask to move to the Saturday class."
+        ],
+        "answer": "D",
+        "explanation": "木曜日のクラスは一度「still has a few seats left」と案内されたが、「the last seats in the Thursday class were taken this morning」と訂正された。水曜日のクラスは「held online only」で、あなたは水曜日も遅くまで仕事がある。残るのは「a new Saturday morning class here at the center」で、センターで対面で学べる。スペイン語を続けたいので、返金ではなく土曜日のクラスへの変更を申し込めばよい。"
+      }
+    ]
+  }
+]
