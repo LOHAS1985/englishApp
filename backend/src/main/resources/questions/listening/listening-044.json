@@ -52,8 +52,8 @@
     "passage": null,
     "situation": null,
     "graphic": null,
-    "script": "Narrator: Hello, volunteers of the Run for Hope marathon. This is Denise with a final update before Sunday's race.\nNarrator: Our original route went through the Westlake neighborhood and along the north bridge, but the city denied the permit for the bridge last week.\nNarrator: We then proposed sending runners through the industrial park, but the factory owners said their trucks need that road all morning.\nNarrator: Our second idea was to start the race two hours earlier, before the traffic builds up.\nNarrator: However, the early start would have meant volunteers arriving at four in the morning, which was too difficult for many of you.\nNarrator: So the final route goes through Westlake again, turns at Maple Street instead of the bridge, and finishes at the stadium.\nNarrator: The start remains eight o'clock. Please disregard the map I shared on Monday; it still shows the bridge.\nNarrator: The medal ceremony will still be at the stadium. Please bring your volunteer badges, since police will check them.",
-    "translation": "ラン・フォー・ホープ・マラソンのボランティアの皆さん、こんにちは。デニースです。日曜のレース前の最終連絡です。\n当初のコースはウェストレイク地区を通り、北の橋を渡る予定でしたが、市が先週、その橋の使用許可を出しませんでした。\n次に、工業団地を通すことを提案しましたが、工場の経営者から、午前中はトラックがその道を使うと言われました。\n2つ目の案は、交通量が増える前に、レースを2時間早く始めることでした。\nしかし、早く始めるとボランティアは朝4時に集合することになり、多くの方には大変すぎます。\nそのため、最終コースはまたウェストレイクを通り、橋ではなくメープル通りで曲がり、スタジアムでゴールします。\nスタートは変わらず8時です。月曜に送った地図は無視してください。まだ橋が載っています。\nメダルの授与式は、今でもスタジアムで行います。ボランティアバッジを持参してください。警察が確認します。",
+    "script": "Narrator: Hello, volunteers of the Run for Hope marathon. This is Dennis with a final update before Sunday's race.\nNarrator: Our original route went through the Westlake neighborhood and along the north bridge, but the city denied the permit for the bridge last week.\nNarrator: We then proposed sending runners through the industrial park, but the factory owners said their trucks need that road all morning.\nNarrator: Our second idea was to start the race two hours earlier, before the traffic builds up.\nNarrator: However, the early start would have meant volunteers arriving at four in the morning, which was too difficult for many of you.\nNarrator: So the final route goes through Westlake again, turns at Maple Street instead of the bridge, and finishes at the stadium.\nNarrator: The start remains eight o'clock. Please disregard the map I shared on Monday; it still shows the bridge.\nNarrator: The medal ceremony will still be at the stadium. Please bring your volunteer badges, since police will check them.",
+    "translation": "ラン・フォー・ホープ・マラソンのボランティアの皆さん、こんにちは。デニスです。日曜のレース前の最終連絡です。\n当初のコースはウェストレイク地区を通り、北の橋を渡る予定でしたが、市が先週、その橋の使用許可を出しませんでした。\n次に、工業団地を通すことを提案しましたが、工場の経営者から、午前中はトラックがその道を使うと言われました。\n2つ目の案は、交通量が増える前に、レースを2時間早く始めることでした。\nしかし、早く始めるとボランティアは朝4時に集合することになり、多くの方には大変すぎます。\nそのため、最終コースはまたウェストレイクを通り、橋ではなくメープル通りで曲がり、スタジアムでゴールします。\nスタートは変わらず8時です。月曜に送った地図は無視してください。まだ橋が載っています。\nメダルの授与式は、今でもスタジアムで行います。ボランティアバッジを持参してください。警察が確認します。",
     "questions": [
       {
         "question": "Where will the route turn?",
@@ -67,7 +67,7 @@
         "explanation": "最終コースは橋ではなくメープル通りで曲がる。橋(川を渡る道)は使わない。北の橋と工業団地の案は取り下げられた。"
       },
       {
-        "question": "What does the speaker mean when she says, \"Please disregard the map I shared on Monday\"?",
+        "question": "What does the speaker mean when he says, \"Please disregard the map I shared on Monday\"?",
         "choices": [
           "Runners should use the map to plan a shorter route.",
           "The industrial park map must be shared with the police.",
@@ -205,7 +205,7 @@
         "explanation": "1四半期で新規の顧客を3件獲得した人に出すボーナスで、歩合に代わるもの。"
       },
       {
-        "question": "What does the manager mean when she says, \"Please don't worry about the change\"?",
+        "question": "What does the manager mean when he says, \"Please don't worry about the change\"?",
         "choices": [
           "Current clients will not be taken away from the staff.",
           "Staff can keep their old commission structure.",
@@ -262,7 +262,7 @@
         "explanation": "システム担当が、延長すればサーバーにまた負荷がかかると言ったため。"
       },
       {
-        "question": "What does the speaker mean when she says, \"so think carefully\"?",
+        "question": "What does the speaker mean when he says, \"so think carefully\"?",
         "choices": [
           "Students can withdraw after the final date without any record.",
           "The add/drop period will be extended for careful students.",
@@ -297,7 +297,7 @@
         "explanation": "最終決定は西側の尾根に12基。東の丘は営巣地のため除外され、南の谷は地主が売却を断ったため除外。縮小案はまだ検討中。"
       },
       {
-        "question": "What does the speaker mean when she says, \"Please do not share the eastern hills map\"?",
+        "question": "What does the speaker mean when he says, \"Please do not share the eastern hills map\"?",
         "choices": [
           "The newsletter should be sent to landowners.",
           "The map shows the hawk nests in detail.",
@@ -420,8 +420,8 @@
     "passage": null,
     "situation": null,
     "graphic": null,
-    "script": "Narrator: Good morning, exhibitors. This is Ingrid from the Global Packaging Expo organizing committee.\nNarrator: We have some changes to your booth assignments, and I apologize for the short notice.\nNarrator: The wiring in Pavilion C has been overloaded since last night, so the power company is shutting down that section until Saturday.\nNarrator: Booths from Pavilion C have moved to the north corridor, which has stronger power and a wider aisle.\nNarrator: Your new booth numbers are printed on the badge holder you received this morning, so please check them before setting up.\nNarrator: Equipment that needs electricity should not be turned on until the inspector has signed off on your booth.\nNarrator: We know this is inconvenient, and the committee will refund the fee for the lost space.",
-    "translation": "おはようございます、出展者の皆さん。グローバル・パッケージング・エキスポ運営委員会のイングリッドです。\n出展ブースの割り当てに変更があります。急なお知らせになり、申し訳ありません。\nC館の配線は昨夜から過負荷になっているため、電力会社が土曜日まで、そのエリア全体を停止します。\nC館にあったブースは北側の通路に移ります。そちらは電力が強く、通路も広くなっています。\n新しいブース番号は、今朝お渡ししたバッジホルダーに印刷されています。設営の前に確認してください。\n電気を使う機器は、検査官がブースの確認を終えるまで、電源を入れないでください。\nご不便をおかけしてすみません。運営委員会は、失われたスペースの料金を返金します。",
+    "script": "Narrator: Good morning, exhibitors. This is Ian from the Global Packaging Expo organizing committee.\nNarrator: We have some changes to your booth assignments, and I apologize for the short notice.\nNarrator: The wiring in Pavilion C has been overloaded since last night, so the power company is shutting down that section until Saturday.\nNarrator: Booths from Pavilion C have moved to the north corridor, which has stronger power and a wider aisle.\nNarrator: Your new booth numbers are printed on the badge holder you received this morning, so please check them before setting up.\nNarrator: Equipment that needs electricity should not be turned on until the inspector has signed off on your booth.\nNarrator: We know this is inconvenient, and the committee will refund the fee for the lost space.",
+    "translation": "おはようございます、出展者の皆さん。グローバル・パッケージング・エキスポ運営委員会のイアンです。\n出展ブースの割り当てに変更があります。急なお知らせになり、申し訳ありません。\nC館の配線は昨夜から過負荷になっているため、電力会社が土曜日まで、そのエリア全体を停止します。\nC館にあったブースは北側の通路に移ります。そちらは電力が強く、通路も広くなっています。\n新しいブース番号は、今朝お渡ししたバッジホルダーに印刷されています。設営の前に確認してください。\n電気を使う機器は、検査官がブースの確認を終えるまで、電源を入れないでください。\nご不便をおかけしてすみません。運営委員会は、失われたスペースの料金を返金します。",
     "questions": [
       {
         "question": "Why have the Pavilion C booths been moved?",
@@ -435,7 +435,7 @@
         "explanation": "展示館の配線が過負荷で、電力会社がその区域を止めたため、ブースを移すことになった。"
       },
       {
-        "question": "What does the speaker mean when she says, \"until the inspector has signed off on your booth\"?",
+        "question": "What does the speaker mean when he says, \"until the inspector has signed off on your booth\"?",
         "choices": [
           "Inspectors will leave the booths before Saturday.",
           "Exhibitors must wait for approval before using power.",
