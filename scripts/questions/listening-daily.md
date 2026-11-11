@@ -42,6 +42,9 @@ node scripts/questions/plan.js today 8
 
 表示された「形式 レベルN ×k」のとおりに新しいセットを作る(ID・ファイルの振り方、difficulty、正解を A に書くことは 2 と同じ)。
 
+- レベル1・2 も作る。基準は docs/question-authoring.md の 4.2「レベル1・2 の作り方」に従う。特に、**レベル1 は正解を本文と同じ語で書く(言い換えない)**、**TOEIC Part 2 のレベル1・2 は問いかけに直接答える応答を正解にする**。
+- TOEIC Part 4・英検 Part 2・Part 3 の話し手(`Narrator`)は男性の声なので、男性として書く(3 の「リスニングの `script`」)。
+
 ## 4. 仕上げと確認
 
 ```bash
@@ -51,7 +54,7 @@ node scripts/questions/overlap.js backend/src/main/resources/questions/listening
 node scripts/questions/plan.js
 ```
 
-- balance.py の3つ目の引数は、**今日作ったファイルだけ**に一致させる(既存のファイルの記号を並べ替えると解答履歴とずれる)。
+- balance.py の3つ目の引数は、**今日作ったファイルだけ**に一致させる(既存のファイルの記号を並べ替えると解答履歴とずれる)。glob の `{a,b}` は使えず、`listening-0[67][0-9].json` のような範囲は既存のファイルまで含んでしまう。ファイルが2つ以上なら1つずつ指定して複数回実行し、実行後に `git status` で既存のファイルが変わっていないことを確かめる。
 - docs/question-authoring.md の「5. 品質チェック」の表に沿って、全セットを読み直す(正解が2つ取れる・計算させる・根拠が本文にない・正解だけ長い、など)。
 - docs/question-authoring.md の「1. 現在の問題数と目標」の表のリスニングの行を、`node scripts/questions/plan.js` の結果に合わせて更新する。
 
