@@ -167,7 +167,7 @@ export default function PracticeSetPage({
 
           {!loading && set && (
             <div>
-              <QuestionNumber n={count} />
+              <QuestionNumber n={count} difficulty={set.difficulty} />
               {showTitle && <h2 className="font-serif text-lg text-slate-900 mb-3">{set.title}</h2>}
               {set.situation && (
                 <p className="text-sm text-slate-700 bg-amber-50 border border-amber-200 rounded p-3 mb-4">
