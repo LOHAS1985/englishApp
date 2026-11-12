@@ -27,7 +27,7 @@
 
 ```bash
 node scripts/questions/plan.js           # 形式ごとの現状・最終目標・書き直しの残り
-node scripts/questions/plan.js today 8   # 今日の作業(書き直しの対象、または追加する形式とレベルの内訳)
+node scripts/questions/plan.js today 10  # 今日の作業(定期実行は10セットずつ4回、1日40セット)(書き直しの対象、または追加する形式とレベルの内訳)
 ```
 
 - `DifficultyTests` は、形式ごとにレベル1を1割以上、レベル2・3を2割以上求める(リスニング以外はレベル1も2割以上)。書き直しでこれを割る日は、その形式の書き直しを後回しにする。
