@@ -1,0 +1,472 @@
+[
+  {
+    "id": "l0387",
+    "type": "toeic-part3",
+    "title": "Team lunch reservation",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Man: Hi, Nora. Did you book the table for the team lunch on Friday?\nWoman: Not yet. I was waiting to hear how many people are coming.\nMan: Eleven, including the two new engineers.\nWoman: Okay. The Italian place on Market Street can seat up to twelve. I'll call them this afternoon and ask for a table by the window.\nMan: Thanks. Also, please tell them about Jin's nut allergy.\nWoman: Of course. I'll make sure the kitchen prepares his meal separately.",
+    "translation": "男性:やあ、ノラ。金曜のチームランチの席は予約した?\n女性:まだなの。何人来るか確認を待っていたのよ。\n男性:新人のエンジニア2人を含めて11人だよ。\n女性:わかったわ。マーケット通りのイタリアンなら12人まで座れるわ。今日の午後に電話して、窓際の席をお願いしてみる。\n男性:ありがとう。それと、ジンがナッツのアレルギーだと伝えてくれる?\n女性:もちろん。厨房で彼の料理を別に用意してもらうようにするわ。",
+    "questions": [
+      {
+        "question": "How many people will attend the lunch?",
+        "choices": [
+          "Eleven",
+          "Nine",
+          "Fourteen",
+          "Seven"
+        ],
+        "answer": "A",
+        "explanation": "男性が「Eleven, including the two new engineers」と人数を伝えている。"
+      },
+      {
+        "question": "What will the woman do this afternoon?",
+        "choices": [
+          "Pay the deposit",
+          "Call the restaurant",
+          "Order new name badges",
+          "Book a taxi"
+        ],
+        "answer": "B",
+        "explanation": "女性は今日の午後にそのイタリアンに電話すると言っている。"
+      },
+      {
+        "question": "What does the woman plan to ask the restaurant to do for Jin?",
+        "choices": [
+          "Reserve a parking space",
+          "Serve his drinks first",
+          "Prepare a meal without nuts",
+          "Seat him near the window"
+        ],
+        "answer": "C",
+        "explanation": "ジンのナッツアレルギーを伝え、彼の料理を別に用意してもらうよう頼むと言っている。窓際の席は全員のための依頼である。"
+      }
+    ],
+    "difficulty": 1,
+    "theme": null
+  },
+  {
+    "id": "l0388",
+    "type": "toeic-part3",
+    "title": "Payroll and system update",
+    "passage": null,
+    "situation": null,
+    "graphic": "Accounting system update: schedule\n------------------------------------\n Task                Day        Time\n Timesheet deadline  Thursday   5:00 p.m.\n Payroll run         Monday     9:00 a.m.\n System update      Saturday   10:00 p.m. - 2:00 a.m.",
+    "script": "Woman: Hi, Paul. IT just sent us the schedule for the accounting system update.\nMan: When is it happening? I hope it's not during the payroll run.\nWoman: It's on Saturday night, from ten until about two in the morning.\nMan: That's a relief, but payroll runs on Monday morning. Will the system be ready by then?\nWoman: IT says so, but they can't guarantee it. I'd rather not take the risk.\nMan: Then we should run payroll on Friday, before the update starts. Can you ask finance to get their timesheets in by Thursday?\nWoman: Good idea. I'll confirm the exact deadline with them.",
+    "translation": "女性:こんにちは、ポール。IT部門から会計システムの更新予定が届いたわ。\n男性:いつ?給与計算の時期と重なっていないといいけど。\n女性:土曜の夜、10時から2時頃までよ。\n男性:それは安心だけど、給与は月曜の朝に処理するよね。その時間までにシステムは使えるのかな?\n女性:IT部門はそう言っているけど、保証はできないそうよ。危険は冒したくないわ。\n男性:じゃあ、更新が始まる前の金曜に給与を処理しよう。経理に、勤務表を木曜までに出すように頼んでくれる?\n女性:いい考えね。正確な締め切りは私から確認するわ。",
+    "questions": [
+      {
+        "question": "Why is the man concerned about the update?",
+        "choices": [
+          "Some timesheets may have been lost.",
+          "The IT team has not arrived yet.",
+          "It could interfere with salary processing.",
+          "The schedule was announced too late."
+        ],
+        "answer": "C",
+        "explanation": "男性は給与の処理が更新の時間と重なることを心配している。給与処理は男性の発言の「payroll」にあたる。"
+      },
+      {
+        "question": "Look at the graphic. When is the timesheet deadline?",
+        "choices": [
+          "At nine in the morning on Monday",
+          "At ten at night on Saturday",
+          "At five in the afternoon on Thursday",
+          "At noon on Friday"
+        ],
+        "answer": "C",
+        "explanation": "女性は勤務表の締め切りを木曜と言い、図表で時刻は午後5時と分かる。図表の給与処理は月曜の午前9時である。"
+      },
+      {
+        "question": "What do the speakers decide to do?",
+        "choices": [
+          "Delay the system update until next month.",
+          "Hire extra staff for the weekend.",
+          "Pay employees ahead of the system change.",
+          "Check the system on Monday morning."
+        ],
+        "answer": "C",
+        "explanation": "更新の前に給与を処理し、経理に勤務表を木曜までに出してもらうことにしている。"
+      }
+    ],
+    "difficulty": 2,
+    "theme": null
+  },
+  {
+    "id": "l0389",
+    "type": "toeic-part3",
+    "title": "Warehouse shelf labels",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Woman: Ravi, the new shelf labels in aisle C are wrong. Half of them show the old product codes.\nMan: I noticed that yesterday. They were printed from last year's list.\nMan 2: That's my fault. I forgot to send the updated list to the printer.\nWoman: So staff have been picking the wrong items for two days?\nMan: Can we just cover the old codes with stickers for now?\nWoman: We could, but that would take the whole team most of the shift. I'd rather reprint them today.\nMan 2: The printer can finish by three if I send the file this morning, so let's keep aisle C closed until then.",
+    "translation": "女性:ラヴィ、C通路の新しい棚札が間違っているわ。半分は古い商品コードのままよ。\n男性:昨日気づいたよ。去年のリストから印刷されていたんだ。\n男性2:すみません、私の責任です。更新したリストを印刷所に送るのを忘れていました。\n女性:それで、2日間、スタッフは違う商品をピックしていたの?\n男性:とりあえず、古いコードをシールで隠すのはどう?\n女性:それでもいいけど、チーム全員がシフトの大半を使うことになるわ。今日刷り直したほうがいい。\n男性2:私が今朝ファイルを送れば、3時までに印刷できます。それまでC通路は閉めておきましょう。",
+    "questions": [
+      {
+        "question": "What is the main problem with the new shelf labels?",
+        "choices": [
+          "They were attached to the wrong shelves.",
+          "They show outdated item codes.",
+          "They were printed in the wrong language.",
+          "They fall off the shelves too easily."
+        ],
+        "answer": "B",
+        "explanation": "棚札には去年のリストに基づく古い商品コードが印刷されている。"
+      },
+      {
+        "question": "What does the second man admit?",
+        "choices": [
+          "He failed to give the printer the current list.",
+          "He ordered too many labels.",
+          "He printed the labels in the wrong size.",
+          "He forgot to lock aisle C."
+        ],
+        "answer": "A",
+        "explanation": "男性2は、更新したリストを印刷所に送るのを忘れたと認めている。"
+      },
+      {
+        "question": "What does the woman mean when she says, \"I'd rather reprint them today.\"?",
+        "choices": [
+          "She is confident the printer will finish early.",
+          "She thinks the list should be checked later.",
+          "She has decided to close aisle C for good.",
+          "She prefers reprinting over covering the codes by hand."
+        ],
+        "answer": "D",
+        "explanation": "シールで隠す案には時間がかかると言い、そのうえで今日刷り直したいと述べている。手作業より印刷し直すほうを選んでいる。"
+      }
+    ],
+    "difficulty": 3,
+    "theme": null
+  },
+  {
+    "id": "l0390",
+    "type": "toeic-part3",
+    "title": "Client visit rescheduled",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Man: Mina, the Harlow Group just emailed. They want to move their visit from Tuesday to Thursday.\nWoman: That's the third change this month. Did they say why?\nMan: No reason was given. But Mr. Harlow asked whether they could still see the new packaging line.\nWoman: The line is down until the end of next week, though. The technicians are replacing a motor.\nMan: I know. If they come on Thursday, they'll see only the old line running.\nWoman: Then we should tell them now, before they book their hotel. Otherwise they may think we're hiding something.\nMan: Good point. I'll offer them a video of the new line instead.\nWoman: That might work, provided the video is ready by Monday.",
+    "translation": "男性:ミナ、ハーロー・グループからメールが来た。訪問を火曜から木曜に変えたいそうだ。\n女性:今月3回目の変更ね。理由は言っていた?\n男性:理由は書かれていない。ただ、ハーローさんは新しい包装ラインを今も見られるか聞いてきた。\n女性:でも、そのラインは来週末まで止まっているのよ。技術者がモーターを交換しているの。\n男性:わかっている。木曜に来たら、見られるのは古いラインだけになる。\n女性:それなら、ホテルを予約する前に今伝えるべきよ。そうしないと、何か隠していると思われるかもしれないわ。\n男性:そのとおりだ。代わりに新しいラインの動画を提供しよう。\n女性:動画が月曜までに用意できれば、それでいけるかもしれないわね。",
+    "questions": [
+      {
+        "question": "What does the woman mean when she says, \"Otherwise they may think we're hiding something.\"?",
+        "choices": [
+          "The client has already booked a hotel.",
+          "The company should be honest about the delay.",
+          "The client will be upset about the price.",
+          "The video may confuse the client."
+        ],
+        "answer": "B",
+        "explanation": "女性は、遅れを今伝えなければ隠していると思われると言っている。だから先に事情を正直に伝えるべきだと考えている。"
+      },
+      {
+        "question": "Why is the man worried about Thursday's visit?",
+        "choices": [
+          "The visitors may cancel their booking.",
+          "The technicians will arrive late.",
+          "The packaging line has been sold.",
+          "The visitors would only see the old equipment."
+        ],
+        "answer": "D",
+        "explanation": "男性は、木曜に来ると古いラインしか見られないことを心配している。"
+      },
+      {
+        "question": "What will the man most likely do next?",
+        "choices": [
+          "Share a recording of the new machines at work.",
+          "Ask the technicians to finish sooner.",
+          "Cancel the Thursday visit.",
+          "Book a hotel for the visitors."
+        ],
+        "answer": "A",
+        "explanation": "男性は代わりに新しいラインを映した動画を提供すると言っている。"
+      }
+    ],
+    "difficulty": 4,
+    "theme": null
+  },
+  {
+    "id": "l0391",
+    "type": "toeic-part3",
+    "title": "Booth design revisions",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Man: Keiko, the trade fair booth design is almost done, but I need your approval by Friday.\nWoman: I looked at the first draft. The large video wall is too expensive. I'd rather spend that money on product samples.\nMan: The printer quoted us fifteen hundred dollars for the wall graphics alone, so I dropped the video idea last week.\nMan: I changed it to a single curved screen in the center, which costs about the same as the sample table. But the fair organizers emailed this morning. The center is reserved for sponsors.\nWoman: Then what's left?\nMan: They offered a corner spot by the entrance instead, which is better for traffic. The problem is that the corner is only four meters wide.\nWoman: Then the curved screen won't fit. Let's make the sample table the main feature and keep the screen small.\nMan: That's the plan I'd been considering. I'll redo the layout tonight.\nWoman: Perfect, as long as the corner measurements are confirmed first.",
+    "translation": "男性:ケイコ、展示会ブースのデザインはほぼ終わったけど、金曜までに承認がほしいんだ。\n女性:最初の案は見たわ。大きな映像の壁は高すぎると思う。そのお金はサンプル展示に使いたいわ。\n男性:印刷会社は壁のグラフィックだけで1500ドルと言ってきたから、先週、映像の案は取りやめたよ。\n男性:代わりに、中央に曲面スクリーンを1つ置く案にした。サンプル台と同じくらいの費用になる。でも今朝、主催者からメールが来て、中央はスポンサー用に予約されているそうだ。\n女性:じゃあ、残りはどこになるの?\n男性:入口そばの角のスペースを提案されたよ。人の流れがいいからね。ただ、角は幅が4メートルしかないんだ。\n女性:それなら曲面スクリーンは入らないわね。サンプル台を主役にして、スクリーンは小さくしましょう。\n男性:それは僕も考えていた案だ。今夜レイアウトを作り直すよ。\n女性:いいわ。角のサイズを先に確認できれば、それでいきましょう。",
+    "questions": [
+      {
+        "question": "Where will the booth most likely be placed?",
+        "choices": [
+          "In the center of the hall.",
+          "In a corner near the entrance.",
+          "Next to the video wall.",
+          "At the back of the exhibition hall."
+        ],
+        "answer": "B",
+        "explanation": "中央はスポンサー用に予約され、映像の壁の案も取りやめになった。最終的に入口そばの角に決まっている。"
+      },
+      {
+        "question": "Why can the curved screen not be placed in the center?",
+        "choices": [
+          "The organizers reserved that area for sponsors.",
+          "The printer could not produce the graphics.",
+          "It would cost more than the sample table.",
+          "The screen is too heavy to move."
+        ],
+        "answer": "A",
+        "explanation": "主催者が中央をスポンサー用に予約したため、曲面スクリーンは置けない。費用は男性が同じくらいと言っている。"
+      },
+      {
+        "question": "What does the woman mean when she says, \"Perfect, as long as the corner measurements are confirmed first.\"?",
+        "choices": [
+          "She wants the sample table moved to the entrance.",
+          "She accepts the plan on condition that the space size is checked.",
+          "She thinks the layout should be finished tonight.",
+          "She is unsure whether the printer can deliver on time."
+        ],
+        "answer": "B",
+        "explanation": "女性は、角の寸法を先に確認できれば案に賛成すると言っている。条件付きの承認である。"
+      }
+    ],
+    "difficulty": 5,
+    "theme": null
+  },
+  {
+    "id": "l0392",
+    "type": "toeic-part3",
+    "title": "Coffee machine repair",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Woman: Hello, this is Sara from the fourth floor. The coffee machine has been making a loud noise all morning.\nMan: Is it still making coffee?\nWoman: Yes, but it stops halfway through every cup.\nMan: I'll send a technician this afternoon. Can you put a sign on the machine so people don't use it?\nWoman: Sure. How long will it take to fix?\nMan: Usually a few hours, if it's just the water filter.",
+    "translation": "女性:もしもし、4階のサラです。コーヒーマシンが午前中ずっと大きな音を立てているの。\n男性:まだコーヒーは出る?\n女性:出るけど、1杯ごとに途中で止まってしまうのよ。\n男性:今日の午後に技術者を行かせるよ。人が使わないように、マシンに張り紙をしてもらえる?\n女性:わかったわ。直るまでどれくらいかかるかしら?\n男性:ふつうは数時間だよ。フィルターだけの故障ならね。",
+    "questions": [
+      {
+        "question": "What problem does the woman report?",
+        "choices": [
+          "The coffee maker is producing an irritating sound.",
+          "The office printer has run out of paper.",
+          "The lights in the hallway keep flickering.",
+          "The water fountain is leaking."
+        ],
+        "answer": "A",
+        "explanation": "女性は午前中からコーヒーマシンが大きな音を立てていると報告している。"
+      },
+      {
+        "question": "What does the man say he will do?",
+        "choices": [
+          "Buy a new coffee machine.",
+          "Clean the kitchen on the fourth floor.",
+          "Dispatch a repair worker later today.",
+          "Call the building manager."
+        ],
+        "answer": "C",
+        "explanation": "男性は今日の午後に技術者を行かせると言っている。"
+      },
+      {
+        "question": "What does the woman agree to do?",
+        "choices": [
+          "Order replacement filters.",
+          "Tell all the employees by email.",
+          "Move the machine to the lobby.",
+          "Post a sign on the appliance."
+        ],
+        "answer": "D",
+        "explanation": "男性に頼まれて、マシンに張り紙をすることに同意している。"
+      }
+    ],
+    "difficulty": 1,
+    "theme": null
+  },
+  {
+    "id": "l0393",
+    "type": "toeic-part3",
+    "title": "CRM training session choice",
+    "passage": null,
+    "situation": null,
+    "graphic": "CRM training sessions\n--------------------------------------\n Session   Day         Time          Room\n 1         Monday      9:30 a.m.    Room 2\n 2         Tuesday     1:00 p.m.    Room 4\n 3         Wednesday   10:00 a.m.   Room 2\n 4         Thursday    3:00 p.m.    Room 1",
+    "script": "Man: Hi, Jun. Are you still coming to the CRM training next week?\nWoman: I wanted the Tuesday session, but it's already full. I also can't make Monday because I have a client call that morning.\nMan: What about Wednesday morning? It's in Room 2, the same room as the Monday session.\nWoman: I can't do Wednesday either. The team meeting always runs until eleven.\nMan: Then the only session left is the afternoon one. Does the afternoon work for you?\nWoman: Yes, the afternoon is perfect. I'll sign up now.",
+    "translation": "男性:やあ、ジュン。来週のCRM研修にはまだ参加する予定?\n女性:火曜の回に出たかったんだけど、もう満席なの。月曜は朝に顧客との打ち合わせがあって無理なのよ。\n男性:水曜の朝はどう?2号室で、月曜の回と同じ部屋だよ。\n女性:水曜も無理なの。チームの会議がいつも11時まで続くから。\n男性:じゃあ、残っているのは午後の回だけだね。午後で大丈夫?\n女性:ええ、午後がちょうどいいわ。今すぐ申し込むね。",
+    "questions": [
+      {
+        "question": "Look at the graphic. Which session will the woman attend?",
+        "choices": [
+          "The session on Monday at 9:30 a.m.",
+          "The session on Wednesday at 10:00 a.m.",
+          "The session on Thursday at 3:00 p.m.",
+          "The session on Tuesday at 1:00 p.m."
+        ],
+        "answer": "C",
+        "explanation": "火曜は満席、月曜と水曜は都合が合わないため、残る午後の回は図表の木曜午後3時の回だけである。"
+      },
+      {
+        "question": "Why can't the woman attend the Monday session?",
+        "choices": [
+          "The session is already full.",
+          "Room 2 is being repaired.",
+          "She is traveling that day.",
+          "She must speak with a customer that day."
+        ],
+        "answer": "D",
+        "explanation": "女性は月曜の朝に顧客との打ち合わせがあると言っている。満席なのは火曜の回である。"
+      },
+      {
+        "question": "What does the woman decide to do?",
+        "choices": [
+          "Register for the afternoon option.",
+          "Attend the Wednesday session anyway.",
+          "Ask the trainer to change the room.",
+          "Skip the training this month."
+        ],
+        "answer": "A",
+        "explanation": "午後の回にしてすぐ申し込むと言っている。"
+      }
+    ],
+    "difficulty": 2,
+    "theme": null
+  },
+  {
+    "id": "l0394",
+    "type": "toeic-part3",
+    "title": "Solar panel quote",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Man: Lena, the solar company sent their quote for the warehouse roof.\nWoman: How far over budget is it?\nMan: About fifteen percent more for the higher-capacity panels. They say those will cut our power bill next year.\nMan: But they assume the warehouse lights run all day, and we installed motion sensors last spring.\nWoman: So their savings estimate is too optimistic. The cheaper panels might be enough.\nMan: Should I ask them to redo the estimate?\nWoman: Yes, using our real usage data. Let's not commit to anything until then.",
+    "translation": "男性:レナ、太陽光パネル会社から倉庫の屋根の見積もりが届いたよ。\n女性:予算をどれくらい超えているの?\n男性:性能の高いパネルで約15%増しだね。来年の電気代をかなり減らせると言っているよ。\n男性:ただ、倉庫の照明が一日中ついている前提で計算しているんだ。うちは去年の春に人感センサーを付けたのにね。\n女性:じゃあ、節約額の見積もりは楽観的すぎるわね。安いパネルで十分かもしれないわ。\n男性:見積もりをやり直してもらうよう頼もうか?\n女性:そうね、うちの実際の使用量のデータを使ってもらって。それまでは何も決めないでおきましょう。",
+    "questions": [
+      {
+        "question": "What does the woman mean when she says, \"Let's not commit to anything until then.\"?",
+        "choices": [
+          "They should choose the higher-capacity panels now.",
+          "The estimate has already been approved.",
+          "They should not sign a contract yet.",
+          "They will pay the full amount at once."
+        ],
+        "answer": "C",
+        "explanation": "やり直しの見積もりが届くまで何も決めない、つまり契約はまだ結ばないという意味である。"
+      },
+      {
+        "question": "What problem does the man point out in the estimate?",
+        "choices": [
+          "The lights were installed too late.",
+          "The projection does not account for the motion sensors.",
+          "The panels are too small for the roof.",
+          "The company charged for an extra inspection."
+        ],
+        "answer": "B",
+        "explanation": "男性は、見積もりが照明を一日中つけている前提で、人感センサーを考慮していないと指摘している。"
+      },
+      {
+        "question": "What does the man offer to do?",
+        "choices": [
+          "Ask the company to recalculate its estimate.",
+          "Visit the warehouse roof today.",
+          "Call the bank about a loan.",
+          "Buy cheaper panels online."
+        ],
+        "answer": "A",
+        "explanation": "男性は見積もりをやり直してもらうよう頼もうかと提案している。"
+      }
+    ],
+    "difficulty": 3,
+    "theme": null
+  },
+  {
+    "id": "l0395",
+    "type": "toeic-part3",
+    "title": "Hiring panel disagreement",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Woman: We need to choose between two finalists for the regional sales job.\nMan: Candidate A has the best sales record, but she has changed jobs three times.\nWoman 2: That's common in sales, though. Her references say she's reliable.\nWoman: The numbers are impressive, but the regional team has had a lot of turnover. We need someone who stays.\nMan: Candidate B has been at her company for nine years, but she has never managed a team this large.\nWoman 2: Then the question is whether we can train her. I'd rather hire someone who grows into the role.\nWoman: Okay. Let's ask both to present plans for their first ninety days.\nMan: Fine. But if Candidate A's plan is as strong as her record, I won't be surprised if we choose her.",
+    "translation": "女性:地域販売部長の最終候補2人から選ばなければいけないわね。\n男性:候補Aは営業成績が一番いいけど、転職を3回しているんだ。\n女性2:営業ではそれほど珍しくないわ。推薦状には信頼できると書いてあるし。\n女性:数字は立派だけど、地域チームは離職者が多いの。だから長く残る人が必要なのよ。\n男性:候補Bは今の会社に9年いるけど、これほど大きいチームを率いたことはないんだ。\n女性2:それなら、育てられるかどうかが問題ね。役割に慣れて伸びていく人を採りたいわ。\n女性:わかった。両方に最初の90日の計画を発表してもらいましょう。\n男性:いいよ。でも候補Aの計画が実績どおり優れていれば、彼女になっても驚かないよ。",
+    "questions": [
+      {
+        "question": "What does the woman mean when she says, \"We need someone who stays.\"?",
+        "choices": [
+          "Candidate A has already been offered the job.",
+          "The job requires someone with more sales experience.",
+          "The turnover problem has already been solved.",
+          "They should prefer a candidate who will remain long-term."
+        ],
+        "answer": "D",
+        "explanation": "数字は立派だが離職が多いので、長く働く人を選びたいという意味である。"
+      },
+      {
+        "question": "Why is the man hesitant about Candidate B?",
+        "choices": [
+          "She has not led a team of this size.",
+          "She has been at her company only a short time.",
+          "Her references are not good.",
+          "She has turned down the job offer."
+        ],
+        "answer": "A",
+        "explanation": "男性は二人目の候補が、これほど大きいチームを率いた経験がないと懸念している。"
+      },
+      {
+        "question": "What does the man suggest about Candidate A?",
+        "choices": [
+          "Her references will be checked again.",
+          "She is likely to be chosen if her plan is good.",
+          "She will need to take a training course.",
+          "She has already accepted the offer."
+        ],
+        "answer": "B",
+        "explanation": "男性は、一人目の候補の計画が実績どおり良ければ選ばれても驚かないと述べている。"
+      }
+    ],
+    "difficulty": 4,
+    "theme": null
+  },
+  {
+    "id": "l0396",
+    "type": "toeic-part3",
+    "title": "Marathon water station staffing",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Man: Maya, the volunteer schedule for the charity marathon isn't finished. Who's covering the water station?\nWoman: I had Kenji and Ami on the morning shift, but Ami can't come on Sunday.\nMan: Then we can bring in two students from the club.\nWoman: The club coordinator said those students must attend a safety briefing that morning.\nMan: Then the afternoon team might cover it, since the briefing ends at eleven.\nWoman: I checked that. The afternoon runners are needed at the finish line, and the water station can't wait that long.\nMan: What about the company employees? They volunteered for a different event last month.\nWoman: I contacted them yesterday. They can cover the water station until noon, so someone has to take over after that.\nMan: Then Kenji can take over after noon, if he's able to stay. Let's confirm with him first, since he's already working until four.",
+    "translation": "男性:マヤ、チャリティーマラソンのボランティアの予定がまだ決まってないんだ。給水所は誰が担当する?\n女性:午前の担当はケンジとエミだったけど、エミは日曜に来られないの。\n男性:じゃあ、クラブの学生を2人呼べばいいかな。\n女性:クラブの担当者によると、その学生たちは午前中に安全講習に出ないといけないそうよ。\n男性:それなら、講習が11時に終わるから、午後のチームに任せられるかも。\n女性:それはもう確認したわ。午後の走者はゴール地点に必要だし、給水所を午後まで待たせられないの。\n男性:会社の社員はどうかな?先月、別のイベントでボランティアをしてくれたよね。\n女性:昨日連絡したわ。正午まで給水所を担当してくれるけど、その後は誰かが引き継がないといけないの。\n男性:それなら、正午以降はケンジに任せられるか確認しよう。残れるならね。まず彼に聞いてみよう。もう4時まで働いているから。",
+    "questions": [
+      {
+        "question": "Who will staff the water station after noon?",
+        "choices": [
+          "Two students from the club",
+          "The runners from the afternoon team",
+          "The company employees, starting at noon",
+          "The volunteer who is already on duty until four o'clock"
+        ],
+        "answer": "D",
+        "explanation": "会社の社員は正午まで、その後はケンジが引き継ぐ可能性がある。ただし本人の確認待ちで、学生と午後の走者の案は両方とも却下されている。"
+      },
+      {
+        "question": "Why can't the club students help in the morning?",
+        "choices": [
+          "Their coordinator has gone on leave.",
+          "They are required to attend a safety session.",
+          "They are needed for an exam that day.",
+          "They are not on the volunteer list."
+        ],
+        "answer": "B",
+        "explanation": "クラブの担当者によると、学生は午前中に安全講習に出なければならない。"
+      },
+      {
+        "question": "What does the man mean when he says, \"Let's confirm with him first, since he's already working until four.\"?",
+        "choices": [
+          "He has already asked Kenji to work until four.",
+          "He wants the students to attend the briefing instead.",
+          "He thinks the afternoon team should finish early.",
+          "He wants to check whether Kenji can extend his hours."
+        ],
+        "answer": "D",
+        "explanation": "ケンジは4時まで勤務中なので、延長して正午以降も残れるかをまず確認したいという意味である。"
+      }
+    ],
+    "difficulty": 5,
+    "theme": null
+  }
+]

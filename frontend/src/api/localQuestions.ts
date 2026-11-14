@@ -81,9 +81,10 @@ function chooseId<T extends { id: string; difficulty: number }>(
   if (pool.length === 0) throw new Error("この難易度の問題はまだ登録されていません");
   const difficultyOf = new Map(pool.map((q) => [q.id, q.difficulty]));
   const ids = pool.map((q) => q.id);
-  // 難易度を選んだときはその難易度だけから出す。自動のときは直近の正答率から目標を決める
-  const target = level ? null : difficultyTarget(rows, new Set(ids));
-  return pick(ids, attemptsFromRows(rows), exclude, (id) => difficultyOf.get(id) ?? 2, target);
+  const difficulty = (id: string) => difficultyOf.get(id) ?? 2;
+  // 難易度を選んだときはその難易度だけから出す。自動のときは直近に解いた問題の難易度と正答率から目標を決める
+  const target = level ? null : difficultyTarget(rows, new Set(ids), difficulty);
+  return pick(ids, attemptsFromRows(rows), exclude, difficulty, target);
 }
 
 // --- 4択短文問題(文法・語彙) ---

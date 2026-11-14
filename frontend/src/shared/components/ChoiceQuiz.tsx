@@ -151,7 +151,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
 
           {!loading && question && (
             <div>
-              <QuestionNumber n={count} />
+              <QuestionNumber n={count} difficulty={question.difficulty} />
               <p className="font-serif text-lg text-slate-900 leading-relaxed mb-6">
                 {question.sentence}
               </p>

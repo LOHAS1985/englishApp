@@ -1,0 +1,462 @@
+[
+  {
+    "id": "l0457",
+    "type": "toeic-part4",
+    "title": "Restaurant group: Summer menu change",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Good afternoon, everyone. This is Oscar from Sunrise Restaurant Group with an update on our summer menu.\nNarrator: We had planned to add a seafood pasta to all restaurants, but the supplier cannot guarantee fish for the whole season.\nNarrator: The customer survey also showed that people want more vegetarian options, and our chefs are excited about that.\nNarrator: Some managers asked us to keep the seafood pasta only in coastal locations, where demand is highest.\nNarrator: That is reasonable, but the central kitchen cannot prepare two versions of the same sauce without extra staff.\nNarrator: So the seafood pasta will be dropped from the summer menu, and we'll launch three vegetarian dishes instead.\nNarrator: Coastal restaurants will still have their fish specials on Friday nights, which were approved last month.\nNarrator: Managers, please update the menu boards by Thursday, and tell your servers about the change at the next shift briefing.",
+    "translation": "皆さん、こんにちは。サンライズ・レストラン・グループのオスカーです。夏のメニューについてお知らせします。\n全店にシーフードパスタを加える予定でしたが、仕入れ先が夏の間ずっと魚を確保できないと言っています。\nまた、顧客アンケートでは、ベジタリアン向けの選択肢を求める声が多く、シェフたちもその案に乗り気です。\n一部の店長から、需要が最も高い海沿いの店舗だけでシーフードパスタを残してほしいという要望がありました。\nもっともな要望ですが、中央キッチンは追加の人員がないと、同じソースを2種類作ることができません。\nそのため、シーフードパスタは夏のメニューから外し、代わりにベジタリアン料理を3品出します。\n海沿いの店舗では、先月承認された金曜の夜の魚の特別メニューは今までどおり出せます。\n店長の皆さん、木曜日までにメニューボードを更新し、次のシフトの打ち合わせでサーバーに変更を伝えてください。",
+    "questions": [
+      {
+        "question": "Why was the request to keep the seafood pasta only in coastal restaurants turned down?",
+        "choices": [
+          "The central kitchen cannot make two sauces without extra staff.",
+          "Demand for seafood is highest in inland stores.",
+          "The supplier can guarantee fish only in coastal areas.",
+          "Chefs oppose adding any vegetarian dishes."
+        ],
+        "answer": "A",
+        "explanation": "中央キッチンは、追加の人員がなければ同じソースを2種類作れない。海沿いの店舗だけに残す案は、この理由で退けられた。"
+      },
+      {
+        "question": "What does the speaker mean when he says, \"Coastal restaurants will still have their fish specials\"?",
+        "choices": [
+          "The fish specials will be replaced by vegetarian dishes.",
+          "The Friday fish specials are not affected by the menu change.",
+          "Coastal restaurants will serve fish only from the central kitchen.",
+          "The fish specials have been canceled because of the supplier."
+        ],
+        "answer": "B",
+        "explanation": "海沿いの店舗の金曜の魚の特別メニューは、先月承認されており、今回のメニュー変更の影響を受けないという意味。"
+      },
+      {
+        "question": "When should managers update the menu boards?",
+        "choices": [
+          "On Monday morning.",
+          "At the next shift briefing.",
+          "The day before the weekend starts.",
+          "Before the summer season begins."
+        ],
+        "answer": "C",
+        "explanation": "メニューボードは木曜日までに更新するよう言っている。"
+      }
+    ],
+    "difficulty": 4
+  },
+  {
+    "id": "l0458",
+    "type": "toeic-part4",
+    "title": "Charity marathon: Final route changed",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Hello, volunteers of the Run for Hope marathon. This is Dennis with a final update before Sunday's race.\nNarrator: Our original route went through the Westlake neighborhood and along the north bridge, but the city denied the permit for the bridge last week.\nNarrator: We then proposed sending runners through the industrial park, but the factory owners said their trucks need that road all morning.\nNarrator: Our second idea was to start the race two hours earlier, before the traffic builds up.\nNarrator: However, the early start would have meant volunteers arriving at four in the morning, which was too difficult for many of you.\nNarrator: So the final route goes through Westlake again, turns at Maple Street instead of the bridge, and finishes at the stadium.\nNarrator: The start remains eight o'clock. Please disregard the map I shared on Monday; it still shows the bridge.\nNarrator: The medal ceremony will still be at the stadium. Please bring your volunteer badges, since police will check them.",
+    "translation": "ラン・フォー・ホープ・マラソンのボランティアの皆さん、こんにちは。デニスです。日曜のレース前の最終連絡です。\n当初のコースはウェストレイク地区を通り、北の橋を渡る予定でしたが、市が先週、その橋の使用許可を出しませんでした。\n次に、工業団地を通すことを提案しましたが、工場の経営者から、午前中はトラックがその道を使うと言われました。\n2つ目の案は、交通量が増える前に、レースを2時間早く始めることでした。\nしかし、早く始めるとボランティアは朝4時に集合することになり、多くの方には大変すぎます。\nそのため、最終コースはまたウェストレイクを通り、橋ではなくメープル通りで曲がり、スタジアムでゴールします。\nスタートは変わらず8時です。月曜に送った地図は無視してください。まだ橋が載っています。\nメダルの授与式は、今でもスタジアムで行います。ボランティアバッジを持参してください。警察が確認します。",
+    "questions": [
+      {
+        "question": "Where will the route turn?",
+        "choices": [
+          "On the north bridge, as in the original plan.",
+          "In the industrial park, where trucks need the road.",
+          "On a side road, not on the river crossing.",
+          "At the stadium gate, before the finish."
+        ],
+        "answer": "C",
+        "explanation": "最終コースは橋ではなくメープル通りで曲がる。橋(川を渡る道)は使わない。北の橋と工業団地の案は取り下げられた。"
+      },
+      {
+        "question": "What does the speaker mean when he says, \"Please disregard the map I shared on Monday\"?",
+        "choices": [
+          "Runners should use the map to plan a shorter route.",
+          "The industrial park map must be shared with the police.",
+          "The route printed there is no longer correct.",
+          "The stadium map will be updated on Monday."
+        ],
+        "answer": "C",
+        "explanation": "その地図には橋が載っており、最終コースとは合わないので無視するよう求めている。"
+      },
+      {
+        "question": "Why was the early start rejected?",
+        "choices": [
+          "The stadium was not available until nine.",
+          "Police could not check badges that early.",
+          "Volunteers would have had to arrive before dawn.",
+          "The runners preferred a later start."
+        ],
+        "answer": "C",
+        "explanation": "早く始めると朝4時に集合することになり、多くのボランティアには大変すぎたため。"
+      }
+    ],
+    "difficulty": 5
+  },
+  {
+    "id": "l0459",
+    "type": "toeic-part4",
+    "title": "Zoo announcement: Summer hours",
+    "passage": null,
+    "situation": null,
+    "graphic": "Riverbend Zoo - Opening Hours\n--------------------------------\n Season    Hours\n Spring    9:00 A.M.-5:00 P.M.\n Summer    8:00 A.M.-7:00 P.M.\n Winter    10:00 A.M.-4:00 P.M.",
+    "script": "Narrator: Good morning, visitors! This is Riverbend Zoo with a reminder about our summer schedule.\nNarrator: Starting this Monday, we will open an hour earlier than in spring, at eight in the morning.\nNarrator: We will stay open until seven in the evening, so you can see the animals during the cool hours.\nNarrator: The aquarium and the reptile house close at five o'clock, even in summer, so plan your visit accordingly.\nNarrator: Tickets bought online are valid for both the zoo and the aquarium on the same day.\nNarrator: Thank you, and enjoy your day with us!",
+    "translation": "おはようございます、お客様! リバーバンド動物園から、夏のスケジュールのお知らせです。\n今週の月曜日から、春より1時間早く、朝8時に開園します。\n夕方7時まで開いているので、涼しい時間帯に動物を見ていただけます。\n水族館と爬虫類館は、夏でも5時に閉まります。見学の計画に入れてください。\nオンラインで買ったチケットは、同じ日に動物園と水族館の両方に入れます。\nありがとうございます。今日も楽しんでください。",
+    "questions": [
+      {
+        "question": "Look at the graphic. When does the zoo close during the summer season?",
+        "choices": [
+          "At four in the afternoon.",
+          "At seven in the evening.",
+          "At nine in the morning.",
+          "At six in the evening."
+        ],
+        "answer": "B",
+        "explanation": "図表の夏の欄では、夜7時に閉まる。台本でも夜7時まで開いていると言っている。"
+      },
+      {
+        "question": "Which place closes at five o'clock, even in summer?",
+        "choices": [
+          "The aquarium building.",
+          "The main gate.",
+          "The gift shop.",
+          "The parking lot."
+        ],
+        "answer": "A",
+        "explanation": "水族館と爬虫類館は、夏でも5時に閉まると言っている。"
+      },
+      {
+        "question": "What is the benefit of buying tickets online?",
+        "choices": [
+          "Free parking is included.",
+          "They can be used for a whole month.",
+          "They allow early entry.",
+          "Entry to the aquarium is included."
+        ],
+        "answer": "D",
+        "explanation": "オンラインで買ったチケットは、同じ日に動物園と水族館の両方に入れると言っている。"
+      }
+    ],
+    "difficulty": 1
+  },
+  {
+    "id": "l0460",
+    "type": "toeic-part4",
+    "title": "Bank: New mobile app features",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Thank you for banking with Northern Savings. We're pleased to share a few updates to our mobile app.\nNarrator: Customers can now set up automatic transfers for bills, so you no longer need to remember due dates.\nNarrator: You can also freeze your debit card instantly if you lose it, and unfreeze it when you find it.\nNarrator: Fingerprint login is available on all phones, but you must turn it on in the settings menu first.\nNarrator: Transfers to other banks may take up to two business days, while transfers within Northern Savings are immediate.\nNarrator: If you have any questions, please call our customer line or visit a branch on weekdays between nine and five.",
+    "translation": "ノーザン・セイビングスをご利用いただきありがとうございます。モバイルアプリの最新情報をお伝えします。\n公共料金の自動振替を設定できるようになりました。支払い期日を覚えておく必要はありません。\nデビットカードをなくした場合は、すぐに凍結でき、見つかったら解除できます。\n指紋でのログインは、どの端末でも使えますが、先に設定画面でオンにしてください。\n他行への振込は最長で営業日2日かかる場合があります。当行内の振込は即時に行われます。\nご質問は、カスタマーラインにお電話いただくか、平日の9時から5時の間に支店にお越しください。",
+    "questions": [
+      {
+        "question": "What does the update allow customers to do with bills?",
+        "choices": [
+          "Pay bills by scanning a barcode.",
+          "Set up payments that happen on their own.",
+          "Receive bill reminders by text message.",
+          "Split bills with other customers."
+        ],
+        "answer": "B",
+        "explanation": "公共料金の自動振替を設定できるようになったと言っている。"
+      },
+      {
+        "question": "What can customers do if they lose their debit card?",
+        "choices": [
+          "Report it by mail only.",
+          "Order a new card at a branch on weekends.",
+          "Transfer the balance to another bank.",
+          "Temporarily disable the card through the app."
+        ],
+        "answer": "D",
+        "explanation": "デビットカードはアプリで即座に凍結でき、見つかれば解除できると言っている。"
+      },
+      {
+        "question": "How long do transfers to other banks take?",
+        "choices": [
+          "As long as two business days.",
+          "Immediately.",
+          "Up to one week.",
+          "Only on weekends."
+        ],
+        "answer": "A",
+        "explanation": "他行への振込は最長で営業日2日かかると言っている。当行内の振込は即時。"
+      }
+    ],
+    "difficulty": 2
+  },
+  {
+    "id": "l0461",
+    "type": "toeic-part4",
+    "title": "Sales manager: New incentive and quarterly target",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Good morning, sales team. Thanks for your hard work this quarter. Let's talk about the target and the new incentive.\nNarrator: We reached ninety-two percent of our revenue target, but the team fell short in the Midwest.\nNarrator: Midwest staff say their territories are too large, so I've asked HR to review assignments before next quarter.\nNarrator: Starting next month, we are introducing a bonus for three new clients in one quarter, replacing the commission.\nNarrator: Some of you prefer commission, but the bonus pays faster and does not cap your earnings.\nNarrator: The bonus will be in the newsletter, and there will be a training session on Wednesday afternoon.\nNarrator: Please don't worry about the change. Your current clients will stay with you. Nobody will lose a territory without a conversation first.",
+    "translation": "おはようございます、営業チームの皆さん。今期も本当によくがんばってくれました。目標と新しい奨励策についてお話しします。\n売上目標の92パーセントに達したのは良いことですが、中西部地域でチームが届きませんでした。\n中西部のスタッフは担当地域が広すぎると言っているので、次の四半期前に人事に割り当てを見直すよう頼みました。\n来月から、1四半期で新規の顧客を3件獲得した人にボーナスを出します。従来の歩合に代わるものです。\n歩合のほうがいいという人もいますが、ボーナスは早く支払われ、報酬の上限もありません。\nボーナスは社内報で発表し、水曜日の午後に新ルールの研修を行います。\n変更の心配はいりません。今の顧客はそのまま担当していただけます。誰も話し合いなしに担当地域を失うことはありません。",
+    "questions": [
+      {
+        "question": "What is the new incentive?",
+        "choices": [
+          "A bonus that replaces commission for all sales.",
+          "A reward for gaining three new accounts within a single quarter.",
+          "A higher base salary for every employee.",
+          "An extra vacation day each quarter."
+        ],
+        "answer": "B",
+        "explanation": "1四半期で新規の顧客を3件獲得した人に出すボーナスで、歩合に代わるもの。"
+      },
+      {
+        "question": "What does the manager mean when he says, \"Please don't worry about the change\"?",
+        "choices": [
+          "Current clients will not be taken away from the staff.",
+          "Staff can keep their old commission structure.",
+          "Staff should expect a smaller bonus.",
+          "The change will take effect after Wednesday's training."
+        ],
+        "answer": "A",
+        "explanation": "「Your current clients will stay with you」と言っており、今の顧客は担当者のもとに残ると伝えている。"
+      },
+      {
+        "question": "When will the training session take place?",
+        "choices": [
+          "On Monday morning.",
+          "Midweek, in the afternoon.",
+          "Next Friday.",
+          "On the last day of the quarter."
+        ],
+        "answer": "B",
+        "explanation": "水曜日の午後に研修を行うと言っている。"
+      }
+    ],
+    "difficulty": 3
+  },
+  {
+    "id": "l0462",
+    "type": "toeic-part4",
+    "title": "Registrar notice: Fall term registration",
+    "passage": null,
+    "situation": null,
+    "graphic": "Fall Term Registration - Key Dates\n----------------------------------\n Stage                 Date\n Early registration    March 3-14\n Late registration     March 17-21\n Add/drop period       March 24-28\n Final withdrawal      April 10",
+    "script": "Narrator: Hello, students. This is the registrar's office with an update on fall term registration.\nNarrator: The online system was down for two days last week, so students who could not register may enroll during late registration without a fee.\nNarrator: We had considered extending the early registration period, but the system team said that would overload the servers again.\nNarrator: Students who registered early do not need to do anything, and their schedules will stay the same.\nNarrator: Add and drop requests must still be submitted during the add/drop period, even if you are a late registrant.\nNarrator: Since the add/drop period is only one week long, late registrants should check their schedules quickly.\nNarrator: Withdrawals after the final date will be recorded as W on your transcript, so think carefully.\nNarrator: Deadlines are listed on the university website, and you can contact the registrar if you have questions.",
+    "translation": "学生の皆さん、こんにちは。教務課からの秋学期の履修登録についてのお知らせです。\n先週、オンラインの登録システムが2日間止まったため、登録できなかった学生は、手数料なしで後期の履修登録期間に登録できます。\n前期の登録期間を延長することも検討しましたが、システム担当は、サーバーにまた負荷がかかると言いました。\n前期に登録した学生は、何もする必要はありません。時間割はそのままです。\n追加・削除の申請は、後期登録の学生でも、追加・削除期間中に出す必要があります。\n追加・削除の期間は1週間しかないので、後期登録の学生は、早めに時間割を確認してください。\n最終締切後の履修取り消しは、成績証明書にWと記録されます。慎重に考えてください。\n締切日は大学のウェブサイトに載っています。ご不明な点は、教務課にお問い合わせください。",
+    "questions": [
+      {
+        "question": "Look at the graphic. Which deadline no longer applies to students who could not register?",
+        "choices": [
+          "The early registration deadline.",
+          "The late registration period.",
+          "The add/drop period.",
+          "The final withdrawal date."
+        ],
+        "answer": "A",
+        "explanation": "図表の前期登録(3月3〜14日)の締切は、登録できなかった学生には適用されない。台本では、手数料なしで後期の登録期間に登録できると言っている。"
+      },
+      {
+        "question": "Why was the early registration period not extended?",
+        "choices": [
+          "Most students had already registered early.",
+          "The registrar's staff were on leave.",
+          "It would have put too much strain on the online system again.",
+          "The system team had already approved an extension."
+        ],
+        "answer": "C",
+        "explanation": "システム担当が、延長すればサーバーにまた負荷がかかると言ったため。"
+      },
+      {
+        "question": "What does the speaker mean when he says, \"so think carefully\"?",
+        "choices": [
+          "Students can withdraw after the final date without any record.",
+          "The add/drop period will be extended for careful students.",
+          "Students must decide before the early registration deadline.",
+          "Dropping a course late will leave a mark on the transcript."
+        ],
+        "answer": "D",
+        "explanation": "最終締切後の取り消しは成績証明書にWと記録されるので、慎重に考えるよう求めている。"
+      }
+    ],
+    "difficulty": 4
+  },
+  {
+    "id": "l0463",
+    "type": "toeic-part4",
+    "title": "Community board: Wind farm site changed",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Hello, this is Owen from Northridge Energy with an update for the community board about the proposed wind farm.\nNarrator: Our original plan put the turbines on the eastern hills, but a wildlife survey found a nesting area for an endangered hawk there.\nNarrator: We then proposed the southern valley, which is closer to the power lines, but the landowners there refused to sell.\nNarrator: Some board members asked us to shrink the project and keep the eastern hills, with fewer turbines placed away from the nests.\nNarrator: That option is still under study, but engineers say fewer turbines would not produce enough power to justify the connection cost.\nNarrator: So the current decision is to use the western ridge, which the landowners have agreed to lease, and to build twelve turbines there.\nNarrator: The construction timeline will not change, but the environmental report needs a second review, to be finished by year's end.\nNarrator: Please do not share the eastern hills map from the January newsletter, since it is no longer valid.",
+    "translation": "こんにちは。ノースリッジ・エナジーのオーウェンです。提案中の風力発電所について、地域委員会へのお知らせです。\n当初の計画では、風車を東側の丘に建てる予定でした。しかし、野生生物の調査で、絶滅危惧種のタカの営巣地がそこで見つかりました。\n次に南の谷を提案しましたが、送電線には近いものの、その土地の所有者が売却を断りました。\n理事の中には、事業を縮小し、東の丘を残して、巣から離して風車を少なく配置する案を求める人もいました。\nその案も検討中ですが、技術者によると、風車が少なければ、接続費用に見合うだけの電力を生み出せません。\nそのため、現在の決定は、西側の尾根を使うことです。所有者が賃貸に同意しており、そこに風車を12基建てます。\n工事の日程は変わりませんが、環境報告書は再度の審査が必要で、年末までに終える予定です。\n1月の会報にあった東の丘の地図は共有しないでください。もう有効ではありません。",
+    "questions": [
+      {
+        "question": "Where will the turbines be built?",
+        "choices": [
+          "On the eastern hills, near the hawk nests.",
+          "In the southern valley near the power lines.",
+          "On the western hillside, with a dozen units.",
+          "On the eastern hills, with fewer turbines."
+        ],
+        "answer": "C",
+        "explanation": "最終決定は西側の尾根に12基。東の丘は営巣地のため除外され、南の谷は地主が売却を断ったため除外。縮小案はまだ検討中。"
+      },
+      {
+        "question": "What does the speaker mean when he says, \"Please do not share the eastern hills map\"?",
+        "choices": [
+          "The newsletter should be sent to landowners.",
+          "The map shows the hawk nests in detail.",
+          "The project will be reviewed publicly next Thursday.",
+          "The layout on that map no longer reflects the plan."
+        ],
+        "answer": "D",
+        "explanation": "1月の地図は今の計画を反映していない(「no longer valid」)ので、共有しないよう言っている。"
+      },
+      {
+        "question": "Why was the southern valley not selected?",
+        "choices": [
+          "The owners of that land declined to part with it.",
+          "It is too far from the power lines.",
+          "It contains an endangered species.",
+          "The engineers rejected it for cost reasons."
+        ],
+        "answer": "A",
+        "explanation": "その土地の所有者が売却を断った(「refused to sell」)ため。電線には近いと言われている。"
+      }
+    ],
+    "difficulty": 5
+  },
+  {
+    "id": "l0464",
+    "type": "toeic-part4",
+    "title": "Clinic reminder: Flu vaccines available",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Hello, this is a message from Riverside Family Clinic.\nNarrator: Flu vaccines are now available for patients over six months old.\nNarrator: You can book an appointment online, or simply walk in on weekdays between nine and noon.\nNarrator: The vaccine costs nothing if you have health insurance, and it takes about five minutes.\nNarrator: Please bring your insurance card, and let us know if you have any allergies to eggs.\nNarrator: Call us at 555-0199 if you have questions. We look forward to seeing you soon.",
+    "translation": "リバーサイド家庭医院からのお知らせです。\nインフルエンザワクチンは、生後6か月以上の患者さんに、今から接種できます。\nオンラインで予約するか、平日の9時から正午までに、予約なしでお越しください。\n健康保険に加入していれば、ワクチンは無料で、所要時間は約5分です。\n保険証をお持ちください。卵のアレルギーがあれば、お知らせください。\nご質問は555-0199までお電話ください。お会いできるのを楽しみにしています。",
+    "questions": [
+      {
+        "question": "Who can get a flu vaccine?",
+        "choices": [
+          "Only children under five.",
+          "Only people over sixty-five.",
+          "Patients who are half a year old or older.",
+          "Only the clinic's own staff."
+        ],
+        "answer": "C",
+        "explanation": "生後6か月以上の患者が接種できると言っている。"
+      },
+      {
+        "question": "How can patients get vaccinated without a booking?",
+        "choices": [
+          "By calling on Sunday mornings.",
+          "Simply by coming in during weekday mornings.",
+          "By visiting on weekends only.",
+          "By sending an email in advance."
+        ],
+        "answer": "B",
+        "explanation": "予約なしでも、平日の9時から正午までに来院すれば接種できると言っている。"
+      },
+      {
+        "question": "What should patients bring?",
+        "choices": [
+          "Their health coverage card.",
+          "Their passport.",
+          "A doctor's referral.",
+          "A list of medications."
+        ],
+        "answer": "A",
+        "explanation": "保険証を持参するよう言っている。"
+      }
+    ],
+    "difficulty": 1
+  },
+  {
+    "id": "l0465",
+    "type": "toeic-part4",
+    "title": "Car rental: Vehicle swap",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Hello, this is Eastline Car Rental, calling about your reservation for Thursday.\nNarrator: Unfortunately, the compact car you reserved is being serviced, so we have arranged a midsize sedan for you instead.\nNarrator: The price stays the same, so you will not be charged more, and the sedan has more luggage space.\nNarrator: Pick-up is still at our downtown office at ten in the morning, but please bring a copy of your driver's license.\nNarrator: If you would prefer a compact car, let us know by Wednesday evening, and we will try to find one at another location.\nNarrator: Our number is printed on your confirmation email. Thank you for choosing Eastline.",
+    "translation": "こんにちは。イーストライン・カーレンタルです。木曜日のご予約についてお電話しています。\nあいにく、ご予約のコンパクトカーが整備中のため、代わりに中型セダンを手配しました。\n料金は変わらないので、追加料金はかかりません。セダンのほうが荷物を入れるスペースも広いです。\n受け取りは、いつもどおり午前10時に街中の店舗です。運転免許証のコピーをお持ちください。\nコンパクトカーをご希望の場合は、水曜日の夜までにお知らせください。別の店舗で探してみます。\n番号は確認メールに記載されています。イーストラインをお選びいただきありがとうございます。",
+    "questions": [
+      {
+        "question": "Why was the reservation changed?",
+        "choices": [
+          "The customer's license had expired.",
+          "The price of the compact car has gone up.",
+          "The downtown office is closed.",
+          "The original car needs servicing."
+        ],
+        "answer": "D",
+        "explanation": "予約していたコンパクトカーが整備中のため、代わりのセダンを手配したと言っている。"
+      },
+      {
+        "question": "What is the advantage of the new car?",
+        "choices": [
+          "It offers more room for bags.",
+          "It uses less fuel.",
+          "It is cheaper.",
+          "It is available at the airport."
+        ],
+        "answer": "A",
+        "explanation": "セダンは荷物を入れるスペースが広いと言っている。料金は変わらない。"
+      },
+      {
+        "question": "What must the customer do if they want a compact car?",
+        "choices": [
+          "Pick it up at the airport on Thursday.",
+          "Tell the company before the midweek evening.",
+          "Pay an extra fee at the counter.",
+          "Bring the car back by Wednesday."
+        ],
+        "answer": "B",
+        "explanation": "コンパクトカーを希望する場合は、水曜日の夜までに知らせるよう言っている。"
+      }
+    ],
+    "difficulty": 2
+  },
+  {
+    "id": "l0466",
+    "type": "toeic-part4",
+    "title": "Trade fair: Booth relocation",
+    "passage": null,
+    "situation": null,
+    "graphic": null,
+    "script": "Narrator: Good morning, exhibitors. This is Ian from the Global Packaging Expo organizing committee.\nNarrator: We have some changes to your booth assignments, and I apologize for the short notice.\nNarrator: The wiring in Pavilion C has been overloaded since last night, so the power company is shutting down that section until Saturday.\nNarrator: Booths from Pavilion C have moved to the north corridor, which has stronger power and a wider aisle.\nNarrator: Your new booth numbers are printed on the badge holder you received this morning, so please check them before setting up.\nNarrator: Equipment that needs electricity should not be turned on until the inspector has signed off on your booth.\nNarrator: We know this is inconvenient, and the committee will refund the fee for the lost space.",
+    "translation": "おはようございます、出展者の皆さん。グローバル・パッケージング・エキスポ運営委員会のイアンです。\n出展ブースの割り当てに変更があります。急なお知らせになり、申し訳ありません。\nC館の配線は昨夜から過負荷になっているため、電力会社が土曜日まで、そのエリア全体を停止します。\nC館にあったブースは北側の通路に移ります。そちらは電力が強く、通路も広くなっています。\n新しいブース番号は、今朝お渡ししたバッジホルダーに印刷されています。設営の前に確認してください。\n電気を使う機器は、検査官がブースの確認を終えるまで、電源を入れないでください。\nご不便をおかけしてすみません。運営委員会は、失われたスペースの料金を返金します。",
+    "questions": [
+      {
+        "question": "Why have the Pavilion C booths been moved?",
+        "choices": [
+          "The roof leaked during the rain.",
+          "The organizers wanted more space for food stalls.",
+          "Exhibitors requested the north corridor.",
+          "The power supply in that area cannot cope with demand."
+        ],
+        "answer": "D",
+        "explanation": "展示館の配線が過負荷で、電力会社がその区域を止めたため、ブースを移すことになった。"
+      },
+      {
+        "question": "What does the speaker mean when he says, \"until the inspector has signed off on your booth\"?",
+        "choices": [
+          "Inspectors will leave the booths before Saturday.",
+          "Exhibitors must wait for approval before using power.",
+          "Booths will be checked after the show opens.",
+          "Exhibitors can use power while the inspection is ongoing."
+        ],
+        "answer": "B",
+        "explanation": "検査官の確認が済むまで電源を入れないよう言っており、出展者は承認を待つ必要があるという意味。"
+      },
+      {
+        "question": "What will the committee do for exhibitors?",
+        "choices": [
+          "Provide free equipment for the new booths.",
+          "Extend the show by one day.",
+          "Offer a discount on next year's booth.",
+          "Reimburse the cost of the space they lost."
+        ],
+        "answer": "D",
+        "explanation": "失ったスペースの料金を返金すると言っている。"
+      }
+    ],
+    "difficulty": 3
+  }
+]

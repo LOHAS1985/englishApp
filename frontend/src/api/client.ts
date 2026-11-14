@@ -106,7 +106,7 @@ export interface GrammarQuestion {
   id: string;
   sentence: string;
   choices: GrammarChoice[];
-  /** 1=基礎 / 2=標準 / 3=発展 */
+  /** 1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関 */
   difficulty: number;
 }
 
@@ -269,7 +269,7 @@ export interface QuestionSetView {
   /** TOEIC Part 3/4 の図表問題で見る表・図。等幅フォントで表示する */
   graphic: string | null;
   questions: SetQuestionView[];
-  /** 1=基礎 / 2=標準 / 3=発展 */
+  /** 1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関 */
   difficulty: number;
   /** 話題(英検の長文・説明文のみ) */
   theme: string | null;

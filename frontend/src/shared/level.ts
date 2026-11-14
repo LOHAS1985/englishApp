@@ -32,3 +32,10 @@ export function withLevel(path: string, level: number | undefined) {
   if (!level || !/^\/(grammar|vocab|reading\/practice|listening)(\?|$)/.test(path)) return path;
   return `${path}${path.includes("?") ? "&" : "?"}level=${level}`;
 }
+
+const LEVEL_LABELS = ["基礎", "標準", "発展", "難関", "最難関"];
+
+/** 難易度の名前(1〜5 以外は null)。問題番号の横に出して、難易度の付け方を見直せるようにする */
+export function levelLabel(level: number | null | undefined): string | null {
+  return level && level >= 1 && level <= 5 ? LEVEL_LABELS[level - 1] : null;
+}

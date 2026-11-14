@@ -25,6 +25,7 @@ const RECENT_ANSWERS = 30;
 const MIN_ANSWERS = 8;
 const HARD_FROM = 0.85;
 const BASIC_BELOW = 0.6;
+const MAX_LEVEL = 5;
 
 /**
  * 設問ごとの履歴(新しい順)を1回分の解答にまとめる。セット問題は設問1から順に保存されるので、
@@ -43,15 +44,23 @@ export function attemptsFromRows(rowsNewestFirst: AnswerRow[]): Attempt[] {
   return attempts;
 }
 
-/** 直近の設問ごとの正誤(新しい順)から、中心に出す難易度を決める。解答が少なければ null */
-export function difficultyTarget(rowsNewestFirst: AnswerRow[], candidates: Set<string>): number | null {
+/**
+ * 直近に解いた問題の平均の難易度を基準に、正答率で1段ずつ上げ下げして中心に出す難易度を決める
+ * (85% 以上なら1つ上、60% 未満なら1つ下、その間なら同じ。1〜5)。解答が少なければ null
+ */
+export function difficultyTarget(
+  rowsNewestFirst: AnswerRow[],
+  candidates: Set<string>,
+  difficulty: (id: string) => number,
+): number | null {
   const recent = rowsNewestFirst
     .filter((r) => r.correct !== null && candidates.has(r.itemId))
     .slice(0, RECENT_ANSWERS);
   if (recent.length < MIN_ANSWERS) return null;
   const rate = recent.filter((r) => r.correct).length / recent.length;
-  if (rate >= HARD_FROM) return 3;
-  return rate < BASIC_BELOW ? 1 : 2;
+  const base = Math.round(recent.reduce((sum, r) => sum + difficulty(r.itemId), 0) / recent.length);
+  const step = rate >= HARD_FROM ? 1 : rate < BASIC_BELOW ? -1 : 0;
+  return Math.max(1, Math.min(MAX_LEVEL, base + step));
 }
 
 function leastAnswered(candidates: string[], counts: Map<string, number>, blocked: Set<string>) {

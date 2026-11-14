@@ -9,7 +9,6 @@ import com.example.backend.vocab.VocabQuestionBank;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -33,13 +32,29 @@ class DifficultyTests {
         .containsEntry("e", 3).containsEntry("f", 3).containsEntry("g", 1);
   }
 
+  private static List<Difficulty.Answer> answers(int level, int total, int correct) {
+    return java.util.stream.IntStream.range(0, total).mapToObj(i -> new Difficulty.Answer(level, i < correct))
+        .toList();
+  }
+
   @Test
-  void targetFollowsRecentAccuracy() {
-    assertThat(Difficulty.target(List.of(true, true, true))).as("解答が少ないうちは絞らない").isNull();
-    assertThat(Difficulty.target(Collections.nCopies(10, true))).isEqualTo(Difficulty.HARD);
-    assertThat(Difficulty.target(Collections.nCopies(10, false))).isEqualTo(Difficulty.EASY);
-    List<Boolean> seventy = List.of(true, true, true, true, true, true, true, false, false, false);
-    assertThat(Difficulty.target(seventy)).isEqualTo(Difficulty.NORMAL);
+  void targetStepsFromTheLevelBeingSolvedByRecentAccuracy() {
+    assertThat(Difficulty.target(answers(2, 3, 3))).as("解答が少ないうちは絞らない").isNull();
+    assertThat(Difficulty.target(answers(2, 10, 10))).as("85%以上は1つ上").isEqualTo(3);
+    assertThat(Difficulty.target(answers(2, 10, 7))).as("60〜85%は同じ").isEqualTo(2);
+    assertThat(Difficulty.target(answers(2, 10, 5))).as("60%未満は1つ下").isEqualTo(1);
+    assertThat(Difficulty.target(answers(1, 10, 0))).isEqualTo(Difficulty.EASY);
+  }
+
+  @Test
+  void targetReachesLevelsFourAndFive() {
+    assertThat(Difficulty.target(answers(3, 10, 10))).isEqualTo(4);
+    assertThat(Difficulty.target(answers(4, 10, 10))).isEqualTo(5);
+    assertThat(Difficulty.target(answers(5, 10, 10))).isEqualTo(Difficulty.MAX_LEVEL);
+    // 新しい順に 難関 6問・発展 4問 → 平均 3.6 → 4。全問正解なので 5
+    List<Difficulty.Answer> mixed = new java.util.ArrayList<>(answers(4, 6, 6));
+    mixed.addAll(answers(3, 4, 4));
+    assertThat(Difficulty.target(mixed)).isEqualTo(5);
   }
 
   @Test
@@ -58,24 +73,31 @@ class DifficultyTests {
     }
   }
 
-  /** どの形式にも基礎・標準・発展がそれぞれ2割以上ある(どれかを選ぶと問題が尽きる、を防ぐ) */
+  /**
+   * どの形式にも基礎・標準・発展がそれぞれ2割以上ある(どれかを選ぶと問題が尽きる、を防ぐ)。
+   * リスニングだけは基礎を1割以上とする。目標の分布が 1〜5 = 10/20/30/20/20%
+   * (docs/question-authoring.md の 1.1)で、書き直しで基礎を減らしていくため、2割のままだと必ず割る。
+   */
   @Test
   void eachBankHasAllThreeLevels() {
     GrammarQuestionBank grammar = new GrammarQuestionBank(MAPPER);
     VocabQuestionBank vocab = new VocabQuestionBank(MAPPER);
-    assertSpread("grammar", grammar.ids(), grammar::difficulty);
-    assertSpread("vocab", vocab.ids(), vocab::difficulty);
-    for (QuestionSetBank bank : List.of(new ReadingQuestionBank(MAPPER), new ListeningQuestionBank(MAPPER))) {
-      bank.countByType().keySet().forEach(type -> assertSpread(type, bank.ids(type), bank::difficulty));
-    }
+    assertSpread("grammar", grammar.ids(), grammar::difficulty, 5);
+    assertSpread("vocab", vocab.ids(), vocab::difficulty, 5);
+    ReadingQuestionBank reading = new ReadingQuestionBank(MAPPER);
+    reading.countByType().keySet().forEach(type -> assertSpread(type, reading.ids(type), reading::difficulty, 5));
+    ListeningQuestionBank listening = new ListeningQuestionBank(MAPPER);
+    listening.countByType().keySet().forEach(type -> assertSpread(type, listening.ids(type), listening::difficulty, 10));
   }
 
-  private static void assertSpread(String name, List<String> ids, Function<String, Integer> difficulty) {
+  /** level1Divisor: 基礎の下限を総数の何分の1にするか(標準・発展は常に2割) */
+  private static void assertSpread(String name, List<String> ids, Function<String, Integer> difficulty, int level1Divisor) {
     Map<Integer, Integer> counts = new TreeMap<>();
     ids.forEach(id -> counts.merge(difficulty.apply(id), 1, Integer::sum));
     System.out.println(name + ": " + counts);
     for (int level = 1; level <= 3; level++) {
-      assertThat(counts.getOrDefault(level, 0)).as(name + " level " + level).isGreaterThanOrEqualTo(ids.size() / 5);
+      int min = ids.size() / (level == 1 ? level1Divisor : 5);
+      assertThat(counts.getOrDefault(level, 0)).as(name + " level " + level).isGreaterThanOrEqualTo(min);
     }
   }
 

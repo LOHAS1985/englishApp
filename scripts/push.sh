@@ -24,6 +24,28 @@ fi
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
 
+# backend は Java 25 でビルドするため、JAVA_HOME が 21 などを指していると ./mvnw が失敗する。
+# 入っている JDK 25 を探して JAVA_HOME に設定する(見つからなければ false を返す)
+ensure_jdk25() {
+  if [ -n "${JAVA_HOME:-}" ] && "$JAVA_HOME/bin/java" -version 2>&1 | grep -q 'version "25'; then
+    return 0
+  fi
+  local d
+  for d in /usr/lib/jvm/java-25-* /usr/lib/jvm/temurin-25* /usr/lib/jvm/jdk-25* \
+    "/c/Program Files/Eclipse Adoptium/jdk-25"* "/c/Program Files/Java/jdk-25"* "$HOME"/.jdks/*25*; do
+    if [ -x "$d/bin/java" ] && "$d/bin/java" -version 2>&1 | grep -q 'version "25'; then
+      export JAVA_HOME="$d"
+      export PATH="$JAVA_HOME/bin:$PATH"
+      echo "JAVA_HOME を JDK 25 に設定: $JAVA_HOME"
+      return 0
+    fi
+  done
+  return 1
+}
+if ! ensure_jdk25; then
+  echo "!! JDK 25 が見つかりません。backend のテストは JDK 25 が無いと失敗します(JAVA_HOME を設定してください)" >&2
+fi
+
 # 日付付与フックを有効化(初回のみ実質的に効く)
 git config core.hooksPath .githooks
 
