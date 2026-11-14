@@ -26,7 +26,7 @@ english-app/
 
 **主な画面**
 
-- ホーム画面:各機能への遷移メニュー
+- ホーム画面:各機能への遷移メニューと、今日の30分メニュー(`pages/TodayMenuSection.tsx`。`GET /api/stats/summary` の学習ログから画面側の純粋関数 `shared/todayMenu.ts` が組み立てる。新しい API は無い。スピーキングなしのメニューも同時に出す)
 - ライティング問題画面:出題 → 回答入力(語数カウント付き)→ AI採点(4観点・16点満点)
 
 ## バックエンド
@@ -115,6 +115,6 @@ english-app/
 
 ## テスト・PWA(2026-11-08 追加)
 
-- **フロントエンドのテスト**: Vitest 5.1.0(devDependency、無料)。`npm test`(`vitest run`)。対象は純粋関数(出題の選び方 `picker.ts`、レベル計算、語彙ハイライト、読解速度、模試の表示用関数)と送信待ちの列(`outbox.ts`、fetch と localStorage をモック)。CI の build ジョブで Lint と Build の間に実行する。
+- **フロントエンドのテスト**: Vitest 5.1.0(devDependency、無料)。`npm test`(`vitest run`)。対象は純粋関数(出題の選び方 `picker.ts`、レベル計算、語彙ハイライト、読解速度、模試の表示用関数、今日の30分メニュー `todayMenu.ts`)と送信待ちの列(`outbox.ts`、fetch と localStorage をモック)。CI の build ジョブで Lint と Build の間に実行する。
 - **PWA**: `public/manifest.webmanifest` と `public/sw.js`。本番のみ登録する(`main.tsx`)。navigate は network-first(失敗時はキャッシュの index.html)、同一オリジンの `assets/`・問題集・favicon・manifest は cache-first、`/api/` と別オリジンはキャッシュしない。`CACHE_NAME` で世代を管理し、`skipWaiting` は使わない。アイコンは SVG のみ(Chrome のインストール条件を満たさない可能性があり、192px・512px の PNG は未作成)。
 - **DB マイグレーション**: `V13__reading_speeds_and_mock_exams.sql`(`reading_speeds`、`mock_exams`)。

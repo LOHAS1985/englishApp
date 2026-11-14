@@ -5,6 +5,7 @@ import Header from "../shared/components/Header";
 import { EXAM_MENUS } from "../shared/exams";
 import { DifficultySelect } from "../shared/components/Difficulty";
 import { loadSavedLevel, saveLevel, withLevel } from "../shared/level";
+import TodayMenuSection from "./TodayMenuSection";
 
 const REVIEW_LINKS = [
   { feature: "vocab", label: "語彙", path: "/vocab?review=1" },
@@ -56,6 +57,7 @@ export default function Home() {
         )}
         {!menu ? (
           <>
+            <TodayMenuSection />
             <h2 className="text-lg font-semibold text-slate-700 mb-4">どの試験の対策をしますか?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {EXAM_MENUS.map((m) => (
