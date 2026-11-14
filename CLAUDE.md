@@ -54,7 +54,7 @@
 | 英検準1級 | 一次 リスニング Part 1〜3 | Listening(`eiken-part1`〜`eiken-part3`) | **対応済** |
 | 英検準1級 | 二次 面接(ナレーション・Q&A) | Speaking(`questions/speaking`) | 出題・模範解答あり(録音はブラウザ内だけで扱い、保存しない)。4コマは文章で代用。AI 採点は未対応 |
 | 共通(試験横断) | 単語帳 | Wordbook(`wordbook/`, `features/wordbook/`) | **対応済**(英単語を「4択(英→日)」と「穴埋め(英文の空所に英単語を入力)」で覚える。色(無色・青・黄・赤)で出題頻度を変える。読解の本文から登録できる。同梱の500語は英検準1級と TOEIC 930 の両方に必要な語。模試の読解では登録できない) |
-| 共通(試験横断) | 今日の30分メニュー | Home(`pages/TodayMenuSection.tsx`, `shared/todayMenu.ts`) | **対応済**(学習量が少ない技能・正答率が低い技能を優先して、4技能+語彙の課題を30分分並べる。復習日が来ていれば復習が最初。スピーキングなしのメニューも並べて出す。同じ日は同じメニューで、済んだ課題に印) |
+| 共通(試験横断) | 今日の30分メニュー | Home(`pages/TodayMenuSection.tsx`, `shared/todayMenu.ts`) | **対応済**(学習量が少ない技能・正答率が低い技能を優先して、4技能+語彙の課題を30分分並べる。復習日になっている問題があれば復習が最初。スピーキングなしのメニューも並べて出す。同じ日は同じメニューで、済んだ課題に印) |
 
 新機能を追加したら、この表の「状態」を更新すること。
 
@@ -62,13 +62,13 @@
 
 - **1回の学習は5〜10分で完結させる**: どの機能も1セット5〜10分で終わる単位で出題し、30分で複数技能を回せるようにする。途中でやめても記録が残るようにする。
 - **4技能を均等に回す**: 技能ごとの学習時間・回数を記録し、少ない技能を優先して出す。
-- **今日の30分メニュー**: ホーム(`pages/TodayMenuSection.tsx`)に、4技能+語彙の5〜10分の課題を組み合わせた当日のメニューを出す。`GET /api/stats/summary` の学習ログから、画面側の純粋関数 `shared/todayMenu.ts`(`buildTodayMenu`)が組み立てる(バックエンドは変えない)。技能の順位は「今週の学習時間の不足 60% + 正答率の低さ 40%」(今日すでに5分以上学習した技能は下げる)で決め、技能ごとに課題を1つ選ぶ。形式は、正答率が低い形式・この1か月まだ解いていない形式を優先し、同点は日替わりで回す。間違えた問題の復習日が来ていれば復習を最初に入れる。合計が30分(35分まで)になるまで並べる。**声を出せない場所(電車内など)のために、スピーキングを除いたメニューも同時に作り、タブで切り替える**。同じ日のうちは同じメニューをブラウザに保存して出し(`todaySeed` は日本時間の日付)、課題の「済」は今日の技能別の学習時間(課題の時間の7割以上)から判断する。課題の形式・量・時間の見積もりは `todayMenu.ts` の `CATALOG` に書く(新しい形式を足したらここにも足す)。純粋関数は `todayMenu.test.ts` で検査する
+- **今日の30分メニュー**: ホーム(`pages/TodayMenuSection.tsx`)に、4技能+語彙の5〜10分の課題を組み合わせた当日のメニューを出す。`GET /api/stats/summary` の学習ログから、画面側の純粋関数 `shared/todayMenu.ts`(`buildTodayMenu`)が組み立てる(バックエンドは変えない)。技能の順位は「今週の学習時間の不足 60% + 正答率の低さ 40%」(今日すでに5分以上学習した技能は下げる)で決め、技能ごとに課題を1つ選ぶ。形式は、正答率が低い形式・この1か月まだ解いていない形式を優先し、同点は日替わりで回す。間違えた問題の復習日になっている問題があれば復習を最初に入れる。合計が30分(35分まで)になるまで並べる。**声を出せない場所(電車内など)のために、スピーキングを除いたメニューも同時に作り、タブで切り替える**。同じ日のうちは同じメニューをブラウザに保存して出し(`todaySeed` は日本時間の日付)、課題の「済」は今日の技能別の学習時間(課題の時間の7割以上)から判断する。課題の形式・量・時間の見積もりは `todayMenu.ts` の `CATALOG` に書く(新しい形式を足したらここにも足す)。純粋関数は `todayMenu.test.ts` で検査する
 - **アウトプットには必ずフィードバックを返す**: ライティング・スピーキングは AI 採点+改善点+模範解答をセットで返す。採点観点は試験の公式観点に合わせる(英検ライティング: 内容・構成・語彙・文法 各4点)。
 - **学習記録はすべて保存する**: 解答は `*Record` エンティティとして保存し、MyPage で振り返れるようにする。正誤・スコア・所要時間・日時を最低限持つ。あわせて採点時に `StudyLogService.log(...)` で学習ログ(`study_logs`:技能・形式・正解数・所要秒数)を1行残し、MyPage の技能別集計に使う。新しい機能を足したら学習ログも必ず書く(画面側は出題から解答までの秒数を `durationSeconds` で送る)。
 - **模試と推定点**: 模試(`/mock`)は本番と同じ区切り・制限時間で通して解き、提出後にまとめて採点する(途中で閉じると結果は残らない)。リスニングは1セットずつ・音声は1回だけ・戻れない、リーディングは1画面でまとめて解き時間切れで自動提出する。問題はサーバーの問題集から組み(`MockSelection`、Part 1 は画像が無いので省く)、採点・記録・学習ログはサーバーで行う。学習ログは区切りごとに1行(`itemType` は `toeic-mock`)。模試の時間は時間の経験値に含まれるが、模試の解答では経験値を稼げない(`XpRules` の `toeic-mock` は 0)。推定点は正答率から `ToeicEstimate` の折れ線で決める仮の換算で、公式の換算表ではない。画面と MyPage では必ず「推定・参考値」と書く。換算を変えても過去の結果は変わらないよう、保存時の推定点を `mock_exams` に残す。
-- **読解速度**: 速度計測(`?speed=1`)では本文だけを先に出し、「本文を読み終えた」までの秒数と本文の語数から語/分を出す(設問に答える時間は含めない)。10秒未満・30分超は記録しない。記録は `reading_speeds`(`ReadingSpeedService`)。語数と式は `ReadingSpeedService` と `shared/readingSpeed.ts` で揃える。Guardian 記事の多読の WPM(`reading_records`)とは別に持つ。
+- **読解速度**: 速度計測(`?speed=1`)では本文だけを先に出し、「本文を読み終えた」までの秒数と本文の語数から語/分を出す(設問に答える時間は含めない)。10秒未満・30分超は記録しない。記録は `reading_speeds`(`ReadingSpeedService`)。語数と式は `ReadingSpeedService` と `shared/readingSpeed.ts` で揃える。(Guardian 記事の多読は廃止した。過去の記録が入った `reading_records` テーブルは消さずに残してある)
 - **弱点の可視化と復習**: 間違えた語彙・文法問題は `ReviewService` が `review_items` に登録し、1→3→7→14日の間隔で出し直す(14日後の復習に正解したら外す)。復習日より前の通常出題で正解しても間隔は進めない。
-- **単語帳**: 英単語の定着に使う。4択と穴埋めは別のメニューとして選ぶ。利用者が語ごとに色を手動で付け、出題頻度に使う(無色5・赤5・黄2・青1)。直近に出した語は避ける。読解の問題画面・記事詳細では「単語を登録」で本文の文ごと登録でき、同じ語(変化形を含む)が既にあれば追加しない。日本語訳は毎日7:00(日本時間)に訳が揃っていない語だけ DeepL で調べ、訳が揃うまでその語は出題しない。変化形(過去形など)は同じ語として扱う(`WordForms`)。穴埋めの答えは見出し語の変化形でも正解にする。同梱の語は `questions/wordbook/*.json` にあり、初回起動時に単語帳へ入れる(利用者が削除した語は戻さない)。学習記録は `practice_records`(`feature=wordbook`)と学習ログ(`vocab`、形式 `wordbook-choice` / `wordbook-fill`)に残す
+- **単語帳**: 英単語の定着に使う。4択と穴埋めは別のメニューとして選ぶ。利用者が語ごとに色を手動で付け、出題頻度に使う(無色5・赤5・黄2・青1)。直近に出した語は避ける。読解の問題画面では「単語を登録」で本文の文ごと登録でき、同じ語(変化形を含む)が既にあれば追加しない。日本語訳は毎日7:00(日本時間)に訳が揃っていない語だけ DeepL で調べ、訳が揃うまでその語は出題しない。変化形(過去形など)は同じ語として扱う(`WordForms`)。穴埋めの答えは見出し語の変化形でも正解にする。同梱の語は `questions/wordbook/*.json` にあり、初回起動時に単語帳へ入れる(利用者が削除した語は戻さない)。学習記録は `practice_records`(`feature=wordbook`)と学習ログ(`vocab`、形式 `wordbook-choice` / `wordbook-fill`)に残す
 - **レベル(学習ペースの管理)**: 解答・学習時間・継続で経験値を貯め、**1日30分(約600XP)を続けると 2027年3月31日にちょうど Lv.100** になるように設計している(`level/XpRules`)。経験値は保存せず `study_logs` からその都度計算する(規則を変えると過去にもさかのぼって反映される)。正解は形式ごとに1問の所要時間に比例し、難易度で 0.8〜1.3倍、不正解は3割、同じ日の解き直しは0、前に間違えた問題を後日克服すると1.5倍。時間は1分1XP(1日60まで)、30分達成+50、技能1つにつき+10、10分以上の日の連続で最大1.3倍。ヘッダーにレベル、マイページに予定ペース(`GET /api/level`)を出す。新しい形式を足したら `XpRules.BASE_XP` に1問あたりの経験値を追加する
 - **弱点分析**: MyPage に、文法の分野(時制・関係詞など)・語彙の品詞・読解/リスニングの設問タイプ(推測・NOT問題・発言の意図・Part 2 の問いかけの形など)別の正答率を出す(`GET /api/stats/weakness`)。分類は解答記録に保存せず、問題集の `point` や設問文から `QuestionTags` がその都度決める。新しい書き方の `point` や設問を足したら `QuestionTagsTests` で分類漏れを確認する。
 - **問題の表示はサーバーを待たない**: 文法・語彙・読解・リスニングの問題集は画面に同梱し(`frontend/src/generated/questions/*.json`)、出題と採点は画面で行う(`api/localQuestions.ts`、`api/picker.ts` は `QuestionPicker` の移植)。解答記録は送信待ちの列(`api/outbox.ts`、ブラウザに保存)から従来の解答 API に裏で送り、送れなければ次回に再送する。解答履歴は `GET /api/practice/history` で裏で取得してブラウザに保存し、出題に使う。同梱の問題集は `QuestionExportTests` が書き出す(難易度・Part 2 の台本は Java 側が正)。リスニングの台本と和訳は同梱しない(解答後は `reveal`、音声が使えないときの読み上げは `script` から API で取る)。問題集を変えたら `./scripts/export-questions.sh`(`push.sh` が自動実行。書き出し忘れは CI で失敗)。出題規則を変えるときは `QuestionPicker` と `picker.ts` の両方を揃える。復習モード(`?review=1`)・ライティング・スピーキングはサーバーで出題する
@@ -92,7 +92,7 @@
 - **DB**: プロファイルで切り替える。`dev`(既定): H2 インメモリ + `ddl-auto=update` + Flyway 無効 / `prod`: `SPRING_DATASOURCE_URL` の DB + Flyway でスキーマ管理(`ddl-auto=none`)
 - **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
-- **外部API**: Guardian(記事)、DeepL(翻訳。単語帳の日本語訳の調査にも使う)
+- **外部API**: DeepL(翻訳。単語帳の日本語訳の調査に使う)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
 - **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
@@ -182,7 +182,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ./scripts/push.sh "修正内容の要約"
 ```
 
-ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `ACCESS_LOG_KEY`, `GUARDIAN_API_KEY`, `DEEPL_AUTH_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
+ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `ACCESS_LOG_KEY`, `DEEPL_AUTH_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
 
 ## 8. 作業完了の定義
 
@@ -231,7 +231,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 
 ### 本人の作業が必要(コード外の設定)
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
-- [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
+- [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` / `GUARDIAN_API_KEY` を削除してよい**: ログイン機能と Guardian 記事の多読を廃止したため不要
 - [ ] **単語帳の同梱語 500 語を確認する**: Claude が知識から作成した(英検・TOEIC の公式リストではない)。意味の誤り、正解が2つになる穴埋め(defer と postpone など)、不自然な英文がないか見直す。直した語は `questions/wordbook/*.json` を編集し、内容を変えたら `BundledWordSeeder` の版を上げる
 - [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)
 - [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点で未設定を確認)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する

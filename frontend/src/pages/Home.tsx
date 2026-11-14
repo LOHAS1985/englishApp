@@ -83,13 +83,6 @@ export default function Home() {
                 <span>単語帳(4択・穴埋め・色で管理)</span>
                 <span className="text-slate-500">→</span>
               </button>
-              <button
-                onClick={() => navigate("/reading")}
-                className="w-full text-left py-2 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between"
-              >
-                <span>The Guardian 記事で多読</span>
-                <span className="text-slate-500">→</span>
-              </button>
             </div>
           </>
         ) : (

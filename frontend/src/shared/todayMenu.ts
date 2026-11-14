@@ -169,7 +169,7 @@ function pickTask(skill: Skill, summary: StatsSummary, seed: number): { def: Tas
 
 const reviewMinutes = (due: number) => Math.min(8, Math.max(3, Math.round(due * 0.7)));
 
-/** 今日学習した時間から、課題が済んだかを判断する。復習は、復習日が来ている問題がなくなったら済み */
+/** 今日学習した時間から、課題が済んだかを判断する。復習は、復習日になっている問題がなくなったら済み */
 export function markDone(tasks: MenuTask[], summary: StatsSummary): MenuTask[] {
   return tasks.map((t) => {
     if (t.review) {
@@ -184,7 +184,7 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
   const tasks: MenuTask[] = [];
   let total = 0;
 
-  // 間違えた問題の復習(間隔反復の復習日が来たもの)を最初に入れる
+  // 間違えた問題の復習(間隔反復の復習日になったもの)を最初に入れる
   const reviews: { feature: "vocab" | "grammar"; label: string; skill: Skill; path: string }[] = [
     { feature: "vocab", label: "語彙の復習", skill: "vocab", path: "/vocab?review=1" },
     { feature: "grammar", label: "文法の復習", skill: "reading", path: "/grammar?review=1" },
@@ -200,7 +200,7 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
       note: `${due}問・約${minutes}分`,
       minutes,
       path: r.path,
-      reason: "間違えた問題の復習日が来ている",
+      reason: "間違えた問題を復習する日です",
       done: false,
       review: true,
     });

@@ -6,7 +6,7 @@ import { levelFromParams } from "../../shared/level";
 
 export default function Grammar() {
   const [searchParams] = useSearchParams();
-  // ?review=1 のときは、間違えた問題のうち復習日が来たものだけを出す
+  // ?review=1 のときは、間違えた問題のうち復習日になったものだけを出す
   const review = searchParams.get("review") === "1";
   // 難易度はホームで問題を解く前に選ぶ(?level=1〜3。無ければ正答率に合わせて自動)
   const level = levelFromParams(searchParams);

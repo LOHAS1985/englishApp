@@ -57,7 +57,7 @@ english-app/
 | POST     | `/api/mock/start`       | TOEIC 模試の問題一式を組む(リスニング 94 問・45分、リーディング 100 問・75分) |
 | POST     | `/api/mock/submit`      | 模試の解答を区切りごとに採点し、推定点(参考値)を返して保存する |
 | GET      | `/api/mock/history`     | 過去の模試の結果(新しい順。MyPage の推定点の推移に使う)         |
-| GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日が来た問題を出題する(1→3→7→14日の間隔反復) |
+| GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日になった問題を出題する(1→3→7→14日の間隔反復) |
 | GET      | `/api/wordbook/summary` | 単語帳の語数・色ごとの数・訳の調査が残っている数                 |
 | GET / POST | `/api/wordbook/words` | 単語の一覧(`?color=`・`?q=`)・登録(読解からは `exampleEn` と `exampleAnswer` を付ける。同じ語・変化形があれば追加しない) |
 | PUT / DELETE | `/api/wordbook/words/{id}`(`/color`) | 訳の修正・色の変更(手動)・削除                       |

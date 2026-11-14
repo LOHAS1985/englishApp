@@ -81,7 +81,7 @@ public class ReviewService {
     return new Schedule(nextStage, today.plusDays(INTERVAL_DAYS[nextStage]));
   }
 
-  /** 今日までに復習日が来ている問題の ID(復習日が古い順) */
+  /** 今日までに復習日になっている問題の ID(復習日が古い順) */
   public List<String> dueIds(String feature) {
     return repository.findByUserIdAndFeatureAndDueDateLessThanEqualOrderByDueDateAscIdAsc(
         currentUserProvider.getCurrentUserId(), feature, LocalDate.now(StudyLogService.JST)).stream()

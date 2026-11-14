@@ -40,7 +40,7 @@ public class GrammarService {
 
   /**
    * @param exclude 画面に表示中の問題の ID(先読みで同じ問題を選ばないため)
-   * @param review  true なら復習日が来た間違えた問題から出す
+   * @param review  true なら復習日になった間違えた問題から出す
    * @param level   難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ(復習では使わない)
    */
   public GrammarQuestion generateQuestion(String exclude, boolean review, Integer level) {

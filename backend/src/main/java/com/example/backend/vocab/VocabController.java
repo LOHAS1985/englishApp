@@ -39,7 +39,7 @@ public class VocabController {
   }
 
   /**
-   * @param review true なら復習日が来た間違えた問題から出す
+   * @param review true なら復習日になった間違えた問題から出す
    * @param level  難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ(復習では使わない)
    */
   @GetMapping("/question")

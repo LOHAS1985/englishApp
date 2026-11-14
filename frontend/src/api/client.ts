@@ -198,62 +198,6 @@ export async function fetchGrammarHistory() {
   return getJson<GrammarHistoryItem[]>("/api/grammar/history", "履歴の取得に失敗しました");
 }
 
-export interface ArticleSummary {
-  id: string;
-  title: string;
-  section: string;
-  thumbnail: string | null;
-  publishedDate: string;
-}
-
-export interface VocabularyItem {
-  word: string;
-  meaning: string;
-  example: string;
-}
-
-export interface ArticleDetail {
-  id: string;
-  title: string;
-  byline: string | null;
-  body: string;
-  webUrl: string;
-  publishedDate: string;
-  summary: string;
-  vocabulary: VocabularyItem[];
-}
-
-export async function fetchArticles(query?: string, page = 1) {
-  const params = new URLSearchParams();
-  if (query) params.set("query", query);
-  params.set("page", String(page));
-  return getJson<ArticleSummary[]>(`/api/reading/articles?${params}`, "記事の取得に失敗しました");
-}
-
-export async function fetchArticleDetail(id: string) {
-  const params = new URLSearchParams({ id });
-  return getJson<ArticleDetail>(`/api/reading/article?${params}`, "記事の取得に失敗しました");
-}
-
-export interface ReadingRecordResult {
-  wordCount: number;
-  durationSeconds: number;
-  wpm: number;
-}
-
-export async function recordReading(
-  articleId: string,
-  articleTitle: string,
-  wordCount: number,
-  durationSeconds: number,
-) {
-  return postJson<ReadingRecordResult>(
-    "/api/reading/record",
-    { articleId, articleTitle, wordCount, durationSeconds },
-    "記録の保存に失敗しました",
-  );
-}
-
 // セット問題(読解・リスニング):文章や音声1つに複数の設問が付く
 export interface SetQuestionView {
   question: string;

@@ -104,6 +104,7 @@ public final class XpRules {
       case "eiken-opinion" -> score(log) * OPINION_XP_PER_POINT;
       case "eiken-summary" -> score(log) * SUMMARY_XP_PER_POINT;
       case "eiken-interview" -> SPEAKING_XP;
+      // Guardian 記事の多読は廃止したが、過去の学習ログの経験値(レベル)が下がらないよう残す
       case "guardian" -> ARTICLE_XP;
       // 模試は点数を測るための区切り。解答の経験値は与えず、かかった時間(時間 XP)だけを数える
       case "toeic-mock" -> 0;

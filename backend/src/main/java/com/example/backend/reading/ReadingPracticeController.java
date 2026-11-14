@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-/** 読解問題(TOEIC Part 6 / 7、英検の長文)。Guardian 記事の多読(ReadingController)とは別機能 */
+/** 読解問題(TOEIC Part 6 / 7、英検の長文) */
 @RestController
 @RequestMapping("/api/reading/practice")
 public class ReadingPracticeController {

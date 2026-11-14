@@ -54,7 +54,7 @@ describe("buildTodayMenu(通常)", () => {
     expect(new Set(skills).size).toBe(skills.length);
   });
 
-  it("復習日が来た問題があると、復習が最初に並ぶ", () => {
+  it("復習日になった問題があると、復習が最初に並ぶ", () => {
     const menu = normalMenu({ review: { vocab: { feature: "vocab", due: 10, pending: 0 } } });
     expect(menu.tasks[0]?.id).toBe("review:vocab");
     expect(menu.tasks[0]?.review).toBe(true);
@@ -168,7 +168,7 @@ describe("markDone", () => {
     expect(done.every((t) => !t.done)).toBe(true);
   });
 
-  it("復習は、復習日が来ている問題がなくなったら済み", () => {
+  it("復習は、復習日になっている問題がなくなったら済み", () => {
     const menu = normalMenu({ review: { vocab: { feature: "vocab", due: 5, pending: 0 } } });
     expect(menu.tasks[0]?.done).toBe(false);
     const done = markDone(menu.tasks, makeSummary({ review: { vocab: { feature: "vocab", due: 0, pending: 0 } } }));
