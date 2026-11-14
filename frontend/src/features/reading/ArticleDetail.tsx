@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { fetchArticleDetail, recordReading, type ArticleDetail as ArticleDetailType, type ReadingRecordResult } from "../../api/client";
 import Header from "../../shared/components/Header";
 import HighlightedBody from "./HighlightedBody";
+import WordCapture from "../wordbook/WordCapture";
 
 export default function ArticleDetail() {
   const [searchParams] = useSearchParams();
@@ -157,7 +158,9 @@ export default function ArticleDetail() {
                 </p>
               </div>
 
-              <HighlightedBody body={article.body} vocabulary={article.vocabulary} />
+              <WordCapture>
+                <HighlightedBody body={article.body} vocabulary={article.vocabulary} />
+              </WordCapture>
 
               {article.vocabulary.length > 0 && (
                 <div className="border-t border-slate-100 pt-6 mb-6">

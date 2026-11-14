@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "w0201",
+    "word": "halt",
+    "meaningJa": "を停止させる、停止",
+    "example": {
+      "en": "The company decided to halt production at the plant after a safety inspection revealed serious flaws.",
+      "answer": "halt",
+      "ja": "安全検査で重大な欠陥が判明した後、会社はその工場の生産を停止することを決めた。"
+    }
+  },
+  {
+    "id": "w0202",
+    "word": "hamper",
+    "meaningJa": "を妨げる",
+    "example": {
+      "en": "Heavy snow hampered rescue efforts in the mountain village throughout the weekend.",
+      "answer": "hampered",
+      "ja": "大雪が週末を通して山村での救助活動を妨げた。"
+    }
+  },
+  {
+    "id": "w0203",
+    "word": "harness",
+    "meaningJa": "を利用する、活用する",
+    "example": {
+      "en": "Engineers are developing new ways to harness the power of ocean waves to generate electricity.",
+      "answer": "harness",
+      "ja": "技術者たちは海の波の力を利用して発電する新しい方法を開発している。"
+    }
+  },
+  {
+    "id": "w0204",
+    "word": "harsh",
+    "meaningJa": "厳しい、過酷な",
+    "example": {
+      "en": "The critics were harsh in their reviews, calling the film dull and poorly written.",
+      "answer": "harsh",
+      "ja": "批評家たちは厳しい評価を下し、その映画を退屈で脚本が下手だと評した。"
+    }
+  },
+  {
+    "id": "w0205",
+    "word": "hazardous",
+    "meaningJa": "危険な、有害な",
+    "example": {
+      "en": "Workers must wear protective suits when handling hazardous chemicals in the laboratory.",
+      "answer": "hazardous",
+      "ja": "作業員は実験室で有害な化学物質を扱う際、防護服を着用しなければならない。"
+    }
+  },
+  {
+    "id": "w0206",
+    "word": "hectic",
+    "meaningJa": "非常に忙しい、慌ただしい",
+    "example": {
+      "en": "After a hectic week of meetings and deadlines, she finally took a day off to rest.",
+      "answer": "hectic",
+      "ja": "会議と締め切りに追われた慌ただしい1週間の後、彼女はようやく休みを取って体を休めた。"
+    }
+  },
+  {
+    "id": "w0207",
+    "word": "heritage",
+    "meaningJa": "遺産、伝統",
+    "example": {
+      "en": "The town works hard to preserve its cultural heritage, including traditional festivals and crafts.",
+      "answer": "heritage",
+      "ja": "その町は伝統的な祭りや工芸品を含む文化遺産の保護に力を入れている。"
+    }
+  },
+  {
+    "id": "w0208",
+    "word": "hesitant",
+    "meaningJa": "ためらいがちな",
+    "example": {
+      "en": "Investors remain hesitant to commit funds until the election results become clear.",
+      "answer": "hesitant",
+      "ja": "投資家たちは選挙結果がはっきりするまで資金を投じることをためらっている。"
+    }
+  },
+  {
+    "id": "w0209",
+    "word": "hierarchy",
+    "meaningJa": "階層、序列",
+    "example": {
+      "en": "In a rigid corporate hierarchy, junior employees rarely have direct access to senior executives.",
+      "answer": "hierarchy",
+      "ja": "厳格な企業の階層組織では、若手社員が上級幹部と直接話す機会はめったにない。"
+    }
+  },
+  {
+    "id": "w0210",
+    "word": "highlight",
+    "meaningJa": "を強調する",
+    "example": {
+      "en": "The report highlights the need for greater investment in renewable energy.",
+      "answer": "highlights",
+      "ja": "その報告書は再生可能エネルギーへの投資拡大の必要性を強調している。"
+    }
+  },
+  {
+    "id": "w0211",
+    "word": "hindsight",
+    "meaningJa": "後知恵、あとから考えること",
+    "example": {
+      "en": "In hindsight, the company should have invested in online sales much earlier.",
+      "answer": "hindsight",
+      "ja": "今振り返ってみると、その会社はもっと早くオンライン販売に投資すべきだった。"
+    }
+  },
+  {
+    "id": "w0212",
+    "word": "hostile",
+    "meaningJa": "敵意のある、敵対的な",
+    "example": {
+      "en": "The proposal received a hostile reaction from shareholders, who feared it would lower profits.",
+      "answer": "hostile",
+      "ja": "その提案は、利益が減ることを恐れた株主たちから敵対的な反応を受けた。"
+    }
+  },
+  {
+    "id": "w0213",
+    "word": "humble",
+    "meaningJa": "謙虚な、控えめな",
+    "example": {
+      "en": "Despite her enormous success, the CEO remains humble and always gives credit to her team.",
+      "answer": "humble",
+      "ja": "大成功を収めたにもかかわらず、そのCEOは謙虚なままで、いつもチームの功績だと言う。"
+    }
+  },
+  {
+    "id": "w0214",
+    "word": "hybrid",
+    "meaningJa": "混成の、ハイブリッドの",
+    "example": {
+      "en": "Many firms have adopted a hybrid work model that combines office days with remote work.",
+      "answer": "hybrid",
+      "ja": "多くの企業が出社日と在宅勤務を組み合わせたハイブリッド型の働き方を採用している。"
+    }
+  },
+  {
+    "id": "w0215",
+    "word": "hygiene",
+    "meaningJa": "衛生",
+    "example": {
+      "en": "Good hand hygiene is one of the most effective ways to prevent the spread of infection.",
+      "answer": "hygiene",
+      "ja": "手の衛生を保つことは、感染の拡大を防ぐ最も効果的な方法の一つだ。"
+    }
+  },
+  {
+    "id": "w0216",
+    "word": "hypothesis",
+    "meaningJa": "仮説",
+    "example": {
+      "en": "The scientists conducted a series of experiments to test their hypothesis about sleep and memory.",
+      "answer": "hypothesis",
+      "ja": "科学者たちは睡眠と記憶に関する仮説を検証するため、一連の実験を行った。"
+    }
+  },
+  {
+    "id": "w0217",
+    "word": "hypothetical",
+    "meaningJa": "仮定の",
+    "example": {
+      "en": "The interviewer asked a hypothetical question about how I would handle an angry customer.",
+      "answer": "hypothetical",
+      "ja": "面接官は、怒った客にどう対応するかという仮定の質問をした。"
+    }
+  },
+  {
+    "id": "w0218",
+    "word": "identical",
+    "meaningJa": "全く同じ、同一の",
+    "example": {
+      "en": "The two contracts looked identical, but one contained a hidden clause about extra fees.",
+      "answer": "identical",
+      "ja": "2つの契約書は全く同じに見えたが、一方には追加料金に関する隠れた条項があった。"
+    }
+  },
+  {
+    "id": "w0219",
+    "word": "illuminate",
+    "meaningJa": "を照らす、を解明する",
+    "example": {
+      "en": "The new study helps illuminate how social media affects the mental health of teenagers.",
+      "answer": "illuminate",
+      "ja": "その新しい研究は、ソーシャルメディアが十代の精神的健康にどう影響するかを解明する助けとなる。"
+    }
+  },
+  {
+    "id": "w0220",
+    "word": "illustrate",
+    "meaningJa": "を説明する、を例示する",
+    "example": {
+      "en": "The speaker used several real-life examples to illustrate her point about effective leadership.",
+      "answer": "illustrate",
+      "ja": "講演者は効果的なリーダーシップについての主張を説明するため、いくつかの実例を用いた。"
+    }
+  },
+  {
+    "id": "w0221",
+    "word": "imminent",
+    "meaningJa": "差し迫った",
+    "example": {
+      "en": "Residents were evacuated because an eruption of the volcano appeared imminent.",
+      "answer": "imminent",
+      "ja": "火山の噴火が差し迫っているとみられたため、住民は避難させられた。"
+    }
+  },
+  {
+    "id": "w0222",
+    "word": "impair",
+    "meaningJa": "を損なう、弱める",
+    "example": {
+      "en": "Lack of sleep can seriously impair your ability to concentrate at work.",
+      "answer": "impair",
+      "ja": "睡眠不足は仕事中の集中力を深刻に損なうことがある。"
+    }
+  },
+  {
+    "id": "w0223",
+    "word": "impartial",
+    "meaningJa": "公平な、偏らない",
+    "example": {
+      "en": "The judge must remain impartial and decide the case based only on the evidence.",
+      "answer": "impartial",
+      "ja": "裁判官は公平な立場を保ち、証拠だけに基づいて事件を判断しなければならない。"
+    }
+  },
+  {
+    "id": "w0224",
+    "word": "imperative",
+    "meaningJa": "必須の、緊急の",
+    "example": {
+      "en": "It is imperative that all staff complete the safety training before the end of the month.",
+      "answer": "imperative",
+      "ja": "全職員が月末までに安全研修を修了することが絶対に必要だ。"
+    }
+  },
+  {
+    "id": "w0225",
+    "word": "impetus",
+    "meaningJa": "勢い、推進力",
+    "example": {
+      "en": "The trade agreement gave fresh impetus to economic growth across the region.",
+      "answer": "impetus",
+      "ja": "その貿易協定は地域全体の経済成長に新たな弾みを与えた。"
+    }
+  },
+  {
+    "id": "w0226",
+    "word": "implement",
+    "meaningJa": "を実施する、を導入する",
+    "example": {
+      "en": "The government will implement the new tax reform next spring.",
+      "answer": "implement",
+      "ja": "政府は来春、新しい税制改革を実施する予定だ。"
+    }
+  },
+  {
+    "id": "w0227",
+    "word": "implication",
+    "meaningJa": "影響、含意",
+    "example": {
+      "en": "Economists are still debating the long-term implications of the new trade policy.",
+      "answer": "implications",
+      "ja": "経済学者たちは新しい通商政策の長期的な影響について今も議論している。"
+    }
+  },
+  {
+    "id": "w0228",
+    "word": "imply",
+    "meaningJa": "をほのめかす、暗に意味する",
+    "example": {
+      "en": "His long silence seemed to imply that he disagreed with the decision.",
+      "answer": "imply",
+      "ja": "彼の長い沈黙は、その決定に反対であることをほのめかしているようだった。"
+    }
+  },
+  {
+    "id": "w0229",
+    "word": "impose",
+    "meaningJa": "を課す、押し付ける",
+    "example": {
+      "en": "The government plans to impose a new tax on sugary drinks to fight obesity.",
+      "answer": "impose",
+      "ja": "政府は肥満対策として、甘い飲料に新たな税を課す計画だ。"
+    }
+  },
+  {
+    "id": "w0230",
+    "word": "incentive",
+    "meaningJa": "動機付け、奨励金",
+    "example": {
+      "en": "The company offers a cash incentive to employees who refer qualified job candidates.",
+      "answer": "incentive",
+      "ja": "その会社は、有能な求職者を紹介した社員に報奨金を出している。"
+    }
+  },
+  {
+    "id": "w0231",
+    "word": "inclination",
+    "meaningJa": "意向、傾向",
+    "example": {
+      "en": "She had no inclination to move abroad, even though the job offered a higher salary.",
+      "answer": "inclination",
+      "ja": "その仕事は給料が高かったが、彼女には海外に移る気は全くなかった。"
+    }
+  },
+  {
+    "id": "w0232",
+    "word": "incorporate",
+    "meaningJa": "を組み込む、取り入れる",
+    "example": {
+      "en": "The designers plan to incorporate customer feedback into the next version of the app.",
+      "answer": "incorporate",
+      "ja": "デザイナーたちは、顧客の意見をアプリの次のバージョンに取り入れる予定だ。"
+    }
+  },
+  {
+    "id": "w0233",
+    "word": "incur",
+    "meaningJa": "(費用・損害)を負う、被る",
+    "example": {
+      "en": "Customers who cancel their reservations at the last minute will incur an additional fee.",
+      "answer": "incur",
+      "ja": "直前に予約をキャンセルした客には追加料金が発生する。"
+    }
+  },
+  {
+    "id": "w0234",
+    "word": "indispensable",
+    "meaningJa": "不可欠な",
+    "example": {
+      "en": "Her experience in overseas markets made her indispensable to the sales team.",
+      "answer": "indispensable",
+      "ja": "海外市場での経験により、彼女は営業チームにとって欠かせない存在になった。"
+    }
+  },
+  {
+    "id": "w0235",
+    "word": "induce",
+    "meaningJa": "を引き起こす、誘発する",
+    "example": {
+      "en": "Certain medications can induce drowsiness, so patients should avoid driving after taking them.",
+      "answer": "induce",
+      "ja": "ある種の薬は眠気を引き起こすことがあるので、患者は服用後の運転を避けるべきだ。"
+    }
+  },
+  {
+    "id": "w0236",
+    "word": "inevitable",
+    "meaningJa": "避けられない",
+    "example": {
+      "en": "With food and energy costs rising, a price increase seemed inevitable for many restaurants.",
+      "answer": "inevitable",
+      "ja": "食料とエネルギーの費用が上昇する中、多くの飲食店にとって値上げは避けられないように思われた。"
+    }
+  },
+  {
+    "id": "w0237",
+    "word": "infer",
+    "meaningJa": "を推論する、推測する",
+    "example": {
+      "en": "From his tone of voice, we could infer that the negotiations had not gone well.",
+      "answer": "infer",
+      "ja": "彼の声の調子から、交渉がうまくいかなかったと推測できた。"
+    }
+  },
+  {
+    "id": "w0238",
+    "word": "inflation",
+    "meaningJa": "インフレ、物価上昇",
+    "example": {
+      "en": "The central bank raised interest rates to bring inflation under control.",
+      "answer": "inflation",
+      "ja": "中央銀行はインフレを抑えるために金利を引き上げた。"
+    }
+  },
+  {
+    "id": "w0239",
+    "word": "infrastructure",
+    "meaningJa": "インフラ、社会基盤",
+    "example": {
+      "en": "The government announced a major investment in roads, bridges, and other public infrastructure.",
+      "answer": "infrastructure",
+      "ja": "政府は道路や橋などの公共インフラへの大規模な投資を発表した。"
+    }
+  },
+  {
+    "id": "w0240",
+    "word": "inherent",
+    "meaningJa": "固有の、本来備わった",
+    "example": {
+      "en": "There are risks inherent in any investment, so never invest money you cannot afford to lose.",
+      "answer": "inherent",
+      "ja": "どんな投資にも本来的なリスクがあるので、失って困るお金は決して投資してはいけない。"
+    }
+  },
+  {
+    "id": "w0241",
+    "word": "inhibit",
+    "meaningJa": "を抑制する、妨げる",
+    "example": {
+      "en": "High interest rates tend to inhibit consumer spending and business investment.",
+      "answer": "inhibit",
+      "ja": "高金利は個人消費や企業の投資を抑制する傾向がある。"
+    }
+  },
+  {
+    "id": "w0242",
+    "word": "initiative",
+    "meaningJa": "新たな取り組み、主導権",
+    "example": {
+      "en": "The city launched a new initiative to reduce plastic waste in public parks.",
+      "answer": "initiative",
+      "ja": "市は公園のプラスチックごみを減らすための新たな取り組みを始めた。"
+    }
+  },
+  {
+    "id": "w0243",
+    "word": "innovative",
+    "meaningJa": "革新的な",
+    "example": {
+      "en": "The startup won an award for its innovative approach to recycling old electronic devices.",
+      "answer": "innovative",
+      "ja": "その新興企業は、古い電子機器のリサイクルに対する革新的な手法で賞を受けた。"
+    }
+  },
+  {
+    "id": "w0244",
+    "word": "insight",
+    "meaningJa": "洞察、見識",
+    "example": {
+      "en": "The survey provided valuable insight into what young consumers expect from brands.",
+      "answer": "insight",
+      "ja": "その調査は、若い消費者がブランドに何を期待しているかについて貴重な洞察を与えた。"
+    }
+  },
+  {
+    "id": "w0245",
+    "word": "instigate",
+    "meaningJa": "を扇動する、引き起こす",
+    "example": {
+      "en": "The opposition leader was accused of trying to instigate violence during the protests.",
+      "answer": "instigate",
+      "ja": "野党の党首は、抗議活動の最中に暴力を扇動しようとしたとして非難された。"
+    }
+  },
+  {
+    "id": "w0246",
+    "word": "integrity",
+    "meaningJa": "誠実さ、高潔さ",
+    "example": {
+      "en": "Voters want leaders with integrity who will keep their promises and admit their mistakes.",
+      "answer": "integrity",
+      "ja": "有権者は、約束を守り過ちを認める誠実な指導者を求めている。"
+    }
+  },
+  {
+    "id": "w0247",
+    "word": "interim",
+    "meaningJa": "暫定の、仮の",
+    "example": {
+      "en": "The board appointed an interim CEO while it searched for a permanent replacement.",
+      "answer": "interim",
+      "ja": "取締役会は正式な後任を探す間、暫定CEOを任命した。"
+    }
+  },
+  {
+    "id": "w0248",
+    "word": "intervene",
+    "meaningJa": "介入する、仲裁する",
+    "example": {
+      "en": "The central bank may intervene in the currency market if the yen weakens further.",
+      "answer": "intervene",
+      "ja": "円がさらに下落すれば、中央銀行は為替市場に介入する可能性がある。"
+    }
+  },
+  {
+    "id": "w0249",
+    "word": "intricate",
+    "meaningJa": "複雑な、入り組んだ",
+    "example": {
+      "en": "The watch contains an intricate mechanism made up of hundreds of tiny parts.",
+      "answer": "intricate",
+      "ja": "その腕時計には、何百もの小さな部品からなる複雑な機構が組み込まれている。"
+    }
+  },
+  {
+    "id": "w0250",
+    "word": "invaluable",
+    "meaningJa": "非常に貴重な",
+    "example": {
+      "en": "Your advice was invaluable when we were preparing for the difficult negotiations.",
+      "answer": "invaluable",
+      "ja": "難しい交渉の準備をしていたとき、あなたの助言は非常に貴重だった。"
+    }
+  },
+  {
+    "id": "w0251",
+    "word": "inventory",
+    "meaningJa": "在庫、在庫目録",
+    "example": {
+      "en": "The warehouse manager uses special software to track inventory levels in real time.",
+      "answer": "inventory",
+      "ja": "倉庫の管理者は専用ソフトを使って在庫量をリアルタイムで把握している。"
+    }
+  },
+  {
+    "id": "w0252",
+    "word": "irrelevant",
+    "meaningJa": "無関係な",
+    "example": {
+      "en": "The lawyer argued that the witness's comments were irrelevant to the case.",
+      "answer": "irrelevant",
+      "ja": "弁護士は、証人の発言はその事件とは無関係だと主張した。"
+    }
+  },
+  {
+    "id": "w0253",
+    "word": "itinerary",
+    "meaningJa": "旅程、旅行日程表",
+    "example": {
+      "en": "The travel agent emailed us a detailed itinerary, including flight times and hotel information.",
+      "answer": "itinerary",
+      "ja": "旅行代理店は、フライト時刻やホテル情報を含む詳しい旅程表をメールで送ってくれた。"
+    }
+  },
+  {
+    "id": "w0254",
+    "word": "jargon",
+    "meaningJa": "専門用語、業界用語",
+    "example": {
+      "en": "The report was full of technical jargon that ordinary readers could not understand.",
+      "answer": "jargon",
+      "ja": "その報告書は、一般の読者には理解できない専門用語だらけだった。"
+    }
+  },
+  {
+    "id": "w0255",
+    "word": "jeopardize",
+    "meaningJa": "を危うくする",
+    "example": {
+      "en": "A single data breach could jeopardize the trust that customers have placed in the company.",
+      "answer": "jeopardize",
+      "ja": "たった一度のデータ流出が、顧客が会社に寄せてきた信頼を危うくしかねない。"
+    }
+  },
+  {
+    "id": "w0256",
+    "word": "jurisdiction",
+    "meaningJa": "管轄権、司法権",
+    "example": {
+      "en": "The case falls outside the court's jurisdiction because the crime occurred in another country.",
+      "answer": "jurisdiction",
+      "ja": "犯罪が別の国で起きたため、その事件はこの裁判所の管轄外となる。"
+    }
+  },
+  {
+    "id": "w0257",
+    "word": "justify",
+    "meaningJa": "を正当化する",
+    "example": {
+      "en": "The manager struggled to justify the high cost of the project to the board.",
+      "answer": "justify",
+      "ja": "部長はそのプロジェクトの高額な費用が妥当であると取締役会に説明するのに苦労した。"
+    }
+  },
+  {
+    "id": "w0258",
+    "word": "juvenile",
+    "meaningJa": "少年の、未成年の",
+    "example": {
+      "en": "The juvenile court handles cases involving offenders who are still legally minors.",
+      "answer": "juvenile",
+      "ja": "少年裁判所は、法的にまだ未成年である犯罪者が関わる事件を扱う。"
+    }
+  },
+  {
+    "id": "w0259",
+    "word": "keen",
+    "meaningJa": "熱心な、鋭い",
+    "example": {
+      "en": "She is keen to learn new skills and often volunteers for challenging projects.",
+      "answer": "keen",
+      "ja": "彼女は新しい技能を学ぶことに熱心で、難しいプロジェクトにもよく自ら手を挙げる。"
+    }
+  },
+  {
+    "id": "w0260",
+    "word": "kindle",
+    "meaningJa": "(関心・感情)をかき立てる",
+    "example": {
+      "en": "A childhood visit to the science museum kindled his lifelong interest in astronomy.",
+      "answer": "kindled",
+      "ja": "子どもの頃に科学博物館を訪れたことが、彼の天文学への生涯にわたる関心をかき立てた。"
+    }
+  },
+  {
+    "id": "w0261",
+    "word": "knack",
+    "meaningJa": "こつ、才能",
+    "example": {
+      "en": "He has a knack for explaining complicated ideas in simple terms.",
+      "answer": "knack",
+      "ja": "彼には複雑な考えを簡単な言葉で説明する才能がある。"
+    }
+  },
+  {
+    "id": "w0262",
+    "word": "lament",
+    "meaningJa": "を嘆く、悲しむ",
+    "example": {
+      "en": "Many older residents lament the loss of small family-owned shops in the town center.",
+      "answer": "lament",
+      "ja": "多くの年配の住民が、町の中心部から家族経営の小さな店がなくなったことを嘆いている。"
+    }
+  },
+  {
+    "id": "w0263",
+    "word": "landmark",
+    "meaningJa": "画期的な出来事、目印",
+    "example": {
+      "en": "The supreme court issued a landmark ruling that changed how online privacy is protected.",
+      "answer": "landmark",
+      "ja": "最高裁判所は、オンライン上のプライバシー保護のあり方を変える画期的な判決を下した。"
+    }
+  },
+  {
+    "id": "w0264",
+    "word": "lapse",
+    "meaningJa": "(一時的な)過失、経過",
+    "example": {
+      "en": "A brief lapse in concentration caused the driver to miss the red light.",
+      "answer": "lapse",
+      "ja": "一瞬の気の緩みで、運転手は赤信号を見落とした。"
+    }
+  },
+  {
+    "id": "w0265",
+    "word": "latent",
+    "meaningJa": "潜在的な",
+    "example": {
+      "en": "The coach believed the young player had latent talent that only needed proper training.",
+      "answer": "latent",
+      "ja": "コーチは、その若い選手には適切な指導さえあれば開花する潜在的な才能があると信じていた。"
+    }
+  },
+  {
+    "id": "w0266",
+    "word": "lavish",
+    "meaningJa": "贅沢な、気前のよい",
+    "example": {
+      "en": "The company was criticized for holding a lavish party while cutting employee bonuses.",
+      "answer": "lavish",
+      "ja": "その会社は、社員の賞与を削減しながら豪華なパーティーを開いたことで批判された。"
+    }
+  },
+  {
+    "id": "w0267",
+    "word": "layoff",
+    "meaningJa": "一時解雇、人員削減",
+    "example": {
+      "en": "The automaker announced another round of layoffs as sales continued to fall.",
+      "answer": "layoffs",
+      "ja": "販売の落ち込みが続く中、その自動車メーカーは再び人員削減を発表した。"
+    }
+  },
+  {
+    "id": "w0268",
+    "word": "lease",
+    "meaningJa": "賃貸借契約、を賃借する",
+    "example": {
+      "en": "The company signed a long-term lease on a new office building downtown.",
+      "answer": "lease",
+      "ja": "その会社は、中心街にある新しいオフィスビルの長期賃貸契約を結んだ。"
+    }
+  },
+  {
+    "id": "w0269",
+    "word": "legacy",
+    "meaningJa": "遺産、後世に残したもの",
+    "example": {
+      "en": "The former president's greatest legacy was the expansion of public healthcare.",
+      "answer": "legacy",
+      "ja": "前大統領が後世に残した最大の功績は、公的医療の拡充だった。"
+    }
+  },
+  {
+    "id": "w0270",
+    "word": "legislation",
+    "meaningJa": "法律、立法",
+    "example": {
+      "en": "New legislation will require large companies to disclose their carbon emissions.",
+      "answer": "legislation",
+      "ja": "新しい法律により、大企業は二酸化炭素の排出量を開示することが義務づけられる。"
+    }
+  },
+  {
+    "id": "w0271",
+    "word": "legitimate",
+    "meaningJa": "正当な、合法的な",
+    "example": {
+      "en": "Customers have a legitimate reason to complain if the product arrives damaged.",
+      "answer": "legitimate",
+      "ja": "商品が破損して届いた場合、客には苦情を言う正当な理由がある。"
+    }
+  },
+  {
+    "id": "w0272",
+    "word": "lenient",
+    "meaningJa": "寛大な、甘い",
+    "example": {
+      "en": "Critics said the sentence was far too lenient for such a serious crime.",
+      "answer": "lenient",
+      "ja": "批判する人々は、これほど重大な犯罪に対してその判決は甘すぎると述べた。"
+    }
+  },
+  {
+    "id": "w0273",
+    "word": "leverage",
+    "meaningJa": "を活用する、影響力",
+    "example": {
+      "en": "The firm plans to leverage its strong brand recognition to enter the Asian market.",
+      "answer": "leverage",
+      "ja": "その会社は、高いブランド認知度を活用してアジア市場に参入する計画だ。"
+    }
+  },
+  {
+    "id": "w0274",
+    "word": "liability",
+    "meaningJa": "法的責任、負債",
+    "example": {
+      "en": "The company denied any liability for the accident and blamed the driver instead.",
+      "answer": "liability",
+      "ja": "会社は事故に対する一切の法的責任を否定し、代わりに運転手を非難した。"
+    }
+  },
+  {
+    "id": "w0275",
+    "word": "liaison",
+    "meaningJa": "連絡係、連携",
+    "example": {
+      "en": "She acts as a liaison between the engineering team and the marketing department.",
+      "answer": "liaison",
+      "ja": "彼女は技術チームとマーケティング部門の間の連絡係を務めている。"
+    }
+  },
+  {
+    "id": "w0276",
+    "word": "linger",
+    "meaningJa": "長引く、なかなか消えない",
+    "example": {
+      "en": "Concerns about the economy continue to linger despite recent signs of recovery.",
+      "answer": "linger",
+      "ja": "最近は回復の兆しが見えるものの、経済への懸念はなかなか消えない。"
+    }
+  },
+  {
+    "id": "w0277",
+    "word": "liquidate",
+    "meaningJa": "を清算する、現金化する",
+    "example": {
+      "en": "The struggling firm was forced to liquidate its assets to pay off its debts.",
+      "answer": "liquidate",
+      "ja": "経営難の会社は、借金を返済するために資産を現金化せざるを得なかった。"
+    }
+  },
+  {
+    "id": "w0278",
+    "word": "literacy",
+    "meaningJa": "読み書きの能力、リテラシー",
+    "example": {
+      "en": "The charity runs programs to improve literacy among children in rural areas.",
+      "answer": "literacy",
+      "ja": "その慈善団体は、農村部の子どもたちの読み書きの能力を高めるための活動を行っている。"
+    }
+  },
+  {
+    "id": "w0279",
+    "word": "loyalty",
+    "meaningJa": "忠誠心、愛着",
+    "example": {
+      "en": "The airline rewards customer loyalty with free seat upgrades and lounge access.",
+      "answer": "loyalty",
+      "ja": "その航空会社は、利用し続けてくれる顧客に無料の座席アップグレードやラウンジ利用で報いている。"
+    }
+  },
+  {
+    "id": "w0280",
+    "word": "lucrative",
+    "meaningJa": "儲かる、利益の多い",
+    "example": {
+      "en": "After years of hard work, he finally secured a lucrative contract with a major retailer.",
+      "answer": "lucrative",
+      "ja": "長年の努力の末、彼はついに大手小売業者との利益の大きい契約を獲得した。"
+    }
+  },
+  {
+    "id": "w0281",
+    "word": "magnitude",
+    "meaningJa": "規模、大きさ",
+    "example": {
+      "en": "Few people understood the magnitude of the financial crisis until major banks began to collapse.",
+      "answer": "magnitude",
+      "ja": "大手銀行が破綻し始めるまで、その金融危機の規模を理解していた人はほとんどいなかった。"
+    }
+  },
+  {
+    "id": "w0282",
+    "word": "malfunction",
+    "meaningJa": "故障、不具合",
+    "example": {
+      "en": "A malfunction in the cooling system forced the factory to shut down temporarily.",
+      "answer": "malfunction",
+      "ja": "冷却装置の故障により、工場は一時的に操業を停止せざるを得なかった。"
+    }
+  },
+  {
+    "id": "w0283",
+    "word": "mandate",
+    "meaningJa": "を義務づける、権限",
+    "example": {
+      "en": "The new law will mandate that all newly built houses include solar panels.",
+      "answer": "mandate",
+      "ja": "新しい法律は、すべての新築住宅に太陽光パネルの設置を義務づける。"
+    }
+  },
+  {
+    "id": "w0284",
+    "word": "mandatory",
+    "meaningJa": "義務的な、強制的な",
+    "example": {
+      "en": "Attendance at the safety briefing is mandatory for all new employees.",
+      "answer": "mandatory",
+      "ja": "安全説明会への出席は、すべての新入社員に義務づけられている。"
+    }
+  },
+  {
+    "id": "w0285",
+    "word": "maneuver",
+    "meaningJa": "を巧みに動かす、策略",
+    "example": {
+      "en": "The driver had to maneuver the large truck carefully through the narrow streets.",
+      "answer": "maneuver",
+      "ja": "運転手は、狭い通りで大型トラックを慎重に操らなければならなかった。"
+    }
+  },
+  {
+    "id": "w0286",
+    "word": "manipulate",
+    "meaningJa": "を操作する、操る",
+    "example": {
+      "en": "The company was accused of trying to manipulate its stock price by spreading false rumors.",
+      "answer": "manipulate",
+      "ja": "その会社は、虚偽のうわさを流して株価を操作しようとしたとして告発された。"
+    }
+  },
+  {
+    "id": "w0287",
+    "word": "marginal",
+    "meaningJa": "わずかな、周辺的な",
+    "example": {
+      "en": "The new policy led to only a marginal improvement in employee satisfaction.",
+      "answer": "marginal",
+      "ja": "新しい方針は、社員の満足度をわずかに改善しただけだった。"
+    }
+  },
+  {
+    "id": "w0288",
+    "word": "mediate",
+    "meaningJa": "を調停する、仲介する",
+    "example": {
+      "en": "A neutral expert was brought in to mediate the dispute between the union and management.",
+      "answer": "mediate",
+      "ja": "労働組合と経営陣の争いを調停するため、中立の専門家が招かれた。"
+    }
+  },
+  {
+    "id": "w0289",
+    "word": "merger",
+    "meaningJa": "合併",
+    "example": {
+      "en": "The merger of the two banks will create the largest financial group in the country.",
+      "answer": "merger",
+      "ja": "その2つの銀行の合併により、国内最大の金融グループが誕生する。"
+    }
+  },
+  {
+    "id": "w0290",
+    "word": "merit",
+    "meaningJa": "長所、価値",
+    "example": {
+      "en": "Each proposal will be judged on its merits rather than on who submitted it.",
+      "answer": "merits",
+      "ja": "各提案は、誰が提出したかではなく、その内容の良し悪しで評価される。"
+    }
+  },
+  {
+    "id": "w0291",
+    "word": "meticulous",
+    "meaningJa": "細心の、几帳面な",
+    "example": {
+      "en": "The accountant is known for her meticulous attention to detail.",
+      "answer": "meticulous",
+      "ja": "その会計士は、細部にまで行き届いた注意を払うことで知られている。"
+    }
+  },
+  {
+    "id": "w0292",
+    "word": "migrate",
+    "meaningJa": "移住する、移動する",
+    "example": {
+      "en": "Many young workers migrate to big cities in search of better job opportunities.",
+      "answer": "migrate",
+      "ja": "多くの若い労働者が、より良い仕事を求めて大都市へ移住する。"
+    }
+  },
+  {
+    "id": "w0293",
+    "word": "milestone",
+    "meaningJa": "節目、画期的な出来事",
+    "example": {
+      "en": "Opening its first overseas branch was an important milestone for the small company.",
+      "answer": "milestone",
+      "ja": "初の海外支店の開設は、その小さな会社にとって重要な節目だった。"
+    }
+  },
+  {
+    "id": "w0294",
+    "word": "mitigate",
+    "meaningJa": "を軽減する、和らげる",
+    "example": {
+      "en": "Planting more trees in cities can help mitigate the effects of extreme heat.",
+      "answer": "mitigate",
+      "ja": "都市にもっと木を植えることは、猛暑の影響を和らげるのに役立つ。"
+    }
+  },
+  {
+    "id": "w0295",
+    "word": "moderate",
+    "meaningJa": "適度な、穏健な",
+    "example": {
+      "en": "Doctors recommend doing moderate exercise, such as brisk walking, on most days of the week.",
+      "answer": "moderate",
+      "ja": "医師は、早歩きのような適度な運動を週のほとんどの日に行うよう勧めている。"
+    }
+  },
+  {
+    "id": "w0296",
+    "word": "modify",
+    "meaningJa": "を修正する、変更する",
+    "example": {
+      "en": "We had to modify the design slightly to meet the client's new requirements.",
+      "answer": "modify",
+      "ja": "顧客の新しい要件を満たすため、私たちは設計を少し修正しなければならなかった。"
+    }
+  },
+  {
+    "id": "w0297",
+    "word": "momentum",
+    "meaningJa": "勢い、弾み",
+    "example": {
+      "en": "The campaign gained momentum after several celebrities publicly supported it.",
+      "answer": "momentum",
+      "ja": "何人かの著名人が公に支持を表明した後、その運動は勢いを増した。"
+    }
+  },
+  {
+    "id": "w0298",
+    "word": "monopoly",
+    "meaningJa": "独占、独占権",
+    "example": {
+      "en": "Regulators are investigating whether the tech giant holds an unfair monopoly over online advertising.",
+      "answer": "monopoly",
+      "ja": "規制当局は、その巨大IT企業がネット広告を不当に独占しているかどうかを調査している。"
+    }
+  },
+  {
+    "id": "w0299",
+    "word": "mundane",
+    "meaningJa": "ありふれた、退屈な",
+    "example": {
+      "en": "Automation allows employees to spend less time on mundane tasks such as data entry.",
+      "answer": "mundane",
+      "ja": "自動化により、社員はデータ入力のような退屈な作業に費やす時間を減らせる。"
+    }
+  },
+  {
+    "id": "w0300",
+    "word": "mutual",
+    "meaningJa": "相互の、共通の",
+    "example": {
+      "en": "The two companies signed the partnership agreement based on mutual trust and shared goals.",
+      "answer": "mutual",
+      "ja": "両社は相互の信頼と共通の目標に基づいて提携契約を結んだ。"
+    }
+  }
+]

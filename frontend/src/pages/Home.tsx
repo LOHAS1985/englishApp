@@ -75,6 +75,13 @@ export default function Home() {
             <div className="mt-8 rounded-lg bg-white border border-slate-200 p-4">
               <p className="text-sm font-semibold text-slate-700 mb-2">共通</p>
               <button
+                onClick={() => navigate("/wordbook")}
+                className="w-full text-left py-2 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between"
+              >
+                <span>単語帳(4択・穴埋め・色で管理)</span>
+                <span className="text-slate-500">→</span>
+              </button>
+              <button
                 onClick={() => navigate("/reading")}
                 className="w-full text-left py-2 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between"
               >

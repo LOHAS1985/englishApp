@@ -50,7 +50,7 @@ english-app/
 | GET      | `/api/stats/history`    | 全技能の最近の学習50件                                         |
 | GET      | `/api/practice/history?feature=` | 文法・語彙・読解・リスニングの解答履歴(画面側で出題するため。画面がブラウザに保存する) |
 | POST     | `/api/devices/register` | 合言葉でこの端末を登録し、端末専用の鍵を発行する(最大3台) |
-| GET / DELETE | `/api/devices`(`/{id}`) | 登録済み端末の一覧・削除(マイページ) |
+| GET / DELETE | `/api/devices`(`/{id}`) | 登録済み端末の一覧・削除(管理画面) |
 | GET      | `/api/level`            | 学習ログから経験値・レベル・期限(2027年3月末に Lv.100)までのペースを計算する |
 | GET      | `/api/review/summary`   | 間違えた語彙・文法問題のうち今日復習する数                     |
 | GET      | `/api/reading/practice/speed` | 読解速度(語/分)の直近の計測(Part 7 などの速度計測モード)    |
@@ -58,6 +58,12 @@ english-app/
 | POST     | `/api/mock/submit`      | 模試の解答を区切りごとに採点し、推定点(参考値)を返して保存する |
 | GET      | `/api/mock/history`     | 過去の模試の結果(新しい順。MyPage の推定点の推移に使う)         |
 | GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日が来た問題を出題する(1→3→7→14日の間隔反復) |
+| GET      | `/api/wordbook/summary` | 単語帳の語数・色ごとの数・訳の調査が残っている数                 |
+| GET / POST | `/api/wordbook/words` | 単語の一覧(`?color=`・`?q=`)・登録(読解からは `exampleEn` と `exampleAnswer` を付ける。同じ語・変化形があれば追加しない) |
+| PUT / DELETE | `/api/wordbook/words/{id}`(`/color`) | 訳の修正・色の変更(手動)・削除                       |
+| GET      | `/api/wordbook/quiz/choice`(`/fill`) | 単語帳の4択(英単語→日本語)・穴埋め(日本語訳を見て英単語を入力)の出題。`exclude` に直近の語の ID を渡す |
+| POST     | `/api/wordbook/quiz/choice/answer`(`/fill/answer`) | 解答を採点し、練習記録と学習ログを保存する                  |
+| GET      | `/api/wordbook/history` | 単語帳の直近の解答                                             |
 
 ## インフラ / デプロイ
 
@@ -83,6 +89,8 @@ english-app/
 | 権限設定 | `actions/deploy-pages` によるGitHub公式デプロイ方式 |
 
 バックエンドはRenderのGitHub連携によるpush検知で自動ビルド・デプロイ(Render側のCI/CD機能を利用)。
+
+**単語帳の日本語訳の調査(スケジュール)**: 毎日 7:00(日本時間)に、訳が揃っていない単語だけを DeepL(無料版)で訳す。`@Scheduled` で動き、起動時に当日分が未実行なら実行する(Render が眠っていた場合の補充)。実行日は `app_state` に残す。失敗した語は翌日に取り直す。
 
 ## 環境変数
 

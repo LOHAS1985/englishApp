@@ -53,6 +53,7 @@
 | 英検準1級 | 一次 ライティング(要約 60–70語) | Writing(`summary`) | **対応済**(Gemini で4観点16点満点採点) |
 | 英検準1級 | 一次 リスニング Part 1〜3 | Listening(`eiken-part1`〜`eiken-part3`) | **対応済** |
 | 英検準1級 | 二次 面接(ナレーション・Q&A) | Speaking(`questions/speaking`) | 出題・模範解答あり(録音はブラウザ内だけで扱い、保存しない)。4コマは文章で代用。AI 採点は未対応 |
+| 共通(試験横断) | 単語帳 | Wordbook(`wordbook/`, `features/wordbook/`) | **対応済**(英単語を「4択(英→日)」と「穴埋め(英文の空所に英単語を入力)」で覚える。色(無色・青・黄・赤)で出題頻度を変える。読解の本文から登録できる。同梱の500語は英検準1級と TOEIC 930 の両方に必要な語。模試の読解では登録できない) |
 
 新機能を追加したら、この表の「状態」を更新すること。
 
@@ -65,6 +66,7 @@
 - **模試と推定点**: 模試(`/mock`)は本番と同じ区切り・制限時間で通して解き、提出後にまとめて採点する(途中で閉じると結果は残らない)。リスニングは1セットずつ・音声は1回だけ・戻れない、リーディングは1画面でまとめて解き時間切れで自動提出する。問題はサーバーの問題集から組み(`MockSelection`、Part 1 は画像が無いので省く)、採点・記録・学習ログはサーバーで行う。学習ログは区切りごとに1行(`itemType` は `toeic-mock`)。模試の時間は時間の経験値に含まれるが、模試の解答では経験値を稼げない(`XpRules` の `toeic-mock` は 0)。推定点は正答率から `ToeicEstimate` の折れ線で決める仮の換算で、公式の換算表ではない。画面と MyPage では必ず「推定・参考値」と書く。換算を変えても過去の結果は変わらないよう、保存時の推定点を `mock_exams` に残す。
 - **読解速度**: 速度計測(`?speed=1`)では本文だけを先に出し、「本文を読み終えた」までの秒数と本文の語数から語/分を出す(設問に答える時間は含めない)。10秒未満・30分超は記録しない。記録は `reading_speeds`(`ReadingSpeedService`)。語数と式は `ReadingSpeedService` と `shared/readingSpeed.ts` で揃える。Guardian 記事の多読の WPM(`reading_records`)とは別に持つ。
 - **弱点の可視化と復習**: 間違えた語彙・文法問題は `ReviewService` が `review_items` に登録し、1→3→7→14日の間隔で出し直す(14日後の復習に正解したら外す)。復習日より前の通常出題で正解しても間隔は進めない。
+- **単語帳**: 英単語の定着に使う。4択と穴埋めは別のメニューとして選ぶ。利用者が語ごとに色を手動で付け、出題頻度に使う(無色5・赤5・黄2・青1)。直近に出した語は避ける。読解の問題画面・記事詳細では「単語を登録」で本文の文ごと登録でき、同じ語(変化形を含む)が既にあれば追加しない。日本語訳は毎日7:00(日本時間)に訳が揃っていない語だけ DeepL で調べ、訳が揃うまでその語は出題しない。変化形(過去形など)は同じ語として扱う(`WordForms`)。穴埋めの答えは見出し語の変化形でも正解にする。同梱の語は `questions/wordbook/*.json` にあり、初回起動時に単語帳へ入れる(利用者が削除した語は戻さない)。学習記録は `practice_records`(`feature=wordbook`)と学習ログ(`vocab`、形式 `wordbook-choice` / `wordbook-fill`)に残す
 - **レベル(学習ペースの管理)**: 解答・学習時間・継続で経験値を貯め、**1日30分(約600XP)を続けると 2027年3月31日にちょうど Lv.100** になるように設計している(`level/XpRules`)。経験値は保存せず `study_logs` からその都度計算する(規則を変えると過去にもさかのぼって反映される)。正解は形式ごとに1問の所要時間に比例し、難易度で 0.8〜1.3倍、不正解は3割、同じ日の解き直しは0、前に間違えた問題を後日克服すると1.5倍。時間は1分1XP(1日60まで)、30分達成+50、技能1つにつき+10、10分以上の日の連続で最大1.3倍。ヘッダーにレベル、マイページに予定ペース(`GET /api/level`)を出す。新しい形式を足したら `XpRules.BASE_XP` に1問あたりの経験値を追加する
 - **弱点分析**: MyPage に、文法の分野(時制・関係詞など)・語彙の品詞・読解/リスニングの設問タイプ(推測・NOT問題・発言の意図・Part 2 の問いかけの形など)別の正答率を出す(`GET /api/stats/weakness`)。分類は解答記録に保存せず、問題集の `point` や設問文から `QuestionTags` がその都度決める。新しい書き方の `point` や設問を足したら `QuestionTagsTests` で分類漏れを確認する。
 - **問題の表示はサーバーを待たない**: 文法・語彙・読解・リスニングの問題集は画面に同梱し(`frontend/src/generated/questions/*.json`)、出題と採点は画面で行う(`api/localQuestions.ts`、`api/picker.ts` は `QuestionPicker` の移植)。解答記録は送信待ちの列(`api/outbox.ts`、ブラウザに保存)から従来の解答 API に裏で送り、送れなければ次回に再送する。解答履歴は `GET /api/practice/history` で裏で取得してブラウザに保存し、出題に使う。同梱の問題集は `QuestionExportTests` が書き出す(難易度・Part 2 の台本は Java 側が正)。リスニングの台本と和訳は同梱しない(解答後は `reveal`、音声が使えないときの読み上げは `script` から API で取る)。問題集を変えたら `./scripts/export-questions.sh`(`push.sh` が自動実行。書き出し忘れは CI で失敗)。出題規則を変えるときは `QuestionPicker` と `picker.ts` の両方を揃える。復習モード(`?review=1`)・ライティング・スピーキングはサーバーで出題する
@@ -75,9 +77,10 @@
 - **問題画面は最低限の表示にする**: 問題文・本文・選択肢・解答後の結果だけを出す。見出し、形式の切り替え、難易度の選択やバッジ、話題のバッジは出さない(形式は `?type=`、難易度は `?level=` で受け取る)。リスニングはセットの題名も出さない(内容が分かってしまうため)。
 - **途中でやめても記録は残す**: 文法・語彙は1問ごと、読解・リスニングは1セットの「解答する」ごとに、記録をブラウザの送信待ちの列に保存してから送る。画面を閉じても次に開いたときに再送する。ライティングは採点時、スピーキングは模範解答を見たときにサーバーへ保存する。
 - **ログインは設けない**: 利用者は本人1人だけなので、全 API をログインなしで使える。記録はすべて `CurrentUserProvider` が返す owner ユーザーに保存する(初回アクセス時に自動作成)。
-- **端末登録(使える端末を限定)**: 利用者は本人の端末(PC 2台・スマホ1台)だけなので、`/api/**` は登録済みの端末だけが使える(`device/DeviceFilter`)。初回に合言葉(環境変数 `APP_ACCESS_KEY`)で登録すると端末専用の鍵が発行され、ブラウザに保存して `X-Device-Token` で送る(`features/device/DeviceGate`)。登録は最大 `MAX_DEVICES`(既定3)台で、上限に達すると合言葉が正しくても登録できない。鍵は SHA-256 のハッシュだけを `devices` テーブルに保存する。マイページで端末ごとに削除できる。端末をすべて失くしたら `MAX_DEVICES` を一時的に増やして登録し直す。`/health`・生成音声・`/api/access-logs`(独自キー)・`/api/devices/register` は対象外。`APP_ACCESS_KEY` が未設定なら保護しない(ローカル開発用)。画面(GitHub Pages)と同梱の問題集は誰でも取得できるが、未登録の端末では登録画面が重なり、記録・採点・レベルなどは一切使えない。
+- **端末登録(使える端末を限定)**: 利用者は本人の端末(PC 2台・スマホ1台)だけなので、`/api/**` は登録済みの端末だけが使える(`device/DeviceFilter`)。初回に合言葉(環境変数 `APP_ACCESS_KEY`)で登録すると端末専用の鍵が発行され、ブラウザに保存して `X-Device-Token` で送る(`features/device/DeviceGate`)。登録は最大 `MAX_DEVICES`(既定3)台で、上限に達すると合言葉が正しくても登録できない。鍵は SHA-256 のハッシュだけを `devices` テーブルに保存する。管理画面(`/admin`)で端末ごとに削除できる。端末をすべて失くしたら `MAX_DEVICES` を一時的に増やして登録し直す。`/health`・生成音声・`/api/access-logs`(独自キー)・`/api/devices/register` は対象外。`APP_ACCESS_KEY` が未設定なら保護しない(ローカル開発用)。画面(GitHub Pages)と同梱の問題集は誰でも取得できるが、未登録の端末では登録画面が重なり、記録・採点・レベルなどは一切使えない。
 - **PWA**: 本番ビルドでは `public/sw.js` を登録し、画面の骨組み・ハッシュ付きアセット・問題集 JSON をキャッシュして、通信がなくても画面を開けるようにする。`/api/` と別オリジンはキャッシュしない(記録・採点は常にサーバーへ。送信待ちの列は outbox が担当)。キャッシュの世代は `sw.js` の `CACHE_NAME` で管理し、`sw.js` の処理を変えたら上げる。`skipWaiting` は使わない(開いている画面が読み込む chunk を消さないため)。
-- **アクセスログ**: `/api/**` へのアクセスを `access_logs` に保存し(IP・端末・ip-api.com で推定した地域、90日で削除)、マイページで確認する。IP を含むので閲覧 API は `ACCESS_LOG_KEY` と一致するヘッダー `X-Access-Log-Key` が必須。週1回 `weekly-access-report.yml` が Gmail で自分宛てに送る。**IP を含むログを公開リポジトリにコミットしない**(Actions の実行ログにも出さない)。
+- **管理画面**: 英語学習の内容は扱わない。登録済みの端末(`/admin`)と、アクセスログを確認する画面だけにする。単語の登録・編集は単語帳(`/wordbook`)で行う。
+- **アクセスログ**: `/api/**` へのアクセスを `access_logs` に保存し(IP・端末・ip-api.com で推定した地域、90日で削除)、管理画面で確認する。IP を含むので閲覧 API は `ACCESS_LOG_KEY` と一致するヘッダー `X-Access-Log-Key` が必須。週1回 `weekly-access-report.yml` が Gmail で自分宛てに送る。**IP を含むログを公開リポジトリにコミットしない**(Actions の実行ログにも出さない)。
 
 ## 3. 技術スタック
 
@@ -87,7 +90,7 @@
 - **DB**: プロファイルで切り替える。`dev`(既定): H2 インメモリ + `ddl-auto=update` + Flyway 無効 / `prod`: `SPRING_DATASOURCE_URL` の DB + Flyway でスキーマ管理(`ddl-auto=none`)
 - **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
-- **外部API**: Guardian(記事)、DeepL(翻訳)、Wordnik(辞書)
+- **外部API**: Guardian(記事)、DeepL(翻訳。単語帳の日本語訳の調査にも使う)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
 - **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
@@ -108,7 +111,8 @@ backend/src/main/java/com/example/backend/
 ├── listening/   リスニング
 ├── speaking/    スピーキング
 ├── grammar/     文法
-└── vocab/       語彙・管理画面API
+├── vocab/       語彙(問題集の4択)
+└── wordbook/    単語帳(4択・穴埋め・色・読解からの登録・訳の調査)
 
 frontend/src/
 ├── api/             バックエンド呼び出し(client.ts, audio.ts)
@@ -176,7 +180,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ./scripts/push.sh "修正内容の要約"
 ```
 
-ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `ACCESS_LOG_KEY`, `GUARDIAN_API_KEY`, `DEEPL_AUTH_KEY`, `WORDNIK_API_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
+ローカル実行に必要な環境変数: `GEMINI_API_KEY`, `ACCESS_LOG_KEY`, `GUARDIAN_API_KEY`, `DEEPL_AUTH_KEY`(frontend は `frontend/.env` に `VITE_API_BASE_URL`)。
 
 ## 8. 作業完了の定義
 
@@ -214,7 +218,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 | Reading | TOEIC Part 7 形式(メール・広告・複数文書)の生成、時間制限モード(速度計測は対応済み) |
 | Speaking | 英検二次面接(4コマナレーション+Q&A)の出題 → 録音 → 文字起こし → AI 採点・フィードバック |
 | Writing | 英検準1級の要約問題(60–70語)を追加 |
-| Vocab / Grammar | 英検準1級・TOEIC 900点レベル単語の出題、間違えた単語の間隔反復、TOEIC Part 5–6 形式 |
+| Vocab / Grammar | 単語帳の同梱語を増やす(英検準1級・TOEIC 930 の語)、TOEIC Part 5–6 形式 |
 
 ### 仕上げ(受験前)
 - **模試モード**: 対応済み(20261108)。英検準1級の模試は未対応
@@ -226,8 +230,9 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ### 本人の作業が必要(コード外の設定)
 - [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` を削除してよい**: ログイン機能を廃止したため不要
+- [ ] **単語帳の同梱語 500 語を確認する**: Claude が知識から作成した(英検・TOEIC の公式リストではない)。意味の誤り、正解が2つになる穴埋め(defer と postpone など)、不自然な英文がないか見直す。直した語は `questions/wordbook/*.json` を編集し、内容を変えたら `BundledWordSeeder` の版を上げる
 - [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)
-- [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点で未設定を確認)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、マイページの「登録済みの端末」で心当たりのない端末がないか確認する
+- [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点で未設定を確認)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
 ### 対応済み(20261026)
