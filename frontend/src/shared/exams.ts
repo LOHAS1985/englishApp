@@ -116,6 +116,8 @@ export const TYPE_LABELS: Record<string, string> = {
   "toeic-part6": "TOEIC Part 6",
   "toeic-part7": "TOEIC Part 7",
   "toeic-mock": "TOEIC 模試",
+  "wordbook-choice": "単語帳 4択",
+  "wordbook-fill": "単語帳 穴埋め",
   vocab: "語彙(英検 大問1・TOEIC)",
   "eiken-cloze": "英検 大問2",
   "eiken-long": "英検 大問3",

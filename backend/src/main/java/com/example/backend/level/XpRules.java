@@ -50,7 +50,10 @@ public final class XpRules {
       Map.entry("eiken-part2", 18),
       Map.entry("eiken-cloze", 22),
       Map.entry("eiken-part3", 22),
-      Map.entry("eiken-long", 26));
+      Map.entry("eiken-long", 26),
+      // 単語帳は1語の解答が短いので、語彙問題より低めにする(穴埋めは英単語を書く分だけ高い)
+      Map.entry("wordbook-choice", 4),
+      Map.entry("wordbook-fill", 8));
   static final int DEFAULT_BASE_XP = 10;
   /** 不正解の設問も、取り組んだ分として基本の3割を与える(難しい問題への挑戦を避けさせない) */
   static final double WRONG_RATE = 0.3;

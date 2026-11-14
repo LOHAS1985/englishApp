@@ -1,4 +1,4 @@
-package com.example.backend.vocab;
+package com.example.backend.wordbook;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

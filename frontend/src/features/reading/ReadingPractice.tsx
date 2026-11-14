@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import PracticeSetPage from "../../shared/components/PracticeSetPage";
+import WordCapture from "../wordbook/WordCapture";
 
 const TYPES = ["toeic-part6", "toeic-part7", "eiken-cloze", "eiken-long"];
 
@@ -14,9 +15,11 @@ export default function ReadingPractice() {
       readingSpeed={searchParams.get("speed") === "1"}
       renderMaterial={(set, result) => (
         <>
-          <div className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
-            {set.passage}
-          </div>
+          <WordCapture>
+            <div className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
+              {set.passage}
+            </div>
+          </WordCapture>
           {/* 和訳は解答後に、英文の下に並べて読み比べられるようにする */}
           {result?.translation && (
             <div className="mt-3 text-sm leading-7 text-slate-600 whitespace-pre-wrap border border-slate-200 rounded-md p-4">

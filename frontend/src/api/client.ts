@@ -579,41 +579,139 @@ export async function fetchReviewSummary() {
   return getJson<Record<string, ReviewSummary>>("/api/review/summary", "復習の件数の取得に失敗しました");
 }
 
-// 管理画面(単語の登録・編集)
-export interface AdminWord {
+// 単語帳(英単語の色・出題・登録)。色は利用者が手動で付け、出題の頻度に使う
+export type WordbookColor = "NONE" | "BLUE" | "YELLOW" | "RED";
+
+export interface WordbookWord {
   id: number;
   word: string;
-  meaningEn: string;
-  exampleEn: string;
-  meaningJa: string;
-  exampleJa: string;
+  meaningJa: string | null;
+  exampleEn: string | null;
+  exampleAnswer: string | null;
+  exampleJa: string | null;
+  source: "BUNDLED" | "READING" | "MANUAL";
+  color: WordbookColor;
+  translationStatus: "PENDING" | "DONE" | "FAILED";
   createdAt: string;
 }
 
-export type AdminWordForm = Pick<
-  AdminWord,
-  "word" | "meaningEn" | "exampleEn" | "meaningJa" | "exampleJa"
->;
+export interface WordbookSummary {
+  total: number;
+  none: number;
+  blue: number;
+  yellow: number;
+  red: number;
+  pendingTranslation: number;
+}
 
-/** meaningEn / exampleEn を省略すると、サーバーが辞書から補う */
-export async function createAdminWord(input: {
+export interface WordbookAddResult {
+  added: boolean;
+  word: WordbookWord;
+}
+
+export interface WordbookChoiceQuestion {
+  wordId: number;
   word: string;
-  meaningEn?: string;
-  exampleEn?: string;
-}) {
-  return postJson<AdminWord>("/api/admin/words", input, "登録に失敗しました");
+  choices: string[];
 }
 
-export async function fetchAdminWords() {
-  return getJson<AdminWord[]>("/api/admin/words", "単語一覧の取得に失敗しました");
+export interface WordbookFillQuestion {
+  wordId: number;
+  /** 対象語を _____ にした英文 */
+  sentence: string;
+  translation: string;
 }
 
-export async function updateAdminWord(id: number, form: AdminWordForm) {
-  return getJson<AdminWord>(`/api/admin/words/${id}`, "更新に失敗しました", jsonBody("PUT", form));
+export interface WordbookAnswerResult {
+  correct: boolean;
+  word: string;
+  meaningJa: string | null;
+  correctAnswer: string;
+  exampleEn: string | null;
+  exampleJa: string | null;
+  color: WordbookColor;
 }
 
-export async function deleteAdminWord(id: number) {
-  await send(`/api/admin/words/${id}`, "削除に失敗しました", { method: "DELETE" });
+export interface WordbookHistoryItem {
+  wordId: number;
+  word: string;
+  correct: boolean;
+  createdAt: string;
+}
+
+/** 直近に出した語の ID を exclude で渡し、同じ語が続けて出ないようにする */
+const wordbookExclude = (ids: number[]) => (ids.length ? `exclude=${ids.join(",")}` : "");
+
+export async function fetchWordbookSummary() {
+  return getJson<WordbookSummary>("/api/wordbook/summary", "単語帳の取得に失敗しました");
+}
+
+export async function fetchWordbookWords(color?: WordbookColor, query?: string) {
+  const params = new URLSearchParams();
+  if (color) params.set("color", color);
+  if (query) params.set("q", query);
+  const qs = params.toString();
+  return getJson<WordbookWord[]>(`/api/wordbook/words${qs ? `?${qs}` : ""}`, "単語一覧の取得に失敗しました");
+}
+
+/** 手動登録(読解から登録する場合は registerReadingWord を使う) */
+export async function addWordbookWord(word: string) {
+  return postJson<WordbookAddResult>("/api/wordbook/words", { word }, "登録に失敗しました");
+}
+
+/** 読解の本文から登録する。sentence は選んだ語を含む文、answer は本文中の選んだ語 */
+export async function registerReadingWord(word: string, sentence: string) {
+  return postJson<WordbookAddResult>(
+    "/api/wordbook/words",
+    { word, exampleEn: sentence, exampleAnswer: word },
+    "登録に失敗しました",
+  );
+}
+
+export async function setWordbookColor(id: number, color: WordbookColor) {
+  return getJson<WordbookWord>(`/api/wordbook/words/${id}/color`, "色の変更に失敗しました", jsonBody("PUT", { color }));
+}
+
+export async function setWordbookMeaning(id: number, meaningJa: string) {
+  return getJson<WordbookWord>(`/api/wordbook/words/${id}`, "訳の変更に失敗しました", jsonBody("PUT", { meaningJa }));
+}
+
+export async function deleteWordbookWord(id: number) {
+  await send(`/api/wordbook/words/${id}`, "削除に失敗しました", { method: "DELETE" });
+}
+
+export async function fetchWordbookChoice(exclude: number[]) {
+  return getJson<WordbookChoiceQuestion>(
+    `/api/wordbook/quiz/choice?${wordbookExclude(exclude)}`,
+    "問題の取得に失敗しました",
+  );
+}
+
+export async function submitWordbookChoice(wordId: number, selectedMeaning: string, durationSeconds: number) {
+  return postJson<WordbookAnswerResult>(
+    "/api/wordbook/quiz/choice/answer",
+    { wordId, selectedMeaning, durationSeconds },
+    "採点に失敗しました",
+  );
+}
+
+export async function fetchWordbookFill(exclude: number[]) {
+  return getJson<WordbookFillQuestion>(
+    `/api/wordbook/quiz/fill?${wordbookExclude(exclude)}`,
+    "問題の取得に失敗しました",
+  );
+}
+
+export async function submitWordbookFill(wordId: number, typed: string, durationSeconds: number) {
+  return postJson<WordbookAnswerResult>(
+    "/api/wordbook/quiz/fill/answer",
+    { wordId, typed, durationSeconds },
+    "採点に失敗しました",
+  );
+}
+
+export async function fetchWordbookHistory() {
+  return getJson<WordbookHistoryItem[]>("/api/wordbook/history", "履歴の取得に失敗しました");
 }
 
 // アクセス履歴(閲覧キーが必要。キーはサーバーの環境変数 ACCESS_LOG_KEY と同じ値)

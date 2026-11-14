@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchWritingHistory, type WritingHistoryItem } from "../api/client";
 import Header from "../shared/components/Header";
-import AccessLogSection from "./AccessLogSection";
-import DeviceSection from "../features/device/DeviceSection";
 import StudyStatsSection from "./StudyStatsSection";
 import LevelSection from "../features/level/LevelSection";
 import WeaknessSection from "./WeaknessSection";
@@ -61,10 +59,6 @@ export default function MyPage() {
         <MockHistorySection />
 
         <ReadingSpeedSection />
-
-        <DeviceSection />
-
-        <AccessLogSection />
 
         <section className="mb-8">
           <h2 className="font-serif text-xl text-slate-900 mb-3">

@@ -14,6 +14,9 @@ import Admin from "./pages/Admin";
 import MyPage from "./pages/MyPage";
 import DeviceGate from "./features/device/DeviceGate";
 import Mock from "./features/mock/Mock";
+import Wordbook from "./features/wordbook/Wordbook";
+import WordbookQuiz from "./features/wordbook/WordbookQuiz";
+import WordbookList from "./features/wordbook/WordbookList";
 
 export default function App() {
   // 前回送れなかった解答記録を送る。オンラインに戻ったとき・画面に戻ってきたときにも再送する
@@ -43,6 +46,9 @@ export default function App() {
         <Route path="/listening" element={<Listening />} />
         <Route path="/speaking" element={<Speaking />} />
         <Route path="/mock" element={<Mock />} />
+        <Route path="/wordbook" element={<Wordbook />} />
+        <Route path="/wordbook/quiz" element={<WordbookQuiz />} />
+        <Route path="/wordbook/list" element={<WordbookList />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/mypage" element={<MyPage />} />
         {/* catch-all: redirect unknown paths to home (handles invalid public base URLs) */}
