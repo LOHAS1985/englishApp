@@ -16,7 +16,7 @@
   python scripts/audio/pregenerate.py --limit 3       # 先頭の3セットだけ(試すとき)
   python scripts/audio/pregenerate.py --ids l0467     # 指定したセットだけ(台本を直したあとの作り直しにも使う)
   python scripts/audio/pregenerate.py --no-upload     # 作るだけ(アップロードしない)
-途中で止まっても、同じコマンドをもう一度実行すれば、置いていない分だけ続きから作る。
+途中で止まっても、同じコマンドをもう一度実行すれば、リリースに置いていない分だけ続きから作る(別のPCで置いた分も飛ばす。台本を直したセットは --ids か --force で作り直す)。
 """
 import argparse
 import concurrent.futures
@@ -125,6 +125,22 @@ def duration_seconds(path):
         return None
 
 
+def existing_assets(tags):
+    """リリースにすでに置いてあるファイル名の集合(別のPC・別の実行で置いた分も含めて、作り直さないため)"""
+    names = set()
+    for tag in tags:
+        r = subprocess.run(["gh", "api", f"repos/{{owner}}/{{repo}}/releases/tags/{tag}", "-q", ".id"],
+                           capture_output=True, text=True, cwd=ROOT)
+        if r.returncode != 0 or not r.stdout.strip():
+            continue  # リリースがまだ無い
+        rid = r.stdout.strip()
+        r = subprocess.run(["gh", "api", "--paginate", f"repos/{{owner}}/{{repo}}/releases/{rid}/assets?per_page=100",
+                            "-q", ".[].name"], capture_output=True, text=True, cwd=ROOT)
+        if r.returncode == 0:
+            names.update(line.strip() for line in r.stdout.splitlines() if line.strip())
+    return names
+
+
 def ensure_release(tag):
     if subprocess.run(["gh", "release", "view", tag], capture_output=True, cwd=ROOT).returncode == 0:
         return
@@ -170,6 +186,12 @@ def main():
         ids = ids[: args.limit]
     state = load_state()
     WORK.mkdir(parents=True, exist_ok=True)
+    # すでにリリースにあるセットは飛ばす。台本を直したあとの作り直しは --ids か --force で行う(内容の変化までは見ない)
+    if not args.ids and not args.force and not args.no_upload:
+        present = existing_assets(sorted({release_tag(i) for i in ids}))
+        skipped = [i for i in ids if f"{i}.mp3" in present]
+        ids = [i for i in ids if f"{i}.mp3" not in present]
+        log(f"リリースにすでにある {len(skipped)} セットは飛ばす")
     started = time.time()
     log(f"対象 {len(ids)} セット / 同時 {args.workers} / アップロード {'しない' if args.no_upload else 'する'}")
 
