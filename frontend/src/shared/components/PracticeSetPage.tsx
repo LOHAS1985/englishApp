@@ -161,7 +161,7 @@ export default function PracticeSetPage({
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
-        <div className="w-full max-w-[760px] bg-white border border-slate-200 rounded-md p-5 sm:p-8">
+        <div className="w-full max-w-[47.5rem] question-card bg-white border border-slate-200 rounded-md p-5 sm:p-8">
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {error && <p className="text-sm text-[#c0392b]">{error}</p>}
 

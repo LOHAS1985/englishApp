@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import LevelBadge from "../../features/level/LevelBadge";
+import DisplaySettingsControl from "./DisplaySettingsControl";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Header() {
         </button>
 
         <div className="flex items-center gap-3">
+          <DisplaySettingsControl />
           <LevelBadge />
           {/* スマホではレベル表示(押すとマイページ)で代わりになるので隠す */}
           <button

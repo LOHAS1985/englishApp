@@ -16,7 +16,7 @@ export default function ReadingPractice() {
       renderMaterial={(set, result) => (
         <>
           <WordCapture>
-            <div className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
+            <div className="font-serif text-[0.9375rem] leading-7 text-slate-800 whitespace-pre-wrap border border-slate-200 rounded-md p-4 bg-slate-50">
               {set.passage}
             </div>
           </WordCapture>

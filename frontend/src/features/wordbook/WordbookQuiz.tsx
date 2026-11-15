@@ -145,7 +145,7 @@ export default function WordbookQuiz() {
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-5 py-12">
-        <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
+        <div className="w-full max-w-[40rem] question-card bg-white border border-slate-200 rounded-md p-9">
           <div className="flex items-center justify-between mb-6">
             <button onClick={() => navigate("/wordbook")} className="text-sm text-[#2463a8] hover:underline">
               ← 単語帳へ戻る

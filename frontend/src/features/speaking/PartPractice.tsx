@@ -68,7 +68,7 @@ export default function PartPractice({ setId, part, maxSeconds, onScored }: Prop
               ? "録音すると、話した内容がここに文字起こしされます。認識の間違いは直せます"
               : "このブラウザは音声認識に対応していません。話した内容をここに入力してください"
           }
-          className="w-full font-serif text-[15px] leading-7 text-slate-900 border border-slate-200 rounded px-3 py-2 resize-y
+          className="w-full font-serif text-[0.9375rem] leading-7 text-slate-900 border border-slate-200 rounded px-3 py-2 resize-y
                      focus:outline-2 focus:outline-[#8fae4e] focus:outline-offset-1"
         />
         <div className="flex flex-wrap items-center gap-3 mt-2">

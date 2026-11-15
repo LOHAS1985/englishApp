@@ -292,7 +292,7 @@ export default function Mock() {
                   className={`mb-4 text-slate-800 whitespace-pre-wrap ${
                     item.feature === "grammar"
                       ? "text-base"
-                      : "font-serif text-[15px] leading-7 border border-slate-200 rounded-md p-4 bg-slate-50"
+                      : "font-serif text-[0.9375rem] leading-7 border border-slate-200 rounded-md p-4 bg-slate-50"
                   }`}
                 >
                   {item.passage}
@@ -328,7 +328,7 @@ function Page({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
-        <div className="w-full max-w-[760px] bg-white border border-slate-200 rounded-md p-5 sm:p-8">
+        <div className="w-full max-w-[47.5rem] question-card bg-white border border-slate-200 rounded-md p-5 sm:p-8">
           {children}
           <p className="mt-10 text-xs text-slate-400">
             <Link to="/" className="underline">ホームに戻る</Link>

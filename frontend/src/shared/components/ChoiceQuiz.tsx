@@ -135,7 +135,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-5 py-12">
-        <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
+        <div className="w-full max-w-[40rem] question-card bg-white border border-slate-200 rounded-md p-9">
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {!loading && error && (
             <div>

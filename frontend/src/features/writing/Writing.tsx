@@ -103,7 +103,7 @@ export default function Writing() {
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
       <div className="flex justify-center px-5 py-12">
-        <div className="w-full max-w-[640px] bg-white border border-slate-200 rounded-md p-9">
+        <div className="w-full max-w-[40rem] question-card bg-white border border-slate-200 rounded-md p-9">
           {/* 形式(意見論述・要約)はホームで選ぶ。お題は採点に AI を使うサーバーから出す */}
           {!question && (
             <button
@@ -128,7 +128,7 @@ export default function Writing() {
                   {question.topic}
                 </h2>
                 {question.passage && (
-                  <p className="font-serif text-[15px] leading-7 text-slate-800 whitespace-pre-wrap">
+                  <p className="font-serif text-[0.9375rem] leading-7 text-slate-800 whitespace-pre-wrap">
                     {question.passage}
                   </p>
                 )}
@@ -154,18 +154,18 @@ export default function Writing() {
                   onChange={(e) => setAnswer(e.target.value)}
                   placeholder="ここに解答を入力してください"
                   rows={10}
-                  className="w-full font-serif text-[15px] leading-[36px] text-slate-900
+                  className="w-full font-serif text-[0.9375rem] leading-9 text-slate-900
                            border border-slate-200 rounded px-3.5 py-2 resize-y
                            focus:outline-2 focus:outline-[#8fae4e] focus:outline-offset-1"
                   style={{
                     backgroundImage:
-                      "repeating-linear-gradient(to bottom, transparent 0, transparent 35px, #e3e6ec 35px, #e3e6ec 36px)",
+                      "repeating-linear-gradient(to bottom, transparent 0, transparent 2.1875rem, #e3e6ec 2.1875rem, #e3e6ec 2.25rem)",
                   }}
                 />
 
                 <div className="flex justify-between items-baseline mt-2.5">
                   <span
-                    className={`font-mono text-[15px] font-semibold ${countColor}`}
+                    className={`font-mono text-[0.9375rem] font-semibold ${countColor}`}
                   >
                     {wordCount}
                     <span className="font-normal text-slate-300"> words</span>
