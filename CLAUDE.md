@@ -99,7 +99,7 @@
 - **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: DeepL(翻訳。単語帳の日本語訳の調査に使う)
-- **TTS**: `backend/tts/generate_tts.py`(edge-tts)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバック
+- **TTS**: `backend/tts/generate_tts.py`(edge-tts 7.3.1 以上。7.2.8 は Microsoft から 403 を受けて音声を作れない)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバックする。ブラウザの声は、声の名前から性別を判断して話者に合うものを選ぶ(順番だけで選ぶと、Man も Woman も同じ男性の声になる。`features/listening/browserVoice.ts`)。音声が男女で同じ声に聞こえたら、サーバーの音声が作れず(edge-tts の版・通信)ブラウザの読み上げに切り替わっていないかを疑う
 - **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
 **運用は無料枠のみ。** 新しいライブラリ・外部サービスを導入する場合は、無料で使えることを確認し、techStack.md に追記する。有料プランが必要なサービスは導入しない(音声認識はブラウザの Web Speech API など、無料の手段を先に検討する)。

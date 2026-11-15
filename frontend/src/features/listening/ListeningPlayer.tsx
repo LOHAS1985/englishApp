@@ -4,6 +4,7 @@ import {
   synthesizeListeningAudio,
   toAbsoluteApiUrl,
 } from "../../api/client";
+import { loadVoices, pickVoice } from "./browserVoice";
 
 /**
  * 話者ごとの読み上げの高さ・速さ。ブラウザの声が1種類しか無くても、話者の区別がつくようにする
@@ -60,7 +61,8 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
       return;
     }
     const script = await fetchListeningScript(setId);
-    const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
+    // 声の一覧は最初は空のことがあるので、読み込まれるのを待つ
+    const voices = await loadVoices();
     stoppedRef.current = false;
     setStatus("browser");
     window.speechSynthesis.cancel();
@@ -77,9 +79,8 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
       const style = SPEAKER_STYLE[speaker] ?? SPEAKER_STYLE.Narrator;
       utterance.pitch = style.pitch;
       utterance.rate = style.rate;
-      // 声が2種類以上あるときは、話者ごとに別の声を使う
-      const slot = Math.max(0, Object.keys(SPEAKER_STYLE).indexOf(speaker));
-      utterance.voice = voices.length > 1 ? voices[slot % voices.length] : null;
+      // 話者の性別に合う声を選ぶ(順番だけで選ぶと、Man も Woman も同じ男性の声になることがある)
+      utterance.voice = pickVoice(speaker, voices);
       await new Promise<void>((resolve) => {
         utterance.onend = () => resolve();
         utterance.onerror = () => resolve();

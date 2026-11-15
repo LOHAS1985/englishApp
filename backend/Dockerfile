@@ -12,10 +12,12 @@ RUN ./mvnw clean package -DskipTests
 # 実行ステージ
 FROM eclipse-temurin:25-jre-jammy
 WORKDIR /app
+# edge-tts は 7.2.8 だと Microsoft のサービスから 403 を受けて音声を作れない(7.3.1 で解消を確認)。
+# Render は Docker のレイヤーをキャッシュするので、最低の版を指定して、古い版のまま使われないようにする
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3 python3-pip ffmpeg \
 	&& ln -sf /usr/bin/python3 /usr/bin/python || true \
-	&& pip3 install --no-cache-dir edge-tts \
+	&& pip3 install --no-cache-dir "edge-tts>=7.3.1" \
 	&& rm -rf /var/lib/apt/lists/*
 COPY --from=build /app/tts ./tts
 COPY --from=build /app/target/*.jar app.jar
