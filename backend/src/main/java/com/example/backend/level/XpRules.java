@@ -63,6 +63,8 @@ public final class XpRules {
   static final int OPINION_XP_PER_POINT = 15;
   static final int SUMMARY_XP_PER_POINT = 9;
   static final int SPEAKING_XP = 150;
+  /** 面接の AI 採点は1パート(16点満点)ごとの得点 × この値。1セット4パートを満点で通すと約190(自己採点の 150 とほぼ同じ時間) */
+  static final int SPEAKING_PART_XP_PER_POINT = 3;
   static final int ARTICLE_XP = 30;
 
   static final int TIME_XP_CAP_PER_DAY = 60;
@@ -104,6 +106,7 @@ public final class XpRules {
       case "eiken-opinion" -> score(log) * OPINION_XP_PER_POINT;
       case "eiken-summary" -> score(log) * SUMMARY_XP_PER_POINT;
       case "eiken-interview" -> SPEAKING_XP;
+      case "eiken-interview-part" -> score(log) * SPEAKING_PART_XP_PER_POINT;
       // Guardian 記事の多読は廃止したが、過去の学習ログの経験値(レベル)が下がらないよう残す
       case "guardian" -> ARTICLE_XP;
       // 模試は点数を測るための区切り。解答の経験値は与えず、かかった時間(時間 XP)だけを数える

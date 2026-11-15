@@ -41,6 +41,8 @@ class XpRulesTests {
     assertThat(XpRules.answerXp(log("reading", "toeic-part7", "r1", 3, 4, 300, DAY), 2)).isEqualTo(59);
     assertThat(XpRules.answerXp(log("writing", "eiken-opinion", "w1", 10, 16, 1200, DAY), 2)).isEqualTo(150);
     assertThat(XpRules.answerXp(log("speaking", "eiken-interview", "s1", null, null, 600, DAY), 2)).isEqualTo(150);
+    assertThat(XpRules.answerXp(log("speaking", "eiken-interview-part", "s0001-p1", 12, 16, 120, DAY), 2))
+        .as("AI 採点は得点に比例").isEqualTo(36);
   }
 
   @Test

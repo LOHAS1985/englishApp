@@ -5,10 +5,12 @@ import com.example.backend.common.PracticeRecordRepository;
 import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.speaking.SpeakingQuestionBank.SpeakingSet;
+import com.example.backend.speaking.dto.SpeakingScoreRequest;
+import com.example.backend.speaking.dto.SpeakingScoreResult;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.web.bind.annotation.*;
 
-/** 録音はブラウザの中だけで扱い、サーバーには保存しない(面接練習は自己採点のため。Render のディスクは再デプロイで消える) */
+/** 録音はブラウザの中だけで扱い、サーバーには送らない(Render のディスクは再デプロイで消える)。AI 採点には文字起こしだけを送る */
 @RestController
 @RequestMapping("/api/speaking")
 public class SpeakingController {
@@ -18,15 +20,18 @@ public class SpeakingController {
   private final QuestionSelector questionSelector;
   private final PracticeRecordRepository recordRepository;
   private final StudyLogService studyLogService;
+  private final SpeakingService speakingService;
 
   public SpeakingController(CurrentUserProvider currentUserProvider,
       SpeakingQuestionBank questionBank, QuestionSelector questionSelector,
-      PracticeRecordRepository recordRepository, StudyLogService studyLogService) {
+      PracticeRecordRepository recordRepository, StudyLogService studyLogService,
+      SpeakingService speakingService) {
     this.currentUserProvider = currentUserProvider;
     this.questionBank = questionBank;
     this.questionSelector = questionSelector;
     this.recordRepository = recordRepository;
     this.studyLogService = studyLogService;
+    this.speakingService = speakingService;
   }
 
   /** @param durationSeconds 出題から模範解答を見るまでの秒数 */
@@ -49,5 +54,11 @@ public class SpeakingController {
     SpeakingSet set = questionBank.findById(request.setId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません: " + request.setId()));
     studyLogService.log("speaking", "eiken-interview", set.id(), null, null, request.durationSeconds());
+  }
+
+  /** ナレーションまたは Q&A の1問を、文字起こしから Gemini で採点する */
+  @PostMapping("/score")
+  public SpeakingScoreResult score(@RequestBody SpeakingScoreRequest request) {
+    return speakingService.score(request);
   }
 }

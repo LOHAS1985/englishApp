@@ -127,6 +127,7 @@ export const TYPE_LABELS: Record<string, string> = {
   "eiken-part2": "英検 リスニング Part 2",
   "eiken-part3": "英検 リスニング Part 3",
   "eiken-interview": "英検 二次面接",
+  "eiken-interview-part": "英検 二次面接(AI採点)",
   // Guardian 記事の多読は廃止したが、過去の学習ログの形式名として表示するために残す
   guardian: "Guardian 記事(終了)",
 };

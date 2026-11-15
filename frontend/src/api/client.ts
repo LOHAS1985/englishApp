@@ -428,6 +428,33 @@ export async function completeSpeakingSet(setId: string, durationSeconds: number
   await send("/api/speaking/complete", "記録の保存に失敗しました", jsonBody("POST", { setId, durationSeconds }));
 }
 
+export interface SpeakingScoreResult {
+  content: CriterionScore;
+  structure: CriterionScore;
+  vocabulary: CriterionScore;
+  grammar: CriterionScore;
+  /** 利用者の答えを直した英語の例 */
+  betterAnswer: string;
+  total: number;
+}
+
+/**
+ * 話した内容の文字起こしを AI で採点する(録音は送らない)。
+ * @param part 1 = ナレーション、2〜4 = Q&A の質問番号
+ */
+export async function scoreSpeakingAnswer(
+  setId: string,
+  part: number,
+  transcript: string,
+  speakingSeconds?: number,
+) {
+  return postJson<SpeakingScoreResult>(
+    "/api/speaking/score",
+    { setId, part, transcript, speakingSeconds },
+    "採点に失敗しました",
+  );
+}
+
 // 学習ログの集計と復習(間隔反復)
 export type Skill = "listening" | "reading" | "writing" | "speaking" | "vocab";
 

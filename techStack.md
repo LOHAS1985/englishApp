@@ -28,6 +28,7 @@ english-app/
 
 - ホーム画面:各機能への遷移メニューと、今日の30分メニュー(`pages/TodayMenuSection.tsx`。`GET /api/stats/summary` の学習ログから画面側の純粋関数 `shared/todayMenu.ts` が組み立てる。新しい API は無い。スピーキングなしのメニューも同時に出す)
 - ライティング問題画面:出題 → 回答入力(語数カウント付き)→ AI採点(4観点・16点満点)
+- スピーキング問題画面:出題 → 録音(`features/speaking/Recorder.tsx`)と同時に、ブラウザの音声認識(Web Speech API。無料。Chrome / Edge / Safari)で文字起こし → 文字起こしを直して AI 採点(`PartPractice.tsx`。4観点・16点満点)。音声はブラウザの外に送らず、採点に送るのは文字起こしだけ。音声認識に対応していないブラウザでは文字起こしを手入力する
 
 ## バックエンド
 
@@ -46,6 +47,7 @@ english-app/
 | -------- | ----------------------- | ------------------------------------------------------------- |
 | GET      | `/api/writing/question` | Geminiに英検準1級形式の問題を生成させる                       |
 | POST     | `/api/writing/score`    | 回答をGeminiに送り、内容・構成・語彙・文法の4観点で採点させる |
+| POST     | `/api/speaking/score`   | 面接の1パート(ナレーションまたは Q&A の1問)の文字起こしを Gemini に送り、内容・構成・語彙・文法の4観点で採点させる(`speaking_records` に保存) |
 | GET      | `/api/stats/summary`    | 学習ログ(`study_logs`)を技能別・形式別・日別に集計する(MyPage) |
 | GET      | `/api/stats/history`    | 全技能の最近の学習50件                                         |
 | GET      | `/api/practice/history?feature=` | 文法・語彙・読解・リスニングの解答履歴(画面側で出題するため。画面がブラウザに保存する) |
