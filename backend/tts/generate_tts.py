@@ -26,12 +26,17 @@ def make_silence(seconds: float, out_path: str) -> bool:
                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
     return rc == 0
 
+# 読み上げの速さ。edge-tts の標準だと、間の無音を含めて1分に約180〜210語になり、本番の試験より速いので、少し遅くする。
+# 環境変数 TTS_RATE で変えられる(例: -15%)。変えたら TtsService の VOICE_PROFILE も変える(音声のキャッシュが古いまま使われないように)
+TTS_RATE = os.environ.get('TTS_RATE', '-10%')
+
+
 async def synth(text: str, voice: str, out_path: str):
     try:
         import edge_tts
     except Exception:
         raise RuntimeError('edge-tts not installed. Run: pip install edge-tts')
-    communicate = edge_tts.Communicate(text, voice)
+    communicate = edge_tts.Communicate(text, voice, rate=TTS_RATE)
     await communicate.save(out_path)
     trim_edge_silence(out_path)
 

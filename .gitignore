@@ -13,3 +13,6 @@ node_modules/
 # Playwright の出力
 frontend/test-results/
 frontend/playwright-report/
+
+# 音声の一括作成(scripts/audio)の作業用フォルダ(作った mp3・状態・ログ)
+/build/

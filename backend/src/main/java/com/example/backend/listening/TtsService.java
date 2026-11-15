@@ -37,6 +37,9 @@ public class TtsService {
   private final Counter ttsFailures;
   private final Timer ttsPollTimer;
 
+  /** 音声のキャッシュのキーに含める声の設定。generate_tts.py の TTS_RATE(既定 -10%)を変えたら、ここも変える */
+  static final String VOICE_PROFILE = "\n#voice:rate-10";
+
   // Executor for offloading blocking TTS work so request threads are not blocked.
   private final ExecutorService ttsExecutor = Executors
       .newFixedThreadPool(Math.max(2, Runtime.getRuntime().availableProcessors() / 2));
@@ -76,7 +79,8 @@ public class TtsService {
     } catch (NoSuchAlgorithmException e) {
       throw new IOException("SHA-1 not available");
     }
-    byte[] digest = md.digest(dialog.getBytes(StandardCharsets.UTF_8));
+    // 台本が同じでも、声の設定(読み上げの速さなど)を変えたら別の音声として作り直す
+    byte[] digest = md.digest((dialog + VOICE_PROFILE).getBytes(StandardCharsets.UTF_8));
     String key = HexFormat.of().formatHex(digest);
 
     // choose generated dir: use runtime-served filesystem directory

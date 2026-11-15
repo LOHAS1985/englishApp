@@ -5,6 +5,7 @@ import {
   toAbsoluteApiUrl,
 } from "../../api/client";
 import { loadVoices, pickVoice } from "./browserVoice";
+import { canLoadAudio, pregeneratedAudioUrl } from "./audioUrl";
 
 /**
  * 話者ごとの読み上げの高さ・速さ。ブラウザの声が1種類しか無くても、話者の区別がつくようにする
@@ -19,8 +20,8 @@ const SPEAKER_STYLE: Record<string, { pitch: number; rate: number }> = {
 };
 
 /**
- * リスニングの音声再生。サーバーで台本を音声化して再生し、
- * 失敗したときはブラウザの読み上げ機能(Web Speech API)で台本を読み上げる。
+ * リスニングの音声再生。あらかじめ作って置いてある音声(GitHub Releases)があればそれを再生し、無ければサーバーで台本を音声化して再生し、
+ * それも失敗したときはブラウザの読み上げ機能(Web Speech API)で台本を読み上げる。
  * allowReplay=false のときは1回聞いたら聞き直せない(模試の本番と同じ条件)。
  */
 export default function ListeningPlayer({ setId, allowReplay = true }: { setId: string; allowReplay?: boolean }) {
@@ -97,6 +98,13 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
       return;
     }
     setStatus("loading");
+    // あらかじめ作って置いてある音声(GitHub Releases)があれば、それを使う。無ければ、今までどおりサーバーで作る
+    const prepared = pregeneratedAudioUrl(setId);
+    if (prepared && (await canLoadAudio(prepared))) {
+      setUrls([prepared]);
+      await playUrls([prepared]);
+      return;
+    }
     try {
       const res = await synthesizeListeningAudio(setId);
       const list = (res.audioUrls ?? (res.audioUrl ? [res.audioUrl] : [])).map(toAbsoluteApiUrl);

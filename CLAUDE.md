@@ -99,7 +99,7 @@
 - **認証**: なし(Spring Security は CORS 設定のためだけに使い、全リクエストを許可)
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: DeepL(翻訳。単語帳の日本語訳の調査に使う)
-- **TTS**: `backend/tts/generate_tts.py`(edge-tts 7.3.1 以上。7.2.8 は Microsoft から 403 を受けて音声を作れない)+ ffmpeg。失敗時はブラウザの `speechSynthesis` にフォールバックする。ブラウザの声は、声の名前から性別を判断して話者に合うものを選ぶ(順番だけで選ぶと、Man も Woman も同じ男性の声になる。`features/listening/browserVoice.ts`)。音声が男女で同じ声に聞こえたら、サーバーの音声が作れず(edge-tts の版・通信)ブラウザの読み上げに切り替わっていないかを疑う
+- **TTS**: `backend/tts/generate_tts.py`(edge-tts 7.3.1 以上。7.2.8 は Microsoft から 403 を受けて音声を作れない。読み上げの速さは `TTS_RATE`、既定 -10%。標準だと間の無音を含めて1分に約180〜210語で、本番の試験より速い。速さを変えたら `TtsService` の `VOICE_PROFILE` も変える)+ ffmpeg。**音声はあらかじめ作って GitHub Releases に置く**(`scripts/audio/pregenerate.py`。リリース `audio-<ID を1000で割った商+1>` に `<セットID>.mp3`。画面は `features/listening/audioUrl.ts` の URL を先に再生し、無ければサーバーで作り、それも失敗すればブラウザの声)。サーバーで作る音声は Render のディスクに置くのでデプロイのたびに消え、edge-tts が止まると品質も下がるため。新しいセットを足したら、このPCで `scripts/audio/run-pregenerate.ps1` を実行して置く(置くまではサーバーで作る)。失敗時はブラウザの `speechSynthesis` にフォールバックする。ブラウザの声は、声の名前から性別を判断して話者に合うものを選ぶ(順番だけで選ぶと、Man も Woman も同じ男性の声になる。`features/listening/browserVoice.ts`)。音声が男女で同じ声に聞こえたら、サーバーの音声が作れず(edge-tts の版・通信)ブラウザの読み上げに切り替わっていないかを疑う
 - **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
 **運用は無料枠のみ。** 新しいライブラリ・外部サービスを導入する場合は、無料で使えることを確認し、techStack.md に追記する。有料プランが必要なサービスは導入しない(音声認識はブラウザの Web Speech API など、無料の手段を先に検討する)。
@@ -252,7 +252,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在100問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
-- [ ] **生成音声が Render のディスクに保存されている**: 再デプロイで消える(音声は台本から再生成できる)。無料のオブジェクトストレージ(Cloudflare R2 / Supabase Storage など)か DB への保存を検討
+- [x] 生成音声が Render のディスクに保存されていて、再デプロイで消える問題: 音声をあらかじめ作って GitHub Releases に置くようにした(20261115)。サーバーで作る音声(置いていないセット)は、今も再デプロイで消える。新しいセットの音声を置く作業は、毎日のリスニング追加の手順に入っていない(クラウドの実行環境では edge-tts が動くか未確認)
 - [x] Speaking の AI 採点(ブラウザの音声認識で文字起こし+Gemini で採点)を追加(20261115)。採点履歴の画面(`speaking_records` の一覧)と、採点の質を確かめる実機の確認は未実施
 - [ ] **Speaking の採点は発音・抑揚・間を見られない**: 文字起こしだけを採点している。音声そのものの評価が要るなら、Gemini に音声を渡す方式を検討する(無料枠の範囲で)
 - [x] 出題順の改善(一巡するまで重複なし・選択肢のシャッフル・間違えた問題の優先)とログイン廃止(20261026)
