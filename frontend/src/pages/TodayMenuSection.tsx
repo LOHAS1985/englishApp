@@ -120,12 +120,12 @@ export default function TodayMenuSection() {
                 onClick={() => navigate(t.review ? t.path : withLevel(t.path, loadSavedLevel()))}
                 className={`w-full text-left rounded-md border px-3 py-2.5 flex items-center gap-3 transition-colors hover:bg-slate-50 ${
                   t.review ? "border-l-4 border-l-[#c0392b] border-slate-200" : "border-slate-200"
-                } ${t.done ? "opacity-60" : ""}`}
+                } ${t.done ? "bg-slate-50" : ""}`}
               >
                 <span className="font-mono text-sm text-slate-400 w-4">{i + 1}</span>
                 <span className={`inline-block h-3 w-3 rounded-full shrink-0 ${SKILL_COLORS[t.skill]}`} aria-hidden />
                 <span className="flex-1 min-w-0">
-                  <span className={`block text-slate-900 ${t.done ? "line-through" : ""}`}>
+                  <span className={`block ${t.done ? "line-through text-slate-500" : "text-slate-900"}`}>
                     {t.label}
                     <span className="ml-2 text-xs text-slate-500">
                       {SKILL_LABELS[t.skill]}・{t.note}

@@ -77,6 +77,36 @@ html[data-theme="dark"] .bg-\[\#16233d\] {
 html[data-theme="dark"] .hover\:bg-\[\#23365c\]:hover {
   background-color: #4263a8;
 }
+/*
+ * 試験の見出しカード(青・オレンジのグラデーション)。ダークでは見出しの文字を明るくしているので、
+ * 背景も同系色の暗い色にする(そのままだと明るい背景に明るい文字が乗って読めない)
+ */
+html[data-theme="dark"] .from-\[\#a1c4fd\] {
+  --tw-gradient-from: #27456f;
+}
+html[data-theme="dark"] .to-\[\#c2e9fb\] {
+  --tw-gradient-to: #2f5f78;
+}
+html[data-theme="dark"] .from-\[\#f6d365\] {
+  --tw-gradient-from: #6e5a1a;
+}
+html[data-theme="dark"] .to-\[\#fda085\] {
+  --tw-gradient-to: #7d4a3a;
+}
+/* 選択中の絞り込みボタン(濃い背景に白い文字)は、暗い背景に埋もれるので紺のボタンと同じ色にする */
+html[data-theme="dark"] .bg-slate-900 {
+  background-color: #34508a;
+}
+html[data-theme="dark"] .border-slate-900 {
+  border-color: #34508a;
+}
+/* 緑のボタンは、白い文字が読めるよう暗い緑にする(文字のない緑の棒グラフなどは変えない) */
+html[data-theme="dark"] .bg-\[\#8fae4e\].text-white {
+  background-color: #557a26;
+}
+html[data-theme="dark"] .bg-\[\#8fae4e\].text-white:hover {
+  background-color: #486a1f;
+}
 
 /* 文字 */
 html[data-theme="dark"] .text-slate-900 {
@@ -95,7 +125,7 @@ html[data-theme="dark"] .text-slate-500 {
   color: #94a0b8;
 }
 html[data-theme="dark"] .text-slate-400 {
-  color: #8591aa;
+  color: #9aa5bd;
 }
 html[data-theme="dark"] .hover\:text-slate-900:hover {
   color: #ffffff;
