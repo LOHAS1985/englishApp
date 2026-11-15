@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   fetchWritingQuestion,
@@ -9,6 +9,7 @@ import {
 } from "../../api/client";
 import Header from "../../shared/components/Header";
 import QuestionNumber from "../../shared/components/QuestionNumber";
+import { clearDraft, loadDraft, saveDraft } from "../../shared/draft";
 
 const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
   { key: "content", label: "内容" },
@@ -22,7 +23,8 @@ export default function Writing() {
   const [searchParams] = useSearchParams();
   const type: WritingType = searchParams.get("type") === "summary" ? "summary" : "opinion";
   const [question, setQuestion] = useState<WritingQuestion | null>(null);
-  const [loading, setLoading] = useState(false);
+  // 下書きがあるときは、復元するお題を取得し終えるまで「出題中」にする
+  const [loading, setLoading] = useState(() => loadDraft<string>(`writing-${type}`) !== null);
   const [answer, setAnswer] = useState("");
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
@@ -30,6 +32,43 @@ export default function Writing() {
   const [count, setCount] = useState(0);
   /** お題を表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
+  /** 下書きを復元して始めたか(その旨を一言出す) */
+  const [restored, setRestored] = useState(false);
+  /** 形式ごとに下書きを1つ持つ(意見論述の途中で要約を開いても、意見論述の下書きは残る) */
+  const draftFeature = `writing-${type}`;
+
+  // 前回の途中の答案があれば、同じお題を出し直して続きから書けるようにする
+  useEffect(() => {
+    const draft = loadDraft<string>(draftFeature);
+    if (!draft) return;
+    let cancelled = false;
+    fetchWritingQuestion(type, null, draft.id)
+      .then((data) => {
+        if (cancelled) return;
+        setQuestion(data);
+        setCount(1);
+        shownAtRef.current = Date.now();
+        // 問題集から外れていて別のお題が返ったときは、下書きを使わない
+        if (data.id === draft.id) {
+          setAnswer(draft.value);
+          setRestored(true);
+        } else {
+          clearDraft(draftFeature);
+        }
+      })
+      .catch(() => {})
+      .finally(() => !cancelled && setLoading(false));
+    return () => {
+      cancelled = true;
+    };
+  }, [type, draftFeature]);
+
+  // 入力のたびに下書きを保存する(採点後は不要なので消す)
+  useEffect(() => {
+    if (!question || result) return;
+    if (answer.trim() === "") clearDraft(draftFeature);
+    else saveDraft(draftFeature, question.id, answer);
+  }, [answer, question, result, draftFeature]);
 
 
   const wordCount = useMemo(() => {
@@ -73,6 +112,7 @@ export default function Writing() {
       setQuestion(data);
       setCount((c) => c + 1);
       setAnswer("");
+      setRestored(false);
       shownAtRef.current = Date.now();
     } catch {
       alert("取得に失敗しました");
@@ -91,6 +131,7 @@ export default function Writing() {
         Math.round((Date.now() - shownAtRef.current) / 1000),
       );
       setResult(data);
+      clearDraft(draftFeature);
     } catch (e: unknown) {
       // AI のレート制限などはサーバーが理由を返すので、そのまま見せる
       alert(e instanceof Error ? e.message : "採点に失敗しました");
@@ -147,6 +188,9 @@ export default function Writing() {
                   className="block font-mono text-xs font-semibold tracking-wide text-slate-400 mb-2"
                 >
                   回答
+                  {restored && (
+                    <span className="ml-3 font-sans font-normal text-[#6a8a3e]">前回の下書きを復元しました</span>
+                  )}
                 </label>
                 <textarea
                   id="answer"

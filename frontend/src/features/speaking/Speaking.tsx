@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { completeSpeakingSet, fetchSpeakingSet, type SpeakingSet } from "../../api/client";
 import Header from "../../shared/components/Header";
 import QuestionNumber from "../../shared/components/QuestionNumber";
+import { clearDraft, loadDraft, saveDraft } from "../../shared/draft";
 import PartPractice from "./PartPractice";
 
 /** 質問文を読み上げる(本番では面接委員が読み上げるため) */
@@ -21,6 +22,9 @@ export default function Speaking() {
   const [shown, setShown] = useState<Record<string, boolean>>({});
   /** この画面で何問目か */
   const [count, setCount] = useState(1);
+  /** パートごとの文字起こし(1 = ナレーション、2〜4 = Q&A)。下書きとして保存する */
+  const [transcripts, setTranscripts] = useState<Record<number, string>>({});
+  const [restored, setRestored] = useState(false);
 
   // 「次の問題」で表示中のセットが選ばれないよう、表示中の ID を覚えておく
   const currentIdRef = useRef<string | null>(null);
@@ -37,6 +41,8 @@ export default function Speaking() {
     setLoading(true);
     setShown({});
     setPrepLeft(null);
+    setTranscripts({});
+    setRestored(false);
     try {
       setSet(await fetchSpeakingSet(currentIdRef.current));
       setCount((c) => c + 1);
@@ -49,8 +55,19 @@ export default function Speaking() {
 
   useEffect(() => {
     let cancelled = false;
-    fetchSpeakingSet()
-      .then((data) => !cancelled && setSet(data))
+    // 前回の途中の文字起こしがあれば、同じセットを出し直して続きから練習できるようにする
+    const draft = loadDraft<Record<number, string>>("speaking");
+    fetchSpeakingSet(undefined, draft?.id)
+      .then((data) => {
+        if (cancelled) return;
+        setSet(data);
+        if (draft && data.id === draft.id) {
+          setTranscripts(draft.value);
+          setRestored(true);
+        } else if (draft) {
+          clearDraft("speaking");
+        }
+      })
       .catch(() => !cancelled && setSet(null))
       .finally(() => !cancelled && setLoading(false));
     return () => {
@@ -63,6 +80,15 @@ export default function Speaking() {
     const id = window.setTimeout(() => setPrepLeft((s) => (s ?? 0) - 1), 1000);
     return () => window.clearTimeout(id);
   }, [prepLeft]);
+
+  // 文字起こしが変わるたびに下書きを保存する(1つも無いときは消す)
+  useEffect(() => {
+    if (!set) return;
+    if (Object.values(transcripts).some((t) => t.trim() !== "")) saveDraft("speaking", set.id, transcripts);
+    else clearDraft("speaking");
+  }, [set, transcripts]);
+
+  const changeTranscript = (part: number, text: string) => setTranscripts((prev) => ({ ...prev, [part]: text }));
 
   // AI 採点した時点で学習ログが残るので、模範解答を見たときの記録(二重になる)は付けない
   const markLogged = () => {
@@ -90,6 +116,7 @@ export default function Speaking() {
               <section className="border border-slate-200 rounded-md p-4">
                 <QuestionNumber n={count} />
                 <h2 className="font-serif text-lg text-slate-900 mb-2">{set.title}</h2>
+                {restored && <p className="text-xs text-[#6a8a3e] mb-2">前回の文字起こしの下書きを復元しました</p>}
                 <p className="text-sm text-slate-600 mb-3">{set.instruction}</p>
                 <p className="text-sm text-slate-900 bg-amber-50 border border-amber-200 rounded p-3 mb-4">
                   書き出し: <span className="font-serif">{set.firstSentence}</span>
@@ -118,7 +145,15 @@ export default function Speaking() {
                     </span>
                   )}
                 </div>
-                <PartPractice setId={set.id} part={1} maxSeconds={120} onScored={markLogged} />
+                <PartPractice
+                  key={`${set.id}-1`}
+                  setId={set.id}
+                  part={1}
+                  maxSeconds={120}
+                  onScored={markLogged}
+                  initialTranscript={transcripts[1]}
+                  onTranscriptChange={(text) => changeTranscript(1, text)}
+                />
                 <button onClick={() => toggle("narration")} className="mt-3 text-sm text-[#2463a8] underline">
                   {shown.narration ? "模範解答を隠す" : "模範解答を見る"}
                 </button>
@@ -142,7 +177,15 @@ export default function Speaking() {
                     </button>
                     <p className="text-sm text-slate-800 font-serif leading-relaxed">{q.question}</p>
                   </div>
-                  <PartPractice setId={set.id} part={q.no} maxSeconds={60} onScored={markLogged} />
+                  <PartPractice
+                    key={`${set.id}-${q.no}`}
+                    setId={set.id}
+                    part={q.no}
+                    maxSeconds={60}
+                    onScored={markLogged}
+                    initialTranscript={transcripts[q.no]}
+                    onTranscriptChange={(text) => changeTranscript(q.no, text)}
+                  />
                   <button onClick={() => toggle(`q${q.no}`)} className="mt-3 text-sm text-[#2463a8] underline">
                     {shown[`q${q.no}`] ? "模範解答を隠す" : "模範解答を見る"}
                   </button>

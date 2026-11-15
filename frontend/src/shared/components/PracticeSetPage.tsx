@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   fetchPracticeSet,
   submitPracticeAnswers,
@@ -13,8 +13,11 @@ import {
   isMeasurableReadingTime,
   wordsPerMinute,
 } from "../readingSpeed";
+import { useQuizKeys, type QuizKeyActions } from "../quizKeys";
+import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
 import QuestionNumber from "./QuestionNumber";
+import SessionSummary from "./SessionSummary";
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
@@ -48,6 +51,7 @@ export default function PracticeSetPage({
   renderAfterAnswer,
   readingSpeed = false,
 }: PracticeSetPageProps) {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const requestedType = searchParams.get("type");
   const type = requestedType && types.includes(requestedType) ? requestedType : types[0];
@@ -70,6 +74,11 @@ export default function PracticeSetPage({
   const [now, setNow] = useState(0);
   /** 本文を読み終えるまでの秒数。まだ読んでいる間・計測しない形式では null */
   const [readingSeconds, setReadingSeconds] = useState<number | null>(null);
+  /** 今回の練習の集計(解いたセット数も数える)と、終了後のまとめの表示 */
+  const [tally, setTally] = useState<Tally>(EMPTY_TALLY);
+  const [setsDone, setSetsDone] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   const showSet = (data: QuestionSetView | null) => {
     shownAtRef.current = Date.now();
@@ -135,15 +144,11 @@ export default function PracticeSetPage({
     if (!set) return;
     setSubmitting(true);
     try {
-      setResult(
-        await submitPracticeAnswers(
-          feature,
-          set.id,
-          answers,
-          Math.round((Date.now() - shownAtRef.current) / 1000),
-          readingSeconds ?? undefined,
-        ),
-      );
+      const seconds = Math.round((Date.now() - shownAtRef.current) / 1000);
+      const data = await submitPracticeAnswers(feature, set.id, answers, seconds, readingSeconds ?? undefined);
+      setResult(data);
+      setTally((t) => addToTally(t, { total: data.total, correct: data.score, seconds }));
+      setSetsDone((n) => n + 1);
     } catch {
       alert("採点に失敗しました");
     } finally {
@@ -152,6 +157,38 @@ export default function PracticeSetPage({
   };
 
   const allAnswered = answers.length > 0 && answers.every((a) => a !== "");
+
+  // 解答したら「次の問題」にフォーカスを移す(Enter で続けられる)
+  useEffect(() => {
+    if (result) nextButtonRef.current?.focus();
+  }, [result]);
+
+  // キーボード: 1〜4 / A〜D で、まだ答えていない先頭の設問の選択肢を選ぶ。Enter で解答・次の問題
+  const keyActions = useRef<QuizKeyActions>({});
+  useEffect(() => {
+    keyActions.current = {
+      onChoice: (index) => {
+        if (result || !set) return;
+        const qi = answers.findIndex((a) => a === "");
+        if (qi === -1) return;
+        const qOrder = order[qi] ?? set.questions[qi].choices.map((_, i) => i);
+        if (index >= qOrder.length) return;
+        const original = LETTERS[qOrder[index]];
+        setAnswers((prev) => prev.map((a, i) => (i === qi ? original : a)));
+      },
+      onEnter: () => {
+        if (result) void loadNext();
+        else if (allAnswered && !submitting) void handleSubmit();
+      },
+    };
+  });
+  const keysEnabled = !loading && !finished && set !== null && (!readingSpeed || readingSeconds !== null);
+  useQuizKeys(keysEnabled, keyActions);
+
+  const handleContinue = () => {
+    setFinished(false);
+    if (result) void loadNext();
+  };
   // 読解速度を計測する形式は、本文を読み終えてから設問を出す
   const questionsVisible = !readingSpeed || readingSeconds !== null;
   const elapsedSeconds = Math.floor((now - startedAt) / 1000);
@@ -165,7 +202,16 @@ export default function PracticeSetPage({
           {loading && <p className="text-sm text-slate-400">出題中…</p>}
           {error && <p className="text-sm text-[#c0392b]">{error}</p>}
 
-          {!loading && set && (
+          {finished && (
+            <SessionSummary
+              tally={tally}
+              extra={`${setsDone}セット`}
+              onContinue={handleContinue}
+              onHome={() => navigate("/")}
+            />
+          )}
+
+          {!loading && !finished && set && (
             <div>
               <QuestionNumber n={count} difficulty={set.difficulty} />
               {showTitle && <h2 className="font-serif text-lg text-slate-900 mb-3">{set.title}</h2>}
@@ -211,7 +257,7 @@ export default function PracticeSetPage({
                         <p className="text-sm font-semibold text-slate-900 mb-3">
                           {q.question ? `Q${qi + 1}. ${q.question}` : `No. ${qi + 1}`}
                         </p>
-                        <div className="space-y-2">
+                        <div className="space-y-2" role="group" aria-label={`設問${qi + 1}の選択肢`}>
                           {qOrder.map((originalIndex, ci) => {
                             const letter = LETTERS[ci];
                             const original = LETTERS[originalIndex];
@@ -229,6 +275,7 @@ export default function PracticeSetPage({
                               <button
                                 key={letter}
                                 disabled={!!result}
+                                aria-pressed={isSelected}
                                 onClick={() =>
                                   setAnswers((prev) => prev.map((a, i) => (i === qi ? original : a)))
                                 }
@@ -236,12 +283,19 @@ export default function PracticeSetPage({
                               >
                                 <span className="font-mono font-semibold mr-2">({letter})</span>
                                 {choice}
+                                {/* 正誤を色だけで伝えないよう、文字でも示す */}
+                                {r && original === r.answer && (
+                                  <span className="ml-2 text-xs font-semibold text-[#6a8a3e]">✓ 正解</span>
+                                )}
+                                {r && isSelected && original !== r.answer && (
+                                  <span className="ml-2 text-xs font-semibold text-[#c0392b]">✕ あなたの選択</span>
+                                )}
                               </button>
                             );
                           })}
                         </div>
                         {r && (
-                          <div className="mt-3 text-sm leading-relaxed">
+                          <div className="mt-3 text-sm leading-relaxed" role="status" aria-live="polite">
                             <p className={`font-semibold ${r.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
                               {r.correct ? "正解" : `不正解(正解: ${toDisplay(r.answer)})`}
                             </p>
@@ -253,6 +307,12 @@ export default function PracticeSetPage({
                     );
                   })}
                 </div>
+              )}
+
+              {!result && questionsVisible && (
+                <p className="hidden sm:block mt-4 text-xs text-slate-400">
+                  キー操作: 1〜4(または A〜D)で、上から順に未回答の設問を選択 / すべて答えたら Enter で解答
+                </p>
               )}
 
               {!result && questionsVisible && (
@@ -284,12 +344,21 @@ export default function PracticeSetPage({
                     </p>
                   )}
                   {renderAfterAnswer?.(set, result)}
-                  <button
-                    onClick={loadNext}
-                    className="text-sm font-semibold text-white bg-[#8fae4e] rounded px-5 py-3 hover:bg-[#7a9843] transition-colors"
-                  >
-                    次の問題
-                  </button>
+                  <div className="flex gap-3">
+                    <button
+                      ref={nextButtonRef}
+                      onClick={loadNext}
+                      className="text-sm font-semibold text-white bg-[#8fae4e] rounded px-5 py-3 hover:bg-[#7a9843] transition-colors"
+                    >
+                      次の問題
+                    </button>
+                    <button
+                      onClick={() => setFinished(true)}
+                      className="text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded px-5 py-3 hover:border-slate-400 transition-colors"
+                    >
+                      終了する
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

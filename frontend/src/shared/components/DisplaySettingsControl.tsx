@@ -3,10 +3,14 @@ import {
   FONT_SCALES,
   fitFontScale,
   loadDisplaySettings,
+  nextTheme,
   saveDisplaySettings,
   stepFontScale,
   type DisplaySettings,
 } from "../displaySettings";
+
+const THEME_LABELS = { system: "端末に合わせる", dark: "ダーク", light: "ライト" } as const;
+const THEME_ICONS = { system: "◐", dark: "☾", light: "☀" } as const;
 
 const buttonClass =
   "text-xs font-semibold text-white border border-slate-400 rounded px-2 py-1 hover:bg-slate-600 disabled:opacity-40 disabled:hover:bg-transparent";
@@ -50,11 +54,20 @@ export default function DisplaySettingsControl() {
         全幅
       </button>
       <button
-        onClick={() => update({ fontScale: fitFontScale(window.innerWidth), fullWidth: true })}
+        onClick={() => update({ ...settings, fontScale: fitFontScale(window.innerWidth), fullWidth: true })}
         className={`hidden sm:inline-block ${buttonClass}`}
         title="いまの画面の幅に合わせて、文字の大きさを決めて全幅にする"
       >
         自動
+      </button>
+      {/* 配色は 端末に合わせる → ダーク → ライト の順に切り替える。夜の学習でまぶしくないように */}
+      <button
+        onClick={() => update({ ...settings, theme: nextTheme(settings.theme) })}
+        className={buttonClass}
+        aria-label={`配色: ${THEME_LABELS[settings.theme]}(押すと切り替え)`}
+        title={`配色: ${THEME_LABELS[settings.theme]}`}
+      >
+        {THEME_ICONS[settings.theme]}
       </button>
     </div>
   );

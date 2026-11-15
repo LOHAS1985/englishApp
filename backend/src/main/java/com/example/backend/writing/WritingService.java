@@ -38,9 +38,15 @@ public class WritingService {
     this.studyLogService = studyLogService;
   }
 
-  public WritingQuestion generateWritingQuestion(String type, String exclude) {
-    String id = questionSelector.pick("writing", promptBank.ids(type), exclude);
-    WritingPrompt p = promptBank.findById(id).orElseThrow();
+  /**
+   * @param resumeId 下書きを復元するとき、前回のお題をそのまま返す(出題の記録は前回に付いているので選び直さない)。
+   *                 見つからない・形式が違うときは通常どおり選ぶ
+   */
+  public WritingQuestion generateWritingQuestion(String type, String exclude, String resumeId) {
+    WritingPrompt resumed = resumeId == null || resumeId.isBlank() ? null
+        : promptBank.findById(resumeId).filter(p -> type == null || type.isBlank() || p.type().equals(type)).orElse(null);
+    WritingPrompt p = resumed != null ? resumed
+        : promptBank.findById(questionSelector.pick("writing", promptBank.ids(type), exclude)).orElseThrow();
     return new WritingQuestion(p.id(), p.type(), p.instruction(), p.topic(),
         p.points() == null ? List.of() : p.points(), p.passage(), p.minWords(), p.maxWords(), p.theme());
   }

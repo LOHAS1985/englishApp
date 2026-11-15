@@ -27,8 +27,9 @@ public class WritingController {
 
   @GetMapping("/question")
   public WritingQuestion getQuestion(@RequestParam(required = false) String type,
-      @RequestParam(required = false) String exclude) {
-    return writingService.generateWritingQuestion(type, exclude);
+      @RequestParam(required = false) String exclude,
+      @RequestParam(required = false) String resumeId) {
+    return writingService.generateWritingQuestion(type, exclude, resumeId);
   }
 
   @PostMapping("/score")

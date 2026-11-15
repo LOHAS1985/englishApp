@@ -48,6 +48,7 @@ english-app/
 | GET      | `/api/writing/question` | Geminiに英検準1級形式の問題を生成させる                       |
 | POST     | `/api/writing/score`    | 回答をGeminiに送り、内容・構成・語彙・文法の4観点で採点させる |
 | POST     | `/api/speaking/score`   | 面接の1パート(ナレーションまたは Q&A の1問)の文字起こしを Gemini に送り、内容・構成・語彙・文法の4観点で採点させる(`speaking_records` に保存) |
+| GET      | `/api/speaking/history` | スピーキングの AI 採点の履歴(新しい順に最大30件。MyPage) |
 | GET      | `/api/stats/summary`    | 学習ログ(`study_logs`)を技能別・形式別・日別に集計する(MyPage) |
 | GET      | `/api/stats/history`    | 全技能の最近の学習50件                                         |
 | GET      | `/api/practice/history?feature=` | 文法・語彙・読解・リスニングの解答履歴(画面側で出題するため。画面がブラウザに保存する) |
@@ -118,5 +119,7 @@ english-app/
 ## テスト・PWA(2026-11-08 追加)
 
 - **フロントエンドのテスト**: Vitest 5.1.0(devDependency、無料)。`npm test`(`vitest run`)。対象は純粋関数(出題の選び方 `picker.ts`、レベル計算、語彙ハイライト、読解速度、模試の表示用関数、今日の30分メニュー `todayMenu.ts`)と送信待ちの列(`outbox.ts`、fetch と localStorage をモック)。CI の build ジョブで Lint と Build の間に実行する。
+- **画面の部品のテスト**: jsdom 31.0.1 + @testing-library/react 16.3.3 + @testing-library/user-event 14.6.10(いずれも devDependency、無料)。`src/**/*.test.tsx` の先頭に `// @vitest-environment jsdom` を書き、Vitest で動かす(`ChoiceQuiz`、`DisplaySettingsControl` など)。
+- **画面の通しテスト(e2e)**: @playwright/test 1.65.1(devDependency、無料)。`npm run test:e2e`。`e2e/*.spec.ts`。ブラウザは端末の Chrome(`channel: "chrome"`)を使うので、ブラウザのダウンロードは不要。バックエンドは動かさず、`e2e/mockApi.ts` が `/api/**` を固定データで返す。開発サーバーは Playwright が起動する(起動済みなら使い回す)。CI には入れていない。
 - **PWA**: `public/manifest.webmanifest` と `public/sw.js`。本番のみ登録する(`main.tsx`)。navigate は network-first(失敗時はキャッシュの index.html)、同一オリジンの `assets/`・問題集・favicon・manifest は cache-first、`/api/` と別オリジンはキャッシュしない。`CACHE_NAME` で世代を管理し、`skipWaiting` は使わない。アイコンは SVG のみ(Chrome のインストール条件を満たさない可能性があり、192px・512px の PNG は未作成)。
 - **DB マイグレーション**: `V13__reading_speeds_and_mock_exams.sql`(`reading_speeds`、`mock_exams`)。

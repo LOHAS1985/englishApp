@@ -12,3 +12,148 @@ body {
 html[data-wide] .question-card {
   max-width: none;
 }
+
+/* キーボードで操作したときだけ、フォーカスの位置をはっきり示す(マウスのクリックでは出さない) */
+:focus-visible {
+  outline: 2px solid #2463a8;
+  outline-offset: 2px;
+}
+
+/*
+ * ダークモード(ヘッダーの配色ボタン。端末の設定にも合わせる)。
+ * 色は Tailwind の標準クラスと #xxxxxx の直接指定で書いているので、使っているクラスをここで置き換える。
+ * 新しい色を足したら、ダークでも読めるかを確かめて、必要ならここに足す。
+ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* 背景 */
+html[data-theme="dark"] body,
+html[data-theme="dark"] .bg-\[\#f0f2f5\],
+html[data-theme="dark"] .bg-slate-50 {
+  background-color: #121722;
+}
+html[data-theme="dark"] .bg-white {
+  background-color: #1b2230;
+}
+html[data-theme="dark"] .bg-white\/95 {
+  background-color: rgb(27 34 48 / 0.95);
+}
+/* カードの中の囲み(本文・台本・模範解答)。カードより少し明るくして区別する */
+html[data-theme="dark"] .bg-slate-50 {
+  background-color: #232b3a;
+}
+html[data-theme="dark"] .bg-slate-100,
+html[data-theme="dark"] .hover\:bg-slate-100:hover,
+html[data-theme="dark"] .hover\:bg-slate-50:hover {
+  background-color: #2a3344;
+}
+html[data-theme="dark"] .bg-slate-200 {
+  background-color: #364054;
+}
+html[data-theme="dark"] .bg-slate-300 {
+  background-color: #475167;
+}
+html[data-theme="dark"] .bg-amber-50 {
+  background-color: #3a3016;
+}
+html[data-theme="dark"] .border-amber-200 {
+  border-color: #6b5a1e;
+}
+/* 正解(緑)・不正解(赤)・選択中の薄い色 */
+html[data-theme="dark"] .bg-\[\#f2f7ea\],
+html[data-theme="dark"] .bg-\[\#f1f7e8\] {
+  background-color: #1f3017;
+}
+html[data-theme="dark"] .bg-\[\#fbeceb\],
+html[data-theme="dark"] .bg-\[\#fbeeee\] {
+  background-color: #3a1f1f;
+}
+/* 濃紺のボタンは暗い背景に埋もれるので、少し明るくする */
+html[data-theme="dark"] .bg-\[\#16233d\] {
+  background-color: #34508a;
+}
+html[data-theme="dark"] .hover\:bg-\[\#23365c\]:hover {
+  background-color: #4263a8;
+}
+
+/* 文字 */
+html[data-theme="dark"] .text-slate-900 {
+  color: #e8ecf3;
+}
+html[data-theme="dark"] .text-slate-800 {
+  color: #dde3ee;
+}
+html[data-theme="dark"] .text-slate-700 {
+  color: #cbd3e1;
+}
+html[data-theme="dark"] .text-slate-600 {
+  color: #b2bccf;
+}
+html[data-theme="dark"] .text-slate-500 {
+  color: #94a0b8;
+}
+html[data-theme="dark"] .text-slate-400 {
+  color: #8591aa;
+}
+html[data-theme="dark"] .hover\:text-slate-900:hover {
+  color: #ffffff;
+}
+html[data-theme="dark"] .text-\[\#6a8a3e\] {
+  color: #9bc25a;
+}
+html[data-theme="dark"] .text-\[\#c0392b\] {
+  color: #ff8a7a;
+}
+html[data-theme="dark"] .text-\[\#2463a8\] {
+  color: #7ab3ff;
+}
+
+/* 枠線 */
+html[data-theme="dark"] .border-slate-100,
+html[data-theme="dark"] .divide-slate-100 > :not(:last-child) {
+  border-color: #262e3d;
+}
+html[data-theme="dark"] .border-slate-200 {
+  border-color: #2f384a;
+}
+html[data-theme="dark"] .border-slate-300 {
+  border-color: #3c4760;
+}
+html[data-theme="dark"] .border-slate-400 {
+  border-color: #4a5670;
+}
+html[data-theme="dark"] .hover\:border-slate-400:hover {
+  border-color: #6b7794;
+}
+html[data-theme="dark"] .border-\[\#c0392b\] {
+  border-color: #ff8a7a;
+}
+
+/* 入力欄(スタイルを付けていないものは、ブラウザの白のままになるので揃える) */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background-color: #1b2230;
+  color: #e8ecf3;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #6f7b94;
+}
+/* ライティングの罫線の背景(インラインの指定なので !important で置き換える) */
+html[data-theme="dark"] textarea {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2.1875rem,
+    #2f384a 2.1875rem,
+    #2f384a 2.25rem
+  ) !important;
+}
+
+/* フォーカスの輪郭も暗い背景で見えるようにする */
+html[data-theme="dark"] :focus-visible {
+  outline-color: #7ab3ff;
+}

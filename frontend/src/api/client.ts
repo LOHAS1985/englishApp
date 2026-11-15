@@ -43,9 +43,11 @@ export interface WritingQuestion {
   theme: string | null;
 }
 
-export async function fetchWritingQuestion(type: WritingType, exclude?: string | null) {
+/** @param resumeId 下書きを復元するとき、前回のお題をそのまま出し直す */
+export async function fetchWritingQuestion(type: WritingType, exclude?: string | null, resumeId?: string) {
+  const resume = resumeId ? `&resumeId=${encodeURIComponent(resumeId)}` : "";
   return getJson<WritingQuestion>(
-    `/api/writing/question?type=${type}&${excludeParam(exclude)}`,
+    `/api/writing/question?type=${type}&${excludeParam(exclude)}${resume}`,
     "お題の取得に失敗しました",
   );
 }
@@ -416,9 +418,11 @@ export interface SpeakingSet {
   questions: InterviewQuestion[];
 }
 
-export async function fetchSpeakingSet(exclude?: string | null) {
+/** @param resumeId 下書きを復元するとき、前回のセットをそのまま出し直す */
+export async function fetchSpeakingSet(exclude?: string | null, resumeId?: string) {
+  const resume = resumeId ? `&resumeId=${encodeURIComponent(resumeId)}` : "";
   return getJson<SpeakingSet>(
-    `/api/speaking/question?${excludeParam(exclude)}`,
+    `/api/speaking/question?${excludeParam(exclude)}${resume}`,
     "問題の取得に失敗しました",
   );
 }
@@ -453,6 +457,22 @@ export async function scoreSpeakingAnswer(
     { setId, part, transcript, speakingSeconds },
     "採点に失敗しました",
   );
+}
+
+export interface SpeakingHistoryItem {
+  id: number;
+  setId: string;
+  title: string;
+  /** 1 = ナレーション、2〜4 = Q&A の質問番号 */
+  part: number;
+  transcript: string;
+  speakingSeconds: number | null;
+  result: SpeakingScoreResult;
+  createdAt: string;
+}
+
+export async function fetchSpeakingHistory() {
+  return getJson<SpeakingHistoryItem[]>("/api/speaking/history", "採点履歴の取得に失敗しました");
 }
 
 // 学習ログの集計と復習(間隔反復)

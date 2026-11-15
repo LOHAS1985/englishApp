@@ -14,6 +14,7 @@ import { LETTERS } from "../../shared/shuffle";
 import ListeningPlayer from "../listening/ListeningPlayer";
 import MockResultView from "./MockResultView";
 import { formatClock, itemKey, numberOffsets, PART_TITLES } from "./mockFormat";
+import { clearMockSession, loadMockSession, saveMockSession, type MockSession } from "./mockSession";
 
 type Phase = "intro" | "loading" | "listening" | "reading" | "submitting" | "failed" | "result";
 
@@ -23,7 +24,7 @@ const WARN_SECONDS = 5 * 60;
 /**
  * TOEIC 模試。本番と同じ区切り・制限時間で通して解き、終わってから採点する。
  * リスニングは1セットずつ・音声は1回だけ・戻れない。リーディングは1画面で、区切りの時間が切れたら自動で提出する。
- * 途中で画面を閉じると結果は残らない(提出されたときだけ記録する)。
+ * 提出されたときだけ結果を記録する。途中で画面を閉じても、ブラウザに保存した途中経過から再開できる(時間は進み続ける)。
  */
 export default function Mock() {
   const [phase, setPhase] = useState<Phase>("intro");
@@ -36,6 +37,8 @@ export default function Mock() {
   /** 区切りの開始時刻と、表示の更新用の今の時刻 */
   const [sectionStart, setSectionStart] = useState(0);
   const [now, setNow] = useState(0);
+  /** 前回の中断した模試(あれば、開始前の画面から再開できる) */
+  const [saved, setSaved] = useState<MockSession | null>(loadMockSession);
 
   // 時間切れの判定と提出は、画面の再描画を待たずに最新の値を使う必要があるので ref にも持つ
   const examRef = useRef<MockExamView | null>(null);
@@ -64,7 +67,14 @@ export default function Mock() {
   const submit = async (retry = false) => {
     const current = examRef.current;
     if (!current) return;
-    if (!retry) seconds.current.reading = Math.round((Date.now() - sectionStartRef.current) / 1000);
+    // 再開したときに時間が切れていても、リーディングの時間は制限時間を超えて数えない
+    const readingLimit = (current.sections.find((s) => s.skill === "reading")?.minutes ?? 0) * 60;
+    if (!retry) {
+      seconds.current.reading = Math.min(
+        Math.round((Date.now() - sectionStartRef.current) / 1000),
+        readingLimit || Infinity,
+      );
+    }
     setPhase("submitting");
     setError("");
     const sections: MockSubmitSection[] = current.sections.map((sec) => ({
@@ -78,6 +88,8 @@ export default function Mock() {
     }));
     try {
       setResult(await submitMockExam(sections));
+      clearMockSession();
+      setSaved(null);
       setPhase("result");
     } catch (e) {
       // 採点に失敗しても解答は画面に残しておき、もう一度送れるようにする(自動では再送しない)
@@ -107,6 +119,8 @@ export default function Mock() {
   const start = async () => {
     setPhase("loading");
     setError("");
+    clearMockSession();
+    setSaved(null);
     try {
       const view = await startMockExam();
       const initial: Record<string, string[]> = {};
@@ -127,6 +141,49 @@ export default function Mock() {
     }
   };
 
+  /** 中断した模試を続きから再開する。区切りの開始時刻はそのままなので、時間は進み続けている */
+  const resume = () => {
+    if (!saved) return;
+    examRef.current = saved.exam;
+    answersRef.current = saved.answers;
+    seconds.current = { listening: saved.listeningSeconds, reading: 0 };
+    sectionStartRef.current = saved.sectionStart;
+    setSectionStart(saved.sectionStart);
+    setNow(Date.now());
+    setExam(saved.exam);
+    setAnswers(saved.answers);
+    setResult(null);
+    setListeningIndex(saved.listeningIndex);
+    setSaved(null);
+    setPhase(saved.phase);
+  };
+
+  const discardSaved = () => {
+    clearMockSession();
+    setSaved(null);
+  };
+
+  // 解いている間は、答えと区切りの経過をブラウザに保存する(誤ってリロードしても続きから再開できる)
+  useEffect(() => {
+    if ((phase !== "listening" && phase !== "reading") || !exam) return;
+    saveMockSession({
+      phase,
+      exam,
+      answers,
+      listeningIndex,
+      sectionStart,
+      listeningSeconds: seconds.current.listening,
+    });
+  }, [phase, exam, answers, listeningIndex, sectionStart]);
+
+  // 解いている間に画面を閉じようとしたら、ブラウザの確認を出す
+  useEffect(() => {
+    if (phase !== "listening" && phase !== "reading" && phase !== "submitting" && phase !== "failed") return;
+    const warn = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [phase]);
+
   const choose = (item: MockItem, qi: number, letter: string) => {
     const key = itemKey(item);
     const next = {
@@ -144,8 +201,40 @@ export default function Mock() {
       <Page>
         <h1 className="font-serif text-2xl text-slate-900 mb-2">TOEIC L&R 模試</h1>
         <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-          本番と同じ区切りと制限時間で通して解き、終わったあとに採点します。途中で閉じると結果は残りません。
+          本番と同じ区切りと制限時間で通して解き、終わったあとに採点します。提出するまで結果は記録されません。
         </p>
+        {saved && (
+          <div className="mb-6 border border-amber-200 bg-amber-50 rounded p-4">
+            <p className="text-sm font-semibold text-slate-900 mb-1">中断した模試があります</p>
+            <p className="text-sm text-slate-700 mb-3 leading-relaxed">
+              {saved.phase === "listening" ? "リスニング" : "リーディング"}の途中です(中断した時点の残り時間は約{" "}
+              {Math.max(
+                0,
+                Math.round(
+                  ((saved.exam.sections.find((s) => s.skill === saved.phase)?.minutes ?? 0) * 60 -
+                    (saved.savedAt - saved.sectionStart) / 1000) /
+                    60,
+                ),
+              )}{" "}
+              分)。時間は本番と同じく進み続けるので、時間が切れていれば次の区切りへ進みます。
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={resume}
+                disabled={phase === "loading"}
+                className="text-sm font-semibold text-white bg-[#8fae4e] rounded px-4 py-2 hover:bg-[#7a9843] disabled:bg-slate-400 transition-colors"
+              >
+                続きから再開する
+              </button>
+              <button
+                onClick={discardSaved}
+                className="text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded px-4 py-2 hover:border-slate-400 transition-colors"
+              >
+                破棄する
+              </button>
+            </div>
+          </div>
+        )}
         <ul className="text-sm text-slate-700 space-y-2 mb-6 list-disc pl-5">
           <li>リスニング 45分: Part 2・3・4 の 94 問。音声は1回だけ聞けます。セットは戻れません。</li>
           <li>リーディング 75分: Part 5・6・7 の 100 問。時間が切れると自動で提出されます。</li>

@@ -2,8 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
+import WordCapture from "../../features/wordbook/WordCapture";
+import { useQuizKeys, type QuizKeyActions } from "../quizKeys";
+import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
 import QuestionNumber from "./QuestionNumber";
+import SessionSummary from "./SessionSummary";
 
 /** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
 interface DisplayChoice {
@@ -49,6 +53,10 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
   /** この画面で何問目か */
   const [count, setCount] = useState(1);
   const shownAtRef = useRef(0);
+  /** 今回の練習の集計と、終了後のまとめの表示 */
+  const [tally, setTally] = useState<Tally>(EMPTY_TALLY);
+  const [finished, setFinished] = useState(false);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
@@ -113,8 +121,10 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
     setSelected(choice.label);
     setSubmitting(true);
     try {
-      const data = await submitAnswer(question.id, choice.original, secondsSince(shownAtRef.current));
+      const seconds = secondsSince(shownAtRef.current);
+      const data = await submitAnswer(question.id, choice.original, seconds);
       setResult(data);
+      setTally((t) => addToTally(t, { total: 1, correct: data.correct ? 1 : 0, seconds }));
     } catch {
       alert("採点に失敗しました");
     } finally {
@@ -130,6 +140,34 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
   const handleFinish = () => {
     navigate("/");
   };
+
+  // 1問も解いていなければまとめは出さずにホームへ戻る
+  const handleEnd = () => (tally.answered === 0 ? handleFinish() : setFinished(true));
+
+  const handleContinue = () => {
+    setFinished(false);
+    if (result) void loadQuestion();
+  };
+
+  // 解答したら「次の問題」にフォーカスを移す(Enter で続けられる。読み上げでも結果の次の操作が分かる)
+  useEffect(() => {
+    if (result) nextButtonRef.current?.focus();
+  }, [result]);
+
+  // キーボード: 1〜4 / A〜D で選択、(次の問題にフォーカスが無いときは)Enter で次の問題
+  const keyActions = useRef<QuizKeyActions>({});
+  useEffect(() => {
+    keyActions.current = {
+      onChoice: (index) => {
+        if (result || index >= choices.length) return;
+        void handleSelect(choices[index]);
+      },
+      onEnter: () => {
+        if (result) void loadQuestion();
+      },
+    };
+  });
+  useQuizKeys(!loading && !finished && !!question && !submitting, keyActions);
 
   return (
     <div className="min-h-screen bg-[#f0f2f5]">
@@ -149,14 +187,24 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
             </div>
           )}
 
-          {!loading && question && (
+          {finished && (
+            <SessionSummary
+              tally={tally}
+              note="間違えた問題は、復習の日になるとホームの復習から解き直せます。"
+              onContinue={handleContinue}
+              onHome={handleFinish}
+            />
+          )}
+
+          {!loading && !finished && question && (
+            <WordCapture>
             <div>
               <QuestionNumber n={count} difficulty={question.difficulty} />
               <p className="font-serif text-lg text-slate-900 leading-relaxed mb-6">
                 {question.sentence}
               </p>
 
-              <div className="space-y-2">
+              <div className="space-y-2" role="group" aria-label="選択肢">
                 {choices.map((choice) => {
                   const isSelected = selected === choice.label;
                   const isCorrectChoice = correctLabel === choice.label;
@@ -177,19 +225,27 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
                       key={choice.label}
                       onClick={() => handleSelect(choice)}
                       disabled={!!result || submitting}
+                      aria-pressed={isSelected}
                       className={`w-full text-left border rounded px-4 py-3 text-sm transition-colors ${style}`}
                     >
                       <span className="font-mono font-semibold mr-2">
                         ({choice.label})
                       </span>
                       {choice.text}
+                      {/* 正誤を色だけで伝えないよう、文字でも示す */}
+                      {result && isCorrectChoice && (
+                        <span className="ml-2 text-xs font-semibold text-[#6a8a3e]">✓ 正解</span>
+                      )}
+                      {result && isSelected && !isCorrectChoice && (
+                        <span className="ml-2 text-xs font-semibold text-[#c0392b]">✕ あなたの選択</span>
+                      )}
                     </button>
                   );
                 })}
               </div>
 
               {result && (
-                <div className="mt-6 border border-slate-200 rounded-md p-5">
+                <div className="mt-6 border border-slate-200 rounded-md p-5" role="status" aria-live="polite">
                   <p
                     className={`text-sm font-semibold mb-3 ${
                       result.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"
@@ -208,6 +264,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
 
                   <div className="mt-5 flex gap-3">
                     <button
+                      ref={nextButtonRef}
                       onClick={loadQuestion}
                       className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3
                                  hover:bg-[#23365c] transition-colors"
@@ -215,7 +272,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
                       次の問題
                     </button>
                     <button
-                      onClick={handleFinish}
+                      onClick={handleEnd}
                       className="text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded px-5 py-3
                                  hover:border-slate-400 transition-colors"
                     >
@@ -224,7 +281,11 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
                   </div>
                 </div>
               )}
+              <p className="hidden sm:block mt-6 text-xs text-slate-400">
+                キー操作: 1〜4(または A〜D)で選択 / Enter で次の問題
+              </p>
             </div>
+            </WordCapture>
           )}
         </div>
       </div>

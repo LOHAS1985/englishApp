@@ -9,3 +9,7 @@ node_modules/
 # Claude Code の個人設定(サンドボックス・権限の制限を含む)。git には含めない
 .claude/settings.local.json
 .claude/hooks/project-guard.js
+
+# Playwright の出力
+frontend/test-results/
+frontend/playwright-report/

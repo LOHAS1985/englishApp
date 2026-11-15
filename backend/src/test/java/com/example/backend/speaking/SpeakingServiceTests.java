@@ -3,6 +3,7 @@ package com.example.backend.speaking;
 import com.example.backend.common.ExternalApiException;
 import com.example.backend.common.GeminiApiClient;
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.speaking.dto.SpeakingHistoryItem;
 import com.example.backend.speaking.dto.SpeakingScoreRequest;
 import com.example.backend.speaking.dto.SpeakingScoreResult;
 import com.example.backend.speaking.dto.SpeakingScoreResult.Criterion;
@@ -11,8 +12,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import tools.jackson.databind.json.JsonMapper;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -98,6 +102,21 @@ class SpeakingServiceTests {
         new SpeakingScoreRequest(setId(), 1, "a".repeat(SpeakingService.MAX_TRANSCRIPT_CHARS + 1), null)))
         .isInstanceOf(IllegalArgumentException.class);
     verifyNoInteractions(gemini, records, studyLog);
+  }
+
+  @Test
+  void historySkipsRowsWhoseResultCannotBeRead() {
+    String json = MAPPER.writeValueAsString(result(4, 3, 2, 1));
+    SpeakingRecord ok = new SpeakingRecord(1L, setId(), 1, "One day.", 60, 4, 3, 2, 1, 10, json);
+    SpeakingRecord broken = new SpeakingRecord(1L, setId(), 2, "Hello.", null, 0, 0, 0, 0, 0, "not json");
+    when(records.findTop30ByUserIdOrderByCreatedAtDescIdDesc(any())).thenReturn(List.of(broken, ok));
+
+    List<SpeakingHistoryItem> history = service.history();
+
+    assertThat(history).hasSize(1);
+    assertThat(history.get(0).result().total()).isEqualTo(0); // result() は合計を持たない(保存時に計算する)
+    assertThat(history.get(0).result().content().score()).isEqualTo(4);
+    assertThat(history.get(0).title()).isEqualTo(bank.findById(setId()).orElseThrow().title());
   }
 
   private static SpeakingScoreResult result(int content, int structure, int vocabulary, int grammar) {

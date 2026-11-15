@@ -3,7 +3,9 @@ import {
   DEFAULT_DISPLAY_SETTINGS,
   FONT_SCALES,
   fitFontScale,
+  nextTheme,
   parseDisplaySettings,
+  resolveTheme,
   stepFontScale,
 } from "./displaySettings";
 
@@ -19,6 +21,7 @@ describe("parseDisplaySettings", () => {
     expect(parseDisplaySettings(JSON.stringify({ fontScale: 150, fullWidth: true }))).toEqual({
       fontScale: 150,
       fullWidth: true,
+      theme: "system",
     });
   });
 
@@ -26,6 +29,26 @@ describe("parseDisplaySettings", () => {
     expect(parseDisplaySettings(JSON.stringify({ fontScale: 999, fullWidth: "yes" }))).toEqual(
       DEFAULT_DISPLAY_SETTINGS,
     );
+  });
+});
+
+describe("theme", () => {
+  it("保存した配色を読み戻し、不明な値は端末の設定に合わせる", () => {
+    expect(parseDisplaySettings(JSON.stringify({ theme: "dark" })).theme).toBe("dark");
+    expect(parseDisplaySettings(JSON.stringify({ theme: "blue" })).theme).toBe("system");
+  });
+
+  it("system は端末の設定で決め、dark / light はそのまま使う", () => {
+    expect(resolveTheme("system", true)).toBe("dark");
+    expect(resolveTheme("system", false)).toBe("light");
+    expect(resolveTheme("dark", false)).toBe("dark");
+    expect(resolveTheme("light", true)).toBe("light");
+  });
+
+  it("system → dark → light → system の順に切り替える", () => {
+    expect(nextTheme("system")).toBe("dark");
+    expect(nextTheme("dark")).toBe("light");
+    expect(nextTheme("light")).toBe("system");
   });
 });
 

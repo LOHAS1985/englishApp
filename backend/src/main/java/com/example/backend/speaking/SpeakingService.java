@@ -5,12 +5,15 @@ import com.example.backend.common.GeminiApiClient;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.speaking.SpeakingQuestionBank.InterviewQuestion;
 import com.example.backend.speaking.SpeakingQuestionBank.SpeakingSet;
+import com.example.backend.speaking.dto.SpeakingHistoryItem;
 import com.example.backend.speaking.dto.SpeakingScoreRequest;
 import com.example.backend.speaking.dto.SpeakingScoreResult;
 import com.example.backend.speaking.dto.SpeakingScoreResult.Criterion;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.json.JsonMapper;
+
+import java.util.List;
 
 /**
  * 英検準1級 二次(面接)の AI 採点。音声そのものではなく、ブラウザの音声認識で得た文字起こしを Gemini で採点する。
@@ -78,6 +81,26 @@ public class SpeakingService {
     studyLogService.log("speaking", "eiken-interview-part", set.id() + "-p" + request.part(), total, MAX_TOTAL,
         request.speakingSeconds());
     return result;
+  }
+
+  /** 保存した採点結果(JSON)を読み戻せない行は、一覧から外す(壊れた1件で履歴全体を見られなくしない) */
+  public List<SpeakingHistoryItem> history() {
+    return recordRepository.findTop30ByUserIdOrderByCreatedAtDescIdDesc(currentUserProvider.getCurrentUserId())
+        .stream()
+        .map(this::toHistoryItem)
+        .filter(java.util.Objects::nonNull)
+        .toList();
+  }
+
+  private SpeakingHistoryItem toHistoryItem(SpeakingRecord r) {
+    try {
+      SpeakingScoreResult result = jsonMapper.readValue(r.getFeedbackJson(), SpeakingScoreResult.class);
+      String title = questionBank.findById(r.getSetId()).map(SpeakingSet::title).orElse(r.getSetId());
+      return new SpeakingHistoryItem(r.getId(), r.getSetId(), title, r.getPartNo(), r.getTranscript(),
+          r.getSpeakingSeconds(), result, r.getCreatedAt());
+    } catch (RuntimeException e) {
+      return null;
+    }
   }
 
   private static InterviewQuestion interviewQuestion(SpeakingSet set, int part) {

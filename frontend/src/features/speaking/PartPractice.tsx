@@ -17,19 +17,35 @@ interface Props {
   maxSeconds: number;
   /** 採点して記録が残ったとき(学習ログを二重に付けないために使う) */
   onScored?: () => void;
+  /** 復元した下書きの文字起こし(最初の1回だけ使う) */
+  initialTranscript?: string;
+  /** 文字起こしが変わったとき(下書きの保存用) */
+  onTranscriptChange?: (text: string) => void;
 }
 
 /**
  * 1パートの練習。録音しながら音声認識で文字起こしし、利用者が直した文字起こしを AI で採点する。
  * 採点するのは文字起こしだけで、発音・抑揚・間は採点されない。
  */
-export default function PartPractice({ setId, part, maxSeconds, onScored }: Props) {
-  const [transcript, setTranscript] = useState("");
+export default function PartPractice({
+  setId,
+  part,
+  maxSeconds,
+  onScored,
+  initialTranscript = "",
+  onTranscriptChange,
+}: Props) {
+  const [transcript, setTranscriptState] = useState(initialTranscript);
   const [seconds, setSeconds] = useState<number | undefined>(undefined);
   const [scoring, setScoring] = useState(false);
   const [result, setResult] = useState<SpeakingScoreResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const supported = getRecognitionConstructor() !== null;
+
+  const setTranscript = (text: string) => {
+    setTranscriptState(text);
+    onTranscriptChange?.(text);
+  };
 
   const handleScore = async () => {
     setScoring(true);

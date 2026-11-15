@@ -12,6 +12,7 @@ import {
   type WordbookFillQuestion,
 } from "../../api/client";
 import Header from "../../shared/components/Header";
+import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
 import ColorButtons from "./ColorButtons";
 import { pushRecent } from "./wordbookRules";
 
@@ -131,6 +132,28 @@ export default function WordbookQuiz() {
     }
   };
 
+  // 解答したら「次の問題」にフォーカスを移す(Enter で続けられる)
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (result) nextButtonRef.current?.focus();
+  }, [result]);
+
+  // キーボード: 4択は 1〜4 / A〜D で選択(穴埋めは入力欄があるので使わない)
+  const keyActions = useRef<QuizKeyActions>({});
+  useEffect(() => {
+    keyActions.current = {
+      onChoice: (index) => {
+        if (question?.kind !== "choice" || result) return;
+        const choice = question.data.choices[index];
+        if (choice !== undefined) void answerChoice(choice);
+      },
+      onEnter: () => {
+        if (result) void nextQuestion();
+      },
+    };
+  });
+  useQuizKeys(!loading && !error && question !== null && !submitting, keyActions);
+
   const changeColor = async (next: WordbookColor) => {
     if (!question) return;
     try {
@@ -175,6 +198,7 @@ export default function WordbookQuiz() {
                   <button
                     key={choice}
                     disabled={result !== null || submitting}
+                    aria-pressed={selected === choice}
                     onClick={() => answerChoice(choice)}
                     className={`w-full text-left border rounded px-4 py-3 text-sm transition-colors ${choiceStyle(
                       choice,
@@ -240,6 +264,7 @@ export default function WordbookQuiz() {
               </div>
 
               <button
+                ref={nextButtonRef}
                 onClick={nextQuestion}
                 className="mt-6 text-sm font-semibold text-white bg-[#8fae4e] rounded px-5 py-3 hover:bg-[#7a9843] transition-colors"
               >

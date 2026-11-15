@@ -6,6 +6,7 @@ import StudyStatsSection from "./StudyStatsSection";
 import LevelSection from "../features/level/LevelSection";
 import WeaknessSection from "./WeaknessSection";
 import ReadingSpeedSection from "./ReadingSpeedSection";
+import SpeakingHistorySection from "./SpeakingHistorySection";
 import MockHistorySection from "../features/mock/MockHistorySection";
 
 export default function MyPage() {
@@ -59,6 +60,8 @@ export default function MyPage() {
         <MockHistorySection />
 
         <ReadingSpeedSection />
+
+        <SpeakingHistorySection />
 
         <section className="mb-8">
           <h2 className="font-serif text-xl text-slate-900 mb-3">
