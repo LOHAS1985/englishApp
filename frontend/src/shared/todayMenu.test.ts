@@ -35,6 +35,9 @@ function makeSummary(o: Options = {}): StatsSummary {
 /** 全技能が目安どおり学習されている週(順位に差がつかない) */
 const FULL_WEEK = Object.fromEntries(SKILLS.map((s) => [s, 2520])) as Record<Skill, number>;
 
+/** メニューの合計時間の上限(分) */
+const MENU_LIMIT = 50;
+
 /** 通常のメニュー */
 const normalMenu = (o: Options = {}, seed = 0) => buildTodayMenu(makeSummary(o), seed).normal;
 /** スピーキングなしのメニュー */
@@ -44,15 +47,62 @@ describe("buildTodayMenu(通常)", () => {
   it("記録が空でも、約30分のメニューができる", () => {
     const menu = normalMenu();
     expect(menu.tasks.length).toBeGreaterThanOrEqual(3);
-    // 単語帳(4〜5分)を毎日入れるので、残りの課題が収まらず30分に少し届かない日がある
-    expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 3);
-    expect(menu.totalMinutes).toBeLessThanOrEqual(35);
+    expect(menu.totalMinutes).toBeGreaterThan(MENU_MINUTES);
+    expect(menu.totalMinutes).toBeLessThanOrEqual(MENU_LIMIT);
     expect(menu.totalMinutes).toBe(menu.tasks.reduce((a, t) => a + t.minutes, 0));
   });
 
-  it("同じ技能の課題は1日1つまで(復習を除く)", () => {
-    const skills = normalMenu().tasks.filter((t) => !t.review).map((t) => t.skill);
-    expect(new Set(skills).size).toBe(skills.length);
+  it("同じ形式の課題は1日1つまで", () => {
+    for (let seed = 0; seed < 8; seed++) {
+      const ids = normalMenu({}, seed).tasks.map((t) => t.id);
+      expect(new Set(ids).size).toBe(ids.length);
+    }
+  });
+
+  it("合計は、どんな日でも必ず30分を超え、50分以内に収まる", () => {
+    const reviews: Record<string, ReviewSummary>[] = [
+      {},
+      { vocab: { feature: "vocab", due: 12, pending: 0 } },
+      { vocab: { feature: "vocab", due: 12, pending: 0 }, grammar: { feature: "grammar", due: 12, pending: 0 } },
+    ];
+    for (let seed = 0; seed < 12; seed++) {
+      for (const review of reviews) {
+        for (const o of [{}, { week: FULL_WEEK }, { week: FULL_WEEK, today: { listening: 600, reading: 600 } }]) {
+          for (const menu of [normalMenu({ ...o, review }, seed), quietMenu({ ...o, review }, seed)]) {
+            expect(menu.totalMinutes).toBeGreaterThan(MENU_MINUTES);
+            expect(menu.totalMinutes).toBeLessThanOrEqual(MENU_LIMIT);
+          }
+        }
+      }
+    }
+  });
+
+  it("30分を超えたら、それ以上は足さない(最後の1つを除くと30分以下)", () => {
+    for (let seed = 0; seed < 12; seed++) {
+      for (const menu of [normalMenu({}, seed), quietMenu({}, seed)]) {
+        const withoutLast = menu.tasks.slice(0, -1).reduce((a, t) => a + t.minutes, 0);
+        expect(withoutLast).toBeLessThanOrEqual(MENU_MINUTES);
+      }
+    }
+  });
+
+  it("各課題に、問題数(問)が書いてある", () => {
+    for (const task of normalMenu({}, 0).tasks) {
+      expect(task.note).toMatch(/問|題|セット/);
+    }
+    const listening = Array.from({ length: 12 }, (_, seed) => normalMenu({ week: { ...FULL_WEEK, listening: 0 } }, seed))
+      .flatMap((m) => m.tasks)
+      .filter((t) => t.skill === "listening");
+    expect(listening.length).toBeGreaterThan(0);
+    for (const t of listening) expect(t.note).toMatch(/セット\(\d+問\)/);
+  });
+
+  it("理由に「今週の○○の学習が少ない」は書かない", () => {
+    for (let seed = 0; seed < 6; seed++) {
+      for (const task of normalMenu({ week: { ...FULL_WEEK, speaking: 0, writing: 0 } }, seed).tasks) {
+        expect(task.reason).not.toContain("今週");
+      }
+    }
   });
 
   it("復習日になった問題があると、復習が最初に並ぶ", () => {
@@ -75,7 +125,6 @@ describe("buildTodayMenu(通常)", () => {
     const first = ranked.slice(0, 2).map((t) => t.skill);
     expect(first).toContain("speaking");
     expect(first).toContain("writing");
-    expect(ranked[0]?.reason).toContain("今週");
   });
 
   it("正答率が低い形式を選ぶ", () => {
@@ -164,11 +213,11 @@ describe("単語帳", () => {
     expect(task.path).toBe(`/wordbook/quiz?type=${task.id.endsWith("choice") ? "choice" : "fill"}`);
   });
 
-  it("入れても合計は35分以内で、約30分になる", () => {
+  it("入れても、合計は30分を超えて50分以内になる", () => {
     for (let seed = 0; seed < 6; seed++) {
       const menu = normalMenu({}, seed);
-      expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 3);
-      expect(menu.totalMinutes).toBeLessThanOrEqual(35);
+      expect(menu.totalMinutes).toBeGreaterThan(MENU_MINUTES);
+      expect(menu.totalMinutes).toBeLessThanOrEqual(MENU_LIMIT);
     }
   });
 
@@ -192,8 +241,8 @@ describe("buildTodayMenu(スピーキングなし)", () => {
 
   it("スピーキングを除いても、約30分のメニューになる", () => {
     const menu = quietMenu();
-    expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 2);
-    expect(menu.totalMinutes).toBeLessThanOrEqual(35);
+    expect(menu.totalMinutes).toBeGreaterThan(MENU_MINUTES);
+    expect(menu.totalMinutes).toBeLessThanOrEqual(MENU_LIMIT);
     expect(menu.totalMinutes).toBe(menu.tasks.reduce((a, t) => a + t.minutes, 0));
   });
 

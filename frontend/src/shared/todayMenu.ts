@@ -9,8 +9,8 @@ import type { Skill, StatsSummary, StudyTotals } from "../api/client";
 /** 1日の学習時間の目標(分) */
 export const MENU_MINUTES = 30;
 
-/** 1課題が5〜10分なので、30分を少し超えるのは許す。ここを超える課題は入れない */
-const MENU_MAX_MINUTES = 35;
+/** 合計は必ず30分を超える。課題の積み増しで40〜50分になってもよいが、ここを超える課題は入れない */
+const MENU_LIMIT_MINUTES = 50;
 
 /** 5技能に均等に配ったときの、1週間の学習秒数の目安(30分 × 7日 ÷ 5技能) */
 const WEEK_TARGET_SECONDS = (MENU_MINUTES * 60 * 7) / 5;
@@ -40,19 +40,19 @@ interface TaskDef {
   path: string;
 }
 
-/** 課題の一覧。1セットを解く時間の見積もりから、1課題が5〜10分前後になる量にしてある */
+/** 課題の一覧。1セットを解く時間の見積もりから、1課題が5〜10分前後になる量にしてある。amount の問数は、形式ごとに決まっている1セットの設問数から数える */
 const CATALOG: TaskDef[] = [
-  { skill: "listening", type: "toeic-part2", label: "TOEIC Part 2 応答問題", amount: "4セット", minutes: 8, path: "/listening?type=toeic-part2" },
-  { skill: "listening", type: "toeic-part3", label: "TOEIC Part 3 会話問題", amount: "3セット", minutes: 8, path: "/listening?type=toeic-part3" },
-  { skill: "listening", type: "toeic-part4", label: "TOEIC Part 4 説明文問題", amount: "3セット", minutes: 8, path: "/listening?type=toeic-part4" },
-  { skill: "listening", type: "eiken-part1", label: "英検 リスニング Part 1", amount: "6セット", minutes: 7, path: "/listening?type=eiken-part1" },
-  { skill: "listening", type: "eiken-part2", label: "英検 リスニング Part 2", amount: "4セット", minutes: 8, path: "/listening?type=eiken-part2" },
-  { skill: "listening", type: "eiken-part3", label: "英検 リスニング Part 3", amount: "6セット", minutes: 7, path: "/listening?type=eiken-part3" },
+  { skill: "listening", type: "toeic-part2", label: "TOEIC Part 2 応答問題", amount: "4セット(20問)", minutes: 8, path: "/listening?type=toeic-part2" },
+  { skill: "listening", type: "toeic-part3", label: "TOEIC Part 3 会話問題", amount: "3セット(9問)", minutes: 8, path: "/listening?type=toeic-part3" },
+  { skill: "listening", type: "toeic-part4", label: "TOEIC Part 4 説明文問題", amount: "3セット(9問)", minutes: 8, path: "/listening?type=toeic-part4" },
+  { skill: "listening", type: "eiken-part1", label: "英検 リスニング Part 1", amount: "6セット(6問)", minutes: 7, path: "/listening?type=eiken-part1" },
+  { skill: "listening", type: "eiken-part2", label: "英検 リスニング Part 2", amount: "4セット(8問)", minutes: 8, path: "/listening?type=eiken-part2" },
+  { skill: "listening", type: "eiken-part3", label: "英検 リスニング Part 3", amount: "6セット(6問)", minutes: 7, path: "/listening?type=eiken-part3" },
   { skill: "reading", type: "toeic-part5", label: "TOEIC Part 5 短文穴埋め", amount: "10問", minutes: 7, path: "/grammar" },
-  { skill: "reading", type: "toeic-part6", label: "TOEIC Part 6 長文穴埋め", amount: "3セット", minutes: 8, path: "/reading/practice?type=toeic-part6" },
-  { skill: "reading", type: "toeic-part7", label: "TOEIC Part 7 読解", amount: "2セット", minutes: 9, path: "/reading/practice?type=toeic-part7" },
-  { skill: "reading", type: "eiken-cloze", label: "英検 大問2 空所補充", amount: "2セット", minutes: 10, path: "/reading/practice?type=eiken-cloze" },
-  { skill: "reading", type: "eiken-long", label: "英検 大問3 内容一致", amount: "1セット", minutes: 8, path: "/reading/practice?type=eiken-long" },
+  { skill: "reading", type: "toeic-part6", label: "TOEIC Part 6 長文穴埋め", amount: "3セット(12問)", minutes: 8, path: "/reading/practice?type=toeic-part6" },
+  { skill: "reading", type: "toeic-part7", label: "TOEIC Part 7 読解", amount: "2セット(約8問)", minutes: 9, path: "/reading/practice?type=toeic-part7" },
+  { skill: "reading", type: "eiken-cloze", label: "英検 大問2 空所補充", amount: "2セット(6問)", minutes: 10, path: "/reading/practice?type=eiken-cloze" },
+  { skill: "reading", type: "eiken-long", label: "英検 大問3 内容一致", amount: "1セット(3問)", minutes: 8, path: "/reading/practice?type=eiken-long" },
   { skill: "writing", type: "eiken-summary", label: "英検 要約(60〜70語)", amount: "1題", minutes: 10, path: "/writing?type=summary" },
   { skill: "writing", type: "eiken-opinion", label: "英検 意見論述(120〜150語)", amount: "1題", minutes: 15, path: "/writing?type=opinion" },
   { skill: "speaking", type: "eiken-interview", label: "英検 面接練習", amount: "1セット", minutes: 8, path: "/speaking" },
@@ -69,14 +69,6 @@ const WORDBOOK_TASKS: TaskDef[] = [
 
 /** 同じ順位のとき(最初の日など)の並び。技能が決まった順に出るようにする */
 const SKILL_ORDER: Skill[] = ["listening", "reading", "speaking", "writing", "vocab"];
-
-const SKILL_NAMES: Record<Skill, string> = {
-  listening: "リスニング",
-  reading: "リーディング",
-  writing: "ライティング",
-  speaking: "スピーキング",
-  vocab: "語彙",
-};
 
 export interface MenuTask {
   /** 例: "listening:toeic-part3" / "review:vocab" */
@@ -138,7 +130,6 @@ function todaySeconds(summary: StatsSummary, skill: Skill): number {
 interface SkillScore {
   skill: Skill;
   score: number;
-  weekSeconds: number;
 }
 
 function scoreSkills(summary: StatsSummary): SkillScore[] {
@@ -151,7 +142,6 @@ function scoreSkills(summary: StatsSummary): SkillScore[] {
     return {
       skill,
       score: SHORTFALL_WEIGHT * shortfall + WEAKNESS_WEIGHT * weakness - (doneToday ? 1 : 0),
-      weekSeconds: week.seconds,
     };
   });
 }
@@ -238,38 +228,37 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
     total += minutes;
   }
 
-  const scores = scoreSkills(summary);
-
   // 単語帳(語彙の枠)。復習の次に、毎日入れる
-  const vocab = scores.find((s) => s.skill === "vocab");
   const wordbook = pickTask(WORDBOOK_TASKS, summary, seed, "毎日少しずつ続けて、単語を定着させるため");
   if (wordbook && !excluded.includes("vocab")) {
-    const { def } = wordbook;
-    const reason =
-      vocab && vocab.weekSeconds < WEEK_TARGET_SECONDS * 0.5 ? "今週の語彙の学習が少ない" : wordbook.reason;
-    tasks.push(taskOf(def, reason));
-    total += def.minutes;
+    tasks.push(taskOf(wordbook.def, wordbook.reason));
+    total += wordbook.def.minutes;
   }
 
-  const ranked = scores
-    // 語彙の枠は単語帳で入れ済み(同じ技能の課題は1日1つまで)
+  const ranked = scoreSkills(summary)
+    // 語彙の枠は単語帳で入れ済み
     .filter((s) => !excluded.includes(s.skill) && s.skill !== "vocab")
     .sort((a, b) => b.score - a.score);
-  for (const s of ranked) {
-    if (total >= MENU_MINUTES) break;
-    const picked = pickTask(
-      CATALOG.filter((d) => d.skill === s.skill),
-      summary,
-      seed,
-    );
-    if (!picked || total + picked.def.minutes > MENU_MAX_MINUTES) continue;
-    const { def } = picked;
-    const reason =
-      s.weekSeconds < WEEK_TARGET_SECONDS * 0.5
-        ? `今週の${SKILL_NAMES[s.skill]}の学習が少ない`
-        : picked.reason;
-    tasks.push(taskOf(def, reason));
-    total += def.minutes;
+
+  // 合計が30分を超えるまで、技能の順位の順に1つずつ入れる。1周して足りなければ、
+  // 同じ順位でもう一周し、その技能のまだ入れていない別の形式を足す(上限は MENU_LIMIT_MINUTES)
+  const chosen = new Set(tasks.map((t) => t.id));
+  let added = true;
+  while (total <= MENU_MINUTES && added) {
+    added = false;
+    for (const s of ranked) {
+      if (total > MENU_MINUTES) break;
+      const picked = pickTask(
+        CATALOG.filter((d) => d.skill === s.skill && !chosen.has(`${d.skill}:${d.type}`)),
+        summary,
+        seed,
+      );
+      if (!picked || total + picked.def.minutes > MENU_LIMIT_MINUTES) continue;
+      tasks.push(taskOf(picked.def, picked.reason));
+      chosen.add(`${picked.def.skill}:${picked.def.type}`);
+      total += picked.def.minutes;
+      added = true;
+    }
   }
 
   return { tasks: markDone(tasks, summary), totalMinutes: total };

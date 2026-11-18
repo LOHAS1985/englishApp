@@ -56,6 +56,39 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 
+describe("今日のメニュー: 表示するメニューの種類", () => {
+  it("既定はスピーキングなしのメニューで、タブも先頭に並ぶ", () => {
+    saveTodaysMenu();
+    vi.mocked(fetchStatsSummary).mockReturnValue(new Promise(() => {}));
+
+    renderSection();
+
+    const tabs = screen.getAllByRole("tab");
+    expect(tabs[0]?.textContent).toContain("スピーキングなし");
+    expect(tabs[0]?.getAttribute("aria-selected")).toBe("true");
+    expect(tabs[1]?.getAttribute("aria-selected")).toBe("false");
+    // 表示中の課題にスピーキングは無い
+    expect(screen.queryByText(/面接練習/)).toBeNull();
+  });
+
+  it("「通常」に切り替えると、スピーキングを含むメニューが出る", async () => {
+    // スピーキングが最優先になる(他の技能は今週十分に学習している)記録から作る
+    const base = summary();
+    const full = { ...base, skills: base.skills.map((k) => ({ ...k, week: totals(2520) })) };
+    full.skills = full.skills.map((k) => (k.skill === "speaking" ? { ...k, week: totals(0) } : k));
+    const menu = buildTodayMenu(full, todaySeed());
+    saveMenu({ ...menu, seed: todaySeed(), todayMinutes: 0 });
+    vi.mocked(fetchStatsSummary).mockReturnValue(new Promise(() => {}));
+
+    renderSection();
+    expect(screen.queryByText(/面接練習/)).toBeNull();
+
+    await userEvent.click(screen.getByRole("tab", { name: /通常/ }));
+
+    expect(screen.getByText(/面接練習/)).toBeTruthy();
+  });
+});
+
 describe("今日のメニュー: 保存済みがある日", () => {
   it("サーバーの応答を待たずに、保存済みのメニューをすぐ出す", () => {
     const menu = saveTodaysMenu();
@@ -64,7 +97,7 @@ describe("今日のメニュー: 保存済みがある日", () => {
     renderSection();
 
     // 描画した直後(応答を待たずに)から、メニューと前回の学習時間が見える
-    expect(screen.getByText(menu.normal.tasks[0]!.label)).toBeTruthy();
+    expect(screen.getByText(menu.quiet.tasks[0]!.label)).toBeTruthy();
     expect(screen.getByText("7", { selector: "span.font-mono" })).toBeTruthy();
     expect(screen.queryByText("今日のメニューを作っています…")).toBeNull();
     expect(screen.getByText("更新中…")).toBeTruthy();
@@ -93,7 +126,7 @@ describe("今日のメニュー: 保存済みがある日", () => {
     renderSection();
 
     await waitFor(() => expect(screen.getByText(/最新の状況を取得できませんでした/)).toBeTruthy());
-    expect(screen.getByText(menu.normal.tasks[0]!.label)).toBeTruthy();
+    expect(screen.getByText(menu.quiet.tasks[0]!.label)).toBeTruthy();
     // 「作れませんでした」のエラー表示には切り替えない
     expect(screen.queryByText(/今日のメニューを作れませんでした/)).toBeNull();
   });

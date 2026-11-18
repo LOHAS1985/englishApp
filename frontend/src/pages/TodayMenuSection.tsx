@@ -33,9 +33,10 @@ function savedLoaded(): Loaded | null {
 
 type Mode = "normal" | "quiet";
 
+// 先頭が既定の表示(外出先で開くことが多いので、声を出さないメニューを先に出す)
 const MODE_LABELS: Record<Mode, { title: string; note: string }> = {
-  normal: { title: "通常", note: "4技能+語彙" },
   quiet: { title: "スピーキングなし", note: "電車内など" },
+  normal: { title: "通常", note: "4技能+語彙" },
 };
 
 /**
@@ -47,7 +48,7 @@ export default function TodayMenuSection() {
   const navigate = useNavigate();
   const [loaded, setLoaded] = useState<Loaded | null>(savedLoaded);
   const [status, setStatus] = useState<Status>("loading");
-  const [mode, setMode] = useState<Mode>("normal");
+  const [mode, setMode] = useState<Mode>("quiet");
 
   const load = useCallback(() => {
     fetchStatsSummary()
