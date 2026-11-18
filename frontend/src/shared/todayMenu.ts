@@ -53,10 +53,18 @@ const CATALOG: TaskDef[] = [
   { skill: "reading", type: "toeic-part7", label: "TOEIC Part 7 読解", amount: "2セット", minutes: 9, path: "/reading/practice?type=toeic-part7" },
   { skill: "reading", type: "eiken-cloze", label: "英検 大問2 空所補充", amount: "2セット", minutes: 10, path: "/reading/practice?type=eiken-cloze" },
   { skill: "reading", type: "eiken-long", label: "英検 大問3 内容一致", amount: "1セット", minutes: 8, path: "/reading/practice?type=eiken-long" },
-  { skill: "vocab", type: "vocab", label: "語彙(英検 大問1・TOEIC)", amount: "10問", minutes: 6, path: "/vocab" },
   { skill: "writing", type: "eiken-summary", label: "英検 要約(60〜70語)", amount: "1題", minutes: 10, path: "/writing?type=summary" },
   { skill: "writing", type: "eiken-opinion", label: "英検 意見論述(120〜150語)", amount: "1題", minutes: 15, path: "/writing?type=opinion" },
   { skill: "speaking", type: "eiken-interview", label: "英検 面接練習", amount: "1セット", minutes: 8, path: "/speaking" },
+];
+
+/**
+ * 単語帳の課題。語彙の枠は毎日これを入れる(技能の順位に任せると、30分に届いて入らない日が多いため)。
+ * 4択と穴埋めは、正答率が低い方・この1か月解いていない方を優先し、同点は日替わりで回す
+ */
+const WORDBOOK_TASKS: TaskDef[] = [
+  { skill: "vocab", type: "wordbook-choice", label: "単語帳 4択(英→日)", amount: "10問", minutes: 4, path: "/wordbook/quiz?type=choice" },
+  { skill: "vocab", type: "wordbook-fill", label: "単語帳 穴埋め", amount: "8問", minutes: 5, path: "/wordbook/quiz?type=fill" },
 ];
 
 /** 同じ順位のとき(最初の日など)の並び。技能が決まった順に出るようにする */
@@ -149,8 +157,12 @@ function scoreSkills(summary: StatsSummary): SkillScore[] {
 }
 
 /** 技能の中で、今日解く形式を選ぶ。正答率が低い形式と、まだ解いていない形式を優先し、同点なら日替わりで回す */
-function pickTask(skill: Skill, summary: StatsSummary, seed: number): { def: TaskDef; reason: string } | null {
-  const defs = CATALOG.filter((d) => d.skill === skill);
+function pickTask(
+  defs: TaskDef[],
+  summary: StatsSummary,
+  seed: number,
+  defaultReason = "バランスよく回すため",
+): { def: TaskDef; reason: string } | null {
   const scored = defs.map((def, index) => {
     const month = summary.types.find((t) => t.type === def.type)?.month ?? ZERO;
     const accuracy = accuracyOf(month);
@@ -166,7 +178,7 @@ function pickTask(skill: Skill, summary: StatsSummary, seed: number): { def: Tas
   scored.sort((a, b) => b.score - a.score || a.rotation - b.rotation);
   const best = scored[0];
   if (!best) return null;
-  let reason = "バランスよく回すため";
+  let reason = defaultReason;
   if (best.month.sessions === 0) reason = "この1か月まだ解いていない形式";
   else if (best.accuracy !== null && best.accuracy < 0.7) reason = `この形式の正答率が低い(${percent(best.accuracy)}%)`;
   return { def: best.def, reason };
@@ -183,6 +195,20 @@ export function markDone(tasks: MenuTask[], summary: StatsSummary): MenuTask[] {
     }
     return { ...t, done: todaySeconds(summary, t.skill) >= t.minutes * 60 * TASK_DONE_RATIO };
   });
+}
+
+function taskOf(def: TaskDef, reason: string): MenuTask {
+  return {
+    id: `${def.skill}:${def.type}`,
+    skill: def.skill,
+    label: def.label,
+    note: `${def.amount}・約${def.minutes}分`,
+    minutes: def.minutes,
+    path: def.path,
+    reason,
+    done: false,
+    review: false,
+  };
 }
 
 function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): MenuPlan {
@@ -212,29 +238,37 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
     total += minutes;
   }
 
-  const ranked = scoreSkills(summary)
-    .filter((s) => !excluded.includes(s.skill))
+  const scores = scoreSkills(summary);
+
+  // 単語帳(語彙の枠)。復習の次に、毎日入れる
+  const vocab = scores.find((s) => s.skill === "vocab");
+  const wordbook = pickTask(WORDBOOK_TASKS, summary, seed, "毎日少しずつ続けて、単語を定着させるため");
+  if (wordbook && !excluded.includes("vocab")) {
+    const { def } = wordbook;
+    const reason =
+      vocab && vocab.weekSeconds < WEEK_TARGET_SECONDS * 0.5 ? "今週の語彙の学習が少ない" : wordbook.reason;
+    tasks.push(taskOf(def, reason));
+    total += def.minutes;
+  }
+
+  const ranked = scores
+    // 語彙の枠は単語帳で入れ済み(同じ技能の課題は1日1つまで)
+    .filter((s) => !excluded.includes(s.skill) && s.skill !== "vocab")
     .sort((a, b) => b.score - a.score);
   for (const s of ranked) {
     if (total >= MENU_MINUTES) break;
-    const picked = pickTask(s.skill, summary, seed);
+    const picked = pickTask(
+      CATALOG.filter((d) => d.skill === s.skill),
+      summary,
+      seed,
+    );
     if (!picked || total + picked.def.minutes > MENU_MAX_MINUTES) continue;
     const { def } = picked;
     const reason =
       s.weekSeconds < WEEK_TARGET_SECONDS * 0.5
         ? `今週の${SKILL_NAMES[s.skill]}の学習が少ない`
         : picked.reason;
-    tasks.push({
-      id: `${def.skill}:${def.type}`,
-      skill: def.skill,
-      label: def.label,
-      note: `${def.amount}・約${def.minutes}分`,
-      minutes: def.minutes,
-      path: def.path,
-      reason,
-      done: false,
-      review: false,
-    });
+    tasks.push(taskOf(def, reason));
     total += def.minutes;
   }
 

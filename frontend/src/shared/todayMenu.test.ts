@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { ReviewSummary, Skill, StatsSummary, StudyTotals } from "../api/client";
-import { MENU_MINUTES, buildTodayMenu, markDone, refreshDone, todaySeed } from "./todayMenu";
+import { MENU_MINUTES, buildTodayMenu, markDone, refreshDone, todaySeed, type MenuTask } from "./todayMenu";
 
 const SKILLS: Skill[] = ["listening", "reading", "writing", "speaking", "vocab"];
 const LISTENING_TYPES = ["toeic-part2", "toeic-part3", "toeic-part4", "eiken-part1", "eiken-part2", "eiken-part3"];
@@ -44,7 +44,8 @@ describe("buildTodayMenu(通常)", () => {
   it("記録が空でも、約30分のメニューができる", () => {
     const menu = normalMenu();
     expect(menu.tasks.length).toBeGreaterThanOrEqual(3);
-    expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 2);
+    // 単語帳(4〜5分)を毎日入れるので、残りの課題が収まらず30分に少し届かない日がある
+    expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 3);
     expect(menu.totalMinutes).toBeLessThanOrEqual(35);
     expect(menu.totalMinutes).toBe(menu.tasks.reduce((a, t) => a + t.minutes, 0));
   });
@@ -69,10 +70,12 @@ describe("buildTodayMenu(通常)", () => {
   it("今週の学習が少ない技能を優先する", () => {
     // スピーキングとライティングだけ今週まったく学習していない
     const menu = normalMenu({ week: { ...FULL_WEEK, speaking: 0, writing: 0 } });
-    const first = menu.tasks.slice(0, 2).map((t) => t.skill);
+    // 毎日入る単語帳(語彙)を除いて、技能の順位で並ぶ
+    const ranked = menu.tasks.filter((t) => t.skill !== "vocab");
+    const first = ranked.slice(0, 2).map((t) => t.skill);
     expect(first).toContain("speaking");
     expect(first).toContain("writing");
-    expect(menu.tasks[0]?.reason).toContain("今週");
+    expect(ranked[0]?.reason).toContain("今週");
   });
 
   it("正答率が低い形式を選ぶ", () => {
@@ -117,6 +120,64 @@ describe("buildTodayMenu(通常)", () => {
 
   it("メニューを作った日(seed)を覚えている", () => {
     expect(buildTodayMenu(makeSummary(), 123).seed).toBe(123);
+  });
+});
+
+describe("単語帳", () => {
+  const wordbookOf = (menu: { tasks: MenuTask[] }) => menu.tasks.filter((t) => t.id.startsWith("vocab:wordbook"));
+
+  it("記録が空でも、毎日1つ入る(復習の次)", () => {
+    for (let seed = 0; seed < 6; seed++) {
+      expect(wordbookOf(normalMenu({}, seed))).toHaveLength(1);
+    }
+    const menu = normalMenu({ review: { vocab: { feature: "vocab", due: 10, pending: 0 } } });
+    expect(menu.tasks.map((t) => t.id).slice(0, 2)).toEqual(["review:vocab", expect.stringMatching(/^vocab:wordbook-/)]);
+  });
+
+  it("語彙が十分に学習された週や、今日学習した日でも入る", () => {
+    const menu = normalMenu({ week: FULL_WEEK, today: { vocab: 1800 } });
+    expect(wordbookOf(menu)).toHaveLength(1);
+  });
+
+  it("スピーキングなしのメニューにも入る(声を出さない課題)", () => {
+    expect(wordbookOf(quietMenu())).toHaveLength(1);
+  });
+
+  it("4択と穴埋めは、日替わりで回る", () => {
+    const ids = new Set<string>();
+    for (let seed = 0; seed < 4; seed++) ids.add(wordbookOf(normalMenu({}, seed))[0]?.id ?? "");
+    expect(ids).toEqual(new Set(["vocab:wordbook-choice", "vocab:wordbook-fill"]));
+  });
+
+  it("正答率が低い方・この1か月解いていない方を選ぶ", () => {
+    const lowFill = [
+      { type: "wordbook-choice", sessions: 5, correct: 14, total: 15 },
+      { type: "wordbook-fill", sessions: 5, correct: 6, total: 15 },
+    ];
+    expect(wordbookOf(normalMenu({ types: lowFill }))[0]?.id).toBe("vocab:wordbook-fill");
+    const neverChoice = [{ type: "wordbook-fill", sessions: 5, correct: 14, total: 15 }];
+    expect(wordbookOf(normalMenu({ types: neverChoice }))[0]?.id).toBe("vocab:wordbook-choice");
+  });
+
+  it("単語帳の画面に飛ぶ(形式を指定する)", () => {
+    const task = wordbookOf(normalMenu({}, 0))[0]!;
+    expect(task.path).toBe(`/wordbook/quiz?type=${task.id.endsWith("choice") ? "choice" : "fill"}`);
+  });
+
+  it("入れても合計は35分以内で、約30分になる", () => {
+    for (let seed = 0; seed < 6; seed++) {
+      const menu = normalMenu({}, seed);
+      expect(menu.totalMinutes).toBeGreaterThanOrEqual(MENU_MINUTES - 3);
+      expect(menu.totalMinutes).toBeLessThanOrEqual(35);
+    }
+  });
+
+  it("今日の語彙の学習時間が課題の7割以上なら、済みにする", () => {
+    const task = wordbookOf(normalMenu({}, 0))[0]!;
+    const menu = normalMenu({}, 0);
+    const seconds = Math.ceil(task.minutes * 60 * 0.7);
+    const done = markDone(menu.tasks, makeSummary({ today: { vocab: seconds } }));
+    expect(done.find((t) => t.id.startsWith("vocab:wordbook"))?.done).toBe(true);
   });
 });
 
