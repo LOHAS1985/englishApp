@@ -19,6 +19,9 @@ export default defineConfig({
   webServer: {
     command: `npm run dev -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/englishApp/`,
+    // API のアドレスを空にして、API を画面と同じオリジンの /api/... に向ける(e2e/mockApi.ts がそれを差し替える)。
+    // frontend/.env が無い環境(CI や新しいクローン)でも、API が /englishApp/undefined/api/... に飛ばないようにする
+    env: { VITE_API_BASE_URL: "" },
     reuseExistingServer: true,
     timeout: 60_000,
   },

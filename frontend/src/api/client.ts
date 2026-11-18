@@ -494,7 +494,8 @@ export interface ReviewSummary {
 export interface StatsSummary {
   today: StudyTotals;
   skills: { skill: Skill; week: StudyTotals; month: StudyTotals }[];
-  types: { type: string; month: StudyTotals }[];
+  /** week(直近7日)と skill は、古いバックエンドの応答には無い(デプロイの順序でずれることがある) */
+  types: { type: string; skill?: Skill; week?: StudyTotals; month: StudyTotals }[];
   daily: { date: string; seconds: Record<Skill, number> }[];
   review: Record<string, ReviewSummary>;
 }
@@ -510,8 +511,14 @@ export interface StudyLogItem {
   createdAt: string;
 }
 
-export async function fetchStatsSummary() {
-  return getJson<StatsSummary>("/api/stats/summary", "学習記録の取得に失敗しました");
+let statsInFlight: Promise<StatsSummary> | null = null;
+
+/** ホームの「今日のメニュー」と「今週の学習」が同時に呼ぶので、取得中は同じ応答を共有して1回で済ませる */
+export function fetchStatsSummary() {
+  statsInFlight ??= getJson<StatsSummary>("/api/stats/summary", "学習記録の取得に失敗しました").finally(() => {
+    statsInFlight = null;
+  });
+  return statsInFlight;
 }
 
 export async function fetchStudyHistory() {

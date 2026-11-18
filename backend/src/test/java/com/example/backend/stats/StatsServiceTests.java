@@ -48,6 +48,17 @@ class StatsServiceTests {
     assertThat(s.types()).extracting(StatsSummary.TypeStats::type)
         .containsExactlyInAnyOrder("toeic-part5", "toeic-part7", "toeic-part2", "eiken-opinion", "eiken-interview");
 
+    // 形式別は、直近7日(今週)と直近30日の両方と、属する技能を持つ
+    StatsSummary.TypeStats part7 = s.types().stream().filter(t -> t.type().equals("toeic-part7")).findFirst()
+        .orElseThrow();
+    assertThat(part7.skill()).isEqualTo("reading");
+    assertThat(part7.week().total()).isEqualTo(3);
+    StatsSummary.TypeStats part2 = s.types().stream().filter(t -> t.type().equals("toeic-part2")).findFirst()
+        .orElseThrow();
+    // 10日前の記録は今週に入らず、直近30日にだけ入る
+    assertThat(part2.week().sessions()).isZero();
+    assertThat(part2.month().total()).isEqualTo(5);
+
     assertThat(s.daily()).hasSize(StatsService.DAILY_DAYS);
     assertThat(s.daily().getLast().date()).isEqualTo("2026-11-01");
     assertThat(s.daily().getLast().seconds()).containsEntry("reading", 30).containsEntry("writing", 900);

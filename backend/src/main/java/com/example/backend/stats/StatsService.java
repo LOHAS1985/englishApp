@@ -68,7 +68,8 @@ public class StatsService {
       byType.computeIfAbsent(l.getItemType(), k -> new ArrayList<>()).add(l);
     }
     List<TypeStats> types = byType.entrySet().stream()
-        .map(e -> new TypeStats(e.getKey(), totals(e.getValue(), l -> true)))
+        .map(e -> new TypeStats(e.getKey(), skillOf(e.getValue().getFirst().getFeature()),
+            totals(e.getValue(), l -> !l.getCreatedAt().isBefore(weekStart)), totals(e.getValue(), l -> true)))
         .toList();
 
     List<DailyStats> daily = new ArrayList<>();

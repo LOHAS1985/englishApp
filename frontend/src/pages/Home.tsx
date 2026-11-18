@@ -6,6 +6,7 @@ import { EXAM_MENUS } from "../shared/exams";
 import { DifficultySelect } from "../shared/components/Difficulty";
 import { loadSavedLevel, saveLevel, withLevel } from "../shared/level";
 import TodayMenuSection from "./TodayMenuSection";
+import WeeklyStatsSection from "./WeeklyStatsSection";
 
 const REVIEW_LINKS = [
   { feature: "vocab", label: "語彙", path: "/vocab?review=1" },
@@ -84,6 +85,8 @@ export default function Home() {
                 <span className="text-slate-500">→</span>
               </button>
             </div>
+
+            <WeeklyStatsSection />
           </>
         ) : (
           <>

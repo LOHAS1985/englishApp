@@ -129,6 +129,7 @@ english-app/
 - **今日の30分メニューの即表示**: 保存済みのメニューと最後に取得した学習時間を、サーバーの応答を待たずに出す(`pages/TodayMenuSection.tsx`)。応答が返ったら済みの印と学習時間を更新する。画面のテストは `TodayMenuSection.test.tsx`(jsdom)。
 - **CORS のプリフライトのキャッシュ**: `SecurityConfig` で `Access-Control-Max-Age` を1時間にする(`CorsConfigTests`)。
 - **起動後のウォームアップ**: `config/WarmUp`。本番プロファイルの `app.warmup=${APP_WARMUP:true}` で有効。遅延初期化(`spring.main.lazy-initialization=true`)のため最初の API 呼び出しが部品の読み込みで遅くなるのを、ホーム画面が呼ぶ API を別スレッドで先に呼んで済ませる(`WarmUpTests`)。
+- **今週の学習の集計**: `StatsService` が形式別(`types`)に直近7日(`week`)と技能(`skill`)を持つ(`StatsServiceTests`)。画面は `shared/weeklyReport.ts`(`weeklyReport.test.ts`)・`pages/WeeklyStatsSection.tsx`(`WeeklyStatsSection.test.tsx`、e2e は `e2e/home.spec.ts`)。バックエンドより先に画面が配信されても壊れないよう、`week`・`skill` が無い応答では形式別の表だけを省く。
 - **問題集の形式別の分割**: 読解・リスニングの同梱問題集を形式ごとの別チャンクにした(`QuestionExportTests` が `reading/<type>.json`・`listening/<type>.json`・`index.json` を書き出す。形式が減ったときの古いファイルも検出する)。`api/localQuestions.ts` が開いた形式だけを読み込む(`localQuestions.test.ts`)。gzip 後の転送量は、リスニング Part 3 で 432KB→106KB、読解 Part 7 で 484KB→215KB。まだ開いていない形式はオフラインでは開けない(開いた形式は PWA のキャッシュに残る)。
 - **レベル・弱点分析のキャッシュ**: `common/SignatureCache`。記録の件数と最大 ID(`TableSignature`。`StudyLogRepository` など各リポジトリの `signature`)が前回と同じなら、前回の計算結果を返す(`SummaryCacheTests`)。印を先に読んでから全件を読むので、読む間に記録が増えても古い結果が残らない。今日の日付で決まる部分(連続日数・予定ペース・直近14日)は毎回組み立てる。メモリだけに置くので、再起動で消え、1台構成が前提。
 - **測定の目安(このPC。Render は CPU 0.1 で約10倍遅いと推定)**: 再起動直後の最初の `/api/level` は、ウォームアップ前 422ms、後 14ms。本番への往復は最低 0.17〜0.47 秒、プリフライトは 0.17〜0.39 秒。

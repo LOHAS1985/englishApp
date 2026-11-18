@@ -21,8 +21,8 @@ public record StatsSummary(
   public record SkillStats(String skill, Totals week, Totals month) {
   }
 
-  /** 直近30日の形式別の成績(弱点の把握用) */
-  public record TypeStats(String type, Totals month) {
+  /** 形式別の成績。month は直近30日(弱点の把握用)、week は直近7日(ホームの今週の学習量用)。skill は形式が属する技能 */
+  public record TypeStats(String type, String skill, Totals week, Totals month) {
   }
 
   /** date: yyyy-MM-dd(日本時間)。seconds は技能ごとの学習秒数 */
