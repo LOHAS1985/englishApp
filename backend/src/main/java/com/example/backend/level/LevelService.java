@@ -1,5 +1,7 @@
 package com.example.backend.level;
 
+import com.example.backend.common.SignatureCache;
+import com.example.backend.common.TableSignature;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.grammar.GrammarQuestionBank;
 import com.example.backend.level.XpRules.DayXp;
@@ -31,6 +33,11 @@ public class LevelService {
   private final VocabQuestionBank vocabBank;
   private final ReadingQuestionBank readingBank;
   private final ListeningQuestionBank listeningBank;
+  /**
+   * 日ごとの経験値。全学習ログから計算するので、ログが増えるまでは使い回す(ヘッダーが毎画面で呼ぶため)。
+   * 今日の日付で決まる部分(連続日数・ペース・直近14日)は毎回 summarize で作り直すので、日付が変わっても古くならない
+   */
+  private final SignatureCache<Map<LocalDate, DayXp>> daysCache = new SignatureCache<>();
 
   public LevelService(StudyLogRepository studyLogRepository, CurrentUserProvider currentUserProvider,
       GrammarQuestionBank grammarBank, VocabQuestionBank vocabBank, ReadingQuestionBank readingBank,
@@ -44,12 +51,19 @@ public class LevelService {
   }
 
   public LevelSummary summary() {
-    List<LogEntry> logs = studyLogRepository.findByUserIdOrderByIdAsc(currentUserProvider.getCurrentUserId())
-        .stream()
+    Long userId = currentUserProvider.getCurrentUserId();
+    // 印を先に読んでから全件を読む(読む間にログが増えても、次の呼び出しで計算し直される)
+    TableSignature signature = studyLogRepository.signature(userId);
+    Map<LocalDate, DayXp> days = daysCache.get(List.of(userId, signature.getCount(), signature.getMaxId()),
+        () -> XpRules.calculate(logsOf(userId), this::difficulty));
+    return summarize(days, LocalDate.now(StudyLogService.JST));
+  }
+
+  private List<LogEntry> logsOf(Long userId) {
+    return studyLogRepository.findByUserIdOrderByIdAsc(userId).stream()
         .map(l -> new LogEntry(l.getFeature(), l.getItemType(), l.getItemId(), l.getCorrectCount(),
             l.getTotalCount(), l.getDurationSeconds(), l.getCreatedAt()))
         .toList();
-    return summarize(XpRules.calculate(logs, this::difficulty), LocalDate.now(StudyLogService.JST));
   }
 
   /** 問題集から消えた問題や、難易度の無い形式(ライティングなど)は標準として扱う */

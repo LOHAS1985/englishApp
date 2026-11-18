@@ -7,6 +7,8 @@ import com.example.backend.common.QuestionSetBank;
 import com.example.backend.common.QuestionSetBank.QuestionSet;
 import com.example.backend.common.QuestionSetBank.SetQuestion;
 import com.example.backend.common.QuestionTags;
+import com.example.backend.common.SignatureCache;
+import com.example.backend.common.TableSignature;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.grammar.GrammarQuestionBank;
 import com.example.backend.grammar.GrammarRecordRepository;
@@ -34,6 +36,9 @@ public class WeaknessService {
   record TaggedAnswer(String feature, String type, String category, boolean correct) {
   }
 
+  /** 分類に使う PracticeRecord の機能(文法は GrammarRecord)。単語帳・ライティングなどの解答では計算し直さない */
+  private static final List<String> PRACTICE_FEATURES = List.of("vocab", "reading", "listening");
+
   private final GrammarRecordRepository grammarRecordRepository;
   private final PracticeRecordRepository practiceRecordRepository;
   private final GrammarQuestionBank grammarBank;
@@ -41,6 +46,8 @@ public class WeaknessService {
   private final ReadingQuestionBank readingBank;
   private final ListeningQuestionBank listeningBank;
   private final CurrentUserProvider currentUserProvider;
+  /** 全解答の集計なので、解答が増えるまでは使い回す(記録が増えるほど毎回の計算が重くなるため) */
+  private final SignatureCache<List<WeaknessItem>> cache = new SignatureCache<>();
 
   public WeaknessService(GrammarRecordRepository grammarRecordRepository,
       PracticeRecordRepository practiceRecordRepository, GrammarQuestionBank grammarBank,
@@ -57,6 +64,14 @@ public class WeaknessService {
 
   public List<WeaknessItem> summary() {
     Long userId = currentUserProvider.getCurrentUserId();
+    // 印を先に読んでから全件を読む(読む間に解答が増えても、次の呼び出しで計算し直される)
+    TableSignature grammar = grammarRecordRepository.signature(userId);
+    TableSignature practice = practiceRecordRepository.signature(userId, PRACTICE_FEATURES);
+    return cache.get(List.of(userId, grammar.getCount(), grammar.getMaxId(), practice.getCount(),
+        practice.getMaxId()), () -> compute(userId));
+  }
+
+  private List<WeaknessItem> compute(Long userId) {
     List<TaggedAnswer> answers = new ArrayList<>();
     grammarRecordRepository.findByUserIdOrderByIdDesc(userId).forEach(r -> grammarBank.findById(r.getQuestionId())
         .ifPresent(q -> answers.add(new TaggedAnswer("grammar", "toeic-part5",

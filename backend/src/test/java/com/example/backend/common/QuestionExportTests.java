@@ -15,8 +15,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -53,10 +57,30 @@ class QuestionExportTests {
     ReadingQuestionBank reading = new ReadingQuestionBank(MAPPER);
     ListeningQuestionBank listening = new ListeningQuestionBank(MAPPER);
 
-    check("grammar", render(grammar.all().stream().map(q -> choice(grammar, q)).toList()));
-    check("vocab", render(vocab.all().stream().map(q -> choice(vocab, q)).toList()));
-    check("reading", render(reading.all().stream().map(s -> set(reading, s, true)).toList()));
-    check("listening", render(listening.all().stream().map(s -> set(listening, s, false)).toList()));
+    // 書き出すファイル(OUT からの相対パス → 内容)。読解・リスニングは形式(type)ごとに別ファイルにして、
+    // 画面が開いた形式の分だけ読み込めるようにする
+    Map<String, String> files = new TreeMap<>();
+    files.put("grammar.json", render(grammar.all().stream().map(q -> choice(grammar, q)).toList()));
+    files.put("vocab.json", render(vocab.all().stream().map(q -> choice(vocab, q)).toList()));
+    Map<String, Map<String, String>> index = new LinkedHashMap<>();
+    index.put("reading", splitByType("reading", reading, reading.all(), true, files));
+    index.put("listening", splitByType("listening", listening, listening.all(), false, files));
+    files.put("index.json", MAPPER.writeValueAsString(index) + "\n");
+
+    check(files);
+  }
+
+  /** 形式ごとのファイルを files に足し、セット ID → 形式の対応(index.json 用)を返す */
+  private static Map<String, String> splitByType(String feature, QuestionSetBank bank, List<QuestionSet> sets,
+      boolean bundleTranscript, Map<String, String> files) {
+    Map<String, List<SetExport>> byType = new TreeMap<>();
+    Map<String, String> typeOf = new TreeMap<>();
+    for (QuestionSet s : sets) {
+      byType.computeIfAbsent(s.type(), t -> new java.util.ArrayList<>()).add(set(bank, s, bundleTranscript));
+      typeOf.put(s.id(), s.type());
+    }
+    byType.forEach((type, items) -> files.put(feature + "/" + type + ".json", render(items)));
+    return typeOf;
   }
 
   private static ChoiceExport choice(ChoiceQuestionBank bank, ChoiceQuestion q) {
@@ -85,16 +109,38 @@ class QuestionExportTests {
         .collect(Collectors.joining(",\n", "[\n", "\n]\n"));
   }
 
-  private static void check(String feature, String expected) throws IOException {
-    Path file = OUT.resolve(feature + ".json");
+  private static void check(Map<String, String> files) throws IOException {
     if (Boolean.getBoolean("export.write")) {
-      Files.createDirectories(OUT);
-      Files.writeString(file, expected, StandardCharsets.UTF_8);
+      // 形式が減った・名前が変わったときに古いファイルが残らないよう、作り直す
+      if (Files.exists(OUT)) {
+        try (Stream<Path> old = Files.walk(OUT)) {
+          for (Path p : old.sorted(java.util.Comparator.reverseOrder()).filter(p -> !p.equals(OUT)).toList()) {
+            Files.delete(p);
+          }
+        }
+      }
+      for (Map.Entry<String, String> e : files.entrySet()) {
+        Path file = OUT.resolve(e.getKey());
+        Files.createDirectories(file.getParent());
+        Files.writeString(file, e.getValue(), StandardCharsets.UTF_8);
+      }
       return;
     }
-    // Windows の autocrlf で CRLF になっていても同じ内容とみなす(書き出しは LF)
-    assertThat(Files.exists(file) ? Files.readString(file, StandardCharsets.UTF_8).replace("\r\n", "\n") : "")
-        .as(file + " が古くなっています。./scripts/export-questions.sh を実行してください")
-        .isEqualTo(expected);
+    for (Map.Entry<String, String> e : files.entrySet()) {
+      Path file = OUT.resolve(e.getKey());
+      // Windows の autocrlf で CRLF になっていても同じ内容とみなす(書き出しは LF)
+      assertThat(Files.exists(file) ? Files.readString(file, StandardCharsets.UTF_8).replace("\r\n", "\n") : "")
+          .as(file + " が古くなっています。./scripts/export-questions.sh を実行してください")
+          .isEqualTo(e.getValue());
+    }
+    // 書き出し対象に無い古いファイル(消えた形式・分割前の listening.json など)が残っていないか
+    if (Files.exists(OUT)) {
+      try (Stream<Path> found = Files.walk(OUT)) {
+        List<String> existing = found.filter(Files::isRegularFile)
+            .map(p -> OUT.relativize(p).toString().replace('\\', '/')).toList();
+        assertThat(existing).as("書き出し対象に無いファイルがあります。./scripts/export-questions.sh で作り直してください")
+            .containsExactlyInAnyOrderElementsOf(files.keySet());
+      }
+    }
   }
 }

@@ -43,29 +43,76 @@ export interface LocalQuestionSet {
   theme: string | null;
 }
 
-// 機能ごとに別ファイル(別チャンク)にして、開いた機能の問題集だけを読み込む
-const loaders = import.meta.glob<unknown[]>("../generated/questions/*.json", { import: "default" });
+// 文法・語彙は機能ごとに1ファイル、読解・リスニングは形式(type)ごとに1ファイル(別チャンク)にして、
+// 開いた形式の分だけ読み込む(読解の TOEIC Part 7 だけで約 580KB。全形式だと 1.3MB を超える)
+const choiceLoaders = import.meta.glob<unknown[]>("../generated/questions/*.json", { import: "default" });
+const setLoaders = import.meta.glob<unknown[]>("../generated/questions/*/*.json", { import: "default" });
+const indexLoader = import.meta.glob<SetIndex>("../generated/questions/index.json", { import: "default" });
+
+/** セット ID → 形式(index.json)。形式を知らずに ID だけで引くとき(採点・台本)に使う */
+type SetIndex = Record<SetFeature, Record<string, string>>;
 
 interface Bank<T> {
   all: T[];
   byId: Map<string, T>;
 }
 
-const banks = new Map<string, Promise<Bank<unknown>>>();
+const banks = new Map<string, Promise<Bank<{ id: string }>>>();
 
-function loadBank<T extends { id: string }>(feature: PracticeFeature): Promise<Bank<T>> {
-  if (!banks.has(feature)) {
-    const loader = loaders[`../generated/questions/${feature}.json`];
-    if (!loader) throw new Error(`問題集が見つかりません: ${feature}`);
-    banks.set(
-      feature,
-      loader().then((items) => {
-        const all = items as T[];
-        return { all, byId: new Map(all.map((q) => [q.id, q])) } as Bank<unknown>;
-      }),
-    );
+function toBank<T extends { id: string }>(items: unknown[]): Bank<T> {
+  const all = items as T[];
+  return { all, byId: new Map(all.map((q) => [q.id, q])) };
+}
+
+function cached<T extends { id: string }>(key: string, load: () => Promise<unknown[]>): Promise<Bank<T>> {
+  if (!banks.has(key)) {
+    // 読み込みに失敗したら次回やり直せるよう、失敗した Promise は残さない
+    const promise = load().then((items) => toBank<{ id: string }>(items));
+    promise.catch(() => banks.delete(key));
+    banks.set(key, promise);
   }
-  return banks.get(feature) as Promise<Bank<T>>;
+  return banks.get(key) as Promise<Bank<T>>;
+}
+
+function loadChoiceBank<T extends { id: string }>(feature: ChoiceFeature): Promise<Bank<T>> {
+  return cached<T>(feature, () => {
+    const loader = choiceLoaders[`../generated/questions/${feature}.json`];
+    if (!loader) throw new Error(`問題集が見つかりません: ${feature}`);
+    return loader();
+  });
+}
+
+function loadSetBank(feature: SetFeature, type: string): Promise<Bank<LocalQuestionSet>> {
+  return cached<LocalQuestionSet>(`${feature}/${type}`, () => {
+    const loader = setLoaders[`../generated/questions/${feature}/${type}.json`];
+    if (!loader) throw new Error(`この形式の問題はまだ登録されていません: ${type}`);
+    return loader();
+  });
+}
+
+let setIndex: Promise<SetIndex> | null = null;
+
+function loadSetIndex(): Promise<SetIndex> {
+  if (!setIndex) {
+    const loader = indexLoader["../generated/questions/index.json"];
+    setIndex = loader().catch((e) => {
+      setIndex = null;
+      throw e;
+    });
+  }
+  return setIndex;
+}
+
+/** 出題したセットの形式。出題した直後の採点・台本は、index.json を読まずにここから引く */
+const typeOfSet = new Map<string, string>();
+
+async function setTypeOf(feature: SetFeature, setId: string): Promise<string | undefined> {
+  return typeOfSet.get(setId) ?? (await loadSetIndex())[feature][setId];
+}
+
+async function findSet(feature: SetFeature, setId: string): Promise<LocalQuestionSet | undefined> {
+  const type = await setTypeOf(feature, setId);
+  return type ? (await loadSetBank(feature, type)).byId.get(setId) : undefined;
 }
 
 /** 問題集と解答履歴から次の問題を選ぶ。履歴は裏で取り直し、今回は保存済みの履歴で選ぶ(待たない) */
@@ -92,7 +139,7 @@ function chooseId<T extends { id: string; difficulty: number }>(
 type ChoiceFeature = "grammar" | "vocab";
 
 export async function pickChoiceQuestion(feature: ChoiceFeature, exclude?: string | null, level?: number) {
-  const bank = await loadBank<LocalChoiceQuestion>(feature);
+  const bank = await loadChoiceBank<LocalChoiceQuestion>(feature);
   const q = bank.byId.get(chooseId(feature, bank.all, exclude, level));
   if (!q) throw new Error("問題が見つかりません");
   return { id: q.id, sentence: q.sentence, choices: q.choices, difficulty: q.difficulty };
@@ -108,7 +155,7 @@ export async function gradeChoiceQuestion(
   selectedChoice: string,
   durationSeconds?: number,
 ) {
-  const q = (await loadBank<LocalChoiceQuestion>(feature)).byId.get(questionId);
+  const q = (await loadChoiceBank<LocalChoiceQuestion>(feature)).byId.get(questionId);
   if (!q) return null;
   const correct = q.answer === selectedChoice.trim().toUpperCase();
   enqueueAnswer(feature, `/api/${feature}/answer`, { questionId, selectedChoice, durationSeconds }, [
@@ -126,16 +173,15 @@ const AUDIO_ONLY_TYPES = new Set(["toeic-part2"]);
 
 export async function countSetTypes(feature: SetFeature) {
   const counts: Record<string, number> = {};
-  for (const s of (await loadBank<LocalQuestionSet>(feature)).all) counts[s.type] = (counts[s.type] ?? 0) + 1;
+  for (const type of Object.values((await loadSetIndex())[feature])) counts[type] = (counts[type] ?? 0) + 1;
   return counts;
 }
 
 export async function pickQuestionSet(feature: SetFeature, type: string, exclude?: string | null, level?: number) {
-  const bank = await loadBank<LocalQuestionSet>(feature);
-  const candidates = bank.all.filter((s) => s.type === type);
-  if (candidates.length === 0) throw new Error(`この形式の問題はまだ登録されていません: ${type}`);
-  const set = bank.byId.get(chooseId(feature, candidates, exclude, level));
+  const bank = await loadSetBank(feature, type);
+  const set = bank.byId.get(chooseId(feature, bank.all, exclude, level));
   if (!set) throw new Error("問題が見つかりません");
+  typeOfSet.set(set.id, set.type);
   const audioOnly = AUDIO_ONLY_TYPES.has(set.type);
   return {
     id: set.id,
@@ -164,7 +210,7 @@ export async function gradeQuestionSet(
   durationSeconds?: number,
   readingSeconds?: number,
 ) {
-  const set = (await loadBank<LocalQuestionSet>(feature)).byId.get(setId);
+  const set = await findSet(feature, setId);
   if (!set) throw new Error("問題が見つかりません。再度出題してください。");
   const results = set.questions.map((q, i) => {
     const selected = (answers[i] ?? "").trim().toUpperCase();
@@ -186,5 +232,6 @@ export async function gradeQuestionSet(
 
 /** ブラウザの読み上げ機能で再生するための台本 */
 export async function localScript(setId: string) {
-  return (await loadBank<LocalQuestionSet>("listening")).byId.get(setId)?.script ?? null;
+  // 台本は同梱していない(null)ことが多い。形式が引けなくても、呼び出し側がサーバーから取るので null を返す
+  return (await findSet("listening", setId).catch(() => undefined))?.script ?? null;
 }
