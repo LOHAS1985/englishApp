@@ -19,6 +19,18 @@ interface Loaded {
   todayMinutes: number;
 }
 
+/**
+ * 最新の学習記録の取得状況。保存したメニューを先に出すので、取得の途中・失敗でもメニューは見える。
+ * loading=取得中 / fresh=最新 / failed=取得に失敗した(保存した内容を出している)
+ */
+type Status = "loading" | "fresh" | "failed";
+
+/** 今日の保存済みのメニュー。あれば、サーバーの応答を待たずにすぐ出す(毎回の待ち時間をなくすため) */
+function savedLoaded(): Loaded | null {
+  const saved = loadSavedMenu(todaySeed());
+  return saved ? { menu: saved, todayMinutes: saved.todayMinutes ?? 0 } : null;
+}
+
 type Mode = "normal" | "quiet";
 
 const MODE_LABELS: Record<Mode, { title: string; note: string }> = {
@@ -33,8 +45,8 @@ const MODE_LABELS: Record<Mode, { title: string; note: string }> = {
  */
 export default function TodayMenuSection() {
   const navigate = useNavigate();
-  const [loaded, setLoaded] = useState<Loaded | null>(null);
-  const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState<Loaded | null>(savedLoaded);
+  const [status, setStatus] = useState<Status>("loading");
   const [mode, setMode] = useState<Mode>("normal");
 
   const load = useCallback(() => {
@@ -42,24 +54,29 @@ export default function TodayMenuSection() {
       .then((summary) => {
         const seed = todaySeed();
         const saved = loadSavedMenu(seed);
-        const menu = saved ? refreshDone(saved, summary) : buildTodayMenu(summary, seed);
-        if (!saved) saveMenu(menu);
-        setLoaded({ menu, todayMinutes: Math.round(summary.today.seconds / 60) });
+        const base = saved ? refreshDone(saved, summary) : buildTodayMenu(summary, seed);
+        const todayMinutes = Math.round(summary.today.seconds / 60);
+        // 済みの印と学習時間を最新にして保存する。次に開いたときは、これを待たずに出す
+        const menu = { ...base, todayMinutes };
+        saveMenu(menu);
+        setLoaded({ menu, todayMinutes });
+        setStatus("fresh");
       })
-      .catch(() => setError(true));
+      .catch(() => setStatus("failed"));
   }, []);
 
   useEffect(() => {
     load();
   }, [load]);
 
-  if (error) {
+  // 保存済みのメニューが無い日の最初の1回だけは、記録を取得してから作る
+  if (!loaded && status === "failed") {
     return (
       <div className="mb-6 rounded-lg bg-white border border-slate-200 p-4 text-sm text-slate-600">
         今日のメニューを作れませんでした(サーバーが起動中の可能性があります)。
         <button
           onClick={() => {
-            setError(false);
+            setStatus("loading");
             load();
           }}
           className="ml-2 text-[#2463a8] hover:underline"
@@ -84,6 +101,10 @@ export default function TodayMenuSection() {
         <h2 className="text-lg font-bold text-slate-900">今日の{MENU_MINUTES}分メニュー</h2>
         <span className="text-sm text-slate-600">
           今日の学習 <span className="font-mono font-semibold">{todayMinutes}</span> 分 / {MENU_MINUTES}分
+          {status === "loading" && <span className="ml-2 text-xs text-slate-400">更新中…</span>}
+          {status === "failed" && (
+            <span className="ml-2 text-xs text-[#c0392b]">最新の状況を取得できませんでした(保存した内容を表示中)</span>
+          )}
         </span>
       </div>
       <div className="h-2 rounded-full bg-slate-100 mb-4" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>

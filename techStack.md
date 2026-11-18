@@ -123,3 +123,10 @@ english-app/
 - **画面の通しテスト(e2e)**: @playwright/test 1.65.1(devDependency、無料)。`npm run test:e2e`。`e2e/*.spec.ts`。ブラウザは端末の Chrome(`channel: "chrome"`)を使うので、ブラウザのダウンロードは不要。バックエンドは動かさず、`e2e/mockApi.ts` が `/api/**` を固定データで返す。開発サーバーは Playwright が起動する(起動済みなら使い回す)。CI には入れていない。
 - **PWA**: `public/manifest.webmanifest` と `public/sw.js`。本番のみ登録する(`main.tsx`)。navigate は network-first(失敗時はキャッシュの index.html)、同一オリジンの `assets/`・問題集・favicon・manifest は cache-first、`/api/` と別オリジンはキャッシュしない。`CACHE_NAME` で世代を管理し、`skipWaiting` は使わない。アイコンは SVG のみ(Chrome のインストール条件を満たさない可能性があり、192px・512px の PNG は未作成)。
 - **DB マイグレーション**: `V13__reading_speeds_and_mock_exams.sql`(`reading_speeds`、`mock_exams`)。
+
+## 応答の速さ(2026-11-18 追加)
+
+- **今日の30分メニューの即表示**: 保存済みのメニューと最後に取得した学習時間を、サーバーの応答を待たずに出す(`pages/TodayMenuSection.tsx`)。応答が返ったら済みの印と学習時間を更新する。画面のテストは `TodayMenuSection.test.tsx`(jsdom)。
+- **CORS のプリフライトのキャッシュ**: `SecurityConfig` で `Access-Control-Max-Age` を1時間にする(`CorsConfigTests`)。
+- **起動後のウォームアップ**: `config/WarmUp`。本番プロファイルの `app.warmup=${APP_WARMUP:true}` で有効。遅延初期化(`spring.main.lazy-initialization=true`)のため最初の API 呼び出しが部品の読み込みで遅くなるのを、ホーム画面が呼ぶ API を別スレッドで先に呼んで済ませる(`WarmUpTests`)。
+- **測定の目安(このPC。Render は CPU 0.1 で約10倍遅いと推定)**: 再起動直後の最初の `/api/level` は、ウォームアップ前 422ms、後 14ms。本番への往復は最低 0.17〜0.47 秒、プリフライトは 0.17〜0.39 秒。

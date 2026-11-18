@@ -10,6 +10,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.time.Duration;
 import java.util.List;
 
 @Configuration(proxyBeanMethods = false)
@@ -41,6 +42,10 @@ public class SecurityConfig {
     configuration.setAllowedMethods(List.of("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);
+    // 別のドメイン(GitHub Pages → Render)から X-Device-Token 付きで呼ぶと、ブラウザは本番の呼び出しの前に
+    // 確認用の通信(プリフライト)を送る。キャッシュ指定が無いと約5秒しか覚えず、ほぼ毎回 0.2〜0.4 秒の往復が増える。
+    // Chrome は2時間までしか覚えないので、1時間にしておく
+    configuration.setMaxAge(Duration.ofHours(1));
 
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
