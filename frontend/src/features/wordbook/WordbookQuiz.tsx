@@ -51,11 +51,28 @@ export default function WordbookQuiz() {
   /** 直近に出した語。同じ語が続けて出ないよう、サーバーに exclude として渡す */
   const recentRef = useRef<number[]>([]);
 
+  /**
+   * 次の問題の先読み。問題を出した時点で取りに行き、「次の問題」を押したら待たずに出す
+   * (1問ごとにサーバーの応答を待っていたため)。形式が変わったら使わない
+   */
+  const prefetchRef = useRef<{ kind: Kind; promise: Promise<Question | null> } | null>(null);
+
+  /** 問題を出し、その次の問題を先読みする */
+  const show = (next: Question) => {
+    recentRef.current = pushRecent(recentRef.current, next.data.wordId);
+    shownAtRef.current = Date.now();
+    setQuestion(next);
+    setCount((c) => c + 1);
+    // 表示中の語は recentRef に入っているので、先読みで同じ語は選ばれない
+    prefetchRef.current = { kind: next.kind, promise: fetchQuestion(next.kind, recentRef.current).catch(() => null) };
+  };
+
   // 画面を開いたとき(形式が変わったとき)に最初の1問を出す
   useEffect(() => {
     let cancelled = false;
     async function start() {
       recentRef.current = [];
+      prefetchRef.current = null;
       setCount(0);
       setLoading(true);
       setError("");
@@ -63,10 +80,7 @@ export default function WordbookQuiz() {
       try {
         const next = await fetchQuestion(kind, []);
         if (cancelled) return;
-        recentRef.current = pushRecent(recentRef.current, next.data.wordId);
-        shownAtRef.current = Date.now();
-        setQuestion(next);
-        setCount(1);
+        show(next);
       } catch (e) {
         if (cancelled) return;
         setQuestion(null);
@@ -82,17 +96,16 @@ export default function WordbookQuiz() {
   }, [kind]);
 
   const nextQuestion = async () => {
-    setLoading(true);
     setError("");
     setResult(null);
     setSelected(null);
     setTyped("");
+    const prefetched = prefetchRef.current?.kind === kind ? prefetchRef.current.promise : null;
+    prefetchRef.current = null;
+    setLoading(true);
     try {
-      const next = await fetchQuestion(kind, recentRef.current);
-      recentRef.current = pushRecent(recentRef.current, next.data.wordId);
-      shownAtRef.current = Date.now();
-      setQuestion(next);
-      setCount((c) => c + 1);
+      // 先読みが失敗していたら(null)、その場で取り直す
+      show((prefetched ? await prefetched : null) ?? (await fetchQuestion(kind, recentRef.current)));
     } catch (e) {
       setQuestion(null);
       setError(e instanceof Error ? e.message : "出題に失敗しました");
