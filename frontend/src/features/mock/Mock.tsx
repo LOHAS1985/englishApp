@@ -12,6 +12,7 @@ import {
 import Header from "../../shared/components/Header";
 import { LETTERS } from "../../shared/shuffle";
 import ListeningPlayer from "../listening/ListeningPlayer";
+import { warmUpListeningAudio } from "../listening/audioPrepare";
 import MockResultView from "./MockResultView";
 import { formatClock, itemKey, numberOffsets, PART_TITLES } from "./mockFormat";
 import { clearMockSession, loadMockSession, saveMockSession, type MockSession } from "./mockSession";
@@ -175,6 +176,13 @@ export default function Mock() {
       listeningSeconds: seconds.current.listening,
     });
   }, [phase, exam, answers, listeningIndex, sectionStart]);
+
+  // リスニングは、次のセットの音声を先に読み込んでおく(本番どおり、次のセットに進んだらすぐ聞けるように)
+  useEffect(() => {
+    if (phase !== "listening") return;
+    const next = exam?.sections.find((sec) => sec.skill === "listening")?.items[listeningIndex + 1];
+    if (next) warmUpListeningAudio(next.id);
+  }, [phase, exam, listeningIndex]);
 
   // 解いている間に画面を閉じようとしたら、ブラウザの確認を出す
   useEffect(() => {

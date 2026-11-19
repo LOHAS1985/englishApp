@@ -36,6 +36,8 @@ interface PracticeSetPageProps {
    * 押すまでの秒数を語数と合わせて語/分を出す(設問に答える時間は含めない)
    */
   readingSpeed?: boolean;
+  /** 次のセットを先に選んだとき(解答した時点)に呼ぶ。リスニングは、ここで次の音声の準備を始める */
+  onNextPicked?: (next: QuestionSetView) => void;
 }
 
 /**
@@ -50,6 +52,7 @@ export default function PracticeSetPage({
   renderQuestionNote,
   renderAfterAnswer,
   readingSpeed = false,
+  onNextPicked,
 }: PracticeSetPageProps) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -102,11 +105,20 @@ export default function PracticeSetPage({
     setLoading(false);
   };
 
-  // 「次の問題」用。表示中のセットはサーバー側で候補から外す
+  /**
+   * 次のセットの先読み。解答した時点で選んでおき(解答の記録が付いた後なので、「次の問題」を押してから選ぶのと同じ)、
+   * リスニングならその音声の準備も始める。形式・難易度が変わったら使わない
+   */
+  const nextRef = useRef<{ key: string; promise: Promise<QuestionSetView | null> } | null>(null);
+  const nextKey = `${feature}|${type}|${level ?? ""}`;
+
+  // 「次の問題」用。表示中のセットは候補から外す
   const loadNext = async () => {
     setLoading(true);
+    const prefetched = nextRef.current?.key === nextKey ? nextRef.current.promise : null;
+    nextRef.current = null;
     try {
-      const data = await fetchPracticeSet(feature, type, set?.id, level);
+      const data = (prefetched ? await prefetched : null) ?? (await fetchPracticeSet(feature, type, set?.id, level));
       showSet(data);
       if (data) setCount((c) => c + 1);
     } catch {
@@ -147,6 +159,9 @@ export default function PracticeSetPage({
       const seconds = Math.round((Date.now() - shownAtRef.current) / 1000);
       const data = await submitPracticeAnswers(feature, set.id, answers, seconds, readingSeconds ?? undefined);
       setResult(data);
+      const promise = fetchPracticeSet(feature, type, set.id, level).catch(() => null);
+      nextRef.current = { key: nextKey, promise };
+      void promise.then((next) => next && onNextPicked?.(next));
       setTally((t) => addToTally(t, { total: data.total, correct: data.score, seconds }));
       setSetsDone((n) => n + 1);
     } catch {

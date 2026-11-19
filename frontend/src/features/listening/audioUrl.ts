@@ -18,23 +18,31 @@ export function pregeneratedAudioUrl(setId: string): string | null {
 }
 
 /**
- * 音声を読み込めるか確かめる。置いていない音声や通信の失敗は、すぐ(または時間切れで)false になるので、
- * その場合は今までどおりサーバーで作る方法に切り替える。
+ * 音声を先に読み込んでおく(再生ボタンを押したときに待たないように)。音声があると分かったら(メタデータを読めたら)
+ * その要素を返す。要素は preload="auto" なので、その後も裏で読み込みを続け、同じ要素で再生すれば読み込み直さない
+ * (iPhone の Safari は再生するまで本体を読まないことがあるので、canplay は待たない)。
+ * 置いていない音声・通信の失敗・時間切れは null(サーバーで作る方法に切り替える)
  */
-export function canLoadAudio(src: string, timeoutMs = 5000): Promise<boolean> {
+export function preloadAudio(src: string, timeoutMs = 5000): Promise<HTMLAudioElement | null> {
   return new Promise((resolve) => {
     const audio = new Audio();
     const finish = (ok: boolean) => {
       clearTimeout(timer);
-      // 読み込みを止める(確かめるだけなので、全部は読まない)
-      audio.removeAttribute("src");
-      audio.load();
-      resolve(ok);
+      audio.removeEventListener("loadedmetadata", onReady);
+      audio.removeEventListener("error", onError);
+      if (!ok) {
+        audio.removeAttribute("src");
+        audio.load();
+      }
+      resolve(ok ? audio : null);
     };
+    const onReady = () => finish(true);
+    const onError = () => finish(false);
     const timer = setTimeout(() => finish(false), timeoutMs);
-    audio.addEventListener("loadedmetadata", () => finish(true));
-    audio.addEventListener("error", () => finish(false));
-    audio.preload = "metadata";
+    audio.addEventListener("loadedmetadata", onReady);
+    audio.addEventListener("error", onError);
+    audio.preload = "auto";
     audio.src = src;
+    audio.load();
   });
 }

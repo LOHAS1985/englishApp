@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  fetchListeningScript,
-  synthesizeListeningAudio,
-  toAbsoluteApiUrl,
-} from "../../api/client";
+import { fetchListeningScript } from "../../api/client";
 import { loadVoices, pickVoice } from "./browserVoice";
-import { canLoadAudio, pregeneratedAudioUrl } from "./audioUrl";
+import { prepareAudio, takePreparedAudio, type Prepared } from "./audioPrepare";
 
 /**
  * 話者ごとの読み上げの高さ・速さ。ブラウザの声が1種類しか無くても、話者の区別がつくようにする
@@ -25,14 +21,16 @@ const SPEAKER_STYLE: Record<string, { pitch: number; rate: number }> = {
  * allowReplay=false のときは1回聞いたら聞き直せない(模試の本番と同じ条件)。
  */
 export default function ListeningPlayer({ setId, allowReplay = true }: { setId: string; allowReplay?: boolean }) {
-  const [urls, setUrls] = useState<string[] | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "playing" | "browser" | "error">("idle");
   const [played, setPlayed] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const stoppedRef = useRef(false);
+  /** 問題を出した時点で始めた、音声の準備(先読み) */
+  const preparedRef = useRef<Promise<Prepared> | null>(null);
 
-  // 別の問題に切り替わったら再生を止める
+  // 問題が出たら音声の準備を始め、別の問題に切り替わったら再生を止める
   useEffect(() => {
+    preparedRef.current = takePreparedAudio(setId);
     return () => {
       stoppedRef.current = true;
       audioRef.current?.pause();
@@ -40,13 +38,15 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
     };
   }, [setId]);
 
-  const playUrls = async (list: string[]) => {
+  const playUrls = async (list: string[], first: HTMLAudioElement | null) => {
     stoppedRef.current = false;
     setStatus("playing");
-    for (const src of list) {
+    for (const [i, src] of list.entries()) {
       if (stoppedRef.current) break;
       await new Promise<void>((resolve) => {
-        const audio = new Audio(src);
+        // 先頭は読み込み済みの要素を使う(聞き直すときは頭から)
+        const audio = i === 0 && first ? first : new Audio(src);
+        audio.currentTime = 0;
         audioRef.current = audio;
         audio.onended = () => resolve();
         audio.onerror = () => resolve();
@@ -93,25 +93,15 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
 
   const handlePlay = async () => {
     setPlayed(true);
-    if (urls) {
-      await playUrls(urls);
-      return;
-    }
     setStatus("loading");
-    // あらかじめ作って置いてある音声(GitHub Releases)があれば、それを使う。無ければ、今までどおりサーバーで作る
-    const prepared = pregeneratedAudioUrl(setId);
-    if (prepared && (await canLoadAudio(prepared))) {
-      setUrls([prepared]);
-      await playUrls([prepared]);
-      return;
-    }
-    try {
-      const res = await synthesizeListeningAudio(setId);
-      const list = (res.audioUrls ?? (res.audioUrl ? [res.audioUrl] : [])).map(toAbsoluteApiUrl);
-      if (list.length === 0) throw new Error("no audio");
-      setUrls(list);
-      await playUrls(list);
-    } catch {
+    stoppedRef.current = false;
+    // 準備は問題を出した時点で始めているので、終わっていればすぐ再生できる
+    const prepared = await (preparedRef.current ??= prepareAudio(setId));
+    // 待っている間に別の問題に切り替わったら再生しない
+    if (stoppedRef.current) return;
+    if (prepared.kind === "audio") {
+      await playUrls(prepared.urls, prepared.first);
+    } else {
       await playWithBrowser();
     }
   };

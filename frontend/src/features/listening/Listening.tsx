@@ -1,6 +1,7 @@
 import PracticeSetPage from "../../shared/components/PracticeSetPage";
 import WordCapture from "../wordbook/WordCapture";
 import ListeningPlayer from "./ListeningPlayer";
+import { warmUpListeningAudio } from "./audioPrepare";
 import { splitPart2Script } from "./part2Script";
 
 const TYPES = ["toeic-part2", "toeic-part3", "toeic-part4", "eiken-part1", "eiken-part2", "eiken-part3"];
@@ -13,6 +14,8 @@ export default function Listening() {
       types={TYPES}
       showTitle={false}
       renderMaterial={(set) => <ListeningPlayer key={set.id} setId={set.id} />}
+      // 解答した時点で次のセットの音声を読み込んでおき、「次の問題」の後すぐ再生できるようにする
+      onNextPicked={(next) => warmUpListeningAudio(next.id)}
       // TOEIC Part 2 は問題ごとに台本を、その問題の解答の下に書く
       renderQuestionNote={(set, result, qi) => {
         if (set.type !== PART2 || !result.script) return null;

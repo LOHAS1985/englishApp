@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { canLoadAudio, pregeneratedAudioUrl } from "./audioUrl";
+import { preloadAudio, pregeneratedAudioUrl } from "./audioUrl";
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -40,6 +40,9 @@ class FakeAudio {
   addEventListener(name: string, fn: () => void) {
     this.listeners.set(name, fn);
   }
+  removeEventListener(name: string) {
+    this.listeners.delete(name);
+  }
   removeAttribute() {}
   load() {}
   fire(name: string) {
@@ -47,27 +50,30 @@ class FakeAudio {
   }
 }
 
-describe("canLoadAudio", () => {
-  it("メタデータを読み込めたら true", async () => {
+describe("preloadAudio", () => {
+  it("メタデータを読み込めたら、読み込み中の要素を返す(再生にそのまま使う)", async () => {
     vi.stubGlobal("Audio", FakeAudio);
-    const result = canLoadAudio("https://example.com/a.mp3");
-    FakeAudio.last?.fire("loadedmetadata");
-    await expect(result).resolves.toBe(true);
-    expect(FakeAudio.last?.src).toBe("https://example.com/a.mp3");
+    const result = preloadAudio("https://example.com/a.mp3");
+    const audio = FakeAudio.last;
+    audio?.fire("loadedmetadata");
+    await expect(result).resolves.toBe(audio);
+    expect(audio?.src).toBe("https://example.com/a.mp3");
+    // 最後まで読み込んでおく
+    expect(audio?.preload).toBe("auto");
   });
 
-  it("読み込みに失敗したら false(置いていない音声など)", async () => {
+  it("読み込みに失敗したら null(置いていない音声など)", async () => {
     vi.stubGlobal("Audio", FakeAudio);
-    const result = canLoadAudio("https://example.com/missing.mp3");
+    const result = preloadAudio("https://example.com/missing.mp3");
     FakeAudio.last?.fire("error");
-    await expect(result).resolves.toBe(false);
+    await expect(result).resolves.toBeNull();
   });
 
-  it("時間内に読み込めなければ false(通信が遅い・つながらないとき)", async () => {
+  it("時間内に読み込めなければ null(通信が遅い・つながらないとき)", async () => {
     vi.useFakeTimers();
     vi.stubGlobal("Audio", FakeAudio);
-    const result = canLoadAudio("https://example.com/slow.mp3", 5000);
+    const result = preloadAudio("https://example.com/slow.mp3", 5000);
     await vi.advanceTimersByTimeAsync(5000);
-    await expect(result).resolves.toBe(false);
+    await expect(result).resolves.toBeNull();
   });
 });
