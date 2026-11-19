@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { fetchStatsSummary, type Skill, type StatsSummary, type StudyTotals } from "../api/client";
-import { buildTodayMenu, saveMenu, todaySeed } from "../shared/todayMenu";
+import { buildTodayMenu, saveLastSummary, saveMenu, todaySeed } from "../shared/todayMenu";
 import TodayMenuSection from "./TodayMenuSection";
 
 vi.mock("../api/client", () => ({ fetchStatsSummary: vi.fn() }));
@@ -138,6 +138,42 @@ describe("今日のメニュー: 保存済みがある日", () => {
     renderSection();
 
     expect(screen.getByText("今日のメニューを作っています…")).toBeTruthy();
+  });
+});
+
+describe("今日のメニュー: 日付が変わって最初に開いたとき(前回の記録がある)", () => {
+  it("応答を待たずに、前回の記録から仮のメニューを出す。前回の日の学習で「済」にはしない", () => {
+    saveTodaysMenu(todaySeed() - 1);
+    // 前の日に全技能を1時間学習した記録
+    saveLastSummary(summary({ listening: 3600, reading: 3600, writing: 3600, speaking: 3600, vocab: 3600 }));
+    vi.mocked(fetchStatsSummary).mockReturnValue(new Promise(() => {}));
+
+    renderSection();
+
+    expect(screen.queryByText("今日のメニューを作っています…")).toBeNull();
+    expect(screen.getByRole("tablist")).toBeTruthy();
+    expect(screen.queryByText("済 ✓")).toBeNull();
+    expect(screen.getByText(/前回の記録から仮に作成/)).toBeTruthy();
+    // 仮のメニューは保存しない(最新の記録で作り直すため)
+    expect(JSON.parse(localStorage.getItem("englishApp.todayMenu") ?? "null").seed).toBe(todaySeed() - 1);
+  });
+
+  it("応答が返ったら、最新の記録でメニューを作り直して保存する", async () => {
+    saveLastSummary(summary());
+    const pending = deferred<StatsSummary>();
+    vi.mocked(fetchStatsSummary).mockReturnValue(pending.promise);
+
+    renderSection();
+    expect(screen.queryByText(/文法の復習/)).toBeNull();
+
+    // 今日が復習日の問題がある(前回の記録には無かった)
+    pending.resolve({ ...summary(), review: { grammar: { feature: "grammar", due: 5, pending: 5 } } });
+
+    await waitFor(() => expect(screen.getByText(/文法の復習/)).toBeTruthy());
+    expect(screen.queryByText(/前回の記録から仮に作成/)).toBeNull();
+    const saved = JSON.parse(localStorage.getItem("englishApp.todayMenu") ?? "null");
+    expect(saved.seed).toBe(todaySeed());
+    expect(saved.provisional).toBeUndefined();
   });
 });
 

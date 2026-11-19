@@ -106,6 +106,11 @@ export interface TodayMenu {
    * 進み具合の表示にも使う(応答が返ったら、最新の値に更新する)
    */
   todayMinutes?: number;
+  /**
+   * 前回(前日以前)に取得した記録から作った仮のメニュー。日付が変わって最初に開いたとき、
+   * サーバーの応答(眠っていると約1分)を待たずに出すために使う。応答が返ったら作り直す(保存はしない)
+   */
+  provisional?: boolean;
 }
 
 /** 声を出せない場所でも続けられるよう、スピーキングを除いたメニューを同時に作る */
@@ -311,4 +316,52 @@ export function saveMenu(menu: TodayMenu) {
   } catch {
     // 保存できなくても、今回のメニューはそのまま表示する
   }
+}
+
+const LAST_SUMMARY_KEY = "englishApp.lastStatsSummary";
+
+/** 最後に取得した学習記録の集計を保存する(日付が変わった後の仮のメニューに使う) */
+export function saveLastSummary(summary: StatsSummary) {
+  try {
+    localStorage.setItem(LAST_SUMMARY_KEY, JSON.stringify(summary));
+  } catch {
+    // 保存できなくても、次の日は取得を待ってから作るだけ
+  }
+}
+
+function loadLastSummary(): StatsSummary | null {
+  try {
+    const raw = localStorage.getItem(LAST_SUMMARY_KEY);
+    if (!raw) return null;
+    const summary = JSON.parse(raw) as StatsSummary;
+    return Array.isArray(summary.daily) && Array.isArray(summary.skills) && Array.isArray(summary.types)
+      ? summary
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+/** todaySeed の値から、日本時間の日付(YYYY-MM-DD) */
+const seedDate = (seed: number) => new Date(seed * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+/**
+ * 前日以前の集計を、今日の分がまだ無い状態に読み替える。そのままだと、前回の日の学習時間で
+ * 「今日もう学習した技能」「済」と判断してしまうため。週・月の合計は古いまま(仮のメニューなので許す)
+ */
+export function rollSummaryToDate(summary: StatsSummary, date: string): StatsSummary {
+  if (summary.daily.at(-1)?.date === date) return summary;
+  const zero = Object.fromEntries(SKILL_ORDER.map((s) => [s, 0])) as Record<Skill, number>;
+  return {
+    ...summary,
+    today: ZERO,
+    daily: [...summary.daily.filter((d) => d.date < date), { date, seconds: zero }],
+  };
+}
+
+/** 前回取得した記録から、今日の仮のメニューを作る。記録を一度も取得していなければ null */
+export function buildProvisionalMenu(seed: number): TodayMenu | null {
+  const last = loadLastSummary();
+  if (!last) return null;
+  return { ...buildTodayMenu(rollSummaryToDate(last, seedDate(seed)), seed), todayMinutes: 0, provisional: true };
 }

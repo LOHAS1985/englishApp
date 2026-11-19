@@ -5,9 +5,11 @@ import { SKILL_COLORS, SKILL_LABELS } from "../shared/exams";
 import { loadSavedLevel, withLevel } from "../shared/level";
 import {
   MENU_MINUTES,
+  buildProvisionalMenu,
   buildTodayMenu,
   loadSavedMenu,
   refreshDone,
+  saveLastSummary,
   saveMenu,
   todaySeed,
   type TodayMenu,
@@ -25,10 +27,15 @@ interface Loaded {
  */
 type Status = "loading" | "fresh" | "failed";
 
-/** 今日の保存済みのメニュー。あれば、サーバーの応答を待たずにすぐ出す(毎回の待ち時間をなくすため) */
+/**
+ * 今日の保存済みのメニュー。あれば、サーバーの応答を待たずにすぐ出す(毎回の待ち時間をなくすため)。
+ * 日付が変わって保存済みが無ければ、前回取得した記録から仮のメニューを作って出す
+ * (サーバーが眠っていると取得に約1分かかり、その間メニューが出なかったため)
+ */
 function savedLoaded(): Loaded | null {
-  const saved = loadSavedMenu(todaySeed());
-  return saved ? { menu: saved, todayMinutes: saved.todayMinutes ?? 0 } : null;
+  const seed = todaySeed();
+  const menu = loadSavedMenu(seed) ?? buildProvisionalMenu(seed);
+  return menu ? { menu, todayMinutes: menu.todayMinutes ?? 0 } : null;
 }
 
 type Mode = "normal" | "quiet";
@@ -55,7 +62,10 @@ export default function TodayMenuSection() {
       .then((summary) => {
         const seed = todaySeed();
         const saved = loadSavedMenu(seed);
+        // 仮のメニュー(前回の記録から作ったもの。今日が復習日の問題などが入っていない)は保存していないので、
+        // 保存済みが無ければ最新の記録で作り直す
         const base = saved ? refreshDone(saved, summary) : buildTodayMenu(summary, seed);
+        saveLastSummary(summary);
         const todayMinutes = Math.round(summary.today.seconds / 60);
         // 済みの印と学習時間を最新にして保存する。次に開いたときは、これを待たずに出す
         const menu = { ...base, todayMinutes };
@@ -102,7 +112,11 @@ export default function TodayMenuSection() {
         <h2 className="text-lg font-bold text-slate-900">今日の{MENU_MINUTES}分メニュー</h2>
         <span className="text-sm text-slate-600">
           今日の学習 <span className="font-mono font-semibold">{todayMinutes}</span> 分 / {MENU_MINUTES}分
-          {status === "loading" && <span className="ml-2 text-xs text-slate-400">更新中…</span>}
+          {status === "loading" && (
+            <span className="ml-2 text-xs text-slate-400">
+              {menu.provisional ? "前回の記録から仮に作成。最新の記録で作り直します…" : "更新中…"}
+            </span>
+          )}
           {status === "failed" && (
             <span className="ml-2 text-xs text-[#c0392b]">最新の状況を取得できませんでした(保存した内容を表示中)</span>
           )}

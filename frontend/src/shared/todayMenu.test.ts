@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 import type { ReviewSummary, Skill, StatsSummary, StudyTotals } from "../api/client";
-import { MENU_MINUTES, buildTodayMenu, markDone, refreshDone, todaySeed, type MenuTask } from "./todayMenu";
+import {
+  MENU_MINUTES,
+  buildTodayMenu,
+  markDone,
+  refreshDone,
+  rollSummaryToDate,
+  todaySeed,
+  type MenuTask,
+} from "./todayMenu";
 
 const SKILLS: Skill[] = ["listening", "reading", "writing", "speaking", "vocab"];
 const LISTENING_TYPES = ["toeic-part2", "toeic-part3", "toeic-part4", "eiken-part1", "eiken-part2", "eiken-part3"];
@@ -309,5 +317,20 @@ describe("todaySeed", () => {
     const morning = Date.UTC(2026, 10, 14, 0, 0, 0);
     const evening = Date.UTC(2026, 10, 14, 14, 0, 0);
     expect(todaySeed(evening)).toBe(todaySeed(morning));
+  });
+});
+
+describe("rollSummaryToDate(前回の記録を今日に読み替える)", () => {
+  it("前回の日の学習時間を今日の分として扱わない", () => {
+    const rolled = rollSummaryToDate(makeSummary({ today: { listening: 3600 } }), "2026-11-15");
+    expect(rolled.daily.at(-1)).toEqual({ date: "2026-11-15", seconds: Object.fromEntries(SKILLS.map((s) => [s, 0])) });
+    expect(rolled.today.seconds).toBe(0);
+    // 前の日の記録は残す
+    expect(rolled.daily.find((d) => d.date === "2026-11-14")?.seconds.listening).toBe(3600);
+  });
+
+  it("同じ日の記録はそのまま返す", () => {
+    const summary = makeSummary({ today: { listening: 3600 } });
+    expect(rollSummaryToDate(summary, "2026-11-14")).toBe(summary);
   });
 });
