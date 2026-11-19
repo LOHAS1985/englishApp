@@ -11,6 +11,7 @@ import {
 } from "../../api/client";
 import Header from "../../shared/components/Header";
 import ColorButtons from "./ColorButtons";
+import PronounceButton from "./PronounceButton";
 import { COLOR_LABELS, COLOR_ORDER, toHeadword } from "./wordbookRules";
 
 /** 一覧の絞り込み。ALL は色で絞らない */
@@ -164,7 +165,10 @@ export default function WordbookList() {
             <li key={word.id} className="rounded-lg bg-white border border-slate-200 p-4">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0 flex-1">
-                  <p className="font-semibold">{word.word}</p>
+                  <p className="font-semibold flex items-center gap-2">
+                    {word.word}
+                    <PronounceButton word={word.word} />
+                  </p>
                   {editingId === word.id ? (
                     <div className="flex gap-2 mt-2">
                       <input

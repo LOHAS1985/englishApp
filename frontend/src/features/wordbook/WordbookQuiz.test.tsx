@@ -118,3 +118,63 @@ describe("単語帳の4択: 次の問題の先読み", () => {
     expect(screen.queryByText("通信に失敗しました")).toBeNull();
   });
 });
+
+describe("単語帳: 読み方の再生", () => {
+  const spoken: string[] = [];
+
+  beforeEach(() => {
+    spoken.length = 0;
+    // jsdom には読み上げが無いので、話した文字列を記録するだけの代わりを置く
+    vi.stubGlobal(
+      "SpeechSynthesisUtterance",
+      class {
+        text: string;
+        lang = "";
+        rate = 1;
+        voice: unknown = null;
+        constructor(text: string) {
+          this.text = text;
+        }
+      },
+    );
+    vi.stubGlobal("speechSynthesis", {
+      getVoices: () => [{ name: "Samantha", lang: "en-US" }],
+      cancel: vi.fn(),
+      speak: (u: { text: string }) => spoken.push(u.text),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    });
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("4択は問題の英単語を読み上げられ、正解の表示でも再生できる", async () => {
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "defer"))
+      .mockReturnValue(new Promise(() => {}));
+
+    renderQuiz();
+    await userEvent.click(await screen.findByRole("button", { name: "「defer」の読み方を再生" }));
+    await waitFor(() => expect(spoken).toEqual(["defer"]));
+
+    await userEvent.click(screen.getByRole("button", { name: "延期する" }));
+    await screen.findByRole("button", { name: "次の問題" });
+    // 問題の英単語と、正解の表示の2か所にある
+    const buttons = screen.getAllByRole("button", { name: "「defer」の読み方を再生" });
+    expect(buttons).toHaveLength(2);
+    await userEvent.click(buttons[1]!);
+    await waitFor(() => expect(spoken).toEqual(["defer", "defer"]));
+  });
+
+  it("読み上げが使えないブラウザでは、再生ボタンを出さない", async () => {
+    vi.unstubAllGlobals();
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "defer"))
+      .mockReturnValue(new Promise(() => {}));
+
+    renderQuiz();
+    await screen.findByText("defer");
+    expect(screen.queryByRole("button", { name: /読み方を再生/ })).toBeNull();
+  });
+});

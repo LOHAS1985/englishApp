@@ -14,6 +14,7 @@ import {
 import Header from "../../shared/components/Header";
 import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
 import ColorButtons from "./ColorButtons";
+import PronounceButton from "./PronounceButton";
 import { pushRecent } from "./wordbookRules";
 
 type Kind = "choice" | "fill";
@@ -205,7 +206,11 @@ export default function WordbookQuiz() {
 
           {!loading && !error && question?.kind === "choice" && (
             <div>
-              <p className="font-serif text-3xl text-slate-900 mb-6">{question.data.word}</p>
+              <div className="flex items-center gap-3 mb-6">
+                <p className="font-serif text-3xl text-slate-900">{question.data.word}</p>
+                {/* 4択は英単語を見せる問題なので、解答前から読み方を聞ける(穴埋めは答えが分かるので解答後だけ) */}
+                <PronounceButton word={question.data.word} />
+              </div>
               <div className="space-y-2">
                 {question.data.choices.map((choice) => (
                   <button
@@ -264,7 +269,8 @@ export default function WordbookQuiz() {
                   正解: <span className="font-semibold text-slate-900">{result.correctAnswer}</span>
                 </p>
               )}
-              <p className="text-slate-700 mt-3">
+              <p className="text-slate-700 mt-3 flex flex-wrap items-center gap-2">
+                <PronounceButton word={result.word} />
                 {result.word}
                 {result.meaningJa && <span className="text-slate-500 ml-2">{result.meaningJa}</span>}
               </p>
