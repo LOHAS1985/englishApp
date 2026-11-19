@@ -53,7 +53,7 @@ export default function Wordbook() {
           </p>
         )}
         <p className="text-sm text-slate-500 mb-6">
-          出題の頻度は色で変わります。無色と赤は多く、黄は中くらい、青は少なく出ます。
+          出題の頻度は色で変わります。無色がいちばん多く(赤の5倍)、次に赤、黄、青の順に少なくなります。
         </p>
 
         <div className="grid grid-cols-1 gap-3 mb-8">

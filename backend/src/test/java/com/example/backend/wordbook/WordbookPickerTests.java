@@ -41,11 +41,11 @@ class WordbookPickerTests {
     for (int i = 0; i < 20_000; i++) {
       counts[WordbookPicker.pick(words, Set.of(), random).getId().intValue()]++;
     }
-    // 重みは 赤5・無色5・黄2・青1 なので、赤と無色はおよそ 5/13、黄は 2/13、青は 1/13
-    assertThat(counts[1]).isBetween(7300, 8200);
-    assertThat(counts[2]).isBetween(7300, 8200);
-    assertThat(counts[3]).isBetween(2800, 3400);
-    assertThat(counts[4]).isBetween(1300, 1800);
+    // 重みは 無色25・赤5・黄2・青1 なので、無色はおよそ 25/33、赤は 5/33、黄は 2/33、青は 1/33
+    assertThat(counts[2]).isBetween(14700, 15600);
+    assertThat(counts[1]).isBetween(2750, 3350);
+    assertThat(counts[3]).isBetween(1000, 1450);
+    assertThat(counts[4]).isBetween(450, 780);
   }
 
   @Test
