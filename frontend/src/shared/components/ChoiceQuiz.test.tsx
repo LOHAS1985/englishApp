@@ -3,11 +3,15 @@ import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { GrammarAnswerResult, GrammarQuestion } from "../../api/client";
+import { registerReadingWord, type GrammarAnswerResult, type GrammarQuestion } from "../../api/client";
 import ChoiceQuiz from "./ChoiceQuiz";
 
 // ヘッダーはレベルの取得で API を呼ぶので、この画面の確認には使わない
 vi.mock("./Header", () => ({ default: () => null }));
+vi.mock("../../api/client", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("../../api/client")>()),
+  registerReadingWord: vi.fn(),
+}));
 // 選択肢の並びは毎回ランダムなので、テストでは並べ替えない(A〜D が問題集の並びのままになる)
 vi.mock("../shuffle", async (importOriginal) => ({
   ...(await importOriginal<typeof import("../shuffle")>()),
@@ -100,5 +104,72 @@ describe("ChoiceQuiz の終了時のまとめ", () => {
 
     await user.click(screen.getByRole("button", { name: "続ける" }));
     await waitFor(() => expect(screen.queryByText("今回の練習")).toBeNull());
+  });
+});
+
+describe("ChoiceQuiz: 単語帳に追加(語彙の問題)", () => {
+  const VOCAB: GrammarQuestion = {
+    id: "v0001",
+    sentence: "The firm had to ------- the project after the funding was cut.",
+    choices: [
+      { label: "A", text: "abandon" },
+      { label: "B", text: "reinforce" },
+      { label: "C", text: "give up on" },
+      { label: "D", text: "celebrate" },
+    ],
+    difficulty: 2,
+  };
+
+  function setupVocab(correctChoice: string, wordbookAdd = true) {
+    const submitAnswer = vi.fn(
+      async (): Promise<GrammarAnswerResult> => ({
+        correct: true,
+        correctChoice,
+        explanation: "解説",
+        translation: "訳",
+      }),
+    );
+    render(
+      <MemoryRouter>
+        <ChoiceQuiz fetchQuestion={vi.fn(async () => VOCAB)} submitAnswer={submitAnswer} wordbookAdd={wordbookAdd} />
+      </MemoryRouter>,
+    );
+    return userEvent.setup();
+  }
+
+  it("正解の語を、空所を正解で埋めた文を例文にして単語帳へ追加できる", async () => {
+    vi.mocked(registerReadingWord).mockResolvedValue({
+      added: true,
+      word: { word: "abandon" } as never,
+    });
+    const user = setupVocab("A");
+    await screen.findByText(/The firm had to/);
+    await user.keyboard("1");
+
+    await user.click(await screen.findByRole("button", { name: "単語帳に追加「abandon」" }));
+
+    expect(registerReadingWord).toHaveBeenCalledWith(
+      "abandon",
+      "The firm had to abandon the project after the funding was cut.",
+    );
+    expect(await screen.findByText(/「abandon」を単語帳に追加しました/)).toBeTruthy();
+    // 追加したあとは、同じ問題で二重に押せない
+    expect((screen.getByRole("button", { name: "単語帳に追加「abandon」" }) as HTMLButtonElement).disabled).toBe(true);
+  });
+
+  it("正解が句(英単語1語でない)のときは、追加ボタンを出さない", async () => {
+    const user = setupVocab("C");
+    await screen.findByText(/The firm had to/);
+    await user.keyboard("1");
+    await screen.findByText("正解です");
+    expect(screen.queryByRole("button", { name: /単語帳に追加/ })).toBeNull();
+  });
+
+  it("文法の問題(wordbookAdd を付けない画面)には出さない", async () => {
+    const user = setupVocab("A", false);
+    await screen.findByText(/The firm had to/);
+    await user.keyboard("1");
+    await screen.findByText("正解です");
+    expect(screen.queryByRole("button", { name: /単語帳に追加/ })).toBeNull();
   });
 });

@@ -10,6 +10,7 @@ import com.example.backend.wordbook.dto.ChoiceQuestionView;
 import com.example.backend.wordbook.dto.FillAnswerRequest;
 import com.example.backend.wordbook.dto.FillQuestionView;
 import com.example.backend.wordbook.dto.HistoryItem;
+import com.example.backend.wordbook.dto.StatsView;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -35,6 +37,12 @@ public class WordbookQuizService {
   static final int WRONG_CHOICES = 3;
   private static final int HISTORY_LIMIT = 30;
   private static final String FEATURE = "wordbook";
+  /** 復習の段階がこれ以上の語を「定着」とみなす(段階 2 は、3日後の復習のあと7日以上空けて正解した語) */
+  private static final int MASTERED_STAGE = 2;
+  private static final int RECENT_DAYS = 7;
+  /** 苦手な語に入れるのは、この回数以上出した語だけ(1回の誤答で決めつけない) */
+  private static final int WEAK_MIN_ASKED = 2;
+  private static final int WEAK_LIMIT = 10;
 
   private final WordbookService wordService;
   private final PracticeRecordRepository recordRepository;
@@ -94,6 +102,31 @@ public class WordbookQuizService {
     boolean correct = WordForms.matchesAnswer(request.typed(), word.getWord(), word.getExampleAnswer());
     record("wordbook-fill", word, correct, request.durationSeconds());
     return result(word, correct, word.getExampleAnswer());
+  }
+
+  /** 習熟度の分布・直近7日の正答率・苦手な語(MyPage の単語帳の欄に出す) */
+  public StatsView stats() {
+    List<WordbookWord> ready = wordService.ownedWords().stream()
+        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE).toList();
+    long unseen = ready.stream().filter(WordbookWord::isUnseen).count();
+    long mastered = ready.stream().filter(w -> w.getReviewStage() != null && w.getReviewStage() >= MASTERED_STAGE).count();
+
+    LocalDateTime since = LocalDateTime.now(StudyLogService.JST).minusDays(RECENT_DAYS);
+    Long userId = currentUserProvider.getCurrentUserId();
+    List<PracticeRecord> recent = recordRepository.findByUserIdAndFeatureOrderByIdDesc(userId, FEATURE).stream()
+        .filter(r -> !r.getCreatedAt().isBefore(since)).toList();
+
+    List<StatsView.WeakWord> weakest = ready.stream()
+        .filter(w -> w.getTimesAsked() >= WEAK_MIN_ASKED && w.getTimesCorrect() < w.getTimesAsked())
+        .sorted(Comparator.comparingDouble((WordbookWord w) -> (double) w.getTimesCorrect() / w.getTimesAsked())
+            .thenComparing(Comparator.comparingInt(WordbookWord::getTimesAsked).reversed()))
+        .limit(WEAK_LIMIT)
+        .map(w -> new StatsView.WeakWord(w.getId(), w.getWord(), w.getMeaningJa(), w.getTimesAsked(),
+            w.getTimesCorrect()))
+        .toList();
+
+    return new StatsView(ready.size(), unseen, ready.size() - unseen - mastered, mastered, recent.size(),
+        (int) recent.stream().filter(r -> Boolean.TRUE.equals(r.getCorrect())).count(), weakest);
   }
 
   /** 直近の解答(新しい順)。単語の綴りは今の単語帳から引く(削除された語は除く) */

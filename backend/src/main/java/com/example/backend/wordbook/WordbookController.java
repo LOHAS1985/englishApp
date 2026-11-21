@@ -11,6 +11,7 @@ import com.example.backend.wordbook.dto.FillAnswerRequest;
 import com.example.backend.wordbook.dto.FillQuestionView;
 import com.example.backend.wordbook.dto.HistoryItem;
 import com.example.backend.wordbook.dto.MeaningRequest;
+import com.example.backend.wordbook.dto.StatsView;
 import com.example.backend.wordbook.dto.SummaryView;
 import com.example.backend.wordbook.dto.WordView;
 import org.springframework.http.ResponseEntity;
@@ -90,6 +91,11 @@ public class WordbookController {
   @PostMapping("/quiz/fill/answer")
   public AnswerResultView answerFill(@RequestBody FillAnswerRequest request) {
     return quizService.answerFill(request);
+  }
+
+  @GetMapping("/stats")
+  public StatsView stats() {
+    return quizService.stats();
   }
 
   @GetMapping("/history")

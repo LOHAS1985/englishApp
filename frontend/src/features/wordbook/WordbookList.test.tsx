@@ -84,3 +84,92 @@ describe("単語一覧: 例文を直す", () => {
     expect(screen.getByLabelText("例文(英語)")).toBeTruthy();
   });
 });
+
+const many = (count: number): WordbookWord[] =>
+  Array.from({ length: count }, (_, i) =>
+    word({ id: i + 1, word: `word${String(i + 1).padStart(3, "0")}`, meaningJa: `訳${i + 1}`, exampleEn: null, exampleJa: null }),
+  );
+
+function renderList() {
+  return render(
+    <MemoryRouter>
+      <WordbookList />
+    </MemoryRouter>,
+  );
+}
+
+describe("単語一覧: 50語ずつの表示・絞り込み・並べ替え・検索", () => {
+  it("最初は50語だけ出し、「もっと見る」で続きを出す", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue(many(120));
+    renderList();
+
+    await screen.findByText("word001");
+    expect(screen.getAllByRole("listitem")).toHaveLength(50);
+    expect(screen.queryByText("word051")).toBeNull();
+
+    await userEvent.click(screen.getByRole("button", { name: /もっと見る\(あと 70 語\)/ }));
+    expect(screen.getAllByRole("listitem")).toHaveLength(100);
+    await userEvent.click(screen.getByRole("button", { name: /もっと見る\(あと 20 語\)/ }));
+    expect(screen.getAllByRole("listitem")).toHaveLength(120);
+    expect(screen.queryByRole("button", { name: /もっと見る/ })).toBeNull();
+  });
+
+  it("「今日の復習」と「未学習」で絞り込める", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue([
+      word({ id: 1, word: "fresh" }),
+      word({ id: 2, word: "due", timesAsked: 2, timesCorrect: 1, nextDueDate: "2000-01-01" }),
+      word({ id: 3, word: "later", timesAsked: 2, timesCorrect: 2, nextDueDate: "2999-01-01" }),
+    ]);
+    renderList();
+    await screen.findByText("fresh");
+
+    await userEvent.click(screen.getByRole("button", { name: /今日の復習 1/ }));
+    expect(screen.getByText("due")).toBeTruthy();
+    expect(screen.queryByText("fresh")).toBeNull();
+    expect(screen.queryByText("later")).toBeNull();
+
+    await userEvent.click(screen.getByRole("button", { name: /未学習 1/ }));
+    expect(screen.getByText("fresh")).toBeTruthy();
+    expect(screen.queryByText("due")).toBeNull();
+  });
+
+  it("例文の中の語でも検索できる", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue([
+      word({ id: 1, word: "abandon", exampleEn: "They left the harbor at dawn." }),
+      word({ id: 2, word: "boost", exampleEn: "Sales will grow next year." }),
+    ]);
+    renderList();
+    await screen.findByText("abandon");
+
+    await userEvent.type(screen.getByLabelText("検索"), "harbor");
+
+    expect(screen.getByText("abandon")).toBeTruthy();
+    expect(screen.queryByText("boost")).toBeNull();
+  });
+
+  it("ABC順に並べ替えられる", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue([
+      word({ id: 1, word: "cherry" }),
+      word({ id: 2, word: "apple" }),
+      word({ id: 3, word: "banana" }),
+    ]);
+    renderList();
+    await screen.findByText("cherry");
+
+    await userEvent.selectOptions(screen.getByLabelText("並べ替え"), "ALPHABET");
+
+    const order = screen.getAllByRole("listitem").map((li) => li.querySelector("p")?.textContent?.replace("🔊", "").trim());
+    expect(order).toEqual(["apple", "banana", "cherry"]);
+  });
+
+  it("出題の状況を出す(未出題・出題回数と正解回数)", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue([
+      word({ id: 1, word: "fresh" }),
+      word({ id: 2, word: "asked", timesAsked: 3, timesCorrect: 2, nextDueDate: "2999-01-01" }),
+    ]);
+    renderList();
+
+    expect(await screen.findByText("まだ出していません")).toBeTruthy();
+    expect(screen.getByText(/出題 3回・正解 2回・次の復習 1\/1/)).toBeTruthy();
+  });
+});

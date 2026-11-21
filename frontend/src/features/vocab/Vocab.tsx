@@ -14,5 +14,5 @@ export default function Vocab() {
     (exclude?: string | null) => fetchVocabQuestion(exclude, review, level),
     [review, level],
   );
-  return <ChoiceQuiz fetchQuestion={fetchQuestion} submitAnswer={submitVocabAnswer} />;
+  return <ChoiceQuiz fetchQuestion={fetchQuestion} submitAnswer={submitVocabAnswer} wordbookAdd />;
 }

@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import type { GrammarQuestion, GrammarAnswerResult } from "../../api/client";
+import { registerReadingWord, type GrammarQuestion, type GrammarAnswerResult } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
 import WordCapture from "../../features/wordbook/WordCapture";
+import { toHeadword } from "../../features/wordbook/wordbookRules";
 import { useQuizKeys, type QuizKeyActions } from "../quizKeys";
 import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
@@ -33,13 +34,15 @@ interface ChoiceQuizProps {
     selectedChoice: string,
     durationSeconds: number,
   ) => Promise<GrammarAnswerResult>;
+  /** 解答後に、正解の語を単語帳へ追加するボタンを出す(語彙の問題。正解が英単語1語のときだけ) */
+  wordbookAdd?: boolean;
 }
 
 /** 出題から解答までの秒数(学習時間の記録用) */
 const secondsSince = (start: number) => Math.round((Date.now() - start) / 1000);
 
 /** 短文の空所に4択で答える問題(文法・語彙)の共通画面。問題文と選択肢だけを表示する */
-export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizProps) {
+export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = false }: ChoiceQuizProps) {
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState<GrammarQuestion | null>(null);
@@ -57,6 +60,9 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
   const [tally, setTally] = useState<Tally>(EMPTY_TALLY);
   const [finished, setFinished] = useState(false);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
+  /** 単語帳へ追加した結果の表示(問題ごと) */
+  const [wordbookNote, setWordbookNote] = useState<{ questionId: string; text: string; done: boolean } | null>(null);
+  const [addingWord, setAddingWord] = useState(false);
 
   // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
@@ -136,6 +142,35 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
   const correctLabel = result
     ? choices.find((c) => c.original === result.correctChoice)?.label
     : undefined;
+
+  // 正解の語(英単語1語のときだけ単語帳に追加できる。空所を正解で埋めた文を例文にする)
+  const correctText = result ? choices.find((c) => c.original === result.correctChoice)?.text.trim() : undefined;
+  const addableWord = wordbookAdd && correctText && toHeadword(correctText) === correctText ? correctText : null;
+  const noteForThisQuestion = wordbookNote && question && wordbookNote.questionId === question.id ? wordbookNote : null;
+
+  const addToWordbook = async () => {
+    if (!question || !addableWord) return;
+    setAddingWord(true);
+    try {
+      const sentence = question.sentence.replace(/-{3,}|_{3,}/, addableWord);
+      const added = await registerReadingWord(addableWord.toLowerCase(), sentence);
+      setWordbookNote({
+        questionId: question.id,
+        text: added.added
+          ? `「${added.word.word}」を単語帳に追加しました(訳は毎日7時に調べます)`
+          : `「${added.word.word}」はすでに単語帳にあります`,
+        done: true,
+      });
+    } catch (e) {
+      setWordbookNote({
+        questionId: question.id,
+        text: e instanceof Error ? e.message : "追加に失敗しました",
+        done: false,
+      });
+    } finally {
+      setAddingWord(false);
+    }
+  };
 
   const handleFinish = () => {
     navigate("/");
@@ -261,6 +296,20 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer }: ChoiceQuizPr
                   <p className="text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
                     {result.translation}
                   </p>
+
+                  {addableWord && (
+                    <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                      <button
+                        type="button"
+                        onClick={addToWordbook}
+                        disabled={addingWord || noteForThisQuestion?.done === true}
+                        className="text-[#2463a8] border border-slate-300 rounded px-3 py-1.5 hover:bg-slate-100 disabled:opacity-50"
+                      >
+                        単語帳に追加「{addableWord}」
+                      </button>
+                      {noteForThisQuestion && <span className="text-slate-600">{noteForThisQuestion.text}</span>}
+                    </div>
+                  )}
 
                   <div className="mt-5 flex gap-3">
                     <button

@@ -7,6 +7,7 @@ import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.stats.StudyLogService;
 import com.example.backend.wordbook.dto.ChoiceAnswerRequest;
 import com.example.backend.wordbook.dto.ChoiceQuestionView;
+import com.example.backend.wordbook.dto.StatsView;
 import com.example.backend.wordbook.dto.SummaryView;
 import com.example.backend.wordbook.dto.WordView;
 import org.junit.jupiter.api.Test;
@@ -109,5 +110,29 @@ class WordbookScheduleIntegrationTests {
     words.save(restored);
     backfill.runIfNeeded();
     assertThat(words.findById(target.getId()).orElseThrow().getTimesAsked()).isEqualTo(4);
+  }
+
+  @Test
+  void statsShowTheDistributionRecentAccuracyAndWeakWords() {
+    StatsView before = quiz.stats();
+    ChoiceQuestionView question = quiz.choiceQuestion(Set.of());
+
+    quiz.answerChoice(new ChoiceAnswerRequest(question.wordId(), "どれでもない訳", 5));
+    quiz.answerChoice(new ChoiceAnswerRequest(question.wordId(), "どれでもない訳", 5));
+    StatsView after = quiz.stats();
+
+    // 新規から学習中に移る。習熟度の合計は出題できる語の数と一致する
+    assertThat(after.unseen()).isEqualTo(before.unseen() - 1);
+    assertThat(after.learning()).isEqualTo(before.learning() + 1);
+    assertThat(after.total()).isEqualTo(after.unseen() + after.learning() + after.mastered());
+    assertThat(after.recentAsked()).isEqualTo(before.recentAsked() + 2);
+    assertThat(after.recentCorrect()).isEqualTo(before.recentCorrect());
+    // 2回出して2回とも間違えた語は、苦手な語に入る(正答率が低い順)
+    assertThat(after.weakest()).hasSizeLessThanOrEqualTo(10);
+    assertThat(after.weakest()).anySatisfy(w -> {
+      assertThat(w.id()).isEqualTo(question.wordId());
+      assertThat(w.timesAsked()).isEqualTo(2);
+      assertThat(w.timesCorrect()).isZero();
+    });
   }
 }

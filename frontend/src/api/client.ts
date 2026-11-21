@@ -740,6 +740,23 @@ export async function submitWordbookFill(wordId: number, typed: string, duration
   );
 }
 
+/** 単語帳の学習状況(出題できる語だけ)。習熟度は 未学習・学習中・定着 */
+export interface WordbookStats {
+  total: number;
+  unseen: number;
+  learning: number;
+  mastered: number;
+  /** 直近7日の解答数と、そのうち正解した数 */
+  recentAsked: number;
+  recentCorrect: number;
+  /** 苦手な語(2回以上出して、正答率が低い順。最大10語) */
+  weakest: { id: number; word: string; meaningJa: string | null; timesAsked: number; timesCorrect: number }[];
+}
+
+export async function fetchWordbookStats() {
+  return getJson<WordbookStats>("/api/wordbook/stats", "単語帳の学習状況の取得に失敗しました");
+}
+
 export async function fetchWordbookHistory() {
   return getJson<WordbookHistoryItem[]>("/api/wordbook/history", "履歴の取得に失敗しました");
 }

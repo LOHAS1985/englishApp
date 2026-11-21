@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   addWordbookWord,
@@ -13,12 +13,26 @@ import {
 import Header from "../../shared/components/Header";
 import ColorButtons from "./ColorButtons";
 import PronounceButton from "./PronounceButton";
-import { COLOR_LABELS, COLOR_ORDER, toHeadword } from "./wordbookRules";
+import {
+  COLOR_LABELS,
+  COLOR_ORDER,
+  FILTER_LABELS,
+  PAGE_SIZE,
+  SORT_LABELS,
+  dueLabel,
+  matchesFilter,
+  matchesQuery,
+  sortWords,
+  todayJst,
+  toHeadword,
+  type WordFilter,
+  type WordSort,
+} from "./wordbookRules";
 
-/** 一覧の絞り込み。ALL は色で絞らない */
-type Filter = WordbookColor | "ALL";
+const FILTERS: WordFilter[] = ["ALL", "DUE", "UNSEEN", ...COLOR_ORDER];
+const SORTS = Object.keys(SORT_LABELS) as WordSort[];
 
-const FILTERS: Filter[] = ["ALL", ...COLOR_ORDER];
+const filterLabel = (f: WordFilter) => (f === "ALL" || f === "DUE" || f === "UNSEEN" ? FILTER_LABELS[f] : COLOR_LABELS[f]);
 
 /** 訳が揃うまでの表示。FAILED は翌日の調査で取り直す */
 function translationNote(word: WordbookWord): string | null {
@@ -26,14 +40,19 @@ function translationNote(word: WordbookWord): string | null {
   return word.translationStatus === "FAILED" ? "訳を取得できず(翌日に再調査)" : "訳を調査中";
 }
 
-/** 単語帳の一覧。色の絞り込み・検索・色の付け替え・訳の修正・手動追加・削除 */
+/**
+ * 単語帳の一覧。色・今日の復習・未学習で絞り込み、検索(語・訳・例文)、並べ替え、色の付け替え、
+ * 訳と例文の修正、手動追加、削除ができる。語が多いので50語ずつ出す。
+ */
 export default function WordbookList() {
   const navigate = useNavigate();
   const [words, setWords] = useState<WordbookWord[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState<Filter>("ALL");
+  const [filter, setFilter] = useState<WordFilter>("ALL");
+  const [sort, setSort] = useState<WordSort>("ADDED");
   const [query, setQuery] = useState("");
+  const [visible, setVisible] = useState(PAGE_SIZE);
   const [newWord, setNewWord] = useState("");
   const [notice, setNotice] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -41,6 +60,8 @@ export default function WordbookList() {
   /** 例文を直している語と、入力中の内容 */
   const [exampleEditId, setExampleEditId] = useState<number | null>(null);
   const [exampleDraft, setExampleDraft] = useState({ en: "", answer: "", ja: "" });
+
+  const today = useMemo(() => todayJst(), []);
 
   const reload = () =>
     fetchWordbookWords()
@@ -52,14 +73,16 @@ export default function WordbookList() {
     void reload();
   }, []);
 
-  const shown = words.filter((w) => {
-    if (filter !== "ALL" && w.color !== filter) return false;
-    const q = query.trim().toLowerCase();
-    if (q === "") return true;
-    return w.word.includes(q) || (w.meaningJa ?? "").includes(q);
-  });
+  const matched = useMemo(
+    () => sortWords(words.filter((w) => matchesFilter(w, filter, today) && matchesQuery(w, query)), sort),
+    [words, filter, query, sort, today],
+  );
+  const shown = matched.slice(0, visible);
 
-  const countOf = (f: Filter) => (f === "ALL" ? words.length : words.filter((w) => w.color === f).length);
+  const countOf = (f: WordFilter) => words.filter((w) => matchesFilter(w, f, today)).length;
+
+  // 絞り込み・検索・並べ替えを変えたら、先頭の50語から見直す
+  const resetPage = () => setVisible(PAGE_SIZE);
 
   const add = async () => {
     const word = toHeadword(newWord);
@@ -156,26 +179,50 @@ export default function WordbookList() {
           {FILTERS.map((f) => (
             <button
               key={f}
-              onClick={() => setFilter(f)}
+              onClick={() => {
+                setFilter(f);
+                resetPage();
+              }}
+              aria-pressed={filter === f}
               className={`text-sm rounded-full border px-3 py-1 transition-colors ${
                 filter === f ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 hover:bg-slate-100"
               }`}
             >
-              {f === "ALL" ? "すべて" : COLOR_LABELS[f]} {countOf(f)}
+              {filterLabel(f)} {countOf(f)}
             </button>
           ))}
         </div>
-        <input
-          aria-label="検索"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="英単語・訳で検索"
-          className="w-full border border-slate-300 rounded px-3 py-2 text-sm mb-6"
-        />
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+          <input
+            aria-label="検索"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              resetPage();
+            }}
+            placeholder="英単語・訳・例文で検索"
+            className="flex-1 border border-slate-300 rounded px-3 py-2 text-sm"
+          />
+          <select
+            aria-label="並べ替え"
+            value={sort}
+            onChange={(e) => {
+              setSort(e.target.value as WordSort);
+              resetPage();
+            }}
+            className="border border-slate-300 rounded px-3 py-2 text-sm bg-white"
+          >
+            {SORTS.map((s) => (
+              <option key={s} value={s}>
+                {SORT_LABELS[s]}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {loading && <p className="text-sm text-slate-400">読み込み中…</p>}
         {error && <p className="text-sm text-[#c0392b]">{error}</p>}
-        {!loading && !error && shown.length === 0 && <p className="text-sm text-slate-500">該当する単語がありません。</p>}
+        {!loading && !error && matched.length === 0 && <p className="text-sm text-slate-500">該当する単語がありません。</p>}
 
         <ul className="space-y-3">
           {shown.map((word) => (
@@ -239,15 +286,23 @@ export default function WordbookList() {
                     </div>
                   ) : (
                     word.exampleEn && (
-                      <p className="text-sm text-slate-500 mt-1">
-                        {word.exampleEn}
-                        {word.exampleJa && <span className="block text-slate-400">{word.exampleJa}</span>}
-                      </p>
+                      <div className="text-sm text-slate-500 mt-1 flex items-start gap-2">
+                        <p className="flex-1">
+                          {word.exampleEn}
+                          {word.exampleJa && <span className="block text-slate-400">{word.exampleJa}</span>}
+                        </p>
+                        <PronounceButton word={word.exampleEn} label="例文を再生" />
+                      </div>
                     )
                   )}
                   {word.meaningJa && translationNote(word) && (
                     <p className="text-xs text-slate-400 mt-1">{translationNote(word)}</p>
                   )}
+                  <p className="text-xs text-slate-400 mt-2">
+                    {word.timesAsked === 0
+                      ? "まだ出していません"
+                      : `出題 ${word.timesAsked}回・正解 ${word.timesCorrect}回・次の復習 ${dueLabel(word.nextDueDate, today)}`}
+                  </p>
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   <ColorButtons value={word.color} onChange={(c) => changeColor(word, c)} />
@@ -283,6 +338,15 @@ export default function WordbookList() {
             </li>
           ))}
         </ul>
+
+        {matched.length > shown.length && (
+          <button
+            onClick={() => setVisible((n) => n + PAGE_SIZE)}
+            className="mt-4 w-full text-sm text-[#2463a8] border border-slate-200 rounded-lg bg-white py-3 hover:bg-slate-100"
+          >
+            もっと見る(あと {matched.length - shown.length} 語)
+          </button>
+        )}
       </div>
     </div>
   );

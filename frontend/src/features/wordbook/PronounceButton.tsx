@@ -1,13 +1,24 @@
 import { canPronounce, pronounce } from "./pronounce";
 
-/** 単語の読み方を再生するボタン。読み上げが使えないブラウザでは出さない */
-export default function PronounceButton({ word, className = "" }: { word: string; className?: string }) {
+/**
+ * 単語(または例文)の読み方を再生するボタン。読み上げが使えないブラウザでは出さない。
+ * 例文を読むときは label に「例文を再生」を渡す(長い文を、ボタンの名前に入れないため)
+ */
+export default function PronounceButton({
+  word,
+  className = "",
+  label,
+}: {
+  word: string;
+  className?: string;
+  label?: string;
+}) {
   if (!canPronounce()) return null;
   return (
     <button
       type="button"
-      aria-label={`「${word}」の読み方を再生`}
-      title="読み方を再生"
+      aria-label={label ?? `「${word}」の読み方を再生`}
+      title={label ?? "読み方を再生"}
       onClick={(e) => {
         // 一覧の行など、親のクリックに伝えない
         e.stopPropagation();

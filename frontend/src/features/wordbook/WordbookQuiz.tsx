@@ -277,7 +277,12 @@ export default function WordbookQuiz() {
                 {result.word}
                 {result.meaningJa && <span className="text-slate-500 ml-2">{result.meaningJa}</span>}
               </p>
-              {result.exampleEn && <p className="text-slate-600 mt-2">{result.exampleEn}</p>}
+              {result.exampleEn && (
+                <p className="text-slate-600 mt-2 flex items-start gap-2">
+                  <span className="flex-1">{result.exampleEn}</span>
+                  <PronounceButton word={result.exampleEn} label="例文を再生" />
+                </p>
+              )}
               {result.exampleJa && <p className="text-slate-500 mt-1">{result.exampleJa}</p>}
 
               <div className="mt-5">
