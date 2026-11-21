@@ -10,18 +10,18 @@ on:
     paths:
       - "frontend/**"
 
+# 既定は読み取りだけ。npm ci(依存パッケージのスクリプトが動く)を実行する build ジョブや、PR の実行に
+# 書き込み権限を渡さない。Pages への書き込みは deploy ジョブだけに付ける
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # 同じブランチ・PR で新しい実行が始まったら、古い build は止める(PR の実行が main のデプロイを巻き込まない)
+    concurrency:
+      group: frontend-build-${{ github.ref }}
+      cancel-in-progress: true
     defaults:
       run:
         working-directory: frontend
@@ -57,6 +57,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    # デプロイは途中で止めない(連続して push しても、公開が中途半端なまま取り消されないように)
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
