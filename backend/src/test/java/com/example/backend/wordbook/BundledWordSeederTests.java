@@ -58,7 +58,11 @@ class BundledWordSeederTests {
   }
 
   private static BundledWord item(String id, String word, String meaning) {
-    return new BundledWord(id, word, meaning,
+    return item(id, word, meaning, "v", null);
+  }
+
+  private static BundledWord item(String id, String word, String meaning, String pos, Integer level) {
+    return new BundledWord(id, word, pos, level, meaning,
         new Example("We must " + word + " it today.", word, "今日それを" + meaning + "。"));
   }
 
@@ -192,6 +196,41 @@ class BundledWordSeederTests {
   }
 
   @Test
+  void easyWordsAreAddedWithABlueColorAndPartOfSpeech() {
+    seeder(item("w0001", "abandon", "捨てる", "v", 1), item("w0002", "abolish", "廃止する", "v", null)).seedIfNeeded();
+
+    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.BLUE);
+    assertThat(stored("abandon").getLevel()).isEqualTo(1);
+    assertThat(stored("abandon").getPos()).isEqualTo("v");
+    assertThat(stored("abolish").getColor()).isEqualTo(WordbookColor.NONE);
+    assertThat(stored("abolish").getLevel()).isEqualTo(2);
+  }
+
+  @Test
+  void levelOnExistingWordsTurnsUnstartedEasyWordsBlueOnlyOnce() {
+    BundledWord abandon = item("w0001", "abandon", "捨てる", "v", 1);
+    BundledWord abolish = item("w0002", "abolish", "廃止する", "v", 1);
+    BundledWord abstain = item("w0003", "abstain", "控える", "v", 1);
+    // 水準を持たない版で入れた語
+    legacy(abandon);
+    legacy(abolish).setColor(WordbookColor.YELLOW, NOW); // 利用者が色を付けた語
+    legacy(abstain).recordAnswer(true, NOW); // すでに出題した語
+    state = new AppState(BundledWordSeeder.STATE_KEY, BundledWordSeeder.LEGACY_VERSION);
+
+    seeder(abandon, abolish, abstain).seedIfNeeded();
+
+    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.BLUE);
+    assertThat(stored("abolish").getColor()).isEqualTo(WordbookColor.YELLOW);
+    assertThat(stored("abstain").getColor()).isEqualTo(WordbookColor.NONE);
+    assertThat(stored("abandon").getLevel()).isEqualTo(1);
+
+    // 利用者が青を無色に戻しても、あとの更新で青に戻さない(水準はもう知っている)
+    stored("abandon").setColor(WordbookColor.NONE, NOW);
+    seeder(abandon, abolish, item("w0003", "abstain", "控えるの変更", "v", 1)).seedIfNeeded();
+    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.NONE);
+  }
+
+  @Test
   void contentHashChangesWhenTheBundleIsEdited() {
     String before = new BundledWordBank(List.of(item("w0001", "abandon", "捨てる"))).contentHash();
     String same = new BundledWordBank(List.of(item("w0001", "abandon", "捨てる"))).contentHash();
@@ -199,5 +238,10 @@ class BundledWordSeederTests {
 
     assertThat(same).isEqualTo(before);
     assertThat(edited).isNotEqualTo(before).hasSize(16);
+    // 品詞・水準を直したときも変わる
+    assertThat(new BundledWordBank(List.of(item("w0001", "abandon", "捨てる", "adj", null))).contentHash())
+        .isNotEqualTo(before);
+    assertThat(new BundledWordBank(List.of(item("w0001", "abandon", "捨てる", "v", 1))).contentHash())
+        .isNotEqualTo(before);
   }
 }

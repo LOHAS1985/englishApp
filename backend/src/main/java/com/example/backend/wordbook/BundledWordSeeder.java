@@ -93,6 +93,7 @@ public class BundledWordSeeder {
         // 利用者が自分で登録した語(手動・読解)は触らない
         if (sameWord.getSource() == Source.BUNDLED && sameWord.getBundledId() == null) {
           sameWord.linkBundled(item.id(), !sameWord.sameContentAs(item));
+          sameWord.applyBundledMetadata(item, now);
           repository.save(sameWord);
         }
         continue;
@@ -106,6 +107,7 @@ public class BundledWordSeeder {
       word.setExample(item.example().en(), item.example().answer().toLowerCase(Locale.ROOT));
       word.applyTranslation(item.meaningJa(), item.example().ja(), now);
       word.linkBundled(item.id(), false);
+      word.applyBundledMetadata(item, now);
       repository.save(word);
     }
     states.save(new AppState(STATE_KEY, version));

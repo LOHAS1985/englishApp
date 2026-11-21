@@ -16,6 +16,14 @@ final class WordbookSentences {
     return find(sentence, answer).find();
   }
 
+  /** 答えの頭文字と文字数(例: abandoned → a________ (9文字)) */
+  static String hint(String answer) {
+    if (answer == null || answer.isEmpty()) {
+      return "";
+    }
+    return answer.charAt(0) + "_".repeat(answer.length() - 1) + " (" + answer.length() + "文字)";
+  }
+
   static String blank(String sentence, String answer) {
     return find(sentence, answer).replaceFirst(BLANK);
   }

@@ -234,7 +234,10 @@ export default function WordbookQuiz() {
           {!loading && !error && question?.kind === "fill" && (
             <div>
               <p className="font-serif text-lg text-slate-900 leading-8 mb-3">{question.data.sentence}</p>
-              <p className="text-sm text-slate-600 mb-6">{question.data.translation}</p>
+              <p className="text-sm text-slate-600 mb-3">{question.data.translation}</p>
+              <p className="text-sm text-slate-500 mb-6">
+                ヒント: <span className="font-mono">{question.data.hint}</span>
+              </p>
               {!result && (
                 <form onSubmit={answerFill} className="flex gap-3">
                   <input

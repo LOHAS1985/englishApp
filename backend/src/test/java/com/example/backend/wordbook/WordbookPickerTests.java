@@ -171,4 +171,89 @@ class WordbookPickerTests {
     assertThatThrownBy(() -> WordbookPicker.distractors(correct, List.of(correct), 3, new Random(1)))
         .isInstanceOf(IllegalArgumentException.class);
   }
+
+  private static WordbookWord withPos(long id, String text, String pos, String meaningJa) {
+    WordbookWord w = word(id, text, WordbookColor.NONE, meaningJa);
+    try {
+      var field = WordbookWord.class.getDeclaredField("pos");
+      field.setAccessible(true);
+      field.set(w, pos);
+    } catch (ReflectiveOperationException e) {
+      throw new IllegalStateException(e);
+    }
+    return w;
+  }
+
+  @Test
+  void distractorsPreferTheSamePartOfSpeech() {
+    WordbookWord correct = withPos(1, "abolish", "v", "を廃止する");
+    List<WordbookWord> pool = List.of(
+        correct,
+        withPos(2, "abandon", "v", "を捨てる"),
+        withPos(3, "boost", "v", "を押し上げる"),
+        withPos(4, "curb", "v", "を抑制する"),
+        withPos(5, "abundant", "adj", "豊富な"),
+        withPos(6, "adequate", "adj", "十分な"),
+        withPos(7, "backlog", "n", "未処理分"),
+        withPos(8, "bias", "n", "偏見"));
+
+    for (long seed = 0; seed < 30; seed++) {
+      // 他動詞の「を〜」の語が3つあるので、誤答は全部「を〜」になる(訳の形だけで正解を選べない)
+      assertThat(WordbookPicker.distractors(correct, pool, 3, new Random(seed)))
+          .containsExactlyInAnyOrder("を捨てる", "を押し上げる", "を抑制する");
+    }
+  }
+
+  @Test
+  void distractorsFillFromOtherPartsOfSpeechWhenTheSameOnesRunOut() {
+    WordbookWord correct = withPos(1, "abolish", "v", "を廃止する");
+    List<WordbookWord> pool = List.of(
+        correct,
+        withPos(2, "abandon", "v", "を捨てる"),
+        withPos(5, "abundant", "adj", "豊富な"),
+        withPos(7, "backlog", "n", "未処理分"));
+
+    List<String> wrong = WordbookPicker.distractors(correct, pool, 3, new Random(3));
+
+    assertThat(wrong).containsExactlyInAnyOrder("を捨てる", "豊富な", "未処理分");
+  }
+
+  @Test
+  void wordsWithoutAPartOfSpeechUseAnyDistractor() {
+    WordbookWord correct = word(1, "mine", WordbookColor.NONE, "私の");
+    List<WordbookWord> pool = List.of(
+        correct,
+        withPos(2, "a", "v", "を捨てる"),
+        withPos(3, "b", "adj", "豊富な"),
+        withPos(4, "c", "n", "偏見"));
+
+    assertThat(WordbookPicker.distractors(correct, pool, 3, new Random(1)))
+        .containsExactlyInAnyOrder("を捨てる", "豊富な", "偏見");
+  }
+
+  @Test
+  void distractorsAvoidMeaningsThatOverlapWithTheCorrectOne() {
+    // 「妨げる」を含む類義語の訳は、正解と紛らわしいので誤答にしない(ほかに十分な候補があるとき)
+    WordbookWord correct = withPos(1, "hamper", "v", "を妨げる");
+    List<WordbookWord> pool = List.of(
+        correct,
+        withPos(2, "inhibit", "v", "を抑制する、妨げる"),
+        withPos(3, "preclude", "v", "を妨げる、不可能にする"),
+        withPos(4, "abandon", "v", "を捨てる"),
+        withPos(5, "boost", "v", "を押し上げる"),
+        withPos(6, "curb", "v", "を食い止める"),
+        withPos(7, "abolish", "v", "を廃止する"));
+
+    for (long seed = 0; seed < 30; seed++) {
+      assertThat(WordbookPicker.distractors(correct, pool, 3, new Random(seed)))
+          .doesNotContain("を抑制する、妨げる", "を妨げる、不可能にする");
+    }
+  }
+
+  @Test
+  void overlapIgnoresTheLeadingParticleAndParentheses() {
+    assertThat(WordbookPicker.overlaps("を妨げる", "を抑制する、妨げる")).isTrue();
+    assertThat(WordbookPicker.overlaps("を制定する", "(法律)を制定する")).isTrue();
+    assertThat(WordbookPicker.overlaps("豊富な", "十分な、適切な")).isFalse();
+  }
 }

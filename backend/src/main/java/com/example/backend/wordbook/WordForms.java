@@ -39,8 +39,8 @@ final class WordForms {
       "write writes wrote written writing",
       "stand stands stood standing",
       "hear hears heard hearing",
-      "mean means meant meaning",
-      "meet meets met meeting",
+      "mean means meant",
+      "meet meets met",
       "run runs ran run running",
       "pay pays paid paying",
       "sit sits sat sitting",
@@ -51,9 +51,9 @@ final class WordForms {
       "lose loses lost losing",
       "fall falls fell fallen falling",
       "send sends sent sending",
-      "build builds built building",
-      "understand understands understood understanding",
-      "draw draws drew drawn drawing",
+      "build builds built",
+      "understand understands understood",
+      "draw draws drew drawn",
       "break breaks broke broken breaking",
       "spend spends spent spending",
       "rise rises rose risen rising",
@@ -102,6 +102,15 @@ final class WordForms {
     }
   }
 
+  /**
+   * 動詞の -ing 形と綴りが同じ、独立した名詞として使う語。mean を登録済みでも meaning を、meet を登録済みでも
+   * meeting を別の語として登録できるよう、変化形には含めない(run → running のような普通の -ing 形は変化形のまま)
+   */
+  private static final Set<String> STANDALONE_ING_NOUNS = Set.of("meaning", "meeting", "building", "understanding",
+      "feeling", "saying", "painting", "training", "opening", "beginning", "ending", "setting", "marketing",
+      "warning", "learning", "reading", "writing", "drawing", "spending", "dealing", "holding", "housing",
+      "funding", "planning", "engineering", "accounting", "advertising", "shipping", "packaging", "parking");
+
   private WordForms() {
   }
 
@@ -110,7 +119,7 @@ final class WordForms {
     if (text == null) {
       return "";
     }
-    String s = text.trim().toLowerCase(Locale.ROOT).replaceAll("\s+", " ");
+    String s = text.trim().toLowerCase(Locale.ROOT).replaceAll("\\s+", " ");
     return s.replaceAll("[.,;:!?\"'。、]+$", "");
   }
 
@@ -130,6 +139,11 @@ final class WordForms {
     }
     forms.addAll(IRREGULAR_FORMS.getOrDefault(lemma, Set.of()));
     addRegularForms(lemma, forms);
+    for (String noun : STANDALONE_ING_NOUNS) {
+      if (!noun.equals(lemma)) {
+        forms.remove(noun);
+      }
+    }
     return forms;
   }
 

@@ -32,4 +32,12 @@ class WordbookRulesTests {
     assertThat(WordbookTranslationRules.statusOf(null, null, null)).isEqualTo(TranslationStatus.PENDING);
     assertThat(WordbookTranslationRules.statusOf(" ", null, null)).isEqualTo(TranslationStatus.PENDING);
   }
+
+  @Test
+  void hintShowsTheFirstLetterAndTheLength() {
+    assertThat(WordbookSentences.hint("abandoned")).isEqualTo("a________ (9文字)");
+    assertThat(WordbookSentences.hint("go")).isEqualTo("g_ (2文字)");
+    assertThat(WordbookSentences.hint("")).isEmpty();
+    assertThat(WordbookSentences.hint(null)).isEmpty();
+  }
 }

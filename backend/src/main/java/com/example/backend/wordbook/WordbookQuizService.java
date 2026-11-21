@@ -81,7 +81,8 @@ public class WordbookQuizService {
         .toList();
     WordbookWord target = WordbookPicker.pick(ready, exclude, today(), random);
     return new FillQuestionView(target.getId(),
-        WordbookSentences.blank(target.getExampleEn(), target.getExampleAnswer()), target.getExampleJa());
+        WordbookSentences.blank(target.getExampleEn(), target.getExampleAnswer()), target.getExampleJa(),
+        WordbookSentences.hint(target.getExampleAnswer()));
   }
 
   @Transactional

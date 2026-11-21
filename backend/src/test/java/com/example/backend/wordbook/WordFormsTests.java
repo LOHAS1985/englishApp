@@ -60,4 +60,28 @@ class WordFormsTests {
     assertThat(WordForms.inflectionsOf("take off")).containsExactly("take off");
     assertThat(WordForms.sameWord("take off", "took off")).isFalse();
   }
+
+  @Test
+  void ingNounsAreSeparateWordsFromTheVerbTheyComeFrom() {
+    // mean を登録済みでも meaning、meet を登録済みでも meeting は別の語として登録できる
+    assertThat(WordForms.sameWord("mean", "meaning")).isFalse();
+    assertThat(WordForms.sameWord("meaning", "mean")).isFalse();
+    assertThat(WordForms.sameWord("meet", "meeting")).isFalse();
+    assertThat(WordForms.sameWord("build", "building")).isFalse();
+    assertThat(WordForms.sameWord("understand", "understanding")).isFalse();
+    // 普通の -ing 形は、これまでどおり変化形
+    assertThat(WordForms.sameWord("run", "running")).isTrue();
+    assertThat(WordForms.sameWord("abandon", "abandoning")).isTrue();
+    assertThat(WordForms.sameWord("make", "making")).isTrue();
+    // meaning 自身の変化形(複数形)は同じ語
+    assertThat(WordForms.sameWord("meaning", "meanings")).isTrue();
+    // 他の変化形は変わらない
+    assertThat(WordForms.sameWord("mean", "meant")).isTrue();
+    assertThat(WordForms.sameWord("meet", "met")).isTrue();
+  }
+
+  @Test
+  void normalizeCollapsesAnyWhitespace() {
+    assertThat(WordForms.normalize("a \t\n b")).isEqualTo("a b");
+  }
 }

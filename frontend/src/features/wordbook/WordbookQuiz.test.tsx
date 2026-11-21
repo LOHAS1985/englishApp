@@ -5,6 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   fetchWordbookChoice,
+  fetchWordbookFill,
   submitWordbookChoice,
   type WordbookAnswerResult,
   type WordbookChoiceQuestion,
@@ -176,5 +177,27 @@ describe("単語帳: 読み方の再生", () => {
     renderQuiz();
     await screen.findByText("defer");
     expect(screen.queryByRole("button", { name: /読み方を再生/ })).toBeNull();
+  });
+});
+
+describe("単語帳の穴埋め: ヒント", () => {
+  it("答えの頭文字と文字数を出す(同義語のどれも入りそうな空欄でも答えが1つに決まる)", async () => {
+    vi.mocked(fetchWordbookFill)
+      .mockResolvedValueOnce({
+        wordId: 1,
+        sentence: "Attendance is _____ for all new employees.",
+        translation: "出席は、すべての新入社員に義務づけられている。",
+        hint: "m________ (9文字)",
+      })
+      .mockReturnValue(new Promise(() => {}));
+
+    render(
+      <MemoryRouter initialEntries={["/wordbook/quiz?type=fill"]}>
+        <WordbookQuiz />
+      </MemoryRouter>,
+    );
+
+    expect(await screen.findByText("Attendance is _____ for all new employees.")).toBeTruthy();
+    expect(screen.getByText("m________ (9文字)")).toBeTruthy();
   });
 });

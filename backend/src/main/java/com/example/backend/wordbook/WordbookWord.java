@@ -73,6 +73,14 @@ public class WordbookWord {
   @Column(name = "bundled_id", length = 20)
   private String bundledId;
 
+  /** 品詞(v 動詞・adj 形容詞・n 名詞)。4択の誤答を同じ品詞から選ぶのに使う。手動・読解から登録した語は null */
+  @Column(length = 10)
+  private String pos;
+
+  /** 同梱の水準(1 易しい・2 標準)。手動・読解から登録した語は null */
+  @Column
+  private Integer level;
+
   /** 利用者が訳・例文を直した語。同梱の内容を更新するとき、この語は上書きしない */
   @Column(name = "user_edited", nullable = false)
   private boolean userEdited;
@@ -189,8 +197,9 @@ public class WordbookWord {
    * @return 内容が変わったら true
    */
   boolean applyBundled(BundledWordBank.BundledWord item, LocalDateTime now) {
+    boolean changed = applyBundledMetadata(item, now);
     if (userEdited || sameContentAs(item)) {
-      return false;
+      return changed;
     }
     this.meaningJa = item.meaningJa();
     this.exampleEn = item.example().en();
@@ -199,6 +208,25 @@ public class WordbookWord {
     this.translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
     this.updatedAt = now;
     return true;
+  }
+
+  /**
+   * 品詞と水準(利用者が直せないので、直した語にも反映する)。水準を初めて知った語のうち、易しい語はまだ色を付けておらず
+   * 一度も出していなければ青にする(出題を後回しにする。すでに色を付けた語・出した語は変えない)。
+   */
+  boolean applyBundledMetadata(BundledWordBank.BundledWord item, LocalDateTime now) {
+    int newLevel = item.level() == null ? 2 : item.level();
+    boolean changed = !java.util.Objects.equals(pos, item.pos()) || !java.util.Objects.equals(level, newLevel);
+    if (level == null && newLevel == 1 && color == WordbookColor.NONE && timesAsked == 0) {
+      color = WordbookColor.BLUE;
+      changed = true;
+    }
+    this.pos = item.pos();
+    this.level = newLevel;
+    if (changed) {
+      this.updatedAt = now;
+    }
+    return changed;
   }
 
   /** 訳・例文が同梱の内容と同じか */
@@ -237,6 +265,8 @@ public class WordbookWord {
   public Source getSource() { return source; }
   public WordbookColor getColor() { return color; }
   public TranslationStatus getTranslationStatus() { return translationStatus; }
+  public String getPos() { return pos; }
+  public Integer getLevel() { return level; }
   public String getBundledId() { return bundledId; }
   public boolean isUserEdited() { return userEdited; }
   public int getTimesAsked() { return timesAsked; }

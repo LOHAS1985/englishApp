@@ -15,8 +15,13 @@ import java.util.List;
 @Component
 public class BundledWordBank {
 
-  /** 1語分。訳と例文は作成時に決めたもの */
-  public record BundledWord(String id, String word, String meaningJa, Example example) {
+  /**
+   * 1語分。訳と例文は作成時に決めたもの。
+   *
+   * @param pos   品詞(v 動詞・adj 形容詞・n 名詞)。4択の誤答を同じ品詞から選ぶのに使う
+   * @param level 水準(1 易しい・2 標準。無ければ標準)。易しい語は初期色を青にして、出題を後回しにする
+   */
+  public record BundledWord(String id, String word, String pos, Integer level, String meaningJa, Example example) {
   }
 
   /** answer は例文中の対象語(変化形のことがある)。ja は例文の訳 */
@@ -48,8 +53,9 @@ public class BundledWordBank {
     try {
       MessageDigest digest = MessageDigest.getInstance("SHA-256");
       for (BundledWord item : all) {
-        String line = String.join("\u0001", item.id(), item.word(), item.meaningJa(), item.example().en(),
-            item.example().answer(), item.example().ja());
+        String line = String.join("\u0001", item.id(), item.word(), String.valueOf(item.pos()),
+            String.valueOf(item.level()), item.meaningJa(), item.example().en(), item.example().answer(),
+            item.example().ja());
         digest.update(line.getBytes(StandardCharsets.UTF_8));
         digest.update((byte) '\n');
       }

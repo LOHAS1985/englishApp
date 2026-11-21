@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
 
 /**
  * 単語帳の出題の選び方。復習日が来た語と、まだ出していない語(新規)を混ぜて出し、
@@ -66,19 +65,90 @@ final class WordbookPicker {
 
   /**
    * 4択の誤答。正解と同じ訳、同じ語の訳は避け、重複しない訳を count 個選ぶ。
+   * 品詞が分かる語は、同じ品詞(動詞は「を〜」の有無まで)の語の訳を優先する
+   * (訳の形だけで選択肢を絞れないようにする)。正解と訳の一部が重なる語(類義語)の訳は、足りる限り避ける。
    * @throws IllegalArgumentException 候補が足りないとき
    */
   static List<String> distractors(WordbookWord correct, List<WordbookWord> others, int count, Random random) {
-    List<String> meanings = others.stream()
+    List<WordbookWord> candidates = others.stream()
         .filter(w -> !WordForms.sameWord(w.getWord(), correct.getWord()))
-        .map(WordbookWord::getMeaningJa)
-        .filter(m -> m != null && !m.isBlank() && !m.equals(correct.getMeaningJa()))
-        .distinct()
-        .collect(Collectors.toCollection(ArrayList::new));
-    if (meanings.size() < count) {
+        .filter(w -> w.getMeaningJa() != null && !w.getMeaningJa().isBlank()
+            && !w.getMeaningJa().equals(correct.getMeaningJa()))
+        .toList();
+    // 類義語の訳を避けた候補だけで足りればそれを使い、足りなければ(単語帳が小さいとき)重なりを許す
+    List<WordbookWord> distinctMeaning = candidates.stream()
+        .filter(w -> !overlaps(w.getMeaningJa(), correct.getMeaningJa())).toList();
+    List<String> picked = pickMeanings(correct, distinctMeaning, count, random);
+    if (picked.size() < count) {
+      picked = pickMeanings(correct, candidates, count, random);
+    }
+    if (picked.size() < count) {
       throw new IllegalArgumentException("4択の選択肢に必要な単語が足りません");
     }
-    Collections.shuffle(meanings, random);
-    return List.copyOf(meanings.subList(0, count));
+    return picked;
+  }
+
+  /** 同じ品詞の語の訳を先に、足りなければほかの語の訳から、重複なしで count 個まで選ぶ */
+  private static List<String> pickMeanings(WordbookWord correct, List<WordbookWord> candidates, int count,
+      Random random) {
+    String group = group(correct);
+    List<String> same = new ArrayList<>();
+    List<String> other = new ArrayList<>();
+    for (WordbookWord w : candidates) {
+      boolean sameGroup = group != null && group.equals(group(w));
+      List<String> target = sameGroup ? same : other;
+      if (!target.contains(w.getMeaningJa())) {
+        target.add(w.getMeaningJa());
+      }
+    }
+    Collections.shuffle(same, random);
+    Collections.shuffle(other, random);
+    List<String> picked = new ArrayList<>(same.subList(0, Math.min(count, same.size())));
+    for (String meaning : other) {
+      if (picked.size() >= count) {
+        break;
+      }
+      if (!picked.contains(meaning)) {
+        picked.add(meaning);
+      }
+    }
+    return List.copyOf(picked);
+  }
+
+  /** 誤答を選ぶときの品詞のまとまり。品詞が分からない語は null。動詞は、訳が「を」で始まる語(他動詞)と分ける */
+  static String group(WordbookWord w) {
+    if (w.getPos() == null) {
+      return null;
+    }
+    boolean transitive = "v".equals(w.getPos()) && w.getMeaningJa() != null && w.getMeaningJa().startsWith("を");
+    return transitive ? "v:を" : w.getPos();
+  }
+
+  /** 2つの訳が、同じ意味の言い方を含むか(「、」区切りの言い方のどれかが、先頭の「を」「に」を除いて一致する) */
+  static boolean overlaps(String a, String b) {
+    java.util.Set<String> keys = meaningKeys(a);
+    for (String key : meaningKeys(b)) {
+      if (keys.contains(key)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static java.util.Set<String> meaningKeys(String meaning) {
+    java.util.Set<String> keys = new java.util.HashSet<>();
+    if (meaning == null) {
+      return keys;
+    }
+    for (String part : meaning.split("、")) {
+      String key = part.replaceAll("[(（].*?[)）]", "").trim();
+      if (key.startsWith("を") || key.startsWith("に")) {
+        key = key.substring(1);
+      }
+      if (!key.isEmpty()) {
+        keys.add(key);
+      }
+    }
+    return keys;
   }
 }
