@@ -10,6 +10,7 @@ import com.example.backend.grammar.dto.GrammarQuestion;
 import com.example.backend.review.ReviewService;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,6 +52,8 @@ public class GrammarService {
     return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }
 
+  /** 解答記録・復習・学習ログを1つのトランザクションにする(一部だけ保存されて再送で重複するのを防ぐ) */
+  @Transactional
   public GrammarAnswerResult answer(GrammarAnswerRequest request) {
     ChoiceQuestion q = questionBank.findById(request.getQuestionId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));

@@ -11,6 +11,7 @@ import com.example.backend.grammar.dto.GrammarQuestion;
 import com.example.backend.review.ReviewService;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -52,7 +53,9 @@ public class VocabController {
     return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }
 
+  /** 解答記録・学習ログ・復習を1つのトランザクションにする(一部だけ保存されて再送で重複するのを防ぐ) */
   @PostMapping("/answer")
+  @Transactional
   public ResponseEntity<?> answer(@RequestBody GrammarAnswerRequest request) {
     ChoiceQuestion q = questionBank.findById(request.getQuestionId()).orElse(null);
     if (q == null) {

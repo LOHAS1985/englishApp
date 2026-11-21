@@ -5,6 +5,7 @@ import com.example.backend.common.QuestionSetBank.SetQuestion;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +96,11 @@ public class QuestionSetPractice {
         questions, bank.difficulty(set.id()), set.theme());
   }
 
-  /** 採点し、設問ごとに記録を保存する */
+  /**
+   * 採点し、設問ごとに記録を保存する。記録・学習ログを1つのトランザクションにする
+   * (途中で失敗して一部だけ保存されると、再送で重複するため)
+   */
+  @Transactional
   public SetAnswerResult grade(QuestionSetBank bank, String feature, SetAnswerRequest request) {
     QuestionSet set = bank.findById(request.setId())
         .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
