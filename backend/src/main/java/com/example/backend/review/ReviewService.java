@@ -42,8 +42,14 @@ public class ReviewService {
   /** 採点のたびに呼ぶ。復習リストに無い問題は、間違えたときだけ追加する */
   @Transactional
   public void record(String feature, String itemId, boolean correct) {
+    record(feature, itemId, correct, LocalDateTime.now(StudyLogService.JST));
+  }
+
+  /** @param answeredAt 解いた日本時間の時刻。送信が遅れても、解いた日を基準に復習日を決める */
+  @Transactional
+  public void record(String feature, String itemId, boolean correct, LocalDateTime answeredAt) {
     Long userId = currentUserProvider.getCurrentUserId();
-    LocalDate today = LocalDate.now(StudyLogService.JST);
+    LocalDate today = answeredAt.toLocalDate();
     Optional<ReviewItem> existing = repository.findByUserIdAndFeatureAndItemId(userId, feature, itemId);
     if (existing.isEmpty() && correct) {
       return;
@@ -55,7 +61,7 @@ public class ReviewService {
       repository.delete(item);
       return;
     }
-    item.schedule(next.stage(), next.dueDate(), LocalDateTime.now(StudyLogService.JST));
+    item.schedule(next.stage(), next.dueDate(), answeredAt);
     repository.save(item);
   }
 

@@ -7,6 +7,8 @@ import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -38,8 +40,11 @@ public class QuestionSetPractice {
   /**
    * @param durationSeconds 出題から解答までの秒数(学習時間の記録用)
    * @param readingSeconds  読解速度の計測で「本文を読み終えるまで」の秒数。計測していなければ null
+   * @param clientRequestId 画面の送信待ちの列が付ける解答ごとの ID。再送で二重に保存しないために使う(無ければ null)
+   * @param answeredAt      解いた時刻。送信が遅れても、解いた日に数えるために使う(無ければ受信時刻)
    */
-  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds, Integer readingSeconds) {
+  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds, Integer readingSeconds,
+      String clientRequestId, Instant answeredAt) {
   }
 
   public record SetQuestionResult(boolean correct, String selected, String answer, String explanation) {
@@ -96,17 +101,30 @@ public class QuestionSetPractice {
         questions, bank.difficulty(set.id()), set.theme());
   }
 
+  /** この解答を、すでに保存したか(画面の送信待ちの列が再送したとき)。保存済みなら記録を追加しない */
+  public boolean isDuplicate(SetAnswerRequest request) {
+    return studyLogService.isRecorded(request.clientRequestId());
+  }
+
   /**
    * 採点し、設問ごとに記録を保存する。記録・学習ログを1つのトランザクションにする
-   * (途中で失敗して一部だけ保存されると、再送で重複するため)
+   * (途中で失敗して一部だけ保存されると、再送で重複するため)。
+   * すでに保存した解答(同じ clientRequestId の再送)は、記録を追加せず採点結果だけ返す。
    */
   @Transactional
   public SetAnswerResult grade(QuestionSetBank bank, String feature, SetAnswerRequest request) {
     QuestionSet set = bank.findById(request.setId())
-        .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
-    List<SetQuestionResult> results = scoreAndRecord(feature, set, request.answers());
+        .orElseThrow(() -> new QuestionNotFoundException("問題が見つかりません。再度出題してください。"));
+    boolean duplicate = isDuplicate(request);
+    LocalDateTime answeredAt = StudyLogService.answeredAt(request.answeredAt());
+    List<SetQuestionResult> results = duplicate
+        ? score(set, request.answers())
+        : scoreAndRecord(feature, set, request.answers());
     int score = (int) results.stream().filter(SetQuestionResult::correct).count();
-    studyLogService.log(feature, set.type(), set.id(), score, set.questions().size(), request.durationSeconds());
+    if (!duplicate) {
+      studyLogService.log(feature, set.type(), set.id(), score, set.questions().size(), request.durationSeconds(),
+          request.clientRequestId(), answeredAt);
+    }
     return new SetAnswerResult(score, set.questions().size(), results, set.script(), set.translation());
   }
 
@@ -115,16 +133,24 @@ public class QuestionSetPractice {
    * 解答が足りない設問は未解答(selected 無し・不正解)として扱う。
    */
   public List<SetQuestionResult> scoreAndRecord(String feature, QuestionSet set, List<String> answers) {
-    List<String> given = answers == null ? List.of() : answers;
     Long userId = currentUserProvider.getCurrentUserId();
+    List<SetQuestionResult> results = score(set, answers);
+    for (int i = 0; i < results.size(); i++) {
+      String selected = results.get(i).selected();
+      recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
+            selected.isEmpty() ? null : selected, results.get(i).correct()));
+    }
+    return results;
+  }
+
+  /** 設問ごとの採点だけを行う(保存しない) */
+  private static List<SetQuestionResult> score(QuestionSet set, List<String> answers) {
+    List<String> given = answers == null ? List.of() : answers;
     List<SetQuestionResult> results = new ArrayList<>();
     for (int i = 0; i < set.questions().size(); i++) {
       SetQuestion q = set.questions().get(i);
       String selected = i < given.size() && given.get(i) != null ? given.get(i).trim().toUpperCase() : "";
-      boolean correct = q.answer().equalsIgnoreCase(selected);
-      results.add(new SetQuestionResult(correct, selected, q.answer(), q.explanation()));
-      recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
-            selected.isEmpty() ? null : selected, correct));
+      results.add(new SetQuestionResult(q.answer().equalsIgnoreCase(selected), selected, q.answer(), q.explanation()));
     }
     return results;
   }

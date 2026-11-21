@@ -1,5 +1,6 @@
 package com.example.backend.grammar;
 
+import com.example.backend.common.QuestionNotFoundException;
 import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
@@ -12,6 +13,7 @@ import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /** TOEIC Part 5 形式の文法問題を、リポジトリ内の問題集(GrammarQuestionBank)から出題・採点する */
@@ -52,14 +54,24 @@ public class GrammarService {
     return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }
 
-  /** 解答記録・復習・学習ログを1つのトランザクションにする(一部だけ保存されて再送で重複するのを防ぐ) */
+  /**
+   * 解答記録・復習・学習ログを1つのトランザクションにする(一部だけ保存されて再送で重複するのを防ぐ)。
+   * すでに保存した解答(同じ clientRequestId の再送)は、記録を追加せず採点結果だけ返す。
+   */
   @Transactional
   public GrammarAnswerResult answer(GrammarAnswerRequest request) {
     ChoiceQuestion q = questionBank.findById(request.getQuestionId())
-        .orElseThrow(() -> new IllegalArgumentException("問題が見つかりません。再度出題してください。"));
+        .orElseThrow(() -> new QuestionNotFoundException("問題が見つかりません。再度出題してください。"));
 
-    boolean isCorrect = saveRecord(q, request.getSelectedChoice());
-    studyLogService.log("grammar", "toeic-part5", q.id(), isCorrect ? 1 : 0, 1, request.getDurationSeconds());
+    boolean isCorrect;
+    if (studyLogService.isRecorded(request.getClientRequestId())) {
+      isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());
+    } else {
+      LocalDateTime answeredAt = StudyLogService.answeredAt(request.getAnsweredAt());
+      isCorrect = saveRecord(q, request.getSelectedChoice(), answeredAt);
+      studyLogService.log("grammar", "toeic-part5", q.id(), isCorrect ? 1 : 0, 1, request.getDurationSeconds(),
+          request.getClientRequestId(), answeredAt);
+    }
 
     return new GrammarAnswerResult(isCorrect, q.answer(), q.explanation(), q.translation());
   }
@@ -70,6 +82,11 @@ public class GrammarService {
    * @return 正解なら true
    */
   public boolean saveRecord(ChoiceQuestion q, String selectedChoice) {
+    return saveRecord(q, selectedChoice, LocalDateTime.now(StudyLogService.JST));
+  }
+
+  /** @param answeredAt 解いた日本時間の時刻(復習日の基準にする) */
+  public boolean saveRecord(ChoiceQuestion q, String selectedChoice, LocalDateTime answeredAt) {
     boolean isCorrect = q.answer().equalsIgnoreCase(selectedChoice);
 
     GrammarRecord record = new GrammarRecord();
@@ -86,7 +103,7 @@ public class GrammarService {
     record.setExplanation(q.explanation());
     record.setTranslation(q.translation());
     grammarRecordRepository.save(record);
-    reviewService.record("grammar", q.id(), isCorrect);
+    reviewService.record("grammar", q.id(), isCorrect, answeredAt);
     return isCorrect;
   }
 

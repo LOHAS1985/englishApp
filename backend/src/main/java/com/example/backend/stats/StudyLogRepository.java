@@ -11,6 +11,9 @@ import java.util.List;
 public interface StudyLogRepository extends JpaRepository<StudyLog, Long> {
   List<StudyLog> findByUserIdAndCreatedAtGreaterThanEqual(Long userId, LocalDateTime from);
 
+  /** 解答の再送で、すでに保存した解答かの判定用 */
+  boolean existsByUserIdAndClientRequestId(Long userId, String clientRequestId);
+
   List<StudyLog> findTop50ByUserIdOrderByIdDesc(Long userId);
 
   /** レベル(経験値)の計算用。全期間を古い順に */

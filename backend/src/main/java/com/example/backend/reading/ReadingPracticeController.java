@@ -41,8 +41,12 @@ public class ReadingPracticeController {
 
   @PostMapping("/answer")
   public SetAnswerResult answer(@RequestBody SetAnswerRequest request) {
+    boolean duplicate = practice.isDuplicate(request);
     SetAnswerResult result = practice.grade(questionBank, "reading", request);
-    speedService.save(questionBank, request.setId(), request.readingSeconds());
+    // 再送された解答の読解速度は、すでに保存している
+    if (!duplicate) {
+      speedService.save(questionBank, request.setId(), request.readingSeconds());
+    }
     return result;
   }
 

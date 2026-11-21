@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /** 語彙問題(4択の短文空所補充)。出題・採点の形は文法問題と同じ */
@@ -63,10 +64,15 @@ public class VocabController {
     }
     String selected = request.getSelectedChoice() == null ? "" : request.getSelectedChoice().trim().toUpperCase();
     boolean correct = q.answer().equals(selected);
-    recordRepository.save(new PracticeRecord(currentUserProvider.getCurrentUserId(), "vocab", q.id(), 1,
-        selected.isEmpty() ? null : selected, correct));
-    studyLogService.log("vocab", "vocab", q.id(), correct ? 1 : 0, 1, request.getDurationSeconds());
-    reviewService.record("vocab", q.id(), correct);
+    // 同じ clientRequestId の再送は、記録を追加せず採点結果だけ返す
+    if (!studyLogService.isRecorded(request.getClientRequestId())) {
+      LocalDateTime answeredAt = StudyLogService.answeredAt(request.getAnsweredAt());
+      recordRepository.save(new PracticeRecord(currentUserProvider.getCurrentUserId(), "vocab", q.id(), 1,
+          selected.isEmpty() ? null : selected, correct));
+      studyLogService.log("vocab", "vocab", q.id(), correct ? 1 : 0, 1, request.getDurationSeconds(),
+          request.getClientRequestId(), answeredAt);
+      reviewService.record("vocab", q.id(), correct, answeredAt);
+    }
     return ResponseEntity.ok(new GrammarAnswerResult(correct, q.answer(), q.explanation(), q.translation()));
   }
 }

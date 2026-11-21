@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 
 /** 学習ログ。全技能の解答1回(セット問題は1セット)につき1行 */
 @Entity
-@Table(name = "study_logs")
+@Table(name = "study_logs", indexes = @Index(name = "ux_study_logs_client_request",
+    columnList = "user_id, client_request_id", unique = true))
 public class StudyLog {
 
   @Id
@@ -40,6 +41,10 @@ public class StudyLog {
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
+  /** 解答の再送で二重に保存しないための、画面が付ける解答ごとの ID。付けない機能・古い記録は null */
+  @Column(name = "client_request_id", length = 64)
+  private String clientRequestId;
+
   public StudyLog() {
   }
 
@@ -55,6 +60,12 @@ public class StudyLog {
     this.createdAt = createdAt;
   }
 
+  public StudyLog(Long userId, String feature, String itemType, String itemId, Integer correctCount,
+      Integer totalCount, int durationSeconds, LocalDateTime createdAt, String clientRequestId) {
+    this(userId, feature, itemType, itemId, correctCount, totalCount, durationSeconds, createdAt);
+    this.clientRequestId = clientRequestId;
+  }
+
   public Long getId() { return id; }
   public Long getUserId() { return userId; }
   public String getFeature() { return feature; }
@@ -64,4 +75,5 @@ public class StudyLog {
   public Integer getTotalCount() { return totalCount; }
   public int getDurationSeconds() { return durationSeconds; }
   public LocalDateTime getCreatedAt() { return createdAt; }
+  public String getClientRequestId() { return clientRequestId; }
 }
