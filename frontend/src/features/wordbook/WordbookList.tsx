@@ -5,6 +5,7 @@ import {
   deleteWordbookWord,
   fetchWordbookWords,
   setWordbookColor,
+  setWordbookExample,
   setWordbookMeaning,
   type WordbookColor,
   type WordbookWord,
@@ -37,6 +38,9 @@ export default function WordbookList() {
   const [notice, setNotice] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editMeaning, setEditMeaning] = useState("");
+  /** 例文を直している語と、入力中の内容 */
+  const [exampleEditId, setExampleEditId] = useState<number | null>(null);
+  const [exampleDraft, setExampleDraft] = useState({ en: "", answer: "", ja: "" });
 
   const reload = () =>
     fetchWordbookWords()
@@ -93,6 +97,19 @@ export default function WordbookList() {
       setEditingId(null);
     } catch (e) {
       setNotice(e instanceof Error ? e.message : "訳の変更に失敗しました");
+    }
+  };
+
+  const saveExample = async (word: WordbookWord) => {
+    try {
+      const updated = await setWordbookExample(word.id, exampleDraft.en, exampleDraft.answer, exampleDraft.ja);
+      setWords((current) => current.map((w) => (w.id === updated.id ? updated : w)));
+      setExampleEditId(null);
+      setNotice(
+        updated.exampleJa ? "" : "例文の訳が空なので、翌日の調査で取り直します(それまで穴埋めには出ません)",
+      );
+    } catch (e) {
+      setNotice(e instanceof Error ? e.message : "例文の変更に失敗しました");
     }
   };
 
@@ -189,11 +206,44 @@ export default function WordbookList() {
                       {word.meaningJa ?? <span className="text-slate-400">{translationNote(word)}</span>}
                     </p>
                   )}
-                  {word.exampleEn && (
-                    <p className="text-sm text-slate-500 mt-1">
-                      {word.exampleEn}
-                      {word.exampleJa && <span className="block text-slate-400">{word.exampleJa}</span>}
-                    </p>
+                  {exampleEditId === word.id ? (
+                    <div className="mt-2 space-y-2">
+                      <input
+                        aria-label="例文(英語)"
+                        value={exampleDraft.en}
+                        onChange={(e) => setExampleDraft({ ...exampleDraft, en: e.target.value })}
+                        className="w-full border border-slate-300 rounded px-3 py-1 text-sm"
+                      />
+                      <input
+                        aria-label="空欄にする語"
+                        value={exampleDraft.answer}
+                        onChange={(e) => setExampleDraft({ ...exampleDraft, answer: e.target.value })}
+                        placeholder="例文の中で空欄にする語(変化形でもよい)"
+                        className="w-full border border-slate-300 rounded px-3 py-1 text-sm"
+                      />
+                      <input
+                        aria-label="例文の訳"
+                        value={exampleDraft.ja}
+                        onChange={(e) => setExampleDraft({ ...exampleDraft, ja: e.target.value })}
+                        placeholder="例文の訳(空なら翌日に自動で調べます)"
+                        className="w-full border border-slate-300 rounded px-3 py-1 text-sm"
+                      />
+                      <div className="flex gap-3 text-sm">
+                        <button onClick={() => saveExample(word)} className="text-[#2463a8] hover:underline">
+                          保存
+                        </button>
+                        <button onClick={() => setExampleEditId(null)} className="text-slate-500 hover:underline">
+                          キャンセル
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    word.exampleEn && (
+                      <p className="text-sm text-slate-500 mt-1">
+                        {word.exampleEn}
+                        {word.exampleJa && <span className="block text-slate-400">{word.exampleJa}</span>}
+                      </p>
+                    )
                   )}
                   {word.meaningJa && translationNote(word) && (
                     <p className="text-xs text-slate-400 mt-1">{translationNote(word)}</p>
@@ -210,6 +260,19 @@ export default function WordbookList() {
                       className="text-slate-600 hover:underline"
                     >
                       訳を直す
+                    </button>
+                    <button
+                      onClick={() => {
+                        setExampleEditId(word.id);
+                        setExampleDraft({
+                          en: word.exampleEn ?? "",
+                          answer: word.exampleAnswer ?? word.word,
+                          ja: word.exampleJa ?? "",
+                        });
+                      }}
+                      className="text-slate-600 hover:underline"
+                    >
+                      例文を直す
                     </button>
                     <button onClick={() => remove(word)} className="text-[#c0392b] hover:underline">
                       削除

@@ -695,6 +695,15 @@ export async function setWordbookMeaning(id: number, meaningJa: string) {
   return getJson<WordbookWord>(`/api/wordbook/words/${id}`, "訳の変更に失敗しました", jsonBody("PUT", { meaningJa }));
 }
 
+/** 例文を直す。例文の訳を空にすると、翌日の調査で取り直す(取れるまで穴埋めには出さない) */
+export async function setWordbookExample(id: number, exampleEn: string, exampleAnswer: string, exampleJa: string) {
+  return getJson<WordbookWord>(
+    `/api/wordbook/words/${id}/example`,
+    "例文の変更に失敗しました",
+    jsonBody("PUT", { exampleEn, exampleAnswer, exampleJa }),
+  );
+}
+
 export async function deleteWordbookWord(id: number) {
   await send(`/api/wordbook/words/${id}`, "削除に失敗しました", { method: "DELETE" });
 }

@@ -69,6 +69,14 @@ public class WordbookWord {
   @Column(name = "last_asked_at")
   private LocalDateTime lastAskedAt;
 
+  /** 同梱の語の ID(w0001 など)。手動・読解から登録した語は null */
+  @Column(name = "bundled_id", length = 20)
+  private String bundledId;
+
+  /** 利用者が訳・例文を直した語。同梱の内容を更新するとき、この語は上書きしない */
+  @Column(name = "user_edited", nullable = false)
+  private boolean userEdited;
+
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
@@ -148,11 +156,57 @@ public class WordbookWord {
     this.updatedAt = now;
   }
 
-  /** 利用者が直した訳。空にすると翌日の調査で取り直す */
+  /** 利用者が直した訳。空にすると翌日の調査で取り直す。直した語は、同梱の内容の更新で上書きしない */
   public void editMeaning(String meaningJa, LocalDateTime now) {
     this.meaningJa = meaningJa;
     this.translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
+    this.userEdited = true;
     this.updatedAt = now;
+  }
+
+  /**
+   * 利用者が直した例文。例文の訳を空にすると翌日の調査で取り直す(取れるまで出題しない)。
+   * 直した語は、同梱の内容の更新で上書きしない
+   */
+  public void editExample(String exampleEn, String exampleAnswer, String exampleJa, LocalDateTime now) {
+    this.exampleEn = exampleEn;
+    this.exampleAnswer = exampleAnswer;
+    this.exampleJa = exampleJa;
+    this.translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
+    this.userEdited = true;
+    this.updatedAt = now;
+  }
+
+  /** 同梱の語に結び付ける。利用者がすでに訳・例文を直していた語は、更新で上書きしない */
+  void linkBundled(String bundledId, boolean userEdited) {
+    this.bundledId = bundledId;
+    this.userEdited = userEdited;
+  }
+
+  /**
+   * 同梱の内容(訳・例文)で更新する。利用者が直した語は触らない。
+   *
+   * @return 内容が変わったら true
+   */
+  boolean applyBundled(BundledWordBank.BundledWord item, LocalDateTime now) {
+    if (userEdited || sameContentAs(item)) {
+      return false;
+    }
+    this.meaningJa = item.meaningJa();
+    this.exampleEn = item.example().en();
+    this.exampleAnswer = item.example().answer().toLowerCase(java.util.Locale.ROOT);
+    this.exampleJa = item.example().ja();
+    this.translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
+    this.updatedAt = now;
+    return true;
+  }
+
+  /** 訳・例文が同梱の内容と同じか */
+  boolean sameContentAs(BundledWordBank.BundledWord item) {
+    return java.util.Objects.equals(meaningJa, item.meaningJa())
+        && java.util.Objects.equals(exampleEn, item.example().en())
+        && java.util.Objects.equals(exampleAnswer, item.example().answer().toLowerCase(java.util.Locale.ROOT))
+        && java.util.Objects.equals(exampleJa, item.example().ja());
   }
 
   /** 調査しても訳が揃わなかった。翌日の調査で取り直す */
@@ -183,6 +237,8 @@ public class WordbookWord {
   public Source getSource() { return source; }
   public WordbookColor getColor() { return color; }
   public TranslationStatus getTranslationStatus() { return translationStatus; }
+  public String getBundledId() { return bundledId; }
+  public boolean isUserEdited() { return userEdited; }
   public int getTimesAsked() { return timesAsked; }
   public int getTimesCorrect() { return timesCorrect; }
   public Integer getReviewStage() { return reviewStage; }

@@ -25,10 +25,13 @@ public class WordbookService {
   private static final int MAX_WORD_LENGTH = 60;
 
   private final WordbookWordRepository repository;
+  private final DeletedBundledWordRepository deletedBundled;
   private final CurrentUserProvider currentUserProvider;
 
-  public WordbookService(WordbookWordRepository repository, CurrentUserProvider currentUserProvider) {
+  public WordbookService(WordbookWordRepository repository, DeletedBundledWordRepository deletedBundled,
+      CurrentUserProvider currentUserProvider) {
     this.repository = repository;
+    this.deletedBundled = deletedBundled;
     this.currentUserProvider = currentUserProvider;
   }
 
@@ -117,9 +120,37 @@ public class WordbookService {
     return WordView.of(repository.save(word));
   }
 
+  /**
+   * 例文を直す。例文の訳を空にすると翌日の調査で取り直す(取れるまで穴埋めには出さない)。
+   * 空欄にする語は例文の中に単語として入っていなければならない。
+   */
+  @Transactional
+  public WordView setExample(Long id, String exampleEn, String exampleAnswer, String exampleJa) {
+    WordbookWord word = owned(id);
+    String en = exampleEn == null ? "" : exampleEn.trim();
+    String answer = exampleAnswer == null ? "" : exampleAnswer.trim().toLowerCase(Locale.ROOT);
+    if (en.isEmpty()) {
+      throw new IllegalArgumentException("例文を入力してください");
+    }
+    if (answer.isEmpty() || !WordbookSentences.contains(en, answer)) {
+      throw new IllegalArgumentException("空欄にする語が例文の中に見つかりません");
+    }
+    if (!WordForms.sameWord(word.getWord(), answer)) {
+      throw new IllegalArgumentException("空欄にする語は「" + word.getWord() + "」の形にしてください");
+    }
+    String ja = exampleJa == null || exampleJa.isBlank() ? null : exampleJa.trim();
+    word.editExample(en, answer, ja, LocalDateTime.now(JST));
+    return WordView.of(repository.save(word));
+  }
+
   @Transactional
   public void delete(Long id) {
-    repository.delete(owned(id));
+    WordbookWord word = owned(id);
+    // 同梱の内容を更新しても、削除した同梱語は戻さない
+    if (word.getBundledId() != null) {
+      deletedBundled.save(new DeletedBundledWord(word.getUserId(), word.getBundledId()));
+    }
+    repository.delete(word);
   }
 
   /** 利用者の語だけを返す。他の語の ID を指定されても触れないようにする */

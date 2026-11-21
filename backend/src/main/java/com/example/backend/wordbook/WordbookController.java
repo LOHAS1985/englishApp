@@ -6,6 +6,7 @@ import com.example.backend.wordbook.dto.AnswerResultView;
 import com.example.backend.wordbook.dto.ChoiceAnswerRequest;
 import com.example.backend.wordbook.dto.ChoiceQuestionView;
 import com.example.backend.wordbook.dto.ColorRequest;
+import com.example.backend.wordbook.dto.ExampleRequest;
 import com.example.backend.wordbook.dto.FillAnswerRequest;
 import com.example.backend.wordbook.dto.FillQuestionView;
 import com.example.backend.wordbook.dto.HistoryItem;
@@ -58,6 +59,11 @@ public class WordbookController {
   @PutMapping("/words/{id}")
   public WordView setMeaning(@PathVariable Long id, @RequestBody MeaningRequest request) {
     return wordService.setMeaning(id, request.meaningJa());
+  }
+
+  @PutMapping("/words/{id}/example")
+  public WordView setExample(@PathVariable Long id, @RequestBody ExampleRequest request) {
+    return wordService.setExample(id, request.exampleEn(), request.exampleAnswer(), request.exampleJa());
   }
 
   @DeleteMapping("/words/{id}")
