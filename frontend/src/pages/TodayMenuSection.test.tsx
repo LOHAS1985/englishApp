@@ -103,6 +103,20 @@ describe("今日のメニュー: 保存済みがある日", () => {
     expect(screen.getByText("更新中…")).toBeTruthy();
   });
 
+  it("各課題には、形式と問題数・時間だけを出す(選んだ理由や色の印は出さない)", () => {
+    const menu = saveTodaysMenu();
+    vi.mocked(fetchStatsSummary).mockReturnValue(new Promise(() => {}));
+
+    const { container } = renderSection();
+
+    for (const task of menu.quiet.tasks) {
+      expect(screen.getByText(task.label)).toBeTruthy();
+      expect(screen.getAllByText(task.note).length).toBeGreaterThan(0);
+    }
+    expect(screen.queryByText(/ため$|形式$|復習する日/)).toBeNull();
+    expect(container.querySelector("li .rounded-full")).toBeNull();
+  });
+
   it("応答が返ったら、済みの印と今日の学習時間を最新にする", async () => {
     saveTodaysMenu();
     // 全部の技能を1時間学習した今日の記録

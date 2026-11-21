@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchStatsSummary } from "../api/client";
-import { SKILL_COLORS, SKILL_LABELS } from "../shared/exams";
 import { loadSavedLevel, withLevel } from "../shared/level";
 import {
   MENU_MINUTES,
@@ -159,15 +158,9 @@ export default function TodayMenuSection() {
                 } ${t.done ? "bg-slate-50" : ""}`}
               >
                 <span className="font-mono text-sm text-slate-400 w-4">{i + 1}</span>
-                <span className={`inline-block h-3 w-3 rounded-full shrink-0 ${SKILL_COLORS[t.skill]}`} aria-hidden />
-                <span className="flex-1 min-w-0">
-                  <span className={`block ${t.done ? "line-through text-slate-500" : "text-slate-900"}`}>
-                    {t.label}
-                    <span className="ml-2 text-xs text-slate-500">
-                      {SKILL_LABELS[t.skill]}・{t.note}
-                    </span>
-                  </span>
-                  <span className="block text-xs text-slate-500">{t.reason}</span>
+                <span className={`flex-1 min-w-0 ${t.done ? "line-through text-slate-500" : "text-slate-900"}`}>
+                  {t.label}
+                  <span className="ml-2 text-xs text-slate-500">{t.note}</span>
                 </span>
                 <span className={t.done ? "text-sm text-[#5b9a3c] font-semibold" : "text-slate-500"}>
                   {t.done ? "済 ✓" : "→"}
@@ -178,11 +171,7 @@ export default function TodayMenuSection() {
         </ul>
       )}
 
-      <p className="mt-3 text-xs text-slate-500">
-        {allDone
-          ? "このメニューを全部終えました。"
-          : "学習量が少ない技能・正答率が低い技能を優先して選んでいます。同じ日のうちは同じメニューです。"}
-      </p>
+      {allDone && <p className="mt-3 text-xs text-slate-500">このメニューを全部終えました。</p>}
     </section>
   );
 }

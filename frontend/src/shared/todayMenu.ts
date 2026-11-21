@@ -79,8 +79,6 @@ export interface MenuTask {
   note: string;
   minutes: number;
   path: string;
-  /** なぜこの課題が選ばれたか */
-  reason: string;
   /** 今日すでにこの課題を済ませた(技能ごとの今日の学習時間から判断する) */
   done: boolean;
   /** 間違えた問題の復習か */
@@ -123,8 +121,6 @@ function accuracyOf(t: StudyTotals): number | null {
   return t.total >= MIN_QUESTIONS_FOR_ACCURACY ? t.correct / t.total : null;
 }
 
-const percent = (rate: number) => Math.round(rate * 100);
-
 /** 正答率が分からないもの(ライティング・スピーキングなど)は、中間の弱さとして扱う */
 const weaknessOf = (accuracy: number | null) => (accuracy === null ? 0.5 : 1 - accuracy);
 
@@ -152,47 +148,48 @@ function scoreSkills(summary: StatsSummary): SkillScore[] {
 }
 
 /** 技能の中で、今日解く形式を選ぶ。正答率が低い形式と、まだ解いていない形式を優先し、同点なら日替わりで回す */
-function pickTask(
-  defs: TaskDef[],
-  summary: StatsSummary,
-  seed: number,
-  defaultReason = "バランスよく回すため",
-): { def: TaskDef; reason: string } | null {
+function pickTask(defs: TaskDef[], summary: StatsSummary, seed: number): TaskDef | null {
   const scored = defs.map((def, index) => {
     const month = summary.types.find((t) => t.type === def.type)?.month ?? ZERO;
     const accuracy = accuracyOf(month);
     const novelty = 1 - Math.min(1, month.sessions / 5);
     return {
       def,
-      month,
-      accuracy,
       score: 0.5 * weaknessOf(accuracy) + 0.5 * novelty,
       rotation: (index + seed) % defs.length,
     };
   });
   scored.sort((a, b) => b.score - a.score || a.rotation - b.rotation);
-  const best = scored[0];
-  if (!best) return null;
-  let reason = defaultReason;
-  if (best.month.sessions === 0) reason = "この1か月まだ解いていない形式";
-  else if (best.accuracy !== null && best.accuracy < 0.7) reason = `この形式の正答率が低い(${percent(best.accuracy)}%)`;
-  return { def: best.def, reason };
+  return scored[0]?.def ?? null;
 }
 
 const reviewMinutes = (due: number) => Math.min(8, Math.max(3, Math.round(due * 0.7)));
 
-/** 今日学習した時間から、課題が済んだかを判断する。復習は、復習日になっている問題がなくなったら済み */
+/**
+ * 今日学習した時間から、課題が済んだかを判断する。復習は、復習日になっている問題がなくなったら済み。
+ * 技能の学習時間は、メニューの並び順に課題へ割り当てる(同じ技能の課題が2つあるとき、
+ * 合計の時間だけで両方を済みにしないため。例: 読解7分で Part 5(7分)と Part 7(9分)の両方が済みになっていた)
+ */
 export function markDone(tasks: MenuTask[], summary: StatsSummary): MenuTask[] {
+  const remaining = new Map<Skill, number>();
+  const left = (skill: Skill) => remaining.get(skill) ?? todaySeconds(summary, skill);
   return tasks.map((t) => {
+    const needed = t.minutes * 60 * TASK_DONE_RATIO;
     if (t.review) {
       const feature = t.id.replace("review:", "");
-      return { ...t, done: (summary.review[feature]?.due ?? 0) <= 0 };
+      const done = (summary.review[feature]?.due ?? 0) <= 0;
+      // 済んだ復習にかけた時間は、同じ技能のほかの課題に回さない
+      if (done) remaining.set(t.skill, Math.max(0, left(t.skill) - needed));
+      return { ...t, done };
     }
-    return { ...t, done: todaySeconds(summary, t.skill) >= t.minutes * 60 * TASK_DONE_RATIO };
+    // 足りないときは時間を残す(後ろの短い課題の分かもしれないため)
+    const done = left(t.skill) >= needed;
+    if (done) remaining.set(t.skill, left(t.skill) - needed);
+    return { ...t, done };
   });
 }
 
-function taskOf(def: TaskDef, reason: string): MenuTask {
+function taskOf(def: TaskDef): MenuTask {
   return {
     id: `${def.skill}:${def.type}`,
     skill: def.skill,
@@ -200,7 +197,6 @@ function taskOf(def: TaskDef, reason: string): MenuTask {
     note: `${def.amount}・約${def.minutes}分`,
     minutes: def.minutes,
     path: def.path,
-    reason,
     done: false,
     review: false,
   };
@@ -226,7 +222,6 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
       note: `${due}問・約${minutes}分`,
       minutes,
       path: r.path,
-      reason: "間違えた問題を復習する日です",
       done: false,
       review: true,
     });
@@ -234,10 +229,10 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
   }
 
   // 単語帳(語彙の枠)。復習の次に、毎日入れる
-  const wordbook = pickTask(WORDBOOK_TASKS, summary, seed, "毎日少しずつ続けて、単語を定着させるため");
+  const wordbook = pickTask(WORDBOOK_TASKS, summary, seed);
   if (wordbook && !excluded.includes("vocab")) {
-    tasks.push(taskOf(wordbook.def, wordbook.reason));
-    total += wordbook.def.minutes;
+    tasks.push(taskOf(wordbook));
+    total += wordbook.minutes;
   }
 
   const ranked = scoreSkills(summary)
@@ -258,10 +253,10 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
         summary,
         seed,
       );
-      if (!picked || total + picked.def.minutes > MENU_LIMIT_MINUTES) continue;
-      tasks.push(taskOf(picked.def, picked.reason));
-      chosen.add(`${picked.def.skill}:${picked.def.type}`);
-      total += picked.def.minutes;
+      if (!picked || total + picked.minutes > MENU_LIMIT_MINUTES) continue;
+      tasks.push(taskOf(picked));
+      chosen.add(`${picked.skill}:${picked.type}`);
+      total += picked.minutes;
       added = true;
     }
   }

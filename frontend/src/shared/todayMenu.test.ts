@@ -105,14 +105,6 @@ describe("buildTodayMenu(通常)", () => {
     for (const t of listening) expect(t.note).toMatch(/セット\(\d+問\)/);
   });
 
-  it("理由に「今週の○○の学習が少ない」は書かない", () => {
-    for (let seed = 0; seed < 6; seed++) {
-      for (const task of normalMenu({ week: { ...FULL_WEEK, speaking: 0, writing: 0 } }, seed).tasks) {
-        expect(task.reason).not.toContain("今週");
-      }
-    }
-  });
-
   it("復習日になった問題があると、復習が最初に並ぶ", () => {
     const menu = normalMenu({ review: { vocab: { feature: "vocab", due: 10, pending: 0 } } });
     expect(menu.tasks[0]?.id).toBe("review:vocab");
@@ -284,6 +276,39 @@ describe("markDone", () => {
   it("学習が足りなければ、済みにならない", () => {
     const done = markDone(normalMenu().tasks, makeSummary({ today: { listening: 60 } }));
     expect(done.every((t) => !t.done)).toBe(true);
+  });
+
+  it("同じ技能の課題が2つあるとき、学習時間を並び順に割り当てる", () => {
+    const task = (id: string, minutes: number): MenuTask => ({
+      id,
+      skill: "reading",
+      label: id,
+      note: "",
+      minutes,
+      path: "/",
+      done: false,
+      review: false,
+    });
+    const tasks = [task("reading:toeic-part5", 7), task("reading:toeic-part7", 9)];
+    // 7分は、どちらの課題の7割(4.9分・6.3分)も超えるが、合わせて1つ分なので Part 5 だけが済む
+    expect(markDone(tasks, makeSummary({ today: { reading: 7 * 60 } })).map((t) => t.done)).toEqual([true, false]);
+    // 両方の7割(4.9分+6.3分)を超えれば、両方済み
+    expect(markDone(tasks, makeSummary({ today: { reading: 12 * 60 } })).map((t) => t.done)).toEqual([true, true]);
+  });
+
+  it("済んだ復習にかけた時間は、同じ技能のほかの課題に回さない", () => {
+    const menu = normalMenu({ week: { ...FULL_WEEK, reading: 0 }, review: { grammar: { feature: "grammar", due: 6, pending: 0 } } });
+    expect(menu.tasks[0]?.id).toBe("review:grammar");
+    const review = menu.tasks[0]!;
+    const reading = menu.tasks.find((t) => !t.review && t.skill === "reading")!;
+    // 復習の分と、読解の課題の分にわずかに足りない時間。復習の分を差し引くので、読解の課題は済まない
+    const seconds = review.minutes * 60 * 0.7 + reading.minutes * 60 * 0.7 - 1;
+    const done = markDone(
+      menu.tasks,
+      makeSummary({ today: { reading: seconds }, review: { grammar: { feature: "grammar", due: 0, pending: 0 } } }),
+    );
+    expect(done[0]?.done).toBe(true);
+    expect(done.find((t) => t.id === reading.id)?.done).toBe(false);
   });
 
   it("復習は、復習日になっている問題がなくなったら済み", () => {
