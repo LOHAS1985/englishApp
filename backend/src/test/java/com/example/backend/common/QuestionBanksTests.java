@@ -109,6 +109,49 @@ class QuestionBanksTests {
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
   }
 
+  /**
+   * 正解の選択肢が一番長い割合の上限(形式ごと)。正解だけが長く詳しいと、本文を理解しなくても当たってしまい、
+   * 正答率が実力より高く出る(docs/question-authoring.md の「4.1」で禁止している書き方)。
+   * 偶然なら 4択 25%・3択(Part 2)33%。いまの割合に少し余裕を足した値で、これ以上悪化させないための上限。
+   * 誤答を作り直して下がったら、この値も下げる(目標は偶然 + 10 ポイント程度)。
+   */
+  private static final java.util.Map<String, Integer> LONGEST_CORRECT_CEILING_PERCENT = java.util.Map.ofEntries(
+      java.util.Map.entry("eiken-long", 86),
+      java.util.Map.entry("toeic-part2", 75),
+      java.util.Map.entry("eiken-part1", 56),
+      java.util.Map.entry("eiken-part2", 52),
+      java.util.Map.entry("eiken-part3", 54),
+      java.util.Map.entry("toeic-part3", 52),
+      java.util.Map.entry("toeic-part4", 50),
+      java.util.Map.entry("toeic-part7", 47),
+      java.util.Map.entry("eiken-cloze", 32),
+      java.util.Map.entry("toeic-part6", 31));
+
+  @Test
+  void correctChoiceIsNotTooOftenTheLongest() {
+    List<QuestionSet> all = new java.util.ArrayList<>(new ReadingQuestionBank(MAPPER).all());
+    all.addAll(new ListeningQuestionBank(MAPPER).all());
+
+    java.util.Map<String, long[]> byType = new java.util.TreeMap<>(); // {正解が最長の数, 設問数}
+    for (QuestionSet s : all) {
+      for (SetQuestion q : s.questions()) {
+        int answerLength = q.choices().get(LETTERS.indexOf(q.answer())).length();
+        int max = q.choices().stream().mapToInt(String::length).max().orElse(0);
+        boolean uniquelyLongest = answerLength == max && q.choices().stream().filter(c -> c.length() == max).count() == 1;
+        long[] counts = byType.computeIfAbsent(s.type(), k -> new long[2]);
+        counts[0] += uniquelyLongest ? 1 : 0;
+        counts[1]++;
+      }
+    }
+
+    assertThat(byType.keySet()).as("上限を決めていない形式がある").isSubsetOf(LONGEST_CORRECT_CEILING_PERCENT.keySet());
+    byType.forEach((type, counts) -> {
+      long percent = Math.round(counts[0] * 100.0 / counts[1]);
+      assertThat(percent).as(type + ": 正解が一番長い設問の割合(%) " + counts[0] + "/" + counts[1])
+          .isLessThanOrEqualTo(LONGEST_CORRECT_CEILING_PERCENT.get(type));
+    });
+  }
+
   @Test
   void writingPromptsAreWellFormed() {
     List<WritingPrompt> all = new WritingPromptBank(MAPPER).all();
