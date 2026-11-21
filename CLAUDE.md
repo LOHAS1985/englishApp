@@ -86,7 +86,7 @@
 - **スピーキングの採点履歴**: MyPage に直近30件の点数の推移と、パートごとの文字起こし・採点結果・直した例を出す(`GET /api/speaking/history`、`SpeakingHistorySection`)。
 - **途中でやめても記録は残す**: 文法・語彙は1問ごと、読解・リスニングは1セットの「解答する」ごとに、記録をブラウザの送信待ちの列に保存してから送る。画面を閉じても次に開いたときに再送する。ライティングは採点時、スピーキングは模範解答を見たときにサーバーへ保存する。
 - **ログインは設けない**: 利用者は本人1人だけなので、全 API をログインなしで使える。記録はすべて `CurrentUserProvider` が返す owner ユーザーに保存する(初回アクセス時に自動作成)。
-- **端末登録(使える端末を限定)**: 利用者は本人の端末(PC 2台・スマホ1台)だけなので、`/api/**` は登録済みの端末だけが使える(`device/DeviceFilter`)。初回に合言葉(環境変数 `APP_ACCESS_KEY`)で登録すると端末専用の鍵が発行され、ブラウザに保存して `X-Device-Token` で送る(`features/device/DeviceGate`)。登録は最大 `MAX_DEVICES`(既定3)台で、上限に達すると合言葉が正しくても登録できない。鍵は SHA-256 のハッシュだけを `devices` テーブルに保存する。管理画面(`/admin`)で端末ごとに削除できる。端末をすべて失くしたら `MAX_DEVICES` を一時的に増やして登録し直す。`/health`・生成音声・`/api/access-logs`(独自キー)・`/api/devices/register` は対象外。`APP_ACCESS_KEY` が未設定なら保護しない(ローカル開発用)。画面(GitHub Pages)と同梱の問題集は誰でも取得できるが、未登録の端末では登録画面が重なり、記録・採点・レベルなどは一切使えない。
+- **端末登録(使える端末を限定)**: 利用者は本人の端末(PC 2台・スマホ1台)だけなので、`/api/**` は登録済みの端末だけが使える(`device/DeviceFilter`)。初回に合言葉(環境変数 `APP_ACCESS_KEY`)で登録すると端末専用の鍵が発行され、ブラウザに保存して `X-Device-Token` で送る(`features/device/DeviceGate`)。登録は最大 `MAX_DEVICES`(既定3)台で、上限に達すると合言葉が正しくても登録できない。鍵は SHA-256 のハッシュだけを `devices` テーブルに保存する。管理画面(`/admin`)で端末ごとに削除できる。端末をすべて失くしたら `MAX_DEVICES` を一時的に増やして登録し直す。`/health`・生成音声・`/api/access-logs`(独自キー)・`/api/devices/register` は対象外。`APP_ACCESS_KEY` が未設定なら保護しない(ローカル開発用。本番プロファイルでは未設定だと起動を失敗させる)。画面(GitHub Pages)と同梱の問題集は誰でも取得できるが、未登録の端末では登録画面が重なり、記録・採点・レベルなどは一切使えない。
 - **PWA**: 本番ビルドでは `public/sw.js` を登録し、画面の骨組み・ハッシュ付きアセット・問題集 JSON をキャッシュして、通信がなくても画面を開けるようにする。`/api/` と別オリジンはキャッシュしない(記録・採点は常にサーバーへ。送信待ちの列は outbox が担当)。キャッシュの世代は `sw.js` の `CACHE_NAME` で管理し、`sw.js` の処理を変えたら上げる。`skipWaiting` は使わない(開いている画面が読み込む chunk を消さないため)。
 - **管理画面**: 英語学習の内容は扱わない。登録済みの端末(`/admin`)と、アクセスログを確認する画面だけにする。単語の登録・編集は単語帳(`/wordbook`)で行う。
 - **アクセスログ**: `/api/**` へのアクセスを `access_logs` に保存し(IP・端末・ip-api.com で推定した地域、90日で削除)、管理画面で確認する。IP を含むので閲覧 API は `ACCESS_LOG_KEY` と一致するヘッダー `X-Access-Log-Key` が必須。週1回 `weekly-access-report.yml` が Gmail で自分宛てに送る。**IP を含むログを公開リポジトリにコミットしない**(Actions の実行ログにも出さない)。
@@ -238,11 +238,11 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 コードの確認で見つかった、使用前に直すべき点・設定すべき点の一覧。対応したらチェックを付け、不要になった項目は消す。
 
 ### 本人の作業が必要(コード外の設定)
-- [ ] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。DB 未設定だと起動ログに「本番プロファイルでインメモリH2を使用中です」と出て、再起動のたびに記録が消える。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
+- [x] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。2026-11-21 に、起動ログの `Active profiles=[prod], datasource=external` で外部 DB に接続できていることを確認した。本番で DB の接続先か `APP_ACCESS_KEY` が未設定なら、起動を失敗させる(`config/ProductionConfigGuard`。本番プロファイルのテストと Docker のビルド時の起動は `APP_STRICT_CONFIG=false` で切る)。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` / `GUARDIAN_API_KEY` を削除してよい**: ログイン機能と Guardian 記事の多読を廃止したため不要
 - [ ] **単語帳の同梱語 500 語を確認する**: Claude が知識から作成した(英検・TOEIC の公式リストではない)。意味の誤り、正解が2つになる穴埋め(defer と postpone など)、不自然な英文がないか見直す。直した語は `questions/wordbook/*.json` を編集し、内容を変えたら `BundledWordSeeder` の版を上げる
 - [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)。**設定済みのはずだが、2026-11-16〜19 の `keep-alive.yml` の実行(日本時間 9:47・16:27・21:21・20:11・11:19 など)ではほぼ毎回 `/health` の応答に約1分かかっており(=停止していた)、時間帯の中でも停止を防げていない。** cron-job.org のジョブが有効か(失敗が続くと自動で無効になる)、URL がバックエンド(`onrender.com`)の `/health` か、実行履歴が成功しているかを確認する
-- [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点で未設定を確認)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する
+- [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点では未設定だったが、**2026-11-21 に設定済みを確認**: 端末の鍵なしで `/api/**` を呼ぶと 401)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
 ### 対応済み(20261026)

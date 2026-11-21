@@ -111,6 +111,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<environmentVariables>
+						<!-- 本番プロファイルでのテスト(Flyway の確認)は DB・合言葉を設定しないので、起動時の必須設定の検査を切る -->
+						<APP_STRICT_CONFIG>false</APP_STRICT_CONFIG>
+					</environmentVariables>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

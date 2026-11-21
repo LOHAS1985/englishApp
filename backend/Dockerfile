@@ -26,6 +26,7 @@ COPY --from=build /app/target/*.jar app.jar
 # 1. jar を展開して起動する(fat jar の中の jar を読む処理を省き、AOT キャッシュも効くようにする)
 # 2. Java 25 の AOT キャッシュ:ビルド時に1度起動し(spring.context.exit=onRefresh で起動直後に終了)、
 #    読み込んだクラスの解析結果を保存しておき、本番の起動で使う。外部 DB は使わずインメモリ H2 で学習させる。
+#    学習時は DB・合言葉を設定しないので、本番の必須設定の検査(ProductionConfigGuard)は APP_STRICT_CONFIG=false で切る。
 #    本番は遅延初期化だが、学習時はすべての Bean を作って最初の API 呼び出しで使うクラスもキャッシュに入れる
 #    (実行時に使う PostgreSQL ドライバのクラスはキャッシュに入らないだけで、動作には影響しない)
 # ヒープの上限(-Xmx)はキャッシュ作成時と実行時で揃える。Render 無料プランはメモリ 512MB。
@@ -34,7 +35,7 @@ COPY --from=build /app/target/*.jar app.jar
 RUN java -Djarmode=tools -jar app.jar extract --destination application \
 	&& rm app.jar \
 	&& cd application \
-	&& SPRING_PROFILES_ACTIVE=prod GEMINI_API_KEY=dummy \
+	&& SPRING_PROFILES_ACTIVE=prod GEMINI_API_KEY=dummy APP_STRICT_CONFIG=false \
 		java -XX:AOTCacheOutput=app.aot -XX:-AOTClassLinking -Xmx256m -XX:+UseSerialGC -XX:TieredStopAtLevel=1 \
 		-Dspring.context.exit=onRefresh -Dspring.main.lazy-initialization=false -jar app.jar
 
