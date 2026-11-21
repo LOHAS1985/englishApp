@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -68,5 +68,37 @@ describe("セット問題: 次のセットの先読み", () => {
 
     expect(await screen.findByText("Q1. Question of l0002")).toBeTruthy();
     expect(fetchPracticeSet).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe("セット問題: リスニングの台本", () => {
+  it("採点結果は台本を待たずに出し、台本は遅れて届いたら付ける", async () => {
+    vi.mocked(fetchPracticeSet).mockResolvedValueOnce(set("l0001")).mockReturnValue(new Promise(() => {}));
+
+    render(
+      <MemoryRouter initialEntries={["/listening?type=toeic-part3"]}>
+        <PracticeSetPage
+          feature="listening"
+          types={["toeic-part3"]}
+          showTitle={false}
+          renderMaterial={() => null}
+          renderAfterAnswer={(_, result) => (result.script ? <p>台本: {result.script}</p> : null)}
+        />
+      </MemoryRouter>,
+    );
+
+    await screen.findByText("Q1. Question of l0001");
+    await userEvent.click(screen.getByRole("button", { name: /one/ }));
+    await userEvent.click(screen.getByRole("button", { name: "解答する" }));
+
+    // 台本はまだ届いていないが、採点結果は出る
+    expect(await screen.findByText("1 / 1")).toBeTruthy();
+    expect(screen.queryByText(/台本:/)).toBeNull();
+
+    // 台本が届いたら、結果に付く
+    const onReveal = vi.mocked(submitPracticeAnswers).mock.calls[0]?.[5];
+    expect(onReveal).toBeTypeOf("function");
+    act(() => onReveal?.({ script: "Man: Hello.", translation: "こんにちは" }));
+    expect(await screen.findByText("台本: Man: Hello.")).toBeTruthy();
   });
 });

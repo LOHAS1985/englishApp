@@ -82,8 +82,11 @@ export default function PracticeSetPage({
   const [setsDone, setSetsDone] = useState(0);
   const [finished, setFinished] = useState(false);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
+  /** いま表示しているセットの ID。遅れて届いた台本を、別のセットの結果に付けないために使う */
+  const shownSetIdRef = useRef<string | null>(null);
 
   const showSet = (data: QuestionSetView | null) => {
+    shownSetIdRef.current = data?.id ?? null;
     shownAtRef.current = Date.now();
     setStartedAt(shownAtRef.current);
     setNow(shownAtRef.current);
@@ -157,7 +160,11 @@ export default function PracticeSetPage({
     setSubmitting(true);
     try {
       const seconds = Math.round((Date.now() - shownAtRef.current) / 1000);
-      const data = await submitPracticeAnswers(feature, set.id, answers, seconds, readingSeconds ?? undefined);
+      const submittedId = set.id;
+      const data = await submitPracticeAnswers(feature, submittedId, answers, seconds, readingSeconds ?? undefined, (reveal) => {
+        // 採点結果は先に出していて、台本と和訳は遅れて届く
+        if (shownSetIdRef.current === submittedId) setResult((prev) => (prev ? { ...prev, ...reveal } : prev));
+      });
       setResult(data);
       const promise = fetchPracticeSet(feature, type, set.id, level).catch(() => null);
       nextRef.current = { key: nextKey, promise };

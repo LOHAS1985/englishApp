@@ -38,29 +38,34 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
     };
   }, [setId]);
 
-  const playUrls = async (list: string[], first: HTMLAudioElement | null) => {
+  /** 1つも再生できなかったときは false(再生済みの扱いにしないため)。途中で止まったときは true */
+  const playUrls = async (list: string[], first: HTMLAudioElement | null): Promise<boolean> => {
     stoppedRef.current = false;
     setStatus("playing");
+    let started = false;
     for (const [i, src] of list.entries()) {
       if (stoppedRef.current) break;
-      await new Promise<void>((resolve) => {
+      const ok = await new Promise<boolean>((resolve) => {
         // 先頭は読み込み済みの要素を使う(聞き直すときは頭から)
         const audio = i === 0 && first ? first : new Audio(src);
         audio.currentTime = 0;
         audioRef.current = audio;
-        audio.onended = () => resolve();
-        audio.onerror = () => resolve();
-        audio.play().catch(() => resolve());
+        audio.onended = () => resolve(true);
+        audio.onerror = () => resolve(false);
+        audio.play().then(() => (started = true), () => resolve(false));
       });
+      if (!ok && !stoppedRef.current) {
+        setStatus("error");
+        return started;
+      }
     }
     setStatus("idle");
+    return true;
   };
 
+  /** ブラウザの読み上げ。台本を取れない・読み上げが無いときは例外にする(呼び出し側がエラー表示にする) */
   const playWithBrowser = async () => {
-    if (!("speechSynthesis" in window)) {
-      setStatus("error");
-      return;
-    }
+    if (!("speechSynthesis" in window)) throw new Error("speechSynthesis is not available");
     const script = await fetchListeningScript(setId);
     // 声の一覧は最初は空のことがあるので、読み込まれるのを待つ
     const voices = await loadVoices();
@@ -95,14 +100,22 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
     setPlayed(true);
     setStatus("loading");
     stoppedRef.current = false;
-    // 準備は問題を出した時点で始めているので、終わっていればすぐ再生できる
-    const prepared = await (preparedRef.current ??= prepareAudio(setId));
-    // 待っている間に別の問題に切り替わったら再生しない
-    if (stoppedRef.current) return;
-    if (prepared.kind === "audio") {
-      await playUrls(prepared.urls, prepared.first);
-    } else {
-      await playWithBrowser();
+    try {
+      // 準備は問題を出した時点で始めているので、終わっていればすぐ再生できる
+      const prepared = await (preparedRef.current ??= prepareAudio(setId));
+      // 待っている間に別の問題に切り替わったら再生しない
+      if (stoppedRef.current) return;
+      if (prepared.kind === "audio") {
+        // 1つも再生できなかったときは、模試でも聞き直せるよう「再生済み」に戻す
+        if (!(await playUrls(prepared.urls, prepared.first))) setPlayed(false);
+      } else {
+        await playWithBrowser();
+      }
+    } catch {
+      // 台本を取れない(オフライン・サーバー障害)など。「準備中」のまま固まらず、もう一度押せるようにする
+      if (stoppedRef.current) return;
+      setStatus("error");
+      setPlayed(false);
     }
   };
 

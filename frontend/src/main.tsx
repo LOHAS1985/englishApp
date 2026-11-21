@@ -2,11 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { reloadForStaleChunk } from './shared/staleChunk.ts'
 import { applyDisplaySettings, loadDisplaySettings, watchSystemTheme } from './shared/displaySettings.ts'
 
 // 保存した表示サイズ(文字の大きさ・全幅)を、最初の描画の前に反映する
 applyDisplaySettings(loadDisplaySettings())
 watchSystemTheme()
+
+// デプロイ後の古い画面で、まだ開いていない画面の chunk を取れなかったら、1回だけ読み込み直す
+window.addEventListener('vite:preloadError', () => {
+  reloadForStaleChunk()
+})
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

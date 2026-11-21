@@ -25,12 +25,14 @@ const HISTORY_LIMIT = 5000;
 let memoryOutbox: OutboxEntry[] | null = null;
 const memoryHistory = new Map<PracticeFeature, AnswerRow[]>();
 
-function readJson<T>(key: string): T | null {
+/** 保存した配列を読む。壊れていて配列でなければ空として扱う(出題が丸ごと止まらないように) */
+function readArray<T>(key: string): T[] {
   try {
     const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : null;
+    const value: unknown = raw ? JSON.parse(raw) : null;
+    return Array.isArray(value) ? (value as T[]) : [];
   } catch {
-    return null;
+    return [];
   }
 }
 
@@ -43,7 +45,7 @@ function writeJson(key: string, value: unknown) {
 }
 
 function loadOutbox(): OutboxEntry[] {
-  if (memoryOutbox === null) memoryOutbox = readJson<OutboxEntry[]>(OUTBOX_KEY) ?? [];
+  if (memoryOutbox === null) memoryOutbox = readArray<OutboxEntry>(OUTBOX_KEY);
   return memoryOutbox;
 }
 
@@ -53,7 +55,7 @@ function saveOutbox(entries: OutboxEntry[]) {
 }
 
 function cachedHistory(feature: PracticeFeature): AnswerRow[] {
-  if (!memoryHistory.has(feature)) memoryHistory.set(feature, readJson<AnswerRow[]>(HISTORY_KEY(feature)) ?? []);
+  if (!memoryHistory.has(feature)) memoryHistory.set(feature, readArray<AnswerRow>(HISTORY_KEY(feature)));
   return memoryHistory.get(feature) ?? [];
 }
 
@@ -74,15 +76,22 @@ export function historyRows(feature: PracticeFeature): AnswerRow[] {
 
 const refreshing = new Map<PracticeFeature, Promise<void>>();
 
+/** 送信待ちの記録が送れた回数。履歴の取得中に送れた分があれば、その取得結果は古いので保存しない */
+let sentCount = 0;
+
 /**
  * サーバーの解答履歴を取り直してブラウザに保存する(出題は待たない)。別の端末で解いた分もこれで反映される。
  * 送信待ちの解答がある間は取り直さない(サーバーの履歴に入る前に上書きすると、解いた問題がまた出るため)。
+ * 取得の途中で解答が送れたときも、取得結果にその分が入っていないことがあるので保存しない。
  */
 export function refreshHistory(feature: PracticeFeature) {
   if (refreshing.has(feature) || loadOutbox().some((e) => e.feature === feature)) return;
+  const sentBefore = sentCount;
   const task = send(`/api/practice/history?feature=${feature}`, "履歴の取得に失敗しました")
     .then((res) => res.json() as Promise<AnswerRow[]>)
-    .then((rows) => saveHistory(feature, rows))
+    .then((rows) => {
+      if (sentCount === sentBefore && !loadOutbox().some((e) => e.feature === feature)) saveHistory(feature, rows);
+    })
     .catch(() => {
       // 取れなければ前回保存した履歴のまま出題する
     })
@@ -112,6 +121,7 @@ export function flushOutbox(): Promise<void> {
         const permanent = e instanceof HttpError && e.status >= 400 && e.status < 500 && e.status !== 401;
         if (!permanent) return;
       }
+      sentCount++;
       // 送れた分はサーバーの履歴に入ったので、保存済みの履歴の先頭に移す
       saveHistory(entry.feature, [...entry.rows, ...cachedHistory(entry.feature)]);
       saveOutbox(loadOutbox().filter((e) => e.id !== entry.id));

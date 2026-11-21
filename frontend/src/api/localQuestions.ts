@@ -1,4 +1,5 @@
 import { enqueueAnswer, historyRows, refreshHistory, type PracticeFeature } from "./outbox";
+import { isChunkLoadError, reloadForStaleChunk } from "../shared/staleChunk";
 import { attemptsFromRows, difficultyTarget, pick, type AnswerRow } from "./picker";
 
 /**
@@ -68,7 +69,11 @@ function cached<T extends { id: string }>(key: string, load: () => Promise<unkno
   if (!banks.has(key)) {
     // 読み込みに失敗したら次回やり直せるよう、失敗した Promise は残さない
     const promise = load().then((items) => toBank<{ id: string }>(items));
-    promise.catch(() => banks.delete(key));
+    promise.catch((e) => {
+      banks.delete(key);
+      // デプロイ後の古い画面では chunk の名前が変わっていて取れない。読み込み直せば最新の画面になる
+      if (isChunkLoadError(e)) reloadForStaleChunk();
+    });
     banks.set(key, promise);
   }
   return banks.get(key) as Promise<Bank<T>>;

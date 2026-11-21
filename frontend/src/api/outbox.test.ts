@@ -185,3 +185,61 @@ describe("historyRows", () => {
     ]);
   });
 });
+
+describe("保存データが壊れているとき", () => {
+  it("送信待ちの列・履歴が配列でなくても、空として動く(出題が止まらない)", async () => {
+    storage.setItem("englishApp.outbox", JSON.stringify({ not: "an array" }));
+    storage.setItem("englishApp.history.grammar", "\"text\"");
+    fetchMock.mockResolvedValue(okResponse());
+    const { enqueueAnswer, flushOutbox, historyRows, pendingCount } = await loadOutbox();
+
+    expect(pendingCount()).toBe(0);
+    expect(historyRows("grammar")).toEqual([]);
+
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "g1" }, [row("g1", true)]);
+    await flushOutbox();
+    expect(pendingCount()).toBe(0);
+    expect(historyRows("grammar")).toEqual([row("g1", true)]);
+  });
+});
+
+describe("refreshHistory", () => {
+  const historyResponse = (rows: AnswerRow[]) =>
+    new Response(JSON.stringify(rows), { status: 200, headers: { "Content-Type": "application/json" } });
+
+  /** 後から返せる応答 */
+  function deferredResponse() {
+    let resolve!: (r: Response) => void;
+    const promise = new Promise<Response>((res) => {
+      resolve = res;
+    });
+    return { promise, resolve };
+  }
+
+  it("履歴の取得中に解答が送れたら、古い取得結果で履歴を上書きしない", async () => {
+    const history = deferredResponse();
+    fetchMock.mockImplementation((input) =>
+      String(input).includes("/api/practice/history") ? history.promise : Promise.resolve(okResponse()),
+    );
+    const { enqueueAnswer, flushOutbox, historyRows, refreshHistory } = await loadOutbox();
+
+    // 履歴の取得を始めた時点では、送信待ちは無い
+    refreshHistory("grammar");
+    // 取得の途中で解いた解答が送れる(サーバーの応答はまだ、その解答を含まない古い状態)
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "new" }, [row("new", true)]);
+    await flushOutbox();
+    history.resolve(historyResponse([row("old", true)]));
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(historyRows("grammar")).toEqual([row("new", true)]);
+  });
+
+  it("途中で何も送っていなければ、取得した履歴を保存する", async () => {
+    fetchMock.mockResolvedValue(historyResponse([row("server", false)]));
+    const { historyRows, refreshHistory } = await loadOutbox();
+
+    refreshHistory("grammar");
+    await vi.waitFor(() => expect(historyRows("grammar")).toEqual([row("server", false)]));
+  });
+});

@@ -252,18 +252,31 @@ export async function fetchPracticeSet(
   return pickQuestionSet(feature, type, exclude, level);
 }
 
+export interface ListeningReveal {
+  script: string | null;
+  translation: string | null;
+}
+
+/**
+ * @param onReveal リスニングの台本と和訳が取れたときに呼ぶ。採点結果は台本を待たずにすぐ返す
+ *                 (サーバーが眠っていると取得に約1分かかり、画面が「採点中」のまま止まるため)
+ */
 export async function submitPracticeAnswers(
   feature: PracticeFeature,
   setId: string,
   answers: string[],
   durationSeconds?: number,
   readingSeconds?: number,
+  onReveal?: (reveal: ListeningReveal) => void,
 ): Promise<SetAnswerResult> {
   const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds, readingSeconds);
-  if (feature !== "listening") return graded;
-  // リスニングの台本と和訳は画面に同梱していないので、解答後にサーバーから取る(取れなくても採点結果は出す)
-  const reveal = await fetchListeningReveal(setId).catch(() => null);
-  return { ...graded, script: reveal?.script ?? null, translation: reveal?.translation ?? null };
+  if (feature === "listening") {
+    // リスニングの台本と和訳は画面に同梱していないので、解答後にサーバーから取る(取れなくても採点結果は出す)
+    fetchListeningReveal(setId)
+      .then((reveal) => onReveal?.({ script: reveal.script ?? null, translation: reveal.translation ?? null }))
+      .catch(() => {});
+  }
+  return graded;
 }
 
 /** サーバーで台本を音声化する。結果は1ファイル(audioUrl)か行ごと(audioUrls) */
