@@ -80,7 +80,26 @@ describe("enqueueAnswer と flushOutbox", () => {
     const [url, init] = fetchMock.mock.calls[0];
     expect(url).toBe(`${API}/api/grammar/answer`);
     expect(init?.method).toBe("POST");
-    expect(JSON.parse(String(init?.body))).toEqual(body);
+    // 再送を見分ける ID と、解いた時刻が付く
+    expect(JSON.parse(String(init?.body))).toEqual({
+      ...body,
+      clientRequestId: expect.any(String),
+      answeredAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T.*Z$/),
+    });
+  });
+
+  it("同じ記録は、再送しても同じ ID と解いた時刻で送る(サーバーが二重に保存しないため)", async () => {
+    fetchMock.mockResolvedValueOnce(errorResponse(503)).mockResolvedValueOnce(okResponse());
+    const { enqueueAnswer, flushOutbox } = await loadOutbox();
+
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "g1" }, [row("g1", true)]);
+    await flushOutbox();
+    await new Promise((resolve) => setTimeout(resolve, 5));
+    await flushOutbox();
+
+    const [first, second] = fetchMock.mock.calls.map(([, init]) => JSON.parse(String(init?.body)));
+    expect(second.clientRequestId).toBe(first.clientRequestId);
+    expect(second.answeredAt).toBe(first.answeredAt);
   });
 
   it("サーバーが 5xx を返したら記録を残し、次の機会に再送する", async () => {
@@ -241,5 +260,108 @@ describe("refreshHistory", () => {
 
     refreshHistory("grammar");
     await vi.waitFor(() => expect(historyRows("grammar")).toEqual([row("server", false)]));
+  });
+});
+
+describe("問題が見つからない(404)とき", () => {
+  it("24時間は捨てずに残し、後ろの記録は止めずに送る", async () => {
+    fetchMock.mockImplementation((_, init) =>
+      Promise.resolve(
+        (JSON.parse(String(init?.body)) as { questionId: string }).questionId === "new-question"
+          ? errorResponse(404)
+          : okResponse(),
+      ),
+    );
+    const { enqueueAnswer, flushOutbox, pendingCount } = await loadOutbox();
+
+    // サーバーがまだ知らない新しい問題を解いた直後に、別の問題も解く
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "new-question" }, [row("new-question", true)]);
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "old-question" }, [row("old-question", true)]);
+    await flushOutbox();
+
+    expect(pendingCount()).toBe(1);
+    const sentIds = fetchMock.mock.calls.map(
+      ([, init]) => (JSON.parse(String(init?.body)) as { questionId: string }).questionId,
+    );
+    expect(sentIds).toEqual(["new-question", "old-question"]);
+  });
+
+  it("サーバーが新しくなって問題を知ったら、次の再送で届く", async () => {
+    fetchMock.mockResolvedValueOnce(errorResponse(404)).mockResolvedValueOnce(okResponse());
+    const { enqueueAnswer, flushOutbox, pendingCount } = await loadOutbox();
+
+    enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "new-question" }, [row("new-question", true)]);
+    await flushOutbox();
+    expect(pendingCount()).toBe(1);
+
+    await flushOutbox();
+    expect(pendingCount()).toBe(0);
+  });
+
+  it("24時間たっても見つからなければ捨てる", async () => {
+    vi.useFakeTimers();
+    try {
+      fetchMock.mockResolvedValue(errorResponse(404));
+      const { enqueueAnswer, flushOutbox, pendingCount } = await loadOutbox();
+
+      enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "gone" }, [row("gone", true)]);
+      await flushOutbox();
+      expect(pendingCount()).toBe(1);
+
+      vi.setSystemTime(Date.now() + 24 * 60 * 60 * 1000 + 1000);
+      await flushOutbox();
+      expect(pendingCount()).toBe(0);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});
+
+describe("古い版が保存した送信待ち", () => {
+  it("ID と解いた時刻が無い記録にも、列に入れた時刻から補って送る", async () => {
+    fetchMock.mockResolvedValue(okResponse());
+    const at = Date.now() - 60_000;
+    storage.setItem(
+      "englishApp.outbox",
+      JSON.stringify([
+        { id: `${at}-abc`, feature: "grammar", path: "/api/grammar/answer", body: { questionId: "g1" }, rows: [] },
+      ]),
+    );
+    const { flushOutbox, pendingCount } = await loadOutbox();
+
+    expect(pendingCount()).toBe(1);
+    await flushOutbox();
+
+    const sent = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body)) as Record<string, string>;
+    expect(sent.clientRequestId).toBe(`${at}-abc`);
+    expect(sent.answeredAt).toBe(new Date(at).toISOString());
+  });
+});
+
+describe("複数のタブ", () => {
+  it("別のタブが足した記録を、自分の送信完了で消さない", async () => {
+    fetchMock.mockRejectedValue(new TypeError("Failed to fetch"));
+    const tabA = await loadOutbox();
+    tabA.enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "from-a" }, [row("from-a", true)]);
+    await tabA.flushOutbox();
+
+    // 別のタブ(別のメモリ)が、同じ保存先に記録を足す
+    const tabB = await loadOutbox();
+    tabB.enqueueAnswer("grammar", "/api/grammar/answer", { questionId: "from-b" }, [row("from-b", true)]);
+    await tabB.flushOutbox();
+
+    // タブ A が送れた(オンラインに戻った)。タブ B が足した分は残る
+    fetchMock.mockImplementation((_, init) =>
+      Promise.resolve(
+        (JSON.parse(String(init?.body)) as { questionId: string }).questionId === "from-a"
+          ? okResponse()
+          : errorResponse(503),
+      ),
+    );
+    await tabA.flushOutbox();
+
+    const left = JSON.parse(storage.getItem("englishApp.outbox") ?? "[]") as { body: { questionId: string } }[];
+    expect(left.map((e) => e.body.questionId)).toEqual(["from-b"]);
+    expect(tabA.pendingCount()).toBe(1);
   });
 });

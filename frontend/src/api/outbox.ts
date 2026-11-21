@@ -11,18 +11,27 @@ interface OutboxEntry {
   id: string;
   feature: PracticeFeature;
   path: string;
+  /** 送る内容。clientRequestId(この列の id)と answeredAt(解いた時刻)を含む。サーバーが再送を見分けるのに使う */
   body: unknown;
   /** 出題の選び方に使う解答履歴(新しい順)。送れるまでは履歴にこの分を足して出題する */
   rows: AnswerRow[];
+  /** 列に入れた時刻(ms)。古い版が保存した分には無いので、読み込み時に補う */
+  createdAt: number;
 }
 
 const OUTBOX_KEY = "englishApp.outbox";
 const HISTORY_KEY = (feature: PracticeFeature) => `englishApp.history.${feature}`;
 /** 履歴は出題の選び方にしか使わないので、古い分は捨てて保存容量を抑える */
 const HISTORY_LIMIT = 5000;
+/**
+ * サーバーが「問題が見つからない」(404)と返しても、この時間は捨てずに再送する。
+ * 問題を追加した直後は、画面(GitHub Pages)が先に新しくなり、サーバー(Render)の反映が遅れるため
+ */
+const NOT_FOUND_RETRY_MS = 24 * 60 * 60 * 1000;
 
-// localStorage が使えない環境(プライベートモードなど)でも動くよう、画面を開いている間はメモリにも持つ
-let memoryOutbox: OutboxEntry[] | null = null;
+// localStorage が使えない環境(プライベートモード・容量超過)でも動くよう、書き込みに失敗したら以後はメモリの値を正とする
+let storageUnusable = false;
+let memoryOutbox: OutboxEntry[] = [];
 const memoryHistory = new Map<PracticeFeature, AnswerRow[]>();
 
 /** 保存した配列を読む。壊れていて配列でなければ空として扱う(出題が丸ごと止まらないように) */
@@ -44,14 +53,58 @@ function writeJson(key: string, value: unknown) {
   }
 }
 
+/** 列の id(`<時刻ms>-<乱数>`)から、列に入れた時刻を取り出す */
+function timeOfId(id: string): number | null {
+  const ms = Number(id.split("-")[0]);
+  return Number.isFinite(ms) && ms > 0 ? ms : null;
+}
+
+/** 送る内容に、再送を見分ける ID と解いた時刻を付ける(すでに付いていれば何もしない) */
+function stamp(body: unknown, id: string, createdAt: number): unknown {
+  if (typeof body !== "object" || body === null || "clientRequestId" in body) return body;
+  return { ...body, clientRequestId: id, answeredAt: new Date(createdAt).toISOString() };
+}
+
+/** 古い版が保存した分に、createdAt・clientRequestId・answeredAt を補う */
+function withMeta(entry: OutboxEntry): OutboxEntry {
+  const createdAt = entry.createdAt ?? timeOfId(entry.id) ?? Date.now();
+  const body = stamp(entry.body, entry.id, createdAt);
+  return entry.createdAt === createdAt && body === entry.body ? entry : { ...entry, createdAt, body };
+}
+
+/**
+ * 送信待ちの列を、毎回ブラウザの保存から読み直す。別のタブが足した・消した分を上書きして失わないため
+ * (タブごとのメモリに持つと、古い内容で保存し直してしまう)。
+ */
 function loadOutbox(): OutboxEntry[] {
-  if (memoryOutbox === null) memoryOutbox = readArray<OutboxEntry>(OUTBOX_KEY);
-  return memoryOutbox;
+  if (storageUnusable) return memoryOutbox;
+  let raw: string | null;
+  try {
+    raw = localStorage.getItem(OUTBOX_KEY);
+  } catch {
+    storageUnusable = true;
+    return memoryOutbox;
+  }
+  let parsed: unknown = null;
+  try {
+    parsed = raw ? JSON.parse(raw) : null;
+  } catch {
+    // 壊れていれば空として扱う
+  }
+  const stored = Array.isArray(parsed) ? (parsed as OutboxEntry[]) : [];
+  const entries = stored.map(withMeta);
+  if (entries.some((e, i) => e !== stored[i])) saveOutbox(entries);
+  memoryOutbox = entries;
+  return entries;
 }
 
 function saveOutbox(entries: OutboxEntry[]) {
   memoryOutbox = entries;
-  writeJson(OUTBOX_KEY, entries);
+  try {
+    localStorage.setItem(OUTBOX_KEY, JSON.stringify(entries));
+  } catch {
+    storageUnusable = true;
+  }
 }
 
 function cachedHistory(feature: PracticeFeature): AnswerRow[] {
@@ -100,8 +153,10 @@ export function refreshHistory(feature: PracticeFeature) {
 }
 
 export function enqueueAnswer(feature: PracticeFeature, path: string, body: unknown, rows: AnswerRow[]) {
-  const id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  saveOutbox([...loadOutbox(), { id, feature, path, body, rows }]);
+  const createdAt = Date.now();
+  const id = `${createdAt}-${Math.random().toString(36).slice(2)}`;
+  // 送信が遅れても解いた日に数えられ、再送しても二重に記録されないよう、時刻と ID を付けて送る
+  saveOutbox([...loadOutbox(), { id, feature, path, body: stamp(body, id, createdAt), rows, createdAt }]);
   void flushOutbox();
 }
 
@@ -111,13 +166,20 @@ let flushing: Promise<void> | null = null;
 export function flushOutbox(): Promise<void> {
   if (flushing) return flushing;
   flushing = (async () => {
+    // 「問題が見つからない」で今回は送れなかった分。残しておき、後ろの記録は先に送る(止めない)
+    const waiting = new Set<string>();
     for (;;) {
-      const entry = loadOutbox()[0];
+      const entry = loadOutbox().find((e) => !waiting.has(e.id));
       if (!entry) return;
       try {
         await send(entry.path, "記録の保存に失敗しました", jsonBody("POST", entry.body));
       } catch (e) {
-        // 400 などは送り直しても通らない(問題集から消えた問題など)ので捨てる。401・5xx・通信失敗は残して後で再送
+        if (e instanceof HttpError && e.status === 404 && Date.now() - entry.createdAt < NOT_FOUND_RETRY_MS) {
+          waiting.add(entry.id);
+          continue;
+        }
+        // 400 などは送り直しても通らない(入力の誤りなど)ので捨てる。404 も一定時間たてば捨てる。
+        // 401・5xx・通信失敗は残して後で再送
         const permanent = e instanceof HttpError && e.status >= 400 && e.status < 500 && e.status !== 401;
         if (!permanent) return;
       }
