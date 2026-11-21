@@ -604,6 +604,11 @@ export interface WordbookWord {
   color: WordbookColor;
   translationStatus: "PENDING" | "DONE" | "FAILED";
   createdAt: string;
+  /** 出題した回数と、そのうち正解した回数 */
+  timesAsked: number;
+  timesCorrect: number;
+  /** 次の復習日(YYYY-MM-DD)。まだ一度も出していない語は null */
+  nextDueDate: string | null;
 }
 
 export interface WordbookSummary {
@@ -613,6 +618,9 @@ export interface WordbookSummary {
   yellow: number;
   red: number;
   pendingTranslation: number;
+  /** 今日復習する語(復習日が来た語)と、まだ一度も出していない語(どちらも出題できる語だけ) */
+  due: number;
+  unseen: number;
 }
 
 export interface WordbookAddResult {

@@ -1,6 +1,7 @@
 package com.example.backend.wordbook;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /** 単語帳の1語。同梱語・読解から登録した語・手動で登録した語のいずれも同じ表に持つ */
@@ -50,6 +51,24 @@ public class WordbookWord {
   @Column(name = "translation_status", nullable = false, length = 10)
   private TranslationStatus translationStatus = TranslationStatus.PENDING;
 
+  /** 出題した回数と、そのうち正解した回数 */
+  @Column(name = "times_asked", nullable = false)
+  private int timesAsked;
+
+  @Column(name = "times_correct", nullable = false)
+  private int timesCorrect;
+
+  /** 復習の段階。まだ一度も出していない語(新規)は null。段階が進むほど復習の間隔が延びる */
+  @Column(name = "review_stage")
+  private Integer reviewStage;
+
+  /** 次の復習日。新規の語は null */
+  @Column(name = "next_due_date")
+  private LocalDate nextDueDate;
+
+  @Column(name = "last_asked_at")
+  private LocalDateTime lastAskedAt;
+
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
@@ -71,6 +90,57 @@ public class WordbookWord {
   public void setExample(String exampleEn, String exampleAnswer) {
     this.exampleEn = exampleEn;
     this.exampleAnswer = exampleAnswer;
+  }
+
+  /** 復習の間隔(日)。段階 0〜4 に対応する。間違えたら段階 0 に戻る */
+  static final int[] INTERVAL_DAYS = { 1, 3, 7, 14, 30 };
+
+  /**
+   * 解答を反映する。間違えたら翌日の復習にして、色を赤にする(手動で付けた色より優先する)。
+   * 正解したら、復習日が来ていれば段階を進めて間隔を延ばす。初めて出した語の正解は段階 1(3日後)から始める。
+   * 復習日より前の正解(出せる語が他に無いときなど)は、間隔を進めない(すぐ後に解いた正解は定着の証拠にならない)。
+   * 正解が続いても色は変えない(色は利用者が付ける)。
+   */
+  public void recordAnswer(boolean correct, LocalDateTime now) {
+    LocalDate today = now.toLocalDate();
+    timesAsked++;
+    lastAskedAt = now;
+    if (!correct) {
+      reviewStage = 0;
+      nextDueDate = today.plusDays(INTERVAL_DAYS[0]);
+      if (color != WordbookColor.RED) {
+        color = WordbookColor.RED;
+        updatedAt = now;
+      }
+      return;
+    }
+    timesCorrect++;
+    if (reviewStage == null) {
+      reviewStage = 1;
+      nextDueDate = today.plusDays(INTERVAL_DAYS[1]);
+    } else if (nextDueDate == null || !nextDueDate.isAfter(today)) {
+      reviewStage = Math.min(reviewStage + 1, INTERVAL_DAYS.length - 1);
+      nextDueDate = today.plusDays(INTERVAL_DAYS[reviewStage]);
+    }
+  }
+
+  /** 過去の解答記録から、復習の状態を復元する(列を足した直後の1回だけ)。最後の解答の正誤で、段階と次の復習日を決める */
+  void restoreSchedule(int timesAsked, int timesCorrect, LocalDateTime lastAskedAt, boolean lastCorrect) {
+    this.timesAsked = timesAsked;
+    this.timesCorrect = timesCorrect;
+    this.lastAskedAt = lastAskedAt;
+    this.reviewStage = lastCorrect ? 1 : 0;
+    this.nextDueDate = lastAskedAt.toLocalDate().plusDays(INTERVAL_DAYS[reviewStage]);
+  }
+
+  /** まだ一度も出していない語 */
+  public boolean isUnseen() {
+    return reviewStage == null;
+  }
+
+  /** 復習日が来ている(過ぎている)語 */
+  public boolean isDue(LocalDate today) {
+    return nextDueDate != null && !nextDueDate.isAfter(today);
   }
 
   public void setColor(WordbookColor color, LocalDateTime now) {
@@ -113,6 +183,11 @@ public class WordbookWord {
   public Source getSource() { return source; }
   public WordbookColor getColor() { return color; }
   public TranslationStatus getTranslationStatus() { return translationStatus; }
+  public int getTimesAsked() { return timesAsked; }
+  public int getTimesCorrect() { return timesCorrect; }
+  public Integer getReviewStage() { return reviewStage; }
+  public LocalDate getNextDueDate() { return nextDueDate; }
+  public LocalDateTime getLastAskedAt() { return lastAskedAt; }
   public LocalDateTime getCreatedAt() { return createdAt; }
   public LocalDateTime getUpdatedAt() { return updatedAt; }
 }

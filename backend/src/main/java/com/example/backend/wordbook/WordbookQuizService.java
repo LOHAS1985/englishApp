@@ -13,6 +13,8 @@ import com.example.backend.wordbook.dto.HistoryItem;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -53,7 +55,7 @@ public class WordbookQuizService {
         .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE)
         .filter(w -> w.getMeaningJa() != null)
         .toList();
-    WordbookWord target = WordbookPicker.pick(ready, exclude, random);
+    WordbookWord target = WordbookPicker.pick(ready, exclude, today(), random);
     List<String> choices = new ArrayList<>(WordbookPicker.distractors(target, ready, WRONG_CHOICES, random));
     choices.add(target.getMeaningJa());
     Collections.shuffle(choices, random);
@@ -77,7 +79,7 @@ public class WordbookQuizService {
         .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE)
         .filter(w -> w.getExampleEn() != null && w.getExampleAnswer() != null && w.getExampleJa() != null)
         .toList();
-    WordbookWord target = WordbookPicker.pick(ready, exclude, random);
+    WordbookWord target = WordbookPicker.pick(ready, exclude, today(), random);
     return new FillQuestionView(target.getId(),
         WordbookSentences.blank(target.getExampleEn(), target.getExampleAnswer()), target.getExampleJa());
   }
@@ -106,8 +108,17 @@ public class WordbookQuizService {
         .toList();
   }
 
-  /** 解答記録(練習記録と学習ログ)。学習ログの形式は4択・穴埋めで分け、経験値の規則に使う */
+  private static LocalDate today() {
+    return LocalDate.now(StudyLogService.JST);
+  }
+
+  /**
+   * 解答記録(練習記録と学習ログ)と、語の復習の状態の更新。
+   * 学習ログの形式は4択・穴埋めで分け、経験値の規則に使う
+   */
   private void record(String itemType, WordbookWord word, boolean correct, Integer durationSeconds) {
+    word.recordAnswer(correct, LocalDateTime.now(StudyLogService.JST));
+    wordService.save(word);
     String itemId = String.valueOf(word.getId());
     recordRepository.save(new PracticeRecord(currentUserProvider.getCurrentUserId(), FEATURE, itemId, 1, null,
         correct));

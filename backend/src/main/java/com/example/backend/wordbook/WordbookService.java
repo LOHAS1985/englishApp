@@ -8,6 +8,7 @@ import com.example.backend.wordbook.dto.WordView;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
@@ -48,13 +49,23 @@ public class WordbookService {
 
   public SummaryView summary() {
     List<WordbookWord> words = ownedWords();
+    LocalDate today = LocalDate.now(JST);
+    // 出題できる語(訳が揃っている語)のうち、今日復習する語と、まだ一度も出していない語
+    List<WordbookWord> ready = words.stream()
+        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE).toList();
     return new SummaryView(
         words.size(),
         count(words, WordbookColor.NONE),
         count(words, WordbookColor.BLUE),
         count(words, WordbookColor.YELLOW),
         count(words, WordbookColor.RED),
-        words.stream().filter(w -> w.getTranslationStatus() != WordbookWord.TranslationStatus.DONE).count());
+        words.size() - ready.size(),
+        ready.stream().filter(w -> w.isDue(today)).count(),
+        ready.stream().filter(WordbookWord::isUnseen).count());
+  }
+
+  public WordbookWord save(WordbookWord word) {
+    return repository.save(word);
   }
 
   private static long count(List<WordbookWord> words, WordbookColor color) {

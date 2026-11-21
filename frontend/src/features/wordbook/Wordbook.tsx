@@ -52,8 +52,15 @@ export default function Wordbook() {
             日本語訳を調査中の単語が {summary.pendingTranslation} 語あります(毎日7時に調べます。訳が揃うまで出題しません)。
           </p>
         )}
+        {summary && (
+          <p className="text-sm text-slate-700 mb-2">
+            今日の復習 <span className="font-semibold">{summary.due}</span> 語・まだ出していない語{" "}
+            <span className="font-semibold">{summary.unseen}</span> 語
+          </p>
+        )}
         <p className="text-sm text-slate-500 mb-6">
-          出題の頻度は色で変わります。無色がいちばん多く(赤の5倍)、次に赤、黄、青の順に少なくなります。
+          復習日が来た語と、まだ出していない語を混ぜて出します。間違えた語は自動で赤になり、翌日に復習します(正解すると
+          3日・7日・14日・30日後)。色は、その中での出やすさに使います(赤は先に、青は後に出ます)。
         </p>
 
         <div className="grid grid-cols-1 gap-3 mb-8">

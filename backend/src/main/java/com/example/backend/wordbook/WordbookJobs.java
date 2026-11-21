@@ -28,12 +28,14 @@ public class WordbookJobs {
   static final int RUN_HOUR = 7;
 
   private final BundledWordSeeder seeder;
+  private final WordbookScheduleBackfill scheduleBackfill;
   private final WordbookTranslationService translationService;
   private final AppStateRepository states;
 
-  public WordbookJobs(BundledWordSeeder seeder, WordbookTranslationService translationService,
-      AppStateRepository states) {
+  public WordbookJobs(BundledWordSeeder seeder, WordbookScheduleBackfill scheduleBackfill,
+      WordbookTranslationService translationService, AppStateRepository states) {
     this.seeder = seeder;
+    this.scheduleBackfill = scheduleBackfill;
     this.translationService = translationService;
     this.states = states;
   }
@@ -41,6 +43,7 @@ public class WordbookJobs {
   @EventListener(ApplicationReadyEvent.class)
   public void onStartup() {
     seeder.seedIfNeeded();
+    scheduleBackfill.runIfNeeded();
     runTranslationIfDue(LocalDateTime.now(StudyLogService.JST));
   }
 
