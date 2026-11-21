@@ -9,6 +9,8 @@ class ReadingSpeedServiceTests {
   @Test
   void countsWordsSeparatedByWhitespace() {
     assertThat(ReadingSpeedService.countWords("The sale [1] starts now.\n  Sign up today.")).isEqualTo(8);
+    // 改行・タブだけで区切られた語も別の語として数える(画面側の /\s+/ と揃える)
+    assertThat(ReadingSpeedService.countWords("Dear Ms. Lee,\nThank you.\tBest")).isEqualTo(6);
     assertThat(ReadingSpeedService.countWords("  ")).isZero();
     assertThat(ReadingSpeedService.countWords(null)).isZero();
   }

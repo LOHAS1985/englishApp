@@ -51,6 +51,23 @@ class WritingServiceTests {
   }
 
   @Test
+  void outOfRangeScoresAreClampedToZeroToFour() {
+    String id = bank.ids("opinion").get(0);
+    when(gemini.generate(anyString(), eq(ScoreResult.class))).thenReturn(result(5, -1, 4, 9));
+
+    ScoreResult scored = service.scoreAnswer(new ScoreRequest(id, "My opinion is clear.", 120));
+
+    assertThat(scored.getContent().getScore()).isEqualTo(4);
+    assertThat(scored.getStructure().getScore()).isZero();
+    assertThat(scored.getGrammar().getScore()).isEqualTo(4);
+    assertThat(scored.getTotal()).isEqualTo(12);
+    ArgumentCaptor<WritingRecord> saved = ArgumentCaptor.forClass(WritingRecord.class);
+    verify(records).save(saved.capture());
+    assertThat(saved.getValue().getTotalScore()).isEqualTo(12);
+    verify(studyLog).log("writing", "eiken-opinion", id, 12, 16, 120);
+  }
+
+  @Test
   void summaryTasksAreLoggedAsSummary() {
     String id = bank.ids("summary").get(0);
     when(gemini.generate(anyString(), eq(ScoreResult.class))).thenReturn(result(4, 4, 4, 4));

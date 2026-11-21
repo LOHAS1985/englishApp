@@ -117,6 +117,28 @@ test.describe("模試", () => {
     await expect(page.getByRole("button", { name: /\(B\)/ })).toHaveClass(/border-\[#8fae4e\]/);
   });
 
+  test("時間が切れた後に再開しても、リスニングの時間は制限時間(45分)までしか送らない", async ({ page }) => {
+    await page.clock.install();
+    await mockApi(page, { "POST /api/mock/start": FIXTURES.mockExam });
+    // 送った内容だけを確かめる(採点結果の画面は出さない)
+    await page.route("**/api/mock/submit", (route) => route.fulfill({ status: 503, json: { error: "mock" } }));
+    page.on("dialog", (dialog) => void dialog.accept());
+    await page.goto(`${BASE}/mock`);
+    await page.getByRole("button", { name: "模試を始める" }).click();
+    await expect(page.getByText("リスニング 1 / 1 セット")).toBeVisible();
+
+    // 画面を閉じて2時間たってから開き直す
+    await page.reload();
+    await page.clock.fastForward("02:00:00");
+    await page.getByRole("button", { name: "続きから再開する" }).click();
+    await page.clock.runFor(2000);
+
+    const submitted = page.waitForRequest((r) => r.url().endsWith("/api/mock/submit"));
+    await page.getByRole("button", { name: "提出する" }).click();
+    const body = (await submitted).postDataJSON() as { sections: { skill: string; durationSeconds: number }[] };
+    expect(body.sections.find((s) => s.skill === "listening")?.durationSeconds).toBe(45 * 60);
+  });
+
   test("中断した模試は破棄できる", async ({ page }) => {
     await mockApi(page, { "POST /api/mock/start": FIXTURES.mockExam });
     page.on("dialog", (dialog) => void dialog.accept());

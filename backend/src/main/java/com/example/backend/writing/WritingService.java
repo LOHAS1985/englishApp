@@ -17,6 +17,9 @@ import java.util.List;
 @Service
 public class WritingService {
 
+  /** 観点ごとの満点(内容・構成・語彙・文法 各4点、合計16点) */
+  private static final int MAX_CRITERION_SCORE = 4;
+
   private final GeminiApiClient geminiApiClient;
   private final WritingRecordRepository writingRecordRepository;
   private final CurrentUserProvider currentUserProvider;
@@ -65,16 +68,22 @@ public class WritingService {
       throw new ExternalApiException("AI の採点結果が不完全でした。再度採点してください。", null);
     }
 
-    int total = result.getContent().getScore()
-        + result.getStructure().getScore()
-        + result.getVocabulary().getScore()
-        + result.getGrammar().getScore();
+    // AI が範囲外の点数を返しても、合計・経験値・推移が狂わないよう観点ごとに 0〜4 に丸める(スピーキングと同じ)
+    int total = clamp(result.getContent())
+        + clamp(result.getStructure())
+        + clamp(result.getVocabulary())
+        + clamp(result.getGrammar());
     result.setTotal(total);
 
     saveRecord(p, request.answer(), result);
     studyLogService.log("writing", "eiken-" + p.type(), p.id(), total, 16, request.durationSeconds());
 
     return result;
+  }
+
+  private static int clamp(ScoreResult.CriterionScore criterion) {
+    criterion.setScore(Math.min(Math.max(criterion.getScore(), 0), MAX_CRITERION_SCORE));
+    return criterion.getScore();
   }
 
   private String opinionScoringPrompt(WritingPrompt p, String answer) {

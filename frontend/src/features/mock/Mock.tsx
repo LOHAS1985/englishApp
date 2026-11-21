@@ -60,7 +60,12 @@ export default function Mock() {
 
   /** 区切りの時間を確定して次の区切りへ。reading の後は提出 */
   const endListening = () => {
-    seconds.current.listening = Math.round((Date.now() - sectionStartRef.current) / 1000);
+    // 端末が眠っていた・時間切れの後に再開したときも、制限時間を超えて数えない(リーディングと同じ)
+    const listeningLimit = (examRef.current?.sections.find((s) => s.skill === "listening")?.minutes ?? 0) * 60;
+    seconds.current.listening = Math.min(
+      Math.round((Date.now() - sectionStartRef.current) / 1000),
+      listeningLimit || Infinity,
+    );
     startSection("reading");
   };
 

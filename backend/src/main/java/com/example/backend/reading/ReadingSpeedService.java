@@ -34,7 +34,8 @@ public class ReadingSpeedService {
     if (text == null || text.isBlank()) {
       return 0;
     }
-    return text.trim().split("\s+").length;
+    // "\s" は Java では空白1文字のエスケープになるので、正規表現の \s は "\\s" と書く
+    return text.trim().split("\\s+").length;
   }
 
   /** 語/分(四捨五入)。秒数が 0 以下なら 0 */

@@ -90,7 +90,7 @@ final class WordForms {
 
   static {
     for (String row : IRREGULAR_TABLE.split(";")) {
-      String[] parts = row.trim().split("\s+");
+      String[] parts = row.trim().split("\\s+");
       String lemma = parts[0];
       Set<String> forms = IRREGULAR_FORMS.computeIfAbsent(lemma, k -> new LinkedHashSet<>());
       for (int i = 1; i < parts.length; i++) {
