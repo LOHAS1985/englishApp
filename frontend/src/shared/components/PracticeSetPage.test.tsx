@@ -131,3 +131,18 @@ describe("セット問題: 解答するまで設問文を隠す形式", () => {
     expect(await screen.findByText("Q1. Question of l0001")).toBeTruthy();
   });
 });
+
+describe("セット問題: 復習モード(?review=1)", () => {
+  it("復習のとき、今日復習する設問を含むセットを頼む", async () => {
+    vi.mocked(fetchPracticeSet).mockResolvedValueOnce(set("r0001")).mockReturnValue(new Promise(() => {}));
+
+    render(
+      <MemoryRouter initialEntries={["/reading/practice?type=toeic-part7&review=1"]}>
+        <PracticeSetPage feature="reading" types={["toeic-part7"]} showTitle={false} renderMaterial={() => null} />
+      </MemoryRouter>,
+    );
+
+    await screen.findByText("Q1. Question of r0001");
+    expect(vi.mocked(fetchPracticeSet).mock.calls[0]?.[4]).toBe(true);
+  });
+});

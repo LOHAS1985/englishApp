@@ -51,6 +51,12 @@ public class ListeningController {
     return practice.next(questionBank, "listening", type, exclude, level);
   }
 
+  /** 今日復習する設問を含むセットのID。画面は、このセットを復習として出す */
+  @GetMapping("/review")
+  public Map<String, String> review(@RequestParam(required = false) String exclude) {
+    return Map.of("setId", practice.dueSetId(questionBank, "listening", exclude));
+  }
+
   /** セットの台本を音声化して URL を返す。同じ台本は2回目以降キャッシュから返る */
   @PostMapping("/{setId}/audio")
   public CompletableFuture<ResponseEntity<?>> audio(@PathVariable String setId) {

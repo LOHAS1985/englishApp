@@ -1,6 +1,7 @@
 import { enqueueAnswer, historyRows, refreshHistory, type PracticeFeature } from "./outbox";
 import { isChunkLoadError, reloadForStaleChunk } from "../shared/staleChunk";
 import { attemptsFromRows, difficultyTarget, pick, type AnswerRow } from "./picker";
+import { getJson } from "./http";
 
 /**
  * 画面に同梱した問題集(src/generated/questions/*.json。QuestionExportTests が書き出す)からの出題と採点。
@@ -182,9 +183,35 @@ export async function countSetTypes(feature: SetFeature) {
   return counts;
 }
 
-export async function pickQuestionSet(feature: SetFeature, type: string, exclude?: string | null, level?: number) {
-  const bank = await loadSetBank(feature, type);
-  const set = bank.byId.get(chooseId(feature, bank.all, exclude, level));
+/**
+ * 復習のセット(今日復習する設問を含むセット)。どのセットかはサーバーが決め(間違えた設問の復習日で決まる)、
+ * 中身は画面に同梱した問題集から出す
+ */
+async function pickReviewSet(feature: SetFeature, exclude?: string | null): Promise<LocalQuestionSet> {
+  const query = exclude ? `?exclude=${encodeURIComponent(exclude)}` : "";
+  const { setId } = await getJson<{ setId: string }>(
+    `/api/${feature}/practice/review${query}`,
+    "今日の復習の取得に失敗しました",
+  );
+  const set = await findSet(feature, setId);
+  if (!set) throw new Error("問題が見つかりません");
+  return set;
+}
+
+export async function pickQuestionSet(
+  feature: SetFeature,
+  type: string,
+  exclude?: string | null,
+  level?: number,
+  review = false,
+) {
+  let set: LocalQuestionSet | undefined;
+  if (review) {
+    set = await pickReviewSet(feature, exclude);
+  } else {
+    const bank = await loadSetBank(feature, type);
+    set = bank.byId.get(chooseId(feature, bank.all, exclude, level));
+  }
   if (!set) throw new Error("問題が見つかりません");
   typeOfSet.set(set.id, set.type);
   const audioOnly = AUDIO_ONLY_TYPES.has(set.type);

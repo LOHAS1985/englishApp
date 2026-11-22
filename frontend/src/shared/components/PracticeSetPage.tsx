@@ -65,6 +65,8 @@ export default function PracticeSetPage({
   const requestedType = searchParams.get("type");
   const type = requestedType && types.includes(requestedType) ? requestedType : types[0];
   const level = levelFromParams(searchParams);
+  /** ?review=1 のときは、今日復習する設問を含むセットを出す(間違えた設問の復習)。セットは復習日で決まる */
+  const review = searchParams.get("review") === "1";
   const [set, setSet] = useState<QuestionSetView | null>(null);
   /** 解答(元の記号)。採点にはこの記号を送る */
   const [answers, setAnswers] = useState<string[]>([]);
@@ -110,7 +112,9 @@ export default function PracticeSetPage({
         : [],
     );
     setResult(null);
-    setError(data ? "" : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。");
+    setError(
+      data ? "" : review ? "今日の復習はすべて終わりました。" : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。",
+    );
     setLoading(false);
   };
 
@@ -127,7 +131,7 @@ export default function PracticeSetPage({
     const prefetched = nextRef.current?.key === nextKey ? nextRef.current.promise : null;
     nextRef.current = null;
     try {
-      const data = (prefetched ? await prefetched : null) ?? (await fetchPracticeSet(feature, type, set?.id, level));
+      const data = (prefetched ? await prefetched : null) ?? (await fetchPracticeSet(feature, type, set?.id, level, review));
       showSet(data);
       if (data) setCount((c) => c + 1);
     } catch {
@@ -137,7 +141,7 @@ export default function PracticeSetPage({
 
   useEffect(() => {
     let cancelled = false;
-    fetchPracticeSet(feature, type, undefined, level)
+    fetchPracticeSet(feature, type, undefined, level, review)
       .then((data) => {
         if (cancelled) return;
         setCount(1);
@@ -172,7 +176,7 @@ export default function PracticeSetPage({
         if (shownSetIdRef.current === submittedId) setResult((prev) => (prev ? { ...prev, ...reveal } : prev));
       });
       setResult(data);
-      const promise = fetchPracticeSet(feature, type, set.id, level).catch(() => null);
+      const promise = fetchPracticeSet(feature, type, set.id, level, review).catch(() => null);
       nextRef.current = { key: nextKey, promise };
       void promise.then((next) => next && onNextPicked?.(next));
       setTally((t) => addToTally(t, { total: data.total, correct: data.score, seconds }));

@@ -19,7 +19,8 @@ import java.util.Optional;
 @Service
 public class ReviewService {
 
-  public static final List<String> FEATURES = List.of("vocab", "grammar");
+  /** 復習の対象。読解・リスニングは設問ごとに登録する(item_id は「セットID-設問番号」。例: r0001-3) */
+  public static final List<String> FEATURES = List.of("vocab", "grammar", "reading", "listening");
 
   /** stage ごとの次の復習までの日数 */
   static final int[] INTERVAL_DAYS = { 1, 3, 7, 14 };

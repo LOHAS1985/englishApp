@@ -243,13 +243,15 @@ export async function fetchPracticeTypes(feature: PracticeFeature): Promise<Reco
   return countSetTypes(feature);
 }
 
+/** @param review true なら、今日復習する設問を含むセットを出す(間違えた設問の復習) */
 export async function fetchPracticeSet(
   feature: PracticeFeature,
   type: string,
   exclude?: string | null,
   level?: number,
+  review = false,
 ): Promise<QuestionSetView> {
-  return pickQuestionSet(feature, type, exclude, level);
+  return pickQuestionSet(feature, type, exclude, level, review);
 }
 
 export interface ListeningReveal {
@@ -501,7 +503,7 @@ export interface StudyTotals {
 }
 
 export interface ReviewSummary {
-  feature: "vocab" | "grammar";
+  feature: "vocab" | "grammar" | "reading" | "listening";
   due: number;
   pending: number;
 }

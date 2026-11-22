@@ -50,6 +50,12 @@ public class ReadingPracticeController {
     return result;
   }
 
+  /** 今日復習する設問を含むセットのID。画面は、このセットを復習として出す */
+  @GetMapping("/review")
+  public Map<String, String> review(@RequestParam(required = false) String exclude) {
+    return Map.of("setId", practice.dueSetId(questionBank, "reading", exclude));
+  }
+
   /** 読解速度の直近の計測(新しい順) */
   @GetMapping("/speed")
   public List<ReadingSpeedItem> speed() {

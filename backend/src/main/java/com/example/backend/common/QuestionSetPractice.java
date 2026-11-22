@@ -3,6 +3,7 @@ package com.example.backend.common;
 import com.example.backend.common.QuestionSetBank.QuestionSet;
 import com.example.backend.common.QuestionSetBank.SetQuestion;
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.review.ReviewService;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -70,13 +71,37 @@ public class QuestionSetPractice {
   private final CurrentUserProvider currentUserProvider;
   private final QuestionSelector questionSelector;
   private final StudyLogService studyLogService;
+  private final ReviewService reviewService;
 
   public QuestionSetPractice(PracticeRecordRepository recordRepository, CurrentUserProvider currentUserProvider,
-      QuestionSelector questionSelector, StudyLogService studyLogService) {
+      QuestionSelector questionSelector, StudyLogService studyLogService, ReviewService reviewService) {
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
     this.questionSelector = questionSelector;
     this.studyLogService = studyLogService;
+    this.reviewService = reviewService;
+  }
+
+  /** 復習の対象にする機能(間違えた設問を、間隔を置いて出し直す) */
+  static final List<String> REVIEW_FEATURES = List.of("reading", "listening");
+
+  /**
+   * 復習日になっている設問を含むセットの ID(復習日が古い順)。表示中のセット(exclude)以外を返す。
+   * @throws IllegalArgumentException 今日の復習がもう無いとき
+   */
+  public String dueSetId(QuestionSetBank bank, String feature, String exclude) {
+    return reviewService.dueIds(feature).stream()
+        .map(QuestionSetPractice::setIdOf)
+        .filter(id -> !id.equals(exclude))
+        .filter(id -> bank.findById(id).isPresent())
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException("今日の復習はすべて終わりました"));
+  }
+
+  /** 復習の item_id(セットID-設問番号)からセットIDを取り出す */
+  public static String setIdOf(String reviewItemId) {
+    int dash = reviewItemId.lastIndexOf('-');
+    return dash < 0 ? reviewItemId : reviewItemId.substring(0, dash);
   }
 
   /**
@@ -139,6 +164,11 @@ public class QuestionSetPractice {
       String selected = results.get(i).selected();
       recordRepository.save(new PracticeRecord(userId, feature, set.id(), i + 1,
             selected.isEmpty() ? null : selected, results.get(i).correct()));
+      // 間違えた設問は復習に登録する(正解すると、復習の間隔が延びる・覚えたら外れる)
+      if (REVIEW_FEATURES.contains(feature)) {
+        reviewService.record(feature, set.id() + "-" + (i + 1), results.get(i).correct(),
+            LocalDateTime.now(StudyLogService.JST));
+      }
     }
     return results;
   }

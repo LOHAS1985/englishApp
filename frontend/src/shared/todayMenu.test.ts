@@ -131,6 +131,26 @@ describe("buildTodayMenu(通常)", () => {
     for (const t of listening) expect(t.note).toMatch(/セット\(\d+問\)/);
   });
 
+  it("読解・リスニングの復習日になった設問も、復習の課題になる", () => {
+    const menu = normalMenu({ review: { reading: { feature: "reading", due: 3, pending: 0 } } });
+    const task = menu.tasks.find((t) => t.id === "review:reading");
+    expect(task?.review).toBe(true);
+    expect(task?.path).toBe("/reading/practice?review=1");
+  });
+
+  it("復習の課題は1日に2つまで。復習の数が多い形式から選び、残りは翌日に回す", () => {
+    const menu = normalMenu({
+      review: {
+        vocab: { feature: "vocab", due: 2, pending: 0 },
+        grammar: { feature: "grammar", due: 9, pending: 0 },
+        reading: { feature: "reading", due: 5, pending: 0 },
+        listening: { feature: "listening", due: 1, pending: 0 },
+      },
+    });
+    const reviews = menu.tasks.filter((t) => t.review).map((t) => t.id);
+    expect(reviews).toEqual(["review:grammar", "review:reading"]);
+  });
+
   it("復習日になった問題があると、復習が最初に並ぶ", () => {
     const menu = normalMenu({ review: { vocab: { feature: "vocab", due: 10, pending: 0 } } });
     expect(menu.tasks[0]?.id).toBe("review:vocab");

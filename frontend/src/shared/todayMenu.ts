@@ -212,6 +212,9 @@ function fillToWindow(options: Option[], base: number): Option[] {
   return picks;
 }
 
+/** 1日に出す復習の課題の数の上限(残りは翌日に回す) */
+const MAX_REVIEW_TASKS = 2;
+
 /** 復習の時間の目安。上限は7分にする(2つの復習と、スピーキングと、単語帳を合わせても、残りの課題で30〜35分に届くように) */
 const reviewMinutes = (due: number) => Math.min(7, Math.max(3, Math.round(due * 0.7)));
 
@@ -256,20 +259,26 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
   const tasks: MenuTask[] = [];
   let total = 0;
 
-  // 間違えた問題の復習(間隔反復の復習日になったもの)を最初に入れる
-  const reviews: { feature: "vocab" | "grammar"; label: string; skill: Skill; path: string }[] = [
+  // 間違えた問題の復習(間隔反復の復習日になったもの)を最初に入れる。復習の課題は1日に2つまで
+  // (復習の数が多い日は、残りは翌日に回す。上限35分に収めるため)。多い順に選ぶ
+  const reviews: { feature: "vocab" | "grammar" | "reading" | "listening"; label: string; skill: Skill; path: string }[] = [
     { feature: "vocab", label: "語彙の復習", skill: "vocab", path: "/vocab?review=1" },
     { feature: "grammar", label: "文法の復習", skill: "reading", path: "/grammar?review=1" },
+    { feature: "reading", label: "読解の復習", skill: "reading", path: "/reading/practice?review=1" },
+    { feature: "listening", label: "リスニングの復習", skill: "listening", path: "/listening?review=1" },
   ];
-  for (const r of reviews) {
-    const due = summary.review[r.feature]?.due ?? 0;
-    if (due <= 0) continue;
-    const minutes = reviewMinutes(due);
+  const dueReviews = reviews
+    .map((r) => ({ ...r, due: summary.review[r.feature]?.due ?? 0 }))
+    .filter((r) => r.due > 0)
+    .sort((a, b) => b.due - a.due)
+    .slice(0, MAX_REVIEW_TASKS);
+  for (const r of dueReviews) {
+    const minutes = reviewMinutes(r.due);
     tasks.push({
       id: `review:${r.feature}`,
       skill: r.skill,
       label: r.label,
-      note: `${due}問・約${minutes}分`,
+      note: `${r.due}問・約${minutes}分`,
       minutes,
       path: r.path,
       done: false,
