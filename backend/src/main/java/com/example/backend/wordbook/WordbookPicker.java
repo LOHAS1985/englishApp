@@ -9,14 +9,16 @@ import java.util.Set;
 import java.util.function.ToIntFunction;
 
 /**
- * 単語帳の出題の選び方。復習日が来た語と、まだ出していない語(新規)を混ぜて出し、
- * どちらも無いときは次の復習日がまだ先の語から選ぶ。直近に出した語は避ける。
- * 新規の語を先に出すので、全部の語を一度は出してから同じ語が繰り返される(復習日が来た語を除く)。
+ * 単語帳の出題の選び方。優先順は次のとおり。
+ * <ol>
+ * <li>復習日が来た語(間違えた語など。数は少ないので、先に片づける)</li>
+ * <li>色を決めていない語(無色)で、まだ一度も出していない語。一周目としてすべて先に出す</li>
+ * <li>残りのまだ出していない語(色付き)。色の重みで選ぶ</li>
+ * <li>どれも無いとき、次の復習日がまだ先の語を色の重みで選ぶ</li>
+ * </ol>
+ * 直近に出した語は避ける。無色の語は一度出すと一周目から外れるので、同じ語が一周目で繰り返されることはない。
  */
 final class WordbookPicker {
-
-  /** 復習日が来た語と新規の語の両方があるとき、復習日が来た語を選ぶ確率(%)。残りは新規 */
-  static final int DUE_SHARE_PERCENT = 60;
 
   private WordbookPicker() {
   }
@@ -35,15 +37,16 @@ final class WordbookPicker {
       pool = candidates;
     }
     List<WordbookWord> due = pool.stream().filter(w -> w.isDue(today)).toList();
+    List<WordbookWord> uncoloredUnseen = pool.stream()
+        .filter(w -> w.getColor() == WordbookColor.NONE && w.isUnseen()).toList();
     List<WordbookWord> unseen = pool.stream().filter(WordbookWord::isUnseen).toList();
 
-    if (!due.isEmpty() && !unseen.isEmpty()) {
-      return random.nextInt(100) < DUE_SHARE_PERCENT
-          ? weighted(due, w -> w.getColor().dueWeight(), random)
-          : weighted(unseen, w -> w.getColor().newWeight(), random);
-    }
     if (!due.isEmpty()) {
       return weighted(due, w -> w.getColor().dueWeight(), random);
+    }
+    if (!uncoloredUnseen.isEmpty()) {
+      // 一周目は、色を決めていない語を一様に(色で重みを付けない。どれも無色のため)
+      return uncoloredUnseen.get(random.nextInt(uncoloredUnseen.size()));
     }
     if (!unseen.isEmpty()) {
       return weighted(unseen, w -> w.getColor().newWeight(), random);
