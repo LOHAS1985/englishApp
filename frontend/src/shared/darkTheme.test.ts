@@ -61,6 +61,7 @@ const CHECKED_WITHOUT_OVERRIDE = new Set([
   "bg-slate-700",
   "hover:bg-slate-600",
   "border-slate-600",
+  "border-slate-500", // ヘッダーのメニューの枠(暗い面の上の細い線。文字ではない)
   "ring-slate-700",
   "bg-black/50",
   "bg-white/20",

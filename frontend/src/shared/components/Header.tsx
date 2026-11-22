@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import LevelBadge from "../../features/level/LevelBadge";
 import BuildVersion from "./BuildVersion";
-import DisplaySettingsControl from "./DisplaySettingsControl";
+import HeaderMenu from "./HeaderMenu";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -20,16 +20,9 @@ export default function Header() {
           <BuildVersion />
         </div>
 
-        <div className="flex items-center gap-3">
-          <DisplaySettingsControl />
+        <div className="flex items-center gap-2 sm:gap-3">
           <LevelBadge />
-          {/* スマホではレベル表示(押すとマイページ)で代わりになるので隠す */}
-          <button
-            onClick={() => navigate("/mypage")}
-            className="hidden sm:inline-block text-sm font-semibold text-[#0f1724] bg-[#8fae4e] rounded px-4 py-2 hover:bg-[#7a9843] transition-colors"
-          >
-            学習記録
-          </button>
+          <HeaderMenu />
         </div>
       </div>
     </header>

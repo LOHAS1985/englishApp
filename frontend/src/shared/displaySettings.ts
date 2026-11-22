@@ -3,8 +3,8 @@
  * 文字の大きさは html の font-size で変える。Tailwind の寸法はすべて rem なので、文字・余白・問題カードの幅が一緒に大きくなる。
  */
 
-/** 文字の大きさの段階(%)。100 が標準 */
-export const FONT_SCALES = [100, 115, 130, 150, 175, 200] as const;
+/** 文字の大きさの段階(%)。100 が標準。増やすと、ヘッダーのメニューの選択肢も増える */
+export const FONT_SCALES = [100, 125, 150] as const;
 
 /** 配色。system は端末の設定(ダークモード)に合わせる */
 export const THEMES = ["system", "dark", "light"] as const;
@@ -26,11 +26,6 @@ export function resolveTheme(theme: Theme, systemPrefersDark: boolean): "light" 
   return theme;
 }
 
-/** system → dark → light → system の順に切り替える */
-export function nextTheme(theme: Theme): Theme {
-  return THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
-}
-
 const STORAGE_KEY = "displaySettings";
 
 /** 保存された値が壊れていても、標準の表示に戻して動かす */
@@ -48,26 +43,6 @@ export function parseDisplaySettings(raw: string | null): DisplaySettings {
   } catch {
     return DEFAULT_DISPLAY_SETTINGS;
   }
-}
-
-/** 1段階大きく(delta=1)・小さく(delta=-1)した文字の大きさ。端に達したら動かさない */
-export function stepFontScale(current: number, delta: 1 | -1): number {
-  const index = FONT_SCALES.findIndex((s) => s === current);
-  const base = index === -1 ? 0 : index;
-  return FONT_SCALES[Math.min(Math.max(base + delta, 0), FONT_SCALES.length - 1)];
-}
-
-/**
- * 画面の幅(px)に合わせた文字の大きさ。画面が広いほど大きくし、全幅表示と組み合わせて問題を画面いっぱいに出す。
- * スマホ(640px 未満)は、もともと幅いっぱいなので標準のまま。
- */
-export function fitFontScale(viewportWidth: number): number {
-  if (viewportWidth < 640) return 100;
-  if (viewportWidth < 1024) return 115;
-  if (viewportWidth < 1440) return 130;
-  if (viewportWidth < 1920) return 150;
-  if (viewportWidth < 2560) return 175;
-  return 200;
 }
 
 export function loadDisplaySettings(): DisplaySettings {

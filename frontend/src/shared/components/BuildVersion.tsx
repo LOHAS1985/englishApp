@@ -29,5 +29,5 @@ export default function BuildVersion() {
   if (server) parts.push(`サーバー ${server.slice(0, 7)}`);
   if (mismatch) parts.push("版が違います");
 
-  return <p className="text-[10px] leading-tight text-slate-300">{parts.join(" ・ ")}</p>;
+  return <p className="text-sm leading-tight text-slate-300">{parts.join(" ・ ")}</p>;
 }

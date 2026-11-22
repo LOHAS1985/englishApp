@@ -1,21 +1,64 @@
 import { useState } from "react";
 import {
   FONT_SCALES,
-  fitFontScale,
+  THEMES,
   loadDisplaySettings,
-  nextTheme,
   saveDisplaySettings,
-  stepFontScale,
   type DisplaySettings,
+  type Theme,
 } from "../displaySettings";
 
-const THEME_LABELS = { system: "端末に合わせる", dark: "ダーク", light: "ライト" } as const;
-const THEME_ICONS = { system: "◐", dark: "☾", light: "☀" } as const;
+const THEME_LABELS: Record<Theme, string> = { system: "端末に合わせる", dark: "ダーク", light: "ライト" };
+const FONT_LABELS: Record<(typeof FONT_SCALES)[number], string> = { 100: "標準", 125: "大きめ", 150: "特大" };
 
-const buttonClass =
-  "text-xs font-semibold text-white border border-slate-400 rounded px-2 py-1 hover:bg-slate-600 disabled:opacity-40 disabled:hover:bg-transparent";
+interface Option<T> {
+  value: T;
+  label: string;
+}
 
-/** ヘッダーに置く、文字の大きさと全幅表示の切り替え。問題を画面いっぱいに読みやすく出すためのもの */
+/** 選択肢を並べて、いま選んでいるものを押し込んだ状態で示す */
+function Choice<T extends string | number>({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: T;
+  options: Option<T>[];
+  onChange: (value: T) => void;
+}) {
+  return (
+    <div>
+      <p className="mb-1 text-xs text-slate-300">{label}</p>
+      <div className="grid grid-cols-3 gap-1" role="group" aria-label={label}>
+        {options.map((option) => {
+          const selected = option.value === value;
+          return (
+            <button
+              key={String(option.value)}
+              type="button"
+              aria-pressed={selected}
+              onClick={() => onChange(option.value)}
+              className={`rounded border px-2 py-1 text-sm transition-colors ${
+                selected
+                  ? "border-[#8fae4e] bg-[#8fae4e] font-semibold text-[#0f1724]"
+                  : "border-slate-400 text-white hover:bg-slate-600"
+              }`}
+            >
+              {option.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 表示の設定(配色・文字の大きさ・全幅)。ヘッダーのメニューに入れる。端末ごとにブラウザへ保存する。
+ * 全幅は問題カードを画面いっぱいに広げるためのもので、スマホではもともと幅いっぱいなので出さない。
+ */
 export default function DisplaySettingsControl() {
   const [settings, setSettings] = useState<DisplaySettings>(loadDisplaySettings);
 
@@ -25,49 +68,30 @@ export default function DisplaySettingsControl() {
   };
 
   return (
-    <div className="flex items-center gap-1" role="group" aria-label="表示サイズ">
+    <div className="flex flex-col gap-4">
+      <Choice<Theme>
+        label="配色"
+        value={settings.theme}
+        options={THEMES.map((theme) => ({ value: theme, label: THEME_LABELS[theme] }))}
+        onChange={(theme) => update({ ...settings, theme })}
+      />
+      <Choice<number>
+        label="文字の大きさ"
+        value={settings.fontScale}
+        options={FONT_SCALES.map((scale) => ({ value: scale, label: FONT_LABELS[scale] }))}
+        onChange={(fontScale) => update({ ...settings, fontScale })}
+      />
       <button
-        onClick={() => update({ ...settings, fontScale: stepFontScale(settings.fontScale, -1) })}
-        disabled={settings.fontScale === FONT_SCALES[0]}
-        className={buttonClass}
-        aria-label="文字を小さくする"
-      >
-        A−
-      </button>
-      <span className="hidden sm:inline-block min-w-[3rem] text-center font-mono text-xs text-slate-200">
-        {settings.fontScale}%
-      </span>
-      <button
-        onClick={() => update({ ...settings, fontScale: stepFontScale(settings.fontScale, 1) })}
-        disabled={settings.fontScale === FONT_SCALES[FONT_SCALES.length - 1]}
-        className={buttonClass}
-        aria-label="文字を大きくする"
-      >
-        A+
-      </button>
-      {/* スマホでは問題カードがもともと画面の幅いっぱいなので、全幅の切り替えは出さない */}
-      <button
+        type="button"
         onClick={() => update({ ...settings, fullWidth: !settings.fullWidth })}
         aria-pressed={settings.fullWidth}
-        className={`hidden sm:inline-block ${buttonClass} ${settings.fullWidth ? "bg-[#8fae4e] border-[#8fae4e] text-[#0f1724] hover:bg-[#8fae4e]" : ""}`}
+        className={`hidden sm:block rounded border px-2 py-1 text-left text-sm transition-colors ${
+          settings.fullWidth
+            ? "border-[#8fae4e] bg-[#8fae4e] font-semibold text-[#0f1724]"
+            : "border-slate-400 text-white hover:bg-slate-600"
+        }`}
       >
-        全幅
-      </button>
-      <button
-        onClick={() => update({ ...settings, fontScale: fitFontScale(window.innerWidth), fullWidth: true })}
-        className={`hidden sm:inline-block ${buttonClass}`}
-        title="いまの画面の幅に合わせて、文字の大きさを決めて全幅にする"
-      >
-        自動
-      </button>
-      {/* 配色は 端末に合わせる → ダーク → ライト の順に切り替える。夜の学習でまぶしくないように */}
-      <button
-        onClick={() => update({ ...settings, theme: nextTheme(settings.theme) })}
-        className={buttonClass}
-        aria-label={`配色: ${THEME_LABELS[settings.theme]}(押すと切り替え)`}
-        title={`配色: ${THEME_LABELS[settings.theme]}`}
-      >
-        {THEME_ICONS[settings.theme]}
+        問題を全幅に広げる
       </button>
     </div>
   );
