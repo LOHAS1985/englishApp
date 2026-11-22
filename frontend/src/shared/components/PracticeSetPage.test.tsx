@@ -102,3 +102,32 @@ describe("セット問題: リスニングの台本", () => {
     expect(await screen.findByText("台本: Man: Hello.")).toBeTruthy();
   });
 });
+
+describe("セット問題: 解答するまで設問文を隠す形式", () => {
+  const eiken = (id: string): QuestionSetView => ({ ...set(id), type: "eiken-part1" });
+
+  it("設問文は解答するまで出さず、解答したあとに出す(選択肢は出したまま)", async () => {
+    vi.mocked(fetchPracticeSet).mockResolvedValueOnce(eiken("l0001")).mockReturnValue(new Promise(() => {}));
+
+    render(
+      <MemoryRouter initialEntries={["/listening?type=eiken-part1"]}>
+        <PracticeSetPage
+          feature="listening"
+          types={["eiken-part1"]}
+          showTitle={false}
+          renderMaterial={() => null}
+          hideQuestionTypes={["eiken-part1"]}
+        />
+      </MemoryRouter>,
+    );
+
+    expect(await screen.findByText("No. 1")).toBeTruthy();
+    expect(screen.queryByText(/Question of l0001/)).toBeNull();
+    expect(screen.getByRole("button", { name: /one/ })).toBeTruthy();
+
+    await userEvent.click(screen.getByRole("button", { name: /one/ }));
+    await userEvent.click(screen.getByRole("button", { name: "解答する" }));
+
+    expect(await screen.findByText("Q1. Question of l0001")).toBeTruthy();
+  });
+});

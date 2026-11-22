@@ -38,6 +38,11 @@ interface PracticeSetPageProps {
   readingSpeed?: boolean;
   /** 次のセットを先に選んだとき(解答した時点)に呼ぶ。リスニングは、ここで次の音声の準備を始める */
   onNextPicked?: (next: QuestionSetView) => void;
+  /**
+   * 解答するまで設問文を隠す形式(英検リスニング Part 1・2 は、設問を放送で聞くだけで、冊子には選択肢しかない)。
+   * 解答したあとは設問文を出す。選択肢は出したまま。
+   */
+  hideQuestionTypes?: string[];
 }
 
 /**
@@ -53,6 +58,7 @@ export default function PracticeSetPage({
   renderAfterAnswer,
   readingSpeed = false,
   onNextPicked,
+  hideQuestionTypes = [],
 }: PracticeSetPageProps) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -270,6 +276,7 @@ export default function PracticeSetPage({
                 <div className="space-y-5 mt-6">
                   {set.questions.map((q, qi) => {
                     const r = result?.results[qi];
+                    const hideQuestion = hideQuestionTypes.includes(set.type);
                     const qOrder = order[qi] ?? q.choices.map((_, i) => i);
                     // 正解・選択は元の記号なので、画面上の記号に読み替えて表示する
                     const toDisplay = (original: string) =>
@@ -277,7 +284,9 @@ export default function PracticeSetPage({
                     return (
                       <div key={qi} className="border border-slate-200 rounded-md p-4">
                         <p className="text-sm font-semibold text-slate-900 mb-3">
-                          {q.question ? `Q${qi + 1}. ${q.question}` : `No. ${qi + 1}`}
+                          {q.question && !(hideQuestion && !result)
+                            ? `Q${qi + 1}. ${q.question}`
+                            : `No. ${qi + 1}`}
                         </p>
                         <div className="space-y-2" role="group" aria-label={`設問${qi + 1}の選択肢`}>
                           {qOrder.map((originalIndex, ci) => {
