@@ -21,7 +21,10 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -39,6 +42,14 @@ public class TtsService {
 
   /** 音声のキャッシュのキーに含める声の設定。generate_tts.py の TTS_RATE(既定 -10%)を変えたら、ここも変える */
   static final String VOICE_PROFILE = "\n#voice:rate-10";
+
+  /** 音声を作るスクリプトを待つ上限。edge-tts が応答しなくても、作成用のスレッドをいつまでも塞がない */
+  static final Duration SCRIPT_TIMEOUT = Duration.ofSeconds(120);
+  /** ffmpeg での結合を待つ上限 */
+  static final Duration FFMPEG_TIMEOUT = Duration.ofSeconds(60);
+
+  /** 作成中の音声(台本のキーごと)。同じ台本の依頼が重なっても、重複して作らず結果を共有する */
+  private final Map<String, CompletableFuture<Map<String, Object>>> inFlight = new ConcurrentHashMap<>();
 
   // Executor for offloading blocking TTS work so request threads are not blocked.
   private final ExecutorService ttsExecutor = Executors
@@ -59,7 +70,14 @@ public class TtsService {
 
   /** 非同期に音声を生成する。結果は {"audioUrl": ...} または {"audioUrls": [...]} */
   public CompletableFuture<Map<String, Object>> synthesizeAsync(String dialog, String base) {
-    return CompletableFuture.supplyAsync(() -> {
+    String key = cacheKey(dialog);
+    CompletableFuture<Map<String, Object>> mine = new CompletableFuture<>();
+    CompletableFuture<Map<String, Object>> existing = inFlight.putIfAbsent(key, mine);
+    if (existing != null) {
+      logger.info("synthesize: sharing the in-flight job for key {}", key);
+      return existing;
+    }
+    CompletableFuture.supplyAsync(() -> {
       ttsRequests.increment();
       try {
         return synthesize(dialog, base);
@@ -67,21 +85,58 @@ public class TtsService {
         ttsFailures.increment();
         throw new IllegalStateException(e.getMessage(), e);
       }
-    }, ttsExecutor);
+    }, ttsExecutor).whenComplete((result, error) -> {
+      inFlight.remove(key);
+      if (error != null) {
+        mine.completeExceptionally(error);
+      } else {
+        mine.complete(result);
+      }
+    });
+    return mine;
   }
 
-  private Map<String, Object> synthesize(String dialog, String base) throws IOException, InterruptedException {
+  /** 台本が同じなら同じキー(声の設定を変えたら別のキー)。音声のファイル名と、作成中の判定に使う */
+  static String cacheKey(String dialog) {
+    try {
+      byte[] digest = MessageDigest.getInstance("SHA-1").digest((dialog + VOICE_PROFILE).getBytes(StandardCharsets.UTF_8));
+      return HexFormat.of().formatHex(digest);
+    } catch (NoSuchAlgorithmException e) {
+      throw new IllegalStateException("SHA-1 not available", e);
+    }
+  }
+
+  /** 外部プロセスの結果 */
+  record ProcessResult(int exitCode, String output) {
+  }
+
+  /**
+   * 外部プロセスを実行し、待ちの上限を超えたら強制終了して例外にする。
+   * 出力は一時ファイルに受ける(出力を読む側が、プロセスが止まったまま待ち続けないように)。
+   */
+  static ProcessResult runProcess(ProcessBuilder pb, Duration timeout) throws IOException, InterruptedException {
+    Path out = Files.createTempFile("proc-out", ".log");
+    try {
+      pb.redirectErrorStream(true);
+      pb.redirectOutput(out.toFile());
+      Process proc = pb.start();
+      if (!proc.waitFor(timeout.toMillis(), TimeUnit.MILLISECONDS)) {
+        proc.destroyForcibly();
+        proc.waitFor(5, TimeUnit.SECONDS);
+        throw new IOException("process timed out after " + timeout.toSeconds() + "s");
+      }
+      return new ProcessResult(proc.exitValue(), Files.readString(out, StandardCharsets.UTF_8));
+    } finally {
+      Files.deleteIfExists(out);
+    }
+  }
+
+  /** 音声を作る本体(テストでは差し替える) */
+  Map<String, Object> synthesize(String dialog, String base) throws IOException, InterruptedException {
     long synthTotalStart = System.currentTimeMillis();
     // compute deterministic key from dialog text to avoid duplicate generation
-    MessageDigest md;
-    try {
-      md = MessageDigest.getInstance("SHA-1");
-    } catch (NoSuchAlgorithmException e) {
-      throw new IOException("SHA-1 not available");
-    }
     // 台本が同じでも、声の設定(読み上げの速さなど)を変えたら別の音声として作り直す
-    byte[] digest = md.digest((dialog + VOICE_PROFILE).getBytes(StandardCharsets.UTF_8));
-    String key = HexFormat.of().formatHex(digest);
+    String key = cacheKey(dialog);
 
     // choose generated dir: use runtime-served filesystem directory
     Path genDir = Path.of("static", "audio", "generated");
@@ -132,12 +187,16 @@ public class TtsService {
     ProcessBuilder pb = new ProcessBuilder("python", script.toString(), tmp.toAbsolutePath().toString(), tempBase,
         "--out-dir", genDir.toAbsolutePath().toString());
     pb.directory(new File("."));
-    pb.redirectErrorStream(true);
     long procStart = System.currentTimeMillis();
-    Process proc = pb.start();
+    ProcessResult scriptResult;
+    try {
+      scriptResult = runProcess(pb, SCRIPT_TIMEOUT);
+    } finally {
+      Files.deleteIfExists(tmp);
+    }
     // always capture script stdout/stderr for debugging
-    String procOut = new String(proc.getInputStream().readAllBytes());
-    int exit = proc.waitFor();
+    String procOut = scriptResult.output();
+    int exit = scriptResult.exitCode();
     long procDur = System.currentTimeMillis() - procStart;
     logger.info("synthesize: tts script executed in {}ms (exit={})", procDur, exit);
     logger.debug("synthesize: tts script output: {}", procOut);
@@ -201,11 +260,14 @@ public class TtsService {
       ProcessBuilder ff = new ProcessBuilder("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listFile.toString(),
           "-c:a", "libmp3lame", "-q:a", "2", tempCombined.toString());
       ff.directory(new File("."));
-      ff.redirectErrorStream(true);
-      Process ffProc = ff.start();
-      String ffOut = new String(ffProc.getInputStream().readAllBytes());
-      int rc = ffProc.waitFor();
-      Files.deleteIfExists(listFile);
+      ProcessResult ffResult;
+      try {
+        ffResult = runProcess(ff, FFMPEG_TIMEOUT);
+      } finally {
+        Files.deleteIfExists(listFile);
+      }
+      String ffOut = ffResult.output();
+      int rc = ffResult.exitCode();
       if (rc == 0 && Files.exists(tempCombined)) {
         moveAtomically(tempCombined, finalCombined);
         logger.info("ffmpeg success, combined file created: {}", finalCombined);

@@ -59,8 +59,9 @@ public class ListeningController {
     return ttsService.synthesizeAsync(set.script(), set.id())
         .<ResponseEntity<?>>thenApply(ResponseEntity::ok)
         .exceptionally(e -> {
+          // 詳しい原因(実行場所のパスやスクリプトの出力)はログだけに残し、画面には定型の文言を返す
           logger.error("synthesize failed for {}", setId, e);
-          return ResponseEntity.status(500).body(Map.of("error", String.valueOf(e.getMessage())));
+          return ResponseEntity.status(500).body(Map.of("error", "音声を作成できませんでした。ブラウザの読み上げで再生します"));
         });
   }
 

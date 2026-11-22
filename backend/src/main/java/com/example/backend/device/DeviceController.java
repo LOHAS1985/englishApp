@@ -3,6 +3,7 @@ package com.example.backend.device;
 import com.example.backend.device.DeviceService.DeviceLimitException;
 import com.example.backend.device.DeviceService.DeviceView;
 import com.example.backend.device.DeviceService.Registration;
+import com.example.backend.device.DeviceService.TooManyAttemptsException;
 import com.example.backend.device.DeviceService.WrongKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +46,11 @@ public class DeviceController {
   @ExceptionHandler(WrongKeyException.class)
   public ResponseEntity<Map<String, String>> wrongKey(WrongKeyException e) {
     return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error", e.getMessage()));
+  }
+
+  @ExceptionHandler(TooManyAttemptsException.class)
+  public ResponseEntity<Map<String, String>> tooMany(TooManyAttemptsException e) {
+    return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(Map.of("error", e.getMessage()));
   }
 
   @ExceptionHandler(DeviceLimitException.class)

@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * 単語帳の定期処理。日本語訳の調査は1日に1回、日本時間 7:00 以降に行う。
@@ -44,7 +45,8 @@ public class WordbookJobs {
   public void onStartup() {
     seeder.seedIfNeeded();
     scheduleBackfill.runIfNeeded();
-    runTranslationIfDue(LocalDateTime.now(StudyLogService.JST));
+    // 外部 API(DeepL)の応答が遅くても、起動の処理を止めない(語ごとの待ちの上限は DeepLApiClient.REQUEST_TIMEOUT)
+    CompletableFuture.runAsync(() -> runTranslationIfDue(LocalDateTime.now(StudyLogService.JST)));
   }
 
   @Scheduled(cron = "0 0 7 * * *", zone = "Asia/Tokyo")

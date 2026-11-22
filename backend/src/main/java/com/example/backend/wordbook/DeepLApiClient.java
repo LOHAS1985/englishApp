@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,9 @@ import java.util.Map;
 public class DeepLApiClient {
 
   private static final Logger logger = LoggerFactory.getLogger(DeepLApiClient.class);
+
+  /** 応答がない(接続は開いたまま返ってこない)ときに待つ上限。超えたら翻訳できなかったものとして次へ進む */
+  static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(20);
 
   private final WebClient webClient = WebClient.create();
   private final String authKey;
@@ -51,7 +55,7 @@ public class DeepLApiClient {
           .retrieve()
           .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
           })
-          .block();
+          .block(REQUEST_TIMEOUT);
 
       Object translations = response == null ? null : response.get("translations");
       if (translations instanceof List<?> translationItems && !translationItems.isEmpty()
