@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -72,6 +74,7 @@ class QuestionBanksTests {
       }
     }
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
+    assertSpreadPerFormat(all);
     assertThat(all).extracting(s -> s.title().trim().toLowerCase()).as("reading titles").doesNotHaveDuplicates();
   }
 
@@ -107,6 +110,7 @@ class QuestionBanksTests {
       }
     }
     assertSpread(all.stream().flatMap(s -> s.questions().stream()).map(SetQuestion::answer).toList());
+    assertSpreadPerFormat(all);
   }
 
   /**
@@ -195,6 +199,27 @@ class QuestionBanksTests {
       assertThat(q.answer()).as(s.id()).isIn(LETTERS.subList(0, choiceCount));
       assertThat(q.explanation()).as(s.id()).isNotBlank();
     }
+  }
+
+  /**
+   * 形式ごとの正解の記号の偏り。全体で揃っていても、形式によって偏ると(例: 英検 Part 3 の D が4割)、
+   * その形式の模試で記号を当てられてしまう(模試は選択肢を並べ替えない)。
+   * 選択肢が k 個なら、各記号の割合は 0.6/k〜1.4/k に入ること(4択なら 15〜35%、3択なら 20〜47%)。
+   * 件数が少ない形式(100問未満)は検査しない。
+   */
+  private static void assertSpreadPerFormat(List<QuestionSet> sets) {
+    Map<String, List<SetQuestion>> byType = sets.stream()
+        .flatMap(s -> s.questions().stream().map(q -> Map.entry(s.type(), q)))
+        .collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.mapping(Map.Entry::getValue, Collectors.toList())));
+    byType.forEach((type, questions) -> {
+      if (questions.size() < 100) return;
+      int k = questions.get(0).choices().size();
+      for (int i = 0; i < k; i++) {
+        String letter = LETTERS.get(i);
+        double share = questions.stream().filter(q -> letter.equals(q.answer())).count() / (double) questions.size();
+        assertThat(share).as(type + " の正解が " + letter + " の割合").isBetween(0.6 / k, 1.4 / k);
+      }
+    });
   }
 
   /** 正解の記号が偏ると、問題を読まずに当てられてしまう(件数が少ないうちは検査しない) */

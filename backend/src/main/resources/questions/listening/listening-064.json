@@ -47,12 +47,12 @@
       {
         "question": "What should you do?",
         "choices": [
-          "Visit the depot at the end of the bus route.",
+          "Go to the King Street office on a weekday evening.",
           "Go to the central office on Saturday morning.",
           "Send a photo of the umbrella to the depot.",
-          "Go to the King Street office on a weekday evening."
+          "Visit the depot at the end of the bus route."
         ],
-        "answer": "D",
+        "answer": "A",
         "explanation": "落とし物は「kept for two days at the depot」の後、「sent to our central lost property office on King Street」となる。5日前に置き忘れたので、傘はもうキング通りの中央センターにある。中央センターは「open until eight p.m. on weekdays」なので、6時に仕事が終わった後の平日の夕方に行ける。車庫は2日しか保管せず、平日5時までしか開いていない。土曜日は週末で予定がある。写真を送るという案内はなく、写真付きの身分証を持参するように言っているだけ。"
       }
     ]
@@ -283,11 +283,11 @@
         "question": "What should you do?",
         "choices": [
           "Call back and ask to join the Thursday class.",
-          "Call back and sign up for the Wednesday class.",
+          "Call back and ask to move to the Saturday class.",
           "Call back and ask for a refund of your fee.",
-          "Call back and ask to move to the Saturday class."
+          "Call back and sign up for the Wednesday class."
         ],
-        "answer": "D",
+        "answer": "B",
         "explanation": "木曜日のクラスは一度「still has a few seats left」と案内されたが、「the last seats in the Thursday class were taken this morning」と訂正された。水曜日のクラスは「held online only」で、あなたは水曜日も遅くまで仕事がある。残るのは「a new Saturday morning class here at the center」で、センターで対面で学べる。スペイン語を続けたいので、返金ではなく土曜日のクラスへの変更を申し込めばよい。"
       }
     ]
