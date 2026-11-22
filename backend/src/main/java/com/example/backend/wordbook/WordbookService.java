@@ -26,17 +26,28 @@ public class WordbookService {
 
   private final WordbookWordRepository repository;
   private final DeletedBundledWordRepository deletedBundled;
+  private final WordbookUnlockService unlocks;
   private final CurrentUserProvider currentUserProvider;
 
   public WordbookService(WordbookWordRepository repository, DeletedBundledWordRepository deletedBundled,
-      CurrentUserProvider currentUserProvider) {
+      WordbookUnlockService unlocks, CurrentUserProvider currentUserProvider) {
     this.repository = repository;
     this.deletedBundled = deletedBundled;
+    this.unlocks = unlocks;
     this.currentUserProvider = currentUserProvider;
   }
 
-  /** 利用者の単語すべて(登録順)。出題もこの一覧から選ぶ */
+  /**
+   * 出せる単語(解放済み。登録順)。出題も一覧もこの中から選ぶ。
+   * 同梱語の解放は、ここを開くときに今日の分を行う(WordbookUnlockService)
+   */
   public List<WordbookWord> ownedWords() {
+    unlocks.releaseIfDue();
+    return allOwnedWords().stream().filter(WordbookWord::isUnlocked).toList();
+  }
+
+  /** 利用者の語すべて(解放前の同梱語を含む)。重複の確認や、同梱語の投入に使う */
+  List<WordbookWord> allOwnedWords() {
     return repository.findByUserIdOrderByIdAsc(currentUserProvider.getCurrentUserId());
   }
 
@@ -83,7 +94,8 @@ public class WordbookService {
   @Transactional
   public AddWordResponse add(String rawWord, String exampleEn, String exampleAnswer) {
     String word = normalizeWord(rawWord);
-    List<WordbookWord> words = ownedWords();
+    // 解放前の同梱語とも比べる(同じ語を2つ持つと、一意の制約に当たるため)
+    List<WordbookWord> words = allOwnedWords();
     for (WordbookWord existing : words) {
       if (WordForms.sameWord(existing.getWord(), word)) {
         return new AddWordResponse(false, WordView.of(existing));

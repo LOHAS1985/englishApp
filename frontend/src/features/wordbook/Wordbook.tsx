@@ -61,6 +61,7 @@ export default function Wordbook() {
         <p className="text-sm text-slate-500 mb-6">
           まず復習日が来た語を出し、次に色を決めていない語を一通り出します(一周目)。間違えた語は自動で赤になり、翌日に復習します
           (正解すると3日・7日・14日・30日後)。色は、一周目のあとの出やすさに使います(赤は先に、青は後に出ます)。
+          新しい語は、一周目が終わった翌日から、1日20語ずつ増えます。
         </p>
 
         <div className="grid grid-cols-1 gap-3 mb-8">

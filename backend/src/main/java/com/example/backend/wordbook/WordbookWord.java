@@ -85,6 +85,10 @@ public class WordbookWord {
   @Column(name = "user_edited", nullable = false)
   private boolean userEdited;
 
+  /** 出題の対象にする語か。同梱語は、一周目の進み具合に合わせて少しずつ解放する(V21)。解放前の語は一覧にも出さない */
+  @Column(name = "unlocked", nullable = false)
+  private boolean unlocked = true;
+
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
@@ -268,6 +272,12 @@ public class WordbookWord {
   public String getPos() { return pos; }
   public Integer getLevel() { return level; }
   public String getBundledId() { return bundledId; }
+  public boolean isUnlocked() { return unlocked; }
+
+  /** 解放する(または、解放前に戻す)。同梱語の解放の処理(WordbookUnlockService)と、投入の処理が使う */
+  void setUnlocked(boolean unlocked) {
+    this.unlocked = unlocked;
+  }
   public boolean isUserEdited() { return userEdited; }
   public int getTimesAsked() { return timesAsked; }
   public int getTimesCorrect() { return timesCorrect; }
