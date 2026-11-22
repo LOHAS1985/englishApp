@@ -38,7 +38,7 @@ english-app/
 | 言語             | Java 25                              |
 | フレームワーク   | Spring Boot                          |
 | ビルドツール     | Maven (Maven Wrapper)                |
-| HTTPクライアント | Spring WebFlux (WebClient)           |
+| HTTPクライアント | Spring RestClient(DeepL。Spring MVC に含まれる) |
 | JSON処理         | Jackson                              |
 | 外部AI連携       | Google Gemini API (gemini-2.5-flash) |
 
