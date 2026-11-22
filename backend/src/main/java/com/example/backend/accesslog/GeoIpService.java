@@ -12,6 +12,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -33,6 +34,9 @@ public class GeoIpService {
   private final JsonMapper jsonMapper;
   private final HttpClient httpClient = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build();
   private final Map<String, Geo> cache = new ConcurrentHashMap<>();
+  /** 問い合わせに失敗した IP と時刻。しばらくは同じ IP を問い合わせ直さない(ip-api の毎分45回の制限を超えて、止められないように) */
+  private final Map<String, Instant> failures = new ConcurrentHashMap<>();
+  static final Duration FAILURE_BACKOFF = Duration.ofMinutes(10);
 
   public GeoIpService(JsonMapper jsonMapper) {
     this.jsonMapper = jsonMapper;
@@ -46,17 +50,28 @@ public class GeoIpService {
     if (cached != null) {
       return cached;
     }
+    Instant failedAt = failures.get(ip);
+    if (failedAt != null && Instant.now().isBefore(failedAt.plus(FAILURE_BACKOFF))) {
+      return Geo.UNKNOWN;
+    }
     Geo geo = fetch(ip);
     if (geo != Geo.UNKNOWN) {
       if (cache.size() >= CACHE_LIMIT) {
         cache.clear();
       }
       cache.put(ip, geo);
+      failures.remove(ip);
+    } else {
+      if (failures.size() >= CACHE_LIMIT) {
+        failures.clear();
+      }
+      failures.put(ip, Instant.now());
     }
     return geo;
   }
 
-  private Geo fetch(String ip) {
+  /** ip-api.com への問い合わせ(テストでは差し替える) */
+  Geo fetch(String ip) {
     try {
       // 無料版は HTTP のみ。送るのは IP アドレスだけ
       HttpRequest request = HttpRequest.newBuilder(URI.create(

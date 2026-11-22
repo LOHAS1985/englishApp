@@ -1,13 +1,18 @@
 package com.example.backend.accesslog;
 
+import com.example.backend.common.AppState;
+import com.example.backend.common.AppStateRepository;
 import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -17,7 +22,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /** アクセスの記録(地域の推定は応答を待たせないよう別スレッドで行う)と、閲覧・週次レポート用の集計 */
@@ -42,40 +50,75 @@ public class AccessLogService {
       String isp) {
   }
 
+  /** 保存を待つ記録の上限。大量のアクセスがあっても、待ちの列がメモリを使い切らないよう、あふれた分は捨てる */
+  static final int QUEUE_LIMIT = 1000;
+  static final String CLEANUP_STATE_KEY = "accesslog.cleanup.last_run";
+
   private final AccessLogRepository repository;
   private final GeoIpService geoIpService;
+  private final AppStateRepository states;
   private final int retentionDays;
-  private final ExecutorService executor = Executors.newSingleThreadExecutor(r -> {
-    Thread t = new Thread(r, "access-log");
-    t.setDaemon(true);
-    return t;
-  });
+  private final ExecutorService executor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
+      new LinkedBlockingQueue<>(QUEUE_LIMIT), r -> {
+        Thread t = new Thread(r, "access-log");
+        t.setDaemon(true);
+        return t;
+      });
+  private long dropped;
 
-  public AccessLogService(AccessLogRepository repository, GeoIpService geoIpService,
+  public AccessLogService(AccessLogRepository repository, GeoIpService geoIpService, AppStateRepository states,
       @Value("${access-log.retention-days:90}") int retentionDays) {
     this.repository = repository;
     this.geoIpService = geoIpService;
+    this.states = states;
     this.retentionDays = retentionDays;
   }
 
   public void record(String ip, String method, String path, String userAgent) {
     LocalDateTime now = LocalDateTime.now();
-    executor.execute(() -> {
-      try {
-        repository.save(new AccessLog(now, ip, method, truncate(path, 255), truncate(userAgent, 500),
-            geoIpService.lookup(ip)));
-      } catch (Exception e) {
-        logger.warn("failed to save access log: {}", e.getMessage());
+    try {
+      executor.execute(() -> {
+        try {
+          repository.save(new AccessLog(now, ip, method, truncate(path, 255), truncate(userAgent, 500),
+              geoIpService.lookup(ip)));
+        } catch (Exception e) {
+          logger.warn("failed to save access log: {}", e.getMessage());
+        }
+      });
+    } catch (RejectedExecutionException e) {
+      // 待ちの列がいっぱい(大量のアクセス)。記録を捨てて、API の応答を遅らせない
+      if (++dropped % 100 == 1) {
+        logger.warn("access log queue is full; dropped {} records so far", dropped);
       }
-    });
+    }
   }
 
-  /** 保存期間を過ぎた記録を毎日 4:00 に削除する */
-  @Scheduled(cron = "0 0 4 * * *")
+  /** 起動時に、今日まだ削除していなければ削除する(無料プランのサーバーは夜間止まっていて、深夜の定期実行が動かないため) */
+  @EventListener(ApplicationReadyEvent.class)
+  public void onStartup() {
+    deleteExpiredIfDue(LocalDate.now());
+  }
+
+  /** 保存期間を過ぎた記録を、毎日 7:30(サーバーが起きている時間)に削除する */
+  @Scheduled(cron = "0 30 7 * * *", zone = "Asia/Tokyo")
   public void deleteExpired() {
-    long deleted = repository.deleteByCreatedAtBefore(LocalDateTime.now().minusDays(retentionDays));
-    if (deleted > 0) {
-      logger.info("deleted {} expired access logs", deleted);
+    deleteExpiredIfDue(LocalDate.now());
+  }
+
+  /** その日の削除は1回だけ。実行した日を state に残す */
+  synchronized void deleteExpiredIfDue(LocalDate today) {
+    String done = states.findById(CLEANUP_STATE_KEY).map(AppState::getValue).orElse(null);
+    if (today.toString().equals(done)) {
+      return;
+    }
+    try {
+      long deleted = repository.deleteByCreatedAtBefore(today.atStartOfDay().minusDays(retentionDays));
+      if (deleted > 0) {
+        logger.info("deleted {} expired access logs", deleted);
+      }
+      states.save(new AppState(CLEANUP_STATE_KEY, today.toString()));
+    } catch (RuntimeException e) {
+      logger.warn("failed to delete expired access logs: {}", e.getMessage());
     }
   }
 
