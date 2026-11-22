@@ -24,8 +24,19 @@ class BundledWordsTests {
   private final List<BundledWord> all = new BundledWordBank(MAPPER).all();
 
   @Test
-  void bundledListHasFiveHundredWords() {
-    assertThat(all).hasSize(500);
+  void bundledListHasSixHundredWords() {
+    assertThat(all).hasSize(600);
+  }
+
+  @Test
+  void noTwoBundledWordsAreTheSameWordIncludingInflections() {
+    // 同じ語(変化形を含む)が2つあると、同梱の登録の時に片方が黙って飛ばされてしまう
+    for (int i = 0; i < all.size(); i++) {
+      for (int j = i + 1; j < all.size(); j++) {
+        assertThat(WordForms.sameWord(all.get(i).word(), all.get(j).word()))
+            .as(all.get(i).word() + " と " + all.get(j).word() + " は同じ語").isFalse();
+      }
+    }
   }
 
   @Test
