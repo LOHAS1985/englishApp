@@ -38,7 +38,8 @@ public class GrammarController {
 
   @GetMapping("/history")
   public List<GrammarHistoryItem> getHistory() {
-    return grammarRecordRepository.findByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
+    // 直近の200件まで(全件を毎回読むと、記録が増えるほど遅くなるため)
+    return grammarRecordRepository.findTop200ByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
         .stream()
         .map(GrammarHistoryItem::from)
         .toList();

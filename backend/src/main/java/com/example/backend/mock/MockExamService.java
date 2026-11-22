@@ -19,6 +19,7 @@ import com.example.backend.mock.dto.MockSubmit;
 import com.example.backend.reading.ReadingQuestionBank;
 import com.example.backend.stats.StudyLogService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -113,7 +114,9 @@ public class MockExamService {
   /**
    * 区切りごとの解答を採点し、記録・学習ログ・模試の結果を保存する。
    * 問題集から消えた問題は数えない。解答されていない設問は不正解として数える。
+   * 1つのトランザクションにする。途中で失敗したときに一部だけ保存されると、画面の再提出で記録が重複するため。
    */
+  @Transactional
   public MockResult submit(MockSubmit request) {
     // 区切りごとの集計: 0 = 正解数, 1 = 設問数, 2 = 秒数
     Map<String, int[]> skills = new LinkedHashMap<>();

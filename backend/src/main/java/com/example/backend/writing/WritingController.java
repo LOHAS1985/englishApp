@@ -39,7 +39,8 @@ public class WritingController {
 
   @GetMapping("/history")
   public List<WritingHistoryItem> getHistory() {
-    return writingRecordRepository.findByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
+    // 直近の200件まで(答案を含むので、全件を毎回読まない)
+    return writingRecordRepository.findTop200ByUserIdOrderByCreatedAtDesc(currentUserProvider.getCurrentUserId())
         .stream()
         .map(WritingHistoryItem::from)
         .toList();
