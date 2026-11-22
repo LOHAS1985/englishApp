@@ -9,8 +9,8 @@ import type { Skill, StatsSummary, StudyTotals } from "../api/client";
 /** 1日の学習時間の目標(分) */
 export const MENU_MINUTES = 30;
 
-/** 合計は必ず30分を超える。課題の積み増しで40〜50分になってもよいが、ここを超える課題は入れない */
-const MENU_LIMIT_MINUTES = 50;
+/** 合計は必ず30分を超え、この分数以内に収める(スピーキングを入れても、長くなりすぎないように) */
+const MENU_LIMIT_MINUTES = 35;
 
 /** 5技能に均等に配ったときの、1週間の学習秒数の目安(30分 × 7日 ÷ 5技能) */
 const WEEK_TARGET_SECONDS = (MENU_MINUTES * 60 * 7) / 5;
@@ -148,7 +148,8 @@ function scoreSkills(summary: StatsSummary): SkillScore[] {
 }
 
 /** 技能の中で、今日解く形式を選ぶ。正答率が低い形式と、まだ解いていない形式を優先し、同点なら日替わりで回す */
-function pickTask(defs: TaskDef[], summary: StatsSummary, seed: number): TaskDef | null {
+/** 形式を、今日の出しやすさの順に並べる(正答率が低い・この1か月解いていない形式が先。同点は日替わりで回す) */
+function rankTasks(defs: TaskDef[], summary: StatsSummary, seed: number): TaskDef[] {
   const scored = defs.map((def, index) => {
     const month = summary.types.find((t) => t.type === def.type)?.month ?? ZERO;
     const accuracy = accuracyOf(month);
@@ -160,10 +161,59 @@ function pickTask(defs: TaskDef[], summary: StatsSummary, seed: number): TaskDef
     };
   });
   scored.sort((a, b) => b.score - a.score || a.rotation - b.rotation);
-  return scored[0]?.def ?? null;
+  return scored.map((x) => x.def);
 }
 
-const reviewMinutes = (due: number) => Math.min(8, Math.max(3, Math.round(due * 0.7)));
+function pickTask(defs: TaskDef[], summary: StatsSummary, seed: number): TaskDef | null {
+  return rankTasks(defs, summary, seed)[0] ?? null;
+}
+
+/** 候補の課題。skill は技能の順位(小さいほど先に出す)、position は同じ技能の中での出しやすさの順 */
+interface Option {
+  def: TaskDef;
+  skill: number;
+  position: number;
+}
+
+/**
+ * base(分)に候補の課題を足して、合計が 30分を超え上限以内になるように選ぶ。
+ * 候補は優先順(同じ順位の形式を先に、技能の順位の順)に見て、残りの候補の組み合わせで window に届くなら入れる。
+ * 30分を超えたら止める。これで、29分や30分で止まって上限を超える課題しか残らない、ということが起きない。
+ */
+function fillToWindow(options: Option[], base: number): Option[] {
+  const n = options.length;
+  // reach[i][s]: options[i..] の組み合わせで、分数の合計がちょうど s になるものがあるか(上限まで)
+  const reach: boolean[][] = Array.from({ length: n + 1 }, () => new Array<boolean>(MENU_LIMIT_MINUTES + 1).fill(false));
+  reach[n]![0] = true;
+  for (let i = n - 1; i >= 0; i--) {
+    const m = options[i]!.def.minutes;
+    for (let s = 0; s <= MENU_LIMIT_MINUTES; s++) {
+      reach[i]![s] = reach[i + 1]![s] === true || (s >= m && reach[i + 1]![s - m] === true);
+    }
+  }
+  const inWindow = (t: number) => t > MENU_MINUTES && t <= MENU_LIMIT_MINUTES;
+  // options[i..] を足して window に届けられるか
+  const feasible = (i: number, t: number) => {
+    for (let s = 0; s <= MENU_LIMIT_MINUTES; s++) {
+      if (reach[i]![s] && inWindow(t + s)) return true;
+    }
+    return false;
+  };
+  if (!feasible(0, base)) return [];
+  const picks: Option[] = [];
+  let total = base;
+  for (let i = 0; i < n && total <= MENU_MINUTES; i++) {
+    const option = options[i]!;
+    if (total + option.def.minutes <= MENU_LIMIT_MINUTES && feasible(i + 1, total + option.def.minutes)) {
+      picks.push(option);
+      total += option.def.minutes;
+    }
+  }
+  return picks;
+}
+
+/** 復習の時間の目安。上限は7分にする(2つの復習と、スピーキングと、単語帳を合わせても、残りの課題で30〜35分に届くように) */
+const reviewMinutes = (due: number) => Math.min(7, Math.max(3, Math.round(due * 0.7)));
 
 /**
  * 今日学習した時間から、課題が済んだかを判断する。復習は、復習日になっている問題がなくなったら済み。
@@ -235,30 +285,36 @@ function buildPlan(summary: StatsSummary, seed: number, excluded: Skill[]): Menu
     total += wordbook.minutes;
   }
 
+  // スピーキングは毎日の枠に入れる(声を出せる通常のメニューのみ。スピーキングなしのメニューには入れない)
+  const chosen = new Set(tasks.map((t) => t.id));
+  if (!excluded.includes("speaking")) {
+    const speaking = pickTask(CATALOG.filter((d) => d.skill === "speaking"), summary, seed);
+    if (speaking) {
+      tasks.push(taskOf(speaking));
+      chosen.add(`${speaking.skill}:${speaking.type}`);
+      total += speaking.minutes;
+    }
+  }
+
   const ranked = scoreSkills(summary)
     // 語彙の枠は単語帳で入れ済み
     .filter((s) => !excluded.includes(s.skill) && s.skill !== "vocab")
     .sort((a, b) => b.score - a.score);
 
-  // 合計が30分を超えるまで、技能の順位の順に1つずつ入れる。1周して足りなければ、
-  // 同じ順位でもう一周し、その技能のまだ入れていない別の形式を足す(上限は MENU_LIMIT_MINUTES)
-  const chosen = new Set(tasks.map((t) => t.id));
-  let added = true;
-  while (total <= MENU_MINUTES && added) {
-    added = false;
-    for (const s of ranked) {
-      if (total > MENU_MINUTES) break;
-      const picked = pickTask(
-        CATALOG.filter((d) => d.skill === s.skill && !chosen.has(`${d.skill}:${d.type}`)),
-        summary,
-        seed,
-      );
-      if (!picked || total + picked.minutes > MENU_LIMIT_MINUTES) continue;
-      tasks.push(taskOf(picked));
-      chosen.add(`${picked.skill}:${picked.type}`);
-      total += picked.minutes;
-      added = true;
-    }
+  // 合計を 30分を超え上限以内に収める課題を足す。技能の順位・形式の出しやすさの順を優先する(組み合わせは fillToWindow)
+  const options: Option[] = [];
+  ranked.forEach((s, skillRank) => {
+    const defs = CATALOG.filter((d) => d.skill === s.skill && !chosen.has(`${d.skill}:${d.type}`));
+    rankTasks(defs, summary, seed).forEach((def, position) => options.push({ def, skill: skillRank, position }));
+  });
+  // 同じ順位の形式を先に(技能ごとに1つずつ、そのあとで2つ目の形式)
+  options.sort((a, b) => a.position - b.position || a.skill - b.skill);
+  // 並べるときは技能の順位の順(今日すでに学習した技能は後ろに並ぶ)
+  const filled = fillToWindow(options, total).sort((a, b) => a.skill - b.skill || a.position - b.position);
+  for (const { def } of filled) {
+    tasks.push(taskOf(def));
+    chosen.add(`${def.skill}:${def.type}`);
+    total += def.minutes;
   }
 
   return { tasks: markDone(tasks, summary), totalMinutes: total };

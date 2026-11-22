@@ -44,7 +44,7 @@ function makeSummary(o: Options = {}): StatsSummary {
 const FULL_WEEK = Object.fromEntries(SKILLS.map((s) => [s, 2520])) as Record<Skill, number>;
 
 /** メニューの合計時間の上限(分) */
-const MENU_LIMIT = 50;
+const MENU_LIMIT = 35;
 
 /** 通常のメニュー */
 const normalMenu = (o: Options = {}, seed = 0) => buildTodayMenu(makeSummary(o), seed).normal;
@@ -81,6 +81,32 @@ describe("buildTodayMenu(通常)", () => {
             expect(menu.totalMinutes).toBeLessThanOrEqual(MENU_LIMIT);
           }
         }
+      }
+    }
+  });
+
+  it("復習の量・記録の組み合わせによらず、31〜35分に収まる(30分で止まったり、上限を超えたりしない)", () => {
+    for (let due = 0; due <= 40; due += 2) {
+      const review: Record<string, ReviewSummary> = {
+        vocab: { feature: "vocab", due, pending: 0 },
+        grammar: { feature: "grammar", due: due / 2, pending: 0 },
+      };
+      for (let seed = 0; seed < 8; seed++) {
+        for (const o of [{}, { week: FULL_WEEK }, { week: FULL_WEEK, today: { listening: 600, reading: 900 } }]) {
+          for (const menu of [normalMenu({ ...o, review }, seed), quietMenu({ ...o, review }, seed)]) {
+            expect(menu.totalMinutes, `due=${due} seed=${seed}`).toBeGreaterThan(MENU_MINUTES);
+            expect(menu.totalMinutes, `due=${due} seed=${seed}`).toBeLessThanOrEqual(MENU_LIMIT);
+          }
+        }
+      }
+    }
+  });
+
+  it("毎日の通常のメニューには、スピーキングが必ず入る(スピーキングなしのメニューには入らない)", () => {
+    for (let seed = 0; seed < 30; seed++) {
+      for (const o of [{}, { week: FULL_WEEK, today: { speaking: 600 } }]) {
+        expect(normalMenu(o, seed).tasks.some((t) => t.skill === "speaking"), `seed=${seed}`).toBe(true);
+        expect(quietMenu(o, seed).tasks.some((t) => t.skill === "speaking")).toBe(false);
       }
     }
   });
