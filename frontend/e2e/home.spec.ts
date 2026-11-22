@@ -51,6 +51,8 @@ test.describe("ホームの今週の学習", () => {
     await expect(section).toBeVisible();
     await expect(section.getByText("45分・45問・正答率 80%")).toBeVisible();
     await expect(section.getByText("まだ学習していません")).toBeVisible(); // スピーキング
+    // 形式別の内訳は、既定では閉じている。開いてから表を確かめる
+    await section.getByText("形式別の内訳").click();
     await expect(section.getByRole("table").getByText("TOEIC Part 3")).toBeVisible();
 
     // 「今日のメニュー」より下にある
@@ -72,7 +74,8 @@ test.describe("ホームの今週の学習", () => {
     expect(overflow).toBeLessThanOrEqual(0);
     await section.screenshot({ path: "test-results/weekly-mobile.png" });
 
-    await page.getByRole("button", { name: /^配色:/ }).click(); // 端末に合わせる → ダーク
+    await page.getByRole("button", { name: "メニュー", exact: true }).click();
+    await page.getByRole("group", { name: "配色" }).getByRole("button", { name: "ダーク" }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     await section.screenshot({ path: "test-results/weekly-mobile-dark.png" });
   });

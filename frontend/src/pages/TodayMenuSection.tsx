@@ -148,12 +148,12 @@ export default function TodayMenuSection() {
       {plan.tasks.length === 0 ? (
         <p className="text-sm text-slate-600">今日のメニューを作れませんでした。</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-1">
           {plan.tasks.map((t, i) => (
             <li key={t.id}>
               <button
                 onClick={() => navigate(t.review ? t.path : withLevel(t.path, loadSavedLevel()))}
-                className={`w-full text-left rounded-md border px-3 py-2.5 flex items-center gap-3 transition-colors hover:bg-slate-50 ${
+                className={`w-full text-left rounded-md border px-3 py-1.5 flex items-center gap-3 transition-colors hover:bg-slate-50 ${
                   t.review ? "border-l-4 border-l-[#c0392b] border-slate-200" : "border-slate-200"
                 } ${t.done ? "bg-slate-50" : ""}`}
               >

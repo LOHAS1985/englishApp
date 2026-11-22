@@ -126,7 +126,7 @@ export default function WeeklyStatsSection() {
           </ul>
 
           {report.types.length > 0 && (
-            <details className="mt-5" open>
+            <details className="mt-5">
               <summary className="cursor-pointer text-sm font-semibold text-slate-700">形式別の内訳</summary>
               <div className="mt-2 overflow-x-auto">
                 <table className="w-full text-sm">

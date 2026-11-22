@@ -1,20 +1,26 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { FIXTURES, mockApi } from "./mockApi.ts";
 
 const BASE = "/englishApp";
+
+/** ヘッダーの「メニュー」を開く(表示の設定と学習記録はここに入っている) */
+async function openMenu(page: Page) {
+  await page.getByRole("button", { name: "メニュー", exact: true }).click();
+}
 
 test.describe("表示サイズ", () => {
   test("文字の大きさ・全幅・ダークが反映され、リロードしても残る", async ({ page }) => {
     await mockApi(page);
     await page.goto(`${BASE}/mock`);
 
-    await page.getByRole("button", { name: "文字を大きくする" }).click();
-    await page.getByRole("button", { name: "文字を大きくする" }).click();
-    await page.getByRole("button", { name: "全幅" }).click();
-    await page.getByRole("button", { name: /^配色:/ }).click(); // 端末に合わせる → ダーク
+    await openMenu(page);
+    await page.getByRole("group", { name: "文字の大きさ" }).getByRole("button", { name: "特大" }).click();
+    await page.getByRole("button", { name: "問題を全幅に広げる" }).click();
+    await page.getByRole("group", { name: "配色" }).getByRole("button", { name: "ダーク" }).click();
+    await page.keyboard.press("Escape");
 
     const html = page.locator("html");
-    await expect(html).toHaveCSS("font-size", "20.8px"); // 130% × 16px
+    await expect(html).toHaveCSS("font-size", "24px"); // 150% × 16px
     await expect(html).toHaveAttribute("data-wide", "");
     await expect(html).toHaveAttribute("data-theme", "dark");
     const card = page.locator(".question-card");
@@ -23,18 +29,17 @@ test.describe("表示サイズ", () => {
 
     await page.reload();
     await expect(html).toHaveAttribute("data-theme", "dark");
-    await expect(html).toHaveCSS("font-size", "20.8px");
+    await expect(html).toHaveCSS("font-size", "24px");
   });
 
-  test("「自動」は画面の幅から文字の大きさを決めて全幅にする", async ({ page }) => {
+  test("メニューに学習記録があり、Esc で閉じる", async ({ page }) => {
     await mockApi(page);
-    await page.setViewportSize({ width: 1500, height: 900 });
     await page.goto(`${BASE}/mock`);
 
-    await page.getByRole("button", { name: "自動" }).click();
-
-    await expect(page.locator("html")).toHaveCSS("font-size", "24px"); // 1440〜1919px は 150%
-    await expect(page.locator("html")).toHaveAttribute("data-wide", "");
+    await openMenu(page);
+    await expect(page.getByRole("link", { name: "学習記録", exact: true })).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("link", { name: "学習記録", exact: true })).toHaveCount(0);
   });
 });
 
