@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 
 /** TOEIC Part 5 形式の文法問題を、リポジトリ内の問題集(GrammarQuestionBank)から出題・採点する */
 @Service
@@ -63,12 +64,13 @@ public class GrammarService {
     ChoiceQuestion q = questionBank.findById(request.getQuestionId())
         .orElseThrow(() -> new QuestionNotFoundException("問題が見つかりません。再度出題してください。"));
 
+    String selected = normalizeChoice(q, request.getSelectedChoice());
     boolean isCorrect;
     if (studyLogService.isRecorded(request.getClientRequestId())) {
-      isCorrect = q.answer().equalsIgnoreCase(request.getSelectedChoice());
+      isCorrect = q.answer().equalsIgnoreCase(selected);
     } else {
       LocalDateTime answeredAt = StudyLogService.answeredAt(request.getAnsweredAt());
-      isCorrect = saveRecord(q, request.getSelectedChoice(), answeredAt);
+      isCorrect = saveRecord(q, selected, answeredAt);
       studyLogService.log("grammar", "toeic-part5", q.id(), isCorrect ? 1 : 0, 1, request.getDurationSeconds(),
           request.getClientRequestId(), answeredAt);
     }
@@ -105,6 +107,20 @@ public class GrammarService {
     grammarRecordRepository.save(record);
     reviewService.record("grammar", q.id(), isCorrect, answeredAt);
     return isCorrect;
+  }
+
+  /**
+   * 選んだ記号を、問題の選択肢のどれかに揃える(前後の空白・大文字小文字を直す)。
+   * 空や選択肢にない記号は、記録せずに 400 で返す(空の記号を保存すると、記録の列の制約に当たって 500 になり、
+   * 画面の送信待ちの列がそこで止まってしまうため)。
+   */
+  static String normalizeChoice(ChoiceQuestion q, String selected) {
+    String label = selected == null ? "" : selected.trim().toUpperCase(Locale.ROOT);
+    boolean known = q.choices().stream().anyMatch(c -> c.label().equals(label));
+    if (!known) {
+      throw new IllegalArgumentException("選択肢(A〜D)から選んでください");
+    }
+    return label;
   }
 
   private String textFor(List<GrammarChoice> choices, String label) {
