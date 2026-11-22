@@ -173,3 +173,25 @@ describe("ChoiceQuiz: 単語帳に追加(語彙の問題)", () => {
     expect(screen.queryByRole("button", { name: /単語帳に追加/ })).toBeNull();
   });
 });
+
+describe("ChoiceQuiz: 次の問題の先読み", () => {
+  it("解答する前には先読みせず、解答したあとに、解いた問題を除いて次を選ぶ", async () => {
+    const fetchQuestion = vi.fn(async () => QUESTION);
+    const submitAnswer = vi.fn(async () => result(true));
+    render(
+      <MemoryRouter>
+        <ChoiceQuiz fetchQuestion={fetchQuestion} submitAnswer={submitAnswer} />
+      </MemoryRouter>,
+    );
+    await screen.findByText(/She ____ to the office/);
+
+    // 出題の直後は、まだ次を選ばない(いま解く問題の正誤を出題に反映するため)
+    expect(fetchQuestion).toHaveBeenCalledTimes(1);
+
+    await userEvent.keyboard("2");
+    await screen.findByText("正解です");
+
+    await waitFor(() => expect(fetchQuestion).toHaveBeenCalledTimes(2));
+    expect(fetchQuestion).toHaveBeenLastCalledWith("g0001");
+  });
+});

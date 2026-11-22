@@ -19,6 +19,9 @@ export default function Recorder({ maxSeconds, onTranscript, onStop }: Props) {
   const timerRef = useRef<number | null>(null);
   const autoStopRef = useRef<number | null>(null);
   const startedAtRef = useRef(0);
+  /** マイクの許可を待っている間に再度押されても、録音機を2つ作らない */
+  const startingRef = useRef(false);
+  const urlRef = useRef<string | null>(null);
   const onStopRef = useRef(onStop);
   useEffect(() => {
     onStopRef.current = onStop;
@@ -42,7 +45,20 @@ export default function Recorder({ maxSeconds, onTranscript, onStop }: Props) {
     }
   }, []);
 
-  useEffect(() => () => stop(), [stop]);
+  /** 録音の再生用の URL を差し替える。古い URL は解放する(録り直すたびにメモリが残らないように) */
+  const replaceUrl = (next: string | null) => {
+    if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+    urlRef.current = next;
+    setUrl(next);
+  };
+
+  useEffect(
+    () => () => {
+      stop();
+      if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+    },
+    [stop],
+  );
 
   const startRecognition = () => {
     const Ctor = getRecognitionConstructor();
@@ -77,6 +93,8 @@ export default function Recorder({ maxSeconds, onTranscript, onStop }: Props) {
   };
 
   const start = async () => {
+    if (startingRef.current || mediaRef.current) return;
+    startingRef.current = true;
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const recorder = new MediaRecorder(stream);
@@ -84,12 +102,12 @@ export default function Recorder({ maxSeconds, onTranscript, onStop }: Props) {
       recorder.ondataavailable = (e) => chunks.push(e.data);
       recorder.onstop = () => {
         stream.getTracks().forEach((t) => t.stop());
-        setUrl(URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType })));
+        replaceUrl(URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType })));
       };
       recorder.start();
       mediaRef.current = recorder;
       startedAtRef.current = Date.now();
-      setUrl(null);
+      replaceUrl(null);
       setSeconds(0);
       setRecording(true);
       onTranscript?.("");
@@ -99,6 +117,8 @@ export default function Recorder({ maxSeconds, onTranscript, onStop }: Props) {
       autoStopRef.current = window.setTimeout(stop, maxSeconds * 1000);
     } catch {
       alert("マイクを使用できません。ブラウザのマイクの許可を確認してください。");
+    } finally {
+      startingRef.current = false;
     }
   };
 

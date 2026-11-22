@@ -53,6 +53,9 @@ export default function Speaking() {
     }
   }, []);
 
+  /** 取得に失敗したときの「もう一度試す」で増やし、最初の取得をやり直す */
+  const [reloadKey, setReloadKey] = useState(0);
+
   useEffect(() => {
     let cancelled = false;
     // 前回の途中の文字起こしがあれば、同じセットを出し直して続きから練習できるようにする
@@ -73,7 +76,7 @@ export default function Speaking() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [reloadKey]);
 
   useEffect(() => {
     if (prepLeft === null || prepLeft <= 0) return;
@@ -109,7 +112,22 @@ export default function Speaking() {
       <div className="flex justify-center px-4 py-8 sm:px-5 sm:py-12">
         <div className="w-full max-w-[47.5rem] question-card bg-white border border-slate-200 rounded-md p-5 sm:p-8">
           {loading && <p className="text-sm text-slate-400">読み込み中…</p>}
-          {!loading && !set && <p className="text-sm text-[#c0392b]">問題の取得に失敗しました。</p>}
+          {!loading && !set && (
+            <div>
+              <p className="text-sm text-[#c0392b] mb-3">
+                問題の取得に失敗しました(サーバーが起動中の可能性があります)。
+              </p>
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  setReloadKey((k) => k + 1);
+                }}
+                className="text-sm font-semibold text-white bg-[#16233d] rounded px-5 py-3 hover:bg-[#23365c] transition-colors"
+              >
+                もう一度試す
+              </button>
+            </div>
+          )}
 
           {!loading && set && (
             <div className="space-y-6">

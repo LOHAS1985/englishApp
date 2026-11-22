@@ -98,6 +98,21 @@ function loadOutbox(): OutboxEntry[] {
   return entries;
 }
 
+const outboxListeners = new Set<() => void>();
+
+/** 送信待ちの件数が変わったときの通知を受ける(画面の「未送信 n 件」の表示用)。別のタブでの変更も受ける */
+export function subscribeOutbox(listener: () => void) {
+  outboxListeners.add(listener);
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === OUTBOX_KEY) listener();
+  };
+  window.addEventListener("storage", onStorage);
+  return () => {
+    outboxListeners.delete(listener);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
 function saveOutbox(entries: OutboxEntry[]) {
   memoryOutbox = entries;
   try {
@@ -105,6 +120,7 @@ function saveOutbox(entries: OutboxEntry[]) {
   } catch {
     storageUnusable = true;
   }
+  outboxListeners.forEach((listener) => listener());
 }
 
 function cachedHistory(feature: PracticeFeature): AnswerRow[] {

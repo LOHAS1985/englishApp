@@ -468,6 +468,7 @@ function QuestionBlock({
             <button
               key={letter}
               onClick={() => onChange(letter)}
+              aria-pressed={selected}
               className={`w-full text-left border rounded px-3 py-2.5 text-sm transition-colors ${
                 selected ? "border-[#8fae4e] bg-[#f2f7ea]" : "border-slate-200 hover:border-[#8fae4e]"
               }`}

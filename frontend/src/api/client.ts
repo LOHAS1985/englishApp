@@ -285,6 +285,8 @@ export async function synthesizeListeningAudio(setId: string) {
     `/api/listening/practice/${setId}/audio`,
     "音声の生成に失敗しました",
     { method: "POST" },
+    // サーバーは音声の作成を最大2分待つので、画面もそれより長く待つ
+    150_000,
   );
 }
 

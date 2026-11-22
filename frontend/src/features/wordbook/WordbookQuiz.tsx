@@ -42,6 +42,8 @@ export default function WordbookQuiz() {
   const [question, setQuestion] = useState<Question | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  /** 解答・色の変更に失敗したときの文言。問題は消さずに、問題の下に出す */
+  const [actionError, setActionError] = useState("");
   const [count, setCount] = useState(0);
   const [result, setResult] = useState<WordbookAnswerResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -98,6 +100,7 @@ export default function WordbookQuiz() {
 
   const nextQuestion = async () => {
     setError("");
+    setActionError("");
     setResult(null);
     setSelected(null);
     setTyped("");
@@ -124,10 +127,13 @@ export default function WordbookQuiz() {
     if (!question || question.kind !== "choice" || result || submitting) return;
     setSelected(meaning);
     setSubmitting(true);
+    setActionError("");
     try {
       finish(await submitWordbookChoice(question.data.wordId, meaning, secondsSince(shownAtRef.current)));
     } catch (e) {
-      setError(e instanceof Error ? e.message : "採点に失敗しました");
+      // 問題は消さず、選び直せるようにする(通信が戻ればもう一度選ぶだけで採点できる)
+      setSelected(null);
+      setActionError(e instanceof Error ? e.message : "採点に失敗しました");
     } finally {
       setSubmitting(false);
     }
@@ -137,10 +143,12 @@ export default function WordbookQuiz() {
     e.preventDefault();
     if (!question || question.kind !== "fill" || result || submitting || typed.trim() === "") return;
     setSubmitting(true);
+    setActionError("");
     try {
       finish(await submitWordbookFill(question.data.wordId, typed, secondsSince(shownAtRef.current)));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "採点に失敗しました");
+      // 入力した答えは残し、もう一度「回答」を押せるようにする
+      setActionError(err instanceof Error ? err.message : "採点に失敗しました");
     } finally {
       setSubmitting(false);
     }
@@ -174,7 +182,7 @@ export default function WordbookQuiz() {
       await setWordbookColor(question.data.wordId, next);
       setColor(next);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "色の変更に失敗しました");
+      setActionError(e instanceof Error ? e.message : "色の変更に失敗しました");
     }
   };
 
@@ -228,6 +236,11 @@ export default function WordbookQuiz() {
                   </button>
                 ))}
               </div>
+              {actionError && (
+                <p role="alert" className="mt-4 text-sm text-[#c0392b]">
+                  {actionError}
+                </p>
+              )}
             </div>
           )}
 
@@ -258,6 +271,11 @@ export default function WordbookQuiz() {
                     回答
                   </button>
                 </form>
+              )}
+              {actionError && (
+                <p role="alert" className="mt-4 text-sm text-[#c0392b]">
+                  {actionError}
+                </p>
               )}
             </div>
           )}

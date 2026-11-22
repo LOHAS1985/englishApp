@@ -201,3 +201,29 @@ describe("単語帳の穴埋め: ヒント", () => {
     expect(screen.getByText("m________ (9文字)")).toBeTruthy();
   });
 });
+
+describe("単語帳の4択: 採点に失敗したとき", () => {
+  it("問題を消さず、選び直せる", async () => {
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "defer"))
+      .mockReturnValue(new Promise(() => {}));
+    vi.mocked(submitWordbookChoice)
+      .mockRejectedValueOnce(new Error("通信できませんでした"))
+      .mockResolvedValueOnce(RESULT);
+
+    renderQuiz();
+    await screen.findByText("defer");
+
+    await userEvent.click(screen.getByRole("button", { name: "延期する" }));
+
+    expect((await screen.findByRole("alert")).textContent).toContain("通信できませんでした");
+    // 問題と選択肢は残り、もう一度選べる
+    expect(screen.getByText("defer")).toBeTruthy();
+    const again = screen.getByRole("button", { name: "延期する" }) as HTMLButtonElement;
+    expect(again.disabled).toBe(false);
+
+    await userEvent.click(again);
+    await waitFor(() => expect(submitWordbookChoice).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(screen.queryByRole("alert")).toBeNull());
+  });
+});

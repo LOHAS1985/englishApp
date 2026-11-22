@@ -36,6 +36,9 @@ export default function Writing() {
   const [restored, setRestored] = useState(false);
   /** 形式ごとに下書きを1つ持つ(意見論述の途中で要約を開いても、意見論述の下書きは残る) */
   const draftFeature = `writing-${type}`;
+  /** 下書きのお題を取得できなかった(サーバーが起動中など)。下書きは残してあるので、再試行を促す */
+  const [restoreFailed, setRestoreFailed] = useState(false);
+  const [restoreKey, setRestoreKey] = useState(0);
 
   // 前回の途中の答案があれば、同じお題を出し直して続きから書けるようにする
   useEffect(() => {
@@ -56,12 +59,12 @@ export default function Writing() {
           clearDraft(draftFeature);
         }
       })
-      .catch(() => {})
+      .catch(() => !cancelled && setRestoreFailed(true))
       .finally(() => !cancelled && setLoading(false));
     return () => {
       cancelled = true;
     };
-  }, [type, draftFeature]);
+  }, [type, draftFeature, restoreKey]);
 
   // 入力のたびに下書きを保存する(採点後は不要なので消す)
   useEffect(() => {
@@ -105,6 +108,13 @@ export default function Writing() {
   const progress = Math.min(wordCount / TARGET_MAX, 1) * 100;
 
   const handleFetch = async () => {
+    // 下書きを取り戻せていないのに新しいお題を出すと、下書きが消える(答えが空のお題で、保存の処理が下書きを消すため)
+    if (!question && loadDraft<string>(draftFeature) !== null) {
+      const discard = window.confirm("前回の下書きが残っています。破棄して、新しいお題を出しますか?");
+      if (!discard) return;
+      clearDraft(draftFeature);
+      setRestoreFailed(false);
+    }
     setLoading(true);
     setResult(null);
     try {
@@ -146,6 +156,22 @@ export default function Writing() {
       <div className="flex justify-center px-5 py-12">
         <div className="w-full max-w-[40rem] question-card bg-white border border-slate-200 rounded-md p-9">
           {/* 形式(意見論述・要約)はホームで選ぶ。お題は採点に AI を使うサーバーから出す */}
+          {!question && restoreFailed && (
+            <div className="mb-4 rounded border border-amber-200 bg-amber-50 p-3 text-sm text-slate-700">
+              前回の下書きのお題を取得できませんでした(サーバーが起動中の可能性があります)。下書きは残してあります。
+              <button
+                onClick={() => {
+                  setRestoreFailed(false);
+                  setLoading(true);
+                  setRestoreKey((k) => k + 1);
+                }}
+                className="ml-2 text-[#2463a8] hover:underline"
+              >
+                もう一度試す
+              </button>
+            </div>
+          )}
+
           {!question && (
             <button
               onClick={handleFetch}

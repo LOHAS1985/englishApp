@@ -64,14 +64,15 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
   const [wordbookNote, setWordbookNote] = useState<{ questionId: string; text: string; done: boolean } | null>(null);
   const [addingWord, setAddingWord] = useState(false);
 
-  // 回答中に次の問題を先読みしておき、「次の問題」を押したら待たずに表示する
+  // 解答したら次の問題を先読みしておき、「次の問題」を押したら待たずに表示する。
+  // 解答の前に選ぶと、いま解く問題の正誤が出題(難易度の目標・間違えた問題の出し直し)に反映されない
   const prefetchRef = useRef<Promise<GrammarQuestion | null> | null>(null);
 
   const showQuestion = (data: GrammarQuestion) => {
     setQuestion(data);
     setChoices(toDisplayChoices(data));
     shownAtRef.current = Date.now();
-    prefetchRef.current = fetchQuestion(data.id).catch(() => null);
+    prefetchRef.current = null;
   };
 
   const loadQuestion = async () => {
@@ -106,7 +107,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
           setQuestion(data);
           setChoices(toDisplayChoices(data));
           shownAtRef.current = Date.now();
-          prefetchRef.current = fetchQuestion(data.id).catch(() => null);
+          prefetchRef.current = null;
         }
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : "出題に失敗しました");
@@ -130,6 +131,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
       const seconds = secondsSince(shownAtRef.current);
       const data = await submitAnswer(question.id, choice.original, seconds);
       setResult(data);
+      prefetchRef.current = fetchQuestion(question.id).catch(() => null);
       setTally((t) => addToTally(t, { total: 1, correct: data.correct ? 1 : 0, seconds }));
     } catch {
       alert("採点に失敗しました");

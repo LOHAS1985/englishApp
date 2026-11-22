@@ -1,20 +1,23 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { flushOutbox } from "./api/client";
 import Home from "./pages/Home";
-import Writing from "./features/writing/Writing";
 import Grammar from "./features/grammar/Grammar";
 import Listening from "./features/listening/Listening";
-import Speaking from "./features/speaking/Speaking";
 import Vocab from "./features/vocab/Vocab";
 import ReadingPractice from "./features/reading/ReadingPractice";
-import Admin from "./pages/Admin";
-import MyPage from "./pages/MyPage";
 import DeviceGate from "./features/device/DeviceGate";
-import Mock from "./features/mock/Mock";
-import Wordbook from "./features/wordbook/Wordbook";
-import WordbookQuiz from "./features/wordbook/WordbookQuiz";
-import WordbookList from "./features/wordbook/WordbookList";
+import StatusNotice from "./shared/components/StatusNotice";
+
+// 使う頻度の低い画面は、開いたときに読み込む(最初に読み込む量を減らす)
+const Writing = lazy(() => import("./features/writing/Writing"));
+const Speaking = lazy(() => import("./features/speaking/Speaking"));
+const Admin = lazy(() => import("./pages/Admin"));
+const MyPage = lazy(() => import("./pages/MyPage"));
+const Mock = lazy(() => import("./features/mock/Mock"));
+const Wordbook = lazy(() => import("./features/wordbook/Wordbook"));
+const WordbookQuiz = lazy(() => import("./features/wordbook/WordbookQuiz"));
+const WordbookList = lazy(() => import("./features/wordbook/WordbookList"));
 
 export default function App() {
   // 前回送れなかった解答記録を送る。オンラインに戻ったとき・画面に戻ってきたときにも再送する
@@ -33,6 +36,8 @@ export default function App() {
   return (
     <BrowserRouter basename="/englishApp">
       <DeviceGate />
+      <StatusNotice />
+      <Suspense fallback={<p className="p-6 text-sm text-slate-400">読み込み中…</p>}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/writing" element={<Writing />} />
@@ -50,6 +55,7 @@ export default function App() {
         {/* catch-all: redirect unknown paths to home (handles invalid public base URLs) */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

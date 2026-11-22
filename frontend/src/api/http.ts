@@ -46,11 +46,58 @@ export function hasDeviceToken() {
   return loadDeviceToken() !== "";
 }
 
-export async function send(path: string, fallbackError: string, init?: RequestInit) {
+/** サーバーの応答を待つ上限。Render の無料プランは眠っていると起動に約1分かかるので、それより長くする */
+export const REQUEST_TIMEOUT_MS = 90_000;
+/** これだけ待っても応答がなければ、「サーバーを起動しています」と知らせる */
+export const WAKING_NOTICE_MS = 5_000;
+
+// 応答が遅い(サーバーが起動中の可能性がある)リクエストの数。画面の通知(ServerWakingNotice)が購読する
+let slowRequests = 0;
+const slowListeners = new Set<() => void>();
+const notifySlow = () => slowListeners.forEach((listener) => listener());
+
+export function subscribeServerWaking(listener: () => void) {
+  slowListeners.add(listener);
+  return () => void slowListeners.delete(listener);
+}
+
+/** 応答を待たされているリクエストがあるか */
+export const isServerWaking = () => slowRequests > 0;
+
+/**
+ * API を呼ぶ。待ちの上限(timeoutMs)を超えたら打ち切る。通信の失敗は、ブラウザの英語のメッセージ(Failed to fetch など)
+ * ではなく日本語の文言にする。5秒たっても応答がなければ、サーバー起動中の通知を出す。
+ */
+export async function send(path: string, fallbackError: string, init?: RequestInit, timeoutMs = REQUEST_TIMEOUT_MS) {
   const headers = new Headers(init?.headers);
   const token = loadDeviceToken();
   if (token) headers.set("X-Device-Token", token);
-  const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
+
+  const controller = new AbortController();
+  const timeoutTimer = setTimeout(() => controller.abort(), timeoutMs);
+  let slow = false;
+  const slowTimer = setTimeout(() => {
+    slow = true;
+    slowRequests++;
+    notifySlow();
+  }, WAKING_NOTICE_MS);
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${path}`, { ...init, headers, signal: controller.signal });
+  } catch {
+    throw new Error(
+      controller.signal.aborted
+        ? "サーバーから応答がありません。しばらくしてから、もう一度お試しください"
+        : "通信できませんでした。電波やネットワークの接続を確認して、もう一度お試しください",
+    );
+  } finally {
+    clearTimeout(timeoutTimer);
+    clearTimeout(slowTimer);
+    if (slow) {
+      slowRequests--;
+      notifySlow();
+    }
+  }
   if (res.status === 401) {
     window.dispatchEvent(new Event(DEVICE_REGISTRATION_REQUIRED_EVENT));
     throw new HttpError(401, await errorMessage(res, "この端末は登録されていません"));
@@ -59,8 +106,8 @@ export async function send(path: string, fallbackError: string, init?: RequestIn
   return res;
 }
 
-export async function getJson<T>(path: string, fallbackError: string, init?: RequestInit) {
-  const res = await send(path, fallbackError, init);
+export async function getJson<T>(path: string, fallbackError: string, init?: RequestInit, timeoutMs?: number) {
+  const res = await send(path, fallbackError, init, timeoutMs);
   return res.json() as Promise<T>;
 }
 

@@ -15,7 +15,10 @@
 
 const BASE = "/englishApp/";
 // キャッシュの世代。この Service Worker の処理内容を変えたら数字を上げる。古い世代は activate で消す
-const CACHE_NAME = "englishApp-v1";
+const CACHE_NAME = "englishApp-v2";
+// 保存するファイル(app shell を除く)の上限。デプロイのたびにハッシュ付きの新しいファイルが増えるので、
+// 超えたら古い順(保存した順)に消す。消えたファイルは、必要になったときに取り直す
+const MAX_ASSET_ENTRIES = 80;
 // オフラインでも開けるように、install で先に保存する最小限のファイル(app shell)
 const SHELL_URLS = [`${BASE}index.html`, `${BASE}manifest.webmanifest`, `${BASE}favicon.svg`];
 const SHELL_INDEX = `${BASE}index.html`;
@@ -80,8 +83,8 @@ async function networkFirstPage(request) {
     const response = await fetch(request);
     // 404 など失敗の応答は保存しない(保存した index.html が壊れた画面になるのを防ぐ)
     if (response.ok) {
-      const cache = await caches.open(CACHE_NAME);
-      await cache.put(SHELL_INDEX, response.clone());
+      // 保存に失敗しても(容量の上限など)、取れた画面はそのまま返す
+      await safePut(await caches.open(CACHE_NAME), SHELL_INDEX, response.clone());
     }
     return response;
   } catch {
@@ -106,7 +109,33 @@ async function cacheFirst(request) {
   const response = await fetch(request);
   // 同一オリジンの成功した応答だけ保存する(失敗の応答を保存すると、次回以降もずっと失敗する)
   if (response.ok && response.type === "basic") {
-    await cache.put(request, response.clone());
+    // 保存に失敗しても、取れたファイルはそのまま返す(保存の失敗で読み込み自体を失敗させない)
+    await safePut(cache, request, response.clone());
+    await trimCache(cache);
   }
   return response;
+}
+
+// 保存。容量の上限などで失敗しても例外にしない
+async function safePut(cache, request, response) {
+  try {
+    await cache.put(request, response);
+  } catch {
+    // 保存できなくても、通信で取れた応答は使える
+  }
+}
+
+// 保存したファイルが上限を超えたら、古い順に消す。app shell は消さない
+async function trimCache(cache) {
+  try {
+    const keys = await cache.keys();
+    const shell = new Set(SHELL_URLS.map((url) => new URL(url, self.location.origin).href));
+    const removable = keys.filter((request) => !shell.has(request.url));
+    const excess = removable.length - MAX_ASSET_ENTRIES;
+    for (const request of removable.slice(0, Math.max(0, excess))) {
+      await cache.delete(request);
+    }
+  } catch {
+    // 整理に失敗しても、表示には影響しない
+  }
 }
