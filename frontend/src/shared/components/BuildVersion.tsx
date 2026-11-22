@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchBackendCommit } from "../../api/client";
-import { FRONTEND_COMMIT, FRONTEND_COMMIT_DATE, formatJst } from "../buildInfo";
+import { FRONTEND_COMMIT, FRONTEND_COMMIT_DATE, FRONTEND_VERSION, formatJst } from "../buildInfo";
 
 /**
- * 開いている画面の版(作った commit と日時)と、つながっているサーバーの commit を小さく出す。
- * 2つの commit が違えば「版が違います」と出す(サーバーの反映が遅い、または画面が古い)。
+ * 開いている画面の版(番号と日時)を小さく出す。
+ * つながっているサーバーの commit がこの画面と違えば、「サーバーが別の版です」と出す(反映が遅い、または画面が古い)。
  */
 export default function BuildVersion() {
   const [server, setServer] = useState<string | null>(null);
@@ -23,11 +23,12 @@ export default function BuildVersion() {
   const comparable = FRONTEND_COMMIT !== "unknown" && server !== null && server !== "local";
   const mismatch = comparable && !server.startsWith(FRONTEND_COMMIT);
 
-  const parts = [`版 ${FRONTEND_COMMIT}`];
-  const date = formatJst(FRONTEND_COMMIT_DATE);
-  if (date) parts.push(date);
-  if (server) parts.push(`サーバー ${server.slice(0, 7)}`);
-  if (mismatch) parts.push("版が違います");
+  const text = [`v${FRONTEND_VERSION}`, formatJst(FRONTEND_COMMIT_DATE)].filter(Boolean).join(" ・ ");
 
-  return <p className="text-sm leading-tight text-slate-300">{parts.join(" ・ ")}</p>;
+  return (
+    <p className="text-sm leading-tight text-slate-300">
+      {text}
+      {mismatch && <span className="ml-2 font-semibold text-white">サーバーが別の版です({server.slice(0, 7)})</span>}
+    </p>
+  );
 }

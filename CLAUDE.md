@@ -105,7 +105,7 @@
 - **AI**: Google Gemini(Spring AI `spring-ai-starter-model-google-genai`、モデル `gemini-2.5-flash`)
 - **外部API**: DeepL(翻訳。単語帳の日本語訳の調査に使う)
 - **TTS**: `backend/tts/generate_tts.py`(edge-tts 7.3.1 以上。7.2.8 は Microsoft から 403 を受けて音声を作れない。読み上げの速さは `TTS_RATE`、既定 -10%。標準だと間の無音を含めて1分に約180〜210語で、本番の試験より速い。速さを変えたら `TtsService` の `VOICE_PROFILE` も変える)+ ffmpeg。**音声はあらかじめ作って GitHub Releases に置く**(`scripts/audio/pregenerate.py`。リリース `audio-<ID を1000で割った商+1>` に `<セットID>.mp3`。画面は `features/listening/audioUrl.ts` の URL を先に再生し、無ければサーバーで作り、それも失敗すればブラウザの声)。この準備は再生ボタンを押す前に始める(`features/listening/audioPrepare.ts`。問題を出した時点で読み込み、練習では解答した時点で次のセットを選んで(`PracticeSetPage` の `onNextPicked`)、模試では次のセットの音声を先に読み込む)。サーバーで作る音声は Render のディスクに置くのでデプロイのたびに消え、edge-tts が止まると品質も下がるため。新しいセットを足したら、このPCで `scripts/audio/run-pregenerate.ps1` を実行して置く(置くまではサーバーで作るので、再生までに時間がかかる。2026-11-19 時点で `l1039` 以降は未配置)。失敗時はブラウザの `speechSynthesis` にフォールバックする。サーバーで音声を作る処理(`TtsService`)は、edge-tts のスクリプトを120秒・ffmpeg を60秒までしか待たず(超えたら強制終了)、同じ台本の同時の依頼は1つの作成を共有する。失敗の詳しい原因(パス・スクリプトの出力)は画面に返さずログだけに残す。ブラウザの声は、声の名前から性別を判断して話者に合うものを選ぶ(順番だけで選ぶと、Man も Woman も同じ男性の声になる。`features/listening/browserVoice.ts`)。音声が男女で同じ声に聞こえたら、サーバーの音声が作れず(edge-tts の版・通信)ブラウザの読み上げに切り替わっていないかを疑う
-- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。遅延初期化だと、再起動後の最初の API 呼び出しが部品の読み込みで遅くなる(本番と同じ設定のローカル実測で `/api/level` の初回は 422ms、2回目以降は約 15〜20ms。CPU 0.1 の Render では約10倍)ので、起動後に `config/WarmUp` がホーム画面で呼ぶ API(レベル・統計・復習件数・解答履歴)を別スレッドで先に呼んで温める(本番プロファイルの `app.warmup`。環境変数 `APP_WARMUP=false` で止められる。外部 DB にも接続する)。別ドメイン(GitHub Pages → Render)の API 呼び出しは、確認用の通信(CORS のプリフライト)が先に入るので、`Access-Control-Max-Age` を1時間にしてブラウザに覚えさせる(`SecurityConfig`。無いと約5秒しか覚えず、ほぼ毎回 0.2〜0.4 秒増える)。画面のヘッダーにも、開いている版(Vite の `define` で埋め込む `__APP_COMMIT__`・`__APP_COMMIT_DATE__`。`vite.config.ts` が git の HEAD から取る)と、サーバーの `/info` の commit を小さく出す。2つが違えば「版が違います」と出す(`shared/components/BuildVersion.tsx`、`shared/buildInfo.ts`)。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
+- **デプロイ**: frontend → GitHub Pages(GitHub Actions)、backend → Render(Docker、push で自動デプロイ)。Render 無料プラン(CPU 0.1)での起動を速くするため、Dockerfile で Java 25 の AOT キャッシュを作り、本番は遅延初期化(`spring.main.lazy-initialization=true`)で起動する(CPU 0.1 の実測で約4分→約1分)。停止を防ぐ ping は cron-job.org(日本時間 6:00〜23:00、10分ごと)で行い、`keep-alive.yml` は予備。遅延初期化だと、再起動後の最初の API 呼び出しが部品の読み込みで遅くなる(本番と同じ設定のローカル実測で `/api/level` の初回は 422ms、2回目以降は約 15〜20ms。CPU 0.1 の Render では約10倍)ので、起動後に `config/WarmUp` がホーム画面で呼ぶ API(レベル・統計・復習件数・解答履歴)を別スレッドで先に呼んで温める(本番プロファイルの `app.warmup`。環境変数 `APP_WARMUP=false` で止められる。外部 DB にも接続する)。別ドメイン(GitHub Pages → Render)の API 呼び出しは、確認用の通信(CORS のプリフライト)が先に入るので、`Access-Control-Max-Age` を1時間にしてブラウザに覚えさせる(`SecurityConfig`。無いと約5秒しか覚えず、ほぼ毎回 0.2〜0.4 秒増える)。画面のヘッダーには、開いている版の番号と日時(`v1.2.0 ・ 2026/11/22 15:16`)を小さく出す。サーバーの `/info` の commit がこの画面と違えば「サーバーが別の版です」と出す(`shared/components/BuildVersion.tsx`。番号は `__APP_VERSION__`、commit と日時は git の HEAD から `vite.config.ts` が埋め込む。`shared/buildInfo.ts`)。番号の決まりは本ファイル「9. コミット規約」の「バージョン番号」。push したコードが反映されたかは `/info` の `commit`(Render が実行時に渡す `RENDER_GIT_COMMIT`)が push したコミットと一致するかで確かめる。自動デプロイには GitHub に Render の GitHub App が入っている必要がある(外れていると push を検知できず、手動デプロイしか起きない。2026-11-02 に入れ直した)
 
 **運用は無料枠のみ。** 新しいライブラリ・外部サービスを導入する場合は、無料で使えることを確認し、techStack.md に追記する。有料プランが必要なサービスは導入しない(音声認識はブラウザの Web Speech API など、無料の手段を先に検討する)。
 
@@ -216,6 +216,25 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - 要約は `feat(<feature>): ...` / `fix(<feature>): ...` / `chore: ...` / `docs: ...` の形式(Conventional Commits)。`<feature>` は `writing`, `reading`, `listening`, `speaking`, `grammar`, `vocab`, `auth` など。日本語可。1コミット1目的。
 - Claude Code は作業完了の定義(8章)を満たしたら、`push.sh` でコミット・push まで行う。
 - `main` への push で本番デプロイされる(frontend: GitHub Pages、backend: Render)。
+
+### バージョン番号
+
+- 形式は `MAJOR.MINOR.PATCH`(例: `1.2.0`)。**正は `frontend/package.json` の `version`**。ビルドで埋め込まれ(`vite.config.ts` の `__APP_VERSION__`)、ヘッダーに `v1.2.0` と出る。backend の pom の version は使わない。
+- 区分:
+  - **MAJOR**: 今までの使い方や保存データを続けられない変更(DB を作り直す、学習記録の意味が変わる、端末の再登録が必要)。
+  - **MINOR**: 利用者に見える新しい機能・新しい学習メニュー・画面の大きな作り直し。問題や単語を増やすだけでは上げない。
+  - **PATCH**: 不具合の修正、文言・表示の調整、問題・単語の追加や直し、性能の改善。
+- 上げ方:
+  1. 変更を入れるコミットと同じコミットで `frontend/package.json` の `version` を上げる。Claude Code が push 前に区分を判断する。
+  2. 1回の push に区分の違う変更があれば、一番大きい区分で上げる(MINOR と PATCH なら MINOR を上げて PATCH は 0 に戻す)。
+  3. MAJOR・MINOR を上げたら、下の履歴に1行足す。PATCH は git のコミットの要約で追えるので、履歴には書かない。
+- 履歴(MINOR・MAJOR の区切り。日付は日本時間。2026-11-14 以前には版の番号を付けていない):
+
+| 版 | 日付 | commit | 内容 |
+| --- | --- | --- | --- |
+| 1.0.0 | 2026-11-15 | `a76b36f` | 学習機能がひと通りそろう(今日の30分メニュー、表示設定、下書き保存、模試の再開、スピーキング採点) |
+| 1.1.0 | 2026-11-18 | `434e746` | 今日のメニューに単語帳を入れ、ホーム下部に今週の学習を出す |
+| 1.2.0 | 2026-11-22 | この版を作ったコミット | 単語帳の同梱語を一周目に合わせて解放、色の順、一覧の絞り込み、版の表示、表示設定を ☰ メニューに |
 
 ## 10. ロードマップ
 

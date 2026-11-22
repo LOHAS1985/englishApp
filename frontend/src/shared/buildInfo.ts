@@ -1,10 +1,13 @@
 /**
- * この画面を作ったときの版(git のコミット)。vite.config.ts が、ビルドの時点の値を埋め込む。
+ * この画面の版。vite.config.ts が、ビルドの時点の値を埋め込む。
+ * 版の番号(1.2.0)は package.json の version、commit は git のコミット(短いハッシュ)。
  * 開発サーバーでは、起動した時点のコミットになる(未コミットの変更は含まれない)。
  */
+declare const __APP_VERSION__: string;
 declare const __APP_COMMIT__: string;
 declare const __APP_COMMIT_DATE__: string;
 
+export const FRONTEND_VERSION: string = __APP_VERSION__;
 export const FRONTEND_COMMIT: string = __APP_COMMIT__;
 export const FRONTEND_COMMIT_DATE: string = __APP_COMMIT_DATE__;
 

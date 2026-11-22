@@ -1,4 +1,5 @@
 import { execSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -19,11 +20,14 @@ function readBuildInfo(): { commit: string; date: string } {
 }
 
 const build = readBuildInfo();
+/** 版の番号(1.2.0 など)。正は package.json の version。変えるときの決まりは CLAUDE.md「バージョン番号」 */
+const version = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf-8")).version as string;
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/englishApp/",
   define: {
+    __APP_VERSION__: JSON.stringify(version),
     __APP_COMMIT__: JSON.stringify(build.commit),
     __APP_COMMIT_DATE__: JSON.stringify(build.date),
   },
