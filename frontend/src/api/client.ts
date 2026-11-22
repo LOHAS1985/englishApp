@@ -586,6 +586,19 @@ export interface LevelSummary {
   recentDays: { date: string; xp: number }[];
 }
 
+let backendCommitInFlight: Promise<string | null> | null = null;
+
+/** 動いているサーバーの commit(`/info`。画面の版と比べるのに使う)。取れなければ null。同時の呼び出しは1回に共有する */
+export function fetchBackendCommit() {
+  backendCommitInFlight ??= getJson<{ commit?: string }>("/info", "版の取得に失敗しました")
+    .then((info) => info.commit ?? null)
+    .catch(() => null)
+    .finally(() => {
+      backendCommitInFlight = null;
+    });
+  return backendCommitInFlight;
+}
+
 export async function fetchLevel() {
   return getJson<LevelSummary>("/api/level", "レベルの取得に失敗しました");
 }
