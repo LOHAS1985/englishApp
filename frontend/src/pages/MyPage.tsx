@@ -8,6 +8,7 @@ import WeaknessSection from "./WeaknessSection";
 import ReadingSpeedSection from "./ReadingSpeedSection";
 import SpeakingHistorySection from "./SpeakingHistorySection";
 import WordbookStatsSection from "./WordbookStatsSection";
+import DifficultySection from "./DifficultySection";
 import MockHistorySection from "../features/mock/MockHistorySection";
 
 export default function MyPage() {
@@ -57,6 +58,8 @@ export default function MyPage() {
         <StudyStatsSection />
 
         <WeaknessSection />
+
+        <DifficultySection />
 
         <WordbookStatsSection />
 

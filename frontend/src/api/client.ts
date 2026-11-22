@@ -834,3 +834,18 @@ export async function fetchDevices() {
 export async function deleteDevice(id: number) {
   await send(`/api/devices/${id}`, "端末の削除に失敗しました", { method: "DELETE" });
 }
+
+/** 難易度4(難関)の成績。available は問題集の難易度4の数、answered・correct は解いた設問数と正解数 */
+export interface DifficultyStat {
+  feature: "grammar" | "vocab" | "reading" | "listening";
+  available: number;
+  answered: number;
+  correct: number;
+}
+
+/** 難易度4の目標の正答率(%)。難易度の自動調整で1つ上に上げる基準と同じ(サーバーの DifficultyStatsService と揃える) */
+export const DIFFICULTY_TARGET_PERCENT = 85;
+
+export async function fetchDifficultyStats() {
+  return getJson<DifficultyStat[]>("/api/stats/difficulty", "難易度4の成績の取得に失敗しました");
+}

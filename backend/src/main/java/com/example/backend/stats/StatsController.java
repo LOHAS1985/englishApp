@@ -1,5 +1,6 @@
 package com.example.backend.stats;
 
+import com.example.backend.stats.dto.DifficultyItem;
 import com.example.backend.stats.dto.StatsSummary;
 import com.example.backend.stats.dto.StudyLogItem;
 import com.example.backend.stats.dto.WeaknessItem;
@@ -16,10 +17,13 @@ public class StatsController {
 
   private final StatsService statsService;
   private final WeaknessService weaknessService;
+  private final DifficultyStatsService difficultyStatsService;
 
-  public StatsController(StatsService statsService, WeaknessService weaknessService) {
+  public StatsController(StatsService statsService, WeaknessService weaknessService,
+      DifficultyStatsService difficultyStatsService) {
     this.statsService = statsService;
     this.weaknessService = weaknessService;
+    this.difficultyStatsService = difficultyStatsService;
   }
 
   @GetMapping("/summary")
@@ -36,5 +40,11 @@ public class StatsController {
   @GetMapping("/weakness")
   public List<WeaknessItem> weakness() {
     return weaknessService.summary();
+  }
+
+  /** 難易度4(難関)の成績。目標の正答率は DifficultyStatsService.TARGET_PERCENT */
+  @GetMapping("/difficulty")
+  public List<DifficultyItem> difficulty() {
+    return difficultyStatsService.summary();
   }
 }
