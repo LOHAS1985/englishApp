@@ -245,6 +245,8 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点では未設定だったが、**2026-11-21 に設定済みを確認**: 端末の鍵なしで `/api/**` を呼ぶと 401)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
 
+- [ ] **本番 DB のバックアップ(後回しにした。2026-11-22)**: エクスポート手段もバックアップも無く、無料 DB の期限切れや誤操作で学習記録をすべて失う。案: 専用の鍵(Render の環境変数と GitHub の Secrets に同じ値)で保護したエクスポート API(JSON)を作り、週1回 Actions から Gmail に暗号化して添付する(平文を公開リポジトリの artifact に置かない)
+
 ### 対応済み(20261026)
 - [x] dev / prod の DB 設定を分離。prod は Flyway でスキーマ管理(V5: roles 列・words・recordings、V6: 出題中の問題・リスニング記録)
 - [x] 文法・リスニングの正解を DB に保存(再起動しても採点できる)。リスニングの解答も記録するように
