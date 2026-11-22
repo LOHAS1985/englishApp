@@ -24,8 +24,8 @@ class BundledWordsTests {
   private final List<BundledWord> all = new BundledWordBank(MAPPER).all();
 
   @Test
-  void bundledListHasSixHundredWords() {
-    assertThat(all).hasSize(600);
+  void bundledListHasSevenHundredWords() {
+    assertThat(all).hasSize(700);
   }
 
   @Test

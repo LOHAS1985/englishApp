@@ -231,7 +231,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 | Reading | 時間制限モード(Part 7 の形式・速度計測は対応済み) |
 | Speaking | 発音・抑揚の評価(AI 採点と採点履歴の画面は対応済み)、公式の採点観点(ナレーション・質疑応答・アティチュード)への対応 |
 | Writing | (要約・意見論述とも対応済み。お題の話題の偏りを減らす) |
-| Vocab / Grammar | 単語帳の同梱語を増やす(英検準1級・TOEIC 930 の語。現在600語。100語ずつ増やす)、文法・語彙・読解の難易度4・5の問題を増やす(Part 5・6 の形式は対応済み) |
+| Vocab / Grammar | 単語帳の同梱語を増やす(英検準1級・TOEIC 930 の語。現在700語。100語ずつ増やす)、文法・語彙・読解の難易度4・5の問題を増やす(Part 5・6 の形式は対応済み) |
 
 ### 仕上げ(受験前)
 - **模試モード**: 対応済み(20261108)。英検準1級の模試は未対応
@@ -243,7 +243,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 ### 本人の作業が必要(コード外の設定)
 - [x] **Render の環境変数を確認する**: `SPRING_PROFILES_ACTIVE=prod`、`SPRING_DATASOURCE_URL`(`jdbc:postgresql://...` 形式)/ `SPRING_DATASOURCE_USERNAME` / `SPRING_DATASOURCE_PASSWORD`。2026-11-21 に、起動ログの `Active profiles=[prod], datasource=external` で外部 DB に接続できていることを確認した。本番で DB の接続先か `APP_ACCESS_KEY` が未設定なら、起動を失敗させる(`config/ProductionConfigGuard`。本番プロファイルのテストと Docker のビルド時の起動は `APP_STRICT_CONFIG=false` で切る)。無料の PostgreSQL は Render Postgres(無料版は期限あり)や Neon / Supabase など
 - [ ] **Render の環境変数 `JWT_SECRET` / `ADMIN_REGISTRATION_SECRET` / `GUARDIAN_API_KEY` を削除してよい**: ログイン機能と Guardian 記事の多読を廃止したため不要
-- [ ] **単語帳の同梱語 600 語を確認する**(うち後から追加した 501〜600 は、英検準1級の社会・医療・環境の語と TOEIC の実務語など): Claude が知識から作成した(英検・TOEIC の公式リストではない)。意味の誤り、正解が2つになる穴埋め(defer と postpone など)、不自然な英文がないか見直す。直した語は `questions/wordbook/*.json` を編集し、内容を変えれば、次の起動で既存の単語帳にも反映される(版を上げる作業は不要)
+- [ ] **単語帳の同梱語 700 語を確認する**(うち後から追加した 501〜700 は、英検準1級の社会・医療・環境の語と TOEIC の実務語、700〜800 点向けの一般的なビジネス語など): Claude が知識から作成した(英検・TOEIC の公式リストではない)。意味の誤り、正解が2つになる穴埋め(defer と postpone など)、不自然な英文がないか見直す。直した語は `questions/wordbook/*.json` を編集し、内容を変えれば、次の起動で既存の単語帳にも反映される(版を上げる作業は不要)
 - [ ] **cron-job.org で起動維持の ping を設定する**: 日本時間 6:00〜23:00 に10分ごと、`<バックエンドのURL>/health` に GET。GitHub Actions の定期実行は数時間遅れることがあり、停止を防げていなかった(実測で5〜8時間おき)。**設定済みのはずだが、2026-11-16〜19 の `keep-alive.yml` の実行(日本時間 9:47・16:27・21:21・20:11・11:19 など)ではほぼ毎回 `/health` の応答に約1分かかっており(=停止していた)、時間帯の中でも停止を防げていない。** cron-job.org のジョブが有効か(失敗が続くと自動で無効になる)、URL がバックエンド(`onrender.com`)の `/health` か、実行履歴が成功しているかを確認する
 - [ ] **Render に `APP_ACCESS_KEY`(端末登録の合言葉)を設定し、3台を登録する**: 未設定だと URL を知っていれば誰でも API を使える(記録の混入・Gemini 枠の消費・管理画面の操作。2026-11-01 時点では未設定だったが、**2026-11-21 に設定済みを確認**: 端末の鍵なしで `/api/**` を呼ぶと 401)。設定後、各端末でアプリを開くと登録画面が出るので合言葉を入れる(端末ごとに1回)。3台登録したら、管理画面の「登録済みの端末」で心当たりのない端末がないか確認する
 - [ ] **アクセスログの設定**: Render に `ACCESS_LOG_KEY`(推測されにくい長い文字列)を設定。GitHub の Actions secrets に `ACCESS_LOG_KEY`(同じ値)・`GMAIL_ADDRESS`・`GMAIL_APP_PASSWORD`(Google アカウントの2段階認証を有効にして発行するアプリパスワード)を登録し、Actions の「Weekly access report」を手動実行して届くか確認する
