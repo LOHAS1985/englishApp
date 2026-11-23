@@ -7,6 +7,7 @@ import {
   fetchWordbookChoice,
   fetchWordbookFill,
   submitWordbookChoice,
+  submitWordbookFill,
   type WordbookAnswerResult,
   type WordbookChoiceQuestion,
 } from "../../api/client";
@@ -266,5 +267,57 @@ describe("単語帳: 品詞ごとの意味", () => {
     await screen.findByRole("button", { name: "次の問題" });
 
     expect(screen.queryByLabelText("品詞ごとの主な意味")).toBeNull();
+  });
+});
+
+describe("単語帳: 答えを見る", () => {
+  it("穴埋めは、何も入力しなくても答えを見られる(不正解として記録する)", async () => {
+    vi.mocked(fetchWordbookFill)
+      .mockResolvedValueOnce({
+        wordId: 3,
+        sentence: "Attendance is _____ for all new employees.",
+        translation: "出席は、すべての新入社員に義務づけられている。",
+        hint: "m________ (9文字)",
+      })
+      .mockReturnValue(new Promise(() => {}));
+    vi.mocked(submitWordbookFill).mockReset().mockResolvedValue({
+      ...RESULT,
+      correct: false,
+      word: "mandatory",
+      meaningJa: "義務的な",
+      correctAnswer: "mandatory",
+    });
+
+    render(
+      <MemoryRouter initialEntries={["/wordbook/quiz?type=fill"]}>
+        <WordbookQuiz />
+      </MemoryRouter>,
+    );
+    await screen.findByText("Attendance is _____ for all new employees.");
+    // 入力が空でも押せる(回答は押せない)
+    expect(screen.getByRole("button", { name: "回答" }).hasAttribute("disabled")).toBe(true);
+    await userEvent.click(screen.getByRole("button", { name: "答えを見る" }));
+
+    expect(vi.mocked(submitWordbookFill).mock.calls[0]?.slice(0, 2)).toEqual([3, ""]);
+    expect(await screen.findByText("mandatory", { selector: "span.font-semibold" })).toBeTruthy();
+    // 自分で答えたわけではないので「不正解」とは出さない
+    expect(screen.queryByText("不正解")).toBeNull();
+    expect(screen.queryByRole("button", { name: "答えを見る" })).toBeNull();
+    expect(screen.getByRole("button", { name: "次の問題" })).toBeTruthy();
+  });
+
+  it("4択も、選ばずに答えを見られる", async () => {
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "defer"))
+      .mockReturnValue(new Promise(() => {}));
+    vi.mocked(submitWordbookChoice).mockResolvedValue({ ...RESULT, correct: false });
+
+    renderQuiz();
+    await screen.findByText("defer");
+    await userEvent.click(screen.getByRole("button", { name: "答えを見る" }));
+
+    expect(vi.mocked(submitWordbookChoice).mock.calls[0]?.slice(0, 2)).toEqual([1, ""]);
+    expect(await screen.findByRole("button", { name: "次の問題" })).toBeTruthy();
+    expect(screen.queryByText("不正解")).toBeNull();
   });
 });

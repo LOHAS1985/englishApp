@@ -50,6 +50,8 @@ export default function WordbookQuiz() {
   const [submitting, setSubmitting] = useState(false);
   const [typed, setTyped] = useState("");
   const [selected, setSelected] = useState<string | null>(null);
+  /** 答えずに「答えを見る」を押した(結果を「不正解」ではなく「答え」と出す) */
+  const [revealed, setRevealed] = useState(false);
   const [color, setColor] = useState<WordbookColor>("NONE");
   const shownAtRef = useRef(0);
   /** 直近に出した語。同じ語が続けて出ないよう、サーバーに exclude として渡す */
@@ -105,6 +107,7 @@ export default function WordbookQuiz() {
     setResult(null);
     setSelected(null);
     setTyped("");
+    setRevealed(false);
     const prefetched = prefetchRef.current?.kind === kind ? prefetchRef.current.promise : null;
     prefetchRef.current = null;
     setLoading(true);
@@ -154,6 +157,40 @@ export default function WordbookQuiz() {
       setSubmitting(false);
     }
   };
+
+  /**
+   * 答えずに答えを見る。分からなかった語として不正解で記録する(翌日の復習に回り、色は赤になる)。
+   * 空の答えはサーバーで必ず不正解になる
+   */
+  const reveal = async () => {
+    if (!question || result || submitting) return;
+    setSubmitting(true);
+    setActionError("");
+    try {
+      const seconds = secondsSince(shownAtRef.current);
+      const data =
+        question.kind === "fill"
+          ? await submitWordbookFill(question.data.wordId, "", seconds)
+          : await submitWordbookChoice(question.data.wordId, "", seconds);
+      setRevealed(true);
+      finish(data);
+    } catch (e) {
+      setActionError(e instanceof Error ? e.message : "答えを取得できませんでした");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const revealButton = !result && (
+    <button
+      type="button"
+      onClick={reveal}
+      disabled={submitting}
+      className="text-sm text-slate-600 border border-slate-300 rounded px-4 py-3 hover:bg-slate-100 disabled:opacity-50 transition-colors"
+    >
+      答えを見る
+    </button>
+  );
 
   // 解答したら「次の問題」にフォーカスを移す(Enter で続けられる)
   const nextButtonRef = useRef<HTMLButtonElement>(null);
@@ -237,6 +274,7 @@ export default function WordbookQuiz() {
                   </button>
                 ))}
               </div>
+              {revealButton && <div className="mt-3">{revealButton}</div>}
               {actionError && (
                 <p role="alert" className="mt-4 text-sm text-[#c0392b]">
                   {actionError}
@@ -253,7 +291,7 @@ export default function WordbookQuiz() {
                 ヒント: <span className="font-mono">{question.data.hint}</span>
               </p>
               {!result && (
-                <form onSubmit={answerFill} className="flex gap-3">
+                <form onSubmit={answerFill} className="flex flex-wrap gap-3">
                   <input
                     autoFocus
                     aria-label="英単語"
@@ -271,6 +309,7 @@ export default function WordbookQuiz() {
                   >
                     回答
                   </button>
+                  {revealButton}
                 </form>
               )}
               {actionError && (
@@ -283,9 +322,11 @@ export default function WordbookQuiz() {
 
           {!loading && !error && result && (
             <div className="mt-6 text-sm leading-relaxed">
-              <p className={`font-semibold ${result.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
-                {result.correct ? "正解" : "不正解"}
-              </p>
+              {!revealed && (
+                <p className={`font-semibold ${result.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
+                  {result.correct ? "正解" : "不正解"}
+                </p>
+              )}
               {!result.correct && (
                 <p className="text-slate-600 mt-1">
                   正解: <span className="font-semibold text-slate-900">{result.correctAnswer}</span>
