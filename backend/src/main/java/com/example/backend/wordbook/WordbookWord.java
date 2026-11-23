@@ -189,6 +189,23 @@ public class WordbookWord {
     this.updatedAt = now;
   }
 
+  /**
+   * 日本語の混じった例文を直す(文法・語彙の解説から登録した語)。英語の部分(englishPart)があればそれだけにし、
+   * 例文の訳は混じった文を訳したものなので消して翌日の調査で取り直す。英語の部分が無ければ例文を外す
+   * (外した語は4択だけに出す)。利用者が直した印は付けない(同梱の更新の扱いを変えないため)
+   */
+  void repairExample(String englishPart, LocalDateTime now) {
+    if (englishPart == null) {
+      this.exampleEn = null;
+      this.exampleAnswer = null;
+    } else {
+      this.exampleEn = englishPart;
+    }
+    this.exampleJa = null;
+    this.translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
+    this.updatedAt = now;
+  }
+
   /** 同梱の語に結び付ける。利用者がすでに訳・例文を直していた語は、更新で上書きしない */
   void linkBundled(String bundledId, boolean userEdited) {
     this.bundledId = bundledId;

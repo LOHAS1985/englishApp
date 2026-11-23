@@ -115,15 +115,18 @@ public class WordbookService {
     }
 
     LocalDateTime now = LocalDateTime.now(JST);
-    boolean fromReading = exampleEn != null && !exampleEn.isBlank();
+    String answer = exampleAnswer == null ? "" : exampleAnswer.trim().toLowerCase(Locale.ROOT);
+    String sentence = exampleEn == null || exampleEn.isBlank() ? null : exampleEn.trim();
+    if (sentence != null && (answer.isEmpty() || !WordbookSentences.contains(sentence, answer))) {
+      throw new IllegalArgumentException("選んだ語が例文の中に見つかりません");
+    }
+    // 文法・語彙の解説(日本語)から選んだ語は、日本語の文を例文にしない(穴埋めの問題文に日本語が出てしまう)。
+    // 英語の部分が十分に長ければそれだけを使い、無ければ例文なしで登録する
+    String example = sentence == null ? null : WordbookSentences.englishPart(sentence, answer);
     WordbookWord added = new WordbookWord(currentUserProvider.getCurrentUserId(), word,
-        fromReading ? Source.READING : Source.MANUAL, now);
-    if (fromReading) {
-      String answer = exampleAnswer == null ? "" : exampleAnswer.trim().toLowerCase(Locale.ROOT);
-      if (answer.isEmpty() || !WordbookSentences.contains(exampleEn, answer)) {
-        throw new IllegalArgumentException("選んだ語が例文の中に見つかりません");
-      }
-      added.setExample(exampleEn.trim(), answer);
+        example != null ? Source.READING : Source.MANUAL, now);
+    if (example != null) {
+      added.setExample(example, answer);
     }
     return new AddWordResponse(true, view(repository.save(added)));
   }
@@ -155,6 +158,9 @@ public class WordbookService {
     String answer = exampleAnswer == null ? "" : exampleAnswer.trim().toLowerCase(Locale.ROOT);
     if (en.isEmpty()) {
       throw new IllegalArgumentException("例文を入力してください");
+    }
+    if (WordbookSentences.containsJapanese(en)) {
+      throw new IllegalArgumentException("例文は英語だけで入力してください(日本語は例文の訳に書きます)");
     }
     if (answer.isEmpty() || !WordbookSentences.contains(en, answer)) {
       throw new IllegalArgumentException("空欄にする語が例文の中に見つかりません");

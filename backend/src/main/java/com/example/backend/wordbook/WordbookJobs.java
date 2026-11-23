@@ -30,13 +30,15 @@ public class WordbookJobs {
 
   private final BundledWordSeeder seeder;
   private final WordbookScheduleBackfill scheduleBackfill;
+  private final WordbookExampleRepair exampleRepair;
   private final WordbookTranslationService translationService;
   private final AppStateRepository states;
 
   public WordbookJobs(BundledWordSeeder seeder, WordbookScheduleBackfill scheduleBackfill,
-      WordbookTranslationService translationService, AppStateRepository states) {
+      WordbookExampleRepair exampleRepair, WordbookTranslationService translationService, AppStateRepository states) {
     this.seeder = seeder;
     this.scheduleBackfill = scheduleBackfill;
+    this.exampleRepair = exampleRepair;
     this.translationService = translationService;
     this.states = states;
   }
@@ -45,13 +47,28 @@ public class WordbookJobs {
   public void onStartup() {
     seeder.seedIfNeeded();
     scheduleBackfill.runIfNeeded();
+    int repaired = exampleRepair.run();
     // 外部 API(DeepL)の応答が遅くても、起動の処理を止めない(語ごとの待ちの上限は DeepLApiClient.REQUEST_TIMEOUT)
-    CompletableFuture.runAsync(() -> runTranslationIfDue(LocalDateTime.now(StudyLogService.JST)));
+    CompletableFuture.runAsync(() -> {
+      if (repaired > 0) {
+        // 直した例文は訳を消してあり、訳が揃うまで出題しないので、今日の調査が済んでいても取り直す
+        translateRepaired();
+      }
+      runTranslationIfDue(LocalDateTime.now(StudyLogService.JST));
+    });
   }
 
   @Scheduled(cron = "0 0 7 * * *", zone = "Asia/Tokyo")
   public void runDaily() {
     runTranslationIfDue(LocalDateTime.now(StudyLogService.JST));
+  }
+
+  synchronized void translateRepaired() {
+    try {
+      logger.info("例文を直した語の日本語訳を調査しました: 完了 {} 語", translationService.translatePending());
+    } catch (RuntimeException e) {
+      logger.warn("例文を直した語の日本語訳の調査に失敗しました: {}", e.getMessage());
+    }
   }
 
   /** 失敗した語も含めて、その日の調査は1回で終える。残りは翌日の調査で取り直す */
