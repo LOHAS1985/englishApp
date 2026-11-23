@@ -3,7 +3,6 @@ package com.example.backend.vocab;
 import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
 import com.example.backend.common.PracticeRecord;
 import com.example.backend.common.PracticeRecordRepository;
-import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
 import com.example.backend.grammar.dto.GrammarAnswerResult;
@@ -25,31 +24,25 @@ public class VocabController {
   private final VocabQuestionBank questionBank;
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
-  private final QuestionSelector questionSelector;
   private final StudyLogService studyLogService;
   private final ReviewService reviewService;
 
   public VocabController(VocabQuestionBank questionBank, PracticeRecordRepository recordRepository,
-      CurrentUserProvider currentUserProvider, QuestionSelector questionSelector,
-      StudyLogService studyLogService, ReviewService reviewService) {
+      CurrentUserProvider currentUserProvider, StudyLogService studyLogService, ReviewService reviewService) {
     this.questionBank = questionBank;
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
-    this.questionSelector = questionSelector;
     this.studyLogService = studyLogService;
     this.reviewService = reviewService;
   }
 
   /**
-   * @param review true なら復習日になった間違えた問題から出す
-   * @param level  難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ(復習では使わない)
+   * 復習の出題(復習日になった間違えた問題)。通常の出題は画面が同梱の問題集から行う(api/localQuestions.ts)。
+   * 画面は ?review=true を付けて呼ぶ(付けなくても復習から出す)
    */
   @GetMapping("/question")
-  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude,
-      @RequestParam(defaultValue = "false") boolean review, @RequestParam(required = false) Integer level) {
-    String id = review
-        ? reviewService.pickDue("vocab", exclude)
-        : questionSelector.pick("vocab", questionBank.ids(), exclude, questionBank::difficulty, level);
+  public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude) {
+    String id = reviewService.pickDue("vocab", exclude);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
     return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }

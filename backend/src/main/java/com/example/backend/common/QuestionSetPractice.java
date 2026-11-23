@@ -68,15 +68,13 @@ public class QuestionSetPractice {
 
   private final PracticeRecordRepository recordRepository;
   private final CurrentUserProvider currentUserProvider;
-  private final QuestionSelector questionSelector;
   private final StudyLogService studyLogService;
   private final ReviewService reviewService;
 
   public QuestionSetPractice(PracticeRecordRepository recordRepository, CurrentUserProvider currentUserProvider,
-      QuestionSelector questionSelector, StudyLogService studyLogService, ReviewService reviewService) {
+      StudyLogService studyLogService, ReviewService reviewService) {
     this.recordRepository = recordRepository;
     this.currentUserProvider = currentUserProvider;
-    this.questionSelector = questionSelector;
     this.studyLogService = studyLogService;
     this.reviewService = reviewService;
   }
@@ -101,17 +99,6 @@ public class QuestionSetPractice {
   public static String setIdOf(String reviewItemId) {
     int dash = reviewItemId.lastIndexOf('-');
     return dash < 0 ? reviewItemId : reviewItemId.substring(0, dash);
-  }
-
-  /**
-   * 解答履歴をもとに次のセットを選ぶ。
-   *
-   * @param exclude 画面に表示中のセットの ID
-   * @param level   画面で選んだ難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ
-   */
-  public QuestionSetView next(QuestionSetBank bank, String feature, String type, String exclude, Integer level) {
-    String id = questionSelector.pick(feature, bank.ids(type), exclude, bank::difficulty, level);
-    return toView(bank, bank.findById(id).orElseThrow());
   }
 
   public QuestionSetView toView(QuestionSetBank bank, QuestionSet set) {

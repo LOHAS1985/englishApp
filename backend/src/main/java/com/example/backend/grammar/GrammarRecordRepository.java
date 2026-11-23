@@ -10,7 +10,6 @@ public interface GrammarRecordRepository extends JpaRepository<GrammarRecord, Lo
   List<GrammarRecord> findByUserIdOrderByCreatedAtDesc(Long userId);
 
   /** 履歴の画面用。問題文・解説を含むので、件数を絞って読む */
-  List<GrammarRecord> findTop200ByUserIdOrderByCreatedAtDesc(Long userId);
 
   List<GrammarRecord> findByUserIdOrderByIdDesc(Long userId);
 

@@ -2,7 +2,6 @@ package com.example.backend.listening;
 
 import com.example.backend.common.QuestionSetBank.QuestionSet;
 import com.example.backend.common.QuestionSetPractice;
-import com.example.backend.common.QuestionSetPractice.QuestionSetView;
 import com.example.backend.common.QuestionSetPractice.SetAnswerRequest;
 import com.example.backend.common.QuestionSetPractice.SetAnswerResult;
 import org.slf4j.Logger;
@@ -36,19 +35,6 @@ public class ListeningController {
     this.questionBank = questionBank;
     this.practice = practice;
     this.ttsService = ttsService;
-  }
-
-  /** 形式ごとの登録セット数 */
-  @GetMapping("/types")
-  public Map<String, Long> types() {
-    return questionBank.countByType();
-  }
-
-  /** @param level 難易度(1〜3)。省略時は直近の正答率に合わせて自動で選ぶ */
-  @GetMapping
-  public QuestionSetView getSet(@RequestParam(required = false) String type,
-      @RequestParam(required = false) String exclude, @RequestParam(required = false) Integer level) {
-    return practice.next(questionBank, "listening", type, exclude, level);
   }
 
   /** 今日復習する設問を含むセットのID。画面は、このセットを復習として出す */

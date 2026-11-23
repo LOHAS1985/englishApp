@@ -1,7 +1,6 @@
 package com.example.backend.reading;
 
 import com.example.backend.common.QuestionSetPractice;
-import com.example.backend.common.QuestionSetPractice.QuestionSetView;
 import com.example.backend.common.QuestionSetPractice.SetAnswerRequest;
 import com.example.backend.common.QuestionSetPractice.SetAnswerResult;
 import org.springframework.web.bind.annotation.*;
@@ -19,19 +18,6 @@ public class ReadingPracticeController {
   public ReadingPracticeController(ReadingQuestionBank questionBank, QuestionSetPractice practice) {
     this.questionBank = questionBank;
     this.practice = practice;
-  }
-
-  /** 形式ごとの登録セット数 */
-  @GetMapping("/types")
-  public Map<String, Long> types() {
-    return questionBank.countByType();
-  }
-
-  /** @param level 難易度(1〜3)。省略時は直近の正答率に合わせて自動で選ぶ */
-  @GetMapping
-  public QuestionSetView getSet(@RequestParam(required = false) String type,
-      @RequestParam(required = false) String exclude, @RequestParam(required = false) Integer level) {
-    return practice.next(questionBank, "reading", type, exclude, level);
   }
 
   @PostMapping("/answer")

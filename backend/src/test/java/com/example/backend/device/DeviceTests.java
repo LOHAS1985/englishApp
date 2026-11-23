@@ -67,14 +67,14 @@ class DeviceTests {
   @Test
   void filterLetsOnlyRegisteredDevicesUseTheApi() throws Exception {
     String token = service.register("secret-words", "PC").token();
-    assertThat(call("GET", "/api/grammar/question", null)).isEqualTo(401);
-    assertThat(call("GET", "/api/grammar/question", "forged-token")).isEqualTo(401);
-    assertThat(call("GET", "/api/grammar/question", token)).isEqualTo(200);
+    assertThat(call("GET", "/api/level", null)).isEqualTo(401);
+    assertThat(call("GET", "/api/level", "forged-token")).isEqualTo(401);
+    assertThat(call("GET", "/api/level", token)).isEqualTo(200);
     // 登録そのもの・死活監視・音声・プリフライト・アクセス履歴(独自キー)は端末の鍵なしで通す
     assertThat(call("POST", "/api/devices/register", null)).isEqualTo(200);
     assertThat(call("GET", "/health", null)).isEqualTo(200);
     assertThat(call("GET", "/audio/generated/a.mp3", null)).isEqualTo(200);
-    assertThat(call("OPTIONS", "/api/grammar/question", null)).isEqualTo(200);
+    assertThat(call("OPTIONS", "/api/level", null)).isEqualTo(200);
     assertThat(call("GET", "/api/access-logs", null)).isEqualTo(200);
   }
 

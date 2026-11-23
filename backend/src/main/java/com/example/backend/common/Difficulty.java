@@ -15,7 +15,8 @@ import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 
 /**
- * 問題の難易度(1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関)と、正答率に応じた出し分けの目標。
+ * 問題の難易度(1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関)。正答率に応じた出し分けの目標は画面が決める
+ * (frontend の api/picker.ts の difficultyTarget)。
  * <ul>
  * <li>問題集の JSON に {@code difficulty} があればそれを使う(語彙は語ごとに判定して書いてある)</li>
  * <li>無ければ、文の長さ・文法分野・設問タイプから「難しさの点数」を出し、形式ごとに3等分して振る。
@@ -29,13 +30,6 @@ public final class Difficulty {
   public static final int HARD = 3;
   /** 問題集の JSON に書ける難易度の最大(1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関)。自動推定は 1〜3 のまま */
   public static final int MAX_LEVEL = 5;
-
-  /** 目標を決めるのに使う直近の設問数と、これ未満なら目標を決めない(標準的な出題のまま)数 */
-  static final int RECENT_ANSWERS = 30;
-  static final int MIN_ANSWERS = 8;
-  /** 直近の正答率がこれ以上なら1つ上、BASIC_BELOW 未満なら1つ下の難易度を中心に出す */
-  static final double HARD_FROM = 0.85;
-  static final double BASIC_BELOW = 0.6;
 
   private Difficulty() {
   }
@@ -114,29 +108,6 @@ public final class Difficulty {
       score += 50;
     }
     return score;
-  }
-
-  /** 直近に解いた設問1つ分の、問題の難易度と正誤 */
-  public record Answer(int level, boolean correct) {
-  }
-
-  /**
-   * 直近に解いた問題の平均の難易度を基準に、正答率で1段ずつ上げ下げして次に中心に出す難易度を決める
-   * (正答率 85% 以上なら1つ上、60% 未満なら1つ下、その間なら同じ。1〜5 の範囲)。
-   * 正答率だけで決めると最高でも発展(3)止まりになるため、解いている問題のレベルから階段式に上げる。
-   *
-   * @param recentAnswers 直近の設問ごとの難易度と正誤(新しい順)
-   * @return 解答が少なければ null(難易度で絞らない)
-   */
-  public static Integer target(List<Answer> recentAnswers) {
-    List<Answer> recent = recentAnswers.stream().limit(RECENT_ANSWERS).toList();
-    if (recent.size() < MIN_ANSWERS) {
-      return null;
-    }
-    double rate = recent.stream().filter(Answer::correct).count() / (double) recent.size();
-    int base = (int) Math.round(recent.stream().mapToInt(Answer::level).average().orElse(NORMAL));
-    int step = rate >= HARD_FROM ? 1 : rate < BASIC_BELOW ? -1 : 0;
-    return Math.max(EASY, Math.min(MAX_LEVEL, base + step));
   }
 
   private static int words(String text) {

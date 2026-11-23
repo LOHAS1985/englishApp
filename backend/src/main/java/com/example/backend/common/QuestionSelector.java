@@ -7,11 +7,9 @@ import com.example.backend.writing.WritingRecordRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.ToIntFunction;
 
 /** 各機能の解答記録を読み、{@link QuestionPicker} で次に出す問題を選ぶ */
 @Service
@@ -42,48 +40,6 @@ public class QuestionSelector {
    */
   public String pick(String feature, List<String> candidates, String exclude) {
     return QuestionPicker.pick(candidates, history(feature), exclude, ThreadLocalRandom.current());
-  }
-
-  /**
-   * 難易度を考慮して選ぶ。
-   *
-   * @param difficulty 問題 ID → 難易度(1〜5)
-   * @param level      画面で選んだ難易度(1〜5)。null なら自動(直近に解いた問題の難易度と正答率から目標を決める)
-   */
-  public String pick(String feature, List<String> candidates, String exclude, ToIntFunction<String> difficulty,
-      Integer level) {
-    if (level != null) {
-      List<String> fixed = candidates.stream().filter(id -> difficulty.applyAsInt(id) == level).toList();
-      if (fixed.isEmpty()) {
-        throw new IllegalArgumentException("この難易度の問題はまだ登録されていません");
-      }
-      return QuestionPicker.pick(fixed, history(feature), exclude, ThreadLocalRandom.current());
-    }
-    Integer target = Difficulty.target(recentAnswers(feature, candidates, difficulty));
-    return QuestionPicker.pick(candidates, history(feature), exclude, ThreadLocalRandom.current(), difficulty,
-        target);
-  }
-
-  /**
-   * 候補の問題に対する直近の設問ごとの難易度と正誤(新しい順)。セット問題は全問正解かどうかではなく設問単位で見る
-   * (3問中2問正解を「不正解」と数えると、目標の難易度が下がりすぎるため)。
-   */
-  private List<Difficulty.Answer> recentAnswers(String feature, List<String> candidates,
-      ToIntFunction<String> difficulty) {
-    Long userId = currentUserProvider.getCurrentUserId();
-    Set<String> candidateSet = new HashSet<>(candidates);
-    if ("grammar".equals(feature)) {
-      return grammarRecordRepository.findByUserIdOrderByIdDesc(userId).stream()
-          .filter(r -> candidateSet.contains(r.getQuestionId()))
-          .limit(Difficulty.RECENT_ANSWERS)
-          .map(r -> new Difficulty.Answer(difficulty.applyAsInt(r.getQuestionId()), r.isCorrect()))
-          .toList();
-    }
-    return practiceRecordRepository.findByUserIdAndFeatureOrderByIdDesc(userId, feature).stream()
-        .filter(r -> r.getCorrect() != null && candidateSet.contains(r.getItemId()))
-        .limit(Difficulty.RECENT_ANSWERS)
-        .map(r -> new Difficulty.Answer(difficulty.applyAsInt(r.getItemId()), r.getCorrect()))
-        .toList();
   }
 
   /** 画面側で出題するための解答履歴1行(設問ごと。新しい順) */

@@ -1,7 +1,6 @@
 package com.example.backend.grammar;
 
 import com.example.backend.common.QuestionNotFoundException;
-import com.example.backend.common.QuestionSelector;
 import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.common.ChoiceQuestionBank.ChoiceQuestion;
 import com.example.backend.grammar.dto.GrammarAnswerRequest;
@@ -24,33 +23,27 @@ public class GrammarService {
   private final GrammarQuestionBank questionBank;
   private final GrammarRecordRepository grammarRecordRepository;
   private final CurrentUserProvider currentUserProvider;
-  private final QuestionSelector questionSelector;
   private final StudyLogService studyLogService;
   private final ReviewService reviewService;
 
   public GrammarService(GrammarQuestionBank questionBank,
       GrammarRecordRepository grammarRecordRepository,
       CurrentUserProvider currentUserProvider,
-      QuestionSelector questionSelector,
       StudyLogService studyLogService,
       ReviewService reviewService) {
     this.questionBank = questionBank;
     this.grammarRecordRepository = grammarRecordRepository;
     this.currentUserProvider = currentUserProvider;
-    this.questionSelector = questionSelector;
     this.studyLogService = studyLogService;
     this.reviewService = reviewService;
   }
 
   /**
+   * 復習日になった間違えた問題を出す(通常の出題は画面が同梱の問題集から行う)。
    * @param exclude 画面に表示中の問題の ID(先読みで同じ問題を選ばないため)
-   * @param review  true なら復習日になった間違えた問題から出す
-   * @param level   難易度(1〜3)。null なら直近の正答率に合わせて自動で選ぶ(復習では使わない)
    */
-  public GrammarQuestion generateQuestion(String exclude, boolean review, Integer level) {
-    String id = review
-        ? reviewService.pickDue("grammar", exclude)
-        : questionSelector.pick("grammar", questionBank.ids(), exclude, questionBank::difficulty, level);
+  public GrammarQuestion reviewQuestion(String exclude) {
+    String id = reviewService.pickDue("grammar", exclude);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
     return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
   }
