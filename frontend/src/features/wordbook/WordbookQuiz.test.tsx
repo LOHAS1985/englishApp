@@ -178,3 +178,44 @@ describe("単語帳: 読み方の再生", () => {
     expect(screen.queryByRole("button", { name: /読み方を再生/ })).toBeNull();
   });
 });
+
+describe("単語帳: 品詞ごとの意味", () => {
+  it("解答後に、出題の意味のほかの品詞・意味も出す(remedy は名詞と動詞)", async () => {
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "remedy"))
+      .mockReturnValue(new Promise(() => {}));
+    vi.mocked(submitWordbookChoice).mockResolvedValue({
+      ...RESULT,
+      word: "remedy",
+      meaningJa: "改善策、治療法",
+      correctAnswer: "延期する",
+      senses: [
+        { pos: "名詞", meaningJa: "治療法、改善策" },
+        { pos: "動詞", meaningJa: "を改善する、是正する" },
+      ],
+    });
+
+    renderQuiz();
+    // 解答前は出さない(4択の答えが分かってしまうため)
+    await screen.findByText("remedy");
+    expect(screen.queryByText("を改善する、是正する")).toBeNull();
+
+    await userEvent.click(screen.getByRole("button", { name: "延期する" }));
+
+    expect(await screen.findByText("を改善する、是正する")).toBeTruthy();
+    expect(screen.getByText("動詞")).toBeTruthy();
+    expect(screen.getByText("名詞")).toBeTruthy();
+  });
+
+  it("品詞の情報が無い語(同梱語に無い語)では、何も出さない", async () => {
+    vi.mocked(fetchWordbookChoice)
+      .mockResolvedValueOnce(question(1, "defer"))
+      .mockReturnValue(new Promise(() => {}));
+
+    renderQuiz();
+    await userEvent.click(await screen.findByRole("button", { name: "延期する" }));
+    await screen.findByRole("button", { name: "次の問題" });
+
+    expect(screen.queryByLabelText("品詞ごとの主な意味")).toBeNull();
+  });
+});

@@ -591,6 +591,14 @@ export interface WordbookWord {
   color: WordbookColor;
   translationStatus: "PENDING" | "DONE" | "FAILED";
   createdAt: string;
+  /** 品詞ごとの主な意味(同梱語にある語だけ。古いサーバーの応答には無い) */
+  senses?: WordbookSense[];
+}
+
+/** 品詞(動詞・名詞・形容詞・副詞)ごとの主な意味 */
+export interface WordbookSense {
+  pos: string;
+  meaningJa: string;
 }
 
 export interface WordbookSummary {
@@ -628,6 +636,8 @@ export interface WordbookAnswerResult {
   exampleEn: string | null;
   exampleJa: string | null;
   color: WordbookColor;
+  /** 品詞ごとの主な意味。出題の意味のほかにも使い方があると分かるように出す */
+  senses?: WordbookSense[];
 }
 
 export interface WordbookHistoryItem {

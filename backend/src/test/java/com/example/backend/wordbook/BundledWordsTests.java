@@ -78,4 +78,33 @@ class BundledWordsTests {
       assertThat(words).as(item.id()).isBetween(9, 25);
     }
   }
+
+  /** 品詞ごとの主な意味。出題の意味だけを見て、ほかの品詞・意味が無いと思い込まないように見せる */
+  @Test
+  void everyWordHasSensesByPartOfSpeech() {
+    Set<String> allowed = Set.of("動詞", "名詞", "形容詞", "副詞");
+    for (BundledWord w : all) {
+      assertThat(w.senses()).as(w.word()).isNotEmpty();
+      Set<String> seen = new HashSet<>();
+      for (BundledWordBank.Sense sense : w.senses()) {
+        assertThat(sense.pos()).as(w.word()).isIn(allowed);
+        // 同じ品詞は1つにまとめる(画面で同じ見出しが2回出ないように)
+        assertThat(seen.add(sense.pos())).as(w.word() + " の " + sense.pos()).isTrue();
+        assertThat(sense.meaningJa()).as(w.word()).isNotBlank();
+      }
+    }
+  }
+
+  @Test
+  void sensesAreFoundByHeadwordAndInflectedForm() {
+    BundledWordBank bank = new BundledWordBank(MAPPER);
+    // remedy は名詞と動詞の両方で使う(出題の意味は名詞)
+    assertThat(bank.sensesOf("remedy")).extracting(BundledWordBank.Sense::pos).containsExactly("名詞", "動詞");
+    assertThat(bank.sensesOf("Remedy")).hasSize(2);
+    // 変化形で登録した語も同じ語として引く
+    assertThat(bank.sensesOf("abandoned")).isEqualTo(bank.sensesOf("abandon"));
+    // 同梱語に無い語は空
+    assertThat(bank.sensesOf("zzzz")).isEmpty();
+    assertThat(bank.sensesOf(null)).isEmpty();
+  }
 }

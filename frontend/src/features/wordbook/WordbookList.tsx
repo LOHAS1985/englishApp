@@ -12,6 +12,7 @@ import {
 import Header from "../../shared/components/Header";
 import ColorButtons from "./ColorButtons";
 import PronounceButton from "./PronounceButton";
+import SenseList from "./SenseList";
 import { COLOR_LABELS, COLOR_ORDER, toHeadword } from "./wordbookRules";
 
 /** 一覧の絞り込み。ALL は色で絞らない */
@@ -189,6 +190,7 @@ export default function WordbookList() {
                       {word.meaningJa ?? <span className="text-slate-400">{translationNote(word)}</span>}
                     </p>
                   )}
+                  <SenseList senses={word.senses} className="mt-1" />
                   {word.exampleEn && (
                     <p className="text-sm text-slate-500 mt-1">
                       {word.exampleEn}
