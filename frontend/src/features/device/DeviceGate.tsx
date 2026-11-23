@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { DEVICE_REGISTRATION_REQUIRED_EVENT, registerDevice, saveDeviceToken } from "../../api/client";
 import { guessDeviceName } from "./deviceName";
+import { messageOf } from "../../shared/errorMessage";
 
 /**
  * サーバーが「この端末は登録されていない」と返したら、登録画面を重ねて表示する。
@@ -36,7 +37,7 @@ export default function DeviceGate() {
       // 失敗した読み込みをやり直すため、画面ごと読み込み直す
       window.location.reload();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "端末の登録に失敗しました");
+      setError(messageOf(err, "端末の登録に失敗しました"));
     } finally {
       setSubmitting(false);
     }

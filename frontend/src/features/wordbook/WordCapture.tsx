@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { registerReadingWord } from "../../api/client";
 import { sentenceAround, toHeadword } from "./wordbookRules";
+import { messageOf } from "../../shared/errorMessage";
 
 interface Pending {
   word: string;
@@ -71,7 +72,7 @@ export default function WordCapture({ children }: { children: ReactNode }) {
           : { ok: true, text: `「${result.word.word}」はすでに単語帳にあります` },
       );
     } catch (e) {
-      setNotice({ ok: false, text: e instanceof Error ? e.message : "登録に失敗しました" });
+      setNotice({ ok: false, text: messageOf(e, "登録に失敗しました") });
     } finally {
       setSaving(false);
     }

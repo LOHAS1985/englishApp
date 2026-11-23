@@ -91,13 +91,15 @@ public class StudyLogService {
   public void logSession(String feature, String itemType, String itemId, int correct, int total,
       int durationSeconds) {
     repository.save(new StudyLog(currentUserProvider.getCurrentUserId(), feature, itemType, itemId, correct, total,
-        Math.min(Math.max(durationSeconds, 0), MAX_SESSION_SECONDS), LocalDateTime.now(JST)));
+        clampSeconds(durationSeconds, MAX_SESSION_SECONDS), LocalDateTime.now(JST)));
   }
 
   static int clampDuration(Integer seconds) {
-    if (seconds == null || seconds < 0) {
-      return 0;
-    }
-    return Math.min(seconds, MAX_DURATION_SECONDS);
+    return clampSeconds(seconds, MAX_DURATION_SECONDS);
+  }
+
+  /** 画面から送られた秒数を 0〜max に収める(時計のずれ・画面の開きっぱなしで極端な値が来るため。無ければ 0) */
+  public static int clampSeconds(Integer seconds, int max) {
+    return seconds == null ? 0 : Math.min(Math.max(seconds, 0), max);
   }
 }

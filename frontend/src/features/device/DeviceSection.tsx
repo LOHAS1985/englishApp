@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteDevice, fetchDevices, type DeviceView } from "../../api/client";
+import { messageOf } from "../../shared/errorMessage";
 
 const formatDate = (iso: string | null) =>
   iso ? new Date(iso).toLocaleString("ja-JP", { year: "numeric", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }) : "—";
@@ -27,7 +28,7 @@ export default function DeviceSection() {
       await deleteDevice(d.id);
       await load();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "端末の削除に失敗しました");
+      setError(messageOf(e, "端末の削除に失敗しました"));
     }
   };
 

@@ -16,6 +16,7 @@ import { warmUpListeningAudio } from "../listening/audioPrepare";
 import MockResultView from "./MockResultView";
 import { formatClock, itemKey, numberOffsets, PART_TITLES } from "./mockFormat";
 import { clearMockSession, loadMockSession, saveMockSession, type MockSession } from "./mockSession";
+import { messageOf } from "../../shared/errorMessage";
 
 type Phase = "intro" | "loading" | "listening" | "reading" | "submitting" | "failed" | "result";
 
@@ -99,7 +100,7 @@ export default function Mock() {
       setPhase("result");
     } catch (e) {
       // 採点に失敗しても解答は画面に残しておき、もう一度送れるようにする(自動では再送しない)
-      setError(e instanceof Error ? e.message : "模試の採点に失敗しました");
+      setError(messageOf(e, "模試の採点に失敗しました"));
       setPhase("failed");
     }
   };
@@ -142,7 +143,7 @@ export default function Mock() {
       seconds.current = { listening: 0, reading: 0 };
       startSection("listening");
     } catch (e) {
-      setError(e instanceof Error ? e.message : "模試の問題を用意できませんでした");
+      setError(messageOf(e, "模試の問題を用意できませんでした"));
       setPhase("intro");
     }
   };

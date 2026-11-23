@@ -29,6 +29,7 @@ import {
   type WordFilter,
   type WordSort,
 } from "./wordbookRules";
+import { messageOf } from "../../shared/errorMessage";
 
 const FILTERS: WordFilter[] = ["ALL", "DUE", "UNSEEN", ...COLOR_ORDER];
 const SORTS = Object.keys(SORT_LABELS) as WordSort[];
@@ -101,7 +102,7 @@ export default function WordbookList() {
       setNewWord("");
       await reload();
     } catch (e) {
-      setNotice(e instanceof Error ? e.message : "登録に失敗しました");
+      setNotice(messageOf(e, "登録に失敗しました"));
     }
   };
 
@@ -110,7 +111,7 @@ export default function WordbookList() {
       const updated = await setWordbookColor(word.id, color);
       setWords((current) => current.map((w) => (w.id === updated.id ? updated : w)));
     } catch (e) {
-      setNotice(e instanceof Error ? e.message : "色の変更に失敗しました");
+      setNotice(messageOf(e, "色の変更に失敗しました"));
     }
   };
 
@@ -120,7 +121,7 @@ export default function WordbookList() {
       setWords((current) => current.map((w) => (w.id === updated.id ? updated : w)));
       setEditingId(null);
     } catch (e) {
-      setNotice(e instanceof Error ? e.message : "訳の変更に失敗しました");
+      setNotice(messageOf(e, "訳の変更に失敗しました"));
     }
   };
 
@@ -133,7 +134,7 @@ export default function WordbookList() {
         updated.exampleJa ? "" : "例文の訳が空なので、翌日の調査で取り直します(それまで穴埋めには出ません)",
       );
     } catch (e) {
-      setNotice(e instanceof Error ? e.message : "例文の変更に失敗しました");
+      setNotice(messageOf(e, "例文の変更に失敗しました"));
     }
   };
 
@@ -143,7 +144,7 @@ export default function WordbookList() {
       await deleteWordbookWord(word.id);
       setWords((current) => current.filter((w) => w.id !== word.id));
     } catch (e) {
-      setNotice(e instanceof Error ? e.message : "削除に失敗しました");
+      setNotice(messageOf(e, "削除に失敗しました"));
     }
   };
 

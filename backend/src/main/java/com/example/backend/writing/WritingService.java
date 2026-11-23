@@ -1,5 +1,6 @@
 package com.example.backend.writing;
 
+import com.example.backend.common.EikenScores;
 import com.example.backend.common.ExternalApiException;
 import com.example.backend.common.GeminiApiClient;
 import com.example.backend.common.QuestionSelector;
@@ -18,7 +19,6 @@ import java.util.List;
 public class WritingService {
 
   /** 観点ごとの満点(内容・構成・語彙・文法 各4点、合計16点) */
-  private static final int MAX_CRITERION_SCORE = 4;
 
   /** 答案の文字数の上限(スピーキングの文字起こしの上限 3000 字と揃える) */
   static final int MAX_ANSWER_CHARS = 3000;
@@ -83,13 +83,13 @@ public class WritingService {
     result.setTotal(total);
 
     saveRecord(p, request.answer(), result);
-    studyLogService.log("writing", "eiken-" + p.type(), p.id(), total, 16, request.durationSeconds());
+    studyLogService.log("writing", "eiken-" + p.type(), p.id(), total, EikenScores.MAX_TOTAL, request.durationSeconds());
 
     return result;
   }
 
   private static int clamp(ScoreResult.CriterionScore criterion) {
-    criterion.setScore(Math.min(Math.max(criterion.getScore(), 0), MAX_CRITERION_SCORE));
+    criterion.setScore(EikenScores.clampCriterion(criterion.getScore()));
     return criterion.getScore();
   }
 

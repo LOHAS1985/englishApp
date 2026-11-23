@@ -2,6 +2,7 @@ import { useState } from "react";
 import { scoreSpeakingAnswer, type SpeakingScoreResult } from "../../api/client";
 import Recorder from "./Recorder";
 import { getRecognitionConstructor } from "./speechRecognition";
+import { messageOf } from "../../shared/errorMessage";
 
 const CRITERIA: { key: keyof Pick<SpeakingScoreResult, "content" | "structure" | "vocabulary" | "grammar">; label: string }[] = [
   { key: "content", label: "内容" },
@@ -54,7 +55,7 @@ export default function PartPractice({
       setResult(await scoreSpeakingAnswer(setId, part, transcript, seconds));
       onScored?.();
     } catch (e) {
-      setError(e instanceof Error ? e.message : "採点に失敗しました");
+      setError(messageOf(e, "採点に失敗しました"));
     } finally {
       setScoring(false);
     }

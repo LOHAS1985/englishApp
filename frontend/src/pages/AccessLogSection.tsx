@@ -5,6 +5,7 @@ import {
   type AccessIpSummary,
   type AccessLogResponse,
 } from "../api/client";
+import { messageOf } from "../shared/errorMessage";
 
 const KEY_STORAGE = "accessLogKey";
 const PERIODS = [7, 30, 90];
@@ -62,7 +63,7 @@ export default function AccessLogSection() {
           saveKey("");
           setKey("");
         }
-        setError(e instanceof Error ? e.message : "アクセス履歴の取得に失敗しました");
+        setError(messageOf(e, "アクセス履歴の取得に失敗しました"));
       });
     return () => {
       cancelled = true;

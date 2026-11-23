@@ -10,6 +10,7 @@ import {
 import Header from "../../shared/components/Header";
 import QuestionNumber from "../../shared/components/QuestionNumber";
 import { clearDraft, loadDraft, saveDraft } from "../../shared/draft";
+import { messageOf } from "../../shared/errorMessage";
 
 const CRITERIA: { key: keyof Omit<ScoreResult, "total">; label: string }[] = [
   { key: "content", label: "内容" },
@@ -144,7 +145,7 @@ export default function Writing() {
       clearDraft(draftFeature);
     } catch (e: unknown) {
       // AI のレート制限などはサーバーが理由を返すので、そのまま見せる
-      alert(e instanceof Error ? e.message : "採点に失敗しました");
+      alert(messageOf(e, "採点に失敗しました"));
     } finally {
       setScoring(false);
     }

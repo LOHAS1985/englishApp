@@ -204,7 +204,7 @@ public class MockExamService {
   }
 
   static int clampSeconds(Integer seconds) {
-    return seconds == null ? 0 : Math.min(Math.max(seconds, 0), MAX_SECTION_SECONDS);
+    return StudyLogService.clampSeconds(seconds, MAX_SECTION_SECONDS);
   }
 
   private static List<QuestionSet> setsOf(QuestionSetBank bank, String type) {

@@ -9,6 +9,7 @@ import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
 import QuestionNumber from "./QuestionNumber";
 import SessionSummary from "./SessionSummary";
+import { messageOf } from "../errorMessage";
 
 /** 画面に表示する選択肢。表示用の記号(label)と、採点に送る元の記号(original) */
 interface DisplayChoice {
@@ -86,7 +87,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
       showQuestion(prefetched ?? (await fetchQuestion(question?.id)));
       setCount((c) => c + 1);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "出題に失敗しました");
+      setError(messageOf(e, "出題に失敗しました"));
     } finally {
       setLoading(false);
     }
@@ -110,7 +111,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
           prefetchRef.current = null;
         }
       } catch (e) {
-        if (!cancelled) setError(e instanceof Error ? e.message : "出題に失敗しました");
+        if (!cancelled) setError(messageOf(e, "出題に失敗しました"));
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -166,7 +167,7 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
     } catch (e) {
       setWordbookNote({
         questionId: question.id,
-        text: e instanceof Error ? e.message : "追加に失敗しました",
+        text: messageOf(e, "追加に失敗しました"),
         done: false,
       });
     } finally {

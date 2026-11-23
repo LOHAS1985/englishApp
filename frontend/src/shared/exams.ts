@@ -1,18 +1,6 @@
 /** 目標試験ごとのメニュー。ホームで試験を選んだあと、パート(形式)を選ぶ */
 export type Exam = "toeic" | "eiken";
 
-export const EXAM_LABELS: Record<Exam, string> = {
-  toeic: "TOEIC",
-  eiken: "英検",
-};
-
-/** 問題の形式(type)から試験を判定する。形式名は "toeic-" / "eiken-" で始まる */
-export function examOf(type: string): Exam | null {
-  if (type.startsWith("toeic-")) return "toeic";
-  if (type.startsWith("eiken-")) return "eiken";
-  return null;
-}
-
 export interface ExamMenuItem {
   label: string;
   path: string;

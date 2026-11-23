@@ -8,7 +8,6 @@ import {
 } from "./http";
 
 import {
-  countSetTypes,
   gradeChoiceQuestion,
   gradeQuestionSet,
   localScript,
@@ -181,25 +180,6 @@ export async function submitVocabAnswer(
   return submitChoiceAnswer("vocab", questionId, selectedChoice, durationSeconds);
 }
 
-export interface GrammarHistoryItem {
-  id: number;
-  sentence: string;
-  choiceA: string;
-  choiceB: string;
-  choiceC: string;
-  choiceD: string;
-  correctChoice: string;
-  selectedChoice: string;
-  correct: boolean;
-  explanation: string;
-  translation: string;
-  createdAt: string;
-}
-
-export async function fetchGrammarHistory() {
-  return getJson<GrammarHistoryItem[]>("/api/grammar/history", "履歴の取得に失敗しました");
-}
-
 // セット問題(読解・リスニング):文章や音声1つに複数の設問が付く
 export interface SetQuestionView {
   question: string;
@@ -237,11 +217,6 @@ export interface SetAnswerResult {
 }
 
 type PracticeFeature = "reading" | "listening";
-
-// セット問題も画面に同梱した問題集から出題・採点し、記録は裏でサーバーに送る
-export async function fetchPracticeTypes(feature: PracticeFeature): Promise<Record<string, number>> {
-  return countSetTypes(feature);
-}
 
 /** @param review true なら、今日復習する設問を含むセットを出す(間違えた設問の復習) */
 export async function fetchPracticeSet(
@@ -587,10 +562,6 @@ export function fetchBackendCommit() {
 
 export async function fetchLevel() {
   return getJson<LevelSummary>("/api/level", "レベルの取得に失敗しました");
-}
-
-export async function fetchReviewSummary() {
-  return getJson<Record<string, ReviewSummary>>("/api/review/summary", "復習の件数の取得に失敗しました");
 }
 
 // 単語帳(英単語の色・出題・登録)。色は利用者が手動で付け、出題の頻度に使う

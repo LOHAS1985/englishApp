@@ -16,6 +16,7 @@ import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
 import AnswerResultPanel from "./AnswerResultPanel";
 import PronounceButton from "./PronounceButton";
 import { pushRecent } from "./wordbookRules";
+import { messageOf } from "../../shared/errorMessage";
 
 type Kind = "choice" | "fill";
 
@@ -89,7 +90,7 @@ export default function WordbookQuiz() {
       } catch (e) {
         if (cancelled) return;
         setQuestion(null);
-        setError(e instanceof Error ? e.message : "出題に失敗しました");
+        setError(messageOf(e, "出題に失敗しました"));
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -115,7 +116,7 @@ export default function WordbookQuiz() {
       show((prefetched ? await prefetched : null) ?? (await fetchQuestion(kind, recentRef.current)));
     } catch (e) {
       setQuestion(null);
-      setError(e instanceof Error ? e.message : "出題に失敗しました");
+      setError(messageOf(e, "出題に失敗しました"));
     } finally {
       setLoading(false);
     }
@@ -143,7 +144,7 @@ export default function WordbookQuiz() {
     } catch (e) {
       // 4択は選び直せるよう選択を外す。穴埋めは入力した答えを残す
       setSelected(null);
-      setActionError(e instanceof Error ? e.message : "採点に失敗しました");
+      setActionError(messageOf(e, "採点に失敗しました"));
     } finally {
       setSubmitting(false);
     }
@@ -198,7 +199,7 @@ export default function WordbookQuiz() {
       await setWordbookColor(question.data.wordId, next);
       setColor(next);
     } catch (e) {
-      setActionError(e instanceof Error ? e.message : "色の変更に失敗しました");
+      setActionError(messageOf(e, "色の変更に失敗しました"));
     }
   };
 

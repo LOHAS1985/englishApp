@@ -1,5 +1,6 @@
 package com.example.backend.speaking;
 
+import com.example.backend.common.EikenScores;
 import com.example.backend.common.ExternalApiException;
 import com.example.backend.common.GeminiApiClient;
 import com.example.backend.config.CurrentUserProvider;
@@ -24,9 +25,6 @@ public class SpeakingService {
 
   /** 無料枠を使い切らないための、1回の文字起こしの上限(2分のナレーションでも約300語=2,000字ほど) */
   static final int MAX_TRANSCRIPT_CHARS = 3000;
-  static final int MAX_CRITERION_SCORE = 4;
-  /** 学習ログの満点(4観点×4点) */
-  static final int MAX_TOTAL = MAX_CRITERION_SCORE * 4;
 
   private final GeminiApiClient geminiApiClient;
   private final SpeakingQuestionBank questionBank;
@@ -78,7 +76,7 @@ public class SpeakingService {
         transcript, request.speakingSeconds(), content.score(), structure.score(), vocabulary.score(),
         grammar.score(), total, jsonMapper.writeValueAsString(result)));
     // パートごとに別の問題として数える(同じ日に同じパートを解き直しても経験値が増えないようにするため)
-    studyLogService.log("speaking", "eiken-interview-part", set.id() + "-p" + request.part(), total, MAX_TOTAL,
+    studyLogService.log("speaking", "eiken-interview-part", set.id() + "-p" + request.part(), total, EikenScores.MAX_TOTAL,
         request.speakingSeconds());
     return result;
   }
@@ -112,7 +110,7 @@ public class SpeakingService {
 
   /** Gemini が範囲外の点数を返しても、4観点×4点の枠に収める */
   private static Criterion clamp(Criterion criterion) {
-    return new Criterion(Math.min(Math.max(criterion.score(), 0), MAX_CRITERION_SCORE), criterion.feedback());
+    return new Criterion(EikenScores.clampCriterion(criterion.score()), criterion.feedback());
   }
 
   private static String narrationPrompt(SpeakingSet set, String transcript, Integer seconds) {
