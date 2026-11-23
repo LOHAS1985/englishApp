@@ -265,7 +265,7 @@ export default function PracticeSetPage({
               {!questionsVisible && (
                 <div className="mt-6">
                   <p className="text-sm text-slate-600 mb-3">
-                    本文だけを読み、読み終えたら押してください。設問は押したあとに出ます。
+                    本文を読み終えたら押してください
                   </p>
                   <button
                     onClick={finishReading}
@@ -342,12 +342,6 @@ export default function PracticeSetPage({
                     );
                   })}
                 </div>
-              )}
-
-              {!result && questionsVisible && (
-                <p className="hidden sm:block mt-4 text-xs text-slate-400">
-                  キー操作: 1〜4(または A〜D)で、上から順に未回答の設問を選択 / すべて答えたら Enter で解答
-                </p>
               )}
 
               {!result && questionsVisible && (

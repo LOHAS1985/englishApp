@@ -26,14 +26,9 @@ export default function MockHistorySection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">模試の推定点(参考値)</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        正答率から決めた仮の換算による推定点です。目標は {TOEIC_TARGET.total} 点(L {TOEIC_TARGET.listening} / R{" "}
-        {TOEIC_TARGET.reading})です。
-      </p>
+      <p className="text-xs text-slate-500 mb-3">目標 {TOEIC_TARGET.total} 点</p>
       {recent.length === 0 ? (
-        <p className="text-sm text-slate-500">
-          まだ模試を受けていません。ホームから TOEIC の「模試」で始められます。
-        </p>
+        <p className="text-sm text-slate-500">まだ模試を受けていません。</p>
       ) : (
         <div className="bg-white border border-slate-200 rounded-md p-5">
           <div className="flex items-end gap-2 h-32 mb-2">

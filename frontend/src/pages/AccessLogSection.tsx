@@ -83,10 +83,7 @@ export default function AccessLogSection() {
 
       {!key && (
         <div className="bg-white border border-slate-200 rounded-md p-5">
-          <p className="text-sm text-slate-600 mb-3">
-            IP アドレスを含むため、閲覧キー(サーバーの ACCESS_LOG_KEY)を入力してください。
-            このブラウザに保存され、次回からは入力不要です。
-          </p>
+          <p className="text-sm text-slate-600 mb-3">閲覧キーを入力してください</p>
           {error && <p className="text-sm text-[#c0392b] mb-3">{error}</p>}
           <div className="flex gap-2">
             <input

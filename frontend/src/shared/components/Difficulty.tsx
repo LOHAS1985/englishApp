@@ -1,10 +1,10 @@
-const OPTIONS: { value: number | undefined; label: string; note: string }[] = [
-  { value: undefined, label: "自動", note: "正答率に合わせる" },
-  { value: 1, label: "基礎", note: "" },
-  { value: 2, label: "標準", note: "" },
-  { value: 3, label: "発展", note: "" },
-  { value: 4, label: "難関", note: "" },
-  { value: 5, label: "最難関", note: "" },
+const OPTIONS: { value: number | undefined; label: string }[] = [
+  { value: undefined, label: "自動" },
+  { value: 1, label: "基礎" },
+  { value: 2, label: "標準" },
+  { value: 3, label: "発展" },
+  { value: 4, label: "難関" },
+  { value: 5, label: "最難関" },
 ];
 
 /**
@@ -32,7 +32,6 @@ export function DifficultySelect({
           }`}
         >
           {o.label}
-          {o.note && <span className="ml-1 text-xs opacity-70">({o.note})</span>}
         </button>
       ))}
     </div>

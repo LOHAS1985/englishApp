@@ -33,6 +33,5 @@ describe("単語帳のメニュー", () => {
     expect(await screen.findByText("12")).toBeTruthy();
     expect(screen.getByText("431")).toBeTruthy();
     expect(screen.getByText(/今日の復習/)).toBeTruthy();
-    expect(screen.getByText(/間違えた語は自動で赤になり/)).toBeTruthy();
   });
 });

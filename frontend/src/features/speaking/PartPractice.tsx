@@ -81,8 +81,8 @@ export default function PartPractice({
           rows={4}
           placeholder={
             supported
-              ? "録音すると、話した内容がここに文字起こしされます。認識の間違いは直せます"
-              : "このブラウザは音声認識に対応していません。話した内容をここに入力してください"
+              ? "録音すると、ここに文字起こしされます"
+              : "音声認識に対応していないため、ここに入力してください"
           }
           className="w-full font-serif text-[0.9375rem] leading-7 text-slate-900 border border-slate-200 rounded px-3 py-2 resize-y
                      focus:outline-2 focus:outline-[#8fae4e] focus:outline-offset-1"
@@ -96,7 +96,6 @@ export default function PartPractice({
           >
             {scoring ? "採点中…" : "AI に採点してもらう"}
           </button>
-          <span className="text-xs text-slate-400">発音・抑揚・間は採点されません(文字起こしだけを採点します)</span>
         </div>
         {error && <p className="mt-2 text-sm text-[#c0392b]">{error}</p>}
       </div>

@@ -33,11 +33,8 @@ export default function WeaknessSection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">弱点分析(分野・設問タイプ別)</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        文法は分野(時制・関係詞など)、語彙は品詞、読解・リスニングは設問タイプ(推測・NOT問題・発言の意図など)ごとの全期間の正答率です。
-      </p>
       {worst.length === 0 ? (
-        <p className="text-sm text-slate-500">分類ごとに{MIN_ANSWERS}問以上解くと、苦手な順に表示されます。</p>
+        <p className="text-sm text-slate-500">{MIN_ANSWERS}問以上で表示されます</p>
       ) : (
         <div className="space-y-2 mb-4">
           {worst.map((i) => (

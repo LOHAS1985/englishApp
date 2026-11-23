@@ -46,9 +46,6 @@ export default function DeviceGate() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
       <form onSubmit={submit} className="w-full max-w-sm rounded-lg bg-white p-6 shadow-lg">
         <h2 className="text-lg font-semibold text-slate-800">この端末を登録してください</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          登録した端末(最大3台)だけが使えます。登録は端末ごとに1回だけです。
-        </p>
         <label className="mt-4 block text-sm text-slate-700">
           合言葉
           <input
@@ -61,7 +58,7 @@ export default function DeviceGate() {
           />
         </label>
         <label className="mt-3 block text-sm text-slate-700">
-          端末の名前(マイページで見分けるため)
+          端末の名前
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}

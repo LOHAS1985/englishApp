@@ -35,11 +35,8 @@ export default function SpeakingHistorySection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">スピーキング採点履歴</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        面接練習の AI 採点(各パート16点満点)です。録音の文字起こしを採点するので、発音・抑揚・間は含みません。
-      </p>
       {items.length === 0 ? (
-        <p className="text-sm text-slate-500">まだ採点していません。ホームの英検準1級「スピーキング」で練習できます。</p>
+        <p className="text-sm text-slate-500">まだ採点していません。</p>
       ) : (
         <>
           <div className="bg-white border border-slate-200 rounded-md p-5 mb-3">

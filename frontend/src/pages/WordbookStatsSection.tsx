@@ -30,9 +30,7 @@ export default function WordbookStatsSection() {
           単語帳を開く →
         </Link>
       </div>
-      <p className="text-xs text-slate-500 mb-3">
-        出題できる語({stats.total}語)の習熟度です。定着は、7日以上あけた復習に正解した語です。
-      </p>
+      <p className="text-xs text-slate-500 mb-3">出題できる語 {stats.total} 語</p>
 
       <div className="bg-white border border-slate-200 rounded-md p-5 mb-3">
         <div className="flex h-3 rounded overflow-hidden bg-slate-100" role="img" aria-label="習熟度の分布">

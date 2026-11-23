@@ -34,7 +34,7 @@ export default function LevelSection() {
             </p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-slate-500">連続学習(10分以上の日)</p>
+            <p className="text-xs text-slate-500">連続学習</p>
             <p className="font-mono text-2xl font-semibold">{level.streakDays} 日</p>
           </div>
         </div>
@@ -66,18 +66,6 @@ export default function LevelSection() {
             ))}
           </div>
         </div>
-
-        <details className="text-xs text-slate-600">
-          <summary className="cursor-pointer text-slate-500">経験値のルール</summary>
-          <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>正解:1問にかかる時間に比例(語彙・Part 5 は8、Part 7 は18、英検 大問3 は26 など)。発展は1.3倍、基礎は0.8倍</li>
-            <li>不正解でも基本の3割。前に間違えた問題に後日全問正解すると1.5倍</li>
-            <li>ライティングは得点×15(要約は×9)、面接練習は1セット150</li>
-            <li>同じ問題を同じ日に解き直した分は入りません</li>
-            <li>学習時間1分ごとに1(1日60まで)、30分達成で+50、取り組んだ技能1つごとに+10</li>
-            <li>10分以上学習した日が続くと、1日ごとに2%ずつ増えて最大1.3倍</li>
-          </ul>
-        </details>
       </div>
     </section>
   );

@@ -212,15 +212,12 @@ export default function Mock() {
   if (phase === "intro" || phase === "loading") {
     return (
       <Page>
-        <h1 className="font-serif text-2xl text-slate-900 mb-2">TOEIC L&R 模試</h1>
-        <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-          本番と同じ区切りと制限時間で通して解き、終わったあとに採点します。提出するまで結果は記録されません。
-        </p>
+        <h1 className="font-serif text-2xl text-slate-900 mb-6">TOEIC 模試</h1>
         {saved && (
           <div className="mb-6 border border-amber-200 bg-amber-50 rounded p-4">
             <p className="text-sm font-semibold text-slate-900 mb-1">中断した模試があります</p>
-            <p className="text-sm text-slate-700 mb-3 leading-relaxed">
-              {saved.phase === "listening" ? "リスニング" : "リーディング"}の途中です(中断した時点の残り時間は約{" "}
+            <p className="text-sm text-slate-700 mb-3">
+              {saved.phase === "listening" ? "リスニング" : "リーディング"}・残り約{" "}
               {Math.max(
                 0,
                 Math.round(
@@ -229,7 +226,7 @@ export default function Mock() {
                     60,
                 ),
               )}{" "}
-              分)。時間は本番と同じく進み続けるので、時間が切れていれば次の区切りへ進みます。
+              分
             </p>
             <div className="flex gap-3">
               <button
@@ -248,12 +245,7 @@ export default function Mock() {
             </div>
           </div>
         )}
-        <ul className="text-sm text-slate-700 space-y-2 mb-6 list-disc pl-5">
-          <li>リスニング 45分: Part 2・3・4 の 94 問。音声は1回だけ聞けます。セットは戻れません。</li>
-          <li>リーディング 75分: Part 5・6・7 の 100 問。時間が切れると自動で提出されます。</li>
-          <li>Part 1(写真描写)は写真を用意していないため含みません。</li>
-          <li>結果は推定点(参考値)です。目標は 930 点(L 475 / R 455)です。</li>
-        </ul>
+        <p className="text-sm text-slate-700 mb-6">リスニング 45分・94問 / リーディング 75分・100問</p>
         {error && <p className="text-sm text-[#c0392b] mb-4">{error}</p>}
         <button
           onClick={start}

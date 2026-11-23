@@ -37,9 +37,6 @@ export default function DeviceSection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">登録済みの端末</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        ここにある端末だけがこのアプリを使えます(最大3台)。心当たりのない端末があれば削除してください。
-      </p>
       {error && <p className="text-sm text-[#c0392b] mb-2">{error}</p>}
       <div className="bg-white border border-slate-200 rounded-md divide-y divide-slate-100">
         {(devices ?? []).map((d) => (

@@ -38,9 +38,6 @@ export default function MyPage() {
       <main className="w-full max-w-[840px] mt-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="font-mono text-xs font-semibold tracking-widest text-slate-400">
-              MY PAGE
-            </p>
             <h1 className="font-serif text-2xl text-slate-900">学習記録</h1>
           </div>
           <div className="flex items-center gap-3">

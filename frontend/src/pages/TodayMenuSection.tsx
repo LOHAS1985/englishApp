@@ -40,9 +40,9 @@ function savedLoaded(): Loaded | null {
 type Mode = "normal" | "quiet";
 
 // 先頭が既定の表示(外出先で開くことが多いので、声を出さないメニューを先に出す)
-const MODE_LABELS: Record<Mode, { title: string; note: string }> = {
-  quiet: { title: "スピーキングなし", note: "電車内など" },
-  normal: { title: "通常", note: "4技能+語彙" },
+const MODE_LABELS: Record<Mode, string> = {
+  quiet: "スピーキングなし",
+  normal: "通常",
 };
 
 /**
@@ -137,10 +137,8 @@ export default function TodayMenuSection() {
               mode === m ? "border-[#2463a8] bg-[#2463a8]/5" : "border-slate-200 hover:bg-slate-50"
             }`}
           >
-            <span className="block text-sm font-semibold text-slate-900">{MODE_LABELS[m].title}</span>
-            <span className="block text-xs text-slate-500">
-              {MODE_LABELS[m].note}・約{menu[m].totalMinutes}分
-            </span>
+            <span className="block text-sm font-semibold text-slate-900">{MODE_LABELS[m]}</span>
+            <span className="block text-xs text-slate-500">約{menu[m].totalMinutes}分</span>
           </button>
         ))}
       </div>

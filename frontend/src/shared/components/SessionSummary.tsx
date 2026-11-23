@@ -4,18 +4,15 @@ interface Props {
   tally: Tally;
   /** 正解数の後ろに添える補足(例: 3セット) */
   extra?: string;
-  /** まとめの下に出す一言(例: 復習の案内) */
-  note?: string;
   onContinue: () => void;
   onHome: () => void;
 }
 
 /** 「終了する」を押したときの、今回の練習のまとめ。1日30分の達成感と、弱点の確認のために出す */
-export default function SessionSummary({ tally, extra, note, onContinue, onHome }: Props) {
+export default function SessionSummary({ tally, extra, onContinue, onHome }: Props) {
   const accuracy = accuracyPercent(tally);
   return (
     <div role="status" aria-live="polite">
-      <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-1">RESULT</p>
       <h2 className="font-serif text-xl text-slate-900 mb-4">今回の練習</h2>
       <dl className="grid grid-cols-3 gap-3 mb-4">
         <div className="border border-slate-200 rounded p-3">
@@ -33,10 +30,9 @@ export default function SessionSummary({ tally, extra, note, onContinue, onHome 
           <dd className="font-mono text-xl font-semibold text-slate-900">{formatStudyTime(tally.seconds)}</dd>
         </div>
       </dl>
-      <p className="text-sm text-slate-600 mb-1">
-        {tally.correct} / {tally.answered} 問正解{extra ? `(${extra})` : ""}。
+      <p className="text-sm text-slate-600 mb-6">
+        {tally.correct} / {tally.answered} 問正解{extra ? `(${extra})` : ""}
       </p>
-      <p className="text-sm text-slate-600 mb-6">{note}</p>
       <div className="flex gap-3">
         <button
           onClick={onHome}

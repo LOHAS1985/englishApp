@@ -105,9 +105,6 @@ export default function StudyStatsSection() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500 mt-2">
-          リーディングには文法(TOEIC Part 5)を含みます。ライティングの得点は正答率に含めません。
-        </p>
       </section>
 
       <section className="mb-8">
@@ -153,9 +150,7 @@ export default function StudyStatsSection() {
       <section className="mb-8">
         <h2 className="font-serif text-xl text-slate-900 mb-3">正答率が低い形式(30日)</h2>
         {weakTypes.length === 0 ? (
-          <p className="text-sm text-slate-500">
-            形式ごとに{MIN_QUESTIONS_FOR_WEAKNESS}問以上解くと表示されます。
-          </p>
+          <p className="text-sm text-slate-500">{MIN_QUESTIONS_FOR_WEAKNESS}問以上で表示されます</p>
         ) : (
           <div className="space-y-2">
             {weakTypes.map((t) => (

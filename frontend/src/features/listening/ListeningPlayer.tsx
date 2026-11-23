@@ -141,7 +141,7 @@ export default function ListeningPlayer({ setId, allowReplay = true }: { setId: 
           : busy
             ? "停止"
             : replayBlocked
-              ? "再生済み(もう一度は聞けません)"
+              ? "再生済み"
               : played
                 ? "▶ もう一度聞く"
                 : "▶ 音声を再生"}

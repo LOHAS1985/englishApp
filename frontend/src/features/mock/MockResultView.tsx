@@ -11,7 +11,6 @@ const diffText = (value: number, target: number) => (value >= target ? `+${value
 export default function MockResultView({ result, onRetry }: { result: MockResult; onRetry: () => void }) {
   return (
     <div>
-      <p className="font-mono text-xs font-semibold tracking-widest text-slate-400 mb-1">MOCK RESULT</p>
       <h1 className="font-serif text-2xl text-slate-900 mb-6">模試の結果</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -34,11 +33,6 @@ export default function MockResultView({ result, onRetry }: { result: MockResult
           ))}
         </tbody>
       </table>
-
-      <p className="text-xs text-slate-500 leading-relaxed mb-6">
-        推定点は正答率から決めた仮の換算による参考値です。公式のスコアではありません。
-        リスニングは Part 1(写真描写)を含まない {result.listening.total} 問で計算しています。
-      </p>
 
       <div className="flex flex-wrap gap-3">
         <button

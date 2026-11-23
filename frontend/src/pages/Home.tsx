@@ -67,7 +67,6 @@ export default function Home() {
                       📚
                     </span>
                   </span>
-                  <span className="mt-4 block text-sm text-slate-800">英検準1級・TOEIC 930 の語を、間違えた語から復習</span>
                 </button>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {WORDBOOK_ACTIONS.map((a) => (
@@ -114,10 +113,7 @@ export default function Home() {
                       onClick={() => navigate(withLevel(it.path, level))}
                       className="w-full text-left py-2.5 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between gap-3"
                     >
-                      <span>
-                        <span className="block text-slate-900">{it.label}</span>
-                        <span className="block text-xs text-slate-500">{it.note}</span>
-                      </span>
+                      <span className="text-slate-900">{it.label}</span>
                       <span className="text-slate-500">→</span>
                     </button>
                   ))}

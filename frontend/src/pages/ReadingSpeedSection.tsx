@@ -26,9 +26,6 @@ export default function ReadingSpeedSection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">読解速度(語/分)</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        本文を読み終えるまでの語数と時間から出します。設問に答える時間は含みません。ホームの「読解速度計測」から測れます。
-      </p>
       {byType.size === 0 ? (
         <p className="text-sm text-slate-500">まだ計測していません。</p>
       ) : (

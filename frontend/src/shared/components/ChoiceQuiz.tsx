@@ -227,7 +227,6 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
           {finished && (
             <SessionSummary
               tally={tally}
-              note="間違えた問題は、復習の日になるとホームの復習から解き直せます。"
               onContinue={handleContinue}
               onHome={handleFinish}
             />
@@ -332,9 +331,6 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
                   </div>
                 </div>
               )}
-              <p className="hidden sm:block mt-6 text-xs text-slate-400">
-                キー操作: 1〜4(または A〜D)で選択 / Enter で次の問題
-              </p>
             </div>
             </WordCapture>
           )}

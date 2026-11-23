@@ -28,10 +28,7 @@ export default function DifficultySection() {
   return (
     <section className="mb-8">
       <h2 className="font-serif text-xl text-slate-900 mb-1">難易度4(難関)の正答率</h2>
-      <p className="text-xs text-slate-500 mb-3">
-        目標は {DIFFICULTY_TARGET_PERCENT}%(難易度の自動調整で、1つ上の難易度に上げる基準と同じ)。
-        問題集の難易度4がない形式は、まだ練習できません。
-      </p>
+      <p className="text-xs text-slate-500 mb-3">目標 {DIFFICULTY_TARGET_PERCENT}%</p>
       <div className="bg-white border border-slate-200 rounded-md overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-slate-50 text-slate-500 text-xs">

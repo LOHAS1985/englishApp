@@ -96,7 +96,7 @@ test.describe("ホームの試験と単語帳", () => {
     const card = page.getByRole("group", { name: "単語帳" });
     await expect(card).toBeVisible();
     // 試験のカードと同じ行に並ぶ(デスクトップ)
-    const toeic = await page.getByRole("button", { name: /TOEIC L&R/ }).boundingBox();
+    const toeic = await page.getByRole("button", { name: /^TOEIC/ }).boundingBox();
     const wordbook = await card.boundingBox();
     expect(Math.abs(wordbook!.y - toeic!.y)).toBeLessThan(2);
     await page.locator("main, body").first().screenshot({ path: "test-results/home-desktop.png" });

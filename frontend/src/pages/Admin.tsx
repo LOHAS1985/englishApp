@@ -12,7 +12,6 @@ export default function Admin() {
       <main className="w-full max-w-[840px] mx-auto px-5 py-10">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="font-mono text-xs font-semibold tracking-widest text-slate-400">ADMIN</p>
             <h1 className="font-serif text-2xl text-slate-900">管理画面</h1>
           </div>
           <button
