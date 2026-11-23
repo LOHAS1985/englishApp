@@ -96,12 +96,28 @@ class WordbookPickerTests {
 
 
   @Test
-  void dueWordsComeBeforeUncoloredNewWords() {
+  void uncoloredNewWordsComeBeforeDueWords() {
     List<WordbookWord> words = List.of(
-        asked(1, "due", WordbookColor.NONE, 0), // 復習日が来ている
+        asked(1, "due", WordbookColor.RED, 0), // 復習日が来ている(間違えて赤になった語)
         word(2, "fresh", WordbookColor.NONE, "新"), // 色を決めていない新規
         asked(3, "later", WordbookColor.NONE, 5)); // 復習日はまだ先
     Random random = new Random(8);
+    for (int i = 0; i < 200; i++) {
+      assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(2L);
+    }
+  }
+
+  @Test
+  void dueWordsComeAfterTheFirstPassAndBeforeColoredNewWords() {
+    WordbookWord fresh = word(2, "fresh", WordbookColor.NONE, "新");
+    List<WordbookWord> words = List.of(
+        asked(1, "due", WordbookColor.RED, 0),
+        fresh,
+        word(4, "colored", WordbookColor.BLUE, "青")); // 色付きの新規は復習より後
+    Random random = new Random(8);
+    assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(2L);
+    fresh.recordAnswer(true, NOW);
+    // 無色の新規が無くなったら、復習日が来た語
     for (int i = 0; i < 200; i++) {
       assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(1L);
     }

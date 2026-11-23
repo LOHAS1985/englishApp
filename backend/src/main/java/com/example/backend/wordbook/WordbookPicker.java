@@ -11,8 +11,9 @@ import java.util.function.ToIntFunction;
 /**
  * 単語帳の出題の選び方。優先順は次のとおり。
  * <ol>
- * <li>復習日が来た語(間違えた語など。数は少ないので、先に片づける)</li>
- * <li>色を決めていない語(無色)で、まだ一度も出していない語。一周目としてすべて先に出す</li>
+ * <li>色を決めていない語(無色)で、まだ一度も出していない語。一周目としてすべて先に出す
+ *     (利用者の要望で、復習より先にする。復習日が来た語は一周目が終わるまで待つ)</li>
+ * <li>復習日が来た語(間違えた語など)</li>
  * <li>残りのまだ出していない語(色付き)。色の重みで選ぶ</li>
  * <li>どれも無いとき、次の復習日がまだ先の語を色の重みで選ぶ</li>
  * </ol>
@@ -41,12 +42,12 @@ final class WordbookPicker {
         .filter(w -> w.getColor() == WordbookColor.NONE && w.isUnseen()).toList();
     List<WordbookWord> unseen = pool.stream().filter(WordbookWord::isUnseen).toList();
 
-    if (!due.isEmpty()) {
-      return weighted(due, w -> w.getColor().dueWeight(), random);
-    }
     if (!uncoloredUnseen.isEmpty()) {
       // 一周目は、色を決めていない語を一様に(色で重みを付けない。どれも無色のため)
       return uncoloredUnseen.get(random.nextInt(uncoloredUnseen.size()));
+    }
+    if (!due.isEmpty()) {
+      return weighted(due, w -> w.getColor().dueWeight(), random);
     }
     if (!unseen.isEmpty()) {
       return weighted(unseen, w -> w.getColor().newWeight(), random);
