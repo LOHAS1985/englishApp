@@ -276,6 +276,21 @@ public class WordbookWord {
     this.updatedAt = now;
   }
 
+  /** 訳が揃っているか。揃うまでは4択にも穴埋めにも出さない */
+  public boolean isTranslated() {
+    return translationStatus == TranslationStatus.DONE;
+  }
+
+  /** 4択に出せるか(訳が揃っている) */
+  public boolean canAskChoice() {
+    return isTranslated() && meaningJa != null;
+  }
+
+  /** 穴埋めに出せるか(訳が揃っていて、例文・空欄の語・例文の訳がある) */
+  public boolean canAskFill() {
+    return isTranslated() && exampleEn != null && exampleAnswer != null && exampleJa != null;
+  }
+
   public Long getId() { return id; }
   public Long getUserId() { return userId; }
   public String getWord() { return word; }

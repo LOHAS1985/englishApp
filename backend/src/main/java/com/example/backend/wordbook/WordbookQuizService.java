@@ -59,10 +59,7 @@ public class WordbookQuizService {
   }
 
   public ChoiceQuestionView choiceQuestion(Set<Long> exclude) {
-    List<WordbookWord> ready = wordService.ownedWords().stream()
-        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE)
-        .filter(w -> w.getMeaningJa() != null)
-        .toList();
+    List<WordbookWord> ready = wordService.ownedWords().stream().filter(WordbookWord::canAskChoice).toList();
     WordbookWord target = WordbookPicker.pick(ready, exclude, today(), random);
     List<String> choices = new ArrayList<>(WordbookPicker.distractors(target, ready, WRONG_CHOICES, random));
     choices.add(target.getMeaningJa());
@@ -73,7 +70,7 @@ public class WordbookQuizService {
   @Transactional
   public AnswerResultView answerChoice(ChoiceAnswerRequest request) {
     WordbookWord word = wordService.owned(request.wordId());
-    if (word.getMeaningJa() == null) {
+    if (!word.canAskChoice()) {
       throw new IllegalArgumentException("この単語は訳がまだ揃っていないので、4択では答えられません");
     }
     String selected = request.selectedMeaning() == null ? "" : request.selectedMeaning().trim();
@@ -83,10 +80,7 @@ public class WordbookQuizService {
   }
 
   public FillQuestionView fillQuestion(Set<Long> exclude) {
-    List<WordbookWord> ready = wordService.ownedWords().stream()
-        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE)
-        .filter(w -> w.getExampleEn() != null && w.getExampleAnswer() != null && w.getExampleJa() != null)
-        .toList();
+    List<WordbookWord> ready = wordService.ownedWords().stream().filter(WordbookWord::canAskFill).toList();
     WordbookWord target = WordbookPicker.pick(ready, exclude, today(), random);
     return new FillQuestionView(target.getId(),
         WordbookSentences.blank(target.getExampleEn(), target.getExampleAnswer()), target.getExampleJa(),
@@ -96,7 +90,7 @@ public class WordbookQuizService {
   @Transactional
   public AnswerResultView answerFill(FillAnswerRequest request) {
     WordbookWord word = wordService.owned(request.wordId());
-    if (word.getExampleAnswer() == null || word.getExampleJa() == null) {
+    if (!word.canAskFill()) {
       throw new IllegalArgumentException("この単語は穴埋めの例文がないか、例文の訳がまだ揃っていません");
     }
     boolean correct = WordForms.matchesAnswer(request.typed(), word.getWord(), word.getExampleAnswer());
@@ -106,8 +100,7 @@ public class WordbookQuizService {
 
   /** 習熟度の分布・直近7日の正答率・苦手な語(MyPage の単語帳の欄に出す) */
   public StatsView stats() {
-    List<WordbookWord> ready = wordService.ownedWords().stream()
-        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE).toList();
+    List<WordbookWord> ready = wordService.ownedWords().stream().filter(WordbookWord::isTranslated).toList();
     long unseen = ready.stream().filter(WordbookWord::isUnseen).count();
     long mastered = ready.stream().filter(w -> w.getReviewStage() != null && w.getReviewStage() >= MASTERED_STAGE).count();
 

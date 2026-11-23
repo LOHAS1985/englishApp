@@ -78,7 +78,7 @@ public class WordbookService {
     LocalDate today = LocalDate.now(JST);
     // 出題できる語(訳が揃っている語)のうち、今日復習する語と、まだ一度も出していない語
     List<WordbookWord> ready = words.stream()
-        .filter(w -> w.getTranslationStatus() == WordbookWord.TranslationStatus.DONE).toList();
+        .filter(WordbookWord::isTranslated).toList();
     return new SummaryView(
         words.size(),
         count(words, WordbookColor.NONE),

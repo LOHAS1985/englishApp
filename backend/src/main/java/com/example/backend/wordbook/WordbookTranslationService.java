@@ -32,7 +32,7 @@ public class WordbookTranslationService {
   public int translatePending() {
     int completed = 0;
     for (WordbookWord word : repository.findByUserIdOrderByIdAsc(currentUserProvider.getCurrentUserId())) {
-      if (word.getTranslationStatus() == WordbookWord.TranslationStatus.DONE) {
+      if (word.isTranslated()) {
         continue;
       }
       LocalDateTime now = LocalDateTime.now(StudyLogService.JST);
@@ -40,7 +40,7 @@ public class WordbookTranslationService {
       String exampleJa = isBlank(word.getExampleEn()) || !isBlank(word.getExampleJa()) ? null
           : deepLApiClient.translateToJapanese(word.getExampleEn());
       word.applyTranslation(meaningJa, exampleJa, now);
-      if (word.getTranslationStatus() == WordbookWord.TranslationStatus.DONE) {
+      if (word.isTranslated()) {
         completed++;
       } else {
         word.markTranslationFailed(now);

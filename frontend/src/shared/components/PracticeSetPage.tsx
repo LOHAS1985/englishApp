@@ -104,7 +104,7 @@ export default function PracticeSetPage({
    * リスニングならその音声の準備も始める。形式・難易度が変わったら使わない
    */
   const nextRef = useRef<{ key: string; promise: Promise<QuestionSetView | null> } | null>(null);
-  const nextKey = `${feature}|${type}|${level ?? ""}`;
+  const nextKey = `${feature}|${type}|${level ?? ""}|${review ? "review" : ""}`;
 
   // 「次の問題」用。表示中のセットは候補から外す
   const loadNext = async () => {
@@ -132,7 +132,9 @@ export default function PracticeSetPage({
     return () => {
       cancelled = true;
     };
-  }, [feature, type, level]);
+    // showSet は描画ごとに作り直すが、中で使うのは state の setter と review だけなので、出題の条件の変化だけで動かす
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [feature, type, level, review]);
 
   const handleSubmit = async () => {
     if (!set) return;

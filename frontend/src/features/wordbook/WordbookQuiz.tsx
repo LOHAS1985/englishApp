@@ -13,9 +13,8 @@ import {
 } from "../../api/client";
 import Header from "../../shared/components/Header";
 import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
-import ColorButtons from "./ColorButtons";
+import AnswerResultPanel from "./AnswerResultPanel";
 import PronounceButton from "./PronounceButton";
-import SenseList from "./SenseList";
 import { pushRecent } from "./wordbookRules";
 
 type Kind = "choice" | "fill";
@@ -122,20 +121,27 @@ export default function WordbookQuiz() {
     }
   };
 
-  const finish = (data: WordbookAnswerResult) => {
-    setResult(data);
-    setColor(data.color);
-  };
-
-  const answerChoice = async (meaning: string) => {
-    if (!question || question.kind !== "choice" || result || submitting) return;
-    setSelected(meaning);
+  /**
+   * 解答を送って結果を出す。4択・穴埋め・「答えを見る」で共通。
+   * 答えを見るときは空の答えを送る(サーバーで必ず不正解になり、分からなかった語として翌日の復習に回る)。
+   * 失敗しても問題は消さず、問題の下にエラーを出して、もう一度答えられるようにする
+   */
+  const submit = async (answer: string, options: { reveal?: boolean } = {}) => {
+    if (!question || result || submitting) return;
+    if (question.kind === "choice" && !options.reveal) setSelected(answer);
     setSubmitting(true);
     setActionError("");
     try {
-      finish(await submitWordbookChoice(question.data.wordId, meaning, secondsSince(shownAtRef.current)));
+      const seconds = secondsSince(shownAtRef.current);
+      const data =
+        question.kind === "fill"
+          ? await submitWordbookFill(question.data.wordId, answer, seconds)
+          : await submitWordbookChoice(question.data.wordId, answer, seconds);
+      setRevealed(options.reveal === true);
+      setResult(data);
+      setColor(data.color);
     } catch (e) {
-      // 問題は消さず、選び直せるようにする(通信が戻ればもう一度選ぶだけで採点できる)
+      // 4択は選び直せるよう選択を外す。穴埋めは入力した答えを残す
       setSelected(null);
       setActionError(e instanceof Error ? e.message : "採点に失敗しました");
     } finally {
@@ -143,43 +149,15 @@ export default function WordbookQuiz() {
     }
   };
 
-  const answerFill = async (e: FormEvent) => {
+  const answerChoice = (meaning: string) => submit(meaning);
+
+  const answerFill = (e: FormEvent) => {
     e.preventDefault();
-    if (!question || question.kind !== "fill" || result || submitting || typed.trim() === "") return;
-    setSubmitting(true);
-    setActionError("");
-    try {
-      finish(await submitWordbookFill(question.data.wordId, typed, secondsSince(shownAtRef.current)));
-    } catch (err) {
-      // 入力した答えは残し、もう一度「回答」を押せるようにする
-      setActionError(err instanceof Error ? err.message : "採点に失敗しました");
-    } finally {
-      setSubmitting(false);
-    }
+    if (typed.trim() === "") return;
+    void submit(typed);
   };
 
-  /**
-   * 答えずに答えを見る。分からなかった語として不正解で記録する(翌日の復習に回り、色は赤になる)。
-   * 空の答えはサーバーで必ず不正解になる
-   */
-  const reveal = async () => {
-    if (!question || result || submitting) return;
-    setSubmitting(true);
-    setActionError("");
-    try {
-      const seconds = secondsSince(shownAtRef.current);
-      const data =
-        question.kind === "fill"
-          ? await submitWordbookFill(question.data.wordId, "", seconds)
-          : await submitWordbookChoice(question.data.wordId, "", seconds);
-      setRevealed(true);
-      finish(data);
-    } catch (e) {
-      setActionError(e instanceof Error ? e.message : "答えを取得できませんでした");
-    } finally {
-      setSubmitting(false);
-    }
-  };
+  const reveal = () => submit("", { reveal: true });
 
   const revealButton = !result && (
     <button
@@ -275,11 +253,7 @@ export default function WordbookQuiz() {
                 ))}
               </div>
               {revealButton && <div className="mt-3">{revealButton}</div>}
-              {actionError && (
-                <p role="alert" className="mt-4 text-sm text-[#c0392b]">
-                  {actionError}
-                </p>
-              )}
+              <ActionError message={actionError} />
             </div>
           )}
 
@@ -312,63 +286,33 @@ export default function WordbookQuiz() {
                   {revealButton}
                 </form>
               )}
-              {actionError && (
-                <p role="alert" className="mt-4 text-sm text-[#c0392b]">
-                  {actionError}
-                </p>
-              )}
+              <ActionError message={actionError} />
             </div>
           )}
 
           {!loading && !error && result && (
-            <div className="mt-6 text-sm leading-relaxed">
-              {!revealed && (
-                <p className={`font-semibold ${result.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
-                  {result.correct ? "正解" : "不正解"}
-                </p>
-              )}
-              {!result.correct && (
-                <p className="text-slate-600 mt-1">
-                  正解: <span className="font-semibold text-slate-900">{result.correctAnswer}</span>
-                </p>
-              )}
-              <p className="text-slate-700 mt-3 flex flex-wrap items-center gap-2">
-                <PronounceButton word={result.word} />
-                {result.word}
-                {result.meaningJa && <span className="text-slate-500 ml-2">{result.meaningJa}</span>}
-              </p>
-              {result.senses && result.senses.length > 0 && (
-                <div className="mt-3">
-                  {/* 出題の意味だけで覚えないよう、ほかの品詞・意味も出す */}
-                  <p className="text-xs text-slate-500 mb-1">品詞ごとの主な意味(この問題の意味のほかにも使い方があります)</p>
-                  <SenseList senses={result.senses} />
-                </div>
-              )}
-              {result.exampleEn && (
-                <p className="text-slate-600 mt-2 flex items-start gap-2">
-                  <span className="flex-1">{result.exampleEn}</span>
-                  <PronounceButton word={result.exampleEn} label="例文を再生" />
-                </p>
-              )}
-              {result.exampleJa && <p className="text-slate-500 mt-1">{result.exampleJa}</p>}
-
-              <div className="mt-5">
-                <p className="text-xs text-slate-500 mb-2">この単語の色</p>
-                <ColorButtons value={color} onChange={changeColor} />
-              </div>
-
-              <button
-                ref={nextButtonRef}
-                onClick={nextQuestion}
-                className="mt-6 text-sm font-semibold text-white bg-[#8fae4e] rounded px-5 py-3 hover:bg-[#7a9843] transition-colors"
-              >
-                次の問題
-              </button>
-            </div>
+            <AnswerResultPanel
+              result={result}
+              revealed={revealed}
+              color={color}
+              onColorChange={changeColor}
+              onNext={nextQuestion}
+              nextButtonRef={nextButtonRef}
+            />
           )}
         </div>
       </div>
     </div>
+  );
+}
+
+/** 解答・色の変更に失敗したときの文言(問題は消さずに、問題の下に出す) */
+function ActionError({ message }: { message: string }) {
+  if (!message) return null;
+  return (
+    <p role="alert" className="mt-4 text-sm text-[#c0392b]">
+      {message}
+    </p>
   );
 }
 
