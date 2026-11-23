@@ -52,15 +52,23 @@ describe("今週の学習", () => {
     render(<WeeklyStatsSection />);
 
     await waitFor(() => expect(screen.getByText("今週の学習")).toBeTruthy());
-    // 技能別: リスニングは 25分・30問・正答率 67%、ライティングは 30分・2題
-    expect(screen.getByText("25分・30問・正答率 67%")).toBeTruthy();
-    expect(screen.getByText("30分・2題")).toBeTruthy();
-    // 学習していない技能(リーディング・スピーキング・語彙)
-    expect(screen.getAllByText("まだ学習していません")).toHaveLength(3);
+    // 技能別の表: リスニングは 25分・30問・正答率 67%、ライティングは 30分・2題(正答率は出さない)
+    const skills = screen.getByRole("table", { name: "技能別" });
+    const listening = within(skills).getByText("リスニング").closest("tr")!;
+    expect(within(listening).getByText("25分")).toBeTruthy();
+    expect(within(listening).getByText("30問")).toBeTruthy();
+    expect(within(listening).getByText("67%")).toBeTruthy();
+    const writing = within(skills).getByText("ライティング").closest("tr")!;
+    expect(within(writing).getByText("30分")).toBeTruthy();
+    expect(within(writing).getByText("2題")).toBeTruthy();
+    expect(within(writing).getAllByText("-")).toHaveLength(1);
+    // 学習していない技能(リーディング)は、時間・問題数・正答率がすべて「-」
+    const reading = within(skills).getByText("リーディング").closest("tr")!;
+    expect(within(reading).getAllByText("-")).toHaveLength(3);
     // 合計
     expect(screen.getByText("55分")).toBeTruthy();
     // 形式別の表
-    const table = screen.getByRole("table");
+    const table = screen.getByRole("table", { name: "形式別" });
     const part2 = within(table).getByText("TOEIC Part 2").closest("tr")!;
     expect(within(part2).getByText("25分")).toBeTruthy();
     expect(within(part2).getByText("30問")).toBeTruthy();
@@ -85,10 +93,11 @@ describe("今週の学習", () => {
 
     render(<WeeklyStatsSection />);
 
-    // 描画の直後から見える
-    expect(screen.getByText("25分・30問・正答率 67%")).toBeTruthy();
+    // 描画の直後から見える(リスニングの正答率 67%)
+    const skillRow = () => within(screen.getByRole("table", { name: "技能別" })).getByText("リスニング").closest("tr")!;
+    expect(within(skillRow()).getByText("67%")).toBeTruthy();
     await waitFor(() => expect(screen.getByText(/最新の状況を取得できませんでした/)).toBeTruthy());
-    expect(screen.getByText("25分・30問・正答率 67%")).toBeTruthy();
+    expect(within(skillRow()).getByText("67%")).toBeTruthy();
   });
 
   it("保存が無いまま取得に失敗したら、短く知らせる", async () => {

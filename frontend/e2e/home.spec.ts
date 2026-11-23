@@ -49,8 +49,14 @@ test.describe("ホームの今週の学習", () => {
 
     const section = page.getByRole("region", { name: "今週の学習" });
     await expect(section).toBeVisible();
-    await expect(section.getByText("45分・45問・正答率 80%")).toBeVisible();
-    await expect(section.getByText("まだ学習していません")).toBeVisible(); // スピーキング
+    // 技能別の表: 時間は分・問題数・正答率を、行ごとに見る
+    const skills = section.getByRole("table", { name: "技能別" });
+    const listening = skills.getByRole("row", { name: /リスニング/ });
+    await expect(listening).toContainText("45分");
+    await expect(listening).toContainText("45問");
+    await expect(listening).toContainText("80%");
+    // 学習していない技能(スピーキング)は「-」
+    await expect(skills.getByRole("row", { name: /スピーキング/ })).toContainText("-");
     // 形式別の内訳は、既定では閉じている。開いてから表を確かめる
     await section.getByText("形式別の内訳").click();
     await expect(section.getByRole("table").getByText("TOEIC Part 3")).toBeVisible();

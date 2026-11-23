@@ -49,9 +49,6 @@ export default function Home() {
                   className={`text-left rounded-lg shadow-lg p-6 transform transition hover:scale-[1.02] ${m.color}`}
                 >
                   <h3 className="text-2xl font-bold text-slate-900">{m.title}</h3>
-                  <p className="mt-4 text-sm text-slate-800">
-                    {m.sections.map((s) => s.skill).join(" / ")}
-                  </p>
                 </button>
               ))}
 
