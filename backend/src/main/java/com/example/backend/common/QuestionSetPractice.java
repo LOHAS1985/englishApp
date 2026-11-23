@@ -40,11 +40,10 @@ public class QuestionSetPractice {
 
   /**
    * @param durationSeconds 出題から解答までの秒数(学習時間の記録用)
-   * @param readingSeconds  読解速度の計測で「本文を読み終えるまで」の秒数。計測していなければ null
    * @param clientRequestId 画面の送信待ちの列が付ける解答ごとの ID。再送で二重に保存しないために使う(無ければ null)
    * @param answeredAt      解いた時刻。送信が遅れても、解いた日に数えるために使う(無ければ受信時刻)
    */
-  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds, Integer readingSeconds,
+  public record SetAnswerRequest(String setId, List<String> answers, Integer durationSeconds,
       String clientRequestId, Instant answeredAt) {
   }
 

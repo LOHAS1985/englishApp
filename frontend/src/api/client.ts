@@ -268,10 +268,9 @@ export async function submitPracticeAnswers(
   setId: string,
   answers: string[],
   durationSeconds?: number,
-  readingSeconds?: number,
   onReveal?: (reveal: ListeningReveal) => void,
 ): Promise<SetAnswerResult> {
-  const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds, readingSeconds);
+  const graded = await gradeQuestionSet(feature, setId, answers, durationSeconds);
   if (feature === "listening") {
     // リスニングの台本と和訳は画面に同梱していないので、解答後にサーバーから取る(取れなくても採点結果は出す)
     fetchListeningReveal(setId)
@@ -314,19 +313,6 @@ export async function fetchListeningScript(setId: string) {
 export function toAbsoluteApiUrl(path: string) {
   if (/^https?:\/\//i.test(path)) return path;
   return `${String(API_BASE ?? "").replace(/\/$/, "")}${encodeURI(path)}`;
-}
-
-/** 読解速度の1回分(本文を読み終えるまでの秒数と語数から、語/分を出す) */
-export interface ReadingSpeedItem {
-  itemType: string;
-  words: number;
-  readingSeconds: number;
-  wpm: number;
-  createdAt: string;
-}
-
-export async function fetchReadingSpeed() {
-  return getJson<ReadingSpeedItem[]>("/api/reading/practice/speed", "読解速度の取得に失敗しました");
 }
 
 // TOEIC 模試(本番と同じ区切り・制限時間。採点はサーバーで行う)

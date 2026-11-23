@@ -40,7 +40,7 @@ class ReadingListeningReviewTests {
     List<String> answers = new ArrayList<>();
     answers.add(set.questions().get(0).answer().equals("A") ? "B" : "A");
     answers.add(set.questions().get(1).answer());
-    practice.grade(readingBank, "reading", new SetAnswerRequest(set.id(), answers, 30, null, null, null));
+    practice.grade(readingBank, "reading", new SetAnswerRequest(set.id(), answers, 30, null, null));
 
     // (共有のデータベースでは、同じ設問を前のテストが登録済みのこともあるので、件数ではなく有無で確かめる)
     long userId = currentUserProvider.getCurrentUserId();

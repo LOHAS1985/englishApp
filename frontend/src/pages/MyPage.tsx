@@ -5,7 +5,6 @@ import Header from "../shared/components/Header";
 import StudyStatsSection from "./StudyStatsSection";
 import LevelSection from "../features/level/LevelSection";
 import WeaknessSection from "./WeaknessSection";
-import ReadingSpeedSection from "./ReadingSpeedSection";
 import SpeakingHistorySection from "./SpeakingHistorySection";
 import WordbookStatsSection from "./WordbookStatsSection";
 import DifficultySection from "./DifficultySection";
@@ -61,8 +60,6 @@ export default function MyPage() {
         <WordbookStatsSection />
 
         <MockHistorySection />
-
-        <ReadingSpeedSection />
 
         <SpeakingHistorySection />
 

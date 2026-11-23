@@ -53,7 +53,6 @@ export const EXAM_MENUS: ExamMenu[] = [
           { label: "Part 5 短文穴埋め", path: "/grammar" },
           { label: "Part 6 長文穴埋め", path: "/reading/practice?type=toeic-part6" },
           { label: "Part 7 読解", path: "/reading/practice?type=toeic-part7" },
-          { label: "Part 7 読解速度", path: "/reading/practice?type=toeic-part7&speed=1" },
         ],
       },
       {

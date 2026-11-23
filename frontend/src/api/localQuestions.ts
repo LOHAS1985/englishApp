@@ -232,15 +232,11 @@ export async function pickQuestionSet(
   };
 }
 
-/**
- * @param readingSeconds 読解速度の計測で「本文を読み終えるまで」の秒数(計測していなければ省く)
- */
 export async function gradeQuestionSet(
   feature: SetFeature,
   setId: string,
   answers: string[],
   durationSeconds?: number,
-  readingSeconds?: number,
 ) {
   const set = await findSet(feature, setId);
   if (!set) throw new Error("問題が見つかりません。再度出題してください。");
@@ -252,7 +248,7 @@ export async function gradeQuestionSet(
   const rows: AnswerRow[] = results
     .map((r, i) => ({ itemId: setId, questionNo: i + 1, correct: r.correct }))
     .reverse();
-  enqueueAnswer(feature, `/api/${feature}/practice/answer`, { setId, answers, durationSeconds, readingSeconds }, rows);
+  enqueueAnswer(feature, `/api/${feature}/practice/answer`, { setId, answers, durationSeconds }, rows);
   return {
     score: results.filter((r) => r.correct).length,
     total: results.length,

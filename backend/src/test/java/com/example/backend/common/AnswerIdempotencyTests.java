@@ -4,7 +4,6 @@ import com.example.backend.config.CurrentUserProvider;
 import com.example.backend.grammar.GrammarQuestionBank;
 import com.example.backend.listening.ListeningQuestionBank;
 import com.example.backend.reading.ReadingQuestionBank;
-import com.example.backend.reading.ReadingSpeedRepository;
 import com.example.backend.stats.StudyLog;
 import com.example.backend.stats.StudyLogRepository;
 import com.example.backend.vocab.VocabQuestionBank;
@@ -42,8 +41,6 @@ class AnswerIdempotencyTests {
   private MockMvc mvc;
   @Autowired
   private StudyLogRepository studyLogs;
-  @Autowired
-  private ReadingSpeedRepository speeds;
   @Autowired
   private CurrentUserProvider currentUserProvider;
   @Autowired
@@ -107,18 +104,15 @@ class AnswerIdempotencyTests {
   }
 
   @Test
-  void readingAnswerResentWithTheSameIdIsRecordedOnceIncludingTheSpeed() throws Exception {
+  void readingAnswerResentWithTheSameIdIsRecordedOnce() throws Exception {
     String id = newId();
     String setId = readingBank.all().stream().filter(s -> s.passage() != null).findFirst().orElseThrow().id();
-    String body = "{\"setId\":\"" + setId + "\",\"answers\":[\"A\"],\"durationSeconds\":90,\"readingSeconds\":60,"
+    String body = "{\"setId\":\"" + setId + "\",\"answers\":[\"A\"],\"durationSeconds\":90,"
         + "\"clientRequestId\":\"" + id + "\"}";
-    long speedsBefore = speeds.count();
-
     postJson("/api/reading/practice/answer", body);
     postJson("/api/reading/practice/answer", body);
 
     assertThat(logsOf(id)).hasSize(1);
-    assertThat(speeds.count()).isEqualTo(speedsBefore + 1);
   }
 
   @Test

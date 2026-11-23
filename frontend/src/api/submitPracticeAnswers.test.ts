@@ -25,7 +25,7 @@ describe("submitPracticeAnswers(リスニング)", () => {
     const onReveal = vi.fn();
 
     // サーバーが応答しない間も、採点結果はすぐ返る
-    const result = await submitPracticeAnswers("listening", "l1", ["A"], 30, undefined, onReveal);
+    const result = await submitPracticeAnswers("listening", "l1", ["A"], 30, onReveal);
     expect(result).toEqual(graded);
     expect(onReveal).not.toHaveBeenCalled();
 
@@ -38,7 +38,7 @@ describe("submitPracticeAnswers(リスニング)", () => {
     const { submitPracticeAnswers } = await import("./client");
     const onReveal = vi.fn();
 
-    await expect(submitPracticeAnswers("listening", "l1", ["A"], 30, undefined, onReveal)).resolves.toEqual(graded);
+    await expect(submitPracticeAnswers("listening", "l1", ["A"], 30, onReveal)).resolves.toEqual(graded);
     await new Promise((resolve) => setTimeout(resolve, 0));
     expect(onReveal).not.toHaveBeenCalled();
   });

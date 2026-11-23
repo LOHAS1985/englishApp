@@ -1,18 +1,14 @@
-import { useSearchParams } from "react-router-dom";
 import PracticeSetPage from "../../shared/components/PracticeSetPage";
 import WordCapture from "../wordbook/WordCapture";
 
 const TYPES = ["toeic-part6", "toeic-part7", "eiken-cloze", "eiken-long"];
 
 export default function ReadingPractice() {
-  // ?speed=1 のときは読解速度を計測する(本文を読み終えるまでの時間から語/分を出す)
-  const [searchParams] = useSearchParams();
   return (
     <PracticeSetPage
       feature="reading"
       types={TYPES}
       showTitle
-      readingSpeed={searchParams.get("speed") === "1"}
       renderMaterial={(set, result) => (
         <>
           <WordCapture>

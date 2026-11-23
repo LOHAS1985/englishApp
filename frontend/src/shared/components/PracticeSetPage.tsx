@@ -8,11 +8,6 @@ import {
 } from "../../api/client";
 import { LETTERS, shuffle } from "../shuffle";
 import { levelFromParams } from "../level";
-import {
-  countWords,
-  isMeasurableReadingTime,
-  wordsPerMinute,
-} from "../readingSpeed";
 import { useQuizKeys, type QuizKeyActions } from "../quizKeys";
 import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
@@ -31,11 +26,6 @@ interface PracticeSetPageProps {
   renderQuestionNote?: (set: QuestionSetView, result: SetAnswerResult, qi: number) => ReactNode;
   /** 解答後に、設問の後ろに表示する教材(台本・和訳など) */
   renderAfterAnswer?: (set: QuestionSetView, result: SetAnswerResult) => ReactNode;
-  /**
-   * 読解速度の計測。本文だけを先に表示し、「本文を読み終えた」まで設問を隠す。
-   * 押すまでの秒数を語数と合わせて語/分を出す(設問に答える時間は含めない)
-   */
-  readingSpeed?: boolean;
   /** 次のセットを先に選んだとき(解答した時点)に呼ぶ。リスニングは、ここで次の音声の準備を始める */
   onNextPicked?: (next: QuestionSetView) => void;
   /**
@@ -56,7 +46,6 @@ export default function PracticeSetPage({
   renderMaterial,
   renderQuestionNote,
   renderAfterAnswer,
-  readingSpeed = false,
   onNextPicked,
   hideQuestionTypes = [],
 }: PracticeSetPageProps) {
@@ -80,11 +69,6 @@ export default function PracticeSetPage({
   const [count, setCount] = useState(1);
   /** セットを表示した時刻(学習時間の記録用) */
   const shownAtRef = useRef(0);
-  /** 読解速度の計測: 表示した時刻と、今の時刻(表示中の経過秒を数えるため) */
-  const [startedAt, setStartedAt] = useState(0);
-  const [now, setNow] = useState(0);
-  /** 本文を読み終えるまでの秒数。まだ読んでいる間・計測しない形式では null */
-  const [readingSeconds, setReadingSeconds] = useState<number | null>(null);
   /** 今回の練習の集計(解いたセット数も数える)と、終了後のまとめの表示 */
   const [tally, setTally] = useState<Tally>(EMPTY_TALLY);
   const [setsDone, setSetsDone] = useState(0);
@@ -96,9 +80,6 @@ export default function PracticeSetPage({
   const showSet = (data: QuestionSetView | null) => {
     shownSetIdRef.current = data?.id ?? null;
     shownAtRef.current = Date.now();
-    setStartedAt(shownAtRef.current);
-    setNow(shownAtRef.current);
-    setReadingSeconds(null);
     setSet(data);
     setAnswers(data ? data.questions.map(() => "") : []);
     // 選択肢が音声だけの形式(TOEIC Part 2)は文字が空で届き、音声の (A)〜(C) の順と合わせるため並べ替えない
@@ -153,25 +134,13 @@ export default function PracticeSetPage({
     };
   }, [feature, type, level]);
 
-  // 本文を読んでいる間だけ、経過秒を表示するために1秒ごとに今の時刻を更新する
-  const reading = readingSpeed && readingSeconds === null && set !== null;
-  useEffect(() => {
-    if (!reading) return;
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(timer);
-  }, [reading]);
-
-  const finishReading = () => {
-    setReadingSeconds(Math.round((Date.now() - shownAtRef.current) / 1000));
-  };
-
   const handleSubmit = async () => {
     if (!set) return;
     setSubmitting(true);
     try {
       const seconds = Math.round((Date.now() - shownAtRef.current) / 1000);
       const submittedId = set.id;
-      const data = await submitPracticeAnswers(feature, submittedId, answers, seconds, readingSeconds ?? undefined, (reveal) => {
+      const data = await submitPracticeAnswers(feature, submittedId, answers, seconds, (reveal) => {
         // 採点結果は先に出していて、台本と和訳は遅れて届く
         if (shownSetIdRef.current === submittedId) setResult((prev) => (prev ? { ...prev, ...reveal } : prev));
       });
@@ -214,18 +183,13 @@ export default function PracticeSetPage({
       },
     };
   });
-  const keysEnabled = !loading && !finished && set !== null && (!readingSpeed || readingSeconds !== null);
+  const keysEnabled = !loading && !finished && set !== null;
   useQuizKeys(keysEnabled, keyActions);
 
   const handleContinue = () => {
     setFinished(false);
     if (result) void loadNext();
   };
-  // 読解速度を計測する形式は、本文を読み終えてから設問を出す
-  const questionsVisible = !readingSpeed || readingSeconds !== null;
-  const elapsedSeconds = Math.floor((now - startedAt) / 1000);
-  const measuredWords = set?.passage ? countWords(set.passage) : 0;
-
   return (
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
@@ -262,89 +226,73 @@ export default function PracticeSetPage({
 
               {renderMaterial(set, result)}
 
-              {!questionsVisible && (
-                <div className="mt-6">
-                  <p className="text-sm text-slate-600 mb-3">
-                    本文を読み終えたら押してください
-                  </p>
-                  <button
-                    onClick={finishReading}
-                    className="text-sm font-semibold text-white bg-[#2463a8] rounded px-5 py-3 hover:bg-[#1d5289] transition-colors"
-                  >
-                    本文を読み終えた({elapsedSeconds}秒)
-                  </button>
-                </div>
-              )}
-
-              {questionsVisible && (
-                <div className="space-y-5 mt-6">
-                  {set.questions.map((q, qi) => {
-                    const r = result?.results[qi];
-                    const hideQuestion = hideQuestionTypes.includes(set.type);
-                    const qOrder = order[qi] ?? q.choices.map((_, i) => i);
-                    // 正解・選択は元の記号なので、画面上の記号に読み替えて表示する
-                    const toDisplay = (original: string) =>
-                      LETTERS[qOrder.indexOf(LETTERS.indexOf(original))];
-                    return (
-                      <div key={qi} className="border border-slate-200 rounded-md p-4">
-                        <p className="text-sm font-semibold text-slate-900 mb-3">
-                          {q.question && !(hideQuestion && !result)
-                            ? `Q${qi + 1}. ${q.question}`
-                            : `No. ${qi + 1}`}
-                        </p>
-                        <div className="space-y-2" role="group" aria-label={`設問${qi + 1}の選択肢`}>
-                          {qOrder.map((originalIndex, ci) => {
-                            const letter = LETTERS[ci];
-                            const original = LETTERS[originalIndex];
-                            const choice = q.choices[originalIndex];
-                            const isSelected = answers[qi] === original;
-                            let style = isSelected
-                              ? "border-[#8fae4e] bg-[#f2f7ea]"
-                              : "border-slate-200 hover:border-[#8fae4e]";
-                            if (r) {
-                              if (original === r.answer) style = "border-[#8fae4e] bg-[#f2f7ea]";
-                              else if (isSelected) style = "border-[#c0392b] bg-[#fbeceb]";
-                              else style = "border-slate-200 opacity-60";
-                            }
-                            return (
-                              <button
-                                key={letter}
-                                disabled={!!result}
-                                aria-pressed={isSelected}
-                                onClick={() =>
-                                  setAnswers((prev) => prev.map((a, i) => (i === qi ? original : a)))
-                                }
-                                className={`w-full text-left border rounded px-3 py-2.5 text-sm transition-colors ${style}`}
-                              >
-                                <span className="font-mono font-semibold mr-2">({letter})</span>
-                                {choice}
-                                {/* 正誤を色だけで伝えないよう、文字でも示す */}
-                                {r && original === r.answer && (
-                                  <span className="ml-2 text-xs font-semibold text-[#6a8a3e]">✓ 正解</span>
-                                )}
-                                {r && isSelected && original !== r.answer && (
-                                  <span className="ml-2 text-xs font-semibold text-[#c0392b]">✕ あなたの選択</span>
-                                )}
-                              </button>
-                            );
-                          })}
-                        </div>
-                        {r && (
-                          <div className="mt-3 text-sm leading-relaxed" role="status" aria-live="polite">
-                            <p className={`font-semibold ${r.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
-                              {r.correct ? "正解" : `不正解(正解: ${toDisplay(r.answer)})`}
-                            </p>
-                            <p className="text-slate-600 mt-1">{r.explanation}</p>
-                          </div>
-                        )}
-                        {result && renderQuestionNote?.(set, result, qi)}
+              <div className="space-y-5 mt-6">
+                {set.questions.map((q, qi) => {
+                  const r = result?.results[qi];
+                  const hideQuestion = hideQuestionTypes.includes(set.type);
+                  const qOrder = order[qi] ?? q.choices.map((_, i) => i);
+                  // 正解・選択は元の記号なので、画面上の記号に読み替えて表示する
+                  const toDisplay = (original: string) =>
+                    LETTERS[qOrder.indexOf(LETTERS.indexOf(original))];
+                  return (
+                    <div key={qi} className="border border-slate-200 rounded-md p-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-3">
+                        {q.question && !(hideQuestion && !result)
+                          ? `Q${qi + 1}. ${q.question}`
+                          : `No. ${qi + 1}`}
+                      </p>
+                      <div className="space-y-2" role="group" aria-label={`設問${qi + 1}の選択肢`}>
+                        {qOrder.map((originalIndex, ci) => {
+                          const letter = LETTERS[ci];
+                          const original = LETTERS[originalIndex];
+                          const choice = q.choices[originalIndex];
+                          const isSelected = answers[qi] === original;
+                          let style = isSelected
+                            ? "border-[#8fae4e] bg-[#f2f7ea]"
+                            : "border-slate-200 hover:border-[#8fae4e]";
+                          if (r) {
+                            if (original === r.answer) style = "border-[#8fae4e] bg-[#f2f7ea]";
+                            else if (isSelected) style = "border-[#c0392b] bg-[#fbeceb]";
+                            else style = "border-slate-200 opacity-60";
+                          }
+                          return (
+                            <button
+                              key={letter}
+                              disabled={!!result}
+                              aria-pressed={isSelected}
+                              onClick={() =>
+                                setAnswers((prev) => prev.map((a, i) => (i === qi ? original : a)))
+                              }
+                              className={`w-full text-left border rounded px-3 py-2.5 text-sm transition-colors ${style}`}
+                            >
+                              <span className="font-mono font-semibold mr-2">({letter})</span>
+                              {choice}
+                              {/* 正誤を色だけで伝えないよう、文字でも示す */}
+                              {r && original === r.answer && (
+                                <span className="ml-2 text-xs font-semibold text-[#6a8a3e]">✓ 正解</span>
+                              )}
+                              {r && isSelected && original !== r.answer && (
+                                <span className="ml-2 text-xs font-semibold text-[#c0392b]">✕ あなたの選択</span>
+                              )}
+                            </button>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
-                </div>
-              )}
+                      {r && (
+                        <div className="mt-3 text-sm leading-relaxed" role="status" aria-live="polite">
+                          <p className={`font-semibold ${r.correct ? "text-[#6a8a3e]" : "text-[#c0392b]"}`}>
+                            {r.correct ? "正解" : `不正解(正解: ${toDisplay(r.answer)})`}
+                          </p>
+                          <p className="text-slate-600 mt-1">{r.explanation}</p>
+                        </div>
+                      )}
+                      {result && renderQuestionNote?.(set, result, qi)}
+                    </div>
+                  );
+                })}
+              </div>
 
-              {!result && questionsVisible && (
+              {!result && (
                 <button
                   onClick={handleSubmit}
                   disabled={!allAnswered || submitting}
@@ -360,18 +308,6 @@ export default function PracticeSetPage({
                   <p className="font-mono text-lg font-semibold text-slate-900 mb-4">
                     {result.score} / {result.total}
                   </p>
-                  {readingSpeed && readingSeconds !== null && (
-                    <p className="text-sm text-slate-700 mb-4">
-                      本文 {measuredWords} 語を {readingSeconds} 秒で読みました(約{" "}
-                      <span className="font-mono font-semibold">{wordsPerMinute(measuredWords, readingSeconds)}</span>{" "}
-                      語/分)。
-                      {!isMeasurableReadingTime(readingSeconds) && (
-                        <span className="text-slate-500">
-                          (10秒未満・30分超えは記録しません)
-                        </span>
-                      )}
-                    </p>
-                  )}
                   {renderAfterAnswer?.(set, result)}
                   <div className="flex gap-3">
                     <button

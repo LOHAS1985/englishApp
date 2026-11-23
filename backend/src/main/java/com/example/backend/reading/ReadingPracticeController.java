@@ -4,10 +4,8 @@ import com.example.backend.common.QuestionSetPractice;
 import com.example.backend.common.QuestionSetPractice.QuestionSetView;
 import com.example.backend.common.QuestionSetPractice.SetAnswerRequest;
 import com.example.backend.common.QuestionSetPractice.SetAnswerResult;
-import com.example.backend.reading.dto.ReadingSpeedItem;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 /** 読解問題(TOEIC Part 6 / 7、英検の長文) */
@@ -17,13 +15,10 @@ public class ReadingPracticeController {
 
   private final ReadingQuestionBank questionBank;
   private final QuestionSetPractice practice;
-  private final ReadingSpeedService speedService;
 
-  public ReadingPracticeController(ReadingQuestionBank questionBank, QuestionSetPractice practice,
-      ReadingSpeedService speedService) {
+  public ReadingPracticeController(ReadingQuestionBank questionBank, QuestionSetPractice practice) {
     this.questionBank = questionBank;
     this.practice = practice;
-    this.speedService = speedService;
   }
 
   /** 形式ごとの登録セット数 */
@@ -41,24 +36,12 @@ public class ReadingPracticeController {
 
   @PostMapping("/answer")
   public SetAnswerResult answer(@RequestBody SetAnswerRequest request) {
-    boolean duplicate = practice.isDuplicate(request);
-    SetAnswerResult result = practice.grade(questionBank, "reading", request);
-    // 再送された解答の読解速度は、すでに保存している
-    if (!duplicate) {
-      speedService.save(questionBank, request.setId(), request.readingSeconds());
-    }
-    return result;
+    return practice.grade(questionBank, "reading", request);
   }
 
   /** 今日復習する設問を含むセットのID。画面は、このセットを復習として出す */
   @GetMapping("/review")
   public Map<String, String> review(@RequestParam(required = false) String exclude) {
     return Map.of("setId", practice.dueSetId(questionBank, "reading", exclude));
-  }
-
-  /** 読解速度の直近の計測(新しい順) */
-  @GetMapping("/speed")
-  public List<ReadingSpeedItem> speed() {
-    return speedService.recent();
   }
 }

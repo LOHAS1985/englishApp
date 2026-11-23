@@ -96,7 +96,7 @@ describe("セット問題: リスニングの台本", () => {
     expect(screen.queryByText(/台本:/)).toBeNull();
 
     // 台本が届いたら、結果に付く
-    const onReveal = vi.mocked(submitPracticeAnswers).mock.calls[0]?.[5];
+    const onReveal = vi.mocked(submitPracticeAnswers).mock.calls[0]?.[4];
     expect(onReveal).toBeTypeOf("function");
     act(() => onReveal?.({ script: "Man: Hello.", translation: "こんにちは" }));
     expect(await screen.findByText("台本: Man: Hello.")).toBeTruthy();
