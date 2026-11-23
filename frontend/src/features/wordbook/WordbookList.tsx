@@ -13,6 +13,7 @@ import {
 import Header from "../../shared/components/Header";
 import ColorButtons from "./ColorButtons";
 import PronounceButton from "./PronounceButton";
+import SenseList from "./SenseList";
 import {
   COLOR_LABELS,
   COLOR_ORDER,
@@ -253,6 +254,7 @@ export default function WordbookList() {
                       {word.meaningJa ?? <span className="text-slate-400">{translationNote(word)}</span>}
                     </p>
                   )}
+                  <SenseList senses={word.senses} className="mt-1" />
                   {exampleEditId === word.id ? (
                     <div className="mt-2 space-y-2">
                       <input

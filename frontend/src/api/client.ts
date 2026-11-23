@@ -612,6 +612,14 @@ export interface WordbookWord {
   timesCorrect: number;
   /** 次の復習日(YYYY-MM-DD)。まだ一度も出していない語は null */
   nextDueDate: string | null;
+  /** 品詞ごとの主な意味(同梱語にある語だけ。古いサーバーの応答には無い) */
+  senses?: WordbookSense[];
+}
+
+/** 品詞(動詞・名詞・形容詞・副詞)ごとの主な意味 */
+export interface WordbookSense {
+  pos: string;
+  meaningJa: string;
 }
 
 export interface WordbookSummary {
@@ -654,6 +662,8 @@ export interface WordbookAnswerResult {
   exampleEn: string | null;
   exampleJa: string | null;
   color: WordbookColor;
+  /** 品詞ごとの主な意味。出題の意味のほかにも使い方があると分かるように出す */
+  senses?: WordbookSense[];
 }
 
 export interface WordbookHistoryItem {

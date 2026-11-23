@@ -121,4 +121,38 @@ class BundledWordsTests {
       assertThat(seen.add(blanked.toLowerCase())).as(item.id() + " 空欄にした文が別の語と同じ: " + blanked).isTrue();
     }
   }
+
+  /** 品詞ごとの主な意味。出題の意味だけを見て、ほかの品詞・意味が無いと思い込まないように見せる */
+  @Test
+  void everyWordHasSensesByPartOfSpeech() {
+    Set<String> allowed = Set.of("動詞", "名詞", "形容詞", "副詞");
+    java.util.Map<String, String> posNames = java.util.Map.of("v", "動詞", "n", "名詞", "adj", "形容詞");
+    for (BundledWord w : all) {
+      assertThat(w.senses()).as(w.word()).isNotEmpty();
+      Set<String> seen = new HashSet<>();
+      for (BundledWordBank.Sense sense : w.senses()) {
+        assertThat(sense.pos()).as(w.word()).isIn(allowed);
+        // 同じ品詞は1つにまとめる(画面で同じ見出しが2回出ないように)
+        assertThat(seen.add(sense.pos())).as(w.word() + " の " + sense.pos()).isTrue();
+        assertThat(sense.meaningJa()).as(w.word()).isNotBlank();
+      }
+      // 出題の品詞(pos)の意味は必ず含める
+      assertThat(seen).as(w.word()).contains(posNames.get(w.pos()));
+    }
+  }
+
+  @Test
+  void sensesAreFoundByIdHeadwordAndInflectedForm() {
+    BundledWordBank bank = new BundledWordBank(MAPPER);
+    // remedy は名詞と動詞の両方で使う(出題の意味は名詞)
+    assertThat(bank.sensesOf(null, "remedy")).extracting(BundledWordBank.Sense::pos)
+        .containsExactly("名詞", "動詞");
+    assertThat(bank.sensesOf("w0392", "anything")).isEqualTo(bank.sensesOf(null, "remedy"));
+    assertThat(bank.sensesOf(null, "Remedy")).hasSize(2);
+    // 変化形で登録した語も同じ語として引く
+    assertThat(bank.sensesOf(null, "abandoned")).isEqualTo(bank.sensesOf(null, "abandon"));
+    // 同梱語に無い語は空
+    assertThat(bank.sensesOf(null, "zzzz")).isEmpty();
+    assertThat(bank.sensesOf(null, null)).isEmpty();
+  }
 }

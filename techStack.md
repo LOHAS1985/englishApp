@@ -63,10 +63,10 @@ english-app/
 | GET      | `/api/mock/history`     | 過去の模試の結果(新しい順。MyPage の推定点の推移に使う)         |
 | GET      | `/api/vocab/question?review=true`(文法も同様) | 復習日になった問題を出題する(1→3→7→14日の間隔反復) |
 | GET      | `/api/wordbook/summary` | 単語帳の語数・色ごとの数・訳の調査が残っている数                 |
-| GET / POST | `/api/wordbook/words` | 単語の一覧(`?color=`・`?q=`)・登録(読解からは `exampleEn` と `exampleAnswer` を付ける。同じ語・変化形があれば追加しない) |
+| GET / POST | `/api/wordbook/words` | 単語の一覧(`?color=`・`?q=`)・登録(読解からは `exampleEn` と `exampleAnswer` を付ける。同じ語・変化形があれば追加しない)。各語に品詞ごとの主な意味 `senses` を付ける(同梱語にある語だけ) |
 | PUT / DELETE | `/api/wordbook/words/{id}`(`/color`) | 訳の修正・色の変更(手動)・削除                       |
 | GET      | `/api/wordbook/quiz/choice`(`/fill`) | 単語帳の4択(英単語→日本語)・穴埋め(日本語訳を見て英単語を入力)の出題。`exclude` に直近の語の ID を渡す |
-| POST     | `/api/wordbook/quiz/choice/answer`(`/fill/answer`) | 解答を採点し、練習記録と学習ログを保存する                  |
+| POST     | `/api/wordbook/quiz/choice/answer`(`/fill/answer`) | 解答を採点し、練習記録と学習ログを保存する。結果に品詞ごとの主な意味 `senses` を付ける |
 | GET      | `/api/wordbook/history` | 単語帳の直近の解答                                             |
 
 ## インフラ / デプロイ

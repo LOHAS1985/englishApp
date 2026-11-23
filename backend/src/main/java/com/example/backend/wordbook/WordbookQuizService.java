@@ -159,8 +159,8 @@ public class WordbookQuizService {
     studyLogService.log("vocab", itemType, itemId, correct ? 1 : 0, 1, durationSeconds);
   }
 
-  private static AnswerResultView result(WordbookWord word, boolean correct, String correctAnswer) {
+  private AnswerResultView result(WordbookWord word, boolean correct, String correctAnswer) {
     return new AnswerResultView(correct, word.getWord(), word.getMeaningJa(), correctAnswer,
-        word.getExampleEn(), word.getExampleJa(), word.getColor().name());
+        word.getExampleEn(), word.getExampleJa(), word.getColor().name(), wordService.sensesOf(word));
   }
 }

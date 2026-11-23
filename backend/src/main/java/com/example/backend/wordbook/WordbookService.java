@@ -1,6 +1,7 @@
 package com.example.backend.wordbook;
 
 import com.example.backend.config.CurrentUserProvider;
+import com.example.backend.wordbook.BundledWordBank.Sense;
 import com.example.backend.wordbook.WordbookWord.Source;
 import com.example.backend.wordbook.dto.AddWordResponse;
 import com.example.backend.wordbook.dto.SummaryView;
@@ -28,13 +29,24 @@ public class WordbookService {
   private final DeletedBundledWordRepository deletedBundled;
   private final WordbookUnlockService unlocks;
   private final CurrentUserProvider currentUserProvider;
+  private final BundledWordBank bundledWords;
 
   public WordbookService(WordbookWordRepository repository, DeletedBundledWordRepository deletedBundled,
-      WordbookUnlockService unlocks, CurrentUserProvider currentUserProvider) {
+      WordbookUnlockService unlocks, CurrentUserProvider currentUserProvider, BundledWordBank bundledWords) {
     this.repository = repository;
     this.deletedBundled = deletedBundled;
     this.unlocks = unlocks;
     this.currentUserProvider = currentUserProvider;
+    this.bundledWords = bundledWords;
+  }
+
+  /** 品詞ごとの主な意味(同梱語にある語だけ)。DB には持たず、同梱の問題集から引く(直したら次の起動で反映される) */
+  public List<Sense> sensesOf(WordbookWord word) {
+    return bundledWords.sensesOf(word.getBundledId(), word.getWord());
+  }
+
+  private WordView view(WordbookWord word) {
+    return WordView.of(word, sensesOf(word));
   }
 
   /**
@@ -57,7 +69,7 @@ public class WordbookService {
         .filter(w -> color == null || w.getColor() == color)
         .filter(w -> q.isEmpty() || w.getWord().contains(q)
             || (w.getMeaningJa() != null && w.getMeaningJa().contains(q)))
-        .map(WordView::of)
+        .map(this::view)
         .toList();
   }
 
@@ -98,7 +110,7 @@ public class WordbookService {
     List<WordbookWord> words = allOwnedWords();
     for (WordbookWord existing : words) {
       if (WordForms.sameWord(existing.getWord(), word)) {
-        return new AddWordResponse(false, WordView.of(existing));
+        return new AddWordResponse(false, view(existing));
       }
     }
 
@@ -113,14 +125,14 @@ public class WordbookService {
       }
       added.setExample(exampleEn.trim(), answer);
     }
-    return new AddWordResponse(true, WordView.of(repository.save(added)));
+    return new AddWordResponse(true, view(repository.save(added)));
   }
 
   @Transactional
   public WordView setColor(Long id, String color) {
     WordbookWord word = owned(id);
     word.setColor(parseColor(color), LocalDateTime.now(JST));
-    return WordView.of(repository.save(word));
+    return view(repository.save(word));
   }
 
   /** 訳を直す。空にすると翌日の調査で取り直す */
@@ -129,7 +141,7 @@ public class WordbookService {
     WordbookWord word = owned(id);
     String trimmed = meaningJa == null || meaningJa.isBlank() ? null : meaningJa.trim();
     word.editMeaning(trimmed, LocalDateTime.now(JST));
-    return WordView.of(repository.save(word));
+    return view(repository.save(word));
   }
 
   /**
@@ -152,7 +164,7 @@ public class WordbookService {
     }
     String ja = exampleJa == null || exampleJa.isBlank() ? null : exampleJa.trim();
     word.editExample(en, answer, ja, LocalDateTime.now(JST));
-    return WordView.of(repository.save(word));
+    return view(repository.save(word));
   }
 
   @Transactional

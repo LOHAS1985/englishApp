@@ -15,6 +15,7 @@ import Header from "../../shared/components/Header";
 import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
 import ColorButtons from "./ColorButtons";
 import PronounceButton from "./PronounceButton";
+import SenseList from "./SenseList";
 import { pushRecent } from "./wordbookRules";
 
 type Kind = "choice" | "fill";
@@ -295,6 +296,13 @@ export default function WordbookQuiz() {
                 {result.word}
                 {result.meaningJa && <span className="text-slate-500 ml-2">{result.meaningJa}</span>}
               </p>
+              {result.senses && result.senses.length > 0 && (
+                <div className="mt-3">
+                  {/* 出題の意味だけで覚えないよう、ほかの品詞・意味も出す */}
+                  <p className="text-xs text-slate-500 mb-1">品詞ごとの主な意味(この問題の意味のほかにも使い方があります)</p>
+                  <SenseList senses={result.senses} />
+                </div>
+              )}
               {result.exampleEn && (
                 <p className="text-slate-600 mt-2 flex items-start gap-2">
                   <span className="flex-1">{result.exampleEn}</span>
