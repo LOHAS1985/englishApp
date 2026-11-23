@@ -43,7 +43,7 @@
 | TOEIC | Part 1(写真描写) | — | 未対応(写真を用意できないため) |
 | TOEIC | Part 2(応答問題) | Listening(`toeic-part2`) | **対応済**(5問1セット・131セット。問いかけ・選択肢とも音声のみ。台本は設問から自動で組み立てる) |
 | TOEIC | Part 3・4(会話・説明文) | Listening(`questions/listening`) | **対応済**(問題集+音声生成、3人の会話・発言の意図・図表問題あり。米国英語の音声のみ) |
-| TOEIC | Part 5(短文穴埋め) | Grammar(`questions/grammar`) | **対応済** |
+| TOEIC | Part 5(短文穴埋め) | Grammar(`questions/grammar`) | **対応済**(語彙問題 224 問を含む。TOEIC 向けの語彙は単独のメニューを置かず、Part 5 で解く) |
 | TOEIC | Part 6(長文穴埋め) | Reading 読解問題(`questions/reading`, `toeic-part6`) | **対応済** |
 | TOEIC | Part 7(読解) | Reading 読解問題(`toeic-part7`) | **対応済**(単一文書・複数文書(2〜3文書)・文挿入問題。100セット)。本文を読み終えるまでの時間から語/分を測る読解速度計測(`/reading/practice?type=toeic-part7&speed=1`) |
 | TOEIC | 模試(L&R 全体) | Mock(`/mock`, `mock/`) | **対応済**(Part 1 を除く。リスニング 45 分・94 問、リーディング 75 分・100 問の本番と同じ区切り。提出後に採点し、推定点は参考値。目標 930 点との差を MyPage に推移で出す) |

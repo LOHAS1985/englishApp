@@ -54,7 +54,6 @@ export const EXAM_MENUS: ExamMenu[] = [
           { label: "Part 6 長文穴埋め", path: "/reading/practice?type=toeic-part6" },
           { label: "Part 7 読解", path: "/reading/practice?type=toeic-part7" },
           { label: "Part 7 読解速度", path: "/reading/practice?type=toeic-part7&speed=1" },
-          { label: "語彙", path: "/vocab" },
         ],
       },
       {
@@ -117,7 +116,7 @@ export const TYPE_LABELS: Record<string, string> = {
   "toeic-mock": "TOEIC 模試",
   "wordbook-choice": "単語帳 4択",
   "wordbook-fill": "単語帳 穴埋め",
-  vocab: "語彙(英検 大問1・TOEIC)",
+  vocab: "語彙(英検 大問1)",
   "eiken-cloze": "英検 大問2",
   "eiken-long": "英検 大問3",
   "eiken-summary": "英検 要約",
