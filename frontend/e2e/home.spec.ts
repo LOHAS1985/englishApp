@@ -80,3 +80,41 @@ test.describe("ホームの今週の学習", () => {
     await section.screenshot({ path: "test-results/weekly-mobile-dark.png" });
   });
 });
+
+test.describe("ホームの試験と単語帳", () => {
+  const review = { vocab: { feature: "vocab", due: 5, pending: 0 }, grammar: { feature: "grammar", due: 3, pending: 0 } };
+
+  test("復習の帯・試験の見出し・「共通」は出さず、単語帳は試験と並ぶカードで出す", async ({ page }) => {
+    await mockApi(page, { "GET /api/stats/summary": statsSummary(), "GET /api/review/summary": review });
+    await page.goto(`${BASE}/`);
+
+    await expect(page.getByRole("heading", { name: /今日の30分メニュー/ })).toBeVisible();
+    await expect(page.getByText("どの試験の対策をしますか?")).toHaveCount(0);
+    await expect(page.getByText("共通", { exact: true })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: /^語彙 5問/ })).toHaveCount(0);
+
+    const card = page.getByRole("group", { name: "単語帳" });
+    await expect(card).toBeVisible();
+    // 試験のカードと同じ行に並ぶ(デスクトップ)
+    const toeic = await page.getByRole("button", { name: /TOEIC L&R/ }).boundingBox();
+    const wordbook = await card.boundingBox();
+    expect(Math.abs(wordbook!.y - toeic!.y)).toBeLessThan(2);
+    await page.locator("main, body").first().screenshot({ path: "test-results/home-desktop.png" });
+
+    await card.getByRole("button", { name: "穴埋め" }).click();
+    await expect(page).toHaveURL(/\/wordbook\/quiz\?type=fill$/);
+  });
+
+  test("スマホ・ダークでも単語帳のカードが見える", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 900 });
+    await mockApi(page, { "GET /api/stats/summary": statsSummary(), "GET /api/review/summary": review });
+    await page.goto(`${BASE}/`);
+    await page.evaluate(() => document.documentElement.setAttribute("data-theme", "dark"));
+    const card = page.getByRole("group", { name: "単語帳" });
+    await card.scrollIntoViewIfNeeded();
+    await expect(card).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+    await page.screenshot({ path: "test-results/home-mobile-dark.png", fullPage: true });
+  });
+});

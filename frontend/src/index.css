@@ -93,6 +93,13 @@ html[data-theme="dark"] .from-\[\#f6d365\] {
 html[data-theme="dark"] .to-\[\#fda085\] {
   --tw-gradient-to: #7d4a3a;
 }
+/* 単語帳のカード(ホーム) */
+html[data-theme="dark"] .from-\[\#84fab0\] {
+  --tw-gradient-from: #1f5a45;
+}
+html[data-theme="dark"] .to-\[\#8fd3f4\] {
+  --tw-gradient-to: #245a6e;
+}
 /* 選択中の絞り込みボタン(濃い背景に白い文字)は、暗い背景に埋もれるので紺のボタンと同じ色にする */
 html[data-theme="dark"] .bg-slate-900 {
   background-color: #34508a;

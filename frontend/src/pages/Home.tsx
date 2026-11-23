@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { fetchReviewSummary, wakeUpServer, type ReviewSummary } from "../api/client";
+import { wakeUpServer } from "../api/client";
 import Header from "../shared/components/Header";
 import { EXAM_MENUS } from "../shared/exams";
 import { DifficultySelect } from "../shared/components/Difficulty";
@@ -8,9 +8,11 @@ import { loadSavedLevel, saveLevel, withLevel } from "../shared/level";
 import TodayMenuSection from "./TodayMenuSection";
 import WeeklyStatsSection from "./WeeklyStatsSection";
 
-const REVIEW_LINKS = [
-  { feature: "vocab", label: "語彙", path: "/vocab?review=1" },
-  { feature: "grammar", label: "文法", path: "/grammar?review=1" },
+/** ホームの単語帳のカード。試験のカードと並べ、よく使う入口へすぐ飛べるようにする */
+const WORDBOOK_ACTIONS = [
+  { label: "4択", path: "/wordbook/quiz?type=choice" },
+  { label: "穴埋め", path: "/wordbook/quiz?type=fill" },
+  { label: "一覧", path: "/wordbook/list" },
 ];
 
 export default function Home() {
@@ -19,8 +21,6 @@ export default function Home() {
   const [searchParams, setSearchParams] = useSearchParams();
   const menu = EXAM_MENUS.find((m) => m.exam === searchParams.get("exam"));
 
-  // 間違えた問題のうち、今日復習する数。サーバーが寝ている間は出さない
-  const [review, setReview] = useState<Record<string, ReviewSummary>>({});
   // 難易度は問題を解く前にここで一度だけ選ぶ(問題画面には ?level= で渡す)
   const [level, setLevel] = useState<number | undefined>(loadSavedLevel);
   const changeLevel = (l: number | undefined) => {
@@ -28,39 +28,20 @@ export default function Home() {
     saveLevel(l);
   };
 
+  // 復習は「今日のメニュー」に入るので、ホームには別に出さない
   useEffect(() => {
     wakeUpServer();
-    fetchReviewSummary()
-      .then(setReview)
-      .catch(() => setReview({}));
   }, []);
-
-  const dueItems = REVIEW_LINKS.filter((r) => (review[r.feature]?.due ?? 0) > 0);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {dueItems.length > 0 && (
-          <div className="mb-6 rounded-lg bg-white border-l-4 border-[#c0392b] border-y border-r border-slate-200 p-4 flex flex-wrap items-center gap-3">
-            <span className="text-sm font-semibold text-slate-800">今日の復習</span>
-            {dueItems.map((r) => (
-              <button
-                key={r.feature}
-                onClick={() => navigate(r.path)}
-                className="text-sm rounded-full border border-slate-300 px-3 py-1 hover:border-[#c0392b] transition-colors"
-              >
-                {r.label} {review[r.feature].due}問 →
-              </button>
-            ))}
-          </div>
-        )}
         {!menu ? (
           <>
             <TodayMenuSection />
-            <h2 className="text-lg font-semibold text-slate-700 mb-4">どの試験の対策をしますか?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {EXAM_MENUS.map((m) => (
                 <button
                   key={m.exam}
@@ -73,17 +54,33 @@ export default function Home() {
                   </p>
                 </button>
               ))}
-            </div>
 
-            <div className="mt-8 rounded-lg bg-white border border-slate-200 p-4">
-              <p className="text-sm font-semibold text-slate-700 mb-2">共通</p>
-              <button
-                onClick={() => navigate("/wordbook")}
-                className="w-full text-left py-2 px-2 rounded-md hover:bg-slate-100 transition-colors flex items-center justify-between"
+              <div
+                className="rounded-lg shadow-lg p-6 transform transition hover:scale-[1.02] bg-gradient-to-br from-[#84fab0] to-[#8fd3f4] flex flex-col"
+                aria-label="単語帳"
+                role="group"
               >
-                <span>単語帳(4択・穴埋め・色で管理)</span>
-                <span className="text-slate-500">→</span>
-              </button>
+                <button onClick={() => navigate("/wordbook")} className="text-left flex-1">
+                  <span className="flex items-center justify-between gap-2">
+                    <span className="text-2xl font-bold text-slate-900">単語帳</span>
+                    <span className="text-2xl" aria-hidden>
+                      📚
+                    </span>
+                  </span>
+                  <span className="mt-4 block text-sm text-slate-800">英検準1級・TOEIC 930 の語を、間違えた語から復習</span>
+                </button>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {WORDBOOK_ACTIONS.map((a) => (
+                    <button
+                      key={a.path}
+                      onClick={() => navigate(a.path)}
+                      className="rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-100 transition-colors"
+                    >
+                      {a.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <WeeklyStatsSection />
