@@ -29,7 +29,7 @@ class WordbookJapaneseExampleTests {
   private final WordbookWordRepository repository = mock(WordbookWordRepository.class);
   private final CurrentUserProvider user = mock(CurrentUserProvider.class);
   private final WordbookService service = new WordbookService(repository, mock(DeletedBundledWordRepository.class),
-      mock(WordbookUnlockService.class), user, new BundledWordBank(List.of()));
+      mock(WordbookUnlockService.class), user, new BundledWordBank(List.of()), mock(WordbookEnrichmentService.class));
   private final List<WordbookWord> stored = new ArrayList<>();
 
   @BeforeEach

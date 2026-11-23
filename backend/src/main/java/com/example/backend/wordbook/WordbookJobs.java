@@ -31,14 +31,17 @@ public class WordbookJobs {
   private final BundledWordSeeder seeder;
   private final WordbookScheduleBackfill scheduleBackfill;
   private final WordbookExampleRepair exampleRepair;
+  private final WordbookEnrichmentService enrichment;
   private final WordbookTranslationService translationService;
   private final AppStateRepository states;
 
   public WordbookJobs(BundledWordSeeder seeder, WordbookScheduleBackfill scheduleBackfill,
-      WordbookExampleRepair exampleRepair, WordbookTranslationService translationService, AppStateRepository states) {
+      WordbookExampleRepair exampleRepair, WordbookEnrichmentService enrichment,
+      WordbookTranslationService translationService, AppStateRepository states) {
     this.seeder = seeder;
     this.scheduleBackfill = scheduleBackfill;
     this.exampleRepair = exampleRepair;
+    this.enrichment = enrichment;
     this.translationService = translationService;
     this.states = states;
   }
@@ -50,6 +53,8 @@ public class WordbookJobs {
     int repaired = exampleRepair.run();
     // 外部 API(DeepL)の応答が遅くても、起動の処理を止めない(語ごとの待ちの上限は DeepLApiClient.REQUEST_TIMEOUT)
     CompletableFuture.runAsync(() -> {
+      // 登録した語の例文などを先に補う(補った語は例文の訳も付くので、DeepL の調査がいらなくなる)
+      enrichPending();
       if (repaired > 0) {
         // 直した例文は訳を消してあり、訳が揃うまで出題しないので、今日の調査が済んでいても取り直す
         translateRepaired();
@@ -61,6 +66,17 @@ public class WordbookJobs {
   @Scheduled(cron = "0 0 7 * * *", zone = "Asia/Tokyo")
   public void runDaily() {
     runTranslationIfDue(LocalDateTime.now(StudyLogService.JST));
+  }
+
+  void enrichPending() {
+    try {
+      int done = enrichment.enrichPending();
+      if (done > 0) {
+        logger.info("単語帳の登録した語に例文などを補いました: {} 語", done);
+      }
+    } catch (RuntimeException e) {
+      logger.warn("単語帳の登録した語に例文などを補えませんでした: {}", e.getMessage());
+    }
   }
 
   synchronized void translateRepaired() {
@@ -80,6 +96,7 @@ public class WordbookJobs {
     if (states.findById(TRANSLATION_STATE_KEY).map(AppState::getValue).filter(today::equals).isPresent()) {
       return;
     }
+    enrichPending();
     try {
       int completed = translationService.translatePending();
       logger.info("単語帳の日本語訳を調査しました: 完了 {} 語", completed);

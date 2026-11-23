@@ -8,6 +8,8 @@ import com.example.backend.wordbook.dto.SummaryView;
 import com.example.backend.wordbook.dto.WordView;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronization;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,19 +32,26 @@ public class WordbookService {
   private final WordbookUnlockService unlocks;
   private final CurrentUserProvider currentUserProvider;
   private final BundledWordBank bundledWords;
+  private final WordbookEnrichmentService enrichment;
 
   public WordbookService(WordbookWordRepository repository, DeletedBundledWordRepository deletedBundled,
-      WordbookUnlockService unlocks, CurrentUserProvider currentUserProvider, BundledWordBank bundledWords) {
+      WordbookUnlockService unlocks, CurrentUserProvider currentUserProvider, BundledWordBank bundledWords,
+      WordbookEnrichmentService enrichment) {
     this.repository = repository;
     this.deletedBundled = deletedBundled;
     this.unlocks = unlocks;
     this.currentUserProvider = currentUserProvider;
     this.bundledWords = bundledWords;
+    this.enrichment = enrichment;
   }
 
-  /** 品詞ごとの主な意味(同梱語にある語だけ)。DB には持たず、同梱の問題集から引く(直したら次の起動で反映される) */
+  /**
+   * 品詞ごとの主な意味。同梱語にある語は同梱の問題集から引き(直したら次の起動で反映される)、
+   * 無ければ、登録した語に Gemini で補った意味を使う
+   */
   public List<Sense> sensesOf(WordbookWord word) {
-    return bundledWords.sensesOf(word.getBundledId(), word.getWord());
+    List<Sense> bundled = bundledWords.sensesOf(word.getBundledId(), word.getWord());
+    return bundled.isEmpty() ? WordbookEnrichmentService.parseSenses(word.getSensesJson()) : bundled;
   }
 
   private WordView view(WordbookWord word) {
@@ -128,7 +137,20 @@ public class WordbookService {
     if (example != null) {
       added.setExample(example, answer);
     }
-    return new AddWordResponse(true, view(repository.save(added)));
+    WordbookWord saved = repository.save(added);
+    // 例文・品詞・品詞ごとの意味を Gemini で補う。登録が確定してから裏で行う(応答を待たせない)
+    Long id = saved.getId();
+    if (TransactionSynchronizationManager.isSynchronizationActive()) {
+      TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
+        @Override
+        public void afterCommit() {
+          enrichment.enrichLater(id);
+        }
+      });
+    } else {
+      enrichment.enrichLater(id);
+    }
+    return new AddWordResponse(true, view(saved));
   }
 
   @Transactional

@@ -77,6 +77,14 @@ public class WordbookWord {
   @Column(length = 10)
   private String pos;
 
+  /** 品詞ごとの主な意味(JSON)。手動・読解から登録した語に Gemini で補う。同梱語は問題集から引くので空 */
+  @Column(name = "senses_json", columnDefinition = "TEXT")
+  private String sensesJson;
+
+  /** 例文などを補った(補えないと判断した)日時。NULL の語だけを次の調査で補う */
+  @Column(name = "enriched_at")
+  private LocalDateTime enrichedAt;
+
   /** 同梱の水準(1 易しい・2 標準)。手動・読解から登録した語は null */
   @Column
   private Integer level;
@@ -276,6 +284,41 @@ public class WordbookWord {
     this.updatedAt = now;
   }
 
+  /** 例文などを補う対象か(手動・読解から登録した語で、まだ補っていない語) */
+  public boolean needsEnrichment() {
+    return bundledId == null && enrichedAt == null;
+  }
+
+  /**
+   * Gemini で補った情報を反映する。持っていない項目だけを埋め、利用者や DeepL が入れた値は上書きしない
+   * (例文は、例文が無いときだけ例文・空欄の語・例文の訳をまとめて入れる)。何も補えなくても補った印は付ける
+   * (同じ語で何度も呼ばないため)
+   */
+  void applyEnrichment(Enrichment e, LocalDateTime now) {
+    if (pos == null && e.pos() != null) {
+      pos = e.pos();
+    }
+    if ((meaningJa == null || meaningJa.isBlank()) && e.meaningJa() != null) {
+      meaningJa = e.meaningJa();
+    }
+    if (exampleEn == null && e.exampleEn() != null) {
+      exampleEn = e.exampleEn();
+      exampleAnswer = e.exampleAnswer();
+      exampleJa = e.exampleJa();
+    }
+    if (sensesJson == null && e.sensesJson() != null) {
+      sensesJson = e.sensesJson();
+    }
+    enrichedAt = now;
+    translationStatus = WordbookTranslationRules.statusOf(meaningJa, exampleEn, exampleJa);
+    updatedAt = now;
+  }
+
+  /** 補う情報。どの項目も、検査を通らなければ null(WordbookEnrichmentService が作る) */
+  record Enrichment(String pos, String meaningJa, String exampleEn, String exampleAnswer, String exampleJa,
+      String sensesJson) {
+  }
+
   /** 訳が揃っているか。揃うまでは4択にも穴埋めにも出さない */
   public boolean isTranslated() {
     return translationStatus == TranslationStatus.DONE;
@@ -304,6 +347,8 @@ public class WordbookWord {
   public String getPos() { return pos; }
   public Integer getLevel() { return level; }
   public String getBundledId() { return bundledId; }
+  public String getSensesJson() { return sensesJson; }
+  public LocalDateTime getEnrichedAt() { return enrichedAt; }
   public boolean isUnlocked() { return unlocked; }
 
   /** 解放する(または、解放前に戻す)。同梱語の解放の処理(WordbookUnlockService)と、投入の処理が使う */

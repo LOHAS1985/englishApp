@@ -28,7 +28,8 @@ class WordbookEditTests {
   private final DeletedBundledWordRepository deleted = mock(DeletedBundledWordRepository.class);
   private final CurrentUserProvider user = mock(CurrentUserProvider.class);
   private final WordbookService service = new WordbookService(repository, deleted,
-      org.mockito.Mockito.mock(WordbookUnlockService.class), user, new BundledWordBank(List.of()));
+      org.mockito.Mockito.mock(WordbookUnlockService.class), user, new BundledWordBank(List.of()),
+      org.mockito.Mockito.mock(WordbookEnrichmentService.class));
   private WordbookWord word;
 
   @BeforeEach
