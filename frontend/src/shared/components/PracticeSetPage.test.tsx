@@ -103,33 +103,24 @@ describe("セット問題: リスニングの台本", () => {
   });
 });
 
-describe("セット問題: 解答するまで設問文を隠す形式", () => {
-  const eiken = (id: string): QuestionSetView => ({ ...set(id), type: "eiken-part1" });
+describe("セット問題: 英検リスニングの設問文", () => {
+  // 音声(台本)に設問が入っていないので、隠すと何を聞かれているか分からない
+  for (const type of ["eiken-part1", "eiken-part2"]) {
+    it(`${type} は解答する前から設問文を出す`, async () => {
+      vi.mocked(fetchPracticeSet)
+        .mockResolvedValueOnce({ ...set("l0001"), type })
+        .mockReturnValue(new Promise(() => {}));
 
-  it("設問文は解答するまで出さず、解答したあとに出す(選択肢は出したまま)", async () => {
-    vi.mocked(fetchPracticeSet).mockResolvedValueOnce(eiken("l0001")).mockReturnValue(new Promise(() => {}));
+      render(
+        <MemoryRouter initialEntries={[`/listening?type=${type}`]}>
+          <PracticeSetPage feature="listening" types={[type]} showTitle={false} renderMaterial={() => null} />
+        </MemoryRouter>,
+      );
 
-    render(
-      <MemoryRouter initialEntries={["/listening?type=eiken-part1"]}>
-        <PracticeSetPage
-          feature="listening"
-          types={["eiken-part1"]}
-          showTitle={false}
-          renderMaterial={() => null}
-          hideQuestionTypes={["eiken-part1"]}
-        />
-      </MemoryRouter>,
-    );
-
-    expect(await screen.findByText("No. 1")).toBeTruthy();
-    expect(screen.queryByText(/Question of l0001/)).toBeNull();
-    expect(screen.getByRole("button", { name: /one/ })).toBeTruthy();
-
-    await userEvent.click(screen.getByRole("button", { name: /one/ }));
-    await userEvent.click(screen.getByRole("button", { name: "解答する" }));
-
-    expect(await screen.findByText("Q1. Question of l0001")).toBeTruthy();
-  });
+      expect(await screen.findByText("Q1. Question of l0001")).toBeTruthy();
+      expect(screen.queryByText("No. 1")).toBeNull();
+    });
+  }
 });
 
 describe("セット問題: 復習モード(?review=1)", () => {
