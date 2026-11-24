@@ -177,7 +177,7 @@ class WordbookPickerTests {
   }
 
   @Test
-  void recentlyShownWordsAreSkippedUnlessNothingElseIsLeft() {
+  void wordsShownBeforeReturningHomeAreNeverShownAgain() {
     List<WordbookWord> words = List.of(
         word(1, "a", WordbookColor.RED, "あ"),
         word(2, "b", WordbookColor.RED, "い"));
@@ -185,8 +185,9 @@ class WordbookPickerTests {
     for (int i = 0; i < 50; i++) {
       assertThat(WordbookPicker.pick(words, Set.of(1L), TODAY, random).getId()).isEqualTo(2L);
     }
-    // 候補が全部直近なら、除外を外して出す(出題が止まらないように)
-    assertThat(WordbookPicker.pick(words, Set.of(1L, 2L), TODAY, random)).isNotNull();
+    // 全部出したら、出し直さずに知らせる(ホームに戻ると、また出せる)
+    assertThatThrownBy(() -> WordbookPicker.pick(words, Set.of(1L, 2L), TODAY, random))
+        .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("ホームに戻る");
   }
 
   @Test

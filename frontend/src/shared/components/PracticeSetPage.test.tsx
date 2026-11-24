@@ -137,3 +137,19 @@ describe("セット問題: 復習モード(?review=1)", () => {
     expect(vi.mocked(fetchPracticeSet).mock.calls[0]?.[4]).toBe(true);
   });
 });
+
+describe("セット問題: ホームに戻るまでに出し切ったとき", () => {
+  it("出し切ったことを知らせる(取得の失敗とは分ける)", async () => {
+    const { ALL_SEEN_MESSAGE } = await import("../sessionSeen");
+    vi.mocked(fetchPracticeSet).mockRejectedValueOnce(new Error(ALL_SEEN_MESSAGE));
+
+    render(
+      <MemoryRouter initialEntries={["/listening?type=eiken-part2"]}>
+        <PracticeSetPage feature="listening" types={["eiken-part2"]} showTitle={false} renderMaterial={() => null} />
+      </MemoryRouter>,
+    );
+
+    expect(await screen.findByText(ALL_SEEN_MESSAGE)).toBeTruthy();
+    expect(screen.queryByText(/問題の取得に失敗しました/)).toBeNull();
+  });
+});

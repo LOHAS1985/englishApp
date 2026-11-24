@@ -5,6 +5,7 @@ import Header from "../shared/components/Header";
 import { EXAM_MENUS } from "../shared/exams";
 import { DifficultySelect } from "../shared/components/Difficulty";
 import { loadSavedLevel, saveLevel, withLevel } from "../shared/level";
+import { resetSeen } from "../shared/sessionSeen";
 import TodayMenuSection from "./TodayMenuSection";
 import WeeklyStatsSection from "./WeeklyStatsSection";
 
@@ -31,6 +32,8 @@ export default function Home() {
   // 復習は「今日のメニュー」に入るので、ホームには別に出さない
   useEffect(() => {
     wakeUpServer();
+    // ホームに戻ったら、問題画面で出した問題を忘れる(次に開いたときは、また全部から出す)
+    resetSeen();
   }, []);
 
   return (

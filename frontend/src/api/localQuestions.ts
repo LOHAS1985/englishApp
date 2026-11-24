@@ -2,6 +2,7 @@ import { enqueueAnswer, historyRows, refreshHistory, type PracticeFeature } from
 import { isChunkLoadError, reloadForStaleChunk } from "../shared/staleChunk";
 import { attemptsFromRows, difficultyTarget, pick, type AnswerRow } from "./picker";
 import { getJson } from "./http";
+import { ALL_SEEN_MESSAGE, markSeen, seenIn } from "../shared/sessionSeen";
 
 /**
  * 画面に同梱した問題集(src/generated/questions/*.json。QuestionExportTests が書き出す)からの出題と採点。
@@ -137,7 +138,13 @@ function chooseId<T extends { id: string; difficulty: number }>(
   const difficulty = (id: string) => difficultyOf.get(id) ?? 2;
   // 難易度を選んだときはその難易度だけから出す。自動のときは直近に解いた問題の難易度と正答率から目標を決める
   const target = level ? null : difficultyTarget(rows, new Set(ids), difficulty);
-  return pick(ids, attemptsFromRows(rows), exclude, difficulty, target);
+  // ホームに戻るまでに出した問題は出さない(間違えた問題の出し直しも、次にこの画面を開いたときにする)
+  const seen = seenIn(feature);
+  const fresh = ids.filter((id) => !seen.has(id));
+  if (fresh.length === 0) throw new Error(ALL_SEEN_MESSAGE);
+  const id = pick(fresh, attemptsFromRows(rows), exclude, difficulty, target);
+  markSeen(feature, id);
+  return id;
 }
 
 // --- 4択短文問題(文法・語彙) ---

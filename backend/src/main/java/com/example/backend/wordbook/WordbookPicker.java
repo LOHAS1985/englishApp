@@ -17,15 +17,19 @@ import java.util.function.ToIntFunction;
  * <li>残りのまだ出していない語(色付き)。色の重みで選ぶ</li>
  * <li>どれも無いとき、次の復習日がまだ先の語を色の重みで選ぶ</li>
  * </ol>
- * 直近に出した語は避ける。無色の語は一度出すと一周目から外れるので、同じ語が一周目で繰り返されることはない。
+ * ホームに戻るまでに出した語(exclude)は出さない。無色の語は一度出すと一周目から外れるので、同じ語が一周目で繰り返されることはない。
  */
 final class WordbookPicker {
+
+  /** ホームに戻るまでに、出せる語をすべて出したとき(画面の shared/sessionSeen.ts の文言と揃える) */
+  static final String ALL_SHOWN_MESSAGE =
+      "この形式の問題は、ホームに戻るまでにすべて出しました。ホームに戻ると、また出題できます。";
 
   private WordbookPicker() {
   }
 
   /**
-   * @param exclude 直近に出した語の ID。候補がこれだけになったら、除外を外して選ぶ
+   * @param exclude ホームに戻るまでに出した語の ID(画面が送る)。利用者の要望で、これらは出し直さない
    * @param today   今日の日付(日本時間)。復習日が来ているかの判定に使う
    * @throws IllegalArgumentException 出題できる語が1つも無いとき
    */
@@ -35,7 +39,7 @@ final class WordbookPicker {
     }
     List<WordbookWord> pool = candidates.stream().filter(w -> !exclude.contains(w.getId())).toList();
     if (pool.isEmpty()) {
-      pool = candidates;
+      throw new IllegalArgumentException(ALL_SHOWN_MESSAGE);
     }
     List<WordbookWord> due = pool.stream().filter(w -> w.isDue(today)).toList();
     List<WordbookWord> uncoloredUnseen = pool.stream()

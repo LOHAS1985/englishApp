@@ -4,8 +4,6 @@ import {
   dueLabel,
   matchesFilter,
   matchesQuery,
-  pushRecent,
-  RECENT_LIMIT,
   sentenceAround,
   sortWords,
   todayJst,
@@ -24,19 +22,6 @@ describe("toHeadword", () => {
     expect(toHeadword("1,000")).toBeNull();
     expect(toHeadword("   ")).toBeNull();
     expect(toHeadword("日本語")).toBeNull();
-  });
-});
-
-describe("pushRecent", () => {
-  it("新しい語を先頭にし、同じ語は1つにまとめる", () => {
-    expect(pushRecent([1, 2, 3], 2)).toEqual([2, 1, 3]);
-  });
-
-  it("直近の件数までに切り詰める", () => {
-    let recent: number[] = [];
-    for (let id = 1; id <= 10; id++) recent = pushRecent(recent, id);
-    expect(recent).toHaveLength(RECENT_LIMIT);
-    expect(recent[0]).toBe(10);
   });
 });
 

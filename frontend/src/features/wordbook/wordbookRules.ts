@@ -10,18 +10,10 @@ export const COLOR_LABELS: Record<WordbookColor, string> = {
   RED: "赤(苦手)",
 };
 
-/** 直近に出した語の数。出題はこれと同じ語を避ける(サーバーの exclude に渡す) */
-export const RECENT_LIMIT = 5;
-
 /** 選んだ文字列から前後の記号を外して英単語にする。英単語1語でなければ null */
 export function toHeadword(selected: string): string | null {
   const word = selected.trim().replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "");
   return /^[A-Za-z][A-Za-z'-]*$/.test(word) ? word : null;
-}
-
-/** 直近の語の ID を先頭に足し、RECENT_LIMIT 件までに切り詰める */
-export function pushRecent(recent: number[], id: number): number[] {
-  return [id, ...recent.filter((x) => x !== id)].slice(0, RECENT_LIMIT);
 }
 
 const SENTENCE_END = /[.!?](?=\s|$)|\n/;

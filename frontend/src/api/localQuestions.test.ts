@@ -9,7 +9,8 @@ vi.mock("./outbox", () => ({
 }));
 
 import { enqueueAnswer } from "./outbox";
-import { countSetTypes, gradeQuestionSet, pickQuestionSet } from "./localQuestions";
+import { countSetTypes, gradeQuestionSet, pickChoiceQuestion, pickQuestionSet } from "./localQuestions";
+import { resetSeen } from "../shared/sessionSeen";
 
 const READING_TYPES = ["toeic-part6", "toeic-part7", "eiken-cloze", "eiken-long"];
 const LISTENING_TYPES = ["toeic-part2", "toeic-part3", "toeic-part4", "eiken-part1", "eiken-part2", "eiken-part3"];
@@ -50,5 +51,37 @@ describe("セット問題の形式別の問題集", () => {
 
   it("存在しない ID は、再出題を促すエラーにする", async () => {
     await expect(gradeQuestionSet("reading", "no-such-id", ["A"])).rejects.toThrow("再度出題してください");
+  });
+});
+
+describe("ホームに戻るまで、出した問題を出し直さない", () => {
+  beforeEach(() => resetSeen());
+
+  it("形式の問題をすべて出すまで、同じセットは出ない。出し切ったら知らせる", async () => {
+    const total = (await countSetTypes("listening"))["eiken-part2"]!;
+    const ids = new Set<string>();
+    for (let i = 0; i < total; i++) {
+      const set = await pickQuestionSet("listening", "eiken-part2");
+      expect(ids.has(set.id), `同じセットがまた出た: ${set.id}`).toBe(false);
+      ids.add(set.id);
+    }
+    await expect(pickQuestionSet("listening", "eiken-part2")).rejects.toThrow("ホームに戻る");
+  });
+
+  it("ホームに戻ったら(resetSeen)、また出せる", async () => {
+    const first = await pickChoiceQuestion("grammar");
+    resetSeen();
+    // 出し切っていなければエラーにならない(同じ問題が出てもよい)
+    expect((await pickChoiceQuestion("grammar")).id).toBeTruthy();
+    expect(first.id).toBeTruthy();
+  });
+
+  it("続けて50問出しても、同じ問題は出ない", async () => {
+    const ids = new Set<string>();
+    for (let i = 0; i < 50; i++) {
+      const q = await pickChoiceQuestion("vocab");
+      expect(ids.has(q.id)).toBe(false);
+      ids.add(q.id);
+    }
   });
 });

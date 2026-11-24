@@ -12,6 +12,7 @@ import {
   type WordbookChoiceQuestion,
 } from "../../api/client";
 import WordbookQuiz from "./WordbookQuiz";
+import { resetSeen } from "../../shared/sessionSeen";
 
 // ヘッダーはレベルの取得で API を呼ぶので、この画面の確認には使わない
 vi.mock("../../shared/components/Header", () => ({ default: () => null }));
@@ -59,6 +60,7 @@ function renderQuiz() {
 }
 
 beforeEach(() => {
+  resetSeen();
   vi.mocked(fetchWordbookChoice).mockReset();
   vi.mocked(submitWordbookChoice).mockReset().mockResolvedValue(RESULT);
 });
@@ -319,5 +321,25 @@ describe("単語帳: 答えを見る", () => {
     expect(vi.mocked(submitWordbookChoice).mock.calls[0]?.slice(0, 2)).toEqual([1, ""]);
     expect(await screen.findByRole("button", { name: "次の問題" })).toBeTruthy();
     expect(screen.queryByText("不正解")).toBeNull();
+  });
+});
+
+describe("単語帳: ホームに戻るまで、出した語を出し直さない", () => {
+  it("次の問題を頼むときは、この画面で出した語をすべて除外に渡す(直近5語だけではない)", async () => {
+    let id = 0;
+    vi.mocked(fetchWordbookChoice).mockImplementation(async () => {
+      id++;
+      return question(id, `w${id}`);
+    });
+
+    renderQuiz();
+    for (let n = 1; n <= 7; n++) {
+      await userEvent.click(await screen.findByRole("button", { name: "延期する" }));
+      await userEvent.click(await screen.findByRole("button", { name: "次の問題" }));
+    }
+
+    const last = vi.mocked(fetchWordbookChoice).mock.calls.at(-1)?.[0] ?? [];
+    expect(last.length).toBeGreaterThan(5);
+    expect(last).toEqual(expect.arrayContaining([1, 2, 3, 4, 5, 6, 7]));
   });
 });

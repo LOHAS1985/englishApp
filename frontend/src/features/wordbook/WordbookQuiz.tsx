@@ -15,10 +15,16 @@ import Header from "../../shared/components/Header";
 import { useQuizKeys, type QuizKeyActions } from "../../shared/quizKeys";
 import AnswerResultPanel from "./AnswerResultPanel";
 import PronounceButton from "./PronounceButton";
-import { pushRecent } from "./wordbookRules";
+import { markSeen, seenIn } from "../../shared/sessionSeen";
 import { messageOf } from "../../shared/errorMessage";
 
 type Kind = "choice" | "fill";
+
+/** ホームに戻るまでに出した語を覚える範囲(4択・穴埋めで共通。同じ語は、ホームに戻るまでどちらにも出さない) */
+const SEEN_SCOPE = "wordbook";
+
+/** ホームに戻るまでに出した語(サーバーに exclude として渡し、出し直さない) */
+const shownIds = () => [...seenIn(SEEN_SCOPE)].map(Number);
 
 type Question =
   | { kind: "choice"; data: WordbookChoiceQuestion }
@@ -54,8 +60,6 @@ export default function WordbookQuiz() {
   const [revealed, setRevealed] = useState(false);
   const [color, setColor] = useState<WordbookColor>("NONE");
   const shownAtRef = useRef(0);
-  /** 直近に出した語。同じ語が続けて出ないよう、サーバーに exclude として渡す */
-  const recentRef = useRef<number[]>([]);
 
   /**
    * 次の問題の先読み。問題を出した時点で取りに行き、「次の問題」を押したら待たずに出す
@@ -65,26 +69,25 @@ export default function WordbookQuiz() {
 
   /** 問題を出し、その次の問題を先読みする */
   const show = (next: Question) => {
-    recentRef.current = pushRecent(recentRef.current, next.data.wordId);
+    markSeen(SEEN_SCOPE, next.data.wordId);
     shownAtRef.current = Date.now();
     setQuestion(next);
     setCount((c) => c + 1);
-    // 表示中の語は recentRef に入っているので、先読みで同じ語は選ばれない
-    prefetchRef.current = { kind: next.kind, promise: fetchQuestion(next.kind, recentRef.current).catch(() => null) };
+    // 表示中の語も出した語に入っているので、先読みで同じ語は選ばれない
+    prefetchRef.current = { kind: next.kind, promise: fetchQuestion(next.kind, shownIds()).catch(() => null) };
   };
 
   // 画面を開いたとき(形式が変わったとき)に最初の1問を出す
   useEffect(() => {
     let cancelled = false;
     async function start() {
-      recentRef.current = [];
       prefetchRef.current = null;
       setCount(0);
       setLoading(true);
       setError("");
       setResult(null);
       try {
-        const next = await fetchQuestion(kind, []);
+        const next = await fetchQuestion(kind, shownIds());
         if (cancelled) return;
         show(next);
       } catch (e) {
@@ -113,7 +116,7 @@ export default function WordbookQuiz() {
     setLoading(true);
     try {
       // 先読みが失敗していたら(null)、その場で取り直す
-      show((prefetched ? await prefetched : null) ?? (await fetchQuestion(kind, recentRef.current)));
+      show((prefetched ? await prefetched : null) ?? (await fetchQuestion(kind, shownIds())));
     } catch (e) {
       setQuestion(null);
       setError(messageOf(e, "出題に失敗しました"));

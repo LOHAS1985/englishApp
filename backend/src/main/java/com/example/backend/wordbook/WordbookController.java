@@ -103,7 +103,7 @@ public class WordbookController {
     return quizService.history();
   }
 
-  /** 画面で直近に出した語の ID(カンマ区切り)。同じ語が続けて出ないようにする */
+  /** ホームに戻るまでに画面で出した語の ID(カンマ区切り)。これらは出し直さない */
   private static Set<Long> parseIds(String exclude) {
     if (exclude == null || exclude.isBlank()) {
       return Set.of();

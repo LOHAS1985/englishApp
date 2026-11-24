@@ -13,6 +13,7 @@ import { addToTally, EMPTY_TALLY, type Tally } from "../sessionTally";
 import Header from "./Header";
 import QuestionNumber from "./QuestionNumber";
 import SessionSummary from "./SessionSummary";
+import { ALL_SEEN_MESSAGE } from "../sessionSeen";
 
 interface PracticeSetPageProps {
   feature: "reading" | "listening";
@@ -71,7 +72,8 @@ export default function PracticeSetPage({
   /** いま表示しているセットの ID。遅れて届いた台本を、別のセットの結果に付けないために使う */
   const shownSetIdRef = useRef<string | null>(null);
 
-  const showSet = (data: QuestionSetView | null) => {
+  /** @param failure 出題に失敗した理由(ホームに戻るまでに出し切ったときは、その文言を出す) */
+  const showSet = (data: QuestionSetView | null, failure?: unknown) => {
     shownSetIdRef.current = data?.id ?? null;
     shownAtRef.current = Date.now();
     setSet(data);
@@ -88,7 +90,13 @@ export default function PracticeSetPage({
     );
     setResult(null);
     setError(
-      data ? "" : review ? "今日の復習はすべて終わりました。" : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。",
+      data
+        ? ""
+        : failure instanceof Error && failure.message === ALL_SEEN_MESSAGE
+          ? ALL_SEEN_MESSAGE
+          : review
+            ? "今日の復習はすべて終わりました。"
+            : "問題の取得に失敗しました。この形式の問題がまだ無い可能性があります。",
     );
     setLoading(false);
   };
@@ -109,8 +117,8 @@ export default function PracticeSetPage({
       const data = (prefetched ? await prefetched : null) ?? (await fetchPracticeSet(feature, type, set?.id, level, review));
       showSet(data);
       if (data) setCount((c) => c + 1);
-    } catch {
-      showSet(null);
+    } catch (e) {
+      showSet(null, e);
     }
   };
 
@@ -122,7 +130,7 @@ export default function PracticeSetPage({
         setCount(1);
         showSet(data);
       })
-      .catch(() => !cancelled && showSet(null));
+      .catch((e) => !cancelled && showSet(null, e));
     return () => {
       cancelled = true;
     };
