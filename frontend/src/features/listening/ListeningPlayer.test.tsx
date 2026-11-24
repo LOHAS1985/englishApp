@@ -66,3 +66,40 @@ describe("ListeningPlayer: 再生に失敗したとき", () => {
     expect(screen.queryByText(/再生済み/)).toBeNull();
   });
 });
+
+describe("ListeningPlayer: 聞き直し", () => {
+  /** 再生するとすぐ終わる音声 */
+  class EndingAudio {
+    currentTime = 0;
+    onended: (() => void) | null = null;
+    onerror: (() => void) | null = null;
+    play() {
+      setTimeout(() => this.onended?.(), 0);
+      return Promise.resolve();
+    }
+    pause() {}
+  }
+
+  it("練習(既定)では、聞き終えたあと「もう一度聞く」で聞き直せる", async () => {
+    prepared({ kind: "audio", urls: ["https://example.test/a.mp3"], first: null });
+    vi.stubGlobal("Audio", EndingAudio);
+
+    render(<ListeningPlayer setId="l1" />);
+    await userEvent.click(screen.getByRole("button", { name: "▶ 音声を再生" }));
+
+    const again = (await screen.findByRole("button", { name: "▶ もう一度聞く" })) as HTMLButtonElement;
+    expect(again.disabled).toBe(false);
+    expect(screen.queryByText(/再生済み/)).toBeNull();
+  });
+
+  it("模試(聞き直せない設定)では、聞き終えたら再生済みになる", async () => {
+    prepared({ kind: "audio", urls: ["https://example.test/a.mp3"], first: null });
+    vi.stubGlobal("Audio", EndingAudio);
+
+    render(<ListeningPlayer setId="l1" allowReplay={false} />);
+    await userEvent.click(screen.getByRole("button", { name: "▶ 音声を再生" }));
+
+    const done = (await screen.findByRole("button", { name: /再生済み/ })) as HTMLButtonElement;
+    expect(done.disabled).toBe(true);
+  });
+});

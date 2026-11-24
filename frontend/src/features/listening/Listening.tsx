@@ -13,9 +13,9 @@ export default function Listening() {
       feature="listening"
       types={TYPES}
       showTitle={false}
-      // 本番どおり、音声は1回だけ(模試と同じ条件)。英検 Part 1・2 は本番では設問も放送で読まれるが、
-      // 音声(台本)に設問が入っていないので、設問文は最初から画面に出す(隠すと設問が分からない)
-      renderMaterial={(set) => <ListeningPlayer key={set.id} setId={set.id} allowReplay={false} />}
+      // 練習では音声を何度でも聞き直せる(利用者の要望。本番と同じ1回だけの条件は模試で練習する)。
+      // 英検 Part 1・2 は本番では設問も放送で読まれるが、音声(台本)に設問が入っていないので、設問文は最初から画面に出す
+      renderMaterial={(set) => <ListeningPlayer key={set.id} setId={set.id} />}
       // 解答した時点で次のセットの音声を読み込んでおき、「次の問題」の後すぐ再生できるようにする
       onNextPicked={(next) => warmUpListeningAudio(next.id)}
       // TOEIC Part 2 は問題ごとに台本を、その問題の解答の下に書く
