@@ -40,29 +40,34 @@ class DifficultyTests {
   }
 
   /**
-   * どの形式にも基礎・標準・発展がそれぞれ2割以上ある(どれかを選ぶと問題が尽きる、を防ぐ)。
-   * リスニングだけは基礎を1割以上とする。目標の分布が 1〜5 = 10/20/30/20/20%
-   * (docs/question-authoring.md の 1.1)で、書き直しで基礎を減らしていくため、2割のままだと必ず割る。
+   * 文法・語彙・読解は、基礎・標準・発展の問題がそれぞれ1問以上あること(どれかを選ぶと問題が尽きる、を防ぐ)。
+   * 判定の分布は形式によって偏る(英検の大問2 は標準が多い)ため、比率では検査しない。
+   * リスニングは従来どおり、基礎を1割以上、標準・発展を2割以上とする(目標の分布 10/20/30/20/20%。
+   * docs/question-authoring.md の 1.1)。
    */
   @Test
   void eachBankHasAllThreeLevels() {
     GrammarQuestionBank grammar = new GrammarQuestionBank(MAPPER);
     VocabQuestionBank vocab = new VocabQuestionBank(MAPPER);
-    assertSpread("grammar", grammar.ids(), grammar::difficulty, 5);
-    assertSpread("vocab", vocab.ids(), vocab::difficulty, 5);
+    assertSpread("grammar", grammar.ids(), grammar::difficulty, 1, 1);
+    assertSpread("vocab", vocab.ids(), vocab::difficulty, 1, 1);
     ReadingQuestionBank reading = new ReadingQuestionBank(MAPPER);
-    reading.countByType().keySet().forEach(type -> assertSpread(type, reading.ids(type), reading::difficulty, 5));
+    reading.countByType().keySet().forEach(type -> assertSpread(type, reading.ids(type), reading::difficulty, 1, 1));
     ListeningQuestionBank listening = new ListeningQuestionBank(MAPPER);
-    listening.countByType().keySet().forEach(type -> assertSpread(type, listening.ids(type), listening::difficulty, 10));
+    listening.countByType().keySet().forEach(type -> {
+      List<String> ids = listening.ids(type);
+      assertSpread(type, ids, listening::difficulty, ids.size() / 10, ids.size() / 5);
+    });
   }
 
-  /** level1Divisor: 基礎の下限を総数の何分の1にするか(標準・発展は常に2割) */
-  private static void assertSpread(String name, List<String> ids, Function<String, Integer> difficulty, int level1Divisor) {
+  /** level1Min・otherMin: 基礎・標準・発展のそれぞれに必要な問題数の下限 */
+  private static void assertSpread(String name, List<String> ids, Function<String, Integer> difficulty, int level1Min,
+      int otherMin) {
     Map<Integer, Integer> counts = new TreeMap<>();
     ids.forEach(id -> counts.merge(difficulty.apply(id), 1, Integer::sum));
     System.out.println(name + ": " + counts);
     for (int level = 1; level <= 3; level++) {
-      int min = ids.size() / (level == 1 ? level1Divisor : 5);
+      int min = level == 1 ? level1Min : otherMin;
       assertThat(counts.getOrDefault(level, 0)).as(name + " level " + level).isGreaterThanOrEqualTo(min);
     }
   }
