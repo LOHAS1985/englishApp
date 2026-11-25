@@ -58,10 +58,11 @@ class DifficultyStatsTests {
     assertThat(listening().answered()).isEqualTo(before.answered());
   }
 
+  /** 文法は倒置・高度な接続表現などに難易度4を付けた。難易度4の問題があれば練習できる */
   @Test
-  void grammarHasNoLevelFourQuestionsYet() {
+  void grammarHasLevelFourQuestions() {
     Optional<DifficultyItem> grammar = service.summary().stream().filter(i -> i.feature().equals("grammar")).findFirst();
     assertThat(grammar).isPresent();
-    assertThat(grammar.get().available()).isZero();
+    assertThat(grammar.get().available()).isPositive();
   }
 }
