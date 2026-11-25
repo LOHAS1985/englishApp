@@ -48,99 +48,71 @@ class WordbookPickerTests {
     return counts;
   }
 
-  @Test
-  void uncoloredUnseenWordsAreShownFirstBeforeAnyColoredNewWord() {
-    List<WordbookWord> words = List.of(
-        word(1, "red", WordbookColor.RED, "赤"),
-        word(2, "none", WordbookColor.NONE, "無"),
-        word(3, "yellow", WordbookColor.YELLOW, "黄"),
-        word(4, "none2", WordbookColor.NONE, "無2"),
-        word(5, "blue", WordbookColor.BLUE, "青"));
-    Random random = new Random(4);
-    Set<Long> shown = new java.util.HashSet<>();
-    // 最初の2問は、色を決めていない2語
-    for (int i = 0; i < 2; i++) {
-      WordbookWord picked = WordbookPicker.pick(words, Set.of(), TODAY, random);
-      assertThat(picked.getColor()).isEqualTo(WordbookColor.NONE);
-      picked.recordAnswer(true, NOW);
-      shown.add(picked.getId());
-    }
-    assertThat(shown).containsExactlyInAnyOrder(2L, 4L);
-    // そのあとは色付きの語も出る(3語の中から)
-    for (int i = 0; i < 3; i++) {
-      WordbookWord picked = WordbookPicker.pick(words, Set.of(), TODAY, random);
-      assertThat(picked.getColor()).isNotEqualTo(WordbookColor.NONE);
-      picked.recordAnswer(true, NOW);
-    }
+  /** 出題済みの語。最後に出したのは daysAgo 日前で、そのとき正解した(復習日はまだ先) */
+  private static WordbookWord answeredDaysAgo(long id, String text, WordbookColor color, int daysAgo) {
+    WordbookWord w = word(id, text, color, "訳" + id);
+    w.recordAnswer(true, NOW.minusDays(daysAgo));
+    return w;
   }
 
   @Test
-  void uncoloredWordsAreEachShownOnceInTheFirstPassWhileRandomOrder() {
-    List<WordbookWord> words = List.of(
-        word(1, "a", WordbookColor.NONE, "あ"),
-        word(2, "b", WordbookColor.NONE, "い"),
-        word(3, "c", WordbookColor.NONE, "う"),
-        word(4, "d", WordbookColor.NONE, "え"));
-    Set<Long> seen = new java.util.HashSet<>();
-    for (long seed = 0; seed < 20; seed++) {
-      seen.clear();
-      Random random = new Random(seed);
-      List<WordbookWord> run = words.stream().map(w -> word(w.getId(), w.getWord(), WordbookColor.NONE, w.getMeaningJa())).toList();
-      for (int i = 0; i < run.size(); i++) {
-        WordbookWord picked = WordbookPicker.pick(run, Set.of(), TODAY, random);
-        assertThat(seen.add(picked.getId())).as("一周目で同じ語が繰り返された(seed " + seed + ")").isTrue();
-        picked.recordAnswer(true, NOW);
-      }
-    }
-  }
-
-
-  @Test
-  void uncoloredNewWordsComeBeforeDueWords() {
+  void uncoloredWordsAreChosenNinetyPercentWhileColoredWordsAreDue() {
     List<WordbookWord> words = List.of(
         asked(1, "due", WordbookColor.RED, 0), // 復習日が来ている(間違えて赤になった語)
-        word(2, "fresh", WordbookColor.NONE, "新"), // 色を決めていない新規
-        asked(3, "later", WordbookColor.NONE, 5)); // 復習日はまだ先
-    Random random = new Random(8);
-    for (int i = 0; i < 200; i++) {
-      assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(2L);
-    }
+        word(2, "fresh", WordbookColor.NONE, "新")); // 色を決めていない語
+    int[] counts = countPicks(words, 10_000, 8);
+    // 無色が9割、復習日が来た語が1割(復習が止まらないように)
+    assertThat(counts[2]).isBetween(8800, 9200);
+    assertThat(counts[1]).isBetween(800, 1200);
   }
 
   @Test
-  void dueWordsComeAfterTheFirstPassAndBeforeColoredNewWords() {
-    WordbookWord fresh = word(2, "fresh", WordbookColor.NONE, "新");
+  void onlyUncoloredWordsAreChosenWhenNothingIsDue() {
+    List<WordbookWord> words = List.of(
+        word(1, "fresh", WordbookColor.NONE, "新"),
+        word(2, "colored", WordbookColor.BLUE, "青"), // 色付きの新規は無色の後
+        answeredDaysAgo(3, "later", WordbookColor.YELLOW, 1)); // 復習日はまだ先
+    assertThat(countPicks(words, 500, 3)[1]).isEqualTo(500);
+  }
+
+  @Test
+  void answeredButUncoloredWordsComeBackUntilTheyAreColored() {
+    // 正解しても色は付かないので、無色のまま。色を付けるまで優先して出す
+    WordbookWord answered = answeredDaysAgo(1, "answered", WordbookColor.NONE, 1);
+    assertThat(answered.getColor()).as("正解しても自動で色は付けない").isEqualTo(WordbookColor.NONE);
+    List<WordbookWord> words = List.of(answered, word(2, "colored", WordbookColor.BLUE, "青"));
+    assertThat(countPicks(words, 500, 4)[1]).isEqualTo(500);
+  }
+
+  @Test
+  void neverAskedUncoloredWordsComeBeforeAnsweredOnesAndOldestAnsweredFirst() {
+    List<WordbookWord> words = List.of(
+        answeredDaysAgo(1, "recent", WordbookColor.NONE, 1),
+        answeredDaysAgo(2, "old", WordbookColor.NONE, 5),
+        word(3, "fresh", WordbookColor.NONE, "新"));
+    Random random = new Random(5);
+    assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(3L);
+    // まだ出していない語が無ければ、最後に出したのが古い語から
+    assertThat(WordbookPicker.pick(words, Set.of(3L), TODAY, random).getId()).isEqualTo(2L);
+    assertThat(WordbookPicker.pick(words, Set.of(3L, 2L), TODAY, random).getId()).isEqualTo(1L);
+  }
+
+  @Test
+  void whenNoUncoloredWordIsLeftDueWordsComeBeforeColoredNewWords() {
     List<WordbookWord> words = List.of(
         asked(1, "due", WordbookColor.RED, 0),
-        fresh,
-        word(4, "colored", WordbookColor.BLUE, "青")); // 色付きの新規は復習より後
-    Random random = new Random(8);
-    assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(2L);
-    fresh.recordAnswer(true, NOW);
-    // 無色の新規が無くなったら、復習日が来た語
-    for (int i = 0; i < 200; i++) {
-      assertThat(WordbookPicker.pick(words, Set.of(), TODAY, random).getId()).isEqualTo(1L);
-    }
-  }
-
-
-  @Test
-  void dueWordsComeFirstWhenThereAreNoNewWords() {
-    List<WordbookWord> words = List.of(
-        asked(1, "due", WordbookColor.NONE, -2),
-        asked(2, "later", WordbookColor.NONE, 6));
-    int[] counts = countPicks(words, 500, 3);
-    assertThat(counts[1]).isEqualTo(500);
+        word(2, "colored", WordbookColor.BLUE, "青"));
+    assertThat(countPicks(words, 500, 6)[1]).isEqualTo(500);
   }
 
   @Test
   void redWordsAreChosenMoreOftenAmongDueWords() {
     List<WordbookWord> words = List.of(
         asked(1, "red", WordbookColor.RED, 0),
-        asked(2, "none", WordbookColor.NONE, 0),
+        asked(2, "yellow", WordbookColor.YELLOW, 0),
         asked(3, "blue", WordbookColor.BLUE, 0));
     int[] counts = countPicks(words, 14_000, 11);
-    // 重みは 赤4・無色2・青1 なので 4/7・2/7・1/7
+    // 重みは 赤4・黄2・青1 なので 4/7・2/7・1/7
     assertThat(counts[1]).isBetween(7700, 8300);
     assertThat(counts[2]).isBetween(3750, 4250);
     assertThat(counts[3]).isBetween(1800, 2200);
@@ -149,28 +121,30 @@ class WordbookPickerTests {
   @Test
   void whenNothingIsDueOrNewScheduledWordsAreChosenByColorWeight() {
     List<WordbookWord> words = List.of(
-        asked(1, "none", WordbookColor.NONE, 4),
-        asked(2, "blue", WordbookColor.BLUE, 4));
-    int[] counts = countPicks(words, 13_000, 5);
-    // 重みは 無色25・青1
-    assertThat(counts[1]).isBetween(12300, 12700);
-    assertThat(counts[2]).isBetween(300, 700);
+        answeredDaysAgo(1, "red", WordbookColor.RED, 1),
+        answeredDaysAgo(2, "blue", WordbookColor.BLUE, 1));
+    int[] counts = countPicks(words, 12_000, 5);
+    // 重みは 赤5・青1
+    assertThat(counts[1]).isBetween(9700, 10300);
+    assertThat(counts[2]).isBetween(1700, 2300);
   }
 
   @Test
-  void everyNewWordIsShownOnceBeforeAnyWordRepeats() {
+  void inOneSessionUncoloredWordsComeFirstAndNoWordRepeats() {
     List<WordbookWord> words = List.of(
         word(1, "a", WordbookColor.NONE, "あ"),
         word(2, "b", WordbookColor.NONE, "い"),
         word(3, "c", WordbookColor.NONE, "う"),
         word(4, "d", WordbookColor.BLUE, "え"));
     Random random = new Random(9);
-    java.util.Set<Long> shown = new java.util.HashSet<>();
+    Set<Long> shown = new java.util.HashSet<>();
     for (int i = 0; i < words.size(); i++) {
-      WordbookWord picked = WordbookPicker.pick(words, Set.of(), TODAY, random);
+      WordbookWord picked = WordbookPicker.pick(words, shown, TODAY, random);
       assertThat(shown).doesNotContain(picked.getId());
+      if (i < 3) {
+        assertThat(picked.getColor()).as("無色の3語を先に出す").isEqualTo(WordbookColor.NONE);
+      }
       shown.add(picked.getId());
-      // 解答した(正解)ので、新規ではなくなる
       picked.recordAnswer(true, NOW);
     }
     assertThat(shown).hasSize(4);

@@ -3,27 +3,34 @@ package com.example.backend.wordbook;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.ToIntFunction;
 
 /**
- * 単語帳の出題の選び方。優先順は次のとおり。
+ * 単語帳の出題の選び方(利用者の要望で、まず全部の語に色を付けられるよう、無色の語を最優先にする)。
  * <ol>
- * <li>色を決めていない語(無色)で、まだ一度も出していない語。一周目としてすべて先に出す
- *     (利用者の要望で、復習より先にする。復習日が来た語は一周目が終わるまで待つ)</li>
- * <li>復習日が来た語(間違えた語など)</li>
+ * <li>無色の語(色をまだ決めていない語)と、復習日が来た色付きの語の両方があれば、{@link #UNCOLORED_RATE}(9割)の確率で
+ *     無色の語、残りで復習日が来た語を出す(無色だけにすると、間違えた語の復習が何週間も止まるため1割は残す)。
+ *     無色の語の中では、まだ一度も出していない語(一様に選ぶ)を先に、無ければ出したのに色を付けていない語を、
+ *     最後に出したのが古い順に出す</li>
+ * <li>片方しか無ければ、その方から出す(復習日が来た語は色の重みで選ぶ)</li>
  * <li>残りのまだ出していない語(色付き)。色の重みで選ぶ</li>
  * <li>どれも無いとき、次の復習日がまだ先の語を色の重みで選ぶ</li>
  * </ol>
- * ホームに戻るまでに出した語(exclude)は出さない。無色の語は一度出すと一周目から外れるので、同じ語が一周目で繰り返されることはない。
+ * 色は利用者が付ける(正解しても自動では付けない。間違えた語だけは WordbookWord.recordAnswer が赤にする)。
+ * ホームに戻るまでに出した語(exclude)は出さない。
  */
 final class WordbookPicker {
 
   /** ホームに戻るまでに、出せる語をすべて出したとき(画面の shared/sessionSeen.ts の文言と揃える) */
   static final String ALL_SHOWN_MESSAGE =
       "この形式の問題は、ホームに戻るまでにすべて出しました。ホームに戻ると、また出題できます。";
+
+  /** 無色の語と、復習日が来た色付きの語の両方があるとき、無色の語を出す確率 */
+  static final double UNCOLORED_RATE = 0.9;
 
   private WordbookPicker() {
   }
@@ -41,22 +48,35 @@ final class WordbookPicker {
     if (pool.isEmpty()) {
       throw new IllegalArgumentException(ALL_SHOWN_MESSAGE);
     }
-    List<WordbookWord> due = pool.stream().filter(w -> w.isDue(today)).toList();
-    List<WordbookWord> uncoloredUnseen = pool.stream()
-        .filter(w -> w.getColor() == WordbookColor.NONE && w.isUnseen()).toList();
+    List<WordbookWord> uncolored = pool.stream().filter(w -> w.getColor() == WordbookColor.NONE).toList();
+    List<WordbookWord> dueColored = pool.stream()
+        .filter(w -> w.getColor() != WordbookColor.NONE && w.isDue(today)).toList();
     List<WordbookWord> unseen = pool.stream().filter(WordbookWord::isUnseen).toList();
 
-    if (!uncoloredUnseen.isEmpty()) {
-      // 一周目は、色を決めていない語を一様に(色で重みを付けない。どれも無色のため)
-      return uncoloredUnseen.get(random.nextInt(uncoloredUnseen.size()));
+    if (!uncolored.isEmpty() && (dueColored.isEmpty() || random.nextDouble() < UNCOLORED_RATE)) {
+      return pickUncolored(uncolored, random);
     }
-    if (!due.isEmpty()) {
-      return weighted(due, w -> w.getColor().dueWeight(), random);
+    if (!dueColored.isEmpty()) {
+      return weighted(dueColored, w -> w.getColor().dueWeight(), random);
     }
     if (!unseen.isEmpty()) {
       return weighted(unseen, w -> w.getColor().newWeight(), random);
     }
     return weighted(pool, w -> w.getColor().weight(), random);
+  }
+
+  /**
+   * 無色の語から1つ。まだ一度も出していない語があれば一様に選び(色で重みを付けない。どれも無色のため)、
+   * 無ければ、最後に出したのが一番古い語(色を付けないまま一番長く空いている語)
+   */
+  static WordbookWord pickUncolored(List<WordbookWord> uncolored, Random random) {
+    List<WordbookWord> never = uncolored.stream().filter(WordbookWord::isUnseen).toList();
+    if (!never.isEmpty()) {
+      return never.get(random.nextInt(never.size()));
+    }
+    return uncolored.stream()
+        .min(Comparator.comparing(WordbookWord::getLastAskedAt, Comparator.nullsFirst(Comparator.naturalOrder())))
+        .orElseThrow();
   }
 
   private static WordbookWord weighted(List<WordbookWord> words, ToIntFunction<WordbookWord> weight, Random random) {
