@@ -278,7 +278,7 @@ SPRING_PROFILES_ACTIVE=prod SPRING_JPA_HIBERNATE_DDL_AUTO=validate ./mvnw test
 - [x] 文法・リスニングの正解を DB に保存(再起動しても採点できる)。リスニングの解答も記録するように
 - [x] CORS を GitHub Pages とローカルのみに制限、`/env` エンドポイントの公開を停止
 - [x] `ListeningController` を `ListeningService` / `TtsService` に分割し、未使用の `/generate`・`/auto-generate` を削除
-- [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在1008問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
+- [x] 文法問題の出題が遅い: Gemini 生成をやめ、問題集(`questions/grammar/*.json`、現在1016問)から出題。画面側で次の問題を先読み。日本時間 6:00〜翌1:00 は GitHub Actions(`keep-alive.yml`)で Render の停止を防止
 
 ### 未対応(コード修正が必要)
 - [x] 生成音声が Render のディスクに保存されていて、再デプロイで消える問題: 音声をあらかじめ作って GitHub Releases に置くようにした(20261115)。サーバーで作る音声(置いていないセット)は、今も再デプロイで消える。新しいセットの音声を置く作業は、毎日のリスニング追加の手順に入っていない(クラウドの実行環境では edge-tts が動くか未確認)
