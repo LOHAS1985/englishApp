@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - "frontend/**"
+      # バックエンドだけを変えたときも画面を作り直す。画面は「最後に backend/ を変えたコミット」を埋め込み、
+      # サーバーの版と比べる(BuildVersion)。作り直さないと、正しく更新されていても「サーバーが別の版です」と出る
+      - "backend/**"
       - ".github/workflows/frontend-ci-cd.yml"
   pull_request:
     paths:
@@ -27,6 +30,9 @@ jobs:
         working-directory: frontend
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 全履歴を取る(最後に backend/ を変えたコミットを git log で探すため。浅い clone では見つからない)
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
