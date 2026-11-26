@@ -22,6 +22,10 @@ import {
   SORT_LABELS,
   dueLabel,
   matchesFilter,
+  matchesLevel,
+  LEVEL_FILTERS,
+  LEVEL_LABELS,
+  type LevelFilter,
   matchesQuery,
   sortWords,
   todayJst,
@@ -43,7 +47,7 @@ function translationNote(word: WordbookWord): string | null {
 }
 
 /**
- * 単語帳の一覧。色・今日の復習・未学習で絞り込み、検索(語・訳・例文)、並べ替え、色の付け替え、
+ * 単語帳の一覧。色・今日の復習・未学習・水準で絞り込み、検索(語・訳・例文)、並べ替え、色の付け替え、
  * 訳と例文の修正、手動追加、削除ができる。語が多いので50語ずつ出す。
  */
 export default function WordbookList() {
@@ -52,6 +56,7 @@ export default function WordbookList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState<WordFilter>("ALL");
+  const [level, setLevel] = useState<LevelFilter>("ALL");
   const [sort, setSort] = useState<WordSort>("ADDED");
   const [query, setQuery] = useState("");
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -76,8 +81,12 @@ export default function WordbookList() {
   }, []);
 
   const matched = useMemo(
-    () => sortWords(words.filter((w) => matchesFilter(w, filter, today) && matchesQuery(w, query)), sort),
-    [words, filter, query, sort, today],
+    () =>
+      sortWords(
+        words.filter((w) => matchesFilter(w, filter, today) && matchesLevel(w, level) && matchesQuery(w, query)),
+        sort,
+      ),
+    [words, filter, level, query, sort, today],
   );
   const shown = matched.slice(0, visible);
 
@@ -206,6 +215,21 @@ export default function WordbookList() {
             className="flex-1 border border-slate-300 rounded px-3 py-2 text-sm"
           />
           <select
+            aria-label="レベル"
+            value={String(level)}
+            onChange={(e) => {
+              setLevel(e.target.value === "ALL" ? "ALL" : (Number(e.target.value) as LevelFilter));
+              resetPage();
+            }}
+            className="border border-slate-300 rounded px-3 py-2 text-sm bg-white"
+          >
+            {LEVEL_FILTERS.map((l) => (
+              <option key={l} value={String(l)}>
+                {l === "ALL" ? "すべてのレベル" : LEVEL_LABELS[l]}
+              </option>
+            ))}
+          </select>
+          <select
             aria-label="並べ替え"
             value={sort}
             onChange={(e) => {
@@ -234,6 +258,9 @@ export default function WordbookList() {
                   <p className="font-semibold flex items-center gap-2">
                     {word.word}
                     <PronounceButton word={word.word} />
+                    {word.level != null && LEVEL_LABELS[word.level] && (
+                      <span className="text-xs font-normal text-slate-500">{LEVEL_LABELS[word.level]}</span>
+                    )}
                   </p>
                   {editingId === word.id ? (
                     <div className="flex gap-2 mt-2">

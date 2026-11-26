@@ -173,3 +173,24 @@ describe("単語一覧: 50語ずつの表示・絞り込み・並べ替え・検
     expect(screen.getByText(/出題 3回・正解 2回・次の復習 1\/1/)).toBeTruthy();
   });
 });
+
+describe("水準", () => {
+  it("語の横に水準を出し、水準で絞り込める", async () => {
+    vi.mocked(fetchWordbookWords).mockResolvedValue([
+      word({ id: 1, word: "agenda", level: 1 }),
+      word({ id: 2, word: "cajole", level: 4 }),
+    ]);
+    render(
+      <MemoryRouter>
+        <WordbookList />
+      </MemoryRouter>,
+    );
+    expect(await screen.findByText("600点", { selector: "span" })).toBeTruthy();
+    expect(screen.getByText("930点", { selector: "span" })).toBeTruthy();
+
+    await userEvent.selectOptions(screen.getByLabelText("レベル"), "4");
+
+    expect(screen.queryByText("agenda")).toBeNull();
+    expect(screen.getByText("cajole")).toBeTruthy();
+  });
+});

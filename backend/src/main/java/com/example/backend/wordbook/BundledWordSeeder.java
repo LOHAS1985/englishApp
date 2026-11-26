@@ -30,11 +30,6 @@ import java.util.Set;
 public class BundledWordSeeder {
 
   static final String STATE_KEY = "wordbook.bundled.version";
-  /**
-   * この ID までの同梱語は、入れた時点で出す。以降の同梱語は、WordbookUnlockService が少しずつ解放する(1日20語まで)。
-   * 新しい同梱語の番号を増やすときは、この値を変えず、そのまま追加すれば解放の対象になる。
-   */
-  static final String OPEN_THROUGH_ID = "w0600";
   /** 旧版(同梱語を一度だけ入れていた)の値。この版の単語帳に無い同梱語は、利用者が削除した語とみなす */
   static final String LEGACY_VERSION = "1";
   private static final String VERSION_PREFIX = "2:";
@@ -112,7 +107,6 @@ public class BundledWordSeeder {
       word.setExample(item.example().en(), item.example().answer().toLowerCase(Locale.ROOT));
       word.applyTranslation(item.meaningJa(), item.example().ja(), now);
       word.linkBundled(item.id(), false);
-      word.setUnlocked(item.id().compareTo(OPEN_THROUGH_ID) <= 0);
       word.applyBundledMetadata(item, now);
       repository.save(word);
     }

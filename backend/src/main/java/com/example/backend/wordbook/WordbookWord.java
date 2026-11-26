@@ -244,16 +244,12 @@ public class WordbookWord {
   }
 
   /**
-   * 品詞と水準(利用者が直せないので、直した語にも反映する)。水準を初めて知った語のうち、易しい語はまだ色を付けておらず
-   * 一度も出していなければ青にする(出題を後回しにする。すでに色を付けた語・出した語は変えない)。
+   * 品詞と水準(1=600点・2=730点・3=860点・4=930点/英検準1級。利用者が直せないので、直した語にも反映する)。
+   * 色は付けない(易しい語でも、本当に知っているかを一度は確かめるため。以前は易しい語を初期の青にしていた)。
    */
   boolean applyBundledMetadata(BundledWordBank.BundledWord item, LocalDateTime now) {
     int newLevel = item.level() == null ? 2 : item.level();
     boolean changed = !java.util.Objects.equals(pos, item.pos()) || !java.util.Objects.equals(level, newLevel);
-    if (level == null && newLevel == 1 && color == WordbookColor.NONE && timesAsked == 0) {
-      color = WordbookColor.BLUE;
-      changed = true;
-    }
     this.pos = item.pos();
     this.level = newLevel;
     if (changed) {

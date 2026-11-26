@@ -3,6 +3,7 @@
     "id": "w0201",
     "word": "halt",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を停止させる、停止",
     "example": {
       "en": "The company decided to halt production at the plant after a safety inspection revealed serious flaws.",
@@ -24,6 +25,7 @@
     "id": "w0202",
     "word": "hamper",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を妨げる",
     "example": {
       "en": "Heavy snow hampered rescue efforts in the mountain village throughout the weekend.",
@@ -45,6 +47,7 @@
     "id": "w0203",
     "word": "harness",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を利用する、活用する",
     "example": {
       "en": "Engineers are developing new ways to harness the power of ocean waves to generate electricity.",
@@ -66,7 +69,7 @@
     "id": "w0204",
     "word": "harsh",
     "pos": "adj",
-    "level": 1,
+    "level": 3,
     "meaningJa": "厳しい、過酷な",
     "example": {
       "en": "The critics were harsh in their reviews, calling the film dull and poorly written.",
@@ -84,6 +87,7 @@
     "id": "w0205",
     "word": "hazardous",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "危険な、有害な",
     "example": {
       "en": "Workers must wear protective suits when handling hazardous chemicals in the laboratory.",
@@ -101,6 +105,7 @@
     "id": "w0206",
     "word": "hectic",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "非常に忙しい、慌ただしい",
     "example": {
       "en": "After a hectic week of meetings and deadlines, she finally took a day off to rest.",
@@ -118,6 +123,7 @@
     "id": "w0207",
     "word": "heritage",
     "pos": "n",
+    "level": 2,
     "meaningJa": "遺産、伝統",
     "example": {
       "en": "The town works hard to preserve its cultural heritage, including traditional festivals and crafts.",
@@ -135,6 +141,7 @@
     "id": "w0208",
     "word": "hesitant",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "ためらいがちな",
     "example": {
       "en": "Investors remain hesitant to commit funds until the election results become clear.",
@@ -152,6 +159,7 @@
     "id": "w0209",
     "word": "hierarchy",
     "pos": "n",
+    "level": 2,
     "meaningJa": "階層、序列",
     "example": {
       "en": "In a rigid corporate hierarchy, junior employees rarely have direct access to senior executives.",
@@ -191,6 +199,7 @@
     "id": "w0211",
     "word": "hindsight",
     "pos": "n",
+    "level": 4,
     "meaningJa": "後知恵、あとから考えること",
     "example": {
       "en": "In hindsight, the company should have invested in online sales much earlier.",
@@ -208,6 +217,7 @@
     "id": "w0212",
     "word": "hostile",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "敵意のある、敵対的な",
     "example": {
       "en": "The proposal received a hostile reaction from shareholders, who feared it would lower profits.",
@@ -225,7 +235,7 @@
     "id": "w0213",
     "word": "humble",
     "pos": "adj",
-    "level": 1,
+    "level": 3,
     "meaningJa": "謙虚な、控えめな",
     "example": {
       "en": "Despite her enormous success, the CEO remains humble and always gives credit to her team.",
@@ -247,6 +257,7 @@
     "id": "w0214",
     "word": "hybrid",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "混成の、ハイブリッドの",
     "example": {
       "en": "Many firms have adopted a hybrid work model that combines office days with remote work.",
@@ -268,7 +279,7 @@
     "id": "w0215",
     "word": "hygiene",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "衛生",
     "example": {
       "en": "Good hand hygiene is one of the most effective ways to prevent the spread of infection.",
@@ -286,7 +297,7 @@
     "id": "w0216",
     "word": "hypothesis",
     "pos": "n",
-    "level": 1,
+    "level": 3,
     "meaningJa": "仮説",
     "example": {
       "en": "The scientists conducted a series of experiments to test their hypothesis about sleep and memory.",
@@ -304,6 +315,7 @@
     "id": "w0217",
     "word": "hypothetical",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "仮定の",
     "example": {
       "en": "The interviewer asked a hypothetical question about how I would handle an angry customer.",
@@ -321,7 +333,7 @@
     "id": "w0218",
     "word": "identical",
     "pos": "adj",
-    "level": 1,
+    "level": 2,
     "meaningJa": "全く同じ、同一の",
     "example": {
       "en": "The two contracts looked identical, but one contained a hidden clause about extra fees.",
@@ -339,6 +351,7 @@
     "id": "w0219",
     "word": "illuminate",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を照らす、を解明する",
     "example": {
       "en": "The new study helps illuminate how social media affects the mental health of teenagers.",
@@ -356,7 +369,7 @@
     "id": "w0220",
     "word": "illustrate",
     "pos": "v",
-    "level": 1,
+    "level": 2,
     "meaningJa": "を説明する、を例示する",
     "example": {
       "en": "The speaker used several real-life examples to illustrate her point about effective leadership.",
@@ -374,6 +387,7 @@
     "id": "w0221",
     "word": "imminent",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "差し迫った",
     "example": {
       "en": "Residents were evacuated because an eruption of the volcano appeared imminent.",
@@ -391,6 +405,7 @@
     "id": "w0222",
     "word": "impair",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を損なう、弱める",
     "example": {
       "en": "Lack of sleep can seriously impair your ability to concentrate at work.",
@@ -408,6 +423,7 @@
     "id": "w0223",
     "word": "impartial",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "公平な、偏らない",
     "example": {
       "en": "The judge must remain impartial and decide the case based only on the evidence.",
@@ -425,6 +441,7 @@
     "id": "w0224",
     "word": "imperative",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "必須の、緊急の",
     "example": {
       "en": "It is imperative that all staff complete the safety training before the end of the month.",
@@ -446,6 +463,7 @@
     "id": "w0225",
     "word": "impetus",
     "pos": "n",
+    "level": 4,
     "meaningJa": "勢い、推進力",
     "example": {
       "en": "The trade agreement gave fresh impetus to economic growth across the region.",
@@ -463,7 +481,7 @@
     "id": "w0226",
     "word": "implement",
     "pos": "v",
-    "level": 1,
+    "level": 2,
     "meaningJa": "を実施する、を導入する",
     "example": {
       "en": "The government will implement the new tax reform next spring.",
@@ -485,6 +503,7 @@
     "id": "w0227",
     "word": "implication",
     "pos": "n",
+    "level": 3,
     "meaningJa": "影響、含意",
     "example": {
       "en": "Economists are still debating the long-term implications of the new trade policy.",
@@ -502,7 +521,7 @@
     "id": "w0228",
     "word": "imply",
     "pos": "v",
-    "level": 1,
+    "level": 2,
     "meaningJa": "をほのめかす、暗に意味する",
     "example": {
       "en": "His long silence seemed to imply that he disagreed with the decision.",
@@ -520,6 +539,7 @@
     "id": "w0229",
     "word": "impose",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を課す、押し付ける",
     "example": {
       "en": "The government plans to impose a new tax on sugary drinks to fight obesity.",
@@ -537,7 +557,7 @@
     "id": "w0230",
     "word": "incentive",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "動機付け、奨励金",
     "example": {
       "en": "The company offers a cash incentive to employees who refer qualified job candidates.",
@@ -555,6 +575,7 @@
     "id": "w0231",
     "word": "inclination",
     "pos": "n",
+    "level": 4,
     "meaningJa": "意向、傾向",
     "example": {
       "en": "She had no inclination to move abroad, even though the job offered a higher salary.",
@@ -572,6 +593,7 @@
     "id": "w0232",
     "word": "incorporate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を組み込む、取り入れる",
     "example": {
       "en": "The designers plan to incorporate customer feedback into the next version of the app.",
@@ -589,6 +611,7 @@
     "id": "w0233",
     "word": "incur",
     "pos": "v",
+    "level": 3,
     "meaningJa": "(費用・損害)を負う、被る",
     "example": {
       "en": "Customers who cancel their reservations at the last minute will incur an additional fee.",
@@ -606,6 +629,7 @@
     "id": "w0234",
     "word": "indispensable",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "不可欠な",
     "example": {
       "en": "Her experience in overseas markets made her indispensable to the sales team.",
@@ -623,6 +647,7 @@
     "id": "w0235",
     "word": "induce",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を引き起こす、誘発する",
     "example": {
       "en": "Certain medications can induce drowsiness, so patients should avoid driving after taking them.",
@@ -640,6 +665,7 @@
     "id": "w0236",
     "word": "inevitable",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "避けられない",
     "example": {
       "en": "With food and energy costs rising, a price increase seemed inevitable for many restaurants.",
@@ -657,6 +683,7 @@
     "id": "w0237",
     "word": "infer",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を推論する、推測する",
     "example": {
       "en": "From his tone of voice, we could infer that the negotiations had not gone well.",
@@ -674,7 +701,7 @@
     "id": "w0238",
     "word": "inflation",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "インフレ、物価上昇",
     "example": {
       "en": "The central bank raised interest rates to bring inflation under control.",
@@ -692,7 +719,7 @@
     "id": "w0239",
     "word": "infrastructure",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "インフラ、社会基盤",
     "example": {
       "en": "The government announced a major investment in roads, bridges, and other public infrastructure.",
@@ -710,6 +737,7 @@
     "id": "w0240",
     "word": "inherent",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "固有の、本来備わった",
     "example": {
       "en": "There are risks inherent in any investment, so never invest money you cannot afford to lose.",
@@ -727,6 +755,7 @@
     "id": "w0241",
     "word": "inhibit",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を抑制する、妨げる",
     "example": {
       "en": "High interest rates tend to inhibit consumer spending and business investment.",
@@ -744,6 +773,7 @@
     "id": "w0242",
     "word": "initiative",
     "pos": "n",
+    "level": 2,
     "meaningJa": "新たな取り組み、主導権",
     "example": {
       "en": "The city launched a new initiative to reduce plastic waste in public parks.",
@@ -761,7 +791,7 @@
     "id": "w0243",
     "word": "innovative",
     "pos": "adj",
-    "level": 1,
+    "level": 2,
     "meaningJa": "革新的な",
     "example": {
       "en": "The startup won an award for its innovative approach to recycling old electronic devices.",
@@ -779,7 +809,7 @@
     "id": "w0244",
     "word": "insight",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "洞察、見識",
     "example": {
       "en": "The survey provided valuable insight into what young consumers expect from brands.",
@@ -797,6 +827,7 @@
     "id": "w0245",
     "word": "instigate",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を扇動する、引き起こす",
     "example": {
       "en": "The opposition leader was accused of trying to instigate violence during the protests.",
@@ -814,6 +845,7 @@
     "id": "w0246",
     "word": "integrity",
     "pos": "n",
+    "level": 3,
     "meaningJa": "誠実さ、高潔さ",
     "example": {
       "en": "Voters want leaders with integrity who will keep their promises and admit their mistakes.",
@@ -831,6 +863,7 @@
     "id": "w0247",
     "word": "interim",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "暫定の、仮の",
     "example": {
       "en": "The board appointed an interim CEO while it searched for a permanent replacement.",
@@ -852,6 +885,7 @@
     "id": "w0248",
     "word": "intervene",
     "pos": "v",
+    "level": 3,
     "meaningJa": "介入する、仲裁する",
     "example": {
       "en": "The central bank may intervene in the currency market if the yen weakens further.",
@@ -869,6 +903,7 @@
     "id": "w0249",
     "word": "intricate",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "複雑な、入り組んだ",
     "example": {
       "en": "The watch contains an intricate mechanism made up of hundreds of tiny parts.",
@@ -886,6 +921,7 @@
     "id": "w0250",
     "word": "invaluable",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "非常に貴重な",
     "example": {
       "en": "Your advice was invaluable when we were preparing for the difficult negotiations.",
@@ -903,7 +939,7 @@
     "id": "w0251",
     "word": "inventory",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "在庫、在庫目録",
     "example": {
       "en": "The warehouse manager uses special software to track inventory levels in real time.",
@@ -925,6 +961,7 @@
     "id": "w0252",
     "word": "irrelevant",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "無関係な",
     "example": {
       "en": "The lawyer argued that the witness's comments were irrelevant to the case.",
@@ -942,7 +979,7 @@
     "id": "w0253",
     "word": "itinerary",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "旅程、旅行日程表",
     "example": {
       "en": "The travel agent emailed us a detailed itinerary, including flight times and hotel information.",
@@ -960,6 +997,7 @@
     "id": "w0254",
     "word": "jargon",
     "pos": "n",
+    "level": 3,
     "meaningJa": "専門用語、業界用語",
     "example": {
       "en": "The report was full of technical jargon that ordinary readers could not understand.",
@@ -977,6 +1015,7 @@
     "id": "w0255",
     "word": "jeopardize",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を危うくする",
     "example": {
       "en": "A single data breach could jeopardize the trust that customers have placed in the company.",
@@ -994,6 +1033,7 @@
     "id": "w0256",
     "word": "jurisdiction",
     "pos": "n",
+    "level": 4,
     "meaningJa": "管轄権、司法権",
     "example": {
       "en": "The case falls outside the court's jurisdiction because the crime occurred in another country.",
@@ -1011,7 +1051,7 @@
     "id": "w0257",
     "word": "justify",
     "pos": "v",
-    "level": 1,
+    "level": 3,
     "meaningJa": "を正当化する",
     "example": {
       "en": "The manager struggled to justify the high cost of the project to the board.",
@@ -1029,6 +1069,7 @@
     "id": "w0258",
     "word": "juvenile",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "少年の、未成年の",
     "example": {
       "en": "The juvenile court handles cases involving offenders who are still legally minors.",
@@ -1050,6 +1091,7 @@
     "id": "w0259",
     "word": "keen",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "熱心な、鋭い",
     "example": {
       "en": "She is keen to learn new skills and often volunteers for challenging projects.",
@@ -1067,6 +1109,7 @@
     "id": "w0260",
     "word": "kindle",
     "pos": "v",
+    "level": 4,
     "meaningJa": "(関心・感情)をかき立てる",
     "example": {
       "en": "A childhood visit to the science museum kindled his lifelong interest in astronomy.",
@@ -1084,6 +1127,7 @@
     "id": "w0261",
     "word": "knack",
     "pos": "n",
+    "level": 4,
     "meaningJa": "こつ、才能",
     "example": {
       "en": "He has a knack for explaining complicated ideas in simple terms.",
@@ -1101,6 +1145,7 @@
     "id": "w0262",
     "word": "lament",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を嘆く、悲しむ",
     "example": {
       "en": "Many older residents lament the loss of small family-owned shops in the town center.",
@@ -1122,6 +1167,7 @@
     "id": "w0263",
     "word": "landmark",
     "pos": "n",
+    "level": 2,
     "meaningJa": "画期的な出来事、目印",
     "example": {
       "en": "The supreme court issued a landmark ruling that changed how online privacy is protected.",
@@ -1143,6 +1189,7 @@
     "id": "w0264",
     "word": "lapse",
     "pos": "n",
+    "level": 4,
     "meaningJa": "(一時的な)過失、経過",
     "example": {
       "en": "A brief lapse in concentration caused the driver to miss the red light.",
@@ -1164,6 +1211,7 @@
     "id": "w0265",
     "word": "latent",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "潜在的な",
     "example": {
       "en": "The coach believed the young player had latent talent that only needed proper training.",
@@ -1181,6 +1229,7 @@
     "id": "w0266",
     "word": "lavish",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "贅沢な、気前のよい",
     "example": {
       "en": "The company was criticized for holding a lavish party while cutting employee bonuses.",
@@ -1202,6 +1251,7 @@
     "id": "w0267",
     "word": "layoff",
     "pos": "n",
+    "level": 2,
     "meaningJa": "一時解雇、人員削減",
     "example": {
       "en": "The automaker announced another round of layoffs as sales continued to fall.",
@@ -1219,7 +1269,7 @@
     "id": "w0268",
     "word": "lease",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "賃貸借契約、を賃借する",
     "example": {
       "en": "The company signed a long-term lease on a new office building downtown.",
@@ -1241,6 +1291,7 @@
     "id": "w0269",
     "word": "legacy",
     "pos": "n",
+    "level": 2,
     "meaningJa": "遺産、後世に残したもの",
     "example": {
       "en": "The former president's greatest legacy was the expansion of public healthcare.",
@@ -1262,6 +1313,7 @@
     "id": "w0270",
     "word": "legislation",
     "pos": "n",
+    "level": 2,
     "meaningJa": "法律、立法",
     "example": {
       "en": "New legislation will require large companies to disclose their carbon emissions.",
@@ -1279,6 +1331,7 @@
     "id": "w0271",
     "word": "legitimate",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "正当な、合法的な",
     "example": {
       "en": "Customers have a legitimate reason to complain if the product arrives damaged.",
@@ -1300,6 +1353,7 @@
     "id": "w0272",
     "word": "lenient",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "寛大な、甘い",
     "example": {
       "en": "Critics said the sentence was far too lenient for such a serious crime.",
@@ -1317,6 +1371,7 @@
     "id": "w0273",
     "word": "leverage",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を活用する、影響力",
     "example": {
       "en": "The firm plans to leverage its strong brand recognition to enter the Asian market.",
@@ -1338,6 +1393,7 @@
     "id": "w0274",
     "word": "liability",
     "pos": "n",
+    "level": 2,
     "meaningJa": "法的責任、負債",
     "example": {
       "en": "The company denied any liability for the accident and blamed the driver instead.",
@@ -1355,6 +1411,7 @@
     "id": "w0275",
     "word": "liaison",
     "pos": "n",
+    "level": 3,
     "meaningJa": "連絡係、連携",
     "example": {
       "en": "She acts as a liaison between the engineering team and the marketing department.",
@@ -1372,6 +1429,7 @@
     "id": "w0276",
     "word": "linger",
     "pos": "v",
+    "level": 4,
     "meaningJa": "長引く、なかなか消えない",
     "example": {
       "en": "Concerns about the economy continue to linger despite recent signs of recovery.",
@@ -1389,6 +1447,7 @@
     "id": "w0277",
     "word": "liquidate",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を清算する、現金化する",
     "example": {
       "en": "The struggling firm was forced to liquidate its assets to pay off its debts.",
@@ -1406,7 +1465,7 @@
     "id": "w0278",
     "word": "literacy",
     "pos": "n",
-    "level": 1,
+    "level": 3,
     "meaningJa": "読み書きの能力、リテラシー",
     "example": {
       "en": "The charity runs programs to improve literacy among children in rural areas.",
@@ -1424,7 +1483,7 @@
     "id": "w0279",
     "word": "loyalty",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "忠誠心、愛着",
     "example": {
       "en": "The airline rewards customer loyalty with free seat upgrades and lounge access.",
@@ -1442,6 +1501,7 @@
     "id": "w0280",
     "word": "lucrative",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "儲かる、利益の多い",
     "example": {
       "en": "After years of hard work, he finally secured a lucrative contract with a major retailer.",
@@ -1459,6 +1519,7 @@
     "id": "w0281",
     "word": "magnitude",
     "pos": "n",
+    "level": 3,
     "meaningJa": "規模、大きさ",
     "example": {
       "en": "Few people understood the magnitude of the financial crisis until major banks began to collapse.",
@@ -1476,6 +1537,7 @@
     "id": "w0282",
     "word": "malfunction",
     "pos": "n",
+    "level": 2,
     "meaningJa": "故障、不具合",
     "example": {
       "en": "A malfunction in the cooling system forced the factory to shut down temporarily.",
@@ -1497,6 +1559,7 @@
     "id": "w0283",
     "word": "mandate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を義務づける、権限",
     "example": {
       "en": "The new law will mandate that all newly built houses include solar panels.",
@@ -1518,6 +1581,7 @@
     "id": "w0284",
     "word": "mandatory",
     "pos": "adj",
+    "level": 2,
     "meaningJa": "義務的な、強制的な",
     "example": {
       "en": "Attendance at the safety briefing is mandatory for all new employees.",
@@ -1535,6 +1599,7 @@
     "id": "w0285",
     "word": "maneuver",
     "pos": "v",
+    "level": 4,
     "meaningJa": "を巧みに動かす、策略",
     "example": {
       "en": "The driver had to maneuver the large truck carefully through the narrow streets.",
@@ -1556,6 +1621,7 @@
     "id": "w0286",
     "word": "manipulate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を操作する、操る",
     "example": {
       "en": "The company was accused of trying to manipulate its stock price by spreading false rumors.",
@@ -1573,6 +1639,7 @@
     "id": "w0287",
     "word": "marginal",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "わずかな、周辺的な",
     "example": {
       "en": "The new policy led to only a marginal improvement in employee satisfaction.",
@@ -1590,6 +1657,7 @@
     "id": "w0288",
     "word": "mediate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を調停する、仲介する",
     "example": {
       "en": "A neutral expert was brought in to mediate the dispute between the union and management.",
@@ -1607,7 +1675,7 @@
     "id": "w0289",
     "word": "merger",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "合併",
     "example": {
       "en": "The merger of the two banks will create the largest financial group in the country.",
@@ -1625,7 +1693,7 @@
     "id": "w0290",
     "word": "merit",
     "pos": "n",
-    "level": 1,
+    "level": 3,
     "meaningJa": "長所、価値",
     "example": {
       "en": "Each proposal will be judged on its merits rather than on who submitted it.",
@@ -1647,6 +1715,7 @@
     "id": "w0291",
     "word": "meticulous",
     "pos": "adj",
+    "level": 3,
     "meaningJa": "細心の、几帳面な",
     "example": {
       "en": "The accountant is known for her meticulous attention to detail.",
@@ -1664,6 +1733,7 @@
     "id": "w0292",
     "word": "migrate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "移住する、移動する",
     "example": {
       "en": "Many young workers migrate to big cities in search of better job opportunities.",
@@ -1681,7 +1751,7 @@
     "id": "w0293",
     "word": "milestone",
     "pos": "n",
-    "level": 1,
+    "level": 2,
     "meaningJa": "節目、画期的な出来事",
     "example": {
       "en": "Opening its first overseas branch was an important milestone for the small company.",
@@ -1699,6 +1769,7 @@
     "id": "w0294",
     "word": "mitigate",
     "pos": "v",
+    "level": 3,
     "meaningJa": "を軽減する、和らげる",
     "example": {
       "en": "Planting more trees in cities can help mitigate the effects of extreme heat.",
@@ -1716,7 +1787,7 @@
     "id": "w0295",
     "word": "moderate",
     "pos": "adj",
-    "level": 1,
+    "level": 2,
     "meaningJa": "適度な、穏健な",
     "example": {
       "en": "Doctors recommend doing moderate exercise, such as brisk walking, on most days of the week.",
@@ -1742,7 +1813,7 @@
     "id": "w0296",
     "word": "modify",
     "pos": "v",
-    "level": 1,
+    "level": 2,
     "meaningJa": "を修正する、変更する",
     "example": {
       "en": "We had to modify the design slightly to meet the client's new requirements.",
@@ -1760,6 +1831,7 @@
     "id": "w0297",
     "word": "momentum",
     "pos": "n",
+    "level": 3,
     "meaningJa": "勢い、弾み",
     "example": {
       "en": "The campaign gained momentum after several celebrities publicly supported it.",
@@ -1777,7 +1849,7 @@
     "id": "w0298",
     "word": "monopoly",
     "pos": "n",
-    "level": 1,
+    "level": 3,
     "meaningJa": "独占、独占権",
     "example": {
       "en": "Regulators are investigating whether the tech giant holds an unfair monopoly over online advertising.",
@@ -1795,6 +1867,7 @@
     "id": "w0299",
     "word": "mundane",
     "pos": "adj",
+    "level": 4,
     "meaningJa": "ありふれた、退屈な",
     "example": {
       "en": "Automation allows employees to spend less time on mundane tasks such as data entry.",
@@ -1812,7 +1885,7 @@
     "id": "w0300",
     "word": "mutual",
     "pos": "adj",
-    "level": 1,
+    "level": 2,
     "meaningJa": "相互の、共通の",
     "example": {
       "en": "The two companies signed the partnership agreement based on mutual trust and shared goals.",

@@ -92,23 +92,21 @@ class BundledWordsTests {
 
   @Test
   void everyWordHasAPartOfSpeechAndALevel() {
-    int easy = 0;
+    java.util.Map<Integer, Integer> perLevel = new java.util.TreeMap<>();
     for (BundledWord item : all) {
       assertThat(item.pos()).as(item.id() + " 品詞").isIn("v", "adj", "n");
-      if (item.level() != null) {
-        assertThat(item.level()).as(item.id() + " 水準").isIn(1, 2);
-      }
-      if (item.level() != null && item.level() == 1) {
-        easy++;
-      }
+      // 1=600点・2=730点・3=860点・4=930点/英検準1級
+      assertThat(item.level()).as(item.id() + " 水準").isNotNull().isBetween(1, 4);
+      perLevel.merge(item.level(), 1, Integer::sum);
       // 動詞の訳は「を〜」「〜する」、形容詞の訳は「〜な」などの形(品詞の付け間違いに気づくため)
       String first = item.meaningJa().split("、")[0];
       if (item.pos().equals("v")) {
         assertThat(first).as(item.id() + " 動詞の訳").matches("^(を|に|と|から|[(（]).*|.*(する|る|う|く|む|ぶ|す|つ|ぬ|ぐ)$");
       }
     }
-    // 易しい語は初期色を青にして出題を後回しにする。多すぎると単語帳が痩せる
-    assertThat(easy).as("易しい語の数").isBetween(60, 200);
+    // どの水準も一定の数がある(付け忘れで偏っていないか)
+    assertThat(perLevel.keySet()).as("水準の種類").containsExactly(1, 2, 3, 4);
+    assertThat(perLevel.values()).as("水準ごとの語数 " + perLevel).allMatch(n -> n >= 50);
   }
 
   @Test

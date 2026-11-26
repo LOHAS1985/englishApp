@@ -3,6 +3,7 @@ import type { WordbookWord } from "../../api/client";
 import {
   dueLabel,
   matchesFilter,
+  matchesLevel,
   matchesQuery,
   sentenceAround,
   sortWords,
@@ -154,5 +155,16 @@ describe("日付", () => {
     expect(dueLabel("2026-12-05", "2026-11-22")).toBe("12/5");
     // 月をまたぐ「明日」
     expect(dueLabel("2026-12-01", "2026-11-30")).toBe("明日");
+  });
+});
+
+describe("水準の絞り込み", () => {
+  const easy = word({ word: "agenda", level: 1 });
+  const hard = word({ word: "cajole", level: 4 });
+  const mine = word({ word: "mine", source: "MANUAL", level: null });
+
+  it("選んだ水準の語だけ。登録した語(水準なし)はすべてのときだけ出す", () => {
+    expect([easy, hard, mine].filter((w) => matchesLevel(w, 4)).map((w) => w.word)).toEqual(["cajole"]);
+    expect([easy, hard, mine].filter((w) => matchesLevel(w, "ALL"))).toHaveLength(3);
   });
 });

@@ -585,6 +585,8 @@ export interface WordbookWord {
   nextDueDate: string | null;
   /** 品詞ごとの主な意味(同梱語にある語だけ。古いサーバーの応答には無い) */
   senses?: WordbookSense[];
+  /** 水準(同梱語だけ。1=600点・2=730点・3=860点・4=930点。登録した語・古いサーバーの応答では null か無し) */
+  level?: number | null;
 }
 
 /** 品詞(動詞・名詞・形容詞・副詞)ごとの主な意味 */

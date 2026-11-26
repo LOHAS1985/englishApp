@@ -60,7 +60,7 @@ public class WordbookService {
 
   /**
    * 出せる単語(解放済み。登録順)。出題も一覧もこの中から選ぶ。
-   * 同梱語の解放は、ここを開くときに今日の分を行う(WordbookUnlockService)
+   * 以前の版で解放前のまま残った同梱語は、ここを開くときに解放する(WordbookUnlockService)
    */
   public List<WordbookWord> ownedWords() {
     unlocks.releaseIfDue();

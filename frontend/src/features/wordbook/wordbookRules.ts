@@ -44,6 +44,18 @@ export const FILTER_LABELS: Record<Exclude<WordFilter, WordbookColor>, string> =
   UNSEEN: "未学習",
 };
 
+/** 同梱語の水準(TOEIC の目安の点数。4 は英検準1級も含む)。一覧の表示と絞り込みに使う(出題の順には使わない) */
+export const LEVEL_LABELS: Record<number, string> = { 1: "600点", 2: "730点", 3: "860点", 4: "930点" };
+
+/** 水準の絞り込み。ALL はすべて */
+export type LevelFilter = "ALL" | 1 | 2 | 3 | 4;
+
+export const LEVEL_FILTERS: LevelFilter[] = ["ALL", 1, 2, 3, 4];
+
+export function matchesLevel(word: WordbookWord, level: LevelFilter): boolean {
+  return level === "ALL" || word.level === level;
+}
+
 /** 一覧の並べ替え */
 export type WordSort = "ADDED" | "ALPHABET" | "COLOR" | "ACCURACY" | "DUE";
 

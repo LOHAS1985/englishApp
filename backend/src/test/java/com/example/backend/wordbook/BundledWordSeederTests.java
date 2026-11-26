@@ -196,38 +196,32 @@ class BundledWordSeederTests {
   }
 
   @Test
-  void easyWordsAreAddedWithABlueColorAndPartOfSpeech() {
+  void bundledWordsAreAddedUncoloredWithTheirLevelAndPartOfSpeech() {
+    // 易しい語(水準1)も無色で入れる(本当に知っているかを一度は確かめるため)
     seeder(item("w0001", "abandon", "捨てる", "v", 1), item("w0002", "abolish", "廃止する", "v", null)).seedIfNeeded();
 
-    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.BLUE);
+    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.NONE);
     assertThat(stored("abandon").getLevel()).isEqualTo(1);
     assertThat(stored("abandon").getPos()).isEqualTo("v");
     assertThat(stored("abolish").getColor()).isEqualTo(WordbookColor.NONE);
     assertThat(stored("abolish").getLevel()).isEqualTo(2);
+    assertThat(stored("abandon").isUnlocked()).isTrue();
   }
 
   @Test
-  void levelOnExistingWordsTurnsUnstartedEasyWordsBlueOnlyOnce() {
+  void levelUpdatesKeepTheColor() {
     BundledWord abandon = item("w0001", "abandon", "捨てる", "v", 1);
     BundledWord abolish = item("w0002", "abolish", "廃止する", "v", 1);
-    BundledWord abstain = item("w0003", "abstain", "控える", "v", 1);
-    // 水準を持たない版で入れた語
     legacy(abandon);
-    legacy(abolish).setColor(WordbookColor.YELLOW, NOW); // 利用者が色を付けた語
-    legacy(abstain).recordAnswer(true, NOW); // すでに出題した語
+    legacy(abolish).setColor(WordbookColor.YELLOW, NOW);
     state = new AppState(BundledWordSeeder.STATE_KEY, BundledWordSeeder.LEGACY_VERSION);
 
-    seeder(abandon, abolish, abstain).seedIfNeeded();
+    seeder(abandon, item("w0002", "abolish", "廃止する", "v", 4)).seedIfNeeded();
 
-    assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.BLUE);
-    assertThat(stored("abolish").getColor()).isEqualTo(WordbookColor.YELLOW);
-    assertThat(stored("abstain").getColor()).isEqualTo(WordbookColor.NONE);
-    assertThat(stored("abandon").getLevel()).isEqualTo(1);
-
-    // 利用者が青を無色に戻しても、あとの更新で青に戻さない(水準はもう知っている)
-    stored("abandon").setColor(WordbookColor.NONE, NOW);
-    seeder(abandon, abolish, item("w0003", "abstain", "控えるの変更", "v", 1)).seedIfNeeded();
     assertThat(stored("abandon").getColor()).isEqualTo(WordbookColor.NONE);
+    assertThat(stored("abandon").getLevel()).isEqualTo(1);
+    assertThat(stored("abolish").getColor()).isEqualTo(WordbookColor.YELLOW);
+    assertThat(stored("abolish").getLevel()).isEqualTo(4);
   }
 
   @Test
