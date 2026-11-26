@@ -198,7 +198,7 @@ public class WordbookWord {
   }
 
   /**
-   * 日本語の混じった例文を直す(文法・語彙の解説から登録した語)。英語の部分(englishPart)があればそれだけにし、
+   * 1文になっていない例文を直す(文法・語彙の解説から登録した語)。英語の部分(englishPart)があればそれだけにし、
    * 例文の訳は混じった文を訳したものなので消して翌日の調査で取り直す。英語の部分が無ければ例文を外す
    * (外した語は4択だけに出す)。利用者が直した印は付けない(同梱の更新の扱いを変えないため)
    */
@@ -206,6 +206,10 @@ public class WordbookWord {
     if (englishPart == null) {
       this.exampleEn = null;
       this.exampleAnswer = null;
+      // 登録した語は、例文を Gemini で作り直す(補った印を外すと、次の調査で補われる)
+      if (bundledId == null) {
+        this.enrichedAt = null;
+      }
     } else {
       this.exampleEn = englishPart;
     }

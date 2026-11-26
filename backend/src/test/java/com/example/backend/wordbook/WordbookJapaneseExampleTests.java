@@ -106,6 +106,64 @@ class WordbookJapaneseExampleTests {
     assertThat(new WordbookExampleRepair(repository, user).run()).isZero();
   }
 
+  @Test
+  void synonymListsAndHeadingsAreNotSentences() {
+    // 解説に書かれた同義語の並び(穴埋めにすると「_____ / cordial / harmonious」になっていた)
+    assertThat(WordbookSentences.isSentence("amicable / cordial / harmonious")).isFalse();
+    assertThat(WordbookSentences.isSentence("friendly, amicable, cordial, harmonious.")).isFalse();
+    assertThat(WordbookSentences.isSentence("Quarterly Sales Report")).isFalse();
+    assertThat(WordbookSentences.isSentence("the talks were amicable and productive.")).isFalse();
+    assertThat(WordbookSentences.isSentence("Talks went well.")).isFalse(); // 語が少なすぎる
+    // 一般的な例文の形(大文字で始まり . ! ? で終わる1文)
+    assertThat(WordbookSentences.isSentence("The two companies reached an amicable agreement.")).isTrue();
+    assertThat(WordbookSentences.isSentence("\"Can we settle this amicably?\" she asked.")).isTrue();
+    assertThat(WordbookSentences.isSentence("In 2025, the talks remained amicable, calm, and productive.")).isTrue();
+  }
+
+  @Test
+  void wordPickedFromASynonymListIsAddedWithoutAnExample() {
+    AddWordResponse response = service.add("amicable", "amicable / cordial / harmonious(友好的な／親しみやすい／調和のとれた)",
+        "amicable");
+
+    assertThat(response.word().exampleEn()).isNull();
+    assertThat(response.word().source()).isEqualTo("MANUAL");
+  }
+
+  @Test
+  void editedExampleMustBeASentence() {
+    WordbookWord word = new WordbookWord(USER, "amicable", Source.MANUAL, NOW);
+    when(repository.findById(8L)).thenReturn(java.util.Optional.of(word));
+
+    assertThatThrownBy(() -> service.setExample(8L, "amicable / cordial / harmonious", "amicable", "訳"))
+        .isInstanceOf(IllegalArgumentException.class).hasMessageContaining("1文");
+  }
+
+  @Test
+  void storedSynonymListExamplesAreRemovedAndRegeneratedLater() {
+    WordbookWord listed = word("amicable", "amicable / cordial / harmonious", "amicable");
+    listed.applyEnrichment(new WordbookWord.Enrichment(null, null, null, null, null, null), NOW);
+    WordbookWord bundled = word("abandon", "abandon / give up", "abandon");
+    bundled.linkBundled("w0001", false);
+    stored.addAll(List.of(listed, bundled));
+
+    assertThat(new WordbookExampleRepair(repository, user).run()).isEqualTo(1);
+
+    assertThat(listed.getExampleEn()).isNull();
+    assertThat(listed.getExampleAnswer()).isNull();
+    // 例文を Gemini で作り直す(補った印を外す)
+    assertThat(listed.needsEnrichment()).isTrue();
+    // 同梱語は触らない
+    assertThat(bundled.getExampleEn()).isEqualTo("abandon / give up");
+  }
+
+  @Test
+  void speakerLabelsFromListeningScriptsAreRemoved() {
+    assertThat(WordbookSentences.englishPart("Man: Sure, I'll defer the meeting until Friday.", "defer"))
+        .isEqualTo("Sure, I'll defer the meeting until Friday.");
+    assertThat(WordbookSentences.englishPart("Woman 2: We should defer the launch by a week.", "defer"))
+        .isEqualTo("We should defer the launch by a week.");
+  }
+
   private static WordbookWord word(String headword, String exampleEn, String answer) {
     WordbookWord w = new WordbookWord(USER, headword, Source.READING, NOW);
     w.setExample(exampleEn, answer);

@@ -1,5 +1,6 @@
 package com.example.backend.wordbook;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,26 +36,72 @@ final class WordbookSentences {
   /** 例文として残す最小の語数(語だけ・語句だけでは穴埋めにならない) */
   static final int MIN_EXAMPLE_WORDS = 4;
 
+  /** 文の終わり(. ! ? の後に閉じ引用符・かっこがあってもよい) */
+  private static final Pattern SENTENCE_END = Pattern.compile("[.!?][\"')\u201D\u2019]*$");
+
+  /**
+   * 例文として使える英語の1文か。穴埋めの問題文になるので、語の並び(「amicable / cordial / harmonious」のように
+   * 解説に書かれた同義語の一覧など)や見出しは使わない。
+   * <ul>
+   * <li>日本語を含まない・「/」で語を並べていない</li>
+   * <li>英語の語が MIN_EXAMPLE_WORDS 語以上</li>
+   * <li>大文字(または数字・引用符)で始まり、. ! ? で終わる</li>
+   * <li>語をカンマで並べただけではない(カンマが語の数とほぼ同じなら一覧とみなす)</li>
+   * </ul>
+   */
+  static boolean isSentence(String text) {
+    if (text == null) {
+      return false;
+    }
+    String t = text.trim();
+    if (t.isEmpty() || containsJapanese(t) || t.contains("/")) {
+      return false;
+    }
+    long words = Arrays.stream(t.split("\\s+")).filter(w -> w.chars().anyMatch(Character::isLetter)).count();
+    if (words < MIN_EXAMPLE_WORDS) {
+      return false;
+    }
+    char first = t.charAt(0);
+    if (!(Character.isUpperCase(first) || Character.isDigit(first) || first == '"' || first == '\'' || first == '\u201C')) {
+      return false;
+    }
+    if (!SENTENCE_END.matcher(t).find()) {
+      return false;
+    }
+    long commas = t.chars().filter(c -> c == ',').count();
+    return commas < words - 1;
+  }
+
   /**
    * 日本語の混じった文(文法・語彙の解説など)から、答えの語を含む英語の部分だけを取り出す。
    * 日本語の文字で区切った英語のかたまりのうち、答えを含むものを使い、前後の記号を除く。
-   * 英語の部分が短すぎる(MIN_EXAMPLE_WORDS 語未満)・答えを含まないときは null(例文なしで登録する)。
-   * 日本語を含まない文はそのまま返す
+   * 英語の部分が文になっていない({@link #isSentence})・答えを含まないときは null(例文なしで登録し、
+   * 例文は WordbookEnrichmentService が補う)。日本語を含まない文も、文になっていなければ null
    */
   static String englishPart(String text, String answer) {
     if (text == null || answer == null || answer.isBlank()) {
       return null;
     }
     if (!containsJapanese(text)) {
-      return text.trim();
+      String whole = withoutSpeaker(text.trim());
+      return isSentence(whole) && contains(whole, answer) ? whole : null;
     }
     for (String chunk : JAPANESE.split(text)) {
-      String candidate = chunk.replaceAll("^[^A-Za-z0-9\"'(]+", "").replaceAll("[^A-Za-z0-9.!?\"')]+$", "").trim();
-      if (contains(candidate, answer) && candidate.split("\\s+").length >= MIN_EXAMPLE_WORDS) {
+      String candidate = withoutSpeaker(
+          chunk.replaceAll("^[^A-Za-z0-9\"'(]+", "").replaceAll("[^A-Za-z0-9.!?\"')]+$", "").trim());
+      if (contains(candidate, answer) && isSentence(candidate)) {
         return candidate;
       }
     }
     return null;
+  }
+
+  /** リスニングの台本の話者名(Man: / Woman 2: / Narrator: など) */
+  private static final Pattern SPEAKER = Pattern.compile("^(?:Man|Woman|Narrator|Speaker)(?: \\d)?:\\s*");
+
+  /** 台本から登録した文の頭の話者名を外す(例文は一般的な1文の形にそろえる) */
+  static String withoutSpeaker(String text) {
+    return SPEAKER.matcher(text).replaceFirst("");
   }
 
   static String blank(String sentence, String answer) {

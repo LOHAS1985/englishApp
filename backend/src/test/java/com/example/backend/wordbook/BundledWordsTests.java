@@ -155,4 +155,12 @@ class BundledWordsTests {
     assertThat(bank.sensesOf(null, "zzzz")).isEmpty();
     assertThat(bank.sensesOf(null, null)).isEmpty();
   }
+
+  /** 穴埋めの問題文になるので、例文は英語の1文(語の並び・見出しではない) */
+  @Test
+  void everyExampleIsASentence() {
+    for (BundledWord w : all) {
+      assertThat(WordbookSentences.isSentence(w.example().en())).as(w.id() + " " + w.example().en()).isTrue();
+    }
+  }
 }

@@ -184,6 +184,9 @@ public class WordbookService {
     if (WordbookSentences.containsJapanese(en)) {
       throw new IllegalArgumentException("例文は英語だけで入力してください(日本語は例文の訳に書きます)");
     }
+    if (!WordbookSentences.isSentence(en)) {
+      throw new IllegalArgumentException("例文は英語の1文で入力してください(大文字で始めて . ! ? で終え、語を「/」で並べない)");
+    }
     if (answer.isEmpty() || !WordbookSentences.contains(en, answer)) {
       throw new IllegalArgumentException("空欄にする語が例文の中に見つかりません");
     }

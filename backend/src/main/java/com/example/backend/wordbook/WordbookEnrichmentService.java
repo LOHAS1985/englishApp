@@ -163,7 +163,7 @@ public class WordbookEnrichmentService {
       String a = ex.answer().trim().toLowerCase(Locale.ROOT);
       String ja = text(ex.ja());
       int count = en.split("\\s+").length;
-      boolean ok = !WordbookSentences.containsJapanese(en) && en.length() <= MAX_TEXT_LENGTH
+      boolean ok = WordbookSentences.isSentence(en) && en.length() <= MAX_TEXT_LENGTH
           && count >= MIN_EXAMPLE_WORDS && count <= MAX_EXAMPLE_WORDS
           && !a.isEmpty() && WordForms.sameWord(word, a) && WordbookSentences.contains(en, a) && ja != null;
       if (ok) {
