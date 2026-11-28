@@ -1,0 +1,482 @@
+{
+  "id": "parts-of-speech",
+  "no": 1,
+  "title": "品詞と語形",
+  "lead": "英語では、語の位置と語尾を見ると、その語が名詞・動詞・形容詞・副詞のどれかが分かることが多いです。この章では、8つの品詞と、語尾による見分け方、語形が紛らわしい語を学びます。TOEIC Part 5 の空所問題の多くは、品詞を選ばせる問題です。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "品詞の基本: 8つの品詞と文の中の働き",
+      "intro": "英単語は、名詞・代名詞・動詞・形容詞・副詞・前置詞・接続詞・間投詞の8つの品詞に分けられます。品詞は単語の意味ではなく、文の中での働きで決まります。この節では、それぞれの働きを確かめます。",
+      "keywords": ["品詞"],
+      "items": [
+        {
+          "heading": "8つの品詞と、文の中での働き",
+          "explanation": "英語の単語は、文の中での役割によって8つの品詞に分けられます。大切なのは、**同じ単語でも、置かれた位置によって品詞が変わる**ことです。\n\n・名詞: 人・物・ことがらを表し、主語や目的語になる\n・代名詞: 名詞の代わりをする(he、it、this など)\n・動詞: 主語の動作や状態を表し、文の述語になる\n・形容詞: 名詞を説明する(名詞の前に置く、または補語になる)\n・副詞: 動詞・形容詞・副詞・文全体を説明する\n・前置詞: 名詞の前に置き、場所・時・関係などを表す\n・接続詞: 語と語、文と文をつなぐ\n・間投詞: Oh、Wow など、感情を表す(試験にはほとんど出ない)",
+          "table": {
+            "caption": "品詞と文の中の位置",
+            "headers": ["品詞", "よく置かれる位置", "例"],
+            "rows": [
+              ["名詞", "主語・目的語・前置詞の後", "plan、budget"],
+              ["動詞", "主語の後(文の述語)", "approve、agree"],
+              ["形容詞", "名詞の前・be 動詞の後", "new、successful"],
+              ["副詞", "動詞・形容詞の前後、文頭", "quickly、unfortunately"]
+            ]
+          },
+          "examples": [
+            { "en": "The new manager **quickly** approved the **plan**.", "ja": "新しい部長は、その計画をすぐに承認した。", "note": "new(形容詞)は名詞 manager を、quickly(副詞)は動詞 approved を説明している" },
+            { "en": "The team and the **manager** agreed on the **budget**.", "ja": "チームと部長は、予算について合意した。", "note": "manager と budget は名詞。主語と目的語になっている" }
+          ]
+        },
+        {
+          "heading": "同じ単語が、位置によって品詞を変える",
+          "explanation": "work は、名詞にも動詞にもなります。どちらになるかは、文の中での位置で決まります。辞書の品詞の欄を見るだけでは判断できないので、必ず文の中で働きを確かめます。\n\n英語では、冠詞(a・the)や所有格(my・his)の後ろには名詞が来るのが基本です。動詞の前には、主語が来ます。",
+          "examples": [
+            { "en": "We need a **work** plan for next month.", "ja": "来月の作業計画が必要だ。", "note": "a の後ろなので、名詞 work" },
+            { "en": "We **work** together every Monday.", "ja": "私たちは毎週月曜日に一緒に働く。", "note": "主語 We の後ろなので、動詞 work" }
+          ],
+          "cautions": ["× She **work** hard every day. → ○ She **works** hard every day.(主語が3人称単数の現在形のときは、動詞に s を付ける)"]
+        },
+        {
+          "heading": "空所の前後を見て品詞を決める手順",
+          "explanation": "TOEIC Part 5 の空所問題では、次の順番で考えると、品詞が決まりやすくなります。\n\n・手順1: 空所の前の語を見る。冠詞・所有格・形容詞の後なら、名詞が入る\n・手順2: 空所の後ろの語を見る。名詞が続くなら、形容詞か、名詞の前の位置かを考える\n・手順3: 空所が主語と動詞の間なら副詞、動詞の位置なら動詞を考える\n・手順4: 語尾を見て、品詞の候補を絞る(次の節を参照)",
+          "examples": [
+            { "en": "The project was **successfully** completed.", "ja": "そのプロジェクトは、無事に完成した。", "note": "was と completed の間に入るのは、動詞 completed を修飾する副詞" },
+            { "en": "The **successful** project earned a bonus.", "ja": "成功したプロジェクトは、ボーナスをもたらした。", "note": "名詞 project の前に入るのは、名詞を説明する形容詞" }
+          ]
+        },
+        {
+          "heading": "動詞は、主語と時制で形が変わる",
+          "explanation": "動詞の形は、主語の人数と時制で変わります。主語が3人称単数で現在のときは、動詞に s か es を付けます。\n\n主語と動詞が離れているときは、まず主語を見つけてから、動詞の形を決めます。この点は「一致」の章でも扱います。",
+          "examples": [
+            { "en": "The **committee** **approves** the budget every year.", "ja": "委員会は、毎年その予算を承認する。", "note": "主語 committee は単数なので approves" },
+            { "en": "The **managers** **approve** the budget every year.", "ja": "部長たちは、毎年その予算を承認する。", "note": "主語 managers は複数なので approve" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、空所の前後が動詞・名詞・形容詞・副詞のどれを求めているかを、まず判断します。語尾の知識は、その判断を速くするために使います(次の節)。"
+    },
+    {
+      "id": "noun-endings",
+      "title": "名詞の語尾と見分け方",
+      "intro": "名詞は、語尾を見ると見分けやすいことがあります。-tion、-ment、-ness、-ity などは、名詞の代表的な語尾です。空所に名詞が必要なときは、語尾が手がかりになります。",
+      "keywords": ["品詞(名詞"],
+      "items": [
+        {
+          "heading": "名詞の代表的な語尾",
+          "explanation": "次の語尾は、名詞を作ることが多い形です。たとえば -tion や -ment で終わる語は、ほとんどが名詞です。ただし、語尾だけで決まるわけではないので、最後は文の中での位置で確かめます。空所の候補を絞るための手がかりとして使い、表の意味の目安も一緒に覚えます。",
+          "table": {
+            "caption": "名詞の語尾",
+            "headers": ["語尾", "例", "意味の目安"],
+            "rows": [
+              ["-tion / -sion", "information、decision", "情報・決定"],
+              ["-ment", "improvement、agreement", "改善・合意"],
+              ["-ness", "awareness、readiness", "気づき・準備ができていること"],
+              ["-ity / -ty", "availability、safety", "利用できること・安全"],
+              ["-ance / -ence", "performance、experience", "成果・経験"],
+              ["-er / -or / -ee", "manager、director、employee", "人(する人・される人)"]
+            ]
+          },
+          "examples": [
+            { "en": "The **improvement** in sales surprised the managers.", "ja": "売上の改善は、部長たちを驚かせた。", "note": "in の後ろの名詞。-ment で終わる" },
+            { "en": "Our **availability** depends on the schedule.", "ja": "私たちが利用できるかどうかは、予定によって決まる。", "note": "所有格 Our の後ろに名詞が来ている" }
+          ],
+          "cautions": ["語尾だけで名詞と決めつけない。friendly(形容詞)や、-ly で終わる形容詞もある"]
+        },
+        {
+          "heading": "冠詞・所有格・形容詞の後は、名詞の位置",
+          "explanation": "a、the、this、his、its などの後ろには、名詞が来ます。形容詞が間に入っても、その後ろには名詞が来ます。\n\n・the + 名詞: the implementation(実施)\n・his + 形容詞 + 名詞: his recent promotion(最近の昇進)\n\n空所の前が冠詞や所有格なら、動詞や副詞ではなく、名詞が入ると考えます。",
+          "examples": [
+            { "en": "The **implementation** of the plan will begin next month.", "ja": "その計画の実施は、来月始まる予定だ。", "note": "The の後ろで、of の前にある名詞" },
+            { "en": "His recent **promotion** surprised everyone.", "ja": "彼の最近の昇進は、みんなを驚かせた。", "note": "His の後ろの形容詞 recent を飛ばすと、名詞 promotion が続く" }
+          ]
+        },
+        {
+          "heading": "-er / -or / -ee: 人を表す名詞",
+          "explanation": "人を表す名詞は、語尾で「する人」と「される人」を区別できることが多いです。\n\n・-er / -or: 動作をする人(employer は雇う人、interviewer は面接する人)\n・-ee: 動作を受ける人(employee は雇われる人、trainee は訓練を受ける人)\n\n例外もあるので、迷ったら意味を確かめます。",
+          "examples": [
+            { "en": "The **employer** hired three new **employees** last month.", "ja": "雇い主は、先月新しい社員を3人雇った。", "note": "employer は雇う人、employee は雇われる人" },
+            { "en": "Each **trainee** must pass the final test.", "ja": "研修生は、それぞれ最終テストに合格しなければならない。", "note": "trainee は訓練を受ける人" }
+          ]
+        },
+        {
+          "heading": "不可算名詞: 複数形にできない名詞",
+          "explanation": "information、advice、equipment、furniture、luggage、evidence などは、数えられない名詞(不可算名詞)です。-s を付けず、数えるときは a piece of ~ などを使います。\n\nまた、不可算名詞には a や an を付けません。動詞は単数扱いです。",
+          "examples": [
+            { "en": "We received useful **information** about the market.", "ja": "私たちは、市場について役立つ情報を受け取った。", "note": "information は不可算。informations とは言わない" },
+            { "en": "Three **pieces of equipment** were damaged in the storm.", "ja": "嵐で、機材が3つ壊れた。", "note": "数えるときは piece of を使う" }
+          ],
+          "cautions": ["× informations → ○ information(または a piece of information)", "× an advice → ○ advice(または a piece of advice)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の名詞問題は、冠詞・所有格・形容詞の後、前置詞の後、動詞の目的語の位置で出ます。語尾の知識は、選択肢を絞るのに使います。"
+    },
+    {
+      "id": "adjective-endings",
+      "title": "形容詞の語尾と見分け方",
+      "intro": "形容詞は、名詞を説明する語です。語尾を見ると見分けやすいものがあります。空所が名詞の前や be 動詞の後にあるときは、形容詞の候補を考えます。",
+      "keywords": ["品詞(形容詞"],
+      "items": [
+        {
+          "heading": "形容詞の代表的な語尾",
+          "explanation": "次の語尾は、形容詞を作ることが多い形です。たとえば -able や -ful で終わる語は、ほとんどが形容詞です。ただし、-ly で終わる形容詞もあるので(次の項目を参照)、語尾だけで判断しないことが大切です。空所が名詞の前にあるなら、名詞を説明する形容詞が入ると考えます。",
+          "table": {
+            "caption": "形容詞の語尾",
+            "headers": ["語尾", "例", "意味の目安"],
+            "rows": [
+              ["-able / -ible", "reliable、flexible", "信頼できる・柔軟な"],
+              ["-ful", "useful、successful", "役に立つ・成功した"],
+              ["-less", "useless、careless", "役に立たない・不注意な"],
+              ["-ous", "numerous、previous", "多くの・前の"],
+              ["-ive", "effective、productive", "効果的な・生産的な"],
+              ["-al", "additional、original", "追加の・元の"],
+              ["-ent / -ant", "efficient、significant", "効率的な・重要な"]
+            ]
+          },
+          "examples": [
+            { "en": "We need a **reliable** supplier for the project.", "ja": "そのプロジェクトには、信頼できる仕入れ先が必要だ。", "note": "a の後ろの名詞 supplier を説明する形容詞 reliable" },
+            { "en": "The new process is more **efficient** than the old one.", "ja": "新しい工程は、古い工程より効率的だ。", "note": "is の後ろで補語になる形容詞。比較の more efficient" }
+          ]
+        },
+        {
+          "heading": "名詞を修飾する形と、補語になる形",
+          "explanation": "形容詞は、主に次の2つの位置に置かれます。\n\n・名詞の前: a successful project(成功したプロジェクト)\n・be 動詞などの後(補語): The project is successful.\n\n空所の前が be 動詞や become なら、副詞ではなく形容詞が入ります。",
+          "examples": [
+            { "en": "The team was **satisfied** with the results.", "ja": "チームは、その結果に満足していた。", "note": "be 動詞の後ろで補語になる形容詞" },
+            { "en": "She is **capable** of handling the project.", "ja": "彼女は、そのプロジェクトを処理することができる。", "note": "capable of ~ で「~できる」(形容詞と前置詞の語法)" }
+          ]
+        },
+        {
+          "heading": "-ly で終わる形容詞に注意",
+          "explanation": "-ly で終わる語の中には、形容詞もあります。friendly(親しみやすい)、lovely(すてきな)、lonely(孤独な)、timely(時宜を得た)などです。\n\n副詞の -ly と区別するには、位置を見ます。名詞の前、または be 動詞の後なら形容詞、動詞の前後なら副詞です。",
+          "examples": [
+            { "en": "Our manager is very **friendly** to new staff.", "ja": "私たちの部長は、新しいスタッフにとても親しみやすい。", "note": "friendly は形容詞。副詞の形 friendlily は使わない" }
+          ],
+          "cautions": ["× She talks friendlily. → ○ She talks in a friendly way.(friendly は副詞として使えない)"]
+        },
+        {
+          "heading": "数量を表す形容詞: many・much・numerous",
+          "explanation": "many、much、few、little、numerous は、名詞の前に置いて数や量を表します。\n\n・many・numerous: 数えられる名詞と使う。numerous は書き言葉で多く使う\n・much: 数えられない名詞と使う\n\nnumerous は形容詞なので、of を付けずに名詞の前に直接置けます。",
+          "examples": [
+            { "en": "**Numerous** customers complained about the delay.", "ja": "多くの顧客が、遅延について苦情を言った。", "note": "numerous は名詞の前に直接置く" },
+            { "en": "We received **much** feedback on the new design.", "ja": "私たちは、新しいデザインについて多くの意見を受け取った。", "note": "feedback は不可算名詞なので much を使う" }
+          ],
+          "cautions": ["× numerous of customers → ○ numerous customers、または many of the customers"]
+        },
+        {
+          "heading": "形容詞と前置詞のセット(語法)",
+          "explanation": "形容詞の中には、決まった前置詞と一緒に使うものがあります。語法として覚えておくと、空所問題で役立ちます。\n\n・be capable of(~できる)\n・be aware of(~に気づいている)\n・be liable for(~に責任がある)\n・be responsible for(~を担当している)",
+          "examples": [
+            { "en": "The staff are **aware of** the new policy.", "ja": "スタッフは、新しい方針に気づいている。", "note": "aware of ~ で「~に気づいている」" },
+            { "en": "He is **responsible for** the budget.", "ja": "彼は、予算を担当している。", "note": "responsible for ~ で「~を担当している」" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の形容詞問題は、名詞の前や be 動詞の後で出ることが多いです。前置詞とのセット(be aware of など)は、語彙の問題としても出ます。"
+    },
+    {
+      "id": "adverbs",
+      "title": "副詞の働きと見分け方",
+      "intro": "副詞は、動詞・形容詞・副詞・文全体を説明する語です。-ly で終わるものが多いですが、形容詞と同じ形の副詞もあります。空所が動詞の近くにあるときは、副詞の候補を考えます。",
+      "keywords": ["品詞(副詞"],
+      "items": [
+        {
+          "heading": "副詞の形: -ly と、形容詞と同じ形の副詞",
+          "explanation": "多くの副詞は、形容詞に -ly を付けた形です(quick → quickly)。一方で、形容詞と同じ形の副詞もあります。同じ形の語は、意味と位置で判断します。",
+          "table": {
+            "caption": "同じ形の副詞と形容詞",
+            "headers": ["語", "形容詞の意味", "副詞の意味"],
+            "rows": [
+              ["fast", "速い", "速く"],
+              ["hard", "難しい・固い", "一生懸命に"],
+              ["late", "遅い", "遅く"],
+              ["early", "早い", "早く"]
+            ]
+          },
+          "examples": [
+            { "en": "She works **hard** every day.", "ja": "彼女は毎日一生懸命働く。", "note": "hard は副詞(一生懸命に)" },
+            { "en": "The project was **hard** to finish.", "ja": "そのプロジェクトは、終えるのが難しかった。", "note": "hard は形容詞(難しい)。意味が違う" },
+            { "en": "We **hardly** saw any changes.", "ja": "私たちは、ほとんど変化を見なかった。", "note": "hardly は否定の副詞(ほとんど~ない)。hard とは意味が違う" }
+          ]
+        },
+        {
+          "heading": "副詞が修飾する対象",
+          "explanation": "副詞は、修飾する対象によって、位置や意味が変わります。\n\n・動詞を修飾: The team quickly approved the plan.\n・形容詞を修飾: The plan is extremely useful.\n・過去分詞を修飾: The report was carefully prepared.\n・文全体を修飾: Unfortunately, the meeting was canceled.\n\n文全体を修飾する副詞は、文頭やカンマの後に置かれることが多いです。",
+          "examples": [
+            { "en": "The plan is **extremely** useful for small businesses.", "ja": "その計画は、小さな会社にとって非常に役に立つ。", "note": "useful(形容詞)を強める副詞 extremely" },
+            { "en": "The report was **carefully** prepared by the team.", "ja": "その報告書は、チームによって丁寧に作成された。", "note": "prepared(過去分詞)を修飾する副詞" },
+            { "en": "**Unfortunately**, the meeting was canceled.", "ja": "残念ながら、会議は中止になった。", "note": "文全体に対する話し手の気持ちを表す副詞" }
+          ]
+        },
+        {
+          "heading": "頻度を表す副詞の位置",
+          "explanation": "頻度を表す副詞(always、often、usually、never など)は、一般動詞の前、be 動詞と助動詞の後に置かれます。\n\n・一般動詞の前: She always arrives early.\n・be 動詞の後: He is usually busy on Mondays.\n・完了形の have と過去分詞の間: I have already finished.",
+          "examples": [
+            { "en": "She **always** arrives early.", "ja": "彼女はいつも早く着く。", "note": "一般動詞 arrives の前" },
+            { "en": "He is **usually** busy on Mondays.", "ja": "彼は月曜日はたいてい忙しい。", "note": "be 動詞 is の後" },
+            { "en": "I have **already** finished the report.", "ja": "私はもうレポートを終えた。", "note": "完了形の have と過去分詞の間" }
+          ]
+        },
+        {
+          "heading": "-ly の副詞: 程度・様態・文修飾",
+          "explanation": "-ly の副詞には、次のような語があります。\n\n・程度: extremely、highly、fairly、rather\n・様態: carefully、quickly、strategically\n・文修飾: fortunately、unfortunately、surprisingly、tentatively(試しに)\n\n「副詞は -ly」と覚えるのではなく、位置と意味で判断します。",
+          "examples": [
+            { "en": "The team **tentatively** agreed to the plan.", "ja": "チームは、その計画に仮に同意した。", "note": "tentatively は動詞 agreed を修飾する" },
+            { "en": "The new product sold **surprisingly** well.", "ja": "新製品は、意外にもよく売れた。", "note": "surprisingly が副詞 well を修飾している" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の副詞問題は、動詞の前後・形容詞の前・文頭が空所になることが多いです。空所の後ろが形容詞・副詞なら、副詞が入ると判断できます。"
+    },
+    {
+      "id": "similar-endings",
+      "title": "語尾の似た形容詞: -able と -ible、-ed と -ing など",
+      "intro": "-able と -ible、-ive と -ible、-ed と -ing など、語尾が似ていて迷う形容詞があります。ここでは、迷いやすい組と、見分け方を確かめます。",
+      "keywords": ["-ed と -ing", "-ed / -ing", "-ive / -ible", "-ive と -ing", "-able / -ible", "-ical / -ic"],
+      "items": [
+        {
+          "heading": "-able と -ible: 意味は同じで、語形が違う",
+          "explanation": "-able と -ible は、どちらも「~できる」の意味を持つ形容詞の語尾です。\n\n・-able: 語幹が完全な英単語のとき(reliable は rely + able)\n・-ible: 語幹が単語として使われないとき(responsible、possible、flexible など)\n\n語尾の違いは覚えるしかないことが多いので、よく出る語を例文と一緒に覚えます。",
+          "examples": [
+            { "en": "The new software is **reliable** and easy to use.", "ja": "新しいソフトウェアは信頼でき、使いやすい。", "note": "reliable は -able" },
+            { "en": "She is **responsible** for the project.", "ja": "彼女は、そのプロジェクトの責任者だ。", "note": "responsible は -ible" }
+          ]
+        },
+        {
+          "heading": "-ive と -ible: 語尾の一字違いで意味が変わる組",
+          "explanation": "responsive(反応のよい)と responsible(責任のある)、sensitive(敏感な)と sensible(賢明な)のように、語尾の一字違いで意味が大きく変わる語があります。\n\n語形の問題として出やすいので、意味と一緒に覚えます。",
+          "examples": [
+            { "en": "The company is **responsive** to customer complaints.", "ja": "その会社は、顧客の苦情に反応がよい。", "note": "responsive(反応のよい)" },
+            { "en": "It was a **sensible** decision to delay the launch.", "ja": "発売を延期したのは、賢明な判断だった。", "note": "sensible(賢明な)。sensitive(敏感な)とは別の語" }
+          ]
+        },
+        {
+          "heading": "-ive の形容詞: ~の性質がある",
+          "explanation": "-ive で終わる形容詞は「~の性質がある」を表します。effective(効果的な)、productive(生産的な)、competitive(競争力のある)などです。\n\n-ing の形容詞(感情を表す語など)と意味が違うので、取り違えないようにします。",
+          "examples": [
+            { "en": "The new strategy was more **effective** than the old one.", "ja": "新しい戦略は、古い戦略より効果的だった。", "note": "effective(効果的な)" },
+            { "en": "Our team is highly **competitive** in the market.", "ja": "私たちのチームは、市場で非常に競争力がある。", "note": "competitive(競争力のある)" }
+          ]
+        },
+        {
+          "heading": "-ed と -ing: 感情を表す形容詞",
+          "explanation": "感情を表す語には、-ed と -ing の両方があります。\n\n・-ed: 感じている人の気持ち(interested は興味がある、bored は退屈している)\n・-ing: ものや出来事の性質(interesting は興味深い、boring は退屈な)\n\n主語が人なら -ed、主語が物や出来事なら -ing が基本です。",
+          "examples": [
+            { "en": "I am **interested** in the new project.", "ja": "私は、その新しいプロジェクトに興味がある。", "note": "主語 I は人なので -ed" },
+            { "en": "The new project is very **interesting**.", "ja": "その新しいプロジェクトは、とても興味深い。", "note": "主語 project は物なので -ing" }
+          ],
+          "cautions": ["× I am very interesting. → ○ I am very interested.(人が感じる気持ちなので -ed)"]
+        },
+        {
+          "heading": "-ical と -ic: 意味が違う組",
+          "explanation": "economic(経済の)と economical(節約になる)のように、-ic と -ical で意味が違う組があります。一般の規則ではないので、語ごとに覚えます(次の節の表も参照)。",
+          "examples": [
+            { "en": "The **economic** growth of the region was strong.", "ja": "その地域の経済成長は、力強かった。", "note": "economic(経済の)" },
+            { "en": "This car is very **economical** to run.", "ja": "この車は、維持するのがとても経済的だ。", "note": "economical(節約になる)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "confusable-pairs",
+      "title": "紛らわしい語形のペア",
+      "intro": "語形が似ていて、意味が大きく違う語のペアは、TOEIC Part 5 の語形問題の定番です。意味を取り違えると、文の意味が通らなくなります。よく出るペアを表で確かめます。",
+      "keywords": ["紛らわしい語形", "紛らわしい形容詞"],
+      "items": [
+        {
+          "heading": "よく出るペア(1): -ful と -ive、-ous と -ic の組",
+          "explanation": "次の表の左と右は、語尾が少し違うだけで意味が大きく変わります。左右の語は、どちらも似た綴りですが、意味はまったく別です。TOEIC では、文脈に合うほうを選ばせる形で出ます。例文は、その語が使われる典型的な場面を示しているので、意味と合わせて覚えてください。",
+          "table": {
+            "caption": "よく出るペア(1)",
+            "headers": ["語", "意味", "語", "意味"],
+            "rows": [
+              ["successive", "連続した", "successful", "成功した"],
+              ["respective", "それぞれの", "respectful", "敬意を表する"],
+              ["industrial", "工業の", "industrious", "勤勉な"],
+              ["historic", "歴史的に重要な", "historical", "歴史上の"],
+              ["imaginary", "架空の", "imaginative", "想像力に富む"]
+            ]
+          },
+          "examples": [
+            { "en": "The team won three **successive** games.", "ja": "チームは、3試合を連続で勝った。", "note": "successive(連続した)" },
+            { "en": "The company is **successful** in Asian markets.", "ja": "その会社は、アジア市場で成功している。", "note": "successful(成功した)" }
+          ]
+        },
+        {
+          "heading": "よく出るペア(2): 経済・性格・判断に関する組",
+          "explanation": "経済・性格・判断に関する組です。人について使うか、ものや量について使うかでも見分けられます。表の組は、どちらも似た綴りで、意味が大きく違います。人を主語にするか、ものや量を修飾するかを考えると、選べることが多いです。",
+          "table": {
+            "caption": "よく出るペア(2)",
+            "headers": ["語", "意味", "語", "意味"],
+            "rows": [
+              ["economic", "経済の", "economical", "節約になる"],
+              ["credible", "信頼できる", "credulous", "信じやすい"],
+              ["considerable", "かなりの", "considerate", "思いやりのある"],
+              ["sensible", "賢明な", "sensitive", "敏感な"],
+              ["reliable", "信頼できる", "reliant", "頼っている"]
+            ]
+          },
+          "examples": [
+            { "en": "The manager is very **considerate** of her staff.", "ja": "その部長は、部下にとても思いやりがある。", "note": "considerate は人の性質に使う" },
+            { "en": "The company made a **considerable** investment.", "ja": "その会社は、かなりの額の投資をした。", "note": "considerable は量や程度に使う" }
+          ],
+          "cautions": ["× considerable staff → ○ considerate staff(人の性質には considerate を使う)"]
+        },
+        {
+          "heading": "よく出るペア(3): 名詞と形容詞の組、副詞の形",
+          "explanation": "principal(主要な・校長)と principle(原則)のように、名詞と形容詞の組もあります。名詞か形容詞かは、位置で判断します。\n\nrespective(それぞれの)の副詞は respectively(それぞれ)です。",
+          "table": {
+            "caption": "よく出るペア(3)",
+            "headers": ["語", "意味", "語", "意味"],
+            "rows": [
+              ["principal", "主要な・校長", "principle", "原則"],
+              ["eventual", "最終的な", "eventful", "出来事の多い"],
+              ["imminent", "差し迫った", "eminent", "著名な"],
+              ["complementary", "互いに補い合う", "complimentary", "無料の・ほめる"],
+              ["comprehensive", "包括的な", "comprehensible", "理解できる"]
+            ]
+          },
+          "examples": [
+            { "en": "The company's **principal** goal is growth.", "ja": "その会社の主な目標は、成長だ。", "note": "principal は形容詞(主要な)。名詞 principle(原則)と区別する" },
+            { "en": "The three managers were assigned to Tokyo, Osaka, and Nagoya **respectively**.", "ja": "3人の部長が、それぞれ東京、大阪、名古屋に配属された。", "note": "respectively(それぞれ)。形容詞 respective と区別する" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の語形問題は、組の片方が正解で、もう片方がひっかけになる形で出ます。意味が分かっていても、空所の品詞(名詞・形容詞・副詞)を先に決めると、選択肢が絞れます。"
+    },
+    {
+      "id": "confusable-words",
+      "title": "語彙として混同しやすい語",
+      "intro": "綴りや意味が似ていて、取り違えやすい語があります。動詞か名詞か、人の性質かものの量かを、位置と意味で区別します。",
+      "keywords": ["語彙(紛らわしい", "語彙(形容詞・紛らわしい"],
+      "items": [
+        {
+          "heading": "affect と effect: 動詞と名詞",
+          "explanation": "affect は動詞で「影響する」、effect は名詞で「効果・影響」が基本です。\n\n・affect(動詞): 目的語を取る。The policy will affect all staff.\n・effect(名詞): the effect of ~ や、have an effect on ~ の形で使う。\n\nTOEIC では、effect が名詞で出ることが多いです。",
+          "examples": [
+            { "en": "The new policy will **affect** all staff next year.", "ja": "新しい方針は、来年、全従業員に影響する。", "note": "affect は動詞。目的語 all staff を取る" },
+            { "en": "The policy had a large **effect** on sales.", "ja": "その方針は、売上に大きな効果があった。", "note": "effect は名詞。an effect on ~ の形" }
+          ]
+        },
+        {
+          "heading": "形容詞: 人の性質と、量・程度",
+          "explanation": "considerate(人が思いやりのある)と considerable(量や程度がかなりの)は、人の性質か、量かで選びます。人の性質を表す形容詞は、人が主語のときに使います。\n\n形容詞の語形で迷ったら、「人の性質か」「量か」と、まず意味で考えます。",
+          "examples": [
+            { "en": "The **considerate** manager always listens to the staff.", "ja": "思いやりのある部長は、いつも部下の話を聞く。", "note": "人の性質を表す" },
+            { "en": "The company spent a **considerable** amount on training.", "ja": "その会社は、研修にかなりの額を使った。", "note": "量を表す" }
+          ]
+        }
+      ],
+      "examNote": "語彙の問題として出るときも、品詞の判断が先です。意味が分からない語は、空所の位置で名詞・動詞・形容詞のどれかを決めてから選択肢を見ます。"
+    }
+  ],
+  "summary": [
+    "8つの品詞は、単語の意味ではなく、文の中での働きで決まる",
+    "空所の前後を見て、名詞・動詞・形容詞・副詞のどれが入るかを先に決める",
+    "名詞の語尾: -tion、-ment、-ness、-ity、-ance、-er / -or / -ee など",
+    "形容詞の語尾: -able / -ible、-ful、-less、-ous、-ive、-al など。-ly で終わる形容詞(friendly など)もある",
+    "副詞は -ly のほか、fast・hard・late など形容詞と同じ形もある。意味と位置で判断する",
+    "感情を表す形容詞: 主語が人なら -ed、物・出来事なら -ing",
+    "紛らわしい語形のペアは、意味と一緒に覚える(successive と successful など)",
+    "数量の形容詞 many・much・numerous は、名詞の前に直接置く(numerous of は使わない)"
+  ],
+  "quiz": [
+    {
+      "id": "parts-of-speech-q01",
+      "sentence": "The new manager ------- approved the budget last week.",
+      "choices": [{ "label": "A", "text": "quick" }, { "label": "B", "text": "quickness" }, { "label": "C", "text": "quickly" }, { "label": "D", "text": "quicken" }],
+      "answer": "C",
+      "explanation": "動詞 approved を修飾する副詞が入る。quickly が正解。quick は形容詞なので動詞を修飾できない。quickness は名詞、quicken は動詞で、動詞の前の位置には入らない。",
+      "translation": "新しい部長は、先週その予算をすぐに承認した。"
+    },
+    {
+      "id": "parts-of-speech-q02",
+      "sentence": "The ------- of the new software took three months.",
+      "choices": [{ "label": "A", "text": "implementation" }, { "label": "B", "text": "implement" }, { "label": "C", "text": "implemented" }, { "label": "D", "text": "implementing" }],
+      "answer": "A",
+      "explanation": "The の後ろで、動詞 took の主語になる名詞が必要。implementation(実施)が正解。implement は動詞、implemented は過去分詞、implementing は -ing 形で、名詞の位置には入らない。",
+      "translation": "新しいソフトウェアの導入には、3か月かかった。"
+    },
+    {
+      "id": "parts-of-speech-q03",
+      "sentence": "Our company is ------- in renewable energy.",
+      "choices": [{ "label": "A", "text": "experiences" }, { "label": "B", "text": "experiencing" }, { "label": "C", "text": "experience" }, { "label": "D", "text": "experienced" }],
+      "answer": "D",
+      "explanation": "be 動詞の後に入り、「~の経験がある」を表す be experienced in の形。過去分詞の形容詞が正解。experiences と experience は be 動詞の後の補語として使えない。",
+      "translation": "当社は、再生可能エネルギーの分野で経験がある。"
+    },
+    {
+      "id": "parts-of-speech-q04",
+      "sentence": "The results of the survey were -------.",
+      "choices": [{ "label": "A", "text": "surprise" }, { "label": "B", "text": "surprising" }, { "label": "C", "text": "surprised" }, { "label": "D", "text": "surprisingly" }],
+      "answer": "B",
+      "explanation": "結果(results)が主語で、その性質を表す形容詞が補語として入る。-ing の形容詞 surprising(意外な)が正解。surprised は人が主語のときに使う。surprise は名詞、surprisingly は副詞で補語にはなれない。",
+      "translation": "その調査の結果は、意外なものだった。"
+    },
+    {
+      "id": "parts-of-speech-q05",
+      "sentence": "Please read the contract ------- before you sign it.",
+      "choices": [{ "label": "A", "text": "carefully" }, { "label": "B", "text": "careful" }, { "label": "C", "text": "carefulness" }, { "label": "D", "text": "care" }],
+      "answer": "A",
+      "explanation": "動詞 read を修飾する副詞 carefully(注意深く)が正解。careful は形容詞、carefulness と care は名詞で、動詞を修飾できない。",
+      "translation": "署名する前に、契約書をよく読んでください。"
+    },
+    {
+      "id": "parts-of-speech-q06",
+      "sentence": "------- , the flight was canceled because of the storm.",
+      "choices": [{ "label": "A", "text": "Unfortunate" }, { "label": "B", "text": "Unfortunates" }, { "label": "C", "text": "Unfortunateness" }, { "label": "D", "text": "Unfortunately" }],
+      "answer": "D",
+      "explanation": "文全体を修飾する副詞が入る。Unfortunately(残念ながら)が正解。Unfortunate は形容詞、Unfortunates は名詞の複数形、Unfortunateness は名詞で、文頭の副詞の位置には入らない。",
+      "translation": "残念ながら、嵐のため便は欠航になった。"
+    },
+    {
+      "id": "parts-of-speech-q07",
+      "sentence": "This software is ------- for small businesses.",
+      "choices": [{ "label": "A", "text": "usefully" }, { "label": "B", "text": "usefulness" }, { "label": "C", "text": "useful" }, { "label": "D", "text": "use" }],
+      "answer": "C",
+      "explanation": "be 動詞の後で補語になる形容詞 useful(役に立つ)が正解。usefully は副詞、usefulness と use は名詞で、be 動詞の後の補語には合わない。",
+      "translation": "このソフトウェアは、小さな会社にとって役に立つ。"
+    },
+    {
+      "id": "parts-of-speech-q08",
+      "sentence": "The new model is ------- than the previous one.",
+      "choices": [{ "label": "A", "text": "reliability" }, { "label": "B", "text": "more reliable" }, { "label": "C", "text": "reliant" }, { "label": "D", "text": "reliably" }],
+      "answer": "B",
+      "explanation": "than と組になる比較級 more reliable(より信頼できる)が正解。reliability は名詞、reliant は「頼っている」の形容詞で、on を伴うので than の形には合わない。reliably は副詞で補語にはならない。",
+      "translation": "新しい機種は、前の機種より信頼性が高い。"
+    },
+    {
+      "id": "parts-of-speech-q09",
+      "sentence": "The company made a ------- investment in research.",
+      "choices": [{ "label": "A", "text": "considerable" }, { "label": "B", "text": "considerate" }, { "label": "C", "text": "considerably" }, { "label": "D", "text": "considerateness" }],
+      "answer": "A",
+      "explanation": "名詞 investment を修飾する形容詞 considerable(かなりの)が正解。considerate(思いやりのある)は人の性質を表すので、投資には使えない。considerably は副詞、considerateness は名詞。",
+      "translation": "その会社は、研究に多額の投資をした。"
+    },
+    {
+      "id": "parts-of-speech-q10",
+      "sentence": "She is an ------- student who always finishes her homework.",
+      "choices": [{ "label": "A", "text": "industry" }, { "label": "B", "text": "industrially" }, { "label": "C", "text": "industrious" }, { "label": "D", "text": "industrial" }],
+      "answer": "C",
+      "explanation": "名詞 student を修飾する形容詞で、「勤勉な」の意味の industrious が正解。industrial は「工業の」の意味で、この文の意味に合わない。industry は名詞、industrially は副詞。",
+      "translation": "彼女は、いつも宿題をやり終える勤勉な学生だ。"
+    },
+    {
+      "id": "parts-of-speech-q11",
+      "sentence": "The lecture was very ------- ; I learned a lot about climate change.",
+      "choices": [{ "label": "A", "text": "informed" }, { "label": "B", "text": "informative" }, { "label": "C", "text": "information" }, { "label": "D", "text": "informally" }],
+      "answer": "B",
+      "explanation": "主語 lecture(講義)の性質を表す形容詞 informative(情報が豊富な)が正解。informed は、人が主語のとき「情報を得た」の意味になるので、ここには合わない。information は名詞、informally は副詞。",
+      "translation": "その講義はとても情報が豊富で、気候変動について多くを学んだ。"
+    },
+    {
+      "id": "parts-of-speech-q12",
+      "sentence": "The new policy will ------- all employees next year.",
+      "choices": [{ "label": "A", "text": "effect" }, { "label": "B", "text": "affected" }, { "label": "C", "text": "effective" }, { "label": "D", "text": "affect" }],
+      "answer": "D",
+      "explanation": "助動詞 will の後に続く動詞 affect(影響する)が正解。effect は「実現させる」の動詞で、all employees を目的語に取って「影響する」の意味にはならない。affected は過去分詞、effective は形容詞。",
+      "translation": "新しい方針は、来年、全従業員に影響する。"
+    }
+  ],
+  "related": ["noun", "adjective", "adverb"]
+}

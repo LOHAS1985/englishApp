@@ -51,13 +51,15 @@ function TableView({ table }: { table: Table }) {
   );
 }
 
-function ItemView({ item }: { item: Item }) {
+function ItemView({ item, no }: { item: Item; no: number }) {
   return (
     <article className="rounded-lg border border-slate-200 bg-white p-5">
-      <h3 className="text-base font-semibold text-slate-900">{item.heading}</h3>
+      <p className="text-xs font-semibold text-[#2463a8]">項目 {no}</p>
+      <h3 className="mt-0.5 text-base font-semibold text-slate-900">{item.heading}</h3>
       <RichText text={item.explanation} className="mt-2 text-sm text-slate-700" />
       {item.table && <TableView table={item.table} />}
-      <ul className="mt-3 space-y-2" aria-label="例文">
+      <p className="mt-4 border-t border-slate-100 pt-3 text-xs font-semibold text-slate-500">例文</p>
+      <ul className="mt-2 space-y-2" aria-label="例文">
         {item.examples.map((ex, i) => (
           <ExampleView key={i} example={ex} />
         ))}
@@ -88,12 +90,15 @@ export function SectionPage({
   showIntro,
   showExamNote,
   continued,
+  startNo,
 }: {
   section: Section;
   items: Item[];
   showIntro: boolean;
   showExamNote: boolean;
   continued: boolean;
+  /** このページの最初の項目が、節の何番目か(項目の番号を続けるため) */
+  startNo: number;
 }) {
   return (
     <section aria-labelledby="book-page-title" className="space-y-4">
@@ -103,7 +108,7 @@ export function SectionPage({
       </h2>
       {showIntro && <RichText text={section.intro} className="text-sm text-slate-600" />}
       {items.map((item, i) => (
-        <ItemView key={i} item={item} />
+        <ItemView key={i} item={item} no={startNo + i + 1} />
       ))}
       {showExamNote && section.examNote && (
         <div className="rounded-md border border-[#8fae4e] bg-[#f2f7ea] px-4 py-3">

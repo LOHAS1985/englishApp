@@ -7,7 +7,7 @@ import { SectionPage } from "./BookParts";
 import ChapterQuiz from "./ChapterQuiz";
 import { loadProgress, setRead, toggleBookmark } from "./bookProgress";
 import { loadChapter } from "./loadChapter";
-import { buildPages, firstPageOfSection, itemsOnPage, startPage } from "./pages";
+import { ITEMS_PER_PAGE, buildPages, firstPageOfSection, itemsOnPage, startPage } from "./pages";
 import RichText, { Inline } from "./RichText";
 import { sectionForPoint } from "./sectionFor";
 
@@ -162,6 +162,7 @@ function ChapterReader({
               showIntro={page.part === 0}
               showExamNote={page.part === page.parts - 1}
               continued={page.part > 0}
+              startNo={page.part * ITEMS_PER_PAGE}
             />
           )}
 
