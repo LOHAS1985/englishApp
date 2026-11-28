@@ -1,0 +1,600 @@
+{
+  "id": "gerund",
+  "no": 15,
+  "title": "動名詞",
+  "lead": "動名詞は、動詞の原形に -ing を付けて、名詞の働きをする形です。主語・目的語・補語になり、前置詞の後ろにも置けます。動名詞だけを目的語に取る動詞、前置詞 to の後ろに置く形、慣用表現(be worth -ing、It is no use -ing など)が、TOEIC Part 5 でよく問われます。この章では、動名詞と不定詞の使い分けを中心に確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "動名詞の基本: 名詞の働きをする -ing",
+      "intro": "動名詞は、「~すること」の意味の名詞です。文の中で、主語・目的語・補語・前置詞の後ろに置けます。この節では、動名詞の働きと、現在分詞との見分け方を確かめます。",
+      "keywords": [
+        "動名詞"
+      ],
+      "items": [
+        {
+          "heading": "動名詞の働き: 主語・目的語・補語",
+          "explanation": "動名詞は、動詞の原形に -ing を付けた形で、「~すること」の意味の名詞として働きます。\n\n・主語: Reviewing the budget takes time.(予算を見直すには時間がかかる)\n・目的語: We enjoy working together.(私たちは一緒に働くのが好きだ)\n・補語: My job is planning the events.(私の仕事は、イベントを企画することだ)\n\n動名詞の後ろには、目的語や修飾語が続くこともあります。",
+          "examples": [
+            {
+              "en": "**Reviewing** the budget takes a lot of time.",
+              "ja": "予算を見直すのには、多くの時間がかかる。",
+              "note": "主語になる動名詞"
+            },
+            {
+              "en": "We **enjoy** **working** together on new projects.",
+              "ja": "私たちは新しいプロジェクトで一緒に働くのが好きだ。",
+              "note": "目的語になる動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "動名詞と現在分詞の見分け方: 役割で判断する",
+          "explanation": "-ing の形は、動名詞(名詞)と現在分詞(形容詞や進行形)で同じです。見分けるのは、役割です。\n\n・動名詞: 主語・目的語・補語・前置詞の後ろの、名詞のかたまり\n・現在分詞: 名詞を修飾する、または進行形の一部",
+          "examples": [
+            {
+              "en": "**Writing** reports is part of my job.",
+              "ja": "レポートを書くことは、私の仕事の一部だ。",
+              "note": "動名詞(主語)"
+            },
+            {
+              "en": "The team **writing** the report is in the next room.",
+              "ja": "レポートを書いているチームは、隣の部屋にいる。",
+              "note": "現在分詞(team を修飾)"
+            }
+          ]
+        },
+        {
+          "heading": "動名詞の否定形: not・never を -ing の前に置く",
+          "explanation": "動名詞を否定するときは、not や never を -ing の前に置きます。\n\n・Not knowing the rules caused the problem.(規則を知らなかったことが、問題の原因になった)\n・Never being late for a meeting is his rule.(会議に遅刻しないことが、彼の決まりだ)",
+          "examples": [
+            {
+              "en": "**Not knowing** the rules caused the problem.",
+              "ja": "規則を知らなかったことが、問題の原因になった。",
+              "note": "not + 動名詞"
+            },
+            {
+              "en": "**Never being** late for a meeting is his rule.",
+              "ja": "会議に遅刻しないことが、彼の決まりだ。",
+              "note": "never + 動名詞"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、-ing の形が動名詞か現在分詞かを、文の中の役割で判断させる問題が出ます。"
+    },
+    {
+      "id": "gerund-only",
+      "title": "動名詞だけを目的語に取る動詞",
+      "intro": "動詞の中には、直後に動名詞(-ing)だけを取るものがあります。to 不定詞は続けられません。avoid、finish、suggest、consider などが代表的です。",
+      "keywords": [
+        "avoid",
+        "suggest + 動名詞",
+        "suggest + doing"
+      ],
+      "items": [
+        {
+          "heading": "動名詞だけを取る動詞の例",
+          "explanation": "次の動詞は、直後に動名詞(-ing)だけを取ります。to 不定詞は続けられません。\n\n・avoid、finish、enjoy、consider、mind、postpone、delay、give up、practice、deny、miss など\n\n動名詞だけを取る動詞は、to の後ろの形と混同しやすいので、まとめて覚えます。",
+          "examples": [
+            {
+              "en": "We should **avoid** **making** the same mistake again.",
+              "ja": "同じ間違いを二度としないようにすべきだ。",
+              "note": "avoid + 動名詞"
+            },
+            {
+              "en": "Please **finish** **writing** the report by Friday.",
+              "ja": "金曜日までにレポートを書き終えてください。",
+              "note": "finish + 動名詞"
+            }
+          ],
+          "cautions": [
+            "× We avoid to make mistakes. → ○ We avoid making mistakes.(avoid は to 不定詞を取らない)"
+          ]
+        },
+        {
+          "heading": "suggest・consider: 提案・検討する",
+          "explanation": "suggest(提案する)、recommend(勧める)、consider(検討する)は、動名詞を目的語に取ります。\n\n・suggest + -ing: We suggest reviewing the plan.(計画を見直すことを提案する)\n・consider + -ing: They are considering moving the office.(オフィスの移転を検討している)",
+          "examples": [
+            {
+              "en": "The consultant **suggested** **hiring** more staff.",
+              "ja": "コンサルタントは、人を増やすことを提案した。",
+              "note": "suggest + 動名詞"
+            },
+            {
+              "en": "They are **considering** **moving** the office to Osaka.",
+              "ja": "彼らは、オフィスを大阪へ移すことを検討している。",
+              "note": "consider + 動名詞"
+            }
+          ],
+          "cautions": [
+            "× The consultant suggested to hire more staff. → ○ The consultant suggested hiring more staff.(suggest は to 不定詞を取らない)"
+          ]
+        },
+        {
+          "heading": "mind・give up・practice など: 動名詞だけを取る動詞",
+          "explanation": "mind(気にする)、give up(あきらめる)、practice(練習する)、deny(否定する)、miss(逃す)なども、動名詞だけを目的語に取ります。\n\n・mind -ing: 〜するのを気にする(依頼の表現にもなる)\n・give up -ing: 〜するのをあきらめる",
+          "examples": [
+            {
+              "en": "Would you mind **waiting** a moment?",
+              "ja": "少しお待ちいただけますか。",
+              "note": "mind + 動名詞(依頼の表現)"
+            },
+            {
+              "en": "The company decided to **give up** **expanding** into Asia.",
+              "ja": "その会社は、アジアへの進出をあきらめた。",
+              "note": "give up + 動名詞"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、suggest や consider の後ろに to 不定詞が来る誤りの選択肢が出ます。動名詞だけを取る動詞は、覚えておきます。"
+    },
+    {
+      "id": "after-to",
+      "title": "前置詞の後ろの動名詞: to + -ing と、前置詞の後",
+      "intro": "前置詞の to の後ろには、動名詞が来ます。to 不定詞(to + 原形)と見分けます。また、前置詞の後ろには、不定詞は置けません。",
+      "keywords": [
+        "look forward to",
+        "前置詞の後",
+        "動名詞(look forward to)"
+      ],
+      "items": [
+        {
+          "heading": "to の後ろは動名詞: look forward to -ing など",
+          "explanation": "前置詞の to の後ろには、動名詞が来ます。to 不定詞(to + 原形)とは区別します。\n\n・look forward to -ing(~を楽しみにする)\n・be used to -ing(~に慣れている)\n・object to -ing(~に反対する)\n・when it comes to -ing(~のことになると)\n・in addition to -ing(~に加えて)",
+          "examples": [
+            {
+              "en": "We look **forward to hearing** from you.",
+              "ja": "ご連絡をお待ちしています。",
+              "note": "look forward to + 動名詞"
+            },
+            {
+              "en": "She is **used to working** late.",
+              "ja": "彼女は遅くまで働くことに慣れている。",
+              "note": "be used to + 動名詞"
+            }
+          ],
+          "cautions": [
+            "× We look forward to hear from you. → ○ We look forward to hearing from you.(前置詞 to の後ろは動名詞)"
+          ]
+        },
+        {
+          "heading": "前置詞の後ろは、名詞か動名詞",
+          "explanation": "前置詞の後ろには、不定詞(to + 原形)は置けません。前置詞の後ろは、名詞か動名詞です。\n\n・前置詞 + 名詞: before the meeting\n・前置詞 + 動名詞: before attending the meeting(会議に出席する前に)\n・誤り: before to attend",
+          "examples": [
+            {
+              "en": "She left the office **after finishing** the report.",
+              "ja": "彼女はレポートを終えてから、オフィスを出た。",
+              "note": "after + 動名詞"
+            },
+            {
+              "en": "Thank you **for coming** to the meeting.",
+              "ja": "会議に来てくださってありがとうございます。",
+              "note": "for + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "by・without・instead of: 前置詞の後ろの動名詞",
+          "explanation": "by(~することによって)、without(~せずに)、instead of(~する代わりに)などの前置詞の後ろにも、動名詞が来ます。\n\n・by -ing: 〜することによって\n・without -ing: 〜せずに\n・instead of -ing: 〜する代わりに",
+          "examples": [
+            {
+              "en": "We improved the process **by automating** the reports.",
+              "ja": "レポートを自動化することで、工程を改善した。",
+              "note": "by + 動名詞"
+            },
+            {
+              "en": "She left the meeting **without speaking**.",
+              "ja": "彼女は何も話さずに会議を出た。",
+              "note": "without + 動名詞"
+            },
+            {
+              "en": "They chose to call **instead of** **emailing**.",
+              "ja": "彼らはメールを送る代わりに、電話をかけることにした。",
+              "note": "instead of + 動名詞"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、to の後ろが不定詞か動名詞かを選ばせる問題が多く出ます。前置詞の to は、後ろを動名詞にします。"
+    },
+    {
+      "id": "idioms",
+      "title": "慣用表現: be worth -ing・It is no use -ing・insist on・be prone to",
+      "intro": "動名詞を使う慣用表現は、語句のまとまりで覚えます。「~する価値がある」「~しても無駄だ」「~しがちだ」などの意味があります。",
+      "keywords": [
+        "be worth",
+        "It is no use",
+        "There is no",
+        "have trouble",
+        "動名詞(語法)",
+        "動名詞・語法",
+        "insist on",
+        "be prone to"
+      ],
+      "items": [
+        {
+          "heading": "be worth -ing・It is no use -ing: 価値・無駄",
+          "explanation": "be worth -ing は「~する価値がある」、It is no use -ing は「~しても無駄だ」を表します。\n\n・The report is worth reading.(そのレポートは読む価値がある)\n・It is no use arguing with him.(彼と言い争っても無駄だ)",
+          "examples": [
+            {
+              "en": "This book is **worth reading** twice.",
+              "ja": "この本は二度読む価値がある。",
+              "note": "be worth -ing"
+            },
+            {
+              "en": "It is no use **complaining** about the delay now.",
+              "ja": "今になって遅れを文句を言っても無駄だ。",
+              "note": "It is no use -ing"
+            }
+          ]
+        },
+        {
+          "heading": "insist on・be prone to・have trouble: 前置詞と動名詞の組み合わせ",
+          "explanation": "次の表現は、前置詞の後ろに動名詞を置きます。\n\n・insist on -ing(~すべきだと主張する)\n・be prone to -ing(~しがちだ)\n・have trouble -ing(~するのに苦労する)\n・There is no -ing(~することはできない)",
+          "examples": [
+            {
+              "en": "She **insisted on checking** the data again.",
+              "ja": "彼女は、データをもう一度確認すべきだと主張した。",
+              "note": "insist on + 動名詞"
+            },
+            {
+              "en": "People who work late are **prone to making** mistakes.",
+              "ja": "遅くまで働く人は、間違いをしがちだ。",
+              "note": "be prone to + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "動名詞の意味上の主語と、完了形",
+          "explanation": "動名詞の意味上の主語は、所有格(your、his)か、目的格(you、him)で示します。また、主節より前の出来事は、having + 過去分詞で表します。\n\n・I appreciate your helping us.(手伝ってくださったことに感謝します)\n・He is proud of having finished the project on time.(プロジェクトを期限どおりに終えたことを誇りに思っている)",
+          "examples": [
+            {
+              "en": "We appreciate **your** **helping** us during the move.",
+              "ja": "引っ越しの間、手伝ってくださったことに感謝します。",
+              "note": "所有格 + 動名詞(意味上の主語)"
+            },
+            {
+              "en": "He is proud of **having finished** the project on time.",
+              "ja": "彼は、プロジェクトを期限どおりに終えたことを誇りに思っている。",
+              "note": "having + 過去分詞(完了形の動名詞)"
+            }
+          ]
+        },
+        {
+          "heading": "There is no -ing・It is no good -ing: 〜することはできない・〜してもよくない",
+          "explanation": "There is no -ing は「~することはできない」を表します。It is no good -ing は、「~してもよくない・~しても意味がない」の意味で、It is no use -ing と似た表現です。\n\n・There is no knowing what will happen next.(次に何が起こるかは、分かりようがない)\n・It is no good worrying about it now.(今それを心配しても、よくない)",
+          "examples": [
+            {
+              "en": "There is no **knowing** what will happen next.",
+              "ja": "次に何が起こるかは、分かりようがない。",
+              "note": "There is no -ing(~することはできない)"
+            },
+            {
+              "en": "It is no good **worrying** about it now.",
+              "ja": "今それを心配しても、よくない。",
+              "note": "It is no good -ing"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、be worth -ing の形や、It is no use -ing、insist on -ing の前置詞の組み合わせが選択肢に出ます。"
+    }
+  ],
+  "summary": [
+    "動名詞(-ing)は「~すること」。主語・目的語・補語・前置詞の後ろに置く",
+    "動名詞だけを取る動詞: avoid・finish・suggest・consider・enjoy・mind など",
+    "前置詞の to の後ろは動名詞: look forward to -ing、be used to -ing、object to -ing",
+    "慣用: be worth -ing(価値)、It is no use -ing(無駄)、insist on -ing、be prone to -ing",
+    "前置詞の後ろに不定詞は置けない。名詞か動名詞を置く",
+    "動名詞の意味上の主語は所有格か目的格。主節より前は having + 過去分詞"
+  ],
+  "quiz": [
+    {
+      "id": "gerund-q01",
+      "sentence": "We should avoid ------- the same mistake again.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "making"
+        },
+        {
+          "label": "B",
+          "text": "to make"
+        },
+        {
+          "label": "C",
+          "text": "make"
+        },
+        {
+          "label": "D",
+          "text": "made"
+        }
+      ],
+      "answer": "A",
+      "explanation": "avoid は動名詞だけを目的語に取るので、making が正解。to make は avoid の後ろでは使えない。make は原形で、単独では目的語にならない。made は過去分詞で、この位置には合わない。",
+      "translation": "同じ間違いを二度としないようにすべきだ。"
+    },
+    {
+      "id": "gerund-q02",
+      "sentence": "Please finish ------- the report by Friday.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to write"
+        },
+        {
+          "label": "B",
+          "text": "writing"
+        },
+        {
+          "label": "C",
+          "text": "write"
+        },
+        {
+          "label": "D",
+          "text": "written"
+        }
+      ],
+      "answer": "B",
+      "explanation": "finish は動名詞を目的語に取るので、writing が正解。to write は finish の後ろでは使えない。write は原形、written は過去分詞で、動名詞の位置に入らない。",
+      "translation": "金曜日までにレポートを書き終えてください。"
+    },
+    {
+      "id": "gerund-q03",
+      "sentence": "She is looking forward to ------- from you.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to hear"
+        },
+        {
+          "label": "B",
+          "text": "hear"
+        },
+        {
+          "label": "C",
+          "text": "hearing"
+        },
+        {
+          "label": "D",
+          "text": "heard"
+        }
+      ],
+      "answer": "C",
+      "explanation": "look forward to の to は前置詞なので、後ろには動名詞 hearing が来る。looking forward to hearing from you(ご連絡を楽しみにしています)が正解。to hear は不定詞で、前置詞 to の後ろには置けない。hear と heard は、この位置に合わない。",
+      "translation": "彼女は、あなたからの連絡を楽しみにしている。"
+    },
+    {
+      "id": "gerund-q04",
+      "sentence": "He is used to ------- late at the office.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to work"
+        },
+        {
+          "label": "B",
+          "text": "work"
+        },
+        {
+          "label": "C",
+          "text": "to working"
+        },
+        {
+          "label": "D",
+          "text": "working"
+        }
+      ],
+      "answer": "D",
+      "explanation": "be used to の to は前置詞なので、後ろは動名詞 working になる。is used to working(~することに慣れている)が正解。to work と to working は、used to の to と重なり、語順が誤り。work は原形で、この位置に合わない。",
+      "translation": "彼は、会社で遅くまで働くことに慣れている。"
+    },
+    {
+      "id": "gerund-q05",
+      "sentence": "It is no use ------- about the delay now.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "complaining"
+        },
+        {
+          "label": "B",
+          "text": "to complain"
+        },
+        {
+          "label": "C",
+          "text": "complain"
+        },
+        {
+          "label": "D",
+          "text": "complained"
+        }
+      ],
+      "answer": "A",
+      "explanation": "It is no use -ing(~しても無駄だ)の形で、complaining が正解。to complain は不定詞で、この慣用表現の形に合わない。complain は原形、complained は過去形・過去分詞で、どちらも合わない。",
+      "translation": "今になって遅れについて文句を言っても、無駄だ。"
+    },
+    {
+      "id": "gerund-q06",
+      "sentence": "The report is worth ------- carefully.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to read"
+        },
+        {
+          "label": "B",
+          "text": "reading"
+        },
+        {
+          "label": "C",
+          "text": "read"
+        },
+        {
+          "label": "D",
+          "text": "reads"
+        }
+      ],
+      "answer": "B",
+      "explanation": "be worth -ing(~する価値がある)の形で、reading が正解。to read は be worth の後ろには続かない。read は原形、reads は三人称単数の動詞で、どちらもこの形には合わない。",
+      "translation": "そのレポートは、注意深く読む価値がある。"
+    },
+    {
+      "id": "gerund-q07",
+      "sentence": "They are considering ------- the office to Osaka.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to move"
+        },
+        {
+          "label": "B",
+          "text": "move"
+        },
+        {
+          "label": "C",
+          "text": "moving"
+        },
+        {
+          "label": "D",
+          "text": "moved"
+        }
+      ],
+      "answer": "C",
+      "explanation": "consider は動名詞を目的語に取るので、moving が正解。to move は consider の後ろでは使えない。move は原形、moved は過去分詞で、動名詞の位置には入らない。",
+      "translation": "彼らは、オフィスを大阪へ移すことを検討している。"
+    },
+    {
+      "id": "gerund-q08",
+      "sentence": "Our manager insisted on ------- the data again.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to check"
+        },
+        {
+          "label": "B",
+          "text": "check"
+        },
+        {
+          "label": "C",
+          "text": "checks"
+        },
+        {
+          "label": "D",
+          "text": "checking"
+        }
+      ],
+      "answer": "D",
+      "explanation": "insist on(~を主張する)は前置詞 on を伴い、後ろには動名詞が来る。checking が正解。to check は前置詞の後ろに置けない不定詞。check と checks は、前置詞の後ろの形として合わない。",
+      "translation": "部長は、データをもう一度確認すべきだと主張した。"
+    },
+    {
+      "id": "gerund-q09",
+      "sentence": "The consultant suggested ------- more staff.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "hiring"
+        },
+        {
+          "label": "B",
+          "text": "to hire"
+        },
+        {
+          "label": "C",
+          "text": "hire"
+        },
+        {
+          "label": "D",
+          "text": "hired"
+        }
+      ],
+      "answer": "A",
+      "explanation": "suggest は動名詞を目的語に取るので、hiring が正解。to hire は suggest の後ろでは使えない。hire は原形、hired は過去分詞で、この位置には合わない。",
+      "translation": "コンサルタントは、人を増やすことを提案した。"
+    },
+    {
+      "id": "gerund-q10",
+      "sentence": "We appreciate ------- us during the move.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "you help"
+        },
+        {
+          "label": "B",
+          "text": "your helping"
+        },
+        {
+          "label": "C",
+          "text": "you to help"
+        },
+        {
+          "label": "D",
+          "text": "to help"
+        }
+      ],
+      "answer": "B",
+      "explanation": "appreciate は動名詞を目的語に取り、その意味上の主語は所有格で示す。your helping us が正解。you help と you to help は、動名詞の意味上の主語として形が合わない。to help は不定詞で、appreciate の後ろには続かない。",
+      "translation": "引っ越しの間、手伝ってくださったことに感謝します。"
+    },
+    {
+      "id": "gerund-q11",
+      "sentence": "Thank you for ------- to the meeting on time.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "came"
+        },
+        {
+          "label": "B",
+          "text": "to come"
+        },
+        {
+          "label": "C",
+          "text": "come"
+        },
+        {
+          "label": "D",
+          "text": "coming"
+        }
+      ],
+      "answer": "D",
+      "explanation": "前置詞 for の後ろには、動名詞 coming が来る。Thank you for coming to the meeting on time.(時間どおりに会議に来てくださってありがとう)が正解。came と come は、前置詞の後ろの形として合わない。to come は不定詞で、前置詞の後には置けない。",
+      "translation": "時間どおりに会議に来てくださって、ありがとうございます。"
+    },
+    {
+      "id": "gerund-q12",
+      "sentence": "The team is prone to ------- mistakes under pressure.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "to make"
+        },
+        {
+          "label": "B",
+          "text": "make"
+        },
+        {
+          "label": "C",
+          "text": "making"
+        },
+        {
+          "label": "D",
+          "text": "made"
+        }
+      ],
+      "answer": "C",
+      "explanation": "be prone to は、前置詞 to の後ろに動名詞を置く。making mistakes(間違いをしがちだ)が正解。to make は前置詞の後ろに置けない。make は原形、made は過去分詞で、どちらも前置詞の後の形として合わない。",
+      "translation": "そのチームは、プレッシャーの下で間違いをしがちだ。"
+    }
+  ],
+  "related": [
+    "infinitive",
+    "verb",
+    "participle"
+  ]
+}

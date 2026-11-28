@@ -1,0 +1,312 @@
+{
+  "id": "comparison",
+  "no": 9,
+  "title": "比較",
+  "lead": "比較は、二つ以上のものの程度や量を比べる表現です。同じくらいなら as ~ as、違いがあるなら比較級(-er / more ~)、三つ以上の中で一番なら最上級(-est / most ~)を使います。TOEIC Part 5 では、than と as の使い分け、the + 比較級の形、倍数表現、慣用的な比較表現がよく問われます。この章では、それぞれの形と使い方を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "比較の三つの形: 原級・比較級・最上級",
+      "intro": "形容詞や副詞は、比べ方によって形を変えます。同じ程度を表す原級、差がある比較級、一番を表す最上級の三つがあります。この節では、その基本の形を確かめます。",
+      "keywords": ["比較"],
+      "items": [
+        {
+          "heading": "原級・比較級・最上級の形",
+          "explanation": "短い語は -er・-est を付けて、長い語(二音節以上)は more・most を前に置いて作ります。不規則に変わる語(good、well、bad、many、much)は、形を覚えます。\n\n・good → better → best\n・many / much → more → most",
+          "table": {
+            "caption": "比較の変化",
+            "headers": ["形", "形容詞の例", "意味"],
+            "rows": [
+              ["原級", "cheap", "安い"],
+              ["比較級", "cheaper / more expensive", "より安い"],
+              ["最上級", "the cheapest / the most expensive", "一番安い"]
+            ]
+          },
+          "examples": [
+            { "en": "This model is **cheaper** than the old one.", "ja": "この機種は、古い機種より安い。", "note": "比較級 + than" },
+            { "en": "This is **the most expensive** product in our range.", "ja": "これは、当社の製品の中で一番高価だ。", "note": "the most + 形容詞(長い語)" }
+          ]
+        },
+        {
+          "heading": "than と as の使い分け",
+          "explanation": "比べる相手を示すとき、比較級の後ろには than を置きます。同じくらいを示すときは、as ~ as で挟みます。\n\n・比較級: The new system is faster than the old one.\n・同等: The new system is as fast as the old one.\n・否定の同等: The new system is not as fast as we expected.(期待ほど速くない)",
+          "examples": [
+            { "en": "The new system is **faster than** the old one.", "ja": "新しいシステムは、古いシステムより速い。", "note": "比較級には than" },
+            { "en": "The new system is **as fast as** the old one.", "ja": "新しいシステムは、古いシステムと同じくらい速い。", "note": "as ~ as で同等" }
+          ],
+          "cautions": ["× The new system is faster as the old one. → ○ The new system is faster than the old one.(比較級には than を使う)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、than と as の選択、比較級と最上級の形の取り違えが出題されます。空所の前後に than や as があるかを確かめます。"
+    },
+    {
+      "id": "positive",
+      "title": "原級: as ~ as と、倍数・同等の表現",
+      "intro": "as ~ as は「同じくらい~」、not as ~ as は「~ほどではない」を表します。数や量、倍数を比べるときの形もあります。",
+      "keywords": ["比較(原級)", "as + 原級 + as", "as ... as", "nearly as", "倍数表現", "as many as", "no later than"],
+      "items": [
+        {
+          "heading": "as ~ as・not as ~ as",
+          "explanation": "as ~ as は「同じくらい~」を表し、not as ~ as は「~ほどではない」を表します。\n\n・as + 形容詞・副詞 + as: as careful as(同じくらい注意深い)\n・not as + 形容詞・副詞 + as: not as expensive as(それほど高くない)",
+          "examples": [
+            { "en": "Our new office is **as large as** the old one.", "ja": "新しいオフィスは、古いオフィスと同じくらい広い。", "note": "as ~ as(同等)" },
+            { "en": "This route is **not as fast as** the highway.", "ja": "この道は、幹線道路ほど速くない。", "note": "not as ~ as(劣る)" }
+          ]
+        },
+        {
+          "heading": "as many as・as much as: 数と量の同等",
+          "explanation": "数えられる名詞には as many as を、数えられない名詞には as much as を使います。\n\n・as many customers as(~と同じ数の顧客)\n・as much money as(~と同じ額のお金)",
+          "examples": [
+            { "en": "We have **as many** employees **as** our competitors.", "ja": "私たちは、競合他社と同じ数の社員がいる。", "note": "数えられる名詞 + as many as" },
+            { "en": "She spent **as much** money **as** she had planned.", "ja": "彼女は計画どおりの額を使った。", "note": "数えられない名詞 + as much as" }
+          ]
+        },
+        {
+          "heading": "倍数表現: twice・three times as ~ as",
+          "explanation": "倍数は、twice や three times を as ~ as の前に置いて表します。\n\n・twice as large as(2倍の大きさ)\n・three times as many as(3倍の数)",
+          "examples": [
+            { "en": "The new factory is **twice as large as** the old one.", "ja": "新しい工場は、古い工場の2倍の大きさだ。", "note": "twice as ~ as" },
+            { "en": "We sold **three times as many** units as last year.", "ja": "私たちは昨年の3倍の台数を売った。", "note": "three times as many as" }
+          ]
+        },
+        {
+          "heading": "no later than・as ~ as any: 遅くとも・どれにも劣らない",
+          "explanation": "no later than は「遅くとも~までに」を表し、期限を強める言い方です。as ~ as any は「どの~にも劣らない」を表します。\n\n・no later than Friday(遅くとも金曜日までに)\n・as useful as any tool(どの道具にも劣らず役に立つ)",
+          "examples": [
+            { "en": "Please submit the form **no later than** Friday.", "ja": "遅くとも金曜日までに、用紙を提出してください。", "note": "no later than(遅くとも~までに)" },
+            { "en": "This software is **as reliable as any** on the market.", "ja": "このソフトは、市場のどの製品にも劣らず信頼できる。", "note": "as ~ as any(どれにも劣らない)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、as ~ as の間の形(形容詞か名詞か)や、倍数の位置(twice as many as)が問われます。"
+    },
+    {
+      "id": "comparative",
+      "title": "比較級: 差の表し方と、less の使い方",
+      "intro": "比較級の前には、差の大きさを表す語を置けます。また、less は比較級の逆の意味を表します。",
+      "keywords": ["much + 比較級", "far + 比較級", "less + 原級"],
+      "items": [
+        {
+          "heading": "差を表す語: much・far・a lot・even・still",
+          "explanation": "比較級の前に置いて、差の大きさを強めます。\n\n・much / far / a lot / even / still + 比較級\n\n例: much more efficient(ずっと効率がよい)、far better(はるかに良い)、even faster(さらに速い)、still bigger(もっと大きい)",
+          "examples": [
+            { "en": "The new model is **much more** efficient than the old one.", "ja": "新しい機種は、古い機種よりずっと効率がよい。", "note": "much + 比較級" },
+            { "en": "This method is **far better** than the previous one.", "ja": "この方法は、前のものよりはるかに良い。", "note": "far + 比較級" }
+          ]
+        },
+        {
+          "heading": "less + 原級 + than: ~ほど~ではない",
+          "explanation": "less + 原級 + than は、「~ほど~ではない」を表します。比較級の逆の意味になるので、than の後ろには思った・比べた基準が続きます。\n\n・less complicated than we thought(思ったほど複雑ではない)",
+          "examples": [
+            { "en": "The new process is **less complicated** than we thought.", "ja": "新しい工程は、思ったほど複雑ではない。", "note": "less + 原級 + than" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、差を表す語(much・far など)が比較級の前に来ることを確かめる問題が出ます。"
+    },
+    {
+      "id": "the-comparative",
+      "title": "the + 比較級, the + 比較級: ~するほど、ますます",
+      "intro": "二つの比較級を the で始めて並べると、「~すればするほど、…になる」の意味になります。また、二つのうちどちらかを示すときにも the + 比較級を使います。",
+      "keywords": ["the + 比較級"],
+      "items": [
+        {
+          "heading": "The 比較級, the 比較級: ~するほど、…になる",
+          "explanation": "「~すればするほど、…になる」の意味で、二つの比較級を the で始めて並べます。\n\n・The more you practice, the better you get.(練習すればするほど、上達する)\n・The sooner, the better.(早いほどよい)\n\n二つ目の the は、主節の主語の前に付きます。",
+          "examples": [
+            { "en": "**The more** you **practice**, **the better** your results will be.", "ja": "練習すればするほど、結果は良くなる。", "note": "The 比較級, the 比較級" },
+            { "en": "**The earlier** we start, **the sooner** we will finish.", "ja": "早く始めるほど、早く終わる。", "note": "the + 比較級(二つ)" }
+          ]
+        },
+        {
+          "heading": "the + 比較級 + of the two: 二つのうちどちら",
+          "explanation": "二つのものを比べて、「どちらのほうが~か」を言うときは、the + 比較級 + of the two を使います。\n\n・Which is the cheaper of the two?(二つのうち、どちらが安いか)",
+          "examples": [
+            { "en": "Tokyo is **the larger of the two** cities.", "ja": "東京は、二つの都市のうち大きいほうだ。", "note": "the + 比較級 + of the two" },
+            { "en": "This plan is **the better of the two** options.", "ja": "この計画は、二つの選択肢のうちよいほうだ。", "note": "the + 比較級 + of the two" }
+          ]
+        },
+        {
+          "heading": "The less ..., the more ...: 少ないほど、多く",
+          "explanation": "比較級は、less でも同じ形で使えます。「~が少ないほど、ますます…」の意味になります。\n\n・The less time we have, the more carefully we must plan.(時間が少ないほど、慎重に計画しなければならない)",
+          "examples": [
+            { "en": "**The less** time we have, **the more** carefully we must plan.", "ja": "時間が少ないほど、慎重に計画しなければならない。", "note": "The less ..., the more ..." }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、the の後ろに比較級を置く形(the more ~, the better)や、of the two を選ばせる問題が出ます。"
+    },
+    {
+      "id": "superlative",
+      "title": "最上級: 一番~、the + 序数 + 最上級、by far",
+      "intro": "三つ以上のものの中で一番であることは、the + 最上級で表します。範囲を示す語句は、of や in を使います。",
+      "keywords": ["比較(最上級)", "比較(最上級+of)", "the + 序数", "by far"],
+      "items": [
+        {
+          "heading": "最上級の基本: the + 最上級 + of / in",
+          "explanation": "三つ以上のものの中で一番であることを表すには、the + 最上級を使います。範囲を示すときは、of(グループの中で)か in(場所や集団の中で)を使います。\n\n・of the three(三つのうち)、of all(すべての中で)\n・in the company(会社の中で)、in the world(世界で)",
+          "examples": [
+            { "en": "She is **the most** experienced **manager** in the company.", "ja": "彼女は社内で一番経験豊富な部長だ。", "note": "the most + 形容詞 + in" },
+            { "en": "This is **the largest** of the three offices.", "ja": "これは、三つの事務所のうちで一番大きい。", "note": "the + 最上級 + of" }
+          ]
+        },
+        {
+          "heading": "the + 序数 + 最上級: 二番目・三番目に~",
+          "explanation": "「二番目に~」「三番目に~」は、the + 序数 + 最上級で表します。\n\n・the second largest(二番目に大きい)\n・the third most popular(三番目に人気がある)",
+          "examples": [
+            { "en": "This is **the second most popular** product in the store.", "ja": "これは、その店で二番目に人気のある商品だ。", "note": "the second + most + 形容詞" }
+          ]
+        },
+        {
+          "heading": "by far + the 最上級: はるかに一番",
+          "explanation": "最上級の前に by far を置くと、「はるかに~で一番」と強められます。最上級だけでは「一番」と言えても、どれくらい差があるかは分かりません。by far を付けると、二番目以下と大きく差があることを示せます。\n\n・by far the best(はるかに最もよい)\n・by far the largest(はるかに一番大きい)",
+          "examples": [
+            { "en": "This is **by far the best** option for the project.", "ja": "これは、そのプロジェクトにとって、はるかに最もよい選択肢だ。", "note": "by far + the 最上級" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、最上級の前の the の有無、範囲を示す of と in の使い分けが出題されます。"
+    },
+    {
+      "id": "idioms",
+      "title": "慣用的な比較表現: no sooner・would rather・nothing but・superior to",
+      "intro": "比較の形を使った慣用表現には、決まった形で覚えるものがあります。TOEIC の文書でも、よく出ます。",
+      "keywords": ["nothing but", "no sooner", "would rather", "superior to"],
+      "items": [
+        {
+          "heading": "no sooner ... than: ~するとすぐに…",
+          "explanation": "no sooner ... than は「~するとすぐに…した」を表します。no sooner が文頭に出ると、主語と動詞は倒置されます(倒置の章も参照)。\n\n・No sooner had we arrived than it started to rain.(着くとすぐに雨が降り出した)",
+          "examples": [
+            { "en": "**No sooner** had the meeting started **than** the phone rang.", "ja": "会議が始まるとすぐに、電話が鳴った。", "note": "no sooner ... than(文頭では倒置)" }
+          ]
+        },
+        {
+          "heading": "would rather A than B: B よりむしろ A したい",
+          "explanation": "would rather A than B は、「B するよりむしろ A したい」を表します。A と B は、同じ形の動詞を並べます。\n\n・I would rather walk than take the bus.(バスに乗るより歩きたい)",
+          "examples": [
+            { "en": "I would rather stay at home **than** go to the party.", "ja": "パーティーに行くより、家にいたい。", "note": "would rather A than B" }
+          ]
+        },
+        {
+          "heading": "nothing but・superior to: ~にすぎない・~より優れている",
+          "explanation": "nothing but は「~にすぎない」「~しかない」を表します(only の意味)。superior to は「~より優れた」を表し、than ではなく to を使います。\n\n・It is nothing but a rumor.(それは噂にすぎない)\n・This model is superior to the previous one.(この機種は前のものより優れている)",
+          "examples": [
+            { "en": "This report is **nothing but** a summary of old data.", "ja": "このレポートは、古いデータの要約にすぎない。", "note": "nothing but(~にすぎない)" },
+            { "en": "This product is **superior to** all its competitors.", "ja": "この製品は、競合のどれよりも優れている。", "note": "superior to(than ではなく to)" }
+          ],
+          "cautions": ["× This model is superior than the old one. → ○ This model is superior to the old one.(superior は to と組む)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、慣用表現の決まった形(no sooner ... than、would rather A than B、superior to)を選ばせる問題が出ます。"
+    }
+  ],
+  "summary": [
+    "原級: as + 形容詞・副詞 + as(同じくらい)、not as ~ as(ほどではない)",
+    "比較級: 形容詞・副詞 + -er / more ~ + than。比較級には than を使う(as ではない)",
+    "差を表す語(much・far・a lot・even・still)は、比較級の前に置く",
+    "The 比較級, the 比較級: ~すればするほど、…になる",
+    "最上級: the + 最上級 + of / in(範囲)。by far で強める",
+    "倍数: twice as many as、three times as large as",
+    "慣用: no sooner ... than(~するとすぐに)、would rather A than B、nothing but(~にすぎない)",
+    "superior は than ではなく to と組む"
+  ],
+  "quiz": [
+    {
+      "id": "comparison-q01",
+      "sentence": "This model is ------- than the old one.",
+      "choices": [{ "label": "A", "text": "faster" }, { "label": "B", "text": "fast" }, { "label": "C", "text": "more fast" }, { "label": "D", "text": "the fastest" }],
+      "answer": "A",
+      "explanation": "比較級の形 faster と than が組になる。faster than the old one が正解。fast は原級で、比べる意味にならない。more fast は短い語に more を付けた誤り。the fastest は最上級で、二つを比べる文に合わない。",
+      "translation": "この機種は、古い機種より速い。"
+    },
+    {
+      "id": "comparison-q02",
+      "sentence": "The new system is ------- reliable as the old one.",
+      "choices": [{ "label": "A", "text": "more" }, { "label": "B", "text": "as" }, { "label": "C", "text": "than" }, { "label": "D", "text": "most" }],
+      "answer": "B",
+      "explanation": "同じくらいを表す as ~ as の前半 as が入る。as reliable as the old one(古いものと同じくらい信頼できる)が正解。more と than は比較級の形で、as ~ as の文には合わない。most は最上級で、この文の形に合わない。",
+      "translation": "新しいシステムは、古いシステムと同じくらい信頼できる。"
+    },
+    {
+      "id": "comparison-q03",
+      "sentence": "The more you practice, ------- your skills become.",
+      "choices": [{ "label": "A", "text": "the best" }, { "label": "B", "text": "better" }, { "label": "C", "text": "the better" }, { "label": "D", "text": "good" }],
+      "answer": "C",
+      "explanation": "The 比較級, the 比較級(~すればするほど、…になる)の二つ目の the が必要。the better が正解。better だけでは the が欠けている。the best は最上級、good は原級で、この形には合わない。",
+      "translation": "練習すればするほど、あなたの技術は良くなる。"
+    },
+    {
+      "id": "comparison-q04",
+      "sentence": "She is ------- of the two candidates.",
+      "choices": [{ "label": "A", "text": "more experienced" }, { "label": "B", "text": "experienced" }, { "label": "C", "text": "most experienced" }, { "label": "D", "text": "the more experienced" }],
+      "answer": "D",
+      "explanation": "二つのうちどちらが~かを言う the + 比較級 + of the two が正解。the more experienced of the two となる。most experienced は三つ以上の中の最上級で、二人の比較には合わない。more experienced と experienced は、the と of the two の形になっていない。",
+      "translation": "彼女は二人の候補者のうち、経験が豊富なほうだ。"
+    },
+    {
+      "id": "comparison-q05",
+      "sentence": "This is ------- largest office in the city.",
+      "choices": [{ "label": "A", "text": "the" }, { "label": "B", "text": "a" }, { "label": "C", "text": "an" }, { "label": "D", "text": "one" }],
+      "answer": "A",
+      "explanation": "最上級には the を付ける。the largest office in the city(市内で一番大きい事務所)が正解。a と an は最上級の前には使わない。one は代名詞で、最上級の形に合わない。",
+      "translation": "これは、市内で一番大きい事務所だ。"
+    },
+    {
+      "id": "comparison-q06",
+      "sentence": "Our company sold ------- as many units as last year.",
+      "choices": [{ "label": "A", "text": "two" }, { "label": "B", "text": "twice" }, { "label": "C", "text": "more" }, { "label": "D", "text": "three" }],
+      "answer": "B",
+      "explanation": "倍数を表す twice as many as(昨年の2倍の数)が正解。two as many は、倍数の表し方として正しくない。more as many や three as many も、この形には合わない。",
+      "translation": "当社は、昨年の2倍の台数を売った。"
+    },
+    {
+      "id": "comparison-q07",
+      "sentence": "Please submit the report ------- later than Friday.",
+      "choices": [{ "label": "A", "text": "not" }, { "label": "B", "text": "nor" }, { "label": "C", "text": "no" }, { "label": "D", "text": "none" }],
+      "answer": "C",
+      "explanation": "遅くとも~までに、の意味の no later than が正解。no later than Friday(遅くとも金曜日までに)となる。not later than は、この形としては使わない。nor と none は、この文の形に合わない。",
+      "translation": "遅くとも金曜日までに、報告書を提出してください。"
+    },
+    {
+      "id": "comparison-q08",
+      "sentence": "No ------- had the meeting started than the phone rang.",
+      "choices": [{ "label": "A", "text": "soon" }, { "label": "B", "text": "soonest" }, { "label": "C", "text": "soonly" }, { "label": "D", "text": "sooner" }],
+      "answer": "D",
+      "explanation": "no sooner ... than(~するとすぐに…)の sooner が入る。No sooner had the meeting started than the phone rang.(会議が始まるとすぐに電話が鳴った)が正解。soon や soonest、soonly は、この慣用表現の形に合わない。",
+      "translation": "会議が始まるとすぐに、電話が鳴った。"
+    },
+    {
+      "id": "comparison-q09",
+      "sentence": "I would ------- walk than take the bus.",
+      "choices": [{ "label": "A", "text": "rather" }, { "label": "B", "text": "better" }, { "label": "C", "text": "prefer" }, { "label": "D", "text": "more" }],
+      "answer": "A",
+      "explanation": "would rather walk than take the bus(バスに乗るより歩きたい)の rather が正解。better と prefer は、would と組んで than を取る形にはならない。more は would more と組まないので、合わない。",
+      "translation": "バスに乗るよりも、歩きたい。"
+    },
+    {
+      "id": "comparison-q10",
+      "sentence": "This report is ------- a summary of old data.",
+      "choices": [{ "label": "A", "text": "nothing" }, { "label": "B", "text": "nothing but" }, { "label": "C", "text": "none but" }, { "label": "D", "text": "anything but" }],
+      "answer": "B",
+      "explanation": "「~にすぎない」の nothing but が正解。This report is nothing but a summary of old data.(このレポートは古いデータの要約にすぎない)。nothing だけでは but が足りない。none but は意味が違い、anything but は「~どころか」の意味で、この文には合わない。",
+      "translation": "このレポートは、古いデータの要約にすぎない。"
+    },
+    {
+      "id": "comparison-q11",
+      "sentence": "The new product is ------- to all its competitors.",
+      "choices": [{ "label": "A", "text": "superior than" }, { "label": "B", "text": "superior of" }, { "label": "C", "text": "superior to" }, { "label": "D", "text": "more superior" }],
+      "answer": "C",
+      "explanation": "superior(優れた)は to と組んで、「~より優れている」を表す。superior to が正解。superior than は than と組む誤り、superior of は前置詞が違う、more superior は superior が比較級の形なので二重になる。",
+      "translation": "その新製品は、競合のどの製品よりも優れている。"
+    },
+    {
+      "id": "comparison-q12",
+      "sentence": "This is ------- the best option for the project.",
+      "choices": [{ "label": "A", "text": "far" }, { "label": "B", "text": "by the far" }, { "label": "C", "text": "by farther" }, { "label": "D", "text": "by far" }],
+      "answer": "D",
+      "explanation": "最上級を強める by far が正解。by far the best option(はるかに最もよい選択肢)となる。far だけでは by が足りない。by the far と by farther は、最上級の強調として正しい形ではない。",
+      "translation": "これは、そのプロジェクトにとって、はるかに最もよい選択肢だ。"
+    }
+  ],
+  "related": ["inversion", "adjective", "adverb"]
+}

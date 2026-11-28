@@ -1,0 +1,291 @@
+{
+  "id": "inversion",
+  "no": 23,
+  "title": "倒置・省略・強調・挿入",
+  "lead": "倒置は、主語と動詞の語順を入れ替えることです。否定の意味を持つ語句が文頭に出ると、倒置が起きることが多く、文章に強い響きを与えます。このほか、語句を省略する形、強調構文、挿入の形もあります。TOEIC Part 5 では、文頭の否定語のあとの助動詞の形、It is ~ that の強調構文、省略された語句の判断がよく出題されます。この章では、それぞれの形を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "倒置の基本: 主語と動詞の語順が入れ替わる",
+      "intro": "普通の平叙文は、主語が先で、動詞があとに続きます。倒置は、助動詞や be 動詞などが主語の前に出る語順です。文頭に特定の語句が来たときに、この語順になることを覚えます。",
+      "keywords": ["倒置"],
+      "items": [
+        {
+          "heading": "倒置の基本の形: 助動詞・be 動詞を主語の前に出す",
+          "explanation": "平叙文では「主語 + 動詞」の順ですが、倒置では「助動詞(または be 動詞・have)+ 主語 + 動詞の原形(または過去分詞)」の順になります。\n\n・平叙文: We have never seen such a beautiful view.\n・倒置: Never have we seen such a beautiful view.(これほど美しい眺めは、見たことがない)\n\n一般動詞の場合は、do / does / did を使って倒置します。",
+          "examples": [
+            { "en": "**Never have** we **seen** such a beautiful view.", "ja": "これほど美しい眺めは、見たことがない。", "note": "have が主語の前に出る(現在完了の倒置)" },
+            { "en": "**Little did** we **know** about the risks.", "ja": "そのリスクについて、私たちはほとんど知らなかった。", "note": "一般動詞は did を前に出す" }
+          ]
+        },
+        {
+          "heading": "倒置しない副詞: 文頭に来ても、普通の語順のまま",
+          "explanation": "文頭に副詞が来ても、必ず倒置になるわけではありません。倒置になるのは、否定語や限定を表す語句(never、seldom、little、only など)が文頭に出たときです。yesterday や often などの普通の副詞は、倒置をせずに、主語と動詞の語順を保ちます。\n\n・Yesterday we met the client in Osaka.(昨日、私たちは大阪で顧客に会った)\n・Often we meet at the station.(私たちはよく駅で会う)",
+          "examples": [
+            { "en": "Yesterday we **met** the client in Osaka.", "ja": "昨日、私たちは大阪で顧客に会った。", "note": "普通の副詞は倒置しない" },
+            { "en": "Often we **meet** at the station.", "ja": "私たちはよく駅で会う。", "note": "頻度の副詞は普通の語順" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、倒置の文で、空所に入る助動詞(have・did・should など)を選ばせる問題が出ます。文頭の否定語を見てから、語順を考えます。"
+    },
+    {
+      "id": "negative-adverbs",
+      "title": "否定語の倒置: Never・Seldom・Rarely・Little・On no account",
+      "intro": "否定の意味を持つ副詞や語句(never、seldom、rarely、little、not only、on no account、under no circumstances など)が文頭に出ると、主語と助動詞を入れ替えます。",
+      "keywords": ["倒置(Not only)", "倒置(not only)", "倒置(Seldom)", "副詞(seldom", "倒置(Rarely)", "倒置(Never)", "倒置(Little)", "倒置(否定語)", "倒置(Under no circumstances)", "倒置(On no account)"],
+      "items": [
+        {
+          "heading": "Never・Seldom・Rarely: 文頭で、倒置する",
+          "explanation": "never、seldom(めったに~ない)、rarely(めったに~ない)が文頭に出ると、その後ろは倒置になります。\n\n・Never have I seen such a large order.(これほど大きな注文は、見たことがない)\n・Seldom does the manager attend the weekly meeting.(部長が週の会議に出るのは、めったにない)",
+          "examples": [
+            { "en": "**Seldom does** the manager **attend** the weekly meeting.", "ja": "部長が週の会議に出席するのは、めったにない。", "note": "seldom + does + 主語 + 動詞の原形" },
+            { "en": "**Rarely have** we **received** such a large order.", "ja": "これほど大きな注文を受けることは、めったにない。", "note": "rarely + have + 主語 + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "Not only: AだけでなくBも(倒置)",
+          "explanation": "not only が文頭に出ると、not only の後ろは倒置になります。but also の後ろは普通の語順です。\n\n・Not only does the product save money, but it also saves time.(その製品は、お金を節約するだけでなく、時間も節約する)",
+          "examples": [
+            { "en": "**Not only does** the product **save** money, but it also saves time.", "ja": "その製品は、お金を節約するだけでなく、時間も節約する。", "note": "not only + does + 主語 + 動詞" }
+          ]
+        },
+        {
+          "heading": "On no account・Under no circumstances: 決して~してはならない",
+          "explanation": "on no account(決して~しない)と under no circumstances(どんな事情があっても~しない)は、文頭に出ると倒置になります。\n\n・On no account should you share the password.(決して、パスワードを誰かと共有してはならない)\n・Under no circumstances should staff leave the building.(どんな事情があっても、社員は建物を出てはならない)",
+          "examples": [
+            { "en": "**On no account should** you **share** the password with anyone.", "ja": "決して、パスワードを誰かと共有してはならない。", "note": "on no account + should + 主語 + 原形" },
+            { "en": "**Under no circumstances should** staff **leave** the building.", "ja": "どんな事情があっても、社員は建物を出てはならない。", "note": "under no circumstances + should + 主語" }
+          ]
+        },
+        {
+          "heading": "Little・Seldom: 強調のための否定語",
+          "explanation": "little(ほとんど~ない)は、文頭に出ると、did などを伴って倒置になります。Little did we know ...(ほとんど知らなかった)の形です。\n\n・Little did we know about the risks.(そのリスクを、私たちはほとんど知らなかった)",
+          "examples": [
+            { "en": "**Little did** we **know** about the risks at that time.", "ja": "そのとき、そのリスクを私たちはほとんど知らなかった。", "note": "little + did + 主語 + 動詞の原形" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、否定語の後ろの助動詞(has・does・did・should など)を、主語との語順で選ばせる問題が出ます。"
+    },
+    {
+      "id": "time-conjunctions",
+      "title": "時を表す倒置: Hardly ... when・No sooner ... than・Not until・Only after",
+      "intro": "「~するとすぐに」「~して初めて」を表す語句が文頭に出ると、主節は倒置になります。接続詞(when、than、until)と組で覚えます。",
+      "keywords": ["倒置(Hardly", "倒置(No sooner", "倒置(no sooner", "倒置(Not until)", "倒置(not until)", "倒置(Only after)", "倒置(only + 副詞句)", "倒置(only)", "倒置(No sooner)"],
+      "items": [
+        {
+          "heading": "Hardly ... when・No sooner ... than: ~するとすぐに",
+          "explanation": "hardly ... when(~するとすぐに~した)と no sooner ... than(~するとすぐに~した)は、主節が倒置になります。when や than のあとには、普通の語順の節が続きます。\n\n・Hardly had we arrived when it started to rain.(到着するとすぐに雨が降り出した)\n・No sooner had the meeting started than the phone rang.(会議が始まるとすぐに電話が鳴った)",
+          "examples": [
+            { "en": "**Hardly had** we **arrived** when it started to rain.", "ja": "到着するとすぐに、雨が降り出した。", "note": "hardly + had + 主語 + 過去分詞 + when" },
+            { "en": "**No sooner had** the meeting **started** than the phone rang.", "ja": "会議が始まるとすぐに、電話が鳴った。", "note": "no sooner + had + 主語 + 過去分詞 + than" }
+          ]
+        },
+        {
+          "heading": "Not until・Only after: ~して初めて",
+          "explanation": "not until(~まで~しない・~して初めて)や only after(~の後で初めて)が文頭に出ると、主節は倒置になります。\n\n・Not until the report was ready did we start the meeting.(報告書の準備ができて初めて、私たちは会議を始めた)\n・Only after the audit was completed did the company announce the results.(監査が終わって初めて、会社は結果を発表した)",
+          "examples": [
+            { "en": "**Not until** the report was ready **did** we start the meeting.", "ja": "報告書の準備ができて初めて、私たちは会議を始めた。", "note": "not until + 節 + did + 主語 + 動詞" },
+            { "en": "**Only after** the audit was completed **did** the company announce the results.", "ja": "監査が終わって初めて、会社は結果を発表した。", "note": "only after + 節 + did + 主語" }
+          ]
+        },
+        {
+          "heading": "Only by ~ing・Only + 副詞句: 手段や条件を強調する",
+          "explanation": "only + 副詞句(only by ~ing、only in this way など)が文頭に出ると、主語と助動詞が入れ替わります。\n\n・Only by working hard can you succeed.(一生懸命働いてこそ、成功できる)",
+          "examples": [
+            { "en": "**Only by working** hard **can you** succeed.", "ja": "一生懸命働いてこそ、あなたは成功できる。", "note": "only by ~ing + can + 主語 + 動詞の原形" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、hardly・no sooner・not until の後ろの語順(had we arrived、did we start)を選ばせる問題が出ます。"
+    },
+    {
+      "id": "so-such-emphasis",
+      "title": "So・Such の倒置と、強調の形",
+      "intro": "So + 形容詞や Such が文頭に出ると、倒置が起きます。また、It is ~ that の強調構文や、最上級・比較級の強調(the very、even、by far)も、この章で確かめます。",
+      "keywords": ["倒置(So + 形容詞)", "倒置(so ... that)", "倒置(Such ... that)", "Such ... that", "最上級の強調", "比較級の強調", "強調構文"],
+      "items": [
+        {
+          "heading": "So + 形容詞 + be 動詞 + 主語 + that: 非常に~なので",
+          "explanation": "So + 形容詞 が文頭に出ると、「be 動詞 + 主語」の倒置になります。あとに that 節で結果が続きます。\n\n・So difficult was the task that few people could finish it.(その仕事は非常に難しく、完成できる人はほとんどいなかった)",
+          "examples": [
+            { "en": "**So difficult was** the task **that** few people could finish it.", "ja": "その仕事は非常に難しく、完成できる人はほとんどいなかった。", "note": "So + 形容詞 + be + 主語 + that" }
+          ]
+        },
+        {
+          "heading": "Such ... that: 非常に~なので(文頭の場合)",
+          "explanation": "Such が文頭に出ると、was などの be 動詞が主語の前に出ます。\n\n・Such was the demand that the product sold out in a day.(需要が非常に多く、その製品は一日で売り切れた)",
+          "examples": [
+            { "en": "**Such was** the demand **that** the product sold out in a day.", "ja": "需要が非常に多く、その製品は一日で売り切れた。", "note": "Such + be + 主語 + that" }
+          ]
+        },
+        {
+          "heading": "It is ~ that の強調構文: 強調したい語句を It is と that で挟む",
+          "explanation": "強調構文は、「It is (was) + 強調したい語句 + that ~」の形です。主語・目的語・副詞句などを強調できます。\n\n・It was the manager who approved the plan.(その計画を承認したのは、部長だった)\n・It was in Tokyo that we first met.(私たちが初めて会ったのは、東京だった)",
+          "examples": [
+            { "en": "**It was** the manager **who** approved the plan.", "ja": "その計画を承認したのは、部長だった。", "note": "主語を強調(who は人)" },
+            { "en": "**It was** in Tokyo **that** we first met.", "ja": "私たちが初めて会ったのは、東京だった。", "note": "副詞句を強調" }
+          ]
+        },
+        {
+          "heading": "最上級・比較級の強調: the very・even",
+          "explanation": "最上級は the very で強められます。比較級は even や much で強められます。\n\n・the very best(まさに最もよい)\n・even faster(さらに速い)\n\nby far(はるかに)も、同じように強める語です(比較の章を参照)。",
+          "examples": [
+            { "en": "This is **the very best** place to start.", "ja": "ここが、まさに始めるのに最もよい場所だ。", "note": "the very + 最上級" },
+            { "en": "The new system is **even faster** than before.", "ja": "新しいシステムは、以前よりさらに速い。", "note": "even + 比較級" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、It was ~ that の強調構文の that(関係代名詞との区別)や、So ~ that・Such ~ that の形を選ばせる問題が出ます。"
+    },
+    {
+      "id": "omission",
+      "title": "省略と倒置: 共通の語句・if の省略",
+      "intro": "文の中で、前後と重なる語句は省略されます。また、if を省略して語順を変えた形や、慣用的な省略(if necessary、if any など)もあります。",
+      "keywords": ["Should + 主語", "省略と倒置", "目的格の省略", "being 省略", "unless 省略構文"],
+      "items": [
+        {
+          "heading": "If necessary・If any: 慣用的な省略",
+          "explanation": "「if + 主語 + be 動詞」の主語と be 動詞が省略された形が、慣用的に使われます。\n\n・If necessary, we will extend the deadline.(必要であれば、期限を延ばす)\n・If any, these changes will be small.(もしあったとしても、これらの変更は小さい)",
+          "examples": [
+            { "en": "**If necessary**, we will extend the deadline by one week.", "ja": "必要であれば、期限を一週間延ばす。", "note": "if it is necessary の省略" },
+            { "en": "There were few problems, **if any**.", "ja": "問題はあったとしてもほとんどなかった。", "note": "if any(あったとしても)" }
+          ]
+        },
+        {
+          "heading": "目的格の関係代名詞の省略と、unless の省略構文",
+          "explanation": "目的格の関係代名詞(who(m)、which、that)は、省略できます。また、unless の後ろの「主語 + be 動詞」も省略されることがあります。\n\n・The report (that) I wrote last week is ready.(私が先週書いたレポートは準備ができている)\n・Unless (it is) approved, the plan cannot start.(承認されなければ、計画は始められない)",
+          "examples": [
+            { "en": "The report **I wrote** last week is ready.", "ja": "私が先週書いたレポートは準備ができている。", "note": "目的格の関係代名詞が省略されている" },
+            { "en": "**Unless approved**, the plan cannot start.", "ja": "承認されなければ、その計画は始められない。", "note": "unless it is approved の省略" }
+          ]
+        },
+        {
+          "heading": "Should + 主語: 「もし~なら」の倒置",
+          "explanation": "should が文頭に出ると、if を省略した「もし~なら」の意味になります。実現の可能性が低い仮定を表します。\n\n・Should you need more information, please let us know.(万一、さらに情報が必要なら、お知らせください)",
+          "examples": [
+            { "en": "**Should** you **need** more information, please let us know.", "ja": "万一、さらに情報が必要でしたら、お知らせください。", "note": "should + 主語 + 原形(if の省略)" }
+          ]
+        },
+        {
+          "heading": "分詞構文の being の省略",
+          "explanation": "分詞構文では、being が省略されることがあります。being の後ろに続く過去分詞だけが残った形です。\n\n・(Being) Written in simple English, the guide is easy to follow.(簡単な英語で書かれているので、そのガイドは分かりやすい)",
+          "examples": [
+            { "en": "**Written** in simple English, the guide is easy to follow.", "ja": "簡単な英語で書かれているので、そのガイドは分かりやすい。", "note": "being が省略された分詞構文" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、if necessary・if any などの慣用的な省略、倒置の Should が選択肢に出ます。"
+    }
+  ],
+  "summary": [
+    "倒置は、助動詞・be 動詞・have を主語の前に出す。一般動詞は do / does / did を使う",
+    "否定語が文頭に出ると倒置: Never・Seldom・Rarely・Little・On no account・Under no circumstances",
+    "not only が文頭に出ると、not only の後ろが倒置(but also の後ろは普通の語順)",
+    "Hardly ... when、No sooner ... than、Not until、Only after は、主節が倒置される",
+    "So + 形容詞、Such は、文頭に出ると be 動詞と主語が入れ替わる",
+    "It is ~ that の強調構文: 強調したい語句を It is と that の間に置く",
+    "if necessary・if any・unless approved は、慣用的な省略",
+    "Should + 主語 + 原形は、if を省略した「万一~なら」の倒置"
+  ],
+  "quiz": [
+    {
+      "id": "inversion-q01",
+      "sentence": "Never ------- such a beautiful view.",
+      "choices": [{ "label": "A", "text": "have I seen" }, { "label": "B", "text": "I have seen" }, { "label": "C", "text": "I have" }, { "label": "D", "text": "I seen" }],
+      "answer": "A",
+      "explanation": "文頭の Never の後ろは倒置になり、have I seen の語順が正解。I have seen は倒置されていない語順で、文頭の否定語と合わない。I have と I seen は、動詞の形として不完全。",
+      "translation": "これほど美しい眺めは、見たことがない。"
+    },
+    {
+      "id": "inversion-q02",
+      "sentence": "Seldom ------- the manager attend the weekly meeting.",
+      "choices": [{ "label": "A", "text": "do" }, { "label": "B", "text": "does" }, { "label": "C", "text": "did" }, { "label": "D", "text": "is" }],
+      "answer": "B",
+      "explanation": "主語 the manager は三人称単数で、一般動詞の倒置には does を使う。Seldom does the manager attend が正解。do は主語に合わず、did は過去の意味になる。is は be 動詞で、attend の倒置には使えない。",
+      "translation": "部長が週の会議に出席することは、めったにない。"
+    },
+    {
+      "id": "inversion-q03",
+      "sentence": "Not only ------- the product save money, but it also saves time.",
+      "choices": [{ "label": "A", "text": "is it" }, { "label": "B", "text": "it is" }, { "label": "C", "text": "does it" }, { "label": "D", "text": "it does" }],
+      "answer": "C",
+      "explanation": "一般動詞 save の倒置には do・does・did を使う。Not only does it save money が正解。is it は be 動詞の倒置で、save と合わない。it is と it does は、倒置されていない語順。",
+      "translation": "その製品は、お金を節約するだけでなく、時間も節約する。"
+    },
+    {
+      "id": "inversion-q04",
+      "sentence": "Little ------- we know about the risks at that time.",
+      "choices": [{ "label": "A", "text": "knew" }, { "label": "B", "text": "we did" }, { "label": "C", "text": "do we" }, { "label": "D", "text": "did" }],
+      "answer": "D",
+      "explanation": "Little の倒置では、過去の意味の did を主語の前に出す。Little did we know が正解。knew は、倒置の助動詞を欠いた形。we did と do we は語順が正しくない。",
+      "translation": "そのとき、私たちはそのリスクについてほとんど知らなかった。"
+    },
+    {
+      "id": "inversion-q05",
+      "sentence": "On no account ------- you share the password with anyone.",
+      "choices": [{ "label": "A", "text": "should" }, { "label": "B", "text": "you should" }, { "label": "C", "text": "should you" }, { "label": "D", "text": "would" }],
+      "answer": "A",
+      "explanation": "On no account の後ろは倒置になり、助動詞 should が主語の前に出る。On no account should you share が正解。you should と should you は、語順が正しくない。would は意味が合わない。",
+      "translation": "決して、パスワードを誰かと共有してはならない。"
+    },
+    {
+      "id": "inversion-q06",
+      "sentence": "Not until the test was finished ------- the team start the next phase.",
+      "choices": [{ "label": "A", "text": "the team did" }, { "label": "B", "text": "did the team" }, { "label": "C", "text": "the team does" }, { "label": "D", "text": "does the team" }],
+      "answer": "B",
+      "explanation": "not until の節の後ろは倒置になり、did the team が正解。Not until ~ did the team start で、テストが終わって初めてチームが次の段階を始めた、の意味になる。the team did は倒置の語順になっていない。does the team は現在形の助動詞で、過去の出来事に合わない。",
+      "translation": "テストが終わって初めて、チームは次の段階を始めた。"
+    },
+    {
+      "id": "inversion-q07",
+      "sentence": "Hardly ------- we arrived when it started to rain.",
+      "choices": [{ "label": "A", "text": "we had" }, { "label": "B", "text": "did we" }, { "label": "C", "text": "had we" }, { "label": "D", "text": "we arrived" }],
+      "answer": "C",
+      "explanation": "Hardly ... when の倒置では、had we arrived の形になる。Hardly had we arrived when ... が正解。we had と did we は、過去完了の倒置の語順として合わない。we arrived は倒置されていない語順。",
+      "translation": "私たちが到着するとすぐに、雨が降り出した。"
+    },
+    {
+      "id": "inversion-q08",
+      "sentence": "No sooner ------- the meeting started than the phone rang.",
+      "choices": [{ "label": "A", "text": "was" }, { "label": "B", "text": "has" }, { "label": "C", "text": "the meeting had" }, { "label": "D", "text": "had" }],
+      "answer": "D",
+      "explanation": "No sooner の倒置では、過去完了の助動詞 had を主語の前に出す。No sooner had the meeting started than が正解。was と has は、過去完了の形に合わない。the meeting had は倒置の語順になっていない。",
+      "translation": "会議が始まるとすぐに、電話が鳴った。"
+    },
+    {
+      "id": "inversion-q09",
+      "sentence": "Only after the audit was completed ------- the company announce the results.",
+      "choices": [{ "label": "A", "text": "did" }, { "label": "B", "text": "the company did" }, { "label": "C", "text": "does" }, { "label": "D", "text": "had" }],
+      "answer": "A",
+      "explanation": "Only after の節の後ろは、主節が倒置になり、did the company announce の形が正解。the company did は倒置になっていない。does は現在形で、過去の出来事には合わない。had は完了の助動詞で、announce の倒置には使えない。",
+      "translation": "監査が完了して初めて、会社は結果を発表した。"
+    },
+    {
+      "id": "inversion-q10",
+      "sentence": "So ------- was the task that few people could finish it.",
+      "choices": [{ "label": "A", "text": "complicate" }, { "label": "B", "text": "complicated" }, { "label": "C", "text": "complicating" }, { "label": "D", "text": "complicates" }],
+      "answer": "B",
+      "explanation": "So + 形容詞 が文頭に出た倒置で、形容詞は complicated が正解。So complicated was the task that ... の形になる。complicate は動詞、complicating は現在分詞、complicates は三人称単数の動詞で、形容詞の位置には合わない。",
+      "translation": "その仕事は非常に複雑で、完成できる人はほとんどいなかった。"
+    },
+    {
+      "id": "inversion-q11",
+      "sentence": "Under no circumstances ------- staff leave the building during an emergency.",
+      "choices": [{ "label": "A", "text": "did" }, { "label": "B", "text": "to" }, { "label": "C", "text": "should" }, { "label": "D", "text": "is" }],
+      "answer": "C",
+      "explanation": "Under no circumstances の後ろは倒置になり、should が主語の前に出る。should staff leave が正解。did は過去形で意味が合わない。to と is は、倒置の助動詞として使えない。",
+      "translation": "どんな緊急時でも、社員は建物を出てはならない。"
+    },
+    {
+      "id": "inversion-q12",
+      "sentence": "If ------- , we will extend the deadline by one week.",
+      "choices": [{ "label": "A", "text": "needs" }, { "label": "B", "text": "needed" }, { "label": "C", "text": "need" }, { "label": "D", "text": "necessary" }],
+      "answer": "D",
+      "explanation": "If necessary(必要であれば)は、if it is necessary の主語と be 動詞を省略した慣用的な形。necessary が正解。needs、needed、need は動詞で、慣用表現の形としては合わない。",
+      "translation": "必要であれば、期限を一週間延ばします。"
+    }
+  ],
+  "related": ["mood", "comparison", "conjunction"]
+}

@@ -1,0 +1,332 @@
+{
+  "id": "participle",
+  "no": 14,
+  "title": "分詞",
+  "lead": "分詞は、動詞の形を変えて、名詞を修飾したり、文の中で副詞のはたらきをしたりする形です。現在分詞(-ing)は「~している」、過去分詞(-ed や不規則な形)は「~された」の意味を表します。TOEIC Part 5 では、感情を表す -ed と -ing の使い分け、分詞構文の意味(時・理由・付帯状況)、分詞の形の選び方がよく出題されます。この章では、その使い分けを確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "分詞の基本: 現在分詞と過去分詞",
+      "intro": "分詞は、動詞の形を変えて、名詞を修飾したり、文の一部として働いたりします。現在分詞と過去分詞で、意味が違います。この節では、その基本の形と、動詞との区別を確かめます。",
+      "keywords": ["分詞"],
+      "items": [
+        {
+          "heading": "現在分詞と過去分詞の形と意味",
+          "explanation": "現在分詞は「~している」(能動・進行)、過去分詞は「~された」(受動・完了)の意味が基本です。\n\n・現在分詞: the rising price(上がっている価格。価格が上がる)\n・過去分詞: the revised plan(改訂された計画。計画が改訂された)",
+          "table": {
+            "caption": "分詞の形",
+            "headers": ["種類", "形", "意味", "例"],
+            "rows": [
+              ["現在分詞", "動詞 + -ing", "~している(能動・進行)", "a rising price(上がっている価格)"],
+              ["過去分詞", "動詞 + -ed / 不規則形", "~された(受動・完了)", "a revised plan(改訂された計画)"]
+            ]
+          },
+          "examples": [
+            { "en": "The **rising** prices worried the team.", "ja": "上がり続ける物価が、チームを心配させた。", "note": "現在分詞: 能動(価格が上がる)" },
+            { "en": "The **revised** plan was approved yesterday.", "ja": "改訂された計画は、昨日承認された。", "note": "過去分詞: 受動(計画が改訂された)" }
+          ]
+        },
+        {
+          "heading": "分詞と、文の動詞の区別",
+          "explanation": "分詞は、文の動詞(述語)にはなりません。文の動詞は、主語に合わせて、必ず一つ必要です。分詞は、名詞を修飾するか、分詞構文として副詞のはたらきをします。\n\n主語が単数か複数かは、分詞で修飾された名詞(主語の中心語)で決まります。",
+          "examples": [
+            { "en": "The team **writing** the report **is** very experienced.", "ja": "そのレポートを書いているチームは、経験が豊富だ。", "note": "writing は team を修飾する分詞。文の動詞は is" }
+          ],
+          "cautions": ["× The team writing the report are experienced. → ○ The team writing the report is experienced.(主語 team は単数なので is)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の分詞問題は、空所の前後の名詞と、その名詞が「する側」か「される側」かで判断します。"
+    },
+    {
+      "id": "adjectival",
+      "title": "分詞の形容詞的用法: 名詞を前から・後ろから修飾する",
+      "intro": "分詞は、形容詞のように名詞を修飾します。一語の分詞は名詞の前に、語句が付いた分詞は名詞の後ろに置きます(後置修飾)。",
+      "keywords": ["過去分詞の後置修飾", "現在分詞の後置修飾", "過去分詞の形容詞用法", "現在分詞の形容詞的用法", "現在分詞と過去分詞"],
+      "items": [
+        {
+          "heading": "前置修飾と後置修飾",
+          "explanation": "分詞が一語で名詞を修飾するときは、名詞の前に置きます。語句(目的語や修飾語)が付いたときは、名詞の後ろに置きます(後置修飾)。\n\n・前置: a rising price、a revised plan\n・後置: the price rising steadily(徐々に上がっている価格)\n・後置: the plan revised last week(先週改訂された計画)",
+          "examples": [
+            { "en": "The **revised** plan was approved.", "ja": "改訂された計画が承認された。", "note": "一語の過去分詞は名詞の前" },
+            { "en": "The plan **revised last week** was approved.", "ja": "先週改訂された計画が承認された。", "note": "語句が付くと名詞の後ろ" }
+          ]
+        },
+        {
+          "heading": "後置修飾: 名詞の後ろで、内容を説明する",
+          "explanation": "分詞句が名詞の後ろに付いて、その名詞の内容を説明します。\n\n・the employees working in Osaka(大阪で働いている社員)\n・the documents sent by email(メールで送られた書類)",
+          "examples": [
+            { "en": "The employees **working** in Osaka will attend the training.", "ja": "大阪で働いている社員は、研修に出席する。", "note": "現在分詞の後置修飾" },
+            { "en": "The documents **sent** by email must be signed.", "ja": "メールで送られた書類には、署名が必要だ。", "note": "過去分詞の後置修飾" }
+          ]
+        },
+        {
+          "heading": "現在分詞と過去分詞の区別: 名詞が動作をするか、されるか",
+          "explanation": "修飾される名詞が分詞の動作をする側なら現在分詞、される側なら過去分詞です。\n\n・the approving manager(承認する部長)\n・the approved budget(承認された予算)",
+          "examples": [
+            { "en": "The **approving** manager signed the form.", "ja": "承認する部長が、その書類に署名した。", "note": "manager は承認する側(現在分詞)" },
+            { "en": "The **approved** budget was sent to the team.", "ja": "承認された予算は、チームに送られた。", "note": "budget は承認される側(過去分詞)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、名詞の前の -ing と -ed の選択が問われます。名詞が「する」のか「される」のかを考えると、答えが決まります。"
+    },
+    {
+      "id": "emotion",
+      "title": "感情を表す分詞: -ed と -ing",
+      "intro": "感情を表す動詞(interest、surprise、bore、excite など)の分詞は、感じる人は -ed、感じさせる物や出来事は -ing を使います。この区別は、TOEIC の頻出問題です。",
+      "keywords": ["感情・-ed", "感情動詞", "感情動詞の形容詞"],
+      "items": [
+        {
+          "heading": "人が主語なら -ed、物・出来事なら -ing",
+          "explanation": "感情を表す分詞は、感じる人には -ed、感じさせる物や出来事には -ing を使います。\n\n・I am interested in the project.(私はそのプロジェクトに興味がある)\n・The project is interesting.(そのプロジェクトは興味深い)\n\n-ed は「~された気持ちだ」、-ing は「~させるような性質だ」の意味です。",
+          "examples": [
+            { "en": "The staff were **surprised** by the news.", "ja": "スタッフは、そのニュースに驚いた。", "note": "人が感じる気持ち(-ed)" },
+            { "en": "The news was **surprising** to everyone.", "ja": "そのニュースは、みんなにとって意外だった。", "note": "物の性質(-ing)" }
+          ]
+        },
+        {
+          "heading": "名詞を修飾する場合の -ed・-ing",
+          "explanation": "名詞の前に置いて修飾するときも、同じ区別です。\n\n・a bored audience(退屈している観客)\n・a boring speech(退屈させる話)\n・an exciting result(わくわくさせる結果)\n・an excited crowd(興奮している群衆)",
+          "examples": [
+            { "en": "The **boring** lecture made the audience sleepy.", "ja": "退屈な講義で、聴衆は眠くなった。", "note": "物(講義)が退屈させる(-ing)" },
+            { "en": "The **excited** staff celebrated the results.", "ja": "喜んだスタッフは、結果を祝った。", "note": "人が興奮している(-ed)" }
+          ]
+        },
+        {
+          "heading": "感情動詞の組: 一覧で覚える",
+          "explanation": "よく出る感情動詞の分詞は、組で覚えます。人の気持ちを表すのが -ed、物の性質を表すのが -ing です。\n\n一つの動詞から、-ed と -ing の二つの形容詞ができると考えると、どちらを選ぶかが分かりやすくなります。文の主語や修飾される名詞が「感じる人」なら -ed、「感じさせる物」なら -ing です。",
+          "table": {
+            "caption": "感情動詞の組",
+            "headers": ["動詞", "-ed(人の気持ち)", "-ing(物の性質)"],
+            "rows": [
+              ["interest", "interested(興味がある)", "interesting(興味深い)"],
+              ["surprise", "surprised(驚いた)", "surprising(驚くべき)"],
+              ["satisfy", "satisfied(満足した)", "satisfying(満足のいく)"],
+              ["confuse", "confused(混乱した)", "confusing(分かりにくい)"]
+            ]
+          },
+          "examples": [
+            { "en": "The **confusing** instructions left the staff **confused**.", "ja": "分かりにくい指示で、スタッフは混乱した。", "note": "confusing(物)と confused(人)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、感情を表す分詞の -ed と -ing の選択が出題されます。主語や修飾される名詞が「感じる人」か「感じさせる物」かを先に決めます。"
+    },
+    {
+      "id": "participial-phrase",
+      "title": "分詞構文: 時・理由・条件・付帯状況",
+      "intro": "分詞構文は、副詞節(接続詞 + 主語 + 動詞)を、分詞を使った短い形に書き換えたものです。時・理由・条件・付帯状況などを表します。接続詞がないので、意味は文脈で判断します。",
+      "keywords": ["分詞構文", "独立分詞構文"],
+      "items": [
+        {
+          "heading": "分詞構文の作り方",
+          "explanation": "副詞節の「接続詞 + 主語 + 動詞」を、接続詞と、主節の主語と同じ主語を省き、動詞を分詞にして作ります。\n\n・When we opened the file, we found an error.\n・Opening the file, we found an error.(ファイルを開いたとき、誤りが見つかった)",
+          "examples": [
+            { "en": "**Opening** the file, we found an error.", "ja": "ファイルを開くと、私たちは誤りを見つけた。", "note": "時の意味(開いたとき)" },
+            { "en": "**Having reviewed** the report, the manager approved it.", "ja": "レポートを確認したので、部長はそれを承認した。", "note": "理由の意味(確認したので)" }
+          ]
+        },
+        {
+          "heading": "分詞構文の意味: 時・理由・条件・付帯状況",
+          "explanation": "分詞構文は、接続詞を示さないので、意味は前後の文脈で判断します。\n\n・時: Arriving at the station, I called her.(駅に着いたとき、彼女に電話した)\n・理由: Not knowing the way, we took a taxi.(道が分からなかったので、タクシーに乗った)\n・条件: Turning left, you will find the bank.(左に曲がれば、銀行が見つかる)\n・付帯状況: He sat there, reading a book.(彼は本を読みながらそこに座っていた)",
+          "examples": [
+            { "en": "**Arriving** at the station, I called her.", "ja": "駅に着いたとき、彼女に電話した。", "note": "時(~したとき)" },
+            { "en": "**Turning** left, you will find the bank.", "ja": "左に曲がれば、銀行が見つかる。", "note": "条件(~すれば)" }
+          ]
+        },
+        {
+          "heading": "Given・Once: 慣用的に使われる分詞構文",
+          "explanation": "Given は「~を考えると」、Once は「いったん~すると」を表す、慣用的な分詞構文です。\n\n・Given the high cost, the project was postponed.(費用が高いことを考えると、そのプロジェクトは延期された)\n・Once approved, the plan will start immediately.(承認されたら、その計画はすぐに始まる)",
+          "examples": [
+            { "en": "**Given** the high cost, the project was postponed.", "ja": "費用が高いことを考えると、そのプロジェクトは延期された。", "note": "Given は「~を考えると」" },
+            { "en": "**Once approved**, the plan will start immediately.", "ja": "承認されたら、その計画はすぐに始まる。", "note": "Once + 過去分詞(承認されたら)" }
+          ]
+        },
+        {
+          "heading": "独立分詞構文: 分詞の主語が主節の主語と違う",
+          "explanation": "分詞構文の主語が主節の主語と違うときは、分詞の前に主語を置きます(独立分詞構文)。\n\n・The weather being bad, the event was canceled.(天気が悪かったので、そのイベントは中止された)\n・Weather permitting, we will hold the meeting outdoors.(天気が許せば、会議を屋外で開く)",
+          "examples": [
+            { "en": "**The weather being bad**, the event was canceled.", "ja": "天気が悪かったので、そのイベントは中止された。", "note": "独立分詞構文(分詞の前に主語)" },
+            { "en": "**Weather permitting**, we will hold the meeting outdoors.", "ja": "天気が許せば、会議を屋外で開く。", "note": "Weather permitting(慣用)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、分詞構文の前後の関係(時・理由・条件)を文脈で判断させる問題が出ます。Given と Once は、慣用的な形として覚えておきます。"
+    },
+    {
+      "id": "negative-perfect-subject",
+      "title": "分詞構文の否定・完了形・意味上の主語",
+      "intro": "分詞構文を否定するときは、分詞の前に not や never を置きます。主節より前の出来事は、having + 過去分詞で表します。また、分詞構文の意味上の主語は、主節の主語と一致させます。",
+      "keywords": ["分詞構文の意味上の主語", "分詞構文(否定)", "分詞構文(having", "分詞構文(受動・完了)"],
+      "items": [
+        {
+          "heading": "否定の分詞構文: not・never を分詞の前に置く",
+          "explanation": "分詞構文を否定するときは、not や never を分詞の前に置きます。\n\n・Not knowing the answer, I asked my colleague.(答えが分からなかったので、同僚に聞いた)\n・Never having been abroad, he felt nervous.(海外に行ったことがなかったので、彼は緊張した)",
+          "examples": [
+            { "en": "**Not knowing** what to do, she called the manager.", "ja": "どうしてよいか分からず、彼女は部長に電話した。", "note": "not + 現在分詞(否定)" },
+            { "en": "**Never having been** abroad, he felt nervous.", "ja": "海外に行ったことがなかったので、彼は緊張した。", "note": "never + having + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "完了形の分詞構文: having + 過去分詞",
+          "explanation": "主節の動作より前に起きたことを表すときは、Having + 過去分詞を使います。\n\n・Having finished the report, she went home.(レポートを終えて、彼女は家に帰った)\n・Having been delayed twice, the project is now behind schedule.(二度遅れたので、その計画は今、予定より遅れている)",
+          "examples": [
+            { "en": "**Having finished** the report, she went home.", "ja": "レポートを終えて、彼女は家に帰った。", "note": "having + 過去分詞(主節より前)" },
+            { "en": "**Having been delayed** twice, the project is now behind schedule.", "ja": "二度遅れたので、そのプロジェクトは今、予定より遅れている。", "note": "having been + 過去分詞(受動の完了)" }
+          ]
+        },
+        {
+          "heading": "意味上の主語は、主節の主語と一致させる",
+          "explanation": "分詞構文の意味上の主語は、原則として主節の主語と同じです。一致しないときは、接続詞を使った節にします。\n\n・誤り: Reading the report, the phone rang.(電話がレポートを読んでいるように見える)\n・正しい: While I was reading the report, the phone rang.(レポートを読んでいたとき、電話が鳴った)",
+          "examples": [
+            { "en": "**Reading** the report, I noticed a mistake.", "ja": "レポートを読んでいて、私は誤りに気づいた。", "note": "意味上の主語 I が一致" },
+            { "en": "While I was reading the report, the phone rang.", "ja": "レポートを読んでいたとき、電話が鳴った。", "note": "主語が違うので、接続詞の節にする" }
+          ],
+          "cautions": ["× Reading the report, the phone rang. → ○ While I was reading the report, the phone rang.(分詞構文の主語は主節の主語と一致させる)"]
+        },
+        {
+          "heading": "受動の分詞構文: being + 過去分詞",
+          "explanation": "受け身の分詞構文は、being + 過去分詞の形です。being は省略されることも多いです。\n\n・(Being) Written in simple English, the book is easy to read.(簡単な英語で書かれているので、その本は読みやすい)",
+          "examples": [
+            { "en": "**Written** in simple English, the manual is easy to follow.", "ja": "簡単な英語で書かれているので、その説明書は分かりやすい。", "note": "being が省略された受動の分詞構文" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、分詞構文の意味上の主語が主節の主語と違う誤り(Reading the report, the phone rang.)が選択肢に出ます。"
+    },
+    {
+      "id": "causative-perfect",
+      "title": "want・have + O + 過去分詞、助動詞 + have + 過去分詞",
+      "intro": "want、have の後ろの目的語が「される」側のときは、過去分詞を使います。また、助動詞 + have + 過去分詞は、過去の出来事への推量や後悔を表します。",
+      "keywords": ["want + O + 過去分詞", "have + O + 過去分詞", "助動詞 + have + 過去分詞"],
+      "items": [
+        {
+          "heading": "have・want + 物 + 過去分詞: 物が~される",
+          "explanation": "have + 物 + 過去分詞は、「~を(~に)してもらう」を表します。want + 物 + 過去分詞は、「~を~された状態にしたい」を表します。\n\n・I had my computer repaired yesterday.(昨日、パソコンを修理してもらった)\n・I want the report finished by Friday.(金曜日までに、そのレポートを終えてもらいたい)",
+          "examples": [
+            { "en": "I had my computer **repaired** yesterday.", "ja": "昨日、パソコンを修理してもらった。", "note": "have + 物 + 過去分詞" },
+            { "en": "I want the report **finished** by Friday.", "ja": "金曜日までに、そのレポートを終えてもらいたい。", "note": "want + 物 + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "助動詞 + have + 過去分詞: 過去の推量・後悔",
+          "explanation": "助動詞 + have + 過去分詞は、過去の出来事について、推量や後悔を表します(助動詞の章でも扱います)。\n\n・The meeting must have started by now.(会議はもう始まっているに違いない)\n・You should have called me earlier.(もっと早く電話すべきだった)",
+          "examples": [
+            { "en": "The meeting **must have started** by now.", "ja": "会議はもう始まっているに違いない。", "note": "must have + 過去分詞(推量)" },
+            { "en": "You **should have called** me earlier.", "ja": "もっと早く電話してくれればよかったのに。", "note": "should have + 過去分詞(後悔)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、have・want の後ろの過去分詞(物が~される)と、must have・should have の形を選ばせる問題が出ます。"
+    }
+  ],
+  "summary": [
+    "現在分詞(-ing)は「~している」、過去分詞(-ed・不規則)は「~された」",
+    "一語の分詞は名詞の前、語句が付くと名詞の後ろ(後置修飾)",
+    "感情を表す分詞: 感じる人は -ed、感じさせる物・出来事は -ing",
+    "分詞構文は、接続詞と主語を省いた形。時・理由・条件・付帯状況を表し、意味は文脈で決まる",
+    "分詞構文の意味上の主語は、主節の主語と一致させる。一致しないときは接続詞の節にする",
+    "否定は not・never を分詞の前に置く。主節より前の出来事は having + 過去分詞",
+    "have・want + 物 + 過去分詞は「~してもらう・~された状態にする」",
+    "助動詞 + have + 過去分詞は、過去への推量や後悔(must have、should have)"
+  ],
+  "quiz": [
+    {
+      "id": "participle-q01",
+      "sentence": "The ------- employees are attending the training today.",
+      "choices": [{ "label": "A", "text": "working" }, { "label": "B", "text": "worked" }, { "label": "C", "text": "work" }, { "label": "D", "text": "to work" }],
+      "answer": "A",
+      "explanation": "employees が「働いている」側なので、現在分詞 working が正解。worked は「働かされた」の過去分詞で意味が合わない。work と to work は、名詞を修飾する形として使えない。",
+      "translation": "今日は、研修に出席している社員が働いている。"
+    },
+    {
+      "id": "participle-q02",
+      "sentence": "The ------- report was sent to all managers yesterday.",
+      "choices": [{ "label": "A", "text": "writing" }, { "label": "B", "text": "written" }, { "label": "C", "text": "writes" }, { "label": "D", "text": "to write" }],
+      "answer": "B",
+      "explanation": "report は「書かれた」側なので、過去分詞 written が正解。writing は「書いている」の意味で、report を修飾すると意味が合わない。writes は動詞の現在形で、名詞を修飾できない。",
+      "translation": "書かれたそのレポートは、昨日すべての部長に送られた。"
+    },
+    {
+      "id": "participle-q03",
+      "sentence": "The ------- results of the survey surprised everyone.",
+      "choices": [{ "label": "A", "text": "surprise" }, { "label": "B", "text": "surprised" }, { "label": "C", "text": "surprising" }, { "label": "D", "text": "surprisingly" }],
+      "answer": "C",
+      "explanation": "results(結果)が人を驚かせる側なので、-ing の surprising が正解。surprised は人が驚いた気持ちを表すので、物の結果には合わない。surprise は動詞・名詞、surprisingly は副詞で、名詞を修飾できない。",
+      "translation": "その調査の意外な結果に、みんなが驚いた。"
+    },
+    {
+      "id": "participle-q04",
+      "sentence": "The staff were ------- by the sudden change of schedule.",
+      "choices": [{ "label": "A", "text": "confusing" }, { "label": "B", "text": "confuse" }, { "label": "C", "text": "confusingly" }, { "label": "D", "text": "confused" }],
+      "answer": "D",
+      "explanation": "staff(人)が混乱させられた側なので、過去分詞 confused が正解。confusing は物の性質を表し、人には使わない。confuse は動詞の原形、confusingly は副詞で、be 動詞の後の補語には合わない。",
+      "translation": "急な予定変更で、スタッフは混乱した。"
+    },
+    {
+      "id": "participle-q05",
+      "sentence": "------- the manual, the new staff quickly learned the system.",
+      "choices": [{ "label": "A", "text": "Having read" }, { "label": "B", "text": "Read" }, { "label": "C", "text": "To read" }, { "label": "D", "text": "Reads" }],
+      "answer": "A",
+      "explanation": "マニュアルを読んだのは、システムを学んだより前の出来事なので、having + 過去分詞の完了形の分詞構文が正解。Read は受動の意味になり、マニュアルが読まれる、という文の意味に合わない。To read と Reads は、この分詞構文の形として合わない。",
+      "translation": "マニュアルを読んでから、新人はすぐにシステムを覚えた。"
+    },
+    {
+      "id": "participle-q06",
+      "sentence": "Not ------- the answer, she asked her colleague for help.",
+      "choices": [{ "label": "A", "text": "know" }, { "label": "B", "text": "knowing" }, { "label": "C", "text": "known" }, { "label": "D", "text": "to know" }],
+      "answer": "B",
+      "explanation": "分詞構文を否定する Not knowing(答えが分からないので)が正解。know は原形、known は過去分詞で、この形の分詞構文には合わない。to know は不定詞で、分詞構文の形ではない。",
+      "translation": "答えが分からなかったので、彼女は同僚に助けを求めた。"
+    },
+    {
+      "id": "participle-q07",
+      "sentence": "------- the high cost, the plan was postponed.",
+      "choices": [{ "label": "A", "text": "Give" }, { "label": "B", "text": "Gave" }, { "label": "C", "text": "Given" }, { "label": "D", "text": "Giving" }],
+      "answer": "C",
+      "explanation": "慣用的な分詞構文の Given(~を考えると)が正解。Given the high cost で、費用が高いことを考えると、という意味になる。Give と Gave は、分詞構文の形ではない。Giving は現在分詞だが、Given の慣用表現としては使わない。",
+      "translation": "費用が高いことを考えると、その計画は延期された。"
+    },
+    {
+      "id": "participle-q08",
+      "sentence": "I had my report ------- by the team.",
+      "choices": [{ "label": "A", "text": "check" }, { "label": "B", "text": "checking" }, { "label": "C", "text": "to check" }, { "label": "D", "text": "checked" }],
+      "answer": "D",
+      "explanation": "have + 物 + 過去分詞で、「レポートを確認してもらった」を表す。checked が正解。check は原形で、have の目的語の後の形として合わない。checking と to check も、この形には合わない。",
+      "translation": "私はチームにレポートを確認してもらった。"
+    },
+    {
+      "id": "participle-q09",
+      "sentence": "------- in simple English, the guide is easy to follow.",
+      "choices": [{ "label": "A", "text": "Written" }, { "label": "B", "text": "Writing" }, { "label": "C", "text": "Being writing" }, { "label": "D", "text": "Wrote" }],
+      "answer": "A",
+      "explanation": "guide は書かれる側なので、受動の分詞構文の過去分詞 Written が正解(Being が省略された形)。Writing は能動の意味になる。Being writing は進行形の形として誤り。Wrote は過去形で、分詞構文の形ではない。",
+      "translation": "簡単な英語で書かれているので、そのガイドは分かりやすい。"
+    },
+    {
+      "id": "participle-q10",
+      "sentence": "The meeting must have ------- by now.",
+      "choices": [{ "label": "A", "text": "start" }, { "label": "B", "text": "started" }, { "label": "C", "text": "starting" }, { "label": "D", "text": "starts" }],
+      "answer": "B",
+      "explanation": "must have + 過去分詞(~したに違いない)の形になるので、過去分詞 started が正解。start は原形、starting は現在分詞、starts は現在形で、この形には合わない。",
+      "translation": "会議はもう始まっているに違いない。"
+    },
+    {
+      "id": "participle-q11",
+      "sentence": "------- the meeting, the manager left early.",
+      "choices": [{ "label": "A", "text": "Attended" }, { "label": "B", "text": "To attend" }, { "label": "C", "text": "Having attended" }, { "label": "D", "text": "Attend" }],
+      "answer": "C",
+      "explanation": "会議に出たのは、早く帰った出来事より前なので、Having attended(出席してから)の完了形の分詞構文が正解。Attended は、受動の意味や単純な過去として、前後関係が合わない。To attend と Attend は、分詞構文の形ではない。",
+      "translation": "会議に出席してから、部長は早めに退席した。"
+    },
+    {
+      "id": "participle-q12",
+      "sentence": "The ------- employees in the Osaka office will receive a bonus.",
+      "choices": [{ "label": "A", "text": "worked" }, { "label": "B", "text": "work" }, { "label": "C", "text": "to work" }, { "label": "D", "text": "working" }],
+      "answer": "D",
+      "explanation": "employees が「大阪の事務所で働いている」側なので、現在分詞 working が名詞の前で修飾する形として正解。worked は「働かされた」の意味で合わない。work と to work は、名詞の前に置く形として使えない。",
+      "translation": "大阪の事務所で働いている社員は、ボーナスを受け取る。"
+    }
+  ],
+  "related": ["gerund", "inversion", "modal"]
+}

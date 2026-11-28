@@ -1,0 +1,282 @@
+{
+  "id": "infinitive",
+  "no": 13,
+  "title": "不定詞",
+  "lead": "不定詞は、to + 動詞の原形の形で、名詞・形容詞・副詞の働きをします。「~すること」(名詞的用法)、「~するための」(形容詞的用法)、「~するために」(副詞的用法)の三つの用法があります。TOEIC Part 5 では、too ... to と enough to の使い分け、意味上の主語(for 人)、be to 構文の意味、動詞と不定詞の組み合わせがよく問われます。この章では、それぞれの形と意味を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "不定詞の基本: to + 動詞の原形",
+      "intro": "不定詞は、動詞の原形の前に to を付けた形です。文の中で、名詞・形容詞・副詞の働きをします。この節では、三つの用法と、形式主語の it を確かめます。",
+      "keywords": ["不定詞"],
+      "items": [
+        {
+          "heading": "不定詞の三つの用法",
+          "explanation": "不定詞は、次の三つの働きをします。\n\n・名詞的用法: ~すること(主語・目的語・補語になる)\n・形容詞的用法: ~するための、~すべき(名詞を後ろから修飾する)\n・副詞的用法: ~するために、~して(動詞などを修飾する)",
+          "examples": [
+            { "en": "**To finish** the report on time is our goal.", "ja": "期限どおりにレポートを終えることが、私たちの目標だ。", "note": "名詞的用法(主語)" },
+            { "en": "We need a plan **to reduce** costs.", "ja": "私たちには、コストを減らすための計画が必要だ。", "note": "形容詞的用法(名詞を修飾)" },
+            { "en": "She came early **to prepare** for the meeting.", "ja": "彼女は会議の準備をするために、早く来た。", "note": "副詞的用法(目的)" }
+          ]
+        },
+        {
+          "heading": "形式主語 it: It is ~ to ...",
+          "explanation": "主語の不定詞が長いときは、主語を it にして、不定詞を後ろに回すことがあります(形式主語)。意味上の主語が必要なときは、for + 人を不定詞の前に置きます。\n\n・It is important to check the data.(データを確認することは重要だ)\n・It is difficult for me to understand the new policy.(新しい方針を理解するのは、私には難しい)",
+          "examples": [
+            { "en": "**It** is important **to check** the data before the meeting.", "ja": "会議の前にデータを確認することは重要だ。", "note": "形式主語 it + to 不定詞" },
+            { "en": "It is difficult **for me to understand** the new policy.", "ja": "新しい方針を理解するのは、私には難しい。", "note": "for 人 + to 不定詞(意味上の主語)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、形式主語 it の後ろの for 人 + to 不定詞の形を選ばせる問題が出ます。"
+    },
+    {
+      "id": "purpose-result",
+      "title": "形容詞的用法と副詞的用法: 目的・感情の原因・結果",
+      "intro": "不定詞は、名詞を後ろから修飾したり、「~するために」の目的を表したりします。感情の原因や、予想外の結果を表すこともあります。",
+      "keywords": ["不定詞(形容詞的用法)", "形容詞+to do", "不定詞(目的)", "in order to", "so as to", "動詞の形(to 不定詞)"],
+      "items": [
+        {
+          "heading": "形容詞的用法: 名詞を後ろから修飾する",
+          "explanation": "形容詞的用法の不定詞は、名詞の後ろに置いて、「~するための・~すべき」を表します。\n\n・a plan to follow(従うべき計画)\n・a chance to win(勝つチャンス)\n・the time to decide(決めるべき時)",
+          "examples": [
+            { "en": "We have a **chance to win** the contract.", "ja": "私たちには、その契約を取るチャンスがある。", "note": "chance + to 不定詞(~する機会)" },
+            { "en": "He is the best person **to handle** the project.", "ja": "彼はそのプロジェクトを担当するのに最適な人だ。", "note": "person + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "目的を表す形: to・in order to・so as to",
+          "explanation": "「~するために」という目的は、to 不定詞、in order to、so as to で表せます。文の前に置くときや、目的をはっきりさせたいときは、in order to や so as to を使います。\n\n・to: We came early to prepare.\n・in order to: We came early in order to prepare.\n・so as not to(~しないように): We worked late so as not to miss the deadline.",
+          "examples": [
+            { "en": "She came early **in order to** prepare for the meeting.", "ja": "彼女は会議の準備をするために、早く来た。", "note": "in order to(目的)" },
+            { "en": "We worked late **so as not to** miss the deadline.", "ja": "締め切りに遅れないように、遅くまで働いた。", "note": "so as not to(否定の目的)" }
+          ]
+        },
+        {
+          "heading": "感情の原因・予想外の結果: ~して、結局~だった",
+          "explanation": "不定詞の副詞的用法は、感情の原因(~して嬉しい、驚いた)も表します。only to は「~したが、結局~だった」という、予想と違う結果を表します。\n\n・I was surprised to hear the news.(そのニュースを聞いて驚いた)\n・He hurried to the office, only to find the meeting canceled.(彼はオフィスへ急いだが、会議は中止になっていた)",
+          "examples": [
+            { "en": "She was happy **to receive** the award.", "ja": "彼女は賞を受けて嬉しかった。", "note": "感情の原因を表す不定詞" },
+            { "en": "He hurried to the office, **only to find** the meeting canceled.", "ja": "彼はオフィスへ急いだが、会議は中止になっていた。", "note": "only to(予想外の結果)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、目的を表す so as to と、否定の so as not to の区別が出題されます。"
+    },
+    {
+      "id": "be-to-and-subject",
+      "title": "be to 構文・疑問詞 + to・意味上の主語",
+      "intro": "be to 不定詞は、文脈によって予定・命令・可能・運命を表します。疑問詞の後ろに不定詞を置くと、名詞句になります。また、不定詞の意味上の主語は for + 人、または of + 人で示します。",
+      "keywords": ["be + to 不定詞", "be to 不定詞", "be likely to", "be about to", "have yet to", "意味上の主語", "疑問詞+to do", "疑問詞+to"],
+      "items": [
+        {
+          "heading": "be to 構文: 予定・命令・可能・運命",
+          "explanation": "be to 不定詞は、文脈によって意味が変わります。\n\n・予定: The meeting is to start at ten.(会議は10時に始まる予定だ)\n・命令: You are to report to the manager first.(まず部長に報告するように)\n・可能: Nothing was to be seen.(何も見えなかった)\n・運命: They were never to meet again.(彼らは二度と会うことはなかった)",
+          "examples": [
+            { "en": "The meeting **is to start** at ten.", "ja": "会議は10時に始まる予定だ。", "note": "予定を表す be to" },
+            { "en": "You **are to report** to the manager first.", "ja": "まず部長に報告するように。", "note": "命令を表す be to" }
+          ]
+        },
+        {
+          "heading": "be likely to・be about to・have yet to",
+          "explanation": "be likely to は「~しそうだ」(可能性)、be about to は「まさに~しようとしている」(直前)、have yet to は「まだ~していない」(未完了)を表します。\n\n・The project is likely to be delayed.(プロジェクトは遅れそうだ)\n・The train is about to leave.(電車はまさに出発しようとしている)\n・We have yet to decide on the budget.(予算はまだ決めていない)",
+          "examples": [
+            { "en": "The project **is likely to be** delayed.", "ja": "プロジェクトは遅れそうだ。", "note": "be likely to(可能性)" },
+            { "en": "We **have yet to decide** on the budget.", "ja": "予算についてはまだ決めていない。", "note": "have yet to + 原形(未完了)" }
+          ]
+        },
+        {
+          "heading": "疑問詞 + to 不定詞: how to・what to・where to",
+          "explanation": "疑問詞(how、what、where、when、which)の後ろに to 不定詞を置くと、「~の仕方」「何を~すべきか」の意味の名詞句になります。\n\n・how to use the software(そのソフトの使い方)\n・what to say(何を言うべきか)\n・where to go(どこへ行くべきか)",
+          "examples": [
+            { "en": "Please tell me **how to use** the new software.", "ja": "新しいソフトの使い方を教えてください。", "note": "how to + 原形" },
+            { "en": "I do not know **what to say** at the meeting.", "ja": "会議で何を言うべきか、分からない。", "note": "what to + 原形" }
+          ]
+        },
+        {
+          "heading": "意味上の主語: for + 人・of + 人",
+          "explanation": "不定詞の意味上の主語は、for + 人で示します。ただし、人の性質を表す形容詞(kind、careless、clever など)の後ろでは、of + 人を使います。\n\n・It is important for us to finish on time.(期限どおりに終えることが、私たちにとって重要だ)\n・It was kind of you to help us.(手伝ってくれて、ご親切にありがとう)",
+          "examples": [
+            { "en": "It is important **for us to finish** the project on time.", "ja": "期限どおりにプロジェクトを終えることが、私たちにとって重要だ。", "note": "for + 人 + to 不定詞" },
+            { "en": "It was **kind of you to help** us.", "ja": "手伝ってくれて、ご親切にありがとう。", "note": "kind + of + 人 + to 不定詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、be to 構文の意味(予定・命令)や、人の性質の形容詞に for ではなく of を使う形が出題されます。"
+    },
+    {
+      "id": "too-enough",
+      "title": "too ... to・enough to: あまりに~で…できない・十分~で…できる",
+      "intro": "too ... to は「あまりに~で、…できない」、enough to は「…するのに十分~だ」を表します。否定の意味を含むので、not を重ねないように注意します。",
+      "keywords": ["too ... to", "enough to"],
+      "items": [
+        {
+          "heading": "too ... to ~: あまりに~で…できない",
+          "explanation": "too + 形容詞・副詞 + to 不定詞は、「あまりに~すぎて、…できない」を表します。否定の意味をすでに含むので、not を付けないように注意します。\n\n・The task was too difficult to finish.(その仕事は難しすぎて、終えられなかった)",
+          "examples": [
+            { "en": "The report was **too long to read** in one day.", "ja": "そのレポートは長すぎて、一日では読めなかった。", "note": "too + 形容詞 + to + 原形" }
+          ],
+          "cautions": ["× The task was too difficult to not finish. → ○ The task was too difficult to finish.(too ... to に not を重ねない)"]
+        },
+        {
+          "heading": "enough to ~: ~するのに十分~だ",
+          "explanation": "形容詞・副詞 + enough to 不定詞は、「~するのに十分~だ」を表します。enough は、形容詞や副詞の後ろに置きます。\n\n・The room is large enough to hold 100 people.(その部屋は100人を収容できるほど十分広い)\n・He was kind enough to help us.(彼は親切にも手伝ってくれた)",
+          "examples": [
+            { "en": "The room is **large enough to hold** the whole team.", "ja": "その部屋は、チーム全員が入れるほど十分広い。", "note": "形容詞 + enough to" },
+            { "en": "She was **kind enough to explain** the process.", "ja": "彼女は親切にもその手順を説明してくれた。", "note": "kind enough to(親切にも)" }
+          ]
+        },
+        {
+          "heading": "too ... to と so ... that の書き換え",
+          "explanation": "too ... to は、so ... that ... can not の形で書き換えられます。意味は同じですが、語法の問題では、形の違いを見分ける必要があります。\n\n・The task was too difficult to finish.\n・The task was so difficult that we could not finish it.",
+          "examples": [
+            { "en": "The task was **so difficult that** we **could not** finish it.", "ja": "その仕事は難しすぎて、終えられなかった。", "note": "so ... that ... could not" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、too ... to(~すぎて…できない)と enough to(十分~で…できる)の意味の違いを選ばせる問題が出ます。"
+    },
+    {
+      "id": "verbs-with-to",
+      "title": "人 + to 不定詞をとる動詞、不定詞と動名詞で意味が変わる動詞",
+      "intro": "ask、want、encourage などは、「人 + to 不定詞」の形を取ります。また、stop、remember、try などは、不定詞と動名詞で意味が変わります。",
+      "keywords": ["ask + 人 + to 不定詞", "動詞の語法(ask", "want 人 to do", "動名詞と不定詞"],
+      "items": [
+        {
+          "heading": "ask・want・encourage + 人 + to 不定詞",
+          "explanation": "ask、want、encourage、allow などは、「人 + to 不定詞」の形を取ります。\n\n・ask + 人 + to do(人に~するよう頼む)\n・want + 人 + to do(人に~してほしい)\n・encourage + 人 + to do(人に~するよう勧める)",
+          "examples": [
+            { "en": "The manager asked us **to submit** the report today.", "ja": "部長は、今日レポートを提出するよう私たちに頼んだ。", "note": "ask + 人 + to 不定詞" },
+            { "en": "We want the team **to review** the plan.", "ja": "私たちは、チームにその計画を確認してほしい。", "note": "want + 人 + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "stop・try: 不定詞と動名詞で意味が変わる",
+          "explanation": "stop、try などは、不定詞と動名詞で意味が変わります。\n\n・stop to do(~するために立ち止まる) / stop -ing(~するのをやめる)\n・try to do(~しようとする) / try -ing(試しに~してみる)",
+          "examples": [
+            { "en": "She **stopped** **to check** her email.", "ja": "彼女はメールを確認するために立ち止まった。", "note": "stop to do(立ち止まって~する)" },
+            { "en": "She **stopped** **checking** her email at night.", "ja": "彼女は夜にメールを確認するのをやめた。", "note": "stop -ing(~するのをやめる)" }
+          ]
+        },
+        {
+          "heading": "remember・forget: 過去の出来事と、これからの行為",
+          "explanation": "動名詞は、すでに起こった動作を表すことが多く、不定詞は、これから起こる動作を表すことが多いです。\n\n・remember -ing(~したことを覚えている) / remember to do(忘れずに~する)\n・forget -ing(~したことを忘れる) / forget to do(~するのを忘れる)",
+          "examples": [
+            { "en": "I remember **meeting** her at the conference.", "ja": "会議で彼女に会ったのを覚えている。", "note": "過去の出来事は -ing" },
+            { "en": "Please remember **to send** the file tomorrow.", "ja": "明日ファイルを送ることを忘れないでください。", "note": "これからの行為は to 不定詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、人 + to 不定詞の形(ask + 人 + to do)と、remember・stop の不定詞・動名詞の違いが出題されます。"
+    }
+  ],
+  "summary": [
+    "不定詞の三つの用法: 名詞的(~すること)、形容詞的(~するための)、副詞的(~するために)",
+    "形式主語: It is 形容詞 for 人 to 不定詞 ...。人の性質の形容詞では for ではなく of + 人",
+    "目的は、to・in order to・so as to で表す。so as not to は「~しないように」",
+    "too 形容詞 to 原形: あまりに~で…できない。enough to は、十分~で…できる",
+    "be to 構文は、予定・命令・可能・運命を表す。be likely to・be about to・have yet to も覚える",
+    "疑問詞 + to 不定詞は、名詞句(how to・what to・where to)",
+    "ask・want・encourage + 人 + to 不定詞。stop・remember などは、不定詞と動名詞で意味が変わる",
+    "remember -ing は過去の出来事、remember to do はこれからの行為"
+  ],
+  "quiz": [
+    {
+      "id": "infinitive-q01",
+      "sentence": "We need ------- the data before the meeting.",
+      "choices": [{ "label": "A", "text": "to check" }, { "label": "B", "text": "checking" }, { "label": "C", "text": "check" }, { "label": "D", "text": "checked" }],
+      "answer": "A",
+      "explanation": "need は、直後に to 不定詞を取る。need to check(確認する必要がある)が正解。checking は動名詞で need の目的語として合わない。check は原形で単独では続かない。checked は過去分詞で、need の後ろの形に合わない。",
+      "translation": "会議の前に、データを確認する必要がある。"
+    },
+    {
+      "id": "infinitive-q02",
+      "sentence": "It is important ------- the budget carefully.",
+      "choices": [{ "label": "A", "text": "of us to review" }, { "label": "B", "text": "for us to review" }, { "label": "C", "text": "us to review" }, { "label": "D", "text": "to us review" }],
+      "answer": "B",
+      "explanation": "不定詞の意味上の主語は for 人で示すので、for us to review が正解。of us は人の性質を表す形容詞の後で使う。us to review は前置詞がなく、意味上の主語が示せない。to us review は語順が誤り。",
+      "translation": "予算を慎重に見直すことが、私たちにとって重要だ。"
+    },
+    {
+      "id": "infinitive-q03",
+      "sentence": "The report was ------- to read in one day.",
+      "choices": [{ "label": "A", "text": "too long not" }, { "label": "B", "text": "so long that" }, { "label": "C", "text": "too long to" }, { "label": "D", "text": "enough long to" }],
+      "answer": "C",
+      "explanation": "too + 形容詞 + to 不定詞(あまりに長くて、読めない)の形が正解。too long to read in one day となる。too long not は不定詞の形として誤り。so long that は後ろに to read が続かず、enough long to は語順が誤り。",
+      "translation": "そのレポートは長すぎて、一日では読めなかった。"
+    },
+    {
+      "id": "infinitive-q04",
+      "sentence": "The manager asked us ------- the report by Friday.",
+      "choices": [{ "label": "A", "text": "submit" }, { "label": "B", "text": "submitting" }, { "label": "C", "text": "to submit" }, { "label": "D", "text": "submitted" }],
+      "answer": "C",
+      "explanation": "ask + 人 + to 不定詞(人に~するよう頼む)の形で、to submit が正解。submit は原形で、人の後ろに直接置けない。submitting は動名詞、submitted は過去分詞で、どちらも ask の形に合わない。",
+      "translation": "部長は、金曜日までにレポートを提出するよう私たちに頼んだ。"
+    },
+    {
+      "id": "infinitive-q05",
+      "sentence": "I remember ------- her at the conference last year.",
+      "choices": [{ "label": "A", "text": "to meet" }, { "label": "B", "text": "meeting" }, { "label": "C", "text": "meets" }, { "label": "D", "text": "met" }],
+      "answer": "B",
+      "explanation": "remember -ing は、過去にしたことを覚えている、の意味になる。remember meeting her(彼女に会ったのを覚えている)が正解。remember to meet は、これから会うことを忘れずに、の意味になるので、過去の出来事には合わない。meets と met は、remember の後ろの形として合わない。",
+      "translation": "去年の会議で、彼女に会ったのを覚えている。"
+    },
+    {
+      "id": "infinitive-q06",
+      "sentence": "We were ------- to see the results of the survey.",
+      "choices": [{ "label": "A", "text": "surprise" }, { "label": "B", "text": "surprising" }, { "label": "C", "text": "surprising to" }, { "label": "D", "text": "surprised" }],
+      "answer": "D",
+      "explanation": "感情の原因を表す不定詞の副詞的用法で、surprised to see(見て驚いた)が正解。surprise は原形で、were の後ろの補語にならない。surprising は物の性質を表すので、人が主語の文には合わない。",
+      "translation": "調査の結果を見て、私たちは驚いた。"
+    },
+    {
+      "id": "infinitive-q07",
+      "sentence": "The meeting is ------- at 10 a.m.",
+      "choices": [{ "label": "A", "text": "to start" }, { "label": "B", "text": "starting" }, { "label": "C", "text": "to starting" }, { "label": "D", "text": "started" }],
+      "answer": "A",
+      "explanation": "be to 不定詞の予定を表す形で、is to start(10時に始まる予定だ)が正解。starting は現在分詞で、be 動詞の後ろに続けると進行形の形になる。to starting は不定詞の形として誤り。started は過去分詞で、予定の意味にならない。",
+      "translation": "会議は午前10時に始まる予定だ。"
+    },
+    {
+      "id": "infinitive-q08",
+      "sentence": "The project is ------- to be completed by June.",
+      "choices": [{ "label": "A", "text": "unlike" }, { "label": "B", "text": "likely" }, { "label": "C", "text": "eager" }, { "label": "D", "text": "enough" }],
+      "answer": "B",
+      "explanation": "be likely to be completed(完了しそうだ)の形になる。likely が正解。unlike は前置詞で、to be completed とは続かない。eager は「~したがっている」で、プロジェクトが完了を望む文の意味にならない。enough は、to 不定詞と組むと意味が変わるため、ここでは合わない。",
+      "translation": "そのプロジェクトは、6月までに完了しそうだ。"
+    },
+    {
+      "id": "infinitive-q09",
+      "sentence": "Please tell me ------- the new software.",
+      "choices": [{ "label": "A", "text": "that to use" }, { "label": "B", "text": "what use" }, { "label": "C", "text": "how to use" }, { "label": "D", "text": "to use" }],
+      "answer": "C",
+      "explanation": "how to use(使い方)の疑問詞 + 不定詞の名詞句が正解。Please tell me how to use the new software.(新しいソフトの使い方を教えてください)となる。that to use と what use は、語順や意味が合わない。to use だけでは、疑問詞が欠けていて、使い方を尋ねる意味にならない。",
+      "translation": "新しいソフトの使い方を教えてください。"
+    },
+    {
+      "id": "infinitive-q10",
+      "sentence": "I do not know ------- at the meeting.",
+      "choices": [{ "label": "A", "text": "say what" }, { "label": "B", "text": "what say" }, { "label": "C", "text": "to say what" }, { "label": "D", "text": "what to say" }],
+      "answer": "D",
+      "explanation": "what to say(何を言うべきか)の疑問詞 + 不定詞の名詞句が正解。say what や what say は語順が誤り。to say what も、疑問詞の後ろに to を置く形として合わない。",
+      "translation": "会議で何を言うべきか、私には分からない。"
+    },
+    {
+      "id": "infinitive-q11",
+      "sentence": "We have ------- to finish the work.",
+      "choices": [{ "label": "A", "text": "yet" }, { "label": "B", "text": "to yet" }, { "label": "C", "text": "yet finishing" }, { "label": "D", "text": "finished yet" }],
+      "answer": "A",
+      "explanation": "have yet to finish(まだ終えていない)の形で、yet が正解。have yet to + 原形で「まだ~していない」を表す。to yet は語順が誤り。yet finishing と finished yet は、have yet to の形に合わない。",
+      "translation": "その仕事は、まだ終えていない。"
+    },
+    {
+      "id": "infinitive-q12",
+      "sentence": "It was ------- of you to help us with the move.",
+      "choices": [{ "label": "A", "text": "kinds" }, { "label": "B", "text": "careful" }, { "label": "C", "text": "kindly" }, { "label": "D", "text": "kind" }],
+      "answer": "D",
+      "explanation": "人の性質を表す形容詞 kind の後ろでは、意味上の主語を of you で示す。kind of you to help us が正解。kinds は名詞の複数形の誤り、kindly は副詞で、of you の形に合わない。careful も、この形容詞の用法として意味が合わない。",
+      "translation": "引っ越しを手伝ってくれて、ご親切にありがとう。"
+    }
+  ],
+  "related": ["gerund", "participle", "tense"]
+}
