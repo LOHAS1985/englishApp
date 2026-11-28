@@ -1,7 +1,15 @@
-/** 文法の教科書の進み具合(読了・確認問題の最高得点)。端末ごとにブラウザへ保存する */
+/** 文法の教科書の進み具合(読了・しおり・確認問題の最高得点)。端末ごとにブラウザへ保存する */
+
+export interface Bookmark {
+  /** しおりを挟んだページ(0 始まり) */
+  page: number;
+  /** 挟んだときの、章のページ数(一覧で「4/12」と出すため) */
+  total: number;
+}
 
 export interface ChapterProgress {
   read?: boolean;
+  bookmark?: Bookmark;
   /** 確認問題の最高得点(正解数)と問題数 */
   quizBest?: number;
   quizTotal?: number;
@@ -10,6 +18,8 @@ export interface ChapterProgress {
 export type Progress = Record<string, ChapterProgress>;
 
 const STORAGE_KEY = "grammarBook.progress";
+
+const isCount = (v: unknown): v is number => typeof v === "number" && Number.isInteger(v) && v >= 0;
 
 /** 保存された値が壊れていても、空の進み具合から始める */
 export function parseProgress(raw: string | null): Progress {
@@ -20,11 +30,13 @@ export function parseProgress(raw: string | null): Progress {
     const out: Progress = {};
     for (const [id, p] of Object.entries(value as Record<string, unknown>)) {
       if (typeof p !== "object" || p === null) continue;
-      const { read, quizBest, quizTotal } = p as Record<string, unknown>;
+      const { read, bookmark, quizBest, quizTotal } = p as Record<string, unknown>;
+      const mark = typeof bookmark === "object" && bookmark !== null ? (bookmark as Record<string, unknown>) : null;
       out[id] = {
         read: read === true ? true : undefined,
-        quizBest: typeof quizBest === "number" ? quizBest : undefined,
-        quizTotal: typeof quizTotal === "number" ? quizTotal : undefined,
+        bookmark: mark && isCount(mark.page) && isCount(mark.total) ? { page: mark.page, total: mark.total } : undefined,
+        quizBest: isCount(quizBest) ? quizBest : undefined,
+        quizTotal: isCount(quizTotal) ? quizTotal : undefined,
       };
     }
     return out;
@@ -52,6 +64,16 @@ function save(progress: Progress) {
 export function setRead(chapterId: string, read: boolean): Progress {
   const progress = loadProgress();
   progress[chapterId] = { ...progress[chapterId], read: read || undefined };
+  save(progress);
+  return progress;
+}
+
+/** しおりを挟む(page を指定)。同じページをもう一度指定すると、しおりを外す */
+export function toggleBookmark(chapterId: string, page: number, total: number): Progress {
+  const progress = loadProgress();
+  const current = progress[chapterId] ?? {};
+  const same = current.bookmark?.page === page;
+  progress[chapterId] = { ...current, bookmark: same ? undefined : { page, total } };
   save(progress);
   return progress;
 }

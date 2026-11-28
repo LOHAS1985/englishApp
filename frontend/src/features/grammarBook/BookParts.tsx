@@ -78,25 +78,35 @@ function ItemView({ item }: { item: Item }) {
   );
 }
 
-/** 1つの節。解答後のリンクで開かれた節(highlight)は、左に線を付けて目立たせる */
-export function SectionView({ section, highlight }: { section: Section; highlight: boolean }) {
+/**
+ * 節のページ。節の最初のページ(showIntro)には節の題名と導入を出し、最後のページ(showExamNote)には試験での出方を出す。
+ * 続きのページには、どの節の続きかが分かるように題名を「(続き)」付きで出す。
+ */
+export function SectionPage({
+  section,
+  items,
+  showIntro,
+  showExamNote,
+  continued,
+}: {
+  section: Section;
+  items: Item[];
+  showIntro: boolean;
+  showExamNote: boolean;
+  continued: boolean;
+}) {
   return (
-    <section
-      id={`sec-${section.id}`}
-      aria-labelledby={`sec-title-${section.id}`}
-      className={`scroll-mt-4 ${highlight ? "border-l-4 border-l-[#8fae4e] pl-4" : ""}`}
-    >
-      <h2 id={`sec-title-${section.id}`} className="font-serif text-xl text-slate-900">
+    <section aria-labelledby="book-page-title" className="space-y-4">
+      <h2 id="book-page-title" className="font-serif text-xl text-slate-900">
         {section.title}
+        {continued && <span className="ml-2 text-sm font-normal text-slate-500">(続き)</span>}
       </h2>
-      <RichText text={section.intro} className="mt-2 text-sm text-slate-600" />
-      <div className="mt-4 space-y-4">
-        {section.items.map((item, i) => (
-          <ItemView key={i} item={item} />
-        ))}
-      </div>
-      {section.examNote && (
-        <div className="mt-4 rounded-md border border-[#8fae4e] bg-[#f2f7ea] px-4 py-3">
+      {showIntro && <RichText text={section.intro} className="text-sm text-slate-600" />}
+      {items.map((item, i) => (
+        <ItemView key={i} item={item} />
+      ))}
+      {showExamNote && section.examNote && (
+        <div className="rounded-md border border-[#8fae4e] bg-[#f2f7ea] px-4 py-3">
           <p className="mb-1 text-xs font-semibold text-[#6a8a3e]">試験での出方</p>
           <RichText text={section.examNote} className="text-sm text-slate-700" />
         </div>

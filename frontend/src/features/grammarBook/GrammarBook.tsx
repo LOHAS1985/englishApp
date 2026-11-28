@@ -17,10 +17,6 @@ export default function GrammarBook() {
           ← ホーム
         </Link>
         <h1 className="mt-4 font-serif text-2xl text-slate-900">文法の教科書</h1>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          英文法を、基礎から試験(TOEIC Part 5・6、英検準1級)で問われる内容まで、例文つきで説明します。各章の最後に確認問題があります。
-          文法の問題を解いたあと、「この項目の解説を読む」からも、該当する節を開けます。
-        </p>
         <p className="mt-2 text-xs text-slate-500">
           読了 {readCount} / {CHAPTERS.length}章
         </p>
@@ -39,6 +35,11 @@ export default function GrammarBook() {
                 {p?.quizBest !== undefined && p.quizTotal !== undefined && (
                   <span className="shrink-0 text-xs text-slate-500">
                     確認問題 {p.quizBest}/{p.quizTotal}
+                  </span>
+                )}
+                {p?.bookmark && (
+                  <span className="shrink-0 text-xs text-slate-500">
+                    しおり {p.bookmark.page + 1}/{p.bookmark.total}
                   </span>
                 )}
                 {p?.read && <span className="shrink-0 text-xs font-semibold text-[#6a8a3e]">✓ 読了</span>}
