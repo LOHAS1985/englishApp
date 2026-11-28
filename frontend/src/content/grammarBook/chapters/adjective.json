@@ -1,0 +1,265 @@
+{
+  "id": "adjective",
+  "no": 7,
+  "title": "形容詞",
+  "lead": "形容詞は、名詞を説明したり、補語になったりして、人や物の性質・状態を表す語です。名詞の前に置く限定用法と、be 動詞などの後に置く叙述用法があり、使える位置が決まっている語もあります。TOEIC Part 5 では、many・much・few・little の使い分け、each・every の単数扱い、形容詞と前置詞の結びつき、語順がよく問われます。この章では、その基本を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "形容詞の基本: 名詞の前と、補語の位置",
+      "intro": "形容詞は、名詞の前に置いて名詞を説明する限定用法と、be 動詞や become などの後ろで主語の状態を説明する叙述用法の、二つの使い方があります。この節では、その位置と語順を確かめます。",
+      "keywords": ["形容詞"],
+      "items": [
+        {
+          "heading": "限定用法と叙述用法",
+          "explanation": "形容詞は、次の二つの位置で使われます。\n\n・限定用法: 名詞の前に置く(a new policy、a careful review)\n・叙述用法: be 動詞、become、seem などの後に置く(The policy is new.、The review seems careful.)\n\nほとんどの形容詞は、どちらの位置にも使えます。",
+          "examples": [
+            { "en": "We need a **new** policy for travel expenses.", "ja": "出張費について、新しい方針が必要だ。", "note": "限定用法(名詞の前)" },
+            { "en": "The policy is **new** and easy to understand.", "ja": "その方針は新しく、分かりやすい。", "note": "叙述用法(be 動詞の後)" }
+          ]
+        },
+        {
+          "heading": "使える位置が決まっている形容詞",
+          "explanation": "名詞の前にだけ使う形容詞(main、former、mere)と、名詞の前には置けない形容詞(alive、asleep、afraid など)があります。\n\n名詞の前に置けない形容詞は、名詞を修飾するときに、関係詞を使った形で表します。",
+          "table": {
+            "caption": "使う位置が決まっている形容詞",
+            "headers": ["種類", "例", "意味"],
+            "rows": [
+              ["名詞の前だけ", "main、former、mere", "主な・前の・単なる"],
+              ["be 動詞の後だけ", "alive、asleep、afraid、aware", "生きている・眠っている・恐れている・気づいている"]
+            ]
+          },
+          "examples": [
+            { "en": "The **main** reason for the delay was the weather.", "ja": "遅れの主な理由は天気だった。", "note": "main は名詞の前で使う" },
+            { "en": "The staff were **afraid** of the new system.", "ja": "スタッフは新しいシステムを不安に思っていた。", "note": "afraid は be 動詞の後で使う" }
+          ],
+          "cautions": ["× the afraid staff → ○ the staff who were afraid(afraid は名詞の前に置けない)"]
+        },
+        {
+          "heading": "形容詞の語順: something + 形容詞、名詞 + 形容詞句",
+          "explanation": "something、anything、nothing などの後ろでは、形容詞は名詞の後ろに置きます。また、形容詞が語句を伴うときも、名詞の後ろに置きます。\n\n・something important(何か重要なこと)\n・anything new(何か新しいこと)\n・a manager responsible for the budget(予算を担当している部長)",
+          "examples": [
+            { "en": "We have **something important** to discuss.", "ja": "話し合うべき重要なことがある。", "note": "something + 形容詞" },
+            { "en": "The manager **responsible for the budget** will join us.", "ja": "予算を担当している部長が、私たちに加わる。", "note": "形容詞句は名詞の後ろ" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、形容詞を名詞の前に置けるかどうか(afraid の位置)や、something の後ろの語順が問われます。"
+    },
+    {
+      "id": "quantity",
+      "title": "数量を表す語: many・much・few・little・each・every",
+      "intro": "数量を表す形容詞は、数えられる名詞か、数えられない名詞かで使い分けます。また、each と every の後ろは単数名詞になります。",
+      "keywords": ["数量形容詞", "数量(each / every)", "数量(every other)", "数量(a few / a little)", "数量詞"],
+      "items": [
+        {
+          "heading": "many・much・few・little: 数えられるか、数えられないか",
+          "explanation": "数えられる名詞には many、few を、数えられない名詞には much、little を使います。few と little は「ほとんどない(否定)」の意味になります。\n\n・many / few: 数えられる名詞(many customers、few customers)\n・much / little: 数えられない名詞(much time、little time)",
+          "table": {
+            "caption": "数量を表す形容詞の使い分け",
+            "headers": ["名詞", "多い", "少ない(ほとんどない)"],
+            "rows": [
+              ["数えられる名詞", "many", "few"],
+              ["数えられない名詞", "much", "little"]
+            ]
+          },
+          "examples": [
+            { "en": "**Many** customers visited the new store.", "ja": "多くの客が新しい店を訪れた。", "note": "many + 数えられる名詞" },
+            { "en": "We have **little** time before the deadline.", "ja": "締め切りまで、ほとんど時間がない。", "note": "little + 数えられない名詞(否定)" }
+          ]
+        },
+        {
+          "heading": "a few・a little: 少しはある(肯定)",
+          "explanation": "a few(少数の)と a little(少量の)は、「少しはある」という肯定の意味です。few・little(ほとんどない)との違いは、a の有無で表します。\n\n・a few members(数人の会員)\n・a little progress(少しの進展)",
+          "examples": [
+            { "en": "**A few** members have already submitted their reports.", "ja": "数人の会員は、すでにレポートを提出している。", "note": "a few(少しある)" },
+            { "en": "**A little** progress was made in the meeting.", "ja": "会議で少し進展があった。", "note": "a little(少しある)" }
+          ],
+          "cautions": ["× Few time remains. → ○ Little time remains.(数えられない名詞には little)"]
+        },
+        {
+          "heading": "each・every: 単数名詞と単数扱いの動詞",
+          "explanation": "each と every の後ろには、単数名詞が来て、動詞も単数扱いになります。each は「それぞれの」、every は「すべての」の意味で、ほぼ同じように使えます。\n\n・each employee has a locker.(社員は一人ひとり、ロッカーを持っている)\n・every department is required to submit a report.(どの部署も、レポートの提出が必要だ)",
+          "examples": [
+            { "en": "**Each** employee **has** a locker.", "ja": "社員は一人ひとり、ロッカーを持っている。", "note": "each + 単数名詞 + 単数扱いの動詞" },
+            { "en": "**Every** department **is** required to submit a report.", "ja": "どの部署も、レポートの提出が必要だ。", "note": "every + 単数名詞 + 単数扱いの動詞" }
+          ]
+        },
+        {
+          "heading": "every other・each other: 一つおき・お互い",
+          "explanation": "every other + 単数名詞は「一つおきの~」を表します。each other は「お互い」を表す代名詞で、形容詞ではありません。\n\n・every other week(一週間おき)\n・each other(お互い)",
+          "examples": [
+            { "en": "The meeting is held **every other** week.", "ja": "その会議は一週間おきに開かれる。", "note": "every other + 単数名詞" },
+            { "en": "The two teams support **each other** during busy periods.", "ja": "二つのチームは、忙しい時期に互いに支え合う。", "note": "each other(お互い)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、few と a few、little と a little の区別(否定か肯定か)や、each・every の後ろの単数名詞が問われます。"
+    },
+    {
+      "id": "prepositions",
+      "title": "前置詞と結びつく形容詞: liable for・in high demand",
+      "intro": "形容詞の中には、決まった前置詞と結びつくものや、決まった語句で使うものがあります。意味と一緒に、語のまとまりで覚えます。",
+      "keywords": ["形容詞(liable for)", "形容詞(in high demand)"],
+      "items": [
+        {
+          "heading": "liable for: 責任がある・義務を負う",
+          "explanation": "liable for は「~に責任がある・~の義務を負う」を表します。responsible for と似ていますが、liable は法律上や金銭上の責任を表すことが多いです。\n\n・liable for damages(損害賠償の責任がある)",
+          "examples": [
+            { "en": "The company is **liable for** any damage caused by its products.", "ja": "その会社は、自社製品による損害に責任を負う。", "note": "liable for + 名詞" },
+            { "en": "Employees are **liable for** any losses caused by negligence.", "ja": "社員は、過失による損失に責任を負う。", "note": "liable for(義務・責任)" }
+          ]
+        },
+        {
+          "heading": "in high demand・in short supply: 需要と供給の状態",
+          "explanation": "in high demand は「需要が高い」、in short supply は「品薄の」を表します。どちらも形容詞句として、名詞を説明したり、補語になったりします。\n\n・in high demand(需要が高い)\n・in short supply(品薄の)",
+          "examples": [
+            { "en": "Skilled engineers are **in high demand** this year.", "ja": "熟練したエンジニアは、今年需要が高い。", "note": "in high demand(需要が高い)" },
+            { "en": "Medical supplies were **in short supply** after the storm.", "ja": "嵐のあと、医療品は品薄になった。", "note": "in short supply(品薄)" }
+          ]
+        },
+        {
+          "heading": "capable of: ~する能力がある",
+          "explanation": "capable of は「~する能力がある」を表します。of の後ろには、動名詞か名詞が来ます。\n\n・capable of handling the project(そのプロジェクトを処理する能力がある)",
+          "examples": [
+            { "en": "She is **capable of** handling a large project.", "ja": "彼女は大きなプロジェクトを処理する能力がある。", "note": "capable of + 動名詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、形容詞と前置詞の組み合わせ(liable for、in high demand)が、語彙として出題されます。"
+    },
+    {
+      "id": "necessity",
+      "title": "必要・重要を表す形容詞: imperative・essential・vital",
+      "intro": "必要性や重要性を表す形容詞には、それぞれ決まった使い方があります。It is ~ that の形で使うものと、前置詞 to と結びつくものがあります。",
+      "keywords": ["形容詞(imperative)"],
+      "items": [
+        {
+          "heading": "imperative: 不可欠な・緊急の",
+          "explanation": "imperative は「不可欠な・緊急の」を表す、改まった形容詞です。It is imperative that ~ の形で、that 節の動詞は原形になります(法の章も参照)。\n\n・It is imperative that we act quickly.(私たちが迅速に行動することは不可欠だ)",
+          "examples": [
+            { "en": "It is **imperative** that we **act** quickly.", "ja": "私たちが迅速に行動することは不可欠だ。", "note": "imperative + that 節(動詞は原形)" }
+          ]
+        },
+        {
+          "heading": "necessary・essential・vital の使い分け",
+          "explanation": "必要や重要を表す形容詞は、次のように使い分けます。\n\n・necessary: 必要な(It is necessary to ~)\n・essential: 不可欠な(essential to ~)\n・vital: 極めて重要な(vital to ~)\n\nessential と vital は、後ろに to + 名詞を続けて、「~にとって不可欠だ」「~にとって極めて重要だ」を表します。",
+          "examples": [
+            { "en": "Regular training is **essential** to safety.", "ja": "定期的な研修は、安全に不可欠だ。", "note": "essential to + 名詞" },
+            { "en": "Clear communication is **vital** to the success of the project.", "ja": "明確なコミュニケーションは、そのプロジェクトの成功にとって極めて重要だ。", "note": "vital to + 名詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、必要・重要の形容詞と前置詞(to)の組み合わせ、It is ~ that の形が出題されます。"
+    }
+  ],
+  "summary": [
+    "形容詞は、名詞の前(限定用法)か、be 動詞・become の後(叙述用法)に置く",
+    "名詞の前に置けない形容詞(afraid・alive・asleep)、名詞の前だけの形容詞(main・former)がある",
+    "something の後ろの形容詞は、名詞のように後ろに置く(something important)",
+    "数えられる名詞には many・few、数えられない名詞には much・little",
+    "a few・a little は「少しある」(肯定)。few・little は「ほとんどない」(否定)",
+    "each・every の後ろは単数名詞、動詞も単数扱い。every other は「一つおきの」",
+    "liable for(責任がある)、in high demand(需要が高い)は、語のまとまりで覚える",
+    "It is imperative that ~ の後ろは原形。vital・essential は to + 名詞と組む"
+  ],
+  "quiz": [
+    {
+      "id": "adjective-q01",
+      "sentence": "We have ------- time before the deadline, so we must act now.",
+      "choices": [{ "label": "A", "text": "little" }, { "label": "B", "text": "few" }, { "label": "C", "text": "much" }, { "label": "D", "text": "many" }],
+      "answer": "A",
+      "explanation": "time は数えられない名詞なので、little(ほとんどない)が正解。few と many は数えられる名詞に使うので、time には合わない。much は「多くの」の肯定の意味で、「時間がほとんどない」の文脈に合わない。",
+      "translation": "締め切りまでの時間はほとんどないので、今すぐ行動しなければならない。"
+    },
+    {
+      "id": "adjective-q02",
+      "sentence": "------- employees attended the training, so we will repeat it.",
+      "choices": [{ "label": "A", "text": "Little" }, { "label": "B", "text": "Few" }, { "label": "C", "text": "Much" }, { "label": "D", "text": "Every" }],
+      "answer": "B",
+      "explanation": "employees は数えられる名詞で、「ほとんどいない」を表す Few が正解。Little は数えられない名詞に使うので誤り。Much も数えられない名詞用。Every は単数名詞の前に置き、employees(複数)とは合わない。",
+      "translation": "研修に出席した社員がほとんどいなかったので、もう一度行う。"
+    },
+    {
+      "id": "adjective-q03",
+      "sentence": "Please bring ------- information that will help us decide.",
+      "choices": [{ "label": "A", "text": "many" }, { "label": "B", "text": "few" }, { "label": "C", "text": "a little" }, { "label": "D", "text": "a few" }],
+      "answer": "C",
+      "explanation": "information は数えられない名詞なので、a little(少しの)が正解。many と a few は数えられる名詞に使うので、information には合わない。few は「ほとんどない」の否定で、依頼の文脈に合わない。",
+      "translation": "判断の助けになる情報を、少しでも持ってきてください。"
+    },
+    {
+      "id": "adjective-q04",
+      "sentence": "Each ------- must sign the form before leaving.",
+      "choices": [{ "label": "A", "text": "employees" }, { "label": "B", "text": "they" }, { "label": "C", "text": "employee's" }, { "label": "D", "text": "employee" }],
+      "answer": "D",
+      "explanation": "each の後ろには単数名詞が来るので、employee が正解。employees は複数形で、each とは合わない。they は代名詞で、名詞の位置に続けられない。employee's は所有格で、この形では使わない。",
+      "translation": "社員は一人ひとり、退社前に用紙に署名しなければならない。"
+    },
+    {
+      "id": "adjective-q05",
+      "sentence": "Every ------- in the company has a designated safety officer.",
+      "choices": [{ "label": "A", "text": "department" }, { "label": "B", "text": "departments" }, { "label": "C", "text": "departmental" }, { "label": "D", "text": "department's" }],
+      "answer": "A",
+      "explanation": "every の後ろには単数名詞が来るので、department が正解。departments は複数形で、every とは合わない。departmental は形容詞で、名詞の位置に入らない。department's は所有格で、この文の形に合わない。",
+      "translation": "社内のどの部署にも、担当の安全責任者がいる。"
+    },
+    {
+      "id": "adjective-q06",
+      "sentence": "The meeting is held ------- other week on Tuesdays.",
+      "choices": [{ "label": "A", "text": "each" }, { "label": "B", "text": "every" }, { "label": "C", "text": "all" }, { "label": "D", "text": "whole" }],
+      "answer": "B",
+      "explanation": "every other week(一週間おき)の形で、every が正解。each other は「お互い」の意味で、週の間隔を表さない。all や whole は、other と組んでこの意味を作らない。",
+      "translation": "その会議は、火曜日に一週間おきに開かれる。"
+    },
+    {
+      "id": "adjective-q07",
+      "sentence": "The company is ------- for any damage caused by its products.",
+      "choices": [{ "label": "A", "text": "responsible of" }, { "label": "B", "text": "responsible in" }, { "label": "C", "text": "liable for" }, { "label": "D", "text": "liable of" }],
+      "answer": "C",
+      "explanation": "liable for(~に責任がある)の形が正解。responsible of と responsible in は、前置詞の組み合わせとして誤り。liable of も、for と組むべき語を誤っている。",
+      "translation": "その会社は、自社製品による損害に責任を負う。"
+    },
+    {
+      "id": "adjective-q08",
+      "sentence": "Skilled engineers are ------- this year.",
+      "choices": [{ "label": "A", "text": "in short supply" }, { "label": "B", "text": "on high demand" }, { "label": "C", "text": "in demand high" }, { "label": "D", "text": "in high demand" }],
+      "answer": "D",
+      "explanation": "in high demand(需要が高い)が正解。in short supply は「品薄」の意味で、需要が高い文脈とは反対になる。on high demand と in demand high は、前置詞や語順が誤り。",
+      "translation": "熟練したエンジニアは、今年需要が高い。"
+    },
+    {
+      "id": "adjective-q09",
+      "sentence": "It is ------- that we respond to the complaint immediately.",
+      "choices": [{ "label": "A", "text": "imperative" }, { "label": "B", "text": "imperatively" }, { "label": "C", "text": "imperate" }, { "label": "D", "text": "imperatives" }],
+      "answer": "A",
+      "explanation": "It is imperative that ~(~することは不可欠だ)の形で、形容詞 imperative が正解。imperatively は副詞、imperate は存在しない動詞、imperatives は複数形の名詞で、It is の後ろの形に合わない。",
+      "translation": "私たちが、その苦情にすぐ対応することは不可欠だ。"
+    },
+    {
+      "id": "adjective-q10",
+      "sentence": "Clear communication is ------- to the success of the project.",
+      "choices": [{ "label": "A", "text": "necessity" }, { "label": "B", "text": "vital" }, { "label": "C", "text": "necessarily" }, { "label": "D", "text": "essentially" }],
+      "answer": "B",
+      "explanation": "vital to ~(~にとって極めて重要だ)の形で、vital が正解。necessity は名詞、necessarily と essentially は副詞で、be 動詞の補語になる形容詞の位置には入らない。",
+      "translation": "明確なコミュニケーションは、そのプロジェクトの成功にとって極めて重要だ。"
+    },
+    {
+      "id": "adjective-q11",
+      "sentence": "There is ------- new in the report.",
+      "choices": [{ "label": "A", "text": "anything" }, { "label": "B", "text": "something" }, { "label": "C", "text": "nothing" }, { "label": "D", "text": "everything" }],
+      "answer": "C",
+      "explanation": "nothing new(新しいことは何もない)の語順で、nothing が正解。anything と something は、この肯定・否定の文脈で、意味が合わない。everything は「すべて」の意味になり、ここには合わない。",
+      "translation": "そのレポートには、新しいことは何もない。"
+    },
+    {
+      "id": "adjective-q12",
+      "sentence": "Employees who were ------- of the new system asked for training.",
+      "choices": [{ "label": "A", "text": "alive" }, { "label": "B", "text": "asleep" }, { "label": "C", "text": "awake" }, { "label": "D", "text": "afraid" }],
+      "answer": "D",
+      "explanation": "be afraid of(~を恐れている)の形で、afraid が正解。alive(生きている)、asleep(眠っている)、awake(目覚めている)は、新しいシステムへの気持ちの意味にならない。",
+      "translation": "新しいシステムを不安に思っていた社員は、研修を依頼した。"
+    }
+  ],
+  "related": ["noun", "adverb", "comparison"]
+}

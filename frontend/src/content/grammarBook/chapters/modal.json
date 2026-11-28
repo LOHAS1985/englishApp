@@ -1,0 +1,260 @@
+{
+  "id": "modal",
+  "no": 12,
+  "title": "助動詞",
+  "lead": "助動詞は、動詞の前に置いて、可能・許可・義務・推量・意志などの、話し手の気持ちや判断を表す語です。助動詞の後ろには動詞の原形が続きます(主語が三人称単数でも、-s は付けません)。TOEIC Part 5 では、must と have to の違い、推量の助動詞(must・may・can't)の使い分け、助動詞 + have + 過去分詞(過去の推量や後悔)の意味がよく問われます。この章では、それぞれの意味と使い分けを確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "助動詞の基本: 原形を続け、否定と疑問を作る",
+      "intro": "助動詞は、動詞の前に置いて、話し手の判断や気持ちを表します。どの助動詞でも、後ろには動詞の原形が続きます。この節では、助動詞の形と、否定・疑問の作り方を確かめます。",
+      "keywords": ["助動詞"],
+      "items": [
+        {
+          "heading": "助動詞の形と役割: 後ろは動詞の原形",
+          "explanation": "助動詞は、動詞の前に置いて、話し手の判断や気持ちを表します。助動詞の後ろには、動詞の原形が続きます。主語が三人称単数でも、動詞に -s は付けません。\n\n・He can swim.(彼は泳げる)\n・She must leave now.(彼女は今出発しなければならない)",
+          "examples": [
+            { "en": "She **can** speak three languages.", "ja": "彼女は3か国語を話せる。", "note": "can + 原形(-s は付けない)" },
+            { "en": "He **must** finish the report today.", "ja": "彼は今日、レポートを終えなければならない。", "note": "must + 原形" }
+          ]
+        },
+        {
+          "heading": "否定と疑問: not を助動詞の後ろに、助動詞を主語の前に",
+          "explanation": "助動詞の否定は、助動詞の後ろに not を置きます。can not は cannot と綴ります。疑問は、助動詞を主語の前に出します。\n\n・否定: You should not share the password.\n・疑問: Can you join the meeting?",
+          "examples": [
+            { "en": "You **should not** share the password with anyone.", "ja": "パスワードは誰にも教えてはいけない。", "note": "should + not + 原形" },
+            { "en": "**Can** you join the meeting tomorrow?", "ja": "明日の会議に参加できますか。", "note": "助動詞を主語の前に出す" }
+          ]
+        },
+        {
+          "heading": "主な助動詞の意味",
+          "explanation": "助動詞は、一つの形で複数の意味を持つことがあります。たとえば may は「許可」にも「可能性」にも使います。どの意味かは、文脈(主語や、後ろに続く内容)で判断します。\n\n表の中で、主な意味を一つずつ確かめてください。",
+          "table": {
+            "caption": "主な助動詞の意味",
+            "headers": ["助動詞", "主な意味", "例"],
+            "rows": [
+              ["can", "能力・可能", "can swim(泳げる)"],
+              ["could", "過去の能力・丁寧な依頼", "Could you help me?"],
+              ["may", "許可・推量(~かもしれない)", "May I come in?"],
+              ["must", "義務・強い推量", "must submit(提出しなければならない)"],
+              ["should", "~すべき(助言)", "should check(確認したほうがよい)"],
+              ["will", "未来・意志・依頼", "will call you(電話する)"]
+            ]
+          },
+          "examples": [
+            { "en": "You **may** leave early if you finish your work.", "ja": "仕事が終われば、早く帰ってもよい。", "note": "may(許可)" },
+            { "en": "I **will** send the report tomorrow.", "ja": "明日、レポートを送ります。", "note": "will(意志)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、助動詞の後ろに -s や to を付けた誤り(He cans、He can to swim)や、否定の位置の誤りが出ます。"
+    },
+    {
+      "id": "obligation",
+      "title": "義務・必要・禁止・不要: must・have to・should",
+      "intro": "must と have to は、どちらも「~しなければならない」を表しますが、義務の出どころが違います。また、must not(禁止)と don't have to(不要)は、意味が大きく違います。",
+      "keywords": ["助動詞"],
+      "items": [
+        {
+          "heading": "must と have to: 話し手の判断か、外部の事情か",
+          "explanation": "must は、話し手の判断による義務や、強い必要を表します。have to は、規則や外部の事情による必要を表します。過去・未来の形は、have to を使います(had to、will have to)。\n\n・You must wear a badge.(バッジを付けなければならない)\n・You have to wear a badge.(規則で、バッジを付けることになっている)",
+          "examples": [
+            { "en": "You **must** submit the form by Friday.", "ja": "金曜日までに、用紙を提出しなければならない。", "note": "must(話し手の判断・強い義務)" },
+            { "en": "We **had to** change the schedule because of the delay.", "ja": "遅れのため、予定を変えなければならなかった。", "note": "過去の形は had to" }
+          ]
+        },
+        {
+          "heading": "must not と don't have to: 禁止と不要",
+          "explanation": "must not(mustn't)は「~してはならない(禁止)」を表し、don't have to は「~する必要はない(不要)」を表します。意味が大きく違うので注意します。\n\n・You must not use the room after 6 p.m.(午後6時以降、その部屋を使ってはならない)\n・You do not have to attend the meeting.(会議に出る必要はない)",
+          "examples": [
+            { "en": "Visitors **must not** enter the laboratory.", "ja": "訪問者は研究室に入ってはならない。", "note": "must not(禁止)" },
+            { "en": "You **do not have to** attend the meeting.", "ja": "会議に出席する必要はない。", "note": "don't have to(不要)" }
+          ]
+        },
+        {
+          "heading": "should・ought to: ~すべきだ",
+          "explanation": "should と ought to は、「~すべきだ」という助言や、ゆるい義務を表します。must より弱い表現です。\n\n・You should check the data before the meeting.(会議の前にデータを確認したほうがよい)\n・We ought to review the policy every year.(私たちは毎年、方針を見直すべきだ)",
+          "examples": [
+            { "en": "You **should check** the data before the meeting.", "ja": "会議の前にデータを確認したほうがよい。", "note": "should(助言)" },
+            { "en": "We **ought to review** the policy every year.", "ja": "私たちは、毎年方針を見直すべきだ。", "note": "ought to(should とほぼ同じ)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、must not(禁止)と don't have to(不要)の取り違えや、過去の形 had to が出題されます。"
+    },
+    {
+      "id": "deduction",
+      "title": "推量の助動詞: must・may・might・can't",
+      "intro": "助動詞は、話し手の確信の強さによって、推量(~だろう、~かもしれない、~のはずがない)を表します。根拠の強さに合わせて、使い分けます。",
+      "keywords": ["助動詞"],
+      "items": [
+        {
+          "heading": "must・may・might・could: 推量の強さ",
+          "explanation": "確信が強いときは must(~に違いない)、確信が低いときは may・might・could(~かもしれない)を使います。\n\n・must(強い確信): ほぼ間違いないと判断する\n・may / might / could(可能性): そうかもしれない程度",
+          "examples": [
+            { "en": "The manager **must** be in the meeting now.", "ja": "部長は今、会議中に違いない。", "note": "must(強い推量)" },
+            { "en": "The delay **may** cause problems for the team.", "ja": "その遅れは、チームに問題を起こすかもしれない。", "note": "may(可能性)" }
+          ]
+        },
+        {
+          "heading": "can't・cannot: ~のはずがない",
+          "explanation": "cannot(can't)は、強い否定の推量で、「~のはずがない」を表します。根拠を持って、否定するときに使います。\n\n・The report can't be finished in one day.(そのレポートを一日で終えられるはずがない)",
+          "examples": [
+            { "en": "That **cannot be** true. We checked the data twice.", "ja": "それは本当のはずがない。私たちは二度データを確認した。", "note": "cannot be(~のはずがない)" }
+          ]
+        },
+        {
+          "heading": "should・will: 根拠に基づく予想",
+          "explanation": "推量は、根拠の強さによっても使い分けます。\n\n・should / ought to: 根拠に基づく予想(~のはずだ)\n・will: 自然な予想(~だろう)\n\nshould は「予想される」の意味で、推量にも使われます。",
+          "examples": [
+            { "en": "The package **should arrive** by Friday.", "ja": "荷物は金曜日までに届くはずだ。", "note": "should(根拠に基づく予想)" },
+            { "en": "The meeting **will start** at ten as planned.", "ja": "会議は予定どおり10時に始まるだろう。", "note": "will(自然な予想)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、推量の強さ(must と may)や、cannot(~のはずがない)を選ばせる問題が出ます。"
+    },
+    {
+      "id": "perfect-modal",
+      "title": "完了形の助動詞: must have・should have・need not have",
+      "intro": "助動詞 + have + 過去分詞は、過去の出来事について、推量・後悔・不要だったことを表します。",
+      "keywords": ["助動詞(need not have)", "助動詞+完了形"],
+      "items": [
+        {
+          "heading": "must have + 過去分詞: 過去の推量",
+          "explanation": "must have + 過去分詞は、「過去に~したに違いない」の推量を表します。\n\n・The meeting must have started by now.(会議はもう始まっているに違いない)",
+          "examples": [
+            { "en": "The meeting **must have started** by now.", "ja": "会議はもう始まっているに違いない。", "note": "must have + 過去分詞" },
+            { "en": "The data **must have been** corrupted during the update.", "ja": "更新の間に、データは壊れてしまったに違いない。", "note": "must have been + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "should have + 過去分詞: ~すべきだったのに",
+          "explanation": "should have + 過去分詞は、「~すべきだったのに(しなかった)」の後悔や非難を表します。\n\n・You should have called me earlier.(もっと早く電話してくれればよかったのに)",
+          "examples": [
+            { "en": "You **should have told** me about the change.", "ja": "その変更を、私に教えてくれればよかったのに。", "note": "should have + 過去分詞(後悔)" },
+            { "en": "We **should have checked** the figures before the meeting.", "ja": "会議の前に数字を確認しておけばよかった。", "note": "should have + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "need not have + 過去分詞: ~する必要はなかったのに",
+          "explanation": "need not have + 過去分詞は、「~する必要はなかった(実際はした)」を表します。過去に不要な行動をしてしまったことを表すときに使います。\n\n・You need not have come so early.(そんなに早く来る必要はなかったのに)",
+          "examples": [
+            { "en": "You **need not have come** so early.", "ja": "そんなに早く来る必要はなかったのに。", "note": "need not have + 過去分詞(不要だった)" },
+            { "en": "We **need not have booked** a room, since the meeting was canceled.", "ja": "会議は中止になったので、部屋を予約する必要はなかった。", "note": "need not have booked" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、should have(後悔)、must have(推量)、need not have(不要だった)の使い分けが出題されます。"
+    }
+  ],
+  "summary": [
+    "助動詞の後ろは動詞の原形。-s や to は付けない(He can swim)",
+    "否定は助動詞の後ろに not。cannot と綴る。疑問は助動詞を主語の前に出す",
+    "must は話し手の判断、have to は外部の事情。過去の形は had to",
+    "must not は禁止、don't have to は不要。意味が大きく違う",
+    "推量: must(~に違いない)、may・might(~かもしれない)、can't(~のはずがない)",
+    "助動詞 + have + 過去分詞: must have(過去の推量)、should have(後悔)、need not have(不要だった)",
+    "should は助言、ought to は should とほぼ同じ意味",
+    "will は意志・予想、would は過去の習慣や丁寧な依頼"
+  ],
+  "quiz": [
+    {
+      "id": "modal-q01",
+      "sentence": "You ------- not use the printer after 6 p.m.",
+      "choices": [{ "label": "A", "text": "must" }, { "label": "B", "text": "have" }, { "label": "C", "text": "need" }, { "label": "D", "text": "are" }],
+      "answer": "A",
+      "explanation": "must not(~してはならない)は禁止を表す。must が正解。have は、not の前に置いて禁止を表す形にならない。need は not と組むと「~する必要はない」の意味になり、禁止にはならない。are は be 動詞で、助動詞の位置に合わない。",
+      "translation": "午後6時以降、プリンターを使ってはならない。"
+    },
+    {
+      "id": "modal-q02",
+      "sentence": "You ------- attend the meeting; the notes will be sent to you.",
+      "choices": [{ "label": "A", "text": "must not" }, { "label": "B", "text": "do not have to" }, { "label": "C", "text": "should not" }, { "label": "D", "text": "cannot" }],
+      "answer": "B",
+      "explanation": "notes will be sent to you(メモが送られる)という文脈から、出席する必要はない、という不要の意味になる。do not have to が正解。must not と cannot は禁止に、should not は助言に当たり、必要がないという文脈に合わない。",
+      "translation": "会議に出席する必要はありません。メモをお送りします。"
+    },
+    {
+      "id": "modal-q03",
+      "sentence": "The package ------- arrive by Friday, according to the tracking system.",
+      "choices": [{ "label": "A", "text": "must not" }, { "label": "B", "text": "cannot" }, { "label": "C", "text": "should" }, { "label": "D", "text": "might not" }],
+      "answer": "C",
+      "explanation": "追跡システムという根拠に基づく予想は、should(~のはずだ)で表す。should arrive が正解。must not は禁止や強い否定の推量、cannot は「~のはずがない」で、予想の文脈に合わない。might not は不確かな可能性を表し、根拠のある予想とは違う。",
+      "translation": "追跡システムによると、荷物は金曜日までに届くはずだ。"
+    },
+    {
+      "id": "modal-q04",
+      "sentence": "The results ------- be correct; they are far too high.",
+      "choices": [{ "label": "A", "text": "should not" }, { "label": "B", "text": "need not" }, { "label": "C", "text": "would not" }, { "label": "D", "text": "cannot" }],
+      "answer": "D",
+      "explanation": "far too high(あまりに高すぎる)という根拠から、正しいはずがない、の強い否定の推量 cannot be が正解。should not は助言、need not は不要、would not は意志・拒否の意味で、推量の文脈に合わない。",
+      "translation": "その結果は、正しいはずがない。あまりに高すぎる。"
+    },
+    {
+      "id": "modal-q05",
+      "sentence": "You ------- have told me about the change earlier.",
+      "choices": [{ "label": "A", "text": "should" }, { "label": "B", "text": "shall" }, { "label": "C", "text": "would" }, { "label": "D", "text": "could" }],
+      "answer": "A",
+      "explanation": "should have told(~すべきだったのに、教えなかった)という後悔の形が正解。shall は意志や提案で、この後悔の文脈に合わない。would と could は have told と組むと、後悔・推量の意味が変わるので、文の意味が合わない。",
+      "translation": "その変更を、前もって私に教えてくれればよかったのに。"
+    },
+    {
+      "id": "modal-q06",
+      "sentence": "The data ------- have been corrupted during the update.",
+      "choices": [{ "label": "A", "text": "cannot" }, { "label": "B", "text": "must" }, { "label": "C", "text": "need" }, { "label": "D", "text": "can" }],
+      "answer": "B",
+      "explanation": "must have been corrupted(壊れたに違いない)の過去の推量が正解。cannot は否定の推量で、壊れたことを確信する文脈に合わない。need と can は、この完了形の推量の形を作らない。",
+      "translation": "更新の間に、データは壊れてしまったに違いない。"
+    },
+    {
+      "id": "modal-q07",
+      "sentence": "We ------- have checked the figures before the meeting, but we did not.",
+      "choices": [{ "label": "A", "text": "must" }, { "label": "B", "text": "may" }, { "label": "C", "text": "should" }, { "label": "D", "text": "will" }],
+      "answer": "C",
+      "explanation": "should have checked(確認しておくべきだったのに、しなかった)の後悔の形が正解。must have checked は過去の推量で、ここでは「しなかった」事実への後悔を表せない。may と will は、この後悔の文脈に合わない。",
+      "translation": "会議の前に数字を確認しておくべきだったが、私たちはしなかった。"
+    },
+    {
+      "id": "modal-q08",
+      "sentence": "You ------- have come so early; the meeting has been moved to next week.",
+      "choices": [{ "label": "A", "text": "must not" }, { "label": "B", "text": "should not" }, { "label": "C", "text": "might not" }, { "label": "D", "text": "need not" }],
+      "answer": "D",
+      "explanation": "need not have come(来る必要はなかったのに)の形が正解。会議が来週に延期されたので、早く来る必要は実際になかった。must not と should not は禁止や助言で、過去の不要だった行動の文脈に合わない。might not は、可能性を表すので合わない。",
+      "translation": "そんなに早く来る必要はなかった。会議は来週に延期された。"
+    },
+    {
+      "id": "modal-q09",
+      "sentence": "Visitors ------- not enter the laboratory without permission.",
+      "choices": [{ "label": "A", "text": "must" }, { "label": "B", "text": "have" }, { "label": "C", "text": "to" }, { "label": "D", "text": "are" }],
+      "answer": "A",
+      "explanation": "must not(~してはならない)の禁止の形で、must が正解。have は助動詞として not と組まない。to は不定詞の印で、助動詞の位置には入らない。are は be 動詞で、禁止を表す形にならない。",
+      "translation": "訪問者は、許可なく研究室に入ってはならない。"
+    },
+    {
+      "id": "modal-q10",
+      "sentence": "You ------- check the data before sending it to the client.",
+      "choices": [{ "label": "A", "text": "might" }, { "label": "B", "text": "should" }, { "label": "C", "text": "can't" }, { "label": "D", "text": "cannot" }],
+      "answer": "B",
+      "explanation": "should(~すべきだ)は、助言を表す。should check が正解。might は「~かもしれない」の可能性で、助言の意味にならない。can't と cannot は「~できない・~のはずがない」で、この文脈には合わない。",
+      "translation": "顧客に送る前に、データを確認したほうがよい。"
+    },
+    {
+      "id": "modal-q11",
+      "sentence": "The manager ------- be at lunch; her bag is still here.",
+      "choices": [{ "label": "A", "text": "need" }, { "label": "B", "text": "has" }, { "label": "C", "text": "must" }, { "label": "D", "text": "shall" }],
+      "answer": "C",
+      "explanation": "強い推量を表す must(~に違いない)が正解。バッグがまだあるという根拠から、昼食に出ている、と強く推量している。need は不要、has は動詞、shall は意志や提案で、推量の意味にならない。",
+      "translation": "部長は昼食に出ているに違いない。かばんがまだここにある。"
+    },
+    {
+      "id": "modal-q12",
+      "sentence": "We ------- have booked a room; the meeting was canceled.",
+      "choices": [{ "label": "A", "text": "should not" }, { "label": "B", "text": "must not" }, { "label": "C", "text": "cannot" }, { "label": "D", "text": "need not" }],
+      "answer": "D",
+      "explanation": "need not have booked(予約する必要はなかった)の形が正解。会議が中止になったので、部屋の予約は実際には不要だった。must not と cannot は、禁止や推量の意味で、この文脈に合わない。should not have booked は「予約すべきでなかった」という非難の意味になり、文の内容とずれる。",
+      "translation": "会議は中止になったので、部屋を予約する必要はなかった。"
+    }
+  ],
+  "related": ["verb", "tense", "mood"]
+}

@@ -1,0 +1,269 @@
+{
+  "id": "sequence-narration",
+  "no": 22,
+  "title": "時制の一致と話法",
+  "lead": "時制の一致は、主節の動詞が過去形のとき、that 節などの中の動詞も、過去の形に合わせる決まりです。話法は、他人の発言を伝える方法で、発言をそのまま示す直接話法と、伝える人の言葉に直す間接話法があります。TOEIC Part 5 では、時制の一致の例外(普遍の真理・現在も続く事実)や、直接話法から間接話法への書き換え(人称・時の副詞の変化)が出題されます。この章では、その基本と例外を確かめます。",
+  "sections": [
+    {
+      "id": "sequence-basics",
+      "title": "時制の一致の基本: 主節が過去なら、従属節を過去に合わせる",
+      "intro": "said、told、knew などの過去形の主節に続く that 節では、その中の時制を過去の形にそろえます。この節では、時制の変化の基本と、例外となる場合を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "時制の一致の原則",
+          "explanation": "主節の動詞が過去形(said、told、knew など)のとき、that 節の中の時制は、過去の形にそろえます。現在形は過去形に、過去形は過去完了に、will・can・may は would・could・might に変わります。",
+          "table": {
+            "caption": "時制の一致の変化",
+            "headers": ["元の形(直接)", "時制の一致後(間接)"],
+            "rows": [
+              ["現在形(is、works)", "過去形(was、worked)"],
+              ["現在進行形", "過去進行形"],
+              ["現在完了(has done)", "過去完了(had done)"],
+              ["過去形(did)", "過去完了(had done)"],
+              ["will", "would"],
+              ["can", "could"],
+              ["may", "might"],
+              ["must", "had to"]
+            ]
+          },
+          "examples": [
+            { "en": "She **said** that the report **was** ready.", "ja": "彼女は、レポートの準備ができたと言った。", "note": "said(過去)の後ろは was(過去)" },
+            { "en": "He **said** that he **would call** me the next day.", "ja": "彼は、次の日に私に電話すると言った。", "note": "will → would" }
+          ]
+        },
+        {
+          "heading": "時制の一致の例外: 普遍の真理・現在も続く事実",
+          "explanation": "次の場合は、主節が過去でも、時制の一致を受けず、現在形のままです。\n\n・普遍の真理・科学的な事実: The teacher said that water boils at 100 degrees.\n・現在も続いている事実: She told me that she lives in Osaka.(今も大阪に住んでいる)\n・歴史上の事実: He told us that World War II ended in 1945.",
+          "examples": [
+            { "en": "The teacher said that water **boils** at 100 degrees Celsius.", "ja": "先生は、水は摂氏100度で沸騰すると言った。", "note": "普遍の真理は現在形のまま" },
+            { "en": "She told me that she **lives** in Osaka.", "ja": "彼女は私に、今は大阪に住んでいると言った。", "note": "今も続いている事実は現在形" }
+          ]
+        },
+        {
+          "heading": "仮定法は、時制の一致の対象にならない",
+          "explanation": "仮定法の形(were、would、had + 過去分詞)は、時制の一致の対象になりません。仮定法の形のまま、伝えます。\n\n・He said that if he were the manager, he would change the plan.(もし自分が部長なら、その計画を変えるだろうと彼は言った)",
+          "examples": [
+            { "en": "He said that if he **were** the manager, he **would change** the plan.", "ja": "もし自分が部長なら、その計画を変えるだろうと彼は言った。", "note": "仮定法過去はそのまま" },
+            { "en": "She said that if she **had known** the date, she **would have come**.", "ja": "日付を知っていたら、彼女は来ていただろうと言った。", "note": "仮定法過去完了はそのまま" }
+          ]
+        },
+        {
+          "heading": "過去の助動詞は変わらない: could・might・should・would",
+          "explanation": "時制の一致で形が変わるのは、主に現在形と will・can・may・must です。could、might、should、would はもともと過去の形なので、間接話法でも変わりません。\n\n・直接: He said, \"I might be late.\"\n・間接: He said that he might be late.(彼は遅れるかもしれないと言った)",
+          "examples": [
+            { "en": "He said that he **might be** late for the meeting.", "ja": "彼は、会議に遅れるかもしれないと言った。", "note": "might は過去の形なので変わらない" },
+            { "en": "She said that she **should** finish the report by noon.", "ja": "彼女は、正午までにレポートを終えるべきだと言った。", "note": "should は変わらない" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、主節が過去のときの that 節の時制(will → would、is → was)と、普遍の真理の例外が出題されます。"
+    },
+    {
+      "id": "direct-to-indirect",
+      "title": "直接話法から間接話法へ: that・人称・時の副詞の変化",
+      "intro": "間接話法では、say や tell の後ろに that を置いて、伝える人の立場から書き直します。人称、時の副詞、場所の副詞は、伝える時点に合わせて変わります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "平叙文の間接話法: say that・tell 人 that",
+          "explanation": "平叙文を間接話法にするときは、say の後ろに that を置くか、tell の後ろに「人 + that」を置きます。人称や時の副詞は、伝える人の立場に合わせて変えます。\n\n・直接: She said, \"I am busy now.\"\n・間接: She said that she was busy at that time.\n\nsay は「say + that 節」、tell は「tell + 人 + that 節」の形になります。",
+          "examples": [
+            { "en": "She said that she was busy at that time.", "ja": "彼女は、そのとき忙しいと言った。", "note": "I → she、now → at that time" },
+            { "en": "He told me that he would finish the report the next day.", "ja": "彼は、次の日にレポートを終えると私に言った。", "note": "tell 人 that、tomorrow → the next day" }
+          ]
+        },
+        {
+          "heading": "時・場所の副詞の変化",
+          "explanation": "伝える時点や場所に合わせて、副詞を変えます。\n\n・now → then(今 → そのとき)\n・today → that day(今日 → その日)\n・tomorrow → the next day(明日 → 次の日)\n・yesterday → the day before(昨日 → 前の日)\n・here → there(ここ → そこ)",
+          "table": {
+            "caption": "時・場所の副詞の変化",
+            "headers": ["直接", "間接"],
+            "rows": [
+              ["now", "then"],
+              ["today", "that day"],
+              ["tomorrow", "the next day"],
+              ["yesterday", "the day before"],
+              ["ago", "before"],
+              ["here", "there"],
+              ["this", "that"],
+              ["next week", "the following week"]
+            ]
+          },
+          "examples": [
+            { "en": "She said that she would visit the office **the next day**.", "ja": "彼女は、次の日に事務所を訪れると言った。", "note": "tomorrow → the next day" },
+            { "en": "They said that they had met the client **the day before**.", "ja": "彼らは、前の日に顧客に会ったと言った。", "note": "yesterday → the day before" }
+          ]
+        },
+        {
+          "heading": "疑問文の間接話法: 平叙文の語順、if・whether",
+          "explanation": "疑問文を間接話法にすると、疑問詞(または if・whether)の後ろは、平叙文の語順(主語 + 動詞)になります。疑問文の語順には戻しません。\n\n・直接: He asked, \"Where is the meeting?\"\n・間接: He asked where the meeting was.(会議はどこかと彼は尋ねた)\n\nYes/No の疑問文には if または whether を使います。",
+          "examples": [
+            { "en": "He asked **where** the meeting **was**.", "ja": "会議はどこかと、彼は尋ねた。", "note": "疑問詞 + 平叙文の語順" },
+            { "en": "She asked **whether** the report **was** ready.", "ja": "レポートの準備はできたかと、彼女は尋ねた。", "note": "whether + 平叙文の語順" }
+          ]
+        },
+        {
+          "heading": "過去完了の直接話法: 間接話法でも変わらない",
+          "explanation": "直接話法の過去完了(had done)は、時制の一致で変わりません。過去完了はすでに過去より前の形なので、そのまま had done の形で伝えます。直接話法の過去形の部分は、間接話法で過去完了に変わります。",
+          "examples": [
+            { "en": "She said that she **had finished** the task.", "ja": "彼女は、その仕事を終えていたと言った。", "note": "had finished はそのまま" },
+            { "en": "He told me that he **had seen** the movie before.", "ja": "彼は、その映画を前に見ていたと私に言った。", "note": "過去完了は変わらない" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、間接話法の副詞の変化(tomorrow → the next day)や、疑問文の語順(where the meeting was)のひっかけが出題されます。"
+    },
+    {
+      "id": "imperative-request",
+      "title": "命令文・依頼文の間接話法: tell・ask + 人 + to 不定詞",
+      "intro": "命令文は tell や order の後ろに「人 + to 不定詞」で、依頼文は ask の後ろに「人 + to 不定詞」で表します。否定の命令は not to 不定詞です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "命令文: tell 人 to 不定詞",
+          "explanation": "命令文は、tell、order、advise などの後ろに「人 + to 不定詞」で表します。否定の命令は、not to 不定詞です。\n\n・直接: The manager said, \"Submit the form.\"\n・間接: The manager told us to submit the form.(部長は私たちに、用紙を提出するよう言った)\n・否定: He told me not to be late.(彼は私に、遅れないように言った)",
+          "examples": [
+            { "en": "The manager **told us to submit** the form.", "ja": "部長は私たちに、用紙を提出するよう言った。", "note": "tell + 人 + to 不定詞" },
+            { "en": "She **told** him **not to** change the schedule.", "ja": "彼女は彼に、予定を変えないように言った。", "note": "not to 不定詞(否定の命令)" }
+          ]
+        },
+        {
+          "heading": "依頼文: ask 人 to 不定詞",
+          "explanation": "依頼文は、ask + 人 + to 不定詞で表します。Please で始まる依頼文も、同じ形になります。\n\n・直接: He said, \"Please call me back.\"\n・間接: He asked me to call him back.(折り返し電話してくれるよう、彼は私に頼んだ)",
+          "examples": [
+            { "en": "He **asked** me **to call** him back.", "ja": "折り返し電話してくれるよう、彼は私に頼んだ。", "note": "ask + 人 + to 不定詞(依頼)" },
+            { "en": "The client **asked** us **to revise** the contract.", "ja": "顧客は、契約を見直すよう私たちに頼んだ。", "note": "ask + 人 + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "伝達動詞の使い分け: suggest・admit・explain",
+          "explanation": "伝達動詞は、後ろに続く形が違います。\n\n・suggest + -ing / that 節(提案する): suggest doing(~することを提案する)\n・admit + -ing / that 節(認める): admit that ~(~だと認める)\n・explain + that 節(説明する)\n\nsuggest は、人を目的語にとって「suggest + 人 + to 不定詞」とはしないので注意します。",
+          "examples": [
+            { "en": "She **suggested** **postponing** the meeting.", "ja": "彼女は、会議を延期することを提案した。", "note": "suggest + 動名詞" },
+            { "en": "He **admitted** that he had made a mistake.", "ja": "彼は、間違いをしたことを認めた。", "note": "admit + that 節" }
+          ],
+          "cautions": ["× She suggested me to postpone the meeting. → ○ She suggested postponing the meeting.(suggest は人を取らず、動名詞か that 節を続ける)"]
+        },
+        {
+          "heading": "否定の依頼: ask 人 not to 不定詞",
+          "explanation": "「~しないでほしい」という依頼は、ask + 人 + not to 不定詞で表します。not は to の直前に置きます。Please don't ~ の否定の依頼文を、間接話法にしたときの形です。\n\n・直接: She said, \"Please don't leave the door open.\"\n・間接: She asked us not to leave the door open.(ドアを開けたままにしないでほしいと彼女は私たちに頼んだ)",
+          "examples": [
+            { "en": "She **asked** us **not to leave** the door open.", "ja": "ドアを開けたままにしないよう、彼女は私たちに頼んだ。", "note": "ask + 人 + not to 不定詞" },
+            { "en": "He **asked** me **not to tell** anyone about the plan.", "ja": "その計画をだれにも話さないよう、彼は私に頼んだ。", "note": "否定の依頼" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、tell 人 to 不定詞・ask 人 to 不定詞の形や、suggest の後ろの動名詞(suggest + -ing)が出題されます。"
+    }
+  ],
+  "summary": [
+    "主節が過去なら、that 節の時制を過去の形にそろえる(現在形→過去形、will→would、can→could)",
+    "普遍の真理・歴史上の事実・現在も続く事実は、時制の一致を受けず現在形のまま",
+    "仮定法(were、would、had done)は、時制の一致の対象にならない",
+    "間接話法の副詞の変化: now → then、today → that day、tomorrow → the next day、yesterday → the day before",
+    "疑問文の間接話法は、疑問詞や if・whether の後ろが平叙文の語順になる",
+    "命令文は tell 人 to 不定詞、否定の命令は tell 人 not to 不定詞",
+    "依頼文は ask 人 to 不定詞。suggest は人を取らず、動名詞か that 節を続ける",
+    "伝達動詞: say は that 節、tell は人 + that 節を取る"
+  ],
+  "quiz": [
+    {
+      "id": "sequence-narration-q01",
+      "sentence": "She said that the report ------- ready.",
+      "choices": [{ "label": "A", "text": "was" }, { "label": "B", "text": "is" }, { "label": "C", "text": "will be" }, { "label": "D", "text": "has been" }],
+      "answer": "A",
+      "explanation": "主節 said が過去形なので、that 節の時制を過去にそろえ、was が正解。is は現在形のままで、時制の一致に合わない。will be は未来形で、主節が過去のときは would be に変わる。has been は現在完了で、過去にそろえた形とは違う。",
+      "translation": "彼女は、そのレポートの準備ができたと言った。"
+    },
+    {
+      "id": "sequence-narration-q02",
+      "sentence": "He said that he ------- call me the next day.",
+      "choices": [{ "label": "A", "text": "will" }, { "label": "B", "text": "would" }, { "label": "C", "text": "can" }, { "label": "D", "text": "is" }],
+      "answer": "B",
+      "explanation": "主節が過去形 said のとき、will は would に変わる。would call が正解。will は時制の一致を受ける前の形で、過去の文には合わない。can は could に変わる。is は現在形で、時制の一致に合わない。",
+      "translation": "彼は、次の日に私に電話すると言った。"
+    },
+    {
+      "id": "sequence-narration-q03",
+      "sentence": "The teacher said that water ------- at 100 degrees Celsius.",
+      "choices": [{ "label": "A", "text": "boiled" }, { "label": "B", "text": "would boil" }, { "label": "C", "text": "boils" }, { "label": "D", "text": "had boiled" }],
+      "answer": "C",
+      "explanation": "水が100度で沸騰するのは、普遍の真理なので、時制の一致の例外として現在形 boils のまま。boiled と would boil は、時制の一致で過去にそろえた形で、真理の文には合わない。had boiled は過去完了で、真理を表さない。",
+      "translation": "先生は、水は摂氏100度で沸騰すると言った。"
+    },
+    {
+      "id": "sequence-narration-q04",
+      "sentence": "She told me that she ------- in Osaka.",
+      "choices": [{ "label": "A", "text": "lived" }, { "label": "B", "text": "had lived" }, { "label": "C", "text": "would live" }, { "label": "D", "text": "lives" }],
+      "answer": "D",
+      "explanation": "今も大阪に住んでいるという、現在も続く事実なので、時制の一致の例外として現在形 lives が正解。lived と had lived は過去の事実として扱うことになり、今も続く内容と合わない。would live は未来や仮定の意味になる。",
+      "translation": "彼女は私に、今は大阪に住んでいると言った。"
+    },
+    {
+      "id": "sequence-narration-q05",
+      "sentence": "He said that if he ------- the manager, he would change the plan.",
+      "choices": [{ "label": "A", "text": "were" }, { "label": "B", "text": "was" }, { "label": "C", "text": "had been" }, { "label": "D", "text": "would be" }],
+      "answer": "A",
+      "explanation": "仮定法過去の if の節は、時制の一致を受けないので、were のまま。was は口語では使われるが、仮定法の形としては were が正式。had been は仮定法過去完了で、現在の仮定の文には合わない。would be は主節に置く形で、if の節には入らない。",
+      "translation": "もし自分が部長なら、その計画を変えるだろうと彼は言った。"
+    },
+    {
+      "id": "sequence-narration-q06",
+      "sentence": "He said that he would send the file ------- .",
+      "choices": [{ "label": "A", "text": "tomorrow" }, { "label": "B", "text": "the next day" }, { "label": "C", "text": "the day before" }, { "label": "D", "text": "yesterday" }],
+      "answer": "B",
+      "explanation": "直接話法の tomorrow(明日)は、間接話法では伝える時点に合わせて the next day(次の日)に変わる。tomorrow は変わらないので誤り。the day before は yesterday の変化、yesterday は変わらないので、ここには合わない。",
+      "translation": "彼は、次の日にそのファイルを送ると言った。"
+    },
+    {
+      "id": "sequence-narration-q07",
+      "sentence": "He asked me where the meeting ------- .",
+      "choices": [{ "label": "A", "text": "will be held" }, { "label": "B", "text": "is held" }, { "label": "C", "text": "was held" }, { "label": "D", "text": "held" }],
+      "answer": "C",
+      "explanation": "主節 asked が過去形なので、時制の一致で、会議が開かれるという内容も過去形 was held にそろえる。will be held と is held は、時制の一致に合わない。held は動詞の原形ではない過去形で、be 動詞の形としては不完全。",
+      "translation": "会議はどこで開かれるのかと、彼は私に尋ねた。"
+    },
+    {
+      "id": "sequence-narration-q08",
+      "sentence": "The manager told us ------- the form before Friday.",
+      "choices": [{ "label": "A", "text": "submit" }, { "label": "B", "text": "submitting" }, { "label": "C", "text": "submits" }, { "label": "D", "text": "to submit" }],
+      "answer": "D",
+      "explanation": "命令文の間接話法は、tell 人 to 不定詞で表す。told us to submit が正解。submit は原形で、人の後ろに直接置けない。submitting は動名詞、submits は三人称単数の形で、命令の形に合わない。",
+      "translation": "部長は、金曜日より前に用紙を提出するよう私たちに言った。"
+    },
+    {
+      "id": "sequence-narration-q09",
+      "sentence": "She asked him ------- the report by tomorrow.",
+      "choices": [{ "label": "A", "text": "to finish" }, { "label": "B", "text": "finishing" }, { "label": "C", "text": "finish" }, { "label": "D", "text": "finished" }],
+      "answer": "A",
+      "explanation": "依頼文の間接話法は、ask 人 to 不定詞で表すので、to finish が正解。finishing は動名詞、finish は原形で、人の後ろに直接置けない。finished は過去分詞・過去形で、依頼の形に合わない。",
+      "translation": "彼女は、明日までにそのレポートを終えるよう彼に頼んだ。"
+    },
+    {
+      "id": "sequence-narration-q10",
+      "sentence": "The client suggested ------- the contract next week.",
+      "choices": [{ "label": "A", "text": "us to review" }, { "label": "B", "text": "reviewing" }, { "label": "C", "text": "to review" }, { "label": "D", "text": "review us" }],
+      "answer": "B",
+      "explanation": "suggest は動名詞を目的語に取るので、reviewing が正解。suggested reviewing the contract(契約を見直すことを提案した)となる。us to review は suggest が人を取らない形なので誤り。to review は不定詞で、suggest の後ろには続かない。review us は語順が誤り。",
+      "translation": "顧客は、来週その契約を見直すことを提案した。"
+    },
+    {
+      "id": "sequence-narration-q11",
+      "sentence": "He told me ------- late to the meeting again.",
+      "choices": [{ "label": "A", "text": "to not be" }, { "label": "B", "text": "not be" }, { "label": "C", "text": "not to be" }, { "label": "D", "text": "to be not" }],
+      "answer": "C",
+      "explanation": "否定の命令は、not to 不定詞で表す。not to be late(遅れないように)が正解。to not be は、not の位置が不定詞の前にならず、誤った形。not be は to を欠いている。to be not は語順が誤り。",
+      "translation": "彼は私に、また会議に遅れないようにと言った。"
+    },
+    {
+      "id": "sequence-narration-q12",
+      "sentence": "They said they had met the client ------- .",
+      "choices": [{ "label": "A", "text": "tomorrow" }, { "label": "B", "text": "yesterday" }, { "label": "C", "text": "now" }, { "label": "D", "text": "the day before" }],
+      "answer": "D",
+      "explanation": "直接話法の yesterday(昨日)は、間接話法では伝える時点に合わせて the day before(前の日)に変わる。tomorrow と now は、過去の出来事を伝える文には合わない。yesterday は変わるので、間接話法にはそのまま使えない。",
+      "translation": "彼らは、前の日に顧客に会ったと言った。"
+    }
+  ],
+  "related": ["tense", "mood", "infinitive"]
+}

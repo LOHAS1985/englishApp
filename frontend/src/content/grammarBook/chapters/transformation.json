@@ -1,0 +1,306 @@
+{
+  "id": "transformation",
+  "no": 24,
+  "title": "文の転換",
+  "lead": "文の転換は、意味をほぼ変えずに、文の形だけを書き換える問題です。感嘆文や条件文への書き換え、接続詞と前置詞の入れ替え、too ~ to や比較などの構文の書き換えが代表的です。TOEIC では、同じ意味の文を選ぶ形で出題されます。この章では、書き換えの型を覚え、どの語が変わるのかを確かめます。",
+  "sections": [
+    {
+      "id": "sentence-kinds",
+      "title": "文の種類の転換: 感嘆文・条件文・疑問文",
+      "intro": "文の種類を変えると、語順や形が変わります。ここでは、平叙文から感嘆文へ、命令文から条件文へ、依頼文から疑問文への転換を確かめます。意味を変えずに、形だけを変えるのがポイントです。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "平叙文から感嘆文へ: What a と How",
+          "explanation": "感嘆文は、驚きや感動を表す文です。形容詞と名詞がある場合は What + a/an + 形容詞 + 名詞 + 主語 + 動詞、形容詞や副詞だけの場合は How + 形容詞(副詞) + 主語 + 動詞 の語順になります。平叙文の very を、What a または How に置き換えるのが基本です。",
+          "examples": [
+            { "en": "What a beautiful view this is!", "ja": "なんて美しい景色なのでしょう。", "note": "This is a very beautiful view. の書き換え" },
+            { "en": "How quickly she finished the report!", "ja": "彼女はなんて速くレポートを終えたのでしょう。", "note": "How + 副詞" }
+          ],
+          "cautions": ["× What beautiful view this is! → ○ What a beautiful view this is!(数えられる名詞 view には a が必要)"]
+        },
+        {
+          "heading": "形容詞だけの感嘆文: How + 形容詞",
+          "explanation": "名詞を含まない平叙文を感嘆文にするときは、How を使います。形容詞の前の very を How に置き換え、形容詞を文頭に出して、主語と動詞を後ろに続けます。What は名詞が必要なので、形容詞だけの文では使えません。The movie was very interesting. は、How interesting the movie was! になります。",
+          "examples": [
+            { "en": "How interesting the movie was!", "ja": "その映画は、なんて面白かったのでしょう。", "note": "very interesting → How interesting" },
+            { "en": "How tired you must be after the long trip!", "ja": "長い旅の後で、あなたはなんて疲れているのでしょう。", "note": "How + 形容詞 + 主語 + 動詞" }
+          ]
+        },
+        {
+          "heading": "命令文から条件文へ: 命令文 + and / or",
+          "explanation": "命令文の後ろに and を置くと、「~しなさい。そうすれば…」の意味になります。この場合は、If + 主語 + 肯定の動詞 の条件文に書き換えられます。命令文の後ろに or を置くと、「~しなさい。さもないと…」の意味になり、If you don't ~ の形に書き換えられます。",
+          "examples": [
+            { "en": "Study hard, and you will pass the exam.", "ja": "一生懸命勉強しなさい。そうすれば試験に合格するでしょう。", "note": "命令文 + and" },
+            { "en": "If you study hard, you will pass the exam.", "ja": "一生懸命勉強すれば、試験に合格するでしょう。", "note": "and の文を条件文に書き換え" },
+            { "en": "Hurry up, or you will miss the train.", "ja": "急ぎなさい。さもないと電車に乗り遅れますよ。", "note": "命令文 + or" }
+          ],
+          "cautions": ["× Study hard, or you will pass the exam. → ○ Study hard, and you will pass the exam.(or は「そうしないと」の意味になる)"]
+        },
+        {
+          "heading": "or の書き換え: Unless と If ~ not",
+          "explanation": "命令文 + or は、Unless を使って書き換えることもできます。unless は「もし~でないなら」の意味で、if not と同じです。そのため、unless の後ろに not を重ねないように注意します。Hurry up, or ~ は、Unless you hurry up, ~ とも言い換えられます。",
+          "examples": [
+            { "en": "Unless you hurry up, you will miss the train.", "ja": "急がなければ、電車に乗り遅れますよ。", "note": "unless = if not" },
+            { "en": "If you don't hurry up, you will miss the train.", "ja": "急がないと、電車に乗り遅れますよ。", "note": "if + not の形" }
+          ],
+          "cautions": ["× Unless you don't hurry up, you will miss the train. → ○ Unless you hurry up, you will miss the train.(unless は not の意味を含む)"]
+        },
+        {
+          "heading": "依頼文から疑問文へ: Would you / Could you",
+          "explanation": "Please で始まる依頼の命令文は、Would you ~? や Could you ~? の疑問文で、より丁寧に言い換えられます。Would you mind ~ing? は、相手に手間をかけることを気づかう丁寧な依頼の形です。mind の後ろには動名詞(-ing)を続けます。",
+          "examples": [
+            { "en": "Would you please close the window?", "ja": "窓を閉めていただけますか。", "note": "Please close → Would you please close" },
+            { "en": "Would you mind closing the window?", "ja": "窓を閉めていただけませんか。", "note": "mind の後ろは -ing" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、感嘆文の What a / How の使い分けや、or と unless の書き換えが出題されます。"
+    },
+    {
+      "id": "conjunction-preposition",
+      "title": "接続詞と前置詞の書き換え: because・although・unless",
+      "intro": "節を使う文は、前置詞 + 名詞の形に書き換えられることが多くあります。because と because of、although と despite のように、意味は同じでも、後ろに続くものが節か名詞かで形が変わります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "because と because of",
+          "explanation": "because は接続詞なので、後ろに主語と動詞を含む節が続きます。because of は前置詞なので、後ろに名詞や名詞相当語句が続きます。Because it rained は、Because of the rain に書き換えられます。どちらも「雨が降ったので」の意味で、文の意味は同じです。",
+          "examples": [
+            { "en": "Because it rained, the game was canceled.", "ja": "雨が降ったので、試合は中止になりました。", "note": "接続詞 + 節" },
+            { "en": "Because of the rain, the game was canceled.", "ja": "雨のため、試合は中止になりました。", "note": "前置詞 + 名詞" }
+          ],
+          "cautions": ["× Because of it rained, the game was canceled. → ○ Because it rained, the game was canceled.(because of の後ろに節は続けない)"]
+        },
+        {
+          "heading": "although と despite",
+          "explanation": "although は接続詞なので、後ろに節が続きます。despite と in spite of は前置詞なので、後ろに名詞や動名詞が続きます。主語が同じときは、Although he was tired の代わりに Despite being tired のように、動名詞の形で書き換えられます。",
+          "examples": [
+            { "en": "Although he was tired, he finished the work.", "ja": "彼は疲れていたが、仕事を終えました。", "note": "接続詞 + 節" },
+            { "en": "Despite being tired, he finished the work.", "ja": "疲れていたが、彼は仕事を終えました。", "note": "前置詞 + 動名詞(主語が同じ)" }
+          ],
+          "cautions": ["× Despite he was tired, he finished the work. → ○ Despite being tired, he finished the work.(despite の後ろに節は続けない)"]
+        },
+        {
+          "heading": "if not と unless",
+          "explanation": "unless は「もし~でないなら」を一語で表す接続詞です。If you do not sign the form は、Unless you sign the form と書き換えられます。否定の意味がすでに含まれているので、unless の後ろに not は置きません。",
+          "examples": [
+            { "en": "Unless you sign the form, you cannot join.", "ja": "用紙に署名しなければ、参加できません。", "note": "unless = if not" },
+            { "en": "If you do not sign the form, you cannot join.", "ja": "用紙に署名しないと、参加できません。", "note": "書き換え前の if not の文" }
+          ]
+        },
+        {
+          "heading": "without と if it were not for",
+          "explanation": "without は「~がなければ」の意味を表す前置詞です。現在の事実に反する仮定として書き換えるときは、If it were not for ~ の形を使います。主節が could のときは、仮定法の形に合わせて、if の節にも were を使います。",
+          "examples": [
+            { "en": "Without your help, I could not finish the project.", "ja": "あなたの助けがなければ、私はそのプロジェクトを終えられなかったでしょう。", "note": "without + 名詞" },
+            { "en": "If it were not for your help, I could not finish the project.", "ja": "あなたの助けがなければ、私はそのプロジェクトを終えられなかったでしょう。", "note": "仮定法の書き換え" }
+          ],
+          "cautions": ["× If it is not for your help, I could not finish the project. → ○ If it were not for your help, I could not finish the project.(主節が could なので仮定法)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、because と because of、although と despite の使い分けや、unless の書き換えが出題されます。"
+    },
+    {
+      "id": "structure-rewrite",
+      "title": "構文の書き換え: too ~ to・比較・目的",
+      "intro": "同じ内容を、別の構文で言い換える問題がよく出ます。too ~ to と so ~ that、比較の否定文と比較級、目的を表す in order to と so that の関係を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "too ~ to と so ~ that",
+          "explanation": "too 形容詞 to 不定詞は、so 形容詞 that 主語 cannot 動詞 と書き換えられます。否定の意味を、that 節の中の cannot で表すのがポイントです。to 不定詞の意味上の主語が that 節の主語になるため、for me の部分は I に変わります。",
+          "examples": [
+            { "en": "The box was too heavy to lift.", "ja": "その箱は重すぎて持ち上げられませんでした。", "note": "too ~ to" },
+            { "en": "The box was so heavy that I could not lift it.", "ja": "その箱はとても重かったので、私は持ち上げられませんでした。", "note": "so ~ that + 否定" }
+          ]
+        },
+        {
+          "heading": "enough to と so ~ that",
+          "explanation": "形容詞 enough to 不定詞は、so 形容詞 that 主語 can 動詞 で書き換えられます。肯定の意味を that 節で表すので、can を使います。enough は形容詞の後ろに置く点も確認しておきましょう。",
+          "examples": [
+            { "en": "She is old enough to vote.", "ja": "彼女は投票できる年齢です。", "note": "形容詞 + enough to" },
+            { "en": "She is so old that she can vote.", "ja": "彼女はとても年を取っているので、投票できます。", "note": "so ~ that + can" }
+          ],
+          "cautions": ["× She is enough old to vote. → ○ She is old enough to vote.(enough は形容詞の後ろに置く)"]
+        },
+        {
+          "heading": "比較の否定文と比較級",
+          "explanation": "No other ~ is as 形容詞 as A は、A is 比較級 than any other ~ で書き換えられます。「ほかのどれも、A ほど~ではない」は、「A が、ほかのどれよりも~」と言い換えられる、という関係です。",
+          "examples": [
+            { "en": "No other mountain in Japan is as high as Mt. Fuji.", "ja": "日本のどの山も、富士山ほど高くはありません。", "note": "否定の比較" },
+            { "en": "Mt. Fuji is higher than any other mountain in Japan.", "ja": "富士山は、日本のほかのどの山よりも高いです。", "note": "比較級 + than any other" }
+          ]
+        },
+        {
+          "heading": "not as ~ as と比較級",
+          "explanation": "not as 形容詞 as A は、A is 比較級 than B の形で言い換えられます。否定の比較の主語を入れ替えると、比較級の意味になります。たとえば、This room is not as large as that one. は、That room is larger than this one. と言い換えられます。",
+          "examples": [
+            { "en": "This room is not as large as that one.", "ja": "この部屋は、あちらの部屋ほど広くありません。", "note": "not as ~ as" },
+            { "en": "That room is larger than this one.", "ja": "あちらの部屋は、この部屋より広いです。", "note": "比較級 + than" }
+          ]
+        },
+        {
+          "heading": "in order to と so that",
+          "explanation": "目的を表す文は、in order to + 動詞の原形、または so that + 主語 + can / could の形で言い換えられます。どちらも「~するために」の意味になります。so that の後ろには主語と動詞が必要で、in order to の後ろには動詞の原形だけが続きます。",
+          "examples": [
+            { "en": "She left early so that she could catch the train.", "ja": "彼女は電車に乗るために、早めに出発しました。", "note": "so that + 主語 + 動詞" },
+            { "en": "She left early in order to catch the train.", "ja": "彼女は電車に乗るために、早めに出発しました。", "note": "in order to + 動詞の原形" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、too ~ to と so ~ that の書き換えや、目的を表す in order to と so that の違いが出題されます。"
+    },
+    {
+      "id": "inanimate-subject",
+      "title": "無生物主語の書き換え: 原因・理由を節にする",
+      "intro": "無生物主語の文は、物や出来事を主語にして、原因や理由を表します。人が主語になるように、because の節や if の節に言い換えると、意味が分かりやすくなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "無生物主語の基本: make 人 形容詞",
+          "explanation": "無生物主語の文は、主語が物や出来事、抽象的な名詞の文です。The news made her happy は、She was happy because she heard the news. と書き換えられます。make + 人 + 形容詞 の意味を、because の節で表すのがポイントです。",
+          "examples": [
+            { "en": "The news made her happy.", "ja": "そのニュースで、彼女は喜びました。", "note": "無生物主語" },
+            { "en": "She was happy because she heard the news.", "ja": "彼女はそのニュースを聞いたので、喜びました。", "note": "because の節に言い換え" }
+          ]
+        },
+        {
+          "heading": "原因を主語にする文: keep 人 at home",
+          "explanation": "The rain kept us at home. は、Because it rained, we stayed at home. と書き換えられます。keep 人 at home は「人を家にとどまらせる」の意味です。主語の rain を、because の節の主語 it に置き換えて考えます。",
+          "examples": [
+            { "en": "The rain kept us at home.", "ja": "雨のせいで、私たちは家にいることになりました。", "note": "keep + 人 + 場所" },
+            { "en": "Because it rained, we stayed at home.", "ja": "雨が降ったので、私たちは家にいました。", "note": "because の節" }
+          ],
+          "cautions": ["× Because the rain, we stayed at home. → ○ Because it rained, we stayed at home.(because の後ろには節が必要)"]
+        },
+        {
+          "heading": "prevent 人 from ~ing と否定の because",
+          "explanation": "His illness prevented him from attending. は、He could not attend because he was ill. と書き換えられます。prevent 人 from ~ing は、人が~するのを妨げる意味です。否定の意味を、could not で表すと分かりやすくなります。",
+          "examples": [
+            { "en": "His illness prevented him from attending the meeting.", "ja": "病気のせいで、彼は会議に出られませんでした。", "note": "prevent + 人 + from ~ing" },
+            { "en": "He could not attend the meeting because he was ill.", "ja": "彼は病気だったので、会議に出席できませんでした。", "note": "否定 + because の節" }
+          ]
+        },
+        {
+          "heading": "無生物主語を条件にする: help 人 原形",
+          "explanation": "This medicine will help you sleep. は、If you take this medicine, you will sleep better. と書き換えられます。主語が手段や条件を表すときは、If の節に言い換えます。help 人 原形 は、人が~するのを助ける意味です。",
+          "examples": [
+            { "en": "This medicine will help you sleep.", "ja": "この薬は、あなたがよく眠れるように助けてくれるでしょう。", "note": "無生物主語 + help 人 原形" },
+            { "en": "If you take this medicine, you will sleep better.", "ja": "この薬を飲めば、よりよく眠れるでしょう。", "note": "If の節に言い換え" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、無生物主語の文を because や if の文に言い換える問題が出題されます。"
+    }
+  ],
+  "summary": [
+    "感嘆文: 名詞があれば What a + 形容詞 + 名詞、形容詞だけなら How + 形容詞",
+    "命令文 + and は If の肯定文、命令文 + or は If ~ not か Unless ~ に書き換える",
+    "unless は if not の意味。後ろに not を重ねない",
+    "because は節、because of は名詞。although は節、despite は名詞・動名詞",
+    "too 形容詞 to 不定詞 = so 形容詞 that 主語 cannot 動詞",
+    "形容詞 enough to 不定詞 = so 形容詞 that 主語 can 動詞",
+    "No other ~ is as 形容詞 as A = A is 比較級 than any other ~",
+    "in order to 動詞の原形 = so that 主語 can 動詞。無生物主語は because や if の節に言い換える"
+  ],
+  "quiz": [
+    {
+      "id": "transformation-q01",
+      "sentence": "What ------- view this is!",
+      "choices": [{ "label": "A", "text": "a beautiful" }, { "label": "B", "text": "beautiful" }, { "label": "C", "text": "very beautiful" }, { "label": "D", "text": "how beautiful" }],
+      "answer": "A",
+      "explanation": "view は数えられる名詞なので、What a beautiful view this is! の形になる。B は a が抜けていて、数えられる名詞の形に合わない。C は very を入れると感嘆文の形が崩れる。D の how は後ろに名詞を直接続けられないので誤り。",
+      "translation": "なんて美しい景色なのでしょう。"
+    },
+    {
+      "id": "transformation-q02",
+      "sentence": "------- interesting the movie was!",
+      "choices": [{ "label": "A", "text": "What" }, { "label": "B", "text": "Very" }, { "label": "C", "text": "How" }, { "label": "D", "text": "More" }],
+      "answer": "C",
+      "explanation": "The movie was very interesting. の very を How に置き換えると、How interesting the movie was! になる。What は後ろに名詞が必要なので、形容詞だけの文では使えない。Very は感嘆文の語にならない。More は比較の語で、感嘆文を作らない。",
+      "translation": "その映画は、なんて面白かったのでしょう。"
+    },
+    {
+      "id": "transformation-q03",
+      "sentence": "Hurry up, ------- you will miss the train.",
+      "choices": [{ "label": "A", "text": "and" }, { "label": "B", "text": "or" }, { "label": "C", "text": "but" }, { "label": "D", "text": "so" }],
+      "answer": "B",
+      "explanation": "命令文の後ろに置いて「さもないと、電車に乗り遅れますよ」の意味になるのは or。and を入れると「急げば電車に乗り遅れる」という意味になり、文が通らない。but は逆接で、意味が合わない。so は結果を表すが、命令文の否定的な結果には合わない。",
+      "translation": "急ぎなさい。さもないと電車に乗り遅れますよ。"
+    },
+    {
+      "id": "transformation-q04",
+      "sentence": "Study hard, ------- you will pass the exam.",
+      "choices": [{ "label": "A", "text": "or" }, { "label": "B", "text": "but" }, { "label": "C", "text": "if" }, { "label": "D", "text": "and" }],
+      "answer": "D",
+      "explanation": "命令文の後ろに and を置くと「一生懸命勉強しなさい。そうすれば合格するでしょう」の意味になり、If you study hard, ~ に書き換えられる。or は逆の意味になる。but は逆接で意味が合わない。if は接続詞として命令文の後ろに置けない。",
+      "translation": "一生懸命勉強しなさい。そうすれば試験に合格するでしょう。"
+    },
+    {
+      "id": "transformation-q05",
+      "sentence": "Unless ------- the form, you cannot join the club.",
+      "choices": [{ "label": "A", "text": "you sign" }, { "label": "B", "text": "you do not sign" }, { "label": "C", "text": "you will sign" }, { "label": "D", "text": "you don't sign" }],
+      "answer": "A",
+      "explanation": "unless は「もし~でないなら」の意味で、if not と同じ。そのため、後ろに not を重ねない you sign が正解。B と D は not が重なり二重否定になり誤り。C の will は、条件を表す節では使わないので誤り。",
+      "translation": "用紙に署名しなければ、そのクラブには入れません。"
+    },
+    {
+      "id": "transformation-q06",
+      "sentence": "------- the rain, the game was canceled.",
+      "choices": [{ "label": "A", "text": "Because" }, { "label": "B", "text": "Although" }, { "label": "C", "text": "Because of" }, { "label": "D", "text": "Even" }],
+      "answer": "C",
+      "explanation": "後ろに the rain という名詞が続いているので、前置詞の Because of が正解。Because は接続詞なので、後ろに主語と動詞を含む節が必要になる。Although は逆接で、意味が合わない。Even は前置詞として使えず、原因を表さない。",
+      "translation": "雨のため、試合は中止になりました。"
+    },
+    {
+      "id": "transformation-q07",
+      "sentence": "------- being tired, he finished the work.",
+      "choices": [{ "label": "A", "text": "Although" }, { "label": "B", "text": "Despite" }, { "label": "C", "text": "Because" }, { "label": "D", "text": "Unless" }],
+      "answer": "B",
+      "explanation": "Despite は前置詞なので、後ろに動名詞 being tired を続けられる。Although は接続詞で、後ろには主語と動詞を含む節が必要。Because は理由を表すので、疲れていても仕事を終えたという逆接の意味に合わない。Unless は条件の意味になり、ここでは使えない。",
+      "translation": "疲れていたが、彼は仕事を終えました。"
+    },
+    {
+      "id": "transformation-q08",
+      "sentence": "If it ------- for your help, I could not finish the project.",
+      "choices": [{ "label": "A", "text": "do not be" }, { "label": "B", "text": "is not" }, { "label": "C", "text": "will not be" }, { "label": "D", "text": "were not" }],
+      "answer": "D",
+      "explanation": "「~がなければ」は If it were not for ~ で表す。主節の could が仮定法なので、if の節も仮定法の were にそろえる。is not は現在の事実の形で、主節の could と合わない。will not be は if の節に未来の will を置けないので誤り。do not be は語法として成り立たない。",
+      "translation": "あなたの助けがなければ、私はそのプロジェクトを終えられなかったでしょう。"
+    },
+    {
+      "id": "transformation-q09",
+      "sentence": "The box was ------- heavy that I could not lift it.",
+      "choices": [{ "label": "A", "text": "too" }, { "label": "B", "text": "very" }, { "label": "C", "text": "so" }, { "label": "D", "text": "enough" }],
+      "answer": "C",
+      "explanation": "that 節をとるのは so ~ that の形なので、so が正解。too は too ~ to の形で使い、that 節とは組み合わせない。very は程度を強める語で、that 節を続けられない。enough は形容詞の後ろに置き、to 不定詞と組むので誤り。",
+      "translation": "その箱はとても重かったので、私は持ち上げられませんでした。"
+    },
+    {
+      "id": "transformation-q10",
+      "sentence": "She left early ------- catch the train.",
+      "choices": [{ "label": "A", "text": "in order to" }, { "label": "B", "text": "in order that" }, { "label": "C", "text": "despite" }, { "label": "D", "text": "unless" }],
+      "answer": "A",
+      "explanation": "目的を表す in order to の後ろには、動詞の原形 catch を続けられる。in order that は後ろに主語と動詞を含む節が必要で、catch だけでは文にならない。despite と unless は目的の意味を表さないので誤り。",
+      "translation": "彼女は電車に乗るために、早めに出発しました。"
+    },
+    {
+      "id": "transformation-q11",
+      "sentence": "Mt. Fuji is ------- than any other mountain in Japan.",
+      "choices": [{ "label": "A", "text": "the highest" }, { "label": "B", "text": "as high" }, { "label": "C", "text": "less high" }, { "label": "D", "text": "higher" }],
+      "answer": "D",
+      "explanation": "No other mountain is as high as Mt. Fuji. を言い換えると、Mt. Fuji is higher than any other mountain になる。than の前には比較級 higher が必要。the highest は than と組めず誤り。as high は as high as の形になり、than とは組まない。less high は意味が逆になる。",
+      "translation": "富士山は、日本のほかのどの山よりも高いです。"
+    },
+    {
+      "id": "transformation-q12",
+      "sentence": "The news made her happy. She was happy ------- she heard the news.",
+      "choices": [{ "label": "A", "text": "because of" }, { "label": "B", "text": "because" }, { "label": "C", "text": "although" }, { "label": "D", "text": "unless" }],
+      "answer": "B",
+      "explanation": "無生物主語の The news を、because の節に言い換える。because の後ろには、she heard the news という主語と動詞を含む節が続くので、because が正解。because of は名詞が必要で、ここでは節が続くので誤り。although は逆接で意味が合わない。unless は条件の意味で、原因の意味にならない。",
+      "translation": "そのニュースで、彼女は喜びました。彼女はそのニュースを聞いたので、喜びました。"
+    }
+  ],
+  "related": ["sequence-narration", "conjunction", "comparison", "inversion"]
+}

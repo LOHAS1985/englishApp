@@ -1,0 +1,597 @@
+{
+  "id": "noun",
+  "no": 3,
+  "title": "名詞",
+  "lead": "名詞は、人・物・ことがらを表す語です。数えられる名詞(可算名詞)と、数えられない名詞(不可算名詞)に分かれ、それぞれ冠詞や動詞の形が変わります。TOEIC Part 5 では、不可算名詞に a や複数形を付けてしまう誤り、動詞から派生した名詞の語尾、似た綴りの名詞の組、前置詞と結びつく名詞の表現がよく問われます。この章では、それぞれの使い方を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "名詞の基本: 数えられる名詞と数えられない名詞",
+      "intro": "名詞は、数えられる名詞(可算名詞)と、数えられない名詞(不可算名詞)に分けられます。数えられる名詞は、a を付けたり、複数形の -s を付けたりします。不可算名詞は、a や -s を付けず、数え方の語(a piece of など)を使います。",
+      "keywords": [
+        "名詞"
+      ],
+      "items": [
+        {
+          "heading": "可算名詞と不可算名詞の区別",
+          "explanation": "数えられるものには、a や複数形を使えます(a report、two reports)。数えられないものには、a や -s を付けません。数えるときは、a piece of や a sheet of など、数え方の語を使います。\n\n不可算名詞には、動詞の形も単数扱いになる点に注意します。",
+          "table": {
+            "caption": "よく使う不可算名詞と、数え方",
+            "headers": [
+              "種類",
+              "例",
+              "数える言い方"
+            ],
+            "rows": [
+              [
+                "情報・知識",
+                "information、advice、knowledge",
+                "a piece of information"
+              ],
+              [
+                "物の集まり",
+                "equipment、furniture、luggage",
+                "a piece of furniture"
+              ],
+              [
+                "抽象的なもの",
+                "evidence、progress、research",
+                "a piece of evidence"
+              ],
+              [
+                "材料",
+                "paper、water",
+                "a sheet of paper"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We received useful **information** about the market.",
+              "ja": "私たちは、市場について役立つ情報を受け取った。",
+              "note": "information は不可算。a を付けない"
+            },
+            {
+              "en": "Please bring a **piece of** **evidence** to the meeting.",
+              "ja": "会議に、証拠を一つ持ってきてください。",
+              "note": "不可算名詞は piece of で数える"
+            }
+          ],
+          "cautions": [
+            "× We need an advice. → ○ We need advice.(または a piece of advice)",
+            "× informations → ○ information"
+          ]
+        },
+        {
+          "heading": "複数形の作り方と、不規則な形",
+          "explanation": "多くの名詞は、-s を付けて複数形にします。-s・-x・-ch・-sh で終わる語は、-es を付けます(box → boxes、church → churches)。\n\n不規則な形もあります(child → children、person → people、man → men)。単数と複数が同じ形の語(sheep、fish)もあります。",
+          "examples": [
+            {
+              "en": "The **children** were excited about the trip.",
+              "ja": "子どもたちは、旅行を楽しみにしていた。",
+              "note": "child の不規則な複数形"
+            },
+            {
+              "en": "Three **businesses** have applied for the grant.",
+              "ja": "三つの会社が、その助成金に申し込んだ。",
+              "note": "複数形 businesses には複数扱いの動詞"
+            }
+          ]
+        },
+        {
+          "heading": "数を表す語と、名詞の単数・複数",
+          "explanation": "名詞の前に付く語によって、名詞が単数か複数かが決まります。\n\n・a、an、one、each、every の後ろ: 単数(each employee)\n・two、several、many、a few の後ろ: 複数(several managers)\n\n数えられない名詞の前には、much や a little を使います(much information、a little time)。",
+          "examples": [
+            {
+              "en": "Each **employee** must sign the form.",
+              "ja": "社員は一人ひとり、書類に署名しなければならない。",
+              "note": "each の後ろは単数"
+            },
+            {
+              "en": "Several **managers** attended the meeting.",
+              "ja": "数人の部長が、会議に出席した。",
+              "note": "several の後ろは複数"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、不可算名詞に a や複数形を付けた誤りの選択肢(an advice、informations)が出ます。"
+    },
+    {
+      "id": "derived",
+      "title": "派生名詞の語尾: -ation・-ment・-ure",
+      "intro": "動詞から作られる名詞には、決まった語尾があります。-ation、-ment、-ure は、名詞を作る典型的な語尾です。語尾の形を知っていると、空所に名詞が入るかどうかを判断しやすくなります。",
+      "keywords": [
+        "名詞(-ation)",
+        "名詞(-ment)",
+        "名詞(-ure)",
+        "名詞(erosion)"
+      ],
+      "items": [
+        {
+          "heading": "-ation: 〜すること・その結果",
+          "explanation": "-ation で終わる名詞は、動詞の「行為」や「結果」を表します。\n\n・registration(登録)、cooperation(協力)、confirmation(確認)、reservation(予約)",
+          "examples": [
+            {
+              "en": "Thank you for your **registration** for the seminar.",
+              "ja": "セミナーへのお申し込みありがとうございます。",
+              "note": "registration(登録)"
+            },
+            {
+              "en": "Their **cooperation** made the project possible.",
+              "ja": "彼らの協力で、そのプロジェクトは可能になった。",
+              "note": "cooperation(協力)"
+            }
+          ]
+        },
+        {
+          "heading": "-ment: 結果・行為を表す名詞",
+          "explanation": "-ment で終わる名詞は、動作の結果や、行為そのものを表します。\n\n・payment(支払い)、adjustment(調整)、agreement(合意)、improvement(改善)",
+          "examples": [
+            {
+              "en": "The **payment** was processed within three days.",
+              "ja": "支払いは3日以内に処理された。",
+              "note": "payment(支払い)"
+            },
+            {
+              "en": "The **adjustment** to the schedule took a week.",
+              "ja": "予定の調整に、1週間かかった。",
+              "note": "adjustment(調整)"
+            }
+          ]
+        },
+        {
+          "heading": "-ure: 手続き・措置・状態を表す名詞",
+          "explanation": "-ure で終わる名詞には、手続き(procedure)、閉鎖(closure)、措置(measure)、圧力(pressure)などがあります。\n\n語尾が -ure でも、動詞の意味がそのまま名詞になるとは限らないので、語ごとに覚えます。",
+          "examples": [
+            {
+              "en": "Follow the **procedure** described in the manual.",
+              "ja": "マニュアルに書かれた手順に従ってください。",
+              "note": "procedure(手続き)"
+            },
+            {
+              "en": "The government announced new **measures** to reduce costs.",
+              "ja": "政府は、コストを減らすための新しい措置を発表した。",
+              "note": "measure(措置)"
+            }
+          ]
+        },
+        {
+          "heading": "erosion: 浸食(不可算名詞)",
+          "explanation": "erosion(浸食)は、不可算名詞です。a を付けず、the erosion of ~ の形で、「~の浸食」を表します。\n\n・the erosion of the coastline(海岸線の浸食)",
+          "examples": [
+            {
+              "en": "**Soil erosion** has become a serious problem in the region.",
+              "ja": "土壌の浸食は、その地域で深刻な問題になっている。",
+              "note": "erosion は不可算名詞"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、語尾の似た名詞(-ation と -ment など)の選択と、不可算名詞に a を付けた誤りが出題されます。"
+    },
+    {
+      "id": "confusable",
+      "title": "紛らわしい名詞の組: collection・review・admission",
+      "intro": "綴りが似ていて、意味が違う名詞の組があります。文の中で、どちらの名詞が合うかは、意味で判断します。",
+      "keywords": [
+        "名詞(collection と collective)",
+        "名詞(review と revision)",
+        "名詞(admission / admittance)"
+      ],
+      "items": [
+        {
+          "heading": "collection と collective",
+          "explanation": "collection は「収集・集めたもの・コレクション」を表す名詞です。collective は、「集団の・共同の」を表す形容詞として使われることが多く、名詞としては「集団」の意味になります。\n\n・collection(名詞): 集めたもの、コレクション\n・collective(形容詞): 共同の、集団の",
+          "examples": [
+            {
+              "en": "The museum's **collection** of paintings is famous.",
+              "ja": "その美術館の絵画コレクションは有名だ。",
+              "note": "collection(集めたもの)"
+            },
+            {
+              "en": "The team made a **collective** decision to change the plan.",
+              "ja": "チームは、計画を変えるという共同の決定を下した。",
+              "note": "collective は「共同の」(形容詞)"
+            }
+          ]
+        },
+        {
+          "heading": "review と revision",
+          "explanation": "review は「検討・評価・批評」の意味で、内容をよく調べて判断することを表します。revision は「改訂・修正」の意味で、内容を直すことを表します。\n\n・review of the budget(予算の検討)\n・revision of the manual(マニュアルの改訂)",
+          "examples": [
+            {
+              "en": "The manager's **review** of the budget took two days.",
+              "ja": "部長による予算の検討に、2日かかった。",
+              "note": "review(検討・評価)"
+            },
+            {
+              "en": "The **revision** of the manual will be completed next month.",
+              "ja": "マニュアルの改訂は、来月完了する。",
+              "note": "revision(改訂)"
+            }
+          ]
+        },
+        {
+          "heading": "admission と admittance",
+          "explanation": "admission は「入場・入学・入会(の許可)」や、入場料を表します。admittance は「立ち入りの許可」を表し、No admittance(立入禁止)のように、場所に入ることに使われます。\n\n・admission to the lecture(講義への入場)\n・No admittance(立入禁止)",
+          "examples": [
+            {
+              "en": "**Admission** to the lecture is free of charge.",
+              "ja": "講義への入場は無料だ。",
+              "note": "admission(入場)"
+            },
+            {
+              "en": "No **admittance** to the laboratory without a badge.",
+              "ja": "バッジがなければ、研究室への立ち入りはできない。",
+              "note": "admittance(立ち入り)"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、似た綴りの名詞の組(review と revision、collection と collective)を、文の意味で選ばせる問題が出ます。"
+    },
+    {
+      "id": "compound-and-phrases",
+      "title": "複合名詞と、前置詞と結びつく名詞の表現",
+      "intro": "二つの名詞が並んで一つの意味を表す複合名詞や、決まった前置詞と結びつく名詞の表現は、語のまとまりで覚えます。",
+      "keywords": [
+        "名詞(複合名詞)",
+        "名詞(in recognition of)",
+        "名詞(compliance)"
+      ],
+      "items": [
+        {
+          "heading": "複合名詞: 名詞 + 名詞",
+          "explanation": "前の名詞が、後ろの名詞を説明する形です。sales report(売上報告)、customer service(顧客サービス)、market research(市場調査)などがあります。\n\n前の名詞は、形容詞のように働き、複数形にしないのが普通です(sales reports とは言わず、sales report と言う)。",
+          "examples": [
+            {
+              "en": "The **sales report** will be ready by Friday.",
+              "ja": "売上報告書は金曜日までに準備できる。",
+              "note": "sales report(名詞 + 名詞)"
+            },
+            {
+              "en": "Our **customer service** team responds within an hour.",
+              "ja": "当社の顧客サービス部門は、一時間以内に返答する。",
+              "note": "customer service(複合名詞)"
+            }
+          ]
+        },
+        {
+          "heading": "compliance with・in recognition of: 前置詞と結びつく名詞",
+          "explanation": "compliance with は「~を遵守すること」、in recognition of は「~を評価して、~に対して」の意味で使われます。前置詞とセットで覚えます。\n\n・compliance with the safety rules(安全規則の遵守)\n・in recognition of her service(彼女の貢献を評価して)",
+          "examples": [
+            {
+              "en": "The company is in **compliance with** all safety rules.",
+              "ja": "その会社は、すべての安全規則を遵守している。",
+              "note": "compliance with(遵守)"
+            },
+            {
+              "en": "The award was given **in recognition of** her service.",
+              "ja": "その賞は、彼女の貢献を評価して贈られた。",
+              "note": "in recognition of(~を評価して)"
+            }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、複合名詞の前の名詞(sales report の sales)を複数形にする誤りや、名詞と前置詞の組み合わせが出題されます。"
+    }
+  ],
+  "summary": [
+    "数えられる名詞には a や複数形を付け、不可算名詞には a や -s を付けない。数えるときは piece of などを使う",
+    "不規則な複数形: child → children、person → people。複数と同じ形の語(sheep)もある",
+    "-ation(行為・結果)、-ment(結果)、-ure(手続き・措置)は、名詞の典型的な語尾",
+    "erosion は不可算名詞。the erosion of ~ の形で使う",
+    "review は検討・評価、revision は改訂。collection は集めたもの、collective は共同の",
+    "admission は入場・入学、admittance は立ち入りの許可(No admittance)",
+    "複合名詞の前の名詞は、普通は複数形にしない(sales report)",
+    "compliance with(遵守)と in recognition of(評価して)は、前置詞とセットで覚える"
+  ],
+  "quiz": [
+    {
+      "id": "noun-q01",
+      "sentence": "Please bring a ------- of evidence to the meeting.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "piece"
+        },
+        {
+          "label": "B",
+          "text": "pieces"
+        },
+        {
+          "label": "C",
+          "text": "many"
+        },
+        {
+          "label": "D",
+          "text": "people"
+        }
+      ],
+      "answer": "A",
+      "explanation": "evidence は不可算名詞なので、数える語 a piece of evidence(証拠を一つ)が正解。pieces は複数形で、a と一緒には使えない。many と people は、この文の形に合わない。",
+      "translation": "会議に、証拠を一つ持ってきてください。"
+    },
+    {
+      "id": "noun-q02",
+      "sentence": "The ------- of the new system took three months.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "implement"
+        },
+        {
+          "label": "B",
+          "text": "implementation"
+        },
+        {
+          "label": "C",
+          "text": "implemented"
+        },
+        {
+          "label": "D",
+          "text": "implementing"
+        }
+      ],
+      "answer": "B",
+      "explanation": "The の後ろで、動詞 took の主語になる名詞が必要。implementation(導入・実施)が正解。implement は動詞、implemented は過去分詞、implementing は -ing 形で、名詞の位置には入らない。",
+      "translation": "新しいシステムの導入には、3か月かかった。"
+    },
+    {
+      "id": "noun-q03",
+      "sentence": "Her ------- for the seminar was confirmed by email.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "register"
+        },
+        {
+          "label": "B",
+          "text": "registering"
+        },
+        {
+          "label": "C",
+          "text": "registration"
+        },
+        {
+          "label": "D",
+          "text": "registered"
+        }
+      ],
+      "answer": "C",
+      "explanation": "Her の後ろで、主語になる名詞が必要。registration(登録・申し込み)が正解。register は動詞、registering は動名詞、registered は過去分詞・形容詞で、名詞の位置には入らない。",
+      "translation": "セミナーへの彼女の申し込みは、メールで確認された。"
+    },
+    {
+      "id": "noun-q04",
+      "sentence": "The ------- of the contract will be completed next week.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "revise"
+        },
+        {
+          "label": "B",
+          "text": "revised"
+        },
+        {
+          "label": "C",
+          "text": "revising"
+        },
+        {
+          "label": "D",
+          "text": "revision"
+        }
+      ],
+      "answer": "D",
+      "explanation": "The の後ろの主語になる名詞として、revision(改訂)が正解。revise は動詞、revised は過去分詞、revising は -ing 形で、名詞の位置に合わない。",
+      "translation": "契約書の改訂は、来週完了する。"
+    },
+    {
+      "id": "noun-q05",
+      "sentence": "------- to the laboratory is limited to authorized staff.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Admittance"
+        },
+        {
+          "label": "B",
+          "text": "Admit"
+        },
+        {
+          "label": "C",
+          "text": "Admitted"
+        },
+        {
+          "label": "D",
+          "text": "Admissible"
+        }
+      ],
+      "answer": "A",
+      "explanation": "研究室への立ち入りの許可を表す名詞 admittance が正解。Admit は動詞、Admitted は過去分詞、Admissible は形容詞で、文の主語の位置に合わない。",
+      "translation": "研究室への立ち入りは、許可された職員に限られる。"
+    },
+    {
+      "id": "noun-q06",
+      "sentence": "The ------- of the manual was delayed by two weeks.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "revise"
+        },
+        {
+          "label": "B",
+          "text": "revision"
+        },
+        {
+          "label": "C",
+          "text": "revised"
+        },
+        {
+          "label": "D",
+          "text": "reviser"
+        }
+      ],
+      "answer": "B",
+      "explanation": "The の後ろで主語となる名詞、revision(改訂)が正解。revise は動詞、revised は過去分詞、reviser は「改訂する人」の意味で、マニュアルの改訂作業を表す文とは合わない。",
+      "translation": "マニュアルの改訂は、2週間遅れた。"
+    },
+    {
+      "id": "noun-q07",
+      "sentence": "The company's ------- of the budget is due on Monday.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "revision"
+        },
+        {
+          "label": "B",
+          "text": "reviewed"
+        },
+        {
+          "label": "C",
+          "text": "review"
+        },
+        {
+          "label": "D",
+          "text": "reviewer"
+        }
+      ],
+      "answer": "C",
+      "explanation": "予算の検討(検討・評価)を表す review が正解。revision は改訂の意味で、検討の意味にはならない。reviewed は過去分詞、reviewer は「検討する人」で、文の主語の意味が合わない。",
+      "translation": "会社の予算の検討は、月曜日が期限だ。"
+    },
+    {
+      "id": "noun-q08",
+      "sentence": "The ------- of the coastline caused serious damage to homes.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "erode"
+        },
+        {
+          "label": "B",
+          "text": "eroded"
+        },
+        {
+          "label": "C",
+          "text": "eroding"
+        },
+        {
+          "label": "D",
+          "text": "erosion"
+        }
+      ],
+      "answer": "D",
+      "explanation": "The の後ろで主語になる名詞、erosion(浸食)が正解。erode は動詞、eroded は過去分詞、eroding は -ing 形で、名詞の位置には入らない。",
+      "translation": "海岸線の浸食が、家屋に深刻な被害をもたらした。"
+    },
+    {
+      "id": "noun-q09",
+      "sentence": "The ------- of the new policy will be announced next week.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "announcement"
+        },
+        {
+          "label": "B",
+          "text": "announce"
+        },
+        {
+          "label": "C",
+          "text": "announced"
+        },
+        {
+          "label": "D",
+          "text": "announcing"
+        }
+      ],
+      "answer": "A",
+      "explanation": "The の後ろで主語になる名詞、announcement(発表)が正解。announce は動詞、announced は過去分詞、announcing は -ing 形で、名詞の位置には入らない。",
+      "translation": "新しい方針の発表は、来週行われる。"
+    },
+    {
+      "id": "noun-q10",
+      "sentence": "The museum's ------- of old maps is well known.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "collective"
+        },
+        {
+          "label": "B",
+          "text": "collection"
+        },
+        {
+          "label": "C",
+          "text": "collect"
+        },
+        {
+          "label": "D",
+          "text": "collected"
+        }
+      ],
+      "answer": "B",
+      "explanation": "集めたもの(古地図のコレクション)を表す collection が正解。collective は「共同の」の意味の形容詞で、名詞として古地図の集まりを表さない。collect は動詞、collected は過去分詞。",
+      "translation": "その美術館の古地図のコレクションは、よく知られている。"
+    },
+    {
+      "id": "noun-q11",
+      "sentence": "The prize was given ------- of her outstanding service.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "in addition"
+        },
+        {
+          "label": "B",
+          "text": "in charge"
+        },
+        {
+          "label": "C",
+          "text": "in recognition"
+        },
+        {
+          "label": "D",
+          "text": "in favor"
+        }
+      ],
+      "answer": "C",
+      "explanation": "in recognition of(~を評価して)の形が正解。in addition は「~に加えて」、in charge は「~を担当して」、in favor は「~に賛成して」で、いずれも評価の意味にはならない。",
+      "translation": "その賞は、彼女の優れた貢献を評価して贈られた。"
+    },
+    {
+      "id": "noun-q12",
+      "sentence": "The ------- report will be sent to all managers by Friday.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "sell"
+        },
+        {
+          "label": "B",
+          "text": "sold"
+        },
+        {
+          "label": "C",
+          "text": "salesman"
+        },
+        {
+          "label": "D",
+          "text": "sales"
+        }
+      ],
+      "answer": "D",
+      "explanation": "sales report(売上報告書)という複合名詞の前の名詞として、sales が正解。sell は動詞、sold は過去分詞、salesman は「販売員」の意味で、報告書の種類を表す形としては合わない。",
+      "translation": "売上報告書は、金曜日までにすべての部長に送られる。"
+    }
+  ],
+  "related": [
+    "article",
+    "agreement",
+    "adjective"
+  ]
+}

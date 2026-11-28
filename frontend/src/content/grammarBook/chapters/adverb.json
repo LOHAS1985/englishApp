@@ -1,0 +1,248 @@
+{
+  "id": "adverb",
+  "no": 8,
+  "title": "副詞",
+  "lead": "副詞は、動詞・形容詞・副詞・文全体を説明して、どのように・いつ・どれくらい・どう思うかを表す語です。副詞の位置は、修飾する語によって変わります。TOEIC Part 5 では、文全体を修飾する副詞(accordingly、seemingly など)の意味、否定の副詞(hardly、seldom)の位置、enough や as soon as possible の語順がよく問われます。この章では、その基本を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "副詞の基本: 何を修飾し、どこに置くか",
+      "intro": "副詞は、動詞・形容詞・副詞・文全体を修飾します。修飾する語によって、副詞を置く位置が変わります。この節では、副詞の働きと位置、形容詞との見分け方を確かめます。",
+      "keywords": ["副詞"],
+      "items": [
+        {
+          "heading": "副詞の働き: 何を修飾するか",
+          "explanation": "副詞は、次の語を説明します。\n\n・動詞: work quickly(速く働く)\n・形容詞: very important(非常に重要な)\n・副詞: quite soon(かなり早く)\n・文全体: Unfortunately, the event was canceled.(残念ながら、イベントは中止された)\n\n副詞は、「どのように・いつ・どこで・どれくらい」を表します。",
+          "examples": [
+            { "en": "The team worked **quickly** to meet the deadline.", "ja": "チームは期限に間に合わせるため、速く働いた。", "note": "動詞を修飾" },
+            { "en": "The plan is **very** important for our future.", "ja": "その計画は、私たちの将来にとって非常に重要だ。", "note": "形容詞を修飾" }
+          ]
+        },
+        {
+          "heading": "副詞の位置: 修飾する語との関係で決まる",
+          "explanation": "副詞の位置は、修飾する語によって決まります。\n\n・一般動詞の前: We often meet at the station.(私たちは駅でよく会う)\n・be 動詞の後、助動詞と動詞の間: She is always busy. / The new policy will soon take effect.\n・文頭・文末: Fortunately, the plan worked. / The plan worked fortunately.\n・形容詞・副詞の前: quite important、very quickly",
+          "examples": [
+            { "en": "We **often** meet at the station.", "ja": "私たちは駅でよく会う。", "note": "一般動詞の前" },
+            { "en": "The new policy will **soon** take effect.", "ja": "新しい方針は、まもなく施行される。", "note": "助動詞と動詞の間" }
+          ]
+        },
+        {
+          "heading": "形と意味が違う副詞: hard と hardly、late と lately",
+          "explanation": "形が似ていても、意味が違う副詞があります。\n\n・hard(一生懸命に)と hardly(ほとんど~ない)\n・late(遅く)と lately(最近)\n\n特に hardly は、形は hard に近いですが、否定の意味を持ちます。hard の意味で読むと、文の意味が反対になるので注意します。",
+          "table": {
+            "caption": "形と意味が違う副詞",
+            "headers": ["語", "副詞の意味", "注意"],
+            "rows": [
+              ["hard", "一生懸命に", "hardly と混同しない"],
+              ["hardly", "ほとんど~ない(否定)", "not と一緒に使わない"],
+              ["late", "遅く", "lately とは意味が違う"],
+              ["lately", "最近", "late とは意味が違う"]
+            ]
+          },
+          "examples": [
+            { "en": "She works **hard** every day.", "ja": "彼女は毎日一生懸命働く。", "note": "hard(一生懸命に)" },
+            { "en": "We have **hardly** started the project.", "ja": "私たちはそのプロジェクトを、ほとんど始めていない。", "note": "hardly(ほとんど~ない)" }
+          ]
+        },
+        {
+          "heading": "副詞と形容詞の見分け: 名詞を修飾するのは形容詞",
+          "explanation": "副詞は、名詞を修飾しません。名詞の前に置かれている語は、形容詞として判断します。-ly で終わる語でも、名詞の前に置くなら形容詞です。\n\n・名詞の前: a quick response(すばやい対応)\n・動詞の後: responded quickly(すばやく対応した)",
+          "examples": [
+            { "en": "We need a **quick** response to the complaint.", "ja": "その苦情に、すぐに対応する必要がある。", "note": "quick は名詞の前の形容詞(quickly ではない)" },
+            { "en": "We responded **quickly** to the complaint.", "ja": "私たちは、その苦情にすぐに対応した。", "note": "quickly は動詞を修飾する副詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、名詞の前に副詞(quickly response)を置いた誤りや、hard と hardly の取り違えが出題されます。"
+    },
+    {
+      "id": "sentence-adverbs",
+      "title": "文全体を修飾する副詞: accordingly・seemingly・exceptionally・inadvertently",
+      "intro": "文全体を修飾する副詞は、話し手の判断や、前後のつながりを表します。前の文の内容を受けて「それに応じて」と続けたり、「一見~らしく」と判断を示したりします。",
+      "keywords": ["副詞(accordingly)", "副詞(seemingly)", "副詞(exceptionally)", "副詞(inadvertently)", "副詞(substantially)"],
+      "items": [
+        {
+          "heading": "accordingly: それに応じて・その結果",
+          "explanation": "accordingly は「それに応じて・それに従って」を表します。前の文の内容を受けて、その結果としての行動を続けるときに使います。\n\n・The rules changed; accordingly, we updated the manual.(規則が変わったので、それに応じてマニュアルを更新した)",
+          "examples": [
+            { "en": "The budget was reduced. **Accordingly**, the team cut its plans.", "ja": "予算が減らされた。それに応じて、チームは計画を縮小した。", "note": "accordingly(それに応じて)" }
+          ]
+        },
+        {
+          "heading": "seemingly: 一見~らしく",
+          "explanation": "seemingly は「一見~のように見える」を表します。実際とは違う可能性を含む表現です。\n\n・The plan is seemingly simple.(その計画は一見簡単そうだ)",
+          "examples": [
+            { "en": "The problem was **seemingly** solved, but it returned the next day.", "ja": "その問題は一見解決したように見えたが、翌日また起きた。", "note": "seemingly(一見~らしく)" }
+          ]
+        },
+        {
+          "heading": "exceptionally・inadvertently: 例外的に・うっかり",
+          "explanation": "exceptionally は「例外的に、特に」を表します。形容詞や副詞を強めます。inadvertently は「不注意で、うっかり」を表し、意図しない行為に使います。\n\n・exceptionally good results(例外的に良い結果)\n・inadvertently deleted the file(うっかりファイルを削除した)",
+          "examples": [
+            { "en": "The team produced **exceptionally** good results this year.", "ja": "チームは今年、例外的に良い結果を出した。", "note": "exceptionally(例外的に)" },
+            { "en": "She **inadvertently** deleted the file before saving it.", "ja": "彼女は保存する前に、うっかりファイルを削除してしまった。", "note": "inadvertently(うっかり)" }
+          ]
+        },
+        {
+          "heading": "substantially: 大幅に・かなり",
+          "explanation": "substantially は「大幅に、かなり」を表します。数量の増減や、程度の差を強める副詞です。\n\n・substantially higher costs(大幅に高いコスト)",
+          "examples": [
+            { "en": "The cost of the project increased **substantially** over the last quarter.", "ja": "そのプロジェクトの費用は、前の四半期から大幅に増えた。", "note": "substantially(大幅に)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、文脈に合う文全体の副詞(accordingly と unfortunately など)を選ばせる問題が出ます。前の文との論理のつながりで判断します。"
+    },
+    {
+      "id": "placement-negative",
+      "title": "副詞の位置・否定の副詞・as ~ as possible・enough",
+      "intro": "否定の意味を持つ副詞(hardly、scarcely、seldom)は、文の中で否定の働きをします。また、as soon as possible(できるだけ早く)や、形容詞の後に置く enough も、語順を覚えておく必要があります。",
+      "keywords": ["副詞(placement)", "副詞(否定)", "副詞(as ... as possible)", "副詞(enough の位置)"],
+      "items": [
+        {
+          "heading": "副詞の位置の基本: 動詞の前後・文頭・文末",
+          "explanation": "副詞が文の中で、どこに置かれるかを確かめます。\n\n・動詞の前後: The report was carefully prepared.\n・文頭: Carefully, the team prepared the report.\n・文末: The team prepared the report carefully.\n\n文頭に置くと、文全体の判断を表すことが多くなります。",
+          "examples": [
+            { "en": "The report was **carefully** prepared by the team.", "ja": "そのレポートは、チームによって丁寧に作成された。", "note": "過去分詞の前" },
+            { "en": "The team prepared the report **carefully**.", "ja": "チームはそのレポートを丁寧に作成した。", "note": "文末(動詞の後ろ)" }
+          ]
+        },
+        {
+          "heading": "否定の副詞: hardly・scarcely・seldom",
+          "explanation": "hardly(ほとんど~ない)、scarcely(ほとんど~ない)、seldom(めったに~ない)は、否定の意味を持つ副詞です。not と一緒に使わないように注意します。\n\n・I can hardly believe it.(信じられない)\n・We seldom have problems with the system.(そのシステムで問題が起きることは、めったにない)",
+          "examples": [
+            { "en": "I can **hardly** believe the results.", "ja": "その結果が信じられない。", "note": "hardly(ほとんど~ない)" },
+            { "en": "We **seldom** have problems with the system.", "ja": "そのシステムで問題が起きることは、めったにない。", "note": "seldom(めったに~ない)" }
+          ],
+          "cautions": ["× I can not hardly believe it. → ○ I can hardly believe it.(hardly は否定を含むので not を重ねない)"]
+        },
+        {
+          "heading": "as ~ as possible: できるだけ~",
+          "explanation": "as ~ as possible は「できるだけ~」を表します。as soon as possible(できるだけ早く)がよく使われます。\n\n・Please reply as soon as possible.(できるだけ早く返信してください)",
+          "examples": [
+            { "en": "Please reply **as soon as possible**.", "ja": "できるだけ早く返信してください。", "note": "as soon as possible" },
+            { "en": "We will keep the cost **as low as possible**.", "ja": "私たちはコストを、できるだけ低く抑える。", "note": "as low as possible" }
+          ]
+        },
+        {
+          "heading": "enough の位置: 形容詞・副詞の後ろ",
+          "explanation": "enough は、形容詞や副詞の後ろに置きます。名詞を修飾するときは、enough を名詞の前に置きます。\n\n・good enough(十分に良い)\n・enough time(十分な時間)\n・The plan is detailed enough to follow.(計画は、従えるほど十分に詳しい)",
+          "examples": [
+            { "en": "This plan is **good enough** for the next phase.", "ja": "この計画は、次の段階に十分良い。", "note": "形容詞 + enough" },
+            { "en": "We have **enough time** to finish the review.", "ja": "見直しを終えるのに十分な時間がある。", "note": "enough + 名詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、hardly の前に not を置いた誤り、good enough と enough time の語順、as soon as possible の形が出題されます。"
+    }
+  ],
+  "summary": [
+    "副詞は、動詞・形容詞・副詞・文全体を修飾する。名詞は修飾しない",
+    "副詞の位置は修飾する語で決まる: 一般動詞の前、be 動詞の後、文頭や文末",
+    "hard(一生懸命に)と hardly(ほとんど~ない)、late(遅く)と lately(最近)は意味が違う",
+    "accordingly は前の内容を受けて「それに応じて」、seemingly は「一見~らしく」",
+    "exceptionally は「例外的に」、inadvertently は「うっかり」、substantially は「大幅に」",
+    "hardly・scarcely・seldom は否定の意味を含むので、not と重ねない",
+    "as soon as possible は「できるだけ早く」。enough は形容詞・副詞の後ろに置く",
+    "名詞の前に置く語は形容詞(quick response)。副詞(quickly)を置かない"
+  ],
+  "quiz": [
+    {
+      "id": "adverb-q01",
+      "sentence": "The team worked ------- to meet the deadline.",
+      "choices": [{ "label": "A", "text": "quickly" }, { "label": "B", "text": "quick" }, { "label": "C", "text": "quickness" }, { "label": "D", "text": "quicken" }],
+      "answer": "A",
+      "explanation": "動詞 worked を修飾する副詞 quickly(速く)が正解。quick は形容詞で、動詞を修飾できない。quickness は名詞、quicken は動詞で、この位置に合わない。",
+      "translation": "チームは期限に間に合わせるため、速く働いた。"
+    },
+    {
+      "id": "adverb-q02",
+      "sentence": "We have ------- started the project, so we are behind schedule.",
+      "choices": [{ "label": "A", "text": "hard" }, { "label": "B", "text": "hardly" }, { "label": "C", "text": "late" }, { "label": "D", "text": "lately" }],
+      "answer": "B",
+      "explanation": "hardly(ほとんど~ない)が正解で、「ほとんど始めていない」ので予定より遅れている、という文脈に合う。hard は「一生懸命に」の意味で、文脈に合わない。late と lately は、「遅く」と「最近」で、この意味にはならない。",
+      "translation": "そのプロジェクトはほとんど始められていないので、予定より遅れている。"
+    },
+    {
+      "id": "adverb-q03",
+      "sentence": "------- , the meeting was canceled because of the storm.",
+      "choices": [{ "label": "A", "text": "Seemingly" }, { "label": "B", "text": "Accordingly" }, { "label": "C", "text": "Unfortunately" }, { "label": "D", "text": "Inadvertently" }],
+      "answer": "C",
+      "explanation": "話し手の判断(残念ながら)を文頭で表す Unfortunately が正解。Seemingly は「一見~らしく」、Accordingly は「それに応じて」、Inadvertently は「うっかり」で、会議の中止を残念がる文脈に合わない。",
+      "translation": "残念ながら、嵐のために会議は中止になった。"
+    },
+    {
+      "id": "adverb-q04",
+      "sentence": "The report was ------- prepared by the team.",
+      "choices": [{ "label": "A", "text": "careful" }, { "label": "B", "text": "carefulness" }, { "label": "C", "text": "careless" }, { "label": "D", "text": "carefully" }],
+      "answer": "D",
+      "explanation": "過去分詞 prepared を修飾する副詞 carefully(丁寧に)が正解。careful と careless は形容詞、carefulness は名詞で、過去分詞を修飾できない。",
+      "translation": "そのレポートは、チームによって丁寧に作成された。"
+    },
+    {
+      "id": "adverb-q05",
+      "sentence": "The plan is ------- simple, but it has many hidden problems.",
+      "choices": [{ "label": "A", "text": "seemingly" }, { "label": "B", "text": "seem" }, { "label": "C", "text": "seeming" }, { "label": "D", "text": "seemed" }],
+      "answer": "A",
+      "explanation": "形容詞 simple を修飾する副詞 seemingly(一見~らしく)が正解。seem は動詞、seeming は現在分詞、seemed は過去形で、形容詞を修飾する位置には入らない。",
+      "translation": "その計画は一見簡単そうだが、多くの隠れた問題がある。"
+    },
+    {
+      "id": "adverb-q06",
+      "sentence": "She ------- deleted the file before saving it.",
+      "choices": [{ "label": "A", "text": "exceptionally" }, { "label": "B", "text": "inadvertently" }, { "label": "C", "text": "accordingly" }, { "label": "D", "text": "substantially" }],
+      "answer": "B",
+      "explanation": "意図せず、うっかりファイルを消した、の意味を表す inadvertently が正解。exceptionally は「例外的に」、accordingly は「それに応じて」、substantially は「大幅に」で、文脈に合わない。",
+      "translation": "彼女は保存する前に、うっかりファイルを消してしまった。"
+    },
+    {
+      "id": "adverb-q07",
+      "sentence": "The team produced ------- good results this year.",
+      "choices": [{ "label": "A", "text": "substantially" }, { "label": "B", "text": "seemingly" }, { "label": "C", "text": "exceptionally" }, { "label": "D", "text": "accordingly" }],
+      "answer": "C",
+      "explanation": "形容詞 good を強める exceptionally(例外的に)が正解。exceptionally good results で、例外的に良い結果、という意味になる。substantially は「大幅に」、seemingly は「一見~らしく」、accordingly は「それに応じて」で、この強調の意味に合わない。",
+      "translation": "チームは今年、例外的に良い結果を出した。"
+    },
+    {
+      "id": "adverb-q08",
+      "sentence": "The cost of the project increased ------- over the last quarter.",
+      "choices": [{ "label": "A", "text": "accordingly" }, { "label": "B", "text": "seemingly" }, { "label": "C", "text": "exceptionally" }, { "label": "D", "text": "substantially" }],
+      "answer": "D",
+      "explanation": "費用の増加の大きさを表す substantially(大幅に)が正解。accordingly は前の内容を受けた「それに応じて」、seemingly は「一見」、exceptionally は「例外的に」で、増加の程度を表すには合わない。",
+      "translation": "そのプロジェクトの費用は、前の四半期から大幅に増えた。"
+    },
+    {
+      "id": "adverb-q09",
+      "sentence": "Please reply ------- possible.",
+      "choices": [{ "label": "A", "text": "as soon as" }, { "label": "B", "text": "as soon" }, { "label": "C", "text": "so soon" }, { "label": "D", "text": "soon as" }],
+      "answer": "A",
+      "explanation": "as soon as possible(できるだけ早く)の形で、as soon as が正解。as soon や soon as は、この形として不完全。so soon は「そんなに早く」の意味で、慣用表現にならない。",
+      "translation": "できるだけ早く返信してください。"
+    },
+    {
+      "id": "adverb-q10",
+      "sentence": "I can ------- believe the results of the test.",
+      "choices": [{ "label": "A", "text": "not hardly" }, { "label": "B", "text": "hardly" }, { "label": "C", "text": "not" }, { "label": "D", "text": "hard" }],
+      "answer": "B",
+      "explanation": "hardly(ほとんど~ない)は否定を含むので、can hardly believe(信じられない)の形で使う。not hardly は否定を重ねた誤り。not は単独では、hardly の否定の意味を含まない文になる。hard は「一生懸命に」で、この文の意味に合わない。",
+      "translation": "そのテストの結果が、私にはほとんど信じられない。"
+    },
+    {
+      "id": "adverb-q11",
+      "sentence": "This plan is good ------- for the next phase.",
+      "choices": [{ "label": "A", "text": "so enough" }, { "label": "B", "text": "very enough" }, { "label": "C", "text": "enough" }, { "label": "D", "text": "enough very" }],
+      "answer": "C",
+      "explanation": "good の後ろに enough を置き、good enough(十分に良い)の形にする。enough が正解。so enough、very enough、enough very は、enough の位置や語の組み合わせとして誤り。",
+      "translation": "この計画は、次の段階に十分に良い。"
+    },
+    {
+      "id": "adverb-q12",
+      "sentence": "The team has ------- reviewed the policy, so the decision is final.",
+      "choices": [{ "label": "A", "text": "yet" }, { "label": "B", "text": "ever" }, { "label": "C", "text": "still" }, { "label": "D", "text": "already" }],
+      "answer": "D",
+      "explanation": "現在完了の has と過去分詞 reviewed の間に入る already(もう)が正解。yet は否定文と疑問文で使うので、肯定文では合わない。ever は疑問文・否定文で経験を表し、still は現在完了の中では使わない。",
+      "translation": "チームはもう方針を検討したので、決定は最終的なものだ。"
+    }
+  ],
+  "related": ["adjective", "comparison", "conjunction"]
+}

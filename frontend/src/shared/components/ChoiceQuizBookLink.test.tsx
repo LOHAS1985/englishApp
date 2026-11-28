@@ -63,13 +63,13 @@ describe("解答後の教科書へのリンク", () => {
   });
 });
 
-describe("まだ書いていない章へは、リンクを出さない", () => {
-  it("書けている章(品詞と語形)にはリンクする。未執筆の助動詞(modal)には出さない", async () => {
+describe("対応する章がない項目へは、リンクを出さない", () => {
+  it("章に対応する項目(品詞)にはリンクする。どの章にも対応しない項目には出さない", async () => {
     await answered(question("品詞(副詞)"), true);
     expect(screen.getByRole("link", { name: "この項目の解説を読む →" }).getAttribute("href")).toBe("/grammar-book/parts-of-speech?point=" + encodeURIComponent("品詞(副詞)"));
     cleanup();
 
-    await answered(question("助動詞(need not have)"), true);
+    await answered(question("テスト用の項目"), true);
     expect(screen.queryByRole("link", { name: /この項目の解説/ })).toBeNull();
   });
 });

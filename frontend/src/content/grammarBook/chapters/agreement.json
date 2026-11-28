@@ -1,0 +1,262 @@
+{
+  "id": "agreement",
+  "no": 21,
+  "title": "一致",
+  "lead": "主語と動詞の一致は、主語が単数か複数かによって、動詞の形を合わせることです。主語と動詞が離れていたり、主語が二つ並んでいたり、a number of のような数量の表現が使われたりすると、どの名詞が主語の中心かを見極める必要があります。TOEIC Part 5 では、この一致の判断が頻繁に問われます。この章では、主語の中心を見つけて、動詞の形を決める方法を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "主語と動詞の一致の基本: 主語の中心を見つける",
+      "intro": "動詞は、主語に合わせて形を変えます。主語が単数なら三人称単数の現在形(-s や -es を付ける)、複数なら原形を使います。この節では、主語の中心を見つける方法と、単数扱いの名詞を確かめます。",
+      "keywords": ["一致"],
+      "items": [
+        {
+          "heading": "主語の中心を見つけて、動詞の形を決める",
+          "explanation": "動詞は、主語に合わせて形を変えます。主語が単数(一人、一つ)なら三人称単数の現在形(s や es を付ける)、複数なら原形を使います。\n\n・The manager approves the plan.(部長は計画を承認する)\n・The managers approve the plan.(部長たちは計画を承認する)",
+          "examples": [
+            { "en": "The **manager approves** the budget every year.", "ja": "部長は毎年、予算を承認する。", "note": "単数主語 → 三単現の s" },
+            { "en": "The **managers approve** the budget every year.", "ja": "部長たちは毎年、予算を承認する。", "note": "複数主語 → 原形" }
+          ]
+        },
+        {
+          "heading": "前置詞句や修飾語は、主語に含まれない",
+          "explanation": "主語と動詞の間に、前置詞句(of ~、in ~)や修飾語が入ることがあります。その語句は主語ではないので、動詞は主語の中心の名詞に合わせます。\n\n・The results of the survey were surprising.(調査の結果は驚くべきものだった)\n・The team in the Osaka office works hard.(大阪オフィスのチームは一生懸命に働く)",
+          "examples": [
+            { "en": "The **results** of the survey **were** surprising.", "ja": "その調査の結果は、驚くべきものだった。", "note": "of the survey は修飾語。主語は results" },
+            { "en": "The **team** in the Osaka office **works** very hard.", "ja": "大阪オフィスのチームは、とても一生懸命に働く。", "note": "主語は team(単数)" }
+          ]
+        },
+        {
+          "heading": "複数形でも単数扱いの名詞: news・金額・時間",
+          "explanation": "news(知らせ)、physics、economics、statistics などの学問名は、複数形の形でも単数扱いになります。また、金額・時間・距離を表す語句も単数扱いです。\n\n・The news is good for the company.(その知らせは、会社にとって良い)\n・Five thousand yen is the fee for the course.(5,000円が、その講座の料金だ)",
+          "examples": [
+            { "en": "The **news is** good for the company.", "ja": "その知らせは、会社にとって良いものだ。", "note": "news は単数扱い" },
+            { "en": "Five thousand yen **is** the fee for the course.", "ja": "5,000円が、その講座の料金だ。", "note": "金額は単数扱い" }
+          ]
+        },
+        {
+          "heading": "集合名詞: 一つのまとまりとして単数扱い",
+          "explanation": "family、team、staff、committee、police などの集合名詞は、一つのまとまりとして考えるときは単数扱いにするのが基本です。TOEIC では、単数扱いの形で出題されることが多いです。\n\n・The team is ready for the launch.(チームは発売の準備ができている)",
+          "examples": [
+            { "en": "The **committee has** approved the plan.", "ja": "委員会はその計画を承認した。", "note": "集合名詞は単数扱いが基本" },
+            { "en": "The **team is** preparing for the event.", "ja": "チームはそのイベントの準備をしている。", "note": "まとまりとして単数扱い" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、主語の中心の名詞を見つけて、三単現の s の有無を選ばせる問題が出ます。"
+    },
+    {
+      "id": "distant-subject",
+      "title": "主語と動詞が離れているとき・名詞節が主語のとき",
+      "intro": "主語と動詞の間に長い修飾語句が入ると、主語を見失いやすくなります。また、主語が名詞節や動名詞のときは、単数扱いになります。",
+      "keywords": ["離れた主語", "名詞節が主語"],
+      "items": [
+        {
+          "heading": "主語と動詞が離れているとき: 中心の名詞を探す",
+          "explanation": "主語と動詞の間に、長い修飾語句(関係代名詞の節など)が入ると、主語を見失いやすくなります。主語の中心の名詞を探し、その数に合わせます。\n\n・The list of items that need to be checked is long.(確認が必要な項目の一覧は長い)",
+          "examples": [
+            { "en": "The list of items that need to be checked **is** long.", "ja": "確認が必要な項目の一覧は長い。", "note": "主語は list(単数)" },
+            { "en": "The reports written by the new staff **were** excellent.", "ja": "新人が書いたレポートは素晴らしかった。", "note": "主語は reports(複数)" }
+          ]
+        },
+        {
+          "heading": "名詞節・不定詞・動名詞が主語のとき: 単数扱い",
+          "explanation": "主語が名詞節(what 節や that 節など)、to 不定詞、動名詞のときは、単数扱いになります。\n\n・What the manager said was surprising.(部長の言ったことは驚きだった)\n・Reviewing the reports takes a lot of time.(レポートを見直すには、多くの時間がかかる)",
+          "examples": [
+            { "en": "**What** the team needs **is** more time.", "ja": "チームに必要なのは、もっと時間だ。", "note": "what 節は単数扱い" },
+            { "en": "**Reviewing** the reports **takes** a lot of time.", "ja": "レポートを見直すには、多くの時間がかかる。", "note": "動名詞の主語は単数扱い" }
+          ]
+        },
+        {
+          "heading": "挿入句と、together with などの語句",
+          "explanation": "コンマで挟まれた挿入句や、together with などの語句は、主語に含まれません。動詞は、主語の中心(The manager)に合わせます。\n\n・The manager, together with two assistants, is leaving for Osaka.(部長は、二人の補佐と一緒に大阪へ出発する)",
+          "examples": [
+            { "en": "The manager, together with two assistants, **is** leaving for Osaka.", "ja": "部長は、二人の補佐と一緒に大阪へ出発する。", "note": "together with の語句は主語に含まれない" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、主語と動詞が離れた長い文で、中心の名詞に合わせる問題が多く出ます。"
+    },
+    {
+      "id": "paired-subjects",
+      "title": "either A or B・neither A nor B・not only A but also B・as well as",
+      "intro": "主語が二つ並ぶ形では、動詞を近いほうの名詞に合わせるものと、前の名詞に合わせるものがあります。組み合わせごとに、ルールを確かめます。",
+      "keywords": ["either A or B", "neither A nor B", "as well as", "along with", "not only A but also B"],
+      "items": [
+        {
+          "heading": "either A or B・neither A nor B: 動詞は B に合わせる",
+          "explanation": "either A or B(AかB)と neither A nor B(AもBもない)は、動詞を B に合わせます。\n\n・Either the manager or the assistants are ready.(部長か補佐たちのどちらかが準備できている)\n・Neither the manager nor the assistant is ready.(部長も補佐も準備できていない)",
+          "examples": [
+            { "en": "**Either** the manager **or** the assistants **are** ready.", "ja": "部長か補佐たちのどちらかが準備できている。", "note": "動詞は B(assistants)に合わせる" },
+            { "en": "**Neither** the manager **nor** the assistant **is** ready.", "ja": "部長も補佐も準備できていない。", "note": "動詞は B(assistant)に合わせる" }
+          ]
+        },
+        {
+          "heading": "not only A but also B: 動詞は B に合わせる",
+          "explanation": "not only A but also B(AだけでなくBも)は、動詞を B に合わせます。\n\n・Not only the manager but also the assistants are responsible.(部長だけでなく、補佐たちも責任がある)",
+          "examples": [
+            { "en": "**Not only** the manager **but also** the assistants **are** responsible.", "ja": "部長だけでなく、補佐たちも責任がある。", "note": "動詞は B に合わせる" }
+          ]
+        },
+        {
+          "heading": "as well as・along with: 動詞は A に合わせる",
+          "explanation": "as well as、along with、together with は、前の名詞(A)に動詞を合わせます。後ろの語句は追加の説明で、主語には含まれません。\n\n・The manager as well as the staff is attending the event.(スタッフだけでなく、部長もイベントに出席する)",
+          "examples": [
+            { "en": "The **manager** as well as the staff **is** attending the event.", "ja": "スタッフだけでなく、部長もイベントに出席する。", "note": "動詞は manager(A)に合わせる" },
+            { "en": "The **report** along with the charts **was** sent yesterday.", "ja": "グラフと一緒に、そのレポートは昨日送られた。", "note": "動詞は report(A)に合わせる" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、either A or B・neither A nor B の後ろの名詞に動詞を合わせる問題と、as well as の前の名詞に合わせる問題が出ます。"
+    },
+    {
+      "id": "quantifiers",
+      "title": "a number of・the number of・one of・There is / are",
+      "intro": "数量を表す語句は、単数・複数の扱いが決まっています。a number of と the number of、one of the + 複数名詞、There is / are の一致を確かめます。",
+      "keywords": ["a number of", "the number of", "one of", "There + be"],
+      "items": [
+        {
+          "heading": "a number of と the number of",
+          "explanation": "a number of(多くの~)は、複数扱いです。the number of(~の数)は、単数扱いです。\n\n・A number of employees are interested.(多くの社員が興味を持っている)\n・The number of employees is growing.(社員の数は増えている)",
+          "examples": [
+            { "en": "A **number of** employees **are** interested in the course.", "ja": "多くの社員が、その講座に興味を持っている。", "note": "a number of + 複数 → 複数扱い" },
+            { "en": "The **number of** complaints **has** decreased.", "ja": "苦情の数は減った。", "note": "the number of + 単数扱い" }
+          ]
+        },
+        {
+          "heading": "one of the + 複数名詞: 単数扱い",
+          "explanation": "one of the + 複数名詞は、主語が「一つ」を表すので、単数扱いです。\n\n・One of the managers is absent today.(部長の一人は今日休みだ)",
+          "examples": [
+            { "en": "**One of the managers is** absent today.", "ja": "部長の一人は、今日休みだ。", "note": "one of the + 複数名詞 → 単数扱い" }
+          ]
+        },
+        {
+          "heading": "There is / There are: 後ろの名詞に合わせる",
+          "explanation": "There is / There are の文では、動詞は後ろに来る名詞(真の主語)に合わせます。\n\n・There is a problem with the system.(システムに問題が一つある)\n・There are two problems with the system.(システムに問題が二つある)",
+          "examples": [
+            { "en": "**There is** a problem with the new system.", "ja": "新しいシステムに問題が一つある。", "note": "後ろの a problem に合わせる(単数)" },
+            { "en": "**There are** several reasons for the delay.", "ja": "遅延の理由がいくつかある。", "note": "後ろの several reasons に合わせる(複数)" }
+          ]
+        },
+        {
+          "heading": "most of・some of・all of: of の後ろの名詞に合わせる",
+          "explanation": "all of、some of、most of、half of などの後ろに続く名詞に、動詞を合わせます。\n\n・Most of the staff are ready.(スタッフの大部分は準備できている)\n・Some of the work is finished.(仕事の一部は終わっている)",
+          "examples": [
+            { "en": "**Most of the staff are** ready for the event.", "ja": "スタッフの大部分は、イベントの準備ができている。", "note": "of の後ろの staff(複数)" },
+            { "en": "**Some of the work is** finished already.", "ja": "仕事の一部は、すでに終わっている。", "note": "of の後ろの work(不可算・単数)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、a number of と the number of の違い、There is / are の動詞の形、most of の後ろの名詞に合わせる問題が出ます。"
+    }
+  ],
+  "summary": [
+    "動詞は主語の中心の名詞に合わせる。単数なら三単現の s、複数なら原形",
+    "前置詞句・挿入句・together with の語句は、主語に含まれない",
+    "news、学問名、金額・時間は、複数形でも単数扱い",
+    "名詞節・不定詞・動名詞が主語のときは、単数扱い",
+    "either A or B・neither A nor B・not only A but also B は、動詞を B に合わせる",
+    "as well as・along with は、動詞を前の名詞(A)に合わせる",
+    "a number of は複数扱い、the number of は単数扱い。one of the + 複数名詞は単数扱い",
+    "There is / are は後ろの名詞に合わせる。most of などは of の後ろの名詞に合わせる"
+  ],
+  "quiz": [
+    {
+      "id": "agreement-q01",
+      "sentence": "The results of the survey ------- surprising.",
+      "choices": [{ "label": "A", "text": "were" }, { "label": "B", "text": "was" }, { "label": "C", "text": "is" }, { "label": "D", "text": "has been" }],
+      "answer": "A",
+      "explanation": "主語の中心は results(複数)なので、複数扱いの were が正解。of the survey は修飾語で、主語には含まれない。was と is は単数扱いで、has been も単数扱いになる。",
+      "translation": "その調査の結果は、驚くべきものだった。"
+    },
+    {
+      "id": "agreement-q02",
+      "sentence": "Reviewing the reports ------- a lot of time.",
+      "choices": [{ "label": "A", "text": "take" }, { "label": "B", "text": "takes" }, { "label": "C", "text": "taking" }, { "label": "D", "text": "are taking" }],
+      "answer": "B",
+      "explanation": "主語が動名詞の句 Reviewing the reports で、単数扱いになるので、三単現の takes が正解。take は複数扱いの形、taking は現在分詞、are taking は複数扱いで、主語の単数扱いに合わない。",
+      "translation": "レポートを見直すには、多くの時間がかかる。"
+    },
+    {
+      "id": "agreement-q03",
+      "sentence": "Either the manager or the assistants ------- ready.",
+      "choices": [{ "label": "A", "text": "is" }, { "label": "B", "text": "was" }, { "label": "C", "text": "are" }, { "label": "D", "text": "be" }],
+      "answer": "C",
+      "explanation": "either A or B では、動詞を B(the assistants)に合わせるので、複数扱いの are が正解。is と was は単数扱い、be は原形で、主語に合う形にならない。",
+      "translation": "部長か補佐たちのどちらかが、準備できている。"
+    },
+    {
+      "id": "agreement-q04",
+      "sentence": "Neither the manager nor the staff ------- responsible for the error.",
+      "choices": [{ "label": "A", "text": "are" }, { "label": "B", "text": "were" }, { "label": "C", "text": "have been" }, { "label": "D", "text": "is" }],
+      "answer": "D",
+      "explanation": "neither A nor B では、動詞を B(the staff)に合わせる。staff は単数扱いの語なので、is が正解。are と were は複数扱い、have been も複数扱いになるため、ここでは合わない。",
+      "translation": "部長もスタッフも、そのミスの責任はない。"
+    },
+    {
+      "id": "agreement-q05",
+      "sentence": "A number of employees ------- interested in the training.",
+      "choices": [{ "label": "A", "text": "are" }, { "label": "B", "text": "is" }, { "label": "C", "text": "has been" }, { "label": "D", "text": "was" }],
+      "answer": "A",
+      "explanation": "a number of(多くの)は複数扱いなので、are が正解。is と was は単数扱い。has been も単数扱いで、この文の主語に合わない。",
+      "translation": "多くの社員が、その研修に興味を持っている。"
+    },
+    {
+      "id": "agreement-q06",
+      "sentence": "The number of complaints ------- decreased this year.",
+      "choices": [{ "label": "A", "text": "have" }, { "label": "B", "text": "has" }, { "label": "C", "text": "are" }, { "label": "D", "text": "were" }],
+      "answer": "B",
+      "explanation": "the number of(~の数)は単数扱いなので、has が正解。苦情の数が減った、という意味になる。have・are・were は複数扱いで、主語の the number of の扱いに合わない。",
+      "translation": "今年、苦情の数は減った。"
+    },
+    {
+      "id": "agreement-q07",
+      "sentence": "One of the managers ------- absent from the meeting.",
+      "choices": [{ "label": "A", "text": "are" }, { "label": "B", "text": "were" }, { "label": "C", "text": "is" }, { "label": "D", "text": "have" }],
+      "answer": "C",
+      "explanation": "one of the + 複数名詞は単数扱いなので、is が正解。are・were・have は複数扱いで、主語の one に合わない。",
+      "translation": "部長の一人が、会議を欠席している。"
+    },
+    {
+      "id": "agreement-q08",
+      "sentence": "There ------- several reasons for the delay.",
+      "choices": [{ "label": "A", "text": "is" }, { "label": "B", "text": "was" }, { "label": "C", "text": "has" }, { "label": "D", "text": "are" }],
+      "answer": "D",
+      "explanation": "There is / are の文では、後ろの名詞 several reasons(複数)に動詞を合わせる。are が正解。is と was は単数扱い、has は There の文で使わない。",
+      "translation": "遅延の理由がいくつかある。"
+    },
+    {
+      "id": "agreement-q09",
+      "sentence": "The manager, along with her assistants, ------- leaving for Osaka.",
+      "choices": [{ "label": "A", "text": "is" }, { "label": "B", "text": "are" }, { "label": "C", "text": "were" }, { "label": "D", "text": "have" }],
+      "answer": "A",
+      "explanation": "along with の語句は主語に含まれず、動詞は前の名詞 The manager(単数)に合わせる。is が正解。are・were・have は複数扱いで、主語の中心に合わない。",
+      "translation": "部長は、補佐たちと一緒に大阪へ出発する。"
+    },
+    {
+      "id": "agreement-q10",
+      "sentence": "Not only the sales team but also the engineers ------- attending the meeting.",
+      "choices": [{ "label": "A", "text": "is" }, { "label": "B", "text": "are" }, { "label": "C", "text": "was" }, { "label": "D", "text": "has" }],
+      "answer": "B",
+      "explanation": "not only A but also B では、動詞を B(the engineers)に合わせる。複数扱いの are が正解。is と was は単数扱い、has は単数扱いの動詞で、主語の B に合わない。",
+      "translation": "営業チームだけでなく、技術者も会議に出席している。"
+    },
+    {
+      "id": "agreement-q11",
+      "sentence": "Most of the staff ------- ready for the event.",
+      "choices": [{ "label": "A", "text": "is" }, { "label": "B", "text": "has" }, { "label": "C", "text": "are" }, { "label": "D", "text": "was" }],
+      "answer": "C",
+      "explanation": "most of の後ろの名詞 the staff(複数扱い)に合わせて、are が正解。is・has・was は単数扱いで、この文の主語の扱いに合わない。",
+      "translation": "スタッフの大部分は、イベントの準備ができている。"
+    },
+    {
+      "id": "agreement-q12",
+      "sentence": "The news ------- good for the company.",
+      "choices": [{ "label": "A", "text": "are" }, { "label": "B", "text": "were" }, { "label": "C", "text": "have been" }, { "label": "D", "text": "is" }],
+      "answer": "D",
+      "explanation": "news は複数形の形だが単数扱いなので、is が正解。are と were は複数扱い、have been も複数扱いで、単数扱いの news には合わない。",
+      "translation": "その知らせは、会社にとって良いものだ。"
+    }
+  ],
+  "related": ["noun", "verb", "tense"]
+}

@@ -1,0 +1,290 @@
+{
+  "id": "voice",
+  "no": 17,
+  "title": "態",
+  "lead": "態は、主語が動作をする(能動態)か、動作を受ける(受動態)かを表す仕組みです。受動態は、be 動詞 + 過去分詞の形で、時制や助動詞に合わせて形が変わります。TOEIC Part 5 では、時制に合った受動態の形、by 以外の前置詞(be interested in など)、受動態と不定詞の組み合わせ(be expected to)、過去分詞と現在分詞の見分けがよく問われます。この章では、それぞれの形と使い方を確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "受動態の基本: be + 過去分詞",
+      "intro": "受動態は、動作を受ける主語を文の主語にして、be 動詞 + 過去分詞で表します。能動態の目的語が、受動態の主語になります。この節では、作り方と、by の使い方を確かめます。",
+      "keywords": ["受動態"],
+      "items": [
+        {
+          "heading": "能動態と受動態の書き換え",
+          "explanation": "能動態の目的語を主語にして、be 動詞 + 過去分詞を使います。動作をする人は、by + 人で示します(省略されることも多いです)。\n\n・能動態: The manager approved the budget.\n・受動態: The budget was approved by the manager.(予算は部長によって承認された)",
+          "examples": [
+            { "en": "The budget **was approved** by the manager.", "ja": "予算は、部長によって承認された。", "note": "be + 過去分詞 + by + 行為者" },
+            { "en": "The new policy **was announced** last week.", "ja": "新しい方針は、先週発表された。", "note": "行為者が重要でない場合は by を省略" }
+          ]
+        },
+        {
+          "heading": "受動態の主語になれるもの: 他動詞の目的語",
+          "explanation": "受動態は、他動詞の目的語を主語にできます。自動詞(arrive、happen など)は目的語を取らないので、受動態にできません。\n\n・できる: The team completed the project.(能動態)→ The project was completed by the team.\n・できない: The meeting happened yesterday.(受動態にできない)",
+          "examples": [
+            { "en": "The project **was completed** by the team.", "ja": "そのプロジェクトは、チームによって完成された。", "note": "目的語を主語にした受動態" },
+            { "en": "The accident **happened** yesterday.", "ja": "その事故は昨日起きた。", "note": "自動詞は受動態にしない" }
+          ]
+        },
+        {
+          "heading": "受動態にできない動詞: have・resemble・lack など",
+          "explanation": "have(持つ)、resemble(似ている)、lack(欠けている)、fit(合う)、suit(似合う)などは、目的語を取っても、受動態にしないのが普通です。\n\n・He has a new car.(能動態のみ)\n・She resembles her mother.(能動態のみ)",
+          "examples": [
+            { "en": "She **resembles** her mother very closely.", "ja": "彼女は母親にとてもよく似ている。", "note": "resemble は受動態にしない" }
+          ],
+          "cautions": ["× Her mother is resembled by her. → ○ She resembles her mother.(resemble は能動態で使う)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、自動詞の受動態(is happened)や、受動態にできない動詞(is resembled)の誤りが選択肢に出ます。"
+    },
+    {
+      "id": "tense-modal-perfect",
+      "title": "時制・助動詞・完了・進行の受動態",
+      "intro": "受動態の be 動詞は、時制や助動詞に合わせて形が変わります。過去分詞の形はそのままです。完了形の受動態は has been + 過去分詞、進行形の受動態は is being + 過去分詞です。",
+      "keywords": ["受動態(現在形)", "受動態(過去)", "受動態(完了形)", "受動態(進行形)", "受動態(助動詞)", "受動態(助動詞+完了)", "受動態の完了形", "受動態の進行形"],
+      "items": [
+        {
+          "heading": "現在・過去の受動態: is / are / was / were + 過去分詞",
+          "explanation": "現在の受動態は am / is / are + 過去分詞、過去の受動態は was / were + 過去分詞です。主語が複数か単数かで、be 動詞を選びます。\n\n・The reports are reviewed every month.(レポートは毎月見直される)\n・The report was reviewed last week.(レポートは先週見直された)",
+          "examples": [
+            { "en": "The reports **are reviewed** every month.", "ja": "レポートは毎月見直される。", "note": "現在の受動態" },
+            { "en": "The report **was reviewed** last week.", "ja": "レポートは先週見直された。", "note": "過去の受動態" }
+          ]
+        },
+        {
+          "heading": "完了形・進行形の受動態: has been・is being",
+          "explanation": "完了形の受動態は has / have been + 過去分詞、進行形の受動態は am / is / are being + 過去分詞です。\n\n・The project has been completed.(そのプロジェクトは完了している)\n・The software is being tested right now.(そのソフトウェアは今、テスト中だ)",
+          "examples": [
+            { "en": "The project **has been completed** on time.", "ja": "そのプロジェクトは、予定どおり完了している。", "note": "完了形の受動態" },
+            { "en": "The software **is being tested** by our team right now.", "ja": "そのソフトウェアは、今、チームによってテスト中だ。", "note": "進行形の受動態(is being + 過去分詞)" }
+          ]
+        },
+        {
+          "heading": "助動詞の受動態: can・must・will + be + 過去分詞",
+          "explanation": "助動詞の後ろには、be + 過去分詞が続きます。助動詞 + have been + 過去分詞の形は、完了形の受動態になります。\n\n・The report will be sent tomorrow.(レポートは明日送られる)\n・The task must have been finished by now.(その作業は、今ごろ終わっているに違いない)",
+          "examples": [
+            { "en": "The report **will be sent** to all managers tomorrow.", "ja": "レポートは、明日すべての部長に送られる。", "note": "will be + 過去分詞" },
+            { "en": "The task **must have been finished** by now.", "ja": "その作業は、今ごろ終わっているに違いない。", "note": "must have been + 過去分詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、時制に合った be 動詞の形(is being・has been・will be)を選ばせる問題が出ます。過去分詞は変わらない点に注意します。"
+    },
+    {
+      "id": "second-object-complement",
+      "title": "第4文型・第5文型・get の受動態",
+      "intro": "第4文型(SVOO)の受動態では、目的語の一方が主語になります。第5文型(SVOC)の受動態では、補語はそのまま残ります。get を使った受動態は、口語でよく使われます。",
+      "keywords": ["受動態(第4文型)", "受動態(SVOC)", "受動態(get + 過去分詞)"],
+      "items": [
+        {
+          "heading": "第4文型の受動態: 人を主語にする、物を主語にする",
+          "explanation": "第4文型(SVOO)では、どちらの目的語も主語にできます。\n\n・能動態: The manager showed the new staff the system.\n・受動態(人を主語): The new staff were shown the system by the manager.\n・受動態(物を主語): The system was shown to the new staff.",
+          "examples": [
+            { "en": "The new staff **were shown** the system last week.", "ja": "新しいスタッフは、先週そのシステムを見せてもらった。", "note": "人を主語にした第4文型の受動態" },
+            { "en": "A bonus **was given** to every employee.", "ja": "ボーナスが、全社員に与えられた。", "note": "物を主語にした形(to を使う)" }
+          ]
+        },
+        {
+          "heading": "第5文型の受動態: 補語は残る",
+          "explanation": "第5文型(SVOC)の受動態では、目的語が主語になり、補語はそのまま残ります。consider、make、elect などの動詞で使います。\n\n・能動態: The board considers the team the most efficient.\n・受動態: The team is considered the most efficient.(そのチームは、最も効率的だと考えられている)",
+          "examples": [
+            { "en": "The team **was considered** the most efficient in the company.", "ja": "そのチームは、社内で最も効率的だと考えられていた。", "note": "補語 the most efficient が残る" },
+            { "en": "The manager **was elected** chair of the committee.", "ja": "その部長は、委員会の委員長に選ばれた。", "note": "elect + 目的語 + 補語の受動態" }
+          ]
+        },
+        {
+          "heading": "get + 過去分詞: 口語の受動態",
+          "explanation": "get + 過去分詞は、口語で受動態の代わりに使われます。「~される・~になる」の意味を表します。\n\n・get paid(報酬をもらう)\n・get started(始まる・始める)",
+          "examples": [
+            { "en": "The old computer needs to **get repaired** soon.", "ja": "その古いパソコンは、すぐに修理してもらう必要がある。", "note": "get + 過去分詞(口語)" },
+            { "en": "The work will **get finished** by Friday.", "ja": "その作業は金曜日までに終わるだろう。", "note": "get + 過去分詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、第4文型の受動態(was shown the system)や、第5文型の補語の残し方、get + 過去分詞の形が出題されます。"
+    },
+    {
+      "id": "by-and-prepositions",
+      "title": "by 以外の前置詞をとる受動態",
+      "intro": "受動態の後ろに続く前置詞は、by だけではありません。受け身の意味と結びつく前置詞のまとまりとして覚えます。",
+      "keywords": ["受動態(by以外・with)", "受動態(by + 行為者)"],
+      "items": [
+        {
+          "heading": "by 以外の前置詞: be interested in・be covered with・be known to",
+          "explanation": "受動態には、by 以外の前置詞が続く形があります。意味と一緒に、語のまとまりで覚えます。\n\n・be interested in(~に興味がある)\n・be satisfied with(~に満足している)\n・be covered with(~で覆われている)\n・be filled with(~でいっぱいだ)\n・be known to / for / as(~に知られている・~で有名だ・~として知られている)",
+          "examples": [
+            { "en": "The customers are **satisfied with** the new service.", "ja": "顧客は、新しいサービスに満足している。", "note": "be satisfied with" },
+            { "en": "The building is **covered with** glass.", "ja": "その建物は、ガラスで覆われている。", "note": "be covered with" }
+          ]
+        },
+        {
+          "heading": "by + 行為者: 誰(何)がしたかを示す",
+          "explanation": "by の後ろには、動作をした人や物を置きます。受動態では、行為者を示す必要がなければ、by 以下を省きます。\n\n・The novel was written by a famous author.(その小説は、有名な作家によって書かれた)\n・The door was opened.(ドアが開けられた。誰が開けたかは重要ではない)",
+          "examples": [
+            { "en": "The article was **written by** a famous author.", "ja": "その記事は、有名な作家によって書かれた。", "note": "by + 行為者" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、受動態の後ろの前置詞(be satisfied with の with、be interested in の in)を選ばせる問題がよく出ます。"
+    },
+    {
+      "id": "infinitive-expected",
+      "title": "受動態と不定詞: be expected to・be scheduled to・be required to",
+      "intro": "受動態の後ろに to 不定詞が続く形は、予定・期待・要求などを表します。文の意味は、動詞の種類で決まります。",
+      "keywords": ["受動態(be expected to)", "受動態(be scheduled to)", "受動態+不定詞"],
+      "items": [
+        {
+          "heading": "be expected to・be scheduled to: 期待・予定",
+          "explanation": "be expected to は「~すると期待されている」、be scheduled to は「~する予定になっている」を表します。\n\n・The team is expected to finish the report by Friday.(チームは金曜日までにレポートを終えると期待されている)\n・The meeting is scheduled to start at ten.(会議は10時に始まる予定になっている)",
+          "examples": [
+            { "en": "The team **is expected to** finish the report by Friday.", "ja": "チームは、金曜日までにレポートを終えると期待されている。", "note": "be expected to(期待)" },
+            { "en": "The meeting **is scheduled to** start at ten.", "ja": "会議は、10時に始まる予定になっている。", "note": "be scheduled to(予定)" }
+          ]
+        },
+        {
+          "heading": "be asked to・be required to・be allowed to: 依頼・要求・許可",
+          "explanation": "be asked to は「~するよう頼まれている」、be required to は「~することが求められている」、be allowed to は「~することを許されている」を表します。\n\n・All staff are required to attend the training.(全スタッフは研修への出席が求められている)",
+          "examples": [
+            { "en": "All staff **are required to** attend the training.", "ja": "全スタッフは、研修に出席することが求められている。", "note": "be required to(要求)" },
+            { "en": "The team **was asked to** revise the plan by Friday.", "ja": "チームは、金曜日までに計画を修正するよう頼まれた。", "note": "be asked to(依頼)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、be expected to・be required to の後ろに続く to 不定詞の形(to attend)や、受動態の形を選ばせる問題が出ます。"
+    },
+    {
+      "id": "participle-or-passive",
+      "title": "過去分詞の形と、受動態の見分け方",
+      "intro": "過去分詞は、受動態の一部として使われるだけでなく、形容詞や分詞構文としても使われます。受動態かどうかは、文の中の動詞の位置と、後ろに続く語で判断します。",
+      "keywords": ["受動態・過去分詞", "受動態(過去分詞)", "動詞の形(受動態)"],
+      "items": [
+        {
+          "heading": "過去分詞の形と、動詞の区別",
+          "explanation": "受動態の文では、be 動詞の後ろに過去分詞が置かれます。動詞の位置に過去分詞だけが来た場合は、受動態ではなく、形容詞や分詞構文として判断します。\n\n・The report was finished on time.(受動態: 完了された)\n・The finished report was sent.(形容詞: 完成したレポート)",
+          "examples": [
+            { "en": "The report **was finished** on time.", "ja": "そのレポートは期限どおりに完成された。", "note": "be + 過去分詞(受動態)" },
+            { "en": "The **finished** report was sent to the manager.", "ja": "完成したレポートは、部長に送られた。", "note": "名詞の前の過去分詞(形容詞)" }
+          ]
+        },
+        {
+          "heading": "受動態か形容詞か: 後ろに by があるかで判断する",
+          "explanation": "be 動詞 + 過去分詞の後ろに by + 行為者があれば、受動態です。by がなくても、動作を受ける意味なら受動態です。状態を表す形容詞として使われる場合(be interested、be tired など)は、意味で判断します。\n\n・The product was designed by our team.(受動態)\n・The staff were tired after the meeting.(形容詞: 疲れた)",
+          "examples": [
+            { "en": "The product **was designed** by our team.", "ja": "その製品は、私たちのチームによって設計された。", "note": "by があるので受動態" },
+            { "en": "The staff **were tired** after the long meeting.", "ja": "長い会議のあと、スタッフは疲れていた。", "note": "状態を表す形容詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、過去分詞が受動態か形容詞かを、文の構造から見分けさせる問題が出ます。"
+    }
+  ],
+  "summary": [
+    "受動態は be 動詞 + 過去分詞。能動態の目的語が主語になる。by + 行為者は必要な場合だけ",
+    "自動詞(happen など)は受動態にしない。have・resemble・lack なども受動態にしない",
+    "完了形の受動態は has been + 過去分詞、進行形は is being + 過去分詞",
+    "助動詞の後ろは be + 過去分詞(will be sent、must have been finished)",
+    "第4文型は人か物を主語にする(were shown the system)。第5文型は補語が残る(was considered the best)",
+    "get + 過去分詞は、口語の受動態(get repaired)",
+    "by 以外の前置詞: be satisfied with、be interested in、be covered with、be known to",
+    "be expected to・be required to・be asked to は、to 不定詞と組む"
+  ],
+  "quiz": [
+    {
+      "id": "voice-q01",
+      "sentence": "The new policy ------- by the board last month.",
+      "choices": [{ "label": "A", "text": "was approved" }, { "label": "B", "text": "approved" }, { "label": "C", "text": "has approve" }, { "label": "D", "text": "is approving" }],
+      "answer": "A",
+      "explanation": "last month(先月)の過去の出来事で、受動態の過去 was approved が正解。approved は be 動詞がなく、受動態にならない。has approve は過去分詞の形ではなく、is approving は進行形の能動態で、受動の意味にならない。",
+      "translation": "新しい方針は、先月、取締役会によって承認された。"
+    },
+    {
+      "id": "voice-q02",
+      "sentence": "The report ------- to all managers next week.",
+      "choices": [{ "label": "A", "text": "sends" }, { "label": "B", "text": "will be sent" }, { "label": "C", "text": "will send" }, { "label": "D", "text": "is sending" }],
+      "answer": "B",
+      "explanation": "レポートが送られる、の受け身で、未来を表す will be sent が正解。sends と will send は能動態で、レポートが送る主体になってしまう。is sending も能動態の進行形で、この文の意味に合わない。",
+      "translation": "そのレポートは、来週すべての部長に送られる。"
+    },
+    {
+      "id": "voice-q03",
+      "sentence": "The software ------- by our team right now.",
+      "choices": [{ "label": "A", "text": "tests" }, { "label": "B", "text": "tested" }, { "label": "C", "text": "is being tested" }, { "label": "D", "text": "has tested" }],
+      "answer": "C",
+      "explanation": "今まさに進行中のテストは、進行形の受動態 is being tested で表す。tests と has tested は能動態で、ソフトウェアがテストをする主語になってしまう。tested は過去形で、right now(今)と合わない。",
+      "translation": "そのソフトウェアは、今、私たちのチームによってテストされている。"
+    },
+    {
+      "id": "voice-q04",
+      "sentence": "The project ------- by the end of next month.",
+      "choices": [{ "label": "A", "text": "completes" }, { "label": "B", "text": "completed" }, { "label": "C", "text": "has been completing" }, { "label": "D", "text": "will have been completed" }],
+      "answer": "D",
+      "explanation": "未来のある時点までに完了している、という意味の未来完了の受動態 will have been completed が正解。completes は能動態、completed は過去の形、has been completing は現在完了進行の能動態で、この文の意味に合わない。",
+      "translation": "そのプロジェクトは、来月末までに完了している予定だ。"
+    },
+    {
+      "id": "voice-q05",
+      "sentence": "All staff ------- to attend the training.",
+      "choices": [{ "label": "A", "text": "are required" }, { "label": "B", "text": "require" }, { "label": "C", "text": "requiring" }, { "label": "D", "text": "requires" }],
+      "answer": "A",
+      "explanation": "全スタッフが研修に出ることを求められている、の意味の受動態 are required to が正解。require は能動態で、スタッフが何かを要求する主語になってしまう。requiring と requires は、受動態の形を作らないので、この文に合わない。",
+      "translation": "全スタッフは、研修に出席することが求められている。"
+    },
+    {
+      "id": "voice-q06",
+      "sentence": "The team was ------- to revise the plan by Friday.",
+      "choices": [{ "label": "A", "text": "ask" }, { "label": "B", "text": "asked" }, { "label": "C", "text": "asking" }, { "label": "D", "text": "to ask" }],
+      "answer": "B",
+      "explanation": "be asked to(~するよう頼まれている)の受動態の過去分詞 asked が正解。ask は原形で、be 動詞の後ろに置けない。asking は現在分詞で、受動態の形にはならない。to ask は不定詞で、was の後ろに続けると意味が合わない。",
+      "translation": "チームは、金曜日までに計画を修正するよう頼まれた。"
+    },
+    {
+      "id": "voice-q07",
+      "sentence": "The customers are ------- with the new service.",
+      "choices": [{ "label": "A", "text": "satisfying" }, { "label": "B", "text": "satisfy" }, { "label": "C", "text": "satisfied" }, { "label": "D", "text": "satisfies" }],
+      "answer": "C",
+      "explanation": "be satisfied with(~に満足している)の形で、過去分詞 satisfied が正解。satisfying は「満足させる」の現在分詞で、顧客の気持ちを表す形として合わない。satisfy と satisfies は、be 動詞の後ろの形として誤り。",
+      "translation": "顧客は、新しいサービスに満足している。"
+    },
+    {
+      "id": "voice-q08",
+      "sentence": "The building is ------- of glass and steel.",
+      "choices": [{ "label": "A", "text": "make" }, { "label": "B", "text": "made in" }, { "label": "C", "text": "made to" }, { "label": "D", "text": "made of" }],
+      "answer": "D",
+      "explanation": "be made of(~でできている)の形で、made of が正解。made in は「~で作られた(場所)」、made to は「~に合わせて作られた」の意味で、材料を表す文に合わない。make は原形で、受動態の形にならない。",
+      "translation": "その建物は、ガラスと鉄骨でできている。"
+    },
+    {
+      "id": "voice-q09",
+      "sentence": "The new staff were ------- the system last week.",
+      "choices": [{ "label": "A", "text": "shown" }, { "label": "B", "text": "show" }, { "label": "C", "text": "showing" }, { "label": "D", "text": "showed" }],
+      "answer": "A",
+      "explanation": "第4文型(show + 人 + 物)の受動態では、人を主語にして、物(the system)を後ろに残す。were shown the system が正解。show は原形、showing は現在分詞、showed は過去形で、受動態の過去分詞の形ではない。",
+      "translation": "新しいスタッフは、先週そのシステムを見せてもらった。"
+    },
+    {
+      "id": "voice-q10",
+      "sentence": "The team was ------- the most efficient in the company.",
+      "choices": [{ "label": "A", "text": "consider" }, { "label": "B", "text": "considered" }, { "label": "C", "text": "considering" }, { "label": "D", "text": "considers" }],
+      "answer": "B",
+      "explanation": "第5文型の受動態で、補語 the most efficient が残る。was considered the most efficient が正解。consider は原形、considering は現在分詞、considers は三人称単数の現在形で、受動態の過去分詞の形にならない。",
+      "translation": "そのチームは、社内で最も効率的だと考えられていた。"
+    },
+    {
+      "id": "voice-q11",
+      "sentence": "The old computer needs to ------- repaired soon.",
+      "choices": [{ "label": "A", "text": "got" }, { "label": "B", "text": "getting" }, { "label": "C", "text": "get" }, { "label": "D", "text": "gets" }],
+      "answer": "C",
+      "explanation": "needs to の後ろは動詞の原形で、get repaired(修理してもらう)の形になる。get が正解。got は過去形、getting は現在分詞、gets は三人称単数の形で、to の後ろの原形の位置に合わない。",
+      "translation": "その古いパソコンは、すぐに修理してもらう必要がある。"
+    },
+    {
+      "id": "voice-q12",
+      "sentence": "The article was ------- by a famous author.",
+      "choices": [{ "label": "A", "text": "write" }, { "label": "B", "text": "writing" }, { "label": "C", "text": "written with" }, { "label": "D", "text": "written by" }],
+      "answer": "D",
+      "explanation": "受動態の was written by(~によって書かれた)が正解。write は原形で、be 動詞の後ろに続かない。writing は現在分詞、written with は with では行為者を示せず、by を使う。",
+      "translation": "その記事は、有名な作家によって書かれた。"
+    }
+  ],
+  "related": ["mood", "verb", "tense"]
+}
