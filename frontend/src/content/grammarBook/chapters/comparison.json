@@ -35,6 +35,52 @@
             { "en": "The new system is **as fast as** the old one.", "ja": "新しいシステムは、古いシステムと同じくらい速い。", "note": "as ~ as で同等" }
           ],
           "cautions": ["× The new system is faster as the old one. → ○ The new system is faster than the old one.(比較級には than を使う)"]
+        },
+        {
+          "heading": "比較級・最上級の作り方: 語の長さと綴りで決まる",
+          "explanation": "比較級・最上級は、語の長さ(音節の数)と綴りで形が決まります。\n\n・1音節の語(tall、big など)と、一部の2音節の語(happy、clever、simple など): -er・-est を付ける(tall → taller → tallest)\n・語尾が e の語: r・st だけを足す(large → larger → largest)\n・語尾が「子音字 + y」の語: y を i に変えて -ier・-iest を付ける(easy → easier → easiest)\n・1音節で「短母音 + 子音字」の語: 子音字を重ねて -er・-est を付ける(big → bigger → biggest)\n・それ以外の長い語(三音節の expensive、二音節の useful など): more・most を前に置く(more useful → most useful)",
+          "examples": [
+            { "en": "The new office is **larger** than the old one.", "ja": "新しいオフィスは、古いオフィスより広い。", "note": "large は語尾が e なので、r だけを足す" },
+            { "en": "This is the **easiest** way to complete the form.", "ja": "これが、その書類を仕上げる一番簡単な方法だ。", "note": "easy は「子音字 + y」なので、y を i に変えて -iest" }
+          ],
+          "cautions": ["× This is the more easy way. → ○ This is the easiest way.(easy は短い語なので、more ではなく -iest を付ける)"]
+        },
+        {
+          "heading": "不規則に変わる形容詞・副詞: good・bad・well・ill",
+          "explanation": "good、bad、well、ill は、規則どおりの -er・-est を付けず、形そのものが変わります。原級・比較級・最上級を一組で覚えます。\n\n・good(よい)の比較級は better、最上級は best\n・well(上手に・よく、または健康な)の比較級は better、最上級は best\n・bad(悪い)の比較級は worse、最上級は worst\n・ill(病気の)の比較級は worse、最上級は worst\n\nbetter・worse は、than と組んで比較級の文を作ります。",
+          "table": {
+            "caption": "不規則に変わる語",
+            "headers": ["原級", "比較級", "最上級", "意味"],
+            "rows": [["good", "better", "best", "よい"], ["well", "better", "best", "上手に・健康な"], ["bad", "worse", "worst", "悪い"], ["ill", "worse", "worst", "病気の"]]
+          },
+          "examples": [
+            { "en": "Our new system works **better** than the old one.", "ja": "新しいシステムは、古いものよりうまく動く。", "note": "副詞 well の比較級は better" },
+            { "en": "This is the **worst** result we have had this year.", "ja": "これは、今年これまでで一番悪い結果だ。", "note": "bad の最上級は worst" }
+          ],
+          "cautions": ["× This plan is more good than that one. → ○ This plan is better than that one.(good の比較級は more good ではなく better)"]
+        },
+        {
+          "heading": "数量を表す語の不規則変化: many・much・little・few",
+          "explanation": "many・much は、比較級・最上級がどちらも more・most になります。little と few は、数えられるかどうかで形が分かれます。\n\n・many(数えられる名詞)・much(数えられない名詞): more → most\n・little(量が少ない・数えられない名詞): less → least\n・few(数が少ない・数えられる名詞): fewer → fewest\n\n「数えられる名詞には fewer、数えられない名詞には less」が基本です。",
+          "table": {
+            "caption": "数量を表す語の比較の形",
+            "headers": ["原級", "比較級", "最上級", "使う名詞"],
+            "rows": [["many", "more", "most", "数えられる名詞"], ["much", "more", "most", "数えられない名詞"], ["few", "fewer", "fewest", "数えられる名詞"], ["little", "less", "least", "数えられない名詞"]]
+          },
+          "examples": [
+            { "en": "We have **more** orders this month than last month.", "ja": "今月は、先月より多くの注文がある。", "note": "order は数えられるので、many の比較級 more" },
+            { "en": "We need **less** water for this process than before.", "ja": "この工程では、以前より少ない水で済む。", "note": "water は数えられないので、little の比較級 less" }
+          ],
+          "cautions": ["× There are less complaints this month. → ○ There are fewer complaints this month.(complaints は数えられる名詞なので fewer)"]
+        },
+        {
+          "heading": "形と意味が分かれる比較級: further・farther、elder・older、latter・later",
+          "explanation": "同じ原級から、二つの比較級・最上級が出る語があります。意味によって使い分けます。\n\n・far: 距離は farther・farthest、程度や追加(さらなる)は further・furthest\n・old: 年齢は older・oldest、家族の兄弟姉妹は elder・eldest(名詞の前だけで使い、than は取らない)\n・late: 時間は later・latest、順序は latter(後者)・last(最後)\n\nビジネス英語では、further information(さらなる情報)がよく使われます。",
+          "examples": [
+            { "en": "Please contact us for **further** information.", "ja": "詳しい情報は、お問い合わせください。", "note": "further は「さらなる」の意味で、追加を表す" },
+            { "en": "My **elder** brother works in Osaka.", "ja": "兄は大阪で働いている。", "note": "elder は家族の年上の兄弟姉妹に使い、名詞の前に置く" }
+          ],
+          "cautions": ["× My brother is elder than me. → ○ My brother is older than I am.(elder は than を取らない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、than と as の選択、比較級と最上級の形の取り違えが出題されます。空所の前後に than や as があるかを確かめます。"
@@ -76,9 +122,72 @@
             { "en": "Please submit the form **no later than** Friday.", "ja": "遅くとも金曜日までに、用紙を提出してください。", "note": "no later than(遅くとも~までに)" },
             { "en": "This software is **as reliable as any** on the market.", "ja": "このソフトは、市場のどの製品にも劣らず信頼できる。", "note": "as ~ as any(どれにも劣らない)" }
           ]
+        },
+        {
+          "heading": "not as ~ as と less ~ than: 原級の否定",
+          "explanation": "「~ほど…ではない」は、not as ~ as で表します。less を使って、less ~ than で言い換えることもできます。\n\n・not as expensive as ~(~ほど高くない)\n・less expensive than ~(~より料金が低い)\n\nless は、形容詞・副詞の前に置いて「より少なく~」を表します。less の後ろは原級の形で、less cheaper のように比較級を続けるのは誤りです。",
+          "examples": [
+            { "en": "This hotel is **not as expensive as** the one near the station.", "ja": "このホテルは、駅の近くのホテルほど高くない。", "note": "not as + 原級 + as(~ほど…ではない)" },
+            { "en": "This hotel is **less expensive than** the one by the airport.", "ja": "このホテルは、空港の近くのホテルより料金が低い。", "note": "less + 原級 + than(比べる相手は than の後ろ)" }
+          ],
+          "cautions": ["× This hotel is less cheaper than that one. → ○ This hotel is less expensive than that one.(less の後ろは原級)"]
+        },
+        {
+          "heading": "half as ~ as・one-third as ~ as: 倍数の一部",
+          "explanation": "「半分の~」は half as ~ as、「3分の1の~」は one-third as ~ as で表します。twice as ~ as(2倍)と同じように、as ~ as の前に倍数を置きます。\n\n・half as large as(半分の大きさ)\n・half as much as(半分の量。数えられない名詞)\n・one-third as many as(3分の1の数。数えられる名詞)\n\n数えられる名詞には many、数えられない名詞には much を使います。",
+          "examples": [
+            { "en": "Our new warehouse is **half as large as** the main factory.", "ja": "新しい倉庫は、本工場の半分の大きさだ。", "note": "half as + 原級 + as(半分の大きさ)" },
+            { "en": "The new system uses **half as much** energy as the old one.", "ja": "新しいシステムは、古いものの半分のエネルギーしか使わない。", "note": "energy は数えられないので、as much as" }
+          ],
+          "cautions": ["× This is half of as large as the old one. → ○ This is half as large as the old one.(half of の後ろは名詞。as ~ as の前に half を置く)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、as ~ as の間の形(形容詞か名詞か)や、倍数の位置(twice as many as)が問われます。"
+    },
+    {
+      "id": "negative-limits",
+      "title": "否定と限定の比較: no more than・no less than・not so much A as B",
+      "intro": "no と not の違いで、数量の上限・下限を表す意味が変わります。また、no more A than B は「同じく A ではない」、not so much A as B は「A というより B」を表します。どちらも、取り違えやすい表現です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "no more than と not more than: 「わずか」と「以下」",
+          "explanation": "no more than は「わずか~、~しか…ない」(only)の意味で、少なさを強調します。not more than は「多くても~、~以下」(at most)の意味で、上限を示します。\n\n数字が同じでも、表す意味が違います。no more than thirty minutes は「30分しかない」、not more than thirty minutes は「30分を超えない」です。",
+          "examples": [
+            { "en": "The meeting lasted **no more than** thirty minutes.", "ja": "会議は、わずか30分しか続かなかった。", "note": "no more than は「only(わずか~)」の意味で、少なさを強調する" },
+            { "en": "The meeting will last **not more than** thirty minutes.", "ja": "会議は、長くても30分以内に終わる予定だ。", "note": "not more than は「at most(~以内)」の意味で、上限を示す" }
+          ],
+          "cautions": ["× no more than を「~以内」と訳す → ○ no more than は「わずか~」(only)。「~以内」は not more than(at most)"]
+        },
+        {
+          "heading": "no less than と not less than: 「~もの」と「少なくとも」",
+          "explanation": "no less than は「~もの(多く)」の意味で、数や量の多さを強調します。as many as や as much as に近い意味です。not less than は「少なくとも~」(at least)の意味で、下限を示します。\n\n・no less than 200 guests(200人もの客)\n・not less than 200 guests(少なくとも200人の客)\n\n数字は同じでも、no less than は多いことを強調し、not less than は最低限の数を表します。",
+          "examples": [
+            { "en": "**No less than** two hundred guests attended the opening party.", "ja": "開店パーティーには、200人もの客が出席した。", "note": "no less than は「as many as(~もの)」の意味で、多さを強調する" },
+            { "en": "Applicants must have **not less than** five years of experience.", "ja": "応募者は、少なくとも5年の経験が必要だ。", "note": "not less than は「at least(少なくとも)」で、下限を示す" }
+          ],
+          "cautions": ["× not less than を「~より少ない」と訳す → ○ not less than は「少なくとも~」(下限)。「より少ない」は less than"]
+        },
+        {
+          "heading": "no more A than B: 「B が A でないのと同じく、A でない」",
+          "explanation": "no more A than B は、A と B を両方否定して、「B が A でないように、A でもない」と同じ程度を表します。比較級 more の形ですが、「より多い」ではなく、「同じく~ない」の意味です。\n\n有名な例は、「くじらは魚ではない」を表す A whale is no more a fish than a horse is.(くじらが魚でないのは、馬が魚でないのと同じ)です。この形は「くじらの公式」と呼ばれることがあります。\n\nno less A than B も、「B と同じく A だ」の意味で使えます。",
+          "examples": [
+            { "en": "A whale is **no more** a fish **than** a horse is.", "ja": "くじらが魚でないのは、馬が魚でないのと同じだ。", "note": "A と B を両方否定して、「同じく A でない」を表す" },
+            { "en": "She is **no less** qualified **than** her manager.", "ja": "彼女は、上司に劣らない資格を持っている。", "note": "no less ... than は「B と同じく~だ」を表す" }
+          ],
+          "cautions": ["× no more ... than を「~より多く…ない」と訳す → ○ 「B が A でないのと同じく、A でない」と訳す(比べる両方を否定する)"]
+        },
+        {
+          "heading": "not so much A as B: A というより、むしろ B",
+          "explanation": "not so much A as B は、「A というより、むしろ B」の意味です。A を強く否定するのではなく、A よりも B のほうが当てはまる、と言うときに使います。not A but B は A を完全に否定するのに対し、not so much A as B は、A の程度を下げて B を示す言い方です。\n\n・It is not so much a problem as a challenge.(それは問題というより、挑戦だ)\n\nA と B には、同じ品詞・同じ形の語句を並べます。",
+          "examples": [
+            { "en": "The problem is **not so much** the cost **as** the time it takes.", "ja": "問題は、費用というより、かかる時間のほうだ。", "note": "not so much A as B(A というより B)。A と B は同じ形の名詞" },
+            { "en": "This job is **not so much** a career **as** a hobby for him.", "ja": "彼にとってこの仕事は、仕事というより趣味に近い。", "note": "a career と a hobby は、同じ形の名詞のかたまり" }
+          ],
+          "cautions": ["× not so much A as B の A と B に、形の違う語句を並べる → ○ 名詞どうし、形容詞どうしなど、同じ形にそろえる"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、no more than と not more than の意味の違い(わずか・以下)や、no less than の形が問われることがあります。数量の語が「わずか」の意味か「以下」「以上」の意味かを、文の流れで判断します。"
     },
     {
       "id": "comparative",
@@ -100,6 +209,49 @@
           "examples": [
             { "en": "The new process is **less complicated** than we thought.", "ja": "新しい工程は、思ったほど複雑ではない。", "note": "less + 原級 + than" }
           ]
+        },
+        {
+          "heading": "差の大きさを表す by: faster by 20 percent",
+          "explanation": "比較級の差を数字で示すときは、比較級の後ろに by を置き、差の大きさを続けます。by は「~の分だけ」の意味です。by の後ろには、数字や量を表す語句(20 percent、two years など)が来ます。\n\n・faster by 20 percent(20%速い)\n・higher by two million yen(200万円多い)\n\n差を具体的な数字で示さないときは、much・far などを使います(本文の最初の項目を参照)。",
+          "examples": [
+            { "en": "This model is **faster by 20 percent** than the old one.", "ja": "この機種は、古い機種より20%速い。", "note": "比較級 + by + 差の大きさ + than" },
+            { "en": "Our sales this year are **higher by two million yen** than last year.", "ja": "今年の売上は、昨年より200万円多い。", "note": "higher by two million yen(200万円分だけ高い)" }
+          ]
+        },
+        {
+          "heading": "a little・a bit・slightly + 比較級: 少しだけ~",
+          "explanation": "差がわずかなときは、比較級の前に a little・a bit・slightly を置きます。「少しだけ~」の意味で、much・far などの大きな差を表す語とは逆に、小さな差を表します。\n\n・a little better(少しよい)\n・a bit more(少し多い)\n・slightly higher(わずかに高い)\n\nlittle だけで比較級を修飾すると、「ほとんど~ない」の意味になるので注意します(下の注意を参照)。",
+          "examples": [
+            { "en": "The new version is **a little better** than the old one.", "ja": "新しい版は、前のものより少しよい。", "note": "a little + 比較級(少しの差)" },
+            { "en": "Prices are **slightly higher** this month.", "ja": "今月は、価格がわずかに高くなっている。", "note": "slightly + 比較級(わずかに~)" }
+          ],
+          "cautions": ["× This method is little better than the old one. → ○ This method is a little better than the old one.(little だけでは「ほとんど~ない」の意味になる)"]
+        },
+        {
+          "heading": "比較級 and 比較級: だんだん~になる",
+          "explanation": "同じ比較級を and でつなぐと、「だんだん~になる」「ますます~になる」の意味になります。change、grow、get などの変化を表す動詞と一緒に使うことが多い形です。\n\n・getting better and better(どんどんよくなっている)\n・more and more(ますます多くの)\n\nつなぐ両方は、同じ比較級にそろえます。",
+          "examples": [
+            { "en": "Our business is getting **better and better**.", "ja": "当社の業績は、どんどんよくなっている。", "note": "比較級 and 比較級(だんだん~になる)" },
+            { "en": "**More and more** customers are shopping online.", "ja": "ますます多くの顧客が、オンラインで買い物をしている。", "note": "more and more + 名詞(ますます多くの~)" }
+          ]
+        },
+        {
+          "heading": "very は比較級を強められない: much・far・even を使う",
+          "explanation": "比較級の差を強めるときは、much・far・a lot・even・still などを前に置きます。very は、形容詞・副詞の原級を強める語で、比較級の前には使えません。\n\n・much better(ずっとよい)\n・far better(はるかによい)\n・even better(さらによい)\n\n比較級を強めるときに very を使うのは誤りです。差を示す語(much など)を選びましょう。",
+          "examples": [
+            { "en": "The new software is **much faster** than the previous version.", "ja": "新しいソフトは、前の版よりずっと速い。", "note": "much + 比較級(ずっと~)" },
+            { "en": "Her second proposal was **even better** than the first.", "ja": "彼女の二つ目の提案は、一つ目よりさらによかった。", "note": "even + 比較級(さらに~)" }
+          ],
+          "cautions": ["× The price is very higher than before. → ○ The price is much higher than before.(very は比較級を強められない)"]
+        },
+        {
+          "heading": "比較級の限定用法: a larger room(名詞の前に置く)",
+          "explanation": "比較級の形容詞は、名詞の前に置いて、「より~な名詞」を表すこともできます。この場合、than で比べる相手を続けないことが多く、比べる内容は前後の文脈で分かります。\n\n・a larger room(より広い部屋)\n・a more efficient method(より効率のよい方法)\n\n比較級の形は、名詞の前に置くときも一つだけにします。",
+          "examples": [
+            { "en": "We need a **larger** office for the new team.", "ja": "新しいチームには、より広いオフィスが必要だ。", "note": "比較級 + 名詞(より広い~)" },
+            { "en": "They introduced a **more efficient** way to track orders.", "ja": "彼らは、注文を管理するより効率のよい方法を導入した。", "note": "more efficient + 名詞(より効率のよい~)" }
+          ],
+          "cautions": ["× We need a more larger office. → ○ We need a larger office.(比較級の形は一つだけにする)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、差を表す語(much・far など)が比較級の前に来ることを確かめる問題が出ます。"
@@ -132,9 +284,79 @@
           "examples": [
             { "en": "**The less** time we have, **the more** carefully we must plan.", "ja": "時間が少ないほど、慎重に計画しなければならない。", "note": "The less ..., the more ..." }
           ]
+        },
+        {
+          "heading": "the more の慣用: all the more・none the worse・The more the merrier",
+          "explanation": "the + 比較級が、慣用的な意味で使われる形があります。「~だからなおさら」「~でも、特に変わらない」「多いほど楽しい」を表します。\n\n・all the more(なおさら): all the more reason to ~(なおさら~する理由)\n・none the worse(それでも、特に悪くならない): none the worse for ~(~のせいで、特に悪くはならない)\n・The more the merrier.(人が多いほど楽しい。諺)\n\nどれも、the + 比較級の形をそのまま覚えます。",
+          "examples": [
+            { "en": "The deadline is next week, so **all the more** reason to finish the report today.", "ja": "締め切りは来週だ。だからなおさら、今日中にレポートを仕上げる理由がある。", "note": "all the more reason to ~(なおさら~する理由)" },
+            { "en": "Let's invite everyone. After all, **the more the merrier**.", "ja": "みんなを誘おう。何と言っても、人が多いほど楽しいものだ。", "note": "The more the merrier(人が多いほど楽しい)" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、the の後ろに比較級を置く形(the more ~, the better)や、of the two を選ばせる問題が出ます。"
+    },
+    {
+      "id": "compare-objects",
+      "title": "比べるものをそろえる・同じ、違う、似ている",
+      "intro": "比較では、比べる対象を同じ種類にそろえる必要があります。「A の価格」と「B の価格」を比べるときは、that of・those of を使います。同じ・違う・似ているを表す言い方も、この節で確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "that of・those of: 比べるものをそろえる",
+          "explanation": "比べるもの同士は、同じ種類にそろえます。「東京の人口」と「大阪の人口」を比べるなら、the population of Tokyo と the population of Osaka を比べます。同じ語の繰り返しを避けるため、**that of**(単数)や **those of**(複数)で、前に出た名詞の代わりにします。\n\n・単数: that は the population of のように、単数の名詞の代わり\n・複数: those は the prices of のように、複数の名詞の代わり\n\n都市と人口のように、種類の違うものを並べると誤りになります。",
+          "examples": [
+            { "en": "The population of Tokyo is larger than **that of** Osaka.", "ja": "東京の人口は、大阪の人口より多い。", "note": "that of = the population of(人口と人口を比べる)" },
+            { "en": "The prices of our products are lower than **those of** our competitors.", "ja": "当社の製品の価格は、競合他社の製品の価格より安い。", "note": "those of = the prices of(複数の価格を指す)" }
+          ],
+          "cautions": ["× The price of this car is higher than the car next door. → ○ The price of this car is higher than that of the car next door.(価格と車を比べるのは誤り。that of で価格をそろえる)"]
+        },
+        {
+          "heading": "the same as・different from・similar to: 同じ・違う・似ている",
+          "explanation": "「同じ」「違う」「似ている」は、比較級の形を使わず、比べる相手を前置詞で示します。形を並べて覚えると、迷いにくくなります。\n\n・the same as ~(~と同じ)\n・different from ~(~と違う)。アメリカ英語では different than も使われます\n・similar to ~(~に似ている)\n\nsimilar の後ろは to で、than は使いません。",
+          "examples": [
+            { "en": "This model has **the same** design **as** the previous one.", "ja": "この機種は、前の機種と同じデザインだ。", "note": "the same as ~(~と同じ)" },
+            { "en": "Our approach is **different from** theirs.", "ja": "当社のやり方は、彼らのやり方と違う。", "note": "different from ~(~と違う)。theirs は their approach の代わり" },
+            { "en": "The new logo is **similar to** the old one.", "ja": "新しいロゴは、古いロゴと似ている。", "note": "similar to ~(~と似ている)" }
+          ],
+          "cautions": ["× The new logo is similar as the old one. → ○ The new logo is similar to the old one.(similar は to と組む)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、that of と those of の単複の選択や、比べる内容が同じ種類かを問う問題が出ることがあります。price と price、人と人のように、比べるもの同士が同じ種類かを確かめます。"
+    },
+    {
+      "id": "omission-order",
+      "title": "比較の省略と語順: than・as の後ろ",
+      "intro": "than や as の後ろは、文の一部が省略されることがあります。省略された形を見分けると、比べる内容が分かります。than の後ろの代名詞の形も、この節で確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "than 以下の省略: than expected・than planned",
+          "explanation": "than の後ろに、expected(予想された)・usual(いつもの)・planned(予定された)のような過去分詞や形容詞だけが続くことがあります。これは、than の後ろの主語と動詞(we expected、it is usual など)が省略されている形です。\n\n・better than expected(予想より良い)\n・sooner than planned(予定より早く)\n\n文脈から省略を補えるとき、この形を使えます。省略された部分を補うと、文の意味が分かりやすくなります。",
+          "examples": [
+            { "en": "The results were **better than expected**.", "ja": "結果は、予想より良かった。", "note": "than (we) expected の省略形。than 以下の主語と動詞を省く" },
+            { "en": "We shipped the order **sooner than planned**.", "ja": "私たちは、注文品を予定より早く発送した。", "note": "than (we had) planned の省略形" }
+          ]
+        },
+        {
+          "heading": "as 以下の省略: as soon as possible・as much as needed",
+          "explanation": "as ~ as の後ろで、possible・needed などの語だけが続くことがあります。as soon as possible は「できるだけ早く」、as much as needed は「必要なだけ」を表します。\n\n・as soon as possible(as soon as it is possible の省略。it is が省かれている)\n・as much as needed(as much as is needed の省略)\n\nどちらも、依頼や指示の文でよく使われる形です。",
+          "examples": [
+            { "en": "Please reply **as soon as possible**.", "ja": "できるだけ早くご返信ください。", "note": "as soon as possible = as soon as it is possible" },
+            { "en": "Take **as much time as needed** to review the contract.", "ja": "契約書を確認するのに、必要なだけ時間をかけてください。", "note": "as much time as needed = as much time as is needed" }
+          ],
+          "cautions": ["× as soon possible → ○ as soon as possible(as soon as の後ろに possible を続ける)"]
+        },
+        {
+          "heading": "than の後ろの代名詞: than he does・than I am",
+          "explanation": "than の後ろに代名詞が来るとき、文法的には主格(I、he、she、we、they)を使うのが基本です。than の後ろに、主語と動詞(he does、I am など)が省略されていると考えると、主格になる理由が分かります。\n\n・No one works harder than he does.(彼ほど熱心に働く人はいない)\n・more experienced than I am(私より経験が豊富)\n\n日常会話では、than me のように目的格を使うことも多く見られます。",
+          "examples": [
+            { "en": "No one in the team works harder than **he** does.", "ja": "チームの中で、彼ほど熱心に働く人はいない。", "note": "than の後ろに does が続くので、主格 he" },
+            { "en": "Our new manager is more experienced than **I** am.", "ja": "新しい部長は、私より経験が豊富だ。", "note": "than I am(私は経験が豊富だ)の am が省略されていない形" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、than の後ろの代名詞の形(than I / than he など)や、as soon as possible の形が問われることがあります。省略された部分を補って、文の形を確かめます。"
     },
     {
       "id": "superlative",
@@ -163,9 +385,62 @@
           "examples": [
             { "en": "This is **by far the best** option for the project.", "ja": "これは、そのプロジェクトにとって、はるかに最もよい選択肢だ。", "note": "by far + the 最上級" }
           ]
+        },
+        {
+          "heading": "one of the + 最上級 + 複数名詞: 最も~のうちの一つ",
+          "explanation": "one of the + 最上級 + 複数名詞は、「最も~なもののうちの一つ」を表します。主語の one は単数なので、動詞も単数で受けます。最上級のあとの名詞は、複数形にします。\n\n・one of the best universities(最もよい大学の一つ)\n・one of the most popular products(最も人気のある商品の一つ)\n\n「one of the + 最上級」の後ろに単数名詞を置くのは誤りです。",
+          "examples": [
+            { "en": "This is **one of the most popular** products in our store.", "ja": "これは、当店で最も人気のある商品の一つだ。", "note": "one of the + 最上級 + 複数名詞" },
+            { "en": "He is **one of the most respected** engineers in the field.", "ja": "彼は、その分野で最も尊敬されているエンジニアの一人だ。", "note": "主語は one なので、動詞は単数(is)" }
+          ],
+          "cautions": ["× one of the most popular product → ○ one of the most popular products(one of の後ろは複数名詞)"]
+        },
+        {
+          "heading": "最上級 + 名詞 + that ... ever: 今までで一番~",
+          "explanation": "今までに経験したものの中で一番、と言うときは、最上級の後ろに関係詞節を続け、現在完了(have ever + 過去分詞)を使います。ever は「今までに」の意味です。\n\n・the best meeting (that) I have ever attended(今まで出席した中で一番よい会議)\n\n関係代名詞 that は省略できます(第19章「関係詞」を参照)。",
+          "examples": [
+            { "en": "This is **the best** meeting I have **ever** attended.", "ja": "これは、私が今までに出席した中で一番よい会議だ。", "note": "最上級 + 名詞 + S have ever p.p." },
+            { "en": "It was **the most difficult** project the team had **ever** faced.", "ja": "それは、そのチームが今までに直面した中で一番難しいプロジェクトだった。", "note": "過去の経験なので、過去完了 had ever faced" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、最上級の前の the の有無、範囲を示す of と in の使い分けが出題されます。"
+    },
+    {
+      "id": "superlative-rewrite",
+      "title": "最上級の書き換え: no other・Nothing ... than・比較級 than ever",
+      "intro": "最上級と同じ意味を、比較級の形で言い換える表現があります。書き換えの問題では、最上級の文と同じ意味の文を選ぶことが求められます。no other や Nothing を主語にする形を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "no other ~ + 比較級 than: 最上級の言い換え",
+          "explanation": "no other + 名詞 + 比較級 + than ~ は、「~より…な(もの)は、ほかにない」の意味で、「…が一番~だ」と同じ内容を表します。比較級を使って、最上級の意味を表す代表的な言い換えです。\n\n・No other city in Japan is larger than Tokyo.(日本で東京より大きい都市はほかにない。つまり東京が一番大きい)\n\n最上級の文(Tokyo is the largest city in Japan.)と、同じ内容を言い換えたものとして覚えます。",
+          "examples": [
+            { "en": "**No other** city in Japan is **larger than** Tokyo.", "ja": "日本で、東京より大きい都市はほかにない。", "note": "no other + 名詞 + 比較級 than = 最上級の意味" },
+            { "en": "**No other** product on the market is **more reliable than** ours.", "ja": "市場にある製品で、当社の製品より信頼できるものはほかにない。", "note": "ours = our product(比べる対象をそろえる)" }
+          ],
+          "cautions": ["× No other city is as large than Tokyo. → ○ No other city is larger than Tokyo.(as ~ than の組み合わせは誤り。比較級 + than にする)"]
+        },
+        {
+          "heading": "Nothing is more ... than: 最上級の言い換え",
+          "explanation": "Nothing is more + 形容詞 + than ~ は、「~ほど…なものはない」の意味で、「~が一番…だ」と同じ内容を表します。主語の Nothing は「何もない」ですが、訳すときは「~が最も…だ」と考えると分かりやすくなります。\n\n・Nothing is more important than your health.(健康ほど大切なものはない。つまり健康が一番大切だ)\n\nこの形も、比較級で最上級の意味を表す言い換えとして覚えておきます。",
+          "examples": [
+            { "en": "**Nothing is more** important **than** trust in this business.", "ja": "この仕事では、信頼ほど大切なものはない。", "note": "Nothing is more ... than = 最上級の意味" },
+            { "en": "**Nothing** is **more** valuable **than** time.", "ja": "時間ほど価値のあるものはない。", "note": "Nothing + 比較級 than(一番~は時間だ)" }
+          ],
+          "cautions": ["× Nothing is more important as health. → ○ Nothing is more important than health.(比較級の後ろは as ではなく than)"]
+        },
+        {
+          "heading": "比較級 than ever: 今までになく~",
+          "explanation": "比較級 than ever は、「今までになく~」「以前よりもますます~」の意味です。ever は「今までに」を表し、過去からの変化を強調します。than の後ろには、比べる相手ではなく、ever(これまで)が続きます。\n\n・more popular than ever(今までになく人気がある)\n・faster than ever(今までになく速い)\n\nこの形は、比べる相手がない形で、「これまで」と比べた変化を表します。",
+          "examples": [
+            { "en": "Our online store is **busier than ever** this season.", "ja": "今シーズン、当社のオンラインストアは今までになく混んでいる。", "note": "than ever = 今までと比べて" },
+            { "en": "The company's profits are **higher than ever**.", "ja": "同社の利益は、今までになく高い。", "note": "than ever(これまでより)" }
+          ],
+          "cautions": ["× This store is more busy than ever. → ○ This store is busier than ever.(busy は -ier の形にする)"]
+        }
+      ],
+      "examNote": "書き換えの問題では、最上級の文と同じ意味になる文を選ぶ形で出ることがあります。no other ~ や Nothing ... more ~ than が、最上級の言い換えだと覚えておきます。"
     },
     {
       "id": "idioms",
@@ -195,6 +470,16 @@
             { "en": "This product is **superior to** all its competitors.", "ja": "この製品は、競合のどれよりも優れている。", "note": "superior to(than ではなく to)" }
           ],
           "cautions": ["× This model is superior than the old one. → ○ This model is superior to the old one.(superior は to と組む)"]
+        },
+        {
+          "heading": "inferior・senior・junior・prior + to: to と組む比較",
+          "explanation": "superior(優れた)と同じく、inferior(劣った)、senior(年上の・上位の)、junior(年下の・下位の)、prior(前の)は、比べる相手を than ではなく to で示します。\n\n・inferior to ~(~より劣る)\n・senior to ~(~より上位だ・年上だ)\n・junior to ~(~より下位だ・年下だ)\n・prior to ~(~より前に。前置詞として使う)\n\nprior to は before と同じ意味で、やや改まった表現です。",
+          "examples": [
+            { "en": "The quality of this product is **inferior to** our old model.", "ja": "この製品の品質は、当社の旧型より劣っている。", "note": "inferior to(than ではなく to)" },
+            { "en": "He is **senior to** me in the sales department.", "ja": "彼は、営業部で私より上の立場だ。", "note": "senior to ~(地位や年齢が上)" },
+            { "en": "Please confirm the order **prior to** shipment.", "ja": "出荷の前に、注文内容を確認してください。", "note": "prior to + 名詞(~の前に)" }
+          ],
+          "cautions": ["× He is senior than me. → ○ He is senior to me.(senior は to と組む)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、慣用表現の決まった形(no sooner ... than、would rather A than B、superior to)を選ばせる問題が出ます。"
@@ -208,7 +493,9 @@
     "最上級: the + 最上級 + of / in(範囲)。by far で強める",
     "倍数: twice as many as、three times as large as",
     "慣用: no sooner ... than(~するとすぐに)、would rather A than B、nothing but(~にすぎない)",
-    "superior は than ではなく to と組む"
+    "superior は than ではなく to と組む",
+    "不規則変化: good-better-best、bad-worse-worst、many・much-more-most、little-less-least、few-fewer-fewest",
+    "no more than(わずか~)・not more than(~以内)、no less than(~もの)・not less than(少なくとも)"
   ],
   "quiz": [
     {

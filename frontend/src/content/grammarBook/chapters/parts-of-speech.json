@@ -2,7 +2,7 @@
   "id": "parts-of-speech",
   "no": 1,
   "title": "品詞と語形",
-  "lead": "英語では、語の位置と語尾を見ると、その語が名詞・動詞・形容詞・副詞のどれかが分かることが多いです。この章では、8つの品詞と、語尾による見分け方、語形が紛らわしい語を学びます。TOEIC Part 5 の空所問題の多くは、品詞を選ばせる問題です。",
+  "lead": "英語では、語の位置と語尾を見ると、その語が名詞・動詞・形容詞・副詞のどれかが分かることが多いです。この章では、8つの品詞と、名詞・形容詞・動詞の語尾による見分け方、副詞と形容詞の同じ形、語形が紛らわしい語を学びます。TOEIC Part 5 の空所問題の多くは、品詞を選ばせる問題なので、最後に解く手順を実例で確かめます。",
   "sections": [
     {
       "id": "basics",
@@ -107,6 +107,42 @@
             { "en": "Three **pieces of equipment** were damaged in the storm.", "ja": "嵐で、機材が3つ壊れた。", "note": "数えるときは piece of を使う" }
           ],
           "cautions": ["× informations → ○ information(または a piece of information)", "× an advice → ○ advice(または a piece of advice)"]
+        },
+        {
+          "heading": "-ance と -ence: 綴りで迷いやすい名詞の語尾",
+          "explanation": "-ance と -ence は、どちらも名詞の語尾で、発音は同じです。綴りを間違えやすいので、元になる形容詞や動詞を思い出して決めます。\n\n・-ant で終わる形容詞 → -ance(important → importance、resistant → resistance)\n・-ent で終わる形容詞 → -ence(different → difference、confident → confidence)\n・動詞から作られる -ance(perform → performance、assist → assistance)\n\n例外も多いので、語ごとに覚えることも大切です。語形の問題では、この綴りの違いが選択肢になることがあります。",
+          "examples": [
+            { "en": "The **importance** of safety training cannot be overstated.", "ja": "安全研修の重要性は、いくら強調してもしすぎることはない。", "note": "important(重要な)から作られた名詞。-ant で終わる形容詞は -ance" },
+            { "en": "Our **confidence** in the new team grew after the first month.", "ja": "最初の1か月の後、新しいチームへの私たちの信頼は高まった。", "note": "confident(自信のある)から作られた名詞。-ent で終わる形容詞は -ence" },
+            { "en": "The **performance** of the system improved after the update.", "ja": "アップデート後、システムの性能が向上した。", "note": "perform(動詞)に -ance が付いた名詞。動詞から作られる -ance の例" }
+          ]
+        },
+        {
+          "heading": "-ity と -ness: 形容詞の語尾で使い分ける",
+          "explanation": "形容詞の語尾から「性質・状態」を表す名詞を作るとき、-ity と -ness のどちらを使うかは、元になる形容詞で決まることが多いです。\n\n・-ity: -able、-ible、-ous、-ive などで終わる形容詞から(availability、responsibility、popularity、sensitivity)\n・-ness: -ful、-less で終わる形容詞や、ふつうの形容詞から(usefulness、carelessness、kindness、awareness)\n\n例外もあるので(ability、security など)、迷ったら辞書で確かめます。",
+          "examples": [
+            { "en": "The **popularity** of the product grew quickly in Asia.", "ja": "その製品の人気は、アジアで急速に高まった。", "note": "popular(人気のある)に -ity を付けた名詞" },
+            { "en": "The **usefulness** of the new tool surprised the engineers.", "ja": "その新しい道具の有用性は、技術者たちを驚かせた。", "note": "useful(役に立つ)に -ness を付けた名詞" }
+          ],
+          "cautions": ["× usefulity → ○ usefulness(-ful で終わる形容詞は -ness)"]
+        },
+        {
+          "heading": "-ee の名詞: される人・受ける人",
+          "explanation": "-ee で終わる名詞の多くは、「される人」「受ける人」を表します。対になる -er / -or の語と並べて覚えると、意味の取り違えが減ります。\n\n・面接: interviewer(面接する人)と interviewee(面接を受ける人)\n・支払い: payer(支払う人)と payee(受け取る人)\n・賃貸: lessor(貸す人)と lessee(借りる人)\n\nただし attendee(参加者)のように、「する人」の意味で -ee を使う例外もあります。",
+          "table": {
+            "caption": "-er / -or と -ee の対",
+            "headers": ["する人(-er / -or)", "される人・受ける人(-ee)", "意味の目安"],
+            "rows": [
+              ["interviewer", "interviewee", "面接する人 / 面接を受ける人"],
+              ["payer", "payee", "支払う人 / 受け取る人"],
+              ["lessor", "lessee", "貸す人 / 借りる人"]
+            ]
+          },
+          "examples": [
+            { "en": "Each **interviewee** will receive a confirmation email by Friday.", "ja": "面接を受ける人は、それぞれ金曜日までに確認のメールを受け取る。", "note": "interviewee は面接を受ける人。-ee は、動作を受ける人" },
+            { "en": "The **lessee** must pay for minor repairs inside the office.", "ja": "借りる人は、オフィス内の小さな修理費を支払わなければならない。", "note": "lessee は借りる人。対になる lessor(貸す人)と区別する" },
+            { "en": "All **attendees** must register before the event starts.", "ja": "参加者は全員、イベントが始まる前に登録しなければならない。", "note": "attendee は参加する人。-ee でも「する人」を表す例外" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 の名詞問題は、冠詞・所有格・形容詞の後、前置詞の後、動詞の目的語の位置で出ます。語尾の知識は、選択肢を絞るのに使います。"
@@ -170,9 +206,54 @@
             { "en": "The staff are **aware of** the new policy.", "ja": "スタッフは、新しい方針に気づいている。", "note": "aware of ~ で「~に気づいている」" },
             { "en": "He is **responsible for** the budget.", "ja": "彼は、予算を担当している。", "note": "responsible for ~ で「~を担当している」" }
           ]
+        },
+        {
+          "heading": "数字 + 単数名詞の複合形容詞: a five-year plan",
+          "explanation": "「5年の計画」は、英語では a five-year plan と言います。数字と名詞をハイフン(-)でつないで、ひとまとまりの形容詞にし、後ろの名詞を説明させるからです。\n\n・a five-year plan(5年の計画): 数字の後ろの名詞は単数形のまま\n・a two-day seminar(2日間のセミナー)、a ten-minute break(10分の休憩)\n・複数の計画について言うときは、後ろの名詞(plan)だけを複数にする: three five-year plans\n\nハイフンを付けず、five years plan と書くのは、正式な文章では避けます。",
+          "examples": [
+            { "en": "The company announced a **five-year** plan to expand into Asia.", "ja": "その会社は、アジアへ進出するための5か年計画を発表した。", "note": "five-year は後ろの plan を説明する形容詞。years と複数にしない" },
+            { "en": "They presented **three five-year plans** to the board.", "ja": "彼らは、5か年計画を3つ取締役会に提出した。", "note": "複数になるのは最後の名詞 plans だけ。five-year は変わらない" }
+          ],
+          "cautions": ["× a five-years plan → ○ a five-year plan(数字とつなぐ名詞は単数形)", "× a five years plan → ○ a five-year plan(数字と名詞はハイフンでつなぐ)"]
         }
       ],
       "examNote": "TOEIC Part 5 の形容詞問題は、名詞の前や be 動詞の後で出ることが多いです。前置詞とのセット(be aware of など)は、語彙の問題としても出ます。"
+    },
+    {
+      "id": "verb-endings",
+      "title": "動詞の語尾: -ize、-ify、-en",
+      "intro": "動詞の中には、語尾を見て動詞と分かるものがあります。-ize、-ify、-en は、名詞や形容詞から動詞を作る語尾です。空所が動詞の位置にあるときは、語尾を手がかりに、名詞や形容詞の候補と区別します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "-ize: 「~にする・~化する」の動詞",
+          "explanation": "-ize は、名詞や形容詞に付けて「~にする」「~化する」の意味の動詞を作る語尾です。たとえば、standard(標準)→ standardize(標準化する)、priority(優先事項)→ prioritize(優先する)、final(最終の)→ finalize(最終化する)のように作ります。\n\nTOEIC でよく出るのは、organize(整理する・組織する)、recognize(認める)、customize(カスタマイズする)、maximize(最大化する)などです。\n\n綴りは英米で違い、英国では -ise と書くことが多いです(organise、recognise)。TOEIC は米国英語の綴りが基本です。",
+          "examples": [
+            { "en": "The team plans to **standardize** the reporting process next year.", "ja": "チームは、来年、報告の手順を標準化する予定だ。", "note": "standard(標準)に -ize を付けた動詞。plans to の後ろは動詞の原形" },
+            { "en": "The company decided to **prioritize** customer safety over cost.", "ja": "その会社は、コストよりも顧客の安全を優先することにした。", "note": "priority(優先事項)から作られた動詞。decided to の後ろは動詞の原形" }
+          ],
+          "cautions": ["× We will organization the event. → ○ We will **organize** the event.(動詞の位置に名詞 organization は入らない)"]
+        },
+        {
+          "heading": "-ify: 「~にする」の動詞",
+          "explanation": "-ify は、名詞や形容詞に付けて「~にする」「~化する」の意味の動詞を作る語尾です。simple(単純な)→ simplify(簡単にする)、clear(明確な)→ clarify(明確にする)のように作ります。\n\nTOEIC でよく出るのは、modify(修正する)、verify(確かめる)、notify(知らせる)、identify(特定する)、specify(明記する)、certify(証明する)などです。\n\n-ify の動詞は、語幹の形をあまり変えずに語尾を付けるものが多いです。動詞の位置に、-fication などの名詞を置く誤りに注意します。",
+          "examples": [
+            { "en": "The new system will **simplify** the approval process.", "ja": "新しいシステムは、承認の手続きを簡単にするだろう。", "note": "simple(単純な)に -ify を付けた動詞。will の後ろは動詞の原形" },
+            { "en": "Please **notify** us if your contact information changes.", "ja": "連絡先が変わったら、私たちにお知らせください。", "note": "notify(知らせる)は動詞。notify 人 if ... の形で使う" }
+          ],
+          "cautions": ["× We will simplification the process. → ○ We will **simplify** the process.(動詞の位置に名詞 simplification は入らない)"]
+        },
+        {
+          "heading": "-en: 形容詞から「~にする」の動詞",
+          "explanation": "-en は、形容詞に付けて「~にする」「~になる」の意味の動詞を作る語尾です。例: short(短い)→ shorten(短くする)、wide(広い)→ widen(広げる)、long(長い)→ lengthen(長くする)、weak(弱い)→ weaken(弱める)。\n\nstrength(強さ)から strengthen(強める)のように、名詞から作られる例もあります。動詞の意味は、元の語の「状態にする」と考えると分かります。\n\n注意: wooden(木製の)、golden(金色の)のように、-en で終わる形容詞もあります。これは動詞ではないので、名詞の前に置いて使います。",
+          "examples": [
+            { "en": "We need to **shorten** the approval process by two weeks.", "ja": "承認の手続きを2週間短くする必要がある。", "note": "short(短い)に -en を付けた動詞。to の後ろは動詞の原形" },
+            { "en": "The new partnership will **widen** our reach in Europe.", "ja": "新しい提携で、欧州での私たちの事業の範囲が広がるだろう。", "note": "wide(広い)に -en を付けた動詞。will の後ろは動詞の原形" }
+          ],
+          "cautions": ["× We will strong the team. → ○ We will **strengthen** the team.(strong は形容詞。『強める』の動詞は strengthen)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、空所が動詞の位置で、名詞・形容詞の候補(organization や organizational など)と並べて出ることがあります。まず、主語の後に動詞が必要かを確かめ、語尾で候補を絞ります。"
     },
     {
       "id": "adverbs",
@@ -224,6 +305,33 @@
             { "en": "The team **tentatively** agreed to the plan.", "ja": "チームは、その計画に仮に同意した。", "note": "tentatively は動詞 agreed を修飾する" },
             { "en": "The new product sold **surprisingly** well.", "ja": "新製品は、意外にもよく売れた。", "note": "surprisingly が副詞 well を修飾している" }
           ]
+        },
+        {
+          "heading": "late と lately: 「遅く」と「最近」",
+          "explanation": "late は形容詞・副詞で、「遅い」「遅く」の意味です。lately は副詞で、「最近」(recently の意味)です。形が似ていますが、副詞の late(遅く)と lately(最近)は意味がまったく違うので、取り違えないようにします。\n\n・late(副詞): 遅く、時間が過ぎてから。The train arrived late.\n・lately(副詞): 最近。完了形や現在形と一緒に使うことが多い。\n\nlate には「故人の」の意味もあります(the late Mr. Smith)。",
+          "examples": [
+            { "en": "The team worked **late** to finish the report.", "ja": "チームは、報告書を終えるために遅くまで働いた。", "note": "late は副詞(遅くまで)。動詞 worked を修飾する" },
+            { "en": "Customer complaints have increased **lately**.", "ja": "最近、顧客からの苦情が増えている。", "note": "lately は副詞(最近)。late(遅く)とは意味が違う" }
+          ],
+          "cautions": ["× Sales have been growing **late**. → ○ Sales have been growing **lately**.(「最近」の意味なら lately)"]
+        },
+        {
+          "heading": "near と nearly: 「近く」と「ほとんど」",
+          "explanation": "near は、前置詞・形容詞・副詞で「近くに」「近い」の意味です。nearly は副詞で、「ほとんど」「もう少しで」(almost の意味)です。\n\n・near(前置詞): 近くに。The office is near the station.\n・nearly(副詞): ほとんど。形容詞や過去分詞を修飾する。We nearly missed the train.\n\n「近くに」の意味で nearly を使うと、文の意味が通らなくなります。場所を言うときは near を使います。",
+          "examples": [
+            { "en": "The company's new office is **near** the station.", "ja": "その会社の新しいオフィスは、駅の近くにある。", "note": "near は前置詞(近くに)。場所の近さを表す" },
+            { "en": "The project was **nearly** complete by the deadline.", "ja": "そのプロジェクトは、期限までにほぼ完成していた。", "note": "nearly は副詞(ほとんど)。形容詞 complete を修飾する" }
+          ],
+          "cautions": ["× The hotel is nearly the station. → ○ The hotel is **near** the station.(「近く」は near。nearly は「ほとんど」)"]
+        },
+        {
+          "heading": "high と highly: 「高く」と「非常に」",
+          "explanation": "high は副詞で、「高く」(物理的な高さ)の意味です。highly は副詞で、「非常に」「高く評価して」の意味です。抽象的な程度や評価を表すときは、highly を使うことが多いです。\n\n・high(副詞): 高く。The plane flew high above the clouds.\n・highly(副詞): 非常に、高く評価して。She is highly qualified for the job.\n\n「価格が高い」「高い山」のように、高さを表す形容詞は high です。形容詞の high と副詞の highly は別物として覚えます。",
+          "examples": [
+            { "en": "The drone flew **high** above the mountain.", "ja": "そのドローンは、山の上空高く飛んだ。", "note": "high は副詞(高く)。物理的な高さを表す" },
+            { "en": "Our new software is **highly** rated by users.", "ja": "当社の新しいソフトウェアは、利用者から非常に高く評価されている。", "note": "highly は副詞(非常に)。過去分詞 rated を修飾する" }
+          ],
+          "cautions": ["× Our software is high rated. → ○ Our software is **highly** rated.(評価の程度を表すのは highly)"]
         }
       ],
       "examNote": "TOEIC Part 5 の副詞問題は、動詞の前後・形容詞の前・文頭が空所になることが多いです。空所の後ろが形容詞・副詞なら、副詞が入ると判断できます。"
@@ -340,6 +448,33 @@
             { "en": "The company's **principal** goal is growth.", "ja": "その会社の主な目標は、成長だ。", "note": "principal は形容詞(主要な)。名詞 principle(原則)と区別する" },
             { "en": "The three managers were assigned to Tokyo, Osaka, and Nagoya **respectively**.", "ja": "3人の部長が、それぞれ東京、大阪、名古屋に配属された。", "note": "respectively(それぞれ)。形容詞 respective と区別する" }
           ]
+        },
+        {
+          "heading": "alternate と alternative: 「交互の」と「代わりの」",
+          "explanation": "alternate と alternative は、綴りが似ていますが、意味が違います。\n\n・alternate(形容詞): 1つおきの、交互の。on alternate Mondays(隔週の月曜日)\n・alternative(形容詞): 代わりの、別の。an alternative plan(代わりの計画)\n・alternative(名詞): 代わりの手段、選択肢。We have no alternative.(ほかに手段はない)\n\n試験では、alternative が「代わりの」「選択肢」の意味で出ることが多いです。",
+          "examples": [
+            { "en": "We need an **alternative** supplier in case the factory closes.", "ja": "工場が閉鎖する場合に備えて、代わりの仕入れ先が必要だ。", "note": "alternative(代わりの)は、名詞 supplier を説明する形容詞" },
+            { "en": "The meetings are held on **alternate** Mondays.", "ja": "会議は、1つおきの月曜日に開かれる。", "note": "alternate(1つおきの)。on alternate Mondays で「隔週の月曜日」" }
+          ],
+          "cautions": ["× The meetings are held on alternative Mondays. → ○ The meetings are held on **alternate** Mondays.(1つおきの日は alternate)"]
+        },
+        {
+          "heading": "regrettable と regretful: 「残念な」と「残念に思う」",
+          "explanation": "regrettable と regretful は、語尾が -able と -ful で違い、意味も違います。\n\n・regrettable(残念な): 出来事や状況について使う。It is regrettable that ...(~とは残念だ)\n・regretful(残念に思っている・後悔している): 人の気持ちについて使う。\n・regrettably(残念ながら): 文頭で、話し手の気持ちを表す副詞。\n\n人を主語にして「残念な」と言うときは、regrettable ではなく、regretful や sorry を使うのが自然です。",
+          "examples": [
+            { "en": "**Regrettably**, the event has been canceled due to heavy rain.", "ja": "残念ながら、そのイベントは大雨のため中止になった。", "note": "regrettably(残念ながら)は、文全体を修飾する副詞" },
+            { "en": "The manager felt **regretful** about the delay in the shipment.", "ja": "部長は、出荷の遅れを残念に思っていた。", "note": "regretful は人の気持ち。主語の manager を説明する" },
+            { "en": "It is **regrettable** that the project was delayed.", "ja": "そのプロジェクトが遅れたのは、残念なことだ。", "note": "regrettable(残念な)は、出来事を説明する形容詞" }
+          ]
+        },
+        {
+          "heading": "informative と informed: 「情報が豊富な」と「事情に通じた」",
+          "explanation": "informative と informed は、語尾の -ative と -ed で、主語の種類が違います。\n\n・informative(情報が豊富な・役立つ): 報告書、講義、説明など、物や出来事が主語\n・informed(情報を得た・事情に通じた): 人が主語(a well-informed customer、an informed decision)\n\n人について「情報が豊富な」と言いたいときは、informative は使いません。人には informed を使います。",
+          "examples": [
+            { "en": "The report was very **informative** about market trends.", "ja": "その報告書は、市場の動向について、とても情報が豊富だった。", "note": "informative(情報が豊富な)。報告書(物)が主語" },
+            { "en": "We made an **informed** decision based on the data.", "ja": "私たちは、そのデータに基づいて、十分な情報を得た上で判断した。", "note": "informed(情報を得た)は、決めた人(私たち)の状態を表す" }
+          ],
+          "cautions": ["× We were very informative. → ○ We were very well **informed**.(人が主語のときは informed)"]
         }
       ],
       "examNote": "TOEIC Part 5 の語形問題は、組の片方が正解で、もう片方がひっかけになる形で出ます。意味が分かっていても、空所の品詞(名詞・形容詞・副詞)を先に決めると、選択肢が絞れます。"
@@ -368,6 +503,50 @@
         }
       ],
       "examNote": "語彙の問題として出るときも、品詞の判断が先です。意味が分からない語は、空所の位置で名詞・動詞・形容詞のどれかを決めてから選択肢を見ます。"
+    },
+    {
+      "id": "exam-procedure",
+      "title": "TOEIC Part 5: 空所の品詞を決める手順(実例)",
+      "intro": "TOEIC Part 5 の品詞問題は、決まった順番で考えると速く解けます。この節では、空所の前・後・位置・語尾・意味の順に、手順ごとに実例で確かめます。解答のあとで、どの手順で決めたかを言えるようにします。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "手順1: 空所の前が冠詞や所有格なら、名詞",
+          "explanation": "【実例】 The ------- of the new system took two weeks.(1) install (2) installation (3) installed (4) installing\n\n空所の前は The です。冠詞の後ろには名詞が来るので、名詞の installation(導入)が入ります。install は動詞、installed は過去分詞、installing は -ing の形で、この位置の名詞としては使えません。\n\n手順: 空所の前の語を見ます。a・the・this・my・his・its などの後ろは、名詞の位置です。",
+          "examples": [
+            { "en": "The **installation** of the new system took two weeks.", "ja": "新しいシステムの導入には、2週間かかった。", "note": "The の後ろで、動詞 took の主語になる名詞" }
+          ]
+        },
+        {
+          "heading": "手順2: 空所の後ろに名詞が続くなら、形容詞",
+          "explanation": "【実例】 The ------- team finished the project ahead of schedule.(1) success (2) successful (3) successfully (4) succeed\n\n空所の後ろには、名詞の team が続いています。名詞を説明するのは形容詞なので、successful(成功した)が入ります。successfully は副詞、success は名詞、succeed は動詞で、形容詞の位置には入りません。\n\n手順: 空所の後ろに名詞があれば、その名詞を説明する形容詞を考えます。",
+          "examples": [
+            { "en": "The **successful** team finished the project ahead of schedule.", "ja": "成功したそのチームは、プロジェクトを予定より早く終えた。", "note": "successful は後ろの名詞 team を説明する形容詞" }
+          ]
+        },
+        {
+          "heading": "手順3: 主語と動詞の間に入るのは、副詞",
+          "explanation": "【実例】 Our staff ------- responded to the complaints within an hour.(1) prompt (2) promptly (3) promptness (4) prompts\n\n空所は、主語の Our staff と動詞の responded の間にあります。この位置には、動詞を修飾する副詞が入ります。promptly(すぐに)が正解です。prompt は形容詞・動詞、promptness は名詞で、この位置には合いません。prompts も、動詞が2つ続いてしまうので入りません。\n\n手順: 空所が主語と動詞の間、動詞の後ろ、文頭にあれば、副詞を考えます。",
+          "examples": [
+            { "en": "Our staff **promptly** responded to the complaints within an hour.", "ja": "私たちのスタッフは、1時間以内に苦情へすぐに対応した。", "note": "主語 Our staff と動詞 responded の間に入る副詞" }
+          ]
+        },
+        {
+          "heading": "手順4: 語尾で、名詞・形容詞・動詞の候補を絞る",
+          "explanation": "【実例】 The ------- of the new machines was a major concern for the team.(1) reliable (2) reliably (3) reliability (4) rely\n\n空所は The の後ろで、of の前に入る名詞の位置です。選択肢の中で、-ity は名詞の語尾なので、reliability(信頼性)が正解です。reliable は形容詞、reliably は副詞、rely は動詞で、名詞の位置には入りません。\n\n手順: 語尾(-ity、-ness、-tion、-ment など)を見て、候補の品詞を絞ります。残った候補は、文の意味で確かめます。",
+          "examples": [
+            { "en": "The **reliability** of the new machines was a major concern for the team.", "ja": "新しい機械の信頼性は、そのチームにとって大きな懸念だった。", "note": "The の後ろで of の前に入る名詞。-ity は名詞の語尾" }
+          ]
+        },
+        {
+          "heading": "手順5: 品詞が2つ残ったら、意味で選ぶ",
+          "explanation": "【実例】 Each guest received a ------- drink at the entrance.(1) complementary (2) complimentary (3) complement (4) compliment\n\n空所の後ろは drink(名詞)なので、形容詞が入ります。形容詞は complementary(互いに補い合う)と complimentary(無料の)の2つが残ります。文の意味は「入口で飲み物を受け取った」なので、無料の complimentary が正解です。complement と compliment は、名詞や動詞で、形容詞の位置には入りません。\n\n手順: 品詞が決まったら、残った候補の意味を文に当てはめて確かめます。complementary と complimentary のように、似た綴りの組は特に注意します。",
+          "examples": [
+            { "en": "Each guest received a **complimentary** drink at the entrance.", "ja": "来場者は、それぞれ入口で無料の飲み物を受け取った。", "note": "complimentary(無料の)は drink を説明する形容詞。complementary(互いに補い合う)とは別の語" }
+          ]
+        }
+      ],
+      "examNote": "品詞問題は、まず空所の位置で品詞を絞り、選択肢の中で正解を1つに決めます。品詞が2つ残るときは、意味で判断します(手順5)。語尾は、判断を速くするための手がかりとして使います。"
     }
   ],
   "summary": [
@@ -378,7 +557,10 @@
     "副詞は -ly のほか、fast・hard・late など形容詞と同じ形もある。意味と位置で判断する",
     "感情を表す形容詞: 主語が人なら -ed、物・出来事なら -ing",
     "紛らわしい語形のペアは、意味と一緒に覚える(successive と successful など)",
-    "数量の形容詞 many・much・numerous は、名詞の前に直接置く(numerous of は使わない)"
+    "数量の形容詞 many・much・numerous は、名詞の前に直接置く(numerous of は使わない)",
+    "数字と名詞をつないだ複合形容詞(a five-year plan)は、後ろの名詞を単数のままにする",
+    "動詞の語尾: -ize(~にする・化する)、-ify(~にする)、-en(形容詞から~にする)",
+    "形が同じで意味が違う副詞: late と lately、near と nearly、high と highly"
   ],
   "quiz": [
     {

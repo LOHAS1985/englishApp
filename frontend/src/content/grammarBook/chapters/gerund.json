@@ -59,6 +59,42 @@
               "note": "never + 動名詞"
             }
           ]
+        },
+        {
+          "heading": "動名詞の4つの働き: 主語・目的語・補語・前置詞の目的語",
+          "explanation": "動名詞は、名詞と同じように、文の中で次の4つの場所に置けます。どの場所でも「~すること」と訳せます。\n\n・主語: 文の頭に置いて、「~することは」を表す\n・目的語: 他動詞(目的語を取る動詞)の後ろに置く\n・補語: be 動詞の後ろに置いて、主語が何かを説明する\n・前置詞の目的語: 前置詞(at、in、of など)の後ろに置く\n\n主語になる動名詞は単数扱いなので、動詞は三人称単数の形(takes、is など)になります。",
+          "table": {
+            "caption": "動名詞が置かれる4つの場所",
+            "headers": ["働き", "置かれる場所", "例文"],
+            "rows": [
+              ["主語", "文の頭", "Swimming is good exercise."],
+              ["目的語", "他動詞の後ろ", "I enjoy reading."],
+              ["補語", "be 動詞の後ろ", "My hobby is painting."],
+              ["前置詞の目的語", "前置詞の後ろ", "We talked about moving."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Learning** a new language takes patience and time.",
+              "ja": "新しい言語を覚えるには、根気と時間が必要だ。",
+              "note": "主語になる動名詞(単数扱いなので takes)"
+            },
+            {
+              "en": "She finished **writing** the report before noon.",
+              "ja": "彼女は正午までにレポートを書き終えた。",
+              "note": "目的語になる動名詞(finish の後ろ)"
+            },
+            {
+              "en": "My favorite activity is **taking** long walks.",
+              "ja": "私の好きな活動は、長い散歩をすることだ。",
+              "note": "補語になる動名詞(is の後ろ)"
+            },
+            {
+              "en": "He is good at **solving** difficult problems.",
+              "ja": "彼は、難しい問題を解くのが得意だ。",
+              "note": "前置詞 at の目的語になる動名詞"
+            }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、-ing の形が動名詞か現在分詞かを、文の中の役割で判断させる問題が出ます。"
@@ -124,6 +160,74 @@
               "en": "The company decided to **give up** **expanding** into Asia.",
               "ja": "その会社は、アジアへの進出をあきらめた。",
               "note": "give up + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "admit・imagine・risk: 認める・想像する・危険を冒す",
+          "explanation": "admit(~したことを認める)、imagine(~することを想像する)、risk(~する危険を冒す)は、直後に動名詞を取ります。to 不定詞(to + 原形)は続けられません。\n\n・admit -ing: 〜したことを認める(過去にしたことを表す)。admit to -ing の形でも、同じ意味で使われます\n・imagine -ing: 〜することを想像する\n・risk -ing: 〜する危険を冒す、〜を失うおそれがある",
+          "examples": [
+            {
+              "en": "He admitted **making** a mistake in the contract.",
+              "ja": "彼は、契約書に間違いがあったことを認めた。",
+              "note": "admit + 動名詞(過去にしたことを認める)"
+            },
+            {
+              "en": "Can you imagine **living** without the internet?",
+              "ja": "インターネットのない生活を想像できますか。",
+              "note": "imagine + 動名詞"
+            },
+            {
+              "en": "Investors do not want to **risk losing** their savings.",
+              "ja": "投資家は、貯金を失う危険を冒したくない。",
+              "note": "risk + 動名詞(〜する危険を冒す)"
+            }
+          ]
+        },
+        {
+          "heading": "put off・delay・postpone: 延期する・遅らせる",
+          "explanation": "put off(延期する)、delay(遅らせる)、postpone(延期する)は、どれも後ろに動名詞を取ります。put off は、2語で1つの動詞の働きをする句動詞です。put off -ing の形で、「〜することを延期する」の意味になります。\n\n・put off -ing: 〜することを延期する\n・delay -ing: 〜するのを遅らせる\n・postpone -ing: 〜するのを延期する\n\nto 不定詞と混同しやすいので、動名詞の形で覚えます。",
+          "examples": [
+            {
+              "en": "They **put off** **making** a decision until next month.",
+              "ja": "彼らは、決定を来月まで延ばした。",
+              "note": "put off + 動名詞(句動詞)"
+            },
+            {
+              "en": "The company **postponed** **launching** its new product.",
+              "ja": "その会社は、新製品の発売を延期した。",
+              "note": "postpone + 動名詞"
+            },
+            {
+              "en": "We **delayed** **leaving** the office until the storm passed.",
+              "ja": "嵐が過ぎるまで、オフィスを出るのを遅らせた。",
+              "note": "delay + 動名詞(〜するのを遅らせる)"
+            }
+          ]
+        },
+        {
+          "heading": "quit・resist・escape・appreciate: やめる・こらえる・免れる・ありがたく思う",
+          "explanation": "quit(やめる)、resist(こらえる)、escape(免れる)、appreciate(ありがたく思う)も、直後に動名詞を取ります。\n\n・quit -ing: 〜するのをやめる(stop と同じ意味で使える)\n・resist -ing: 〜したい気持ちをこらえる、我慢する\n・escape -ing: 〜すること(される)を免れる、避ける\n・appreciate -ing: 〜してもらったことをありがたく思う。意味上の主語は所有格で示す(your helping us のように)",
+          "examples": [
+            {
+              "en": "I **quit** **smoking** last year and feel much healthier.",
+              "ja": "私は去年タバコをやめて、ずっと健康になった気がする。",
+              "note": "quit + 動名詞"
+            },
+            {
+              "en": "She **resisted** **buying** the expensive bag.",
+              "ja": "彼女は、その高価なバッグを買いたい気持ちをこらえた。",
+              "note": "resist + 動名詞"
+            },
+            {
+              "en": "We narrowly escaped **being hit** by the falling tree.",
+              "ja": "私たちは、倒れてきた木にかろうじて当たらずに済んだ。",
+              "note": "escape + 動名詞の受け身(being hit)"
+            },
+            {
+              "en": "I really appreciate **your sending** the documents so quickly.",
+              "ja": "書類をこんなに早く送ってくださり、本当にありがたく思います。",
+              "note": "appreciate + 所有格 + 動名詞(意味上の主語)"
             }
           ]
         }
@@ -193,6 +297,51 @@
               "en": "They chose to call **instead of** **emailing**.",
               "ja": "彼らはメールを送る代わりに、電話をかけることにした。",
               "note": "instead of + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "contribute to・devote oneself to・be committed to: to の後ろの動名詞",
+          "explanation": "次の表現の to は前置詞なので、後ろには動名詞を置きます。to 不定詞(to + 原形)と見分けます。\n\n・contribute to -ing: 〜に貢献する、〜の一因となる\n・devote oneself to -ing: 〜に専念する、〜に打ち込む\n・be committed to -ing: 〜に力を注ぐ、〜に専念する\n・be accustomed to -ing: 〜することに慣れている(be used to -ing と同じ意味)\n\nto の後ろが名詞か動名詞なら前置詞、動詞の原形なら不定詞です。",
+          "examples": [
+            {
+              "en": "This new system will contribute to **reducing** costs.",
+              "ja": "この新しいシステムは、コストの削減に役立つだろう。",
+              "note": "contribute to + 動名詞(to は前置詞)"
+            },
+            {
+              "en": "She devoted herself to **teaching** young children.",
+              "ja": "彼女は、幼い子どもたちを教えることに専念した。",
+              "note": "devote oneself to + 動名詞(to は前置詞)"
+            },
+            {
+              "en": "Our company is committed to **protecting** the environment.",
+              "ja": "当社は、環境を守ることに力を注いでいる。",
+              "note": "be committed to + 動名詞(to は前置詞)"
+            }
+          ],
+          "cautions": [
+            "× We are committed to protect the environment. → ○ We are committed to protecting the environment.(to は前置詞なので、後ろは動名詞)"
+          ]
+        },
+        {
+          "heading": "with a view to・when it comes to・in addition to: 前置詞の働きをする句の後の動名詞",
+          "explanation": "前置詞の働きをする句にも、後ろに動名詞を置くものがあります。\n\n・with a view to -ing: 〜することを目指して、〜するために(形式張った言い方)\n・when it comes to -ing: 〜のことになると、〜に関して言えば\n・in addition to -ing: 〜することに加えて、〜のほかに\n\nwith a view to と in addition to の to は、前置詞です。後ろには、名詞か動名詞が来ます。",
+          "examples": [
+            {
+              "en": "The team is revising the plan with a view to **reducing** costs.",
+              "ja": "チームは、コストを削減することを目指して、計画を見直している。",
+              "note": "with a view to + 動名詞(to は前置詞)"
+            },
+            {
+              "en": "**When it comes to** cooking, he is much better than I am.",
+              "ja": "料理のことになると、彼は私よりずっと上手だ。",
+              "note": "when it comes to + 動名詞"
+            },
+            {
+              "en": "In addition to **answering** emails, he prepares the weekly report.",
+              "ja": "彼はメールに返信することに加えて、毎週の報告書も作成している。",
+              "note": "in addition to + 動名詞(to は前置詞)"
             }
           ]
         }
@@ -277,9 +426,268 @@
               "note": "It is no good -ing"
             }
           ]
+        },
+        {
+          "heading": "cannot help -ing・feel like -ing: 〜せずにいられない・〜したい気がする",
+          "explanation": "cannot help -ing は、「〜せずにいられない」という意味の慣用表現です。help は「避ける」の意味で、cannot help but do(〜せずにはいられない)と同じです。but の後ろは原形になります。\n\n・cannot help -ing: 〜せずにいられない\n・feel like -ing: 〜したい気がする、〜したい気分だ\n\nfeel like の後ろには、名詞も来ます(feel like a cup of tea は、お茶が一杯ほしい気分だ)。",
+          "examples": [
+            {
+              "en": "I cannot help **laughing** when I see that video.",
+              "ja": "あの動画を見ると、笑わずにはいられない。",
+              "note": "cannot help + 動名詞"
+            },
+            {
+              "en": "I feel like **going** for a walk after dinner.",
+              "ja": "夕食の後、散歩に行きたい気分だ。",
+              "note": "feel like + 動名詞(〜したい気分だ)"
+            }
+          ]
+        },
+        {
+          "heading": "on -ing・spend ~ -ing: 〜するとすぐに・〜して時間を使う",
+          "explanation": "on -ing は、前置詞 on の後ろに動名詞を置いて、「〜するとすぐに」の意味を表します。接続詞を使わずに、動作の順序を表せます。on arriving は、as soon as I arrived と同じ意味です。\n\nspend は「(時間・お金を)使う」の意味で、spend + 時間・お金 + -ing の形で、「〜するのに時間(お金)を使う」を表します。\n\n・on -ing: 〜するとすぐに\n・spend + 時間・お金 + -ing: 〜して時間(お金)を使う",
+          "examples": [
+            {
+              "en": "**On arriving** at the airport, she called her office.",
+              "ja": "空港に着くとすぐに、彼女は会社に電話した。",
+              "note": "on + 動名詞(〜するとすぐに)"
+            },
+            {
+              "en": "I spent three hours **reading** the contract.",
+              "ja": "私は、契約書を読むのに3時間をかけた。",
+              "note": "spend + 時間 + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "be busy -ing・go -ing: 〜するのに忙しい・〜しに行く",
+          "explanation": "be busy -ing は、「〜するのに忙しい」の意味です。busy は形容詞なので、後ろに動名詞を続けて、「〜することで忙しい」を表します。\n\ngo -ing は、swimming、shopping、skiing などの活動を表す形で、「〜しに行く」の意味です。go to + 場所(go to the shop)が場所へ行くことを表すのに対し、go -ing は、その活動に出かけることを表します。",
+          "examples": [
+            {
+              "en": "The staff are busy **preparing** for the annual sale.",
+              "ja": "スタッフは、毎年恒例のセールの準備で忙しい。",
+              "note": "be busy + 動名詞(〜するのに忙しい)"
+            },
+            {
+              "en": "Let's **go shopping** after the meeting.",
+              "ja": "会議の後で、買い物に行こう。",
+              "note": "go + 動名詞(活動に出かける)"
+            }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、be worth -ing の形や、It is no use -ing、insist on -ing の前置詞の組み合わせが選択肢に出ます。"
+    },
+    {
+      "id": "passive-ing",
+      "title": "need・want・deserve・require + -ing: 受け身の意味になる -ing",
+      "intro": "need、want、deserve、require は、直後に -ing を置くと、受け身の意味になることがあります。「~される必要がある」「~される価値がある」と訳します。to be -ed の形に言い換えられるかどうかで判断します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "need・want + -ing: 〜される必要がある",
+          "explanation": "need(〜を必要とする)と want(〜を必要とする、〜したい)は、主語が「〜される」側のとき、動詞の後ろに -ing を置くと、受け身の意味になります。\n\n・The car needs repairing.(その車は修理される必要がある)\n・The car needs to be repaired.(同じ意味。to be -ed の形)\n\nwant -ing も同じ意味で使われますが、主にイギリス英語の表現です。アメリカ英語では、want to be -ed を使うのが一般的です。",
+          "examples": [
+            {
+              "en": "The old bridge **needs repairing** before winter.",
+              "ja": "その古い橋は、冬の前に修理される必要がある。",
+              "note": "need + 動名詞(受け身の意味。to be repaired と同じ)"
+            },
+            {
+              "en": "My hair really **needs cutting**.",
+              "ja": "私の髪は、本当に切る必要がある。",
+              "note": "need + 動名詞(受け身の意味)"
+            }
+          ],
+          "cautions": [
+            "× The room needs to clean. → ○ The room needs cleaning.(to clean だと、部屋が掃除する側になってしまう)"
+          ]
+        },
+        {
+          "heading": "deserve・require + -ing: 〜される価値がある・〜される必要がある",
+          "explanation": "deserve(〜に値する)は、-ing を続けると「〜される価値がある」の意味になります。例えば This idea deserves considering.(このアイデアは検討される価値がある)は、deserves to be considered と同じ意味です。\n\nrequire(〜を必要とする)も、require -ing で「〜される必要がある」を表すことがあります。ただし、この形は形式張った文章で使われることが多いので、require to be -ed の形の方が分かりやすいです。",
+          "examples": [
+            {
+              "en": "This plan **deserves considering** carefully.",
+              "ja": "この計画は、慎重に検討される価値がある。",
+              "note": "deserve + 動名詞(受け身の意味)"
+            },
+            {
+              "en": "The engine **requires servicing** every six months.",
+              "ja": "そのエンジンは、半年ごとに点検を受ける必要がある。",
+              "note": "require + 動名詞(受け身の意味。形式的な文で使われる)"
+            }
+          ]
+        }
+      ],
+      "examNote": "能動の形(to 不定詞や原形)と、受け身の意味(-ing)を区別させる問題が出ることがあります。主語が「されるもの」かどうかを先に確かめます。"
+    },
+    {
+      "id": "form",
+      "title": "動名詞の形: 意味上の主語・受け身・完了",
+      "intro": "動名詞には、動作をする人を示す意味上の主語を付けたり、受け身(being + 過去分詞)や完了(having + 過去分詞)の形にしたりするものがあります。動作の時点と、受け身かどうかで形を選びます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "意味上の主語: 所有格・目的格・名詞の形",
+          "explanation": "動名詞の動作をする人(意味上の主語)が、文の主語や目的語と違うときは、動名詞の前に示します。代名詞は所有格(my、his、your)を使うのが基本です。名詞の場合は、名詞の所有格('s)を付けるのが一般的です。\n\n・My going there would upset her.(私がそこへ行くと、彼女は動揺するだろう)\n・His being absent surprised everyone.(彼が欠席したことに、皆が驚いた)\n・We were surprised by the team's winning the championship.(そのチームが優勝したことに、私たちは驚いた)\n\n口語では、目的格(me、him)も使われます(Do you mind me opening the window?)。形式的な文では、所有格を使うのが一般的です。",
+          "examples": [
+            {
+              "en": "I don't mind **your coming** late, as long as you call me.",
+              "ja": "連絡をくれるなら、遅れて来てもかまわない。",
+              "note": "所有格 + 動名詞(意味上の主語)"
+            },
+            {
+              "en": "Do you mind **me opening** the window?",
+              "ja": "窓を開けてもよろしいですか。",
+              "note": "目的格 + 動名詞(口語でよく使われる形)"
+            },
+            {
+              "en": "We were surprised by **the team's winning** the championship.",
+              "ja": "そのチームが優勝したことに、私たちは驚いた。",
+              "note": "名詞の所有格('s) + 動名詞"
+            }
+          ]
+        },
+        {
+          "heading": "動名詞の受け身: being + 過去分詞",
+          "explanation": "動名詞の受け身は、being + 過去分詞の形です。「~される(こと)」の意味になります。能動の -ing(doing)は「する」、受け身の being done は「される」を表します。\n\n・I hate being criticized in public.(人前で非難されるのは嫌だ)\n・She is afraid of being left behind.(彼女は、取り残されることを恐れている)\n\n前置詞の後ろや、動詞の目的語として使われます。",
+          "examples": [
+            {
+              "en": "I really hate **being criticized** in front of others.",
+              "ja": "人前で非難されるのは、本当に嫌だ。",
+              "note": "being + 過去分詞(受け身の動名詞)"
+            },
+            {
+              "en": "She is afraid of **being left** behind by new technology.",
+              "ja": "彼女は、新しい技術に取り残されることを恐れている。",
+              "note": "前置詞 of の後ろの受け身の動名詞"
+            }
+          ],
+          "cautions": [
+            "× I hate criticizing in public. → ○ I hate being criticized in public.(criticizing だと、人を非難する側の意味になる)"
+          ]
+        },
+        {
+          "heading": "完了形の動名詞: having + 過去分詞・having been + 過去分詞",
+          "explanation": "動名詞が表す動作が、主節の動詞より前のことであるときは、having + 過去分詞を使います。受け身なら having been + 過去分詞です。\n\n・I regret having sent that email.(そのメールを送ってしまったことを後悔している)\n・He is proud of having been chosen for the team.(チームに選ばれたことを、彼は誇りに思っている)\n\n主節と動名詞の時点が同じなら、単純形(-ing)で十分です。",
+          "examples": [
+            {
+              "en": "She regrets **having said** that in the meeting.",
+              "ja": "彼女は、会議であんなことを言ってしまったことを後悔している。",
+              "note": "having + 過去分詞(主節より前の出来事)"
+            },
+            {
+              "en": "He is proud of **having been chosen** for the team.",
+              "ja": "彼は、チームに選ばれたことを誇りに思っている。",
+              "note": "having been + 過去分詞(完了の受け身)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "to-or-ing",
+      "title": "不定詞と動名詞で意味が変わる動詞",
+      "intro": "remember、forget、regret、try、stop、go on、mean は、後ろに to 不定詞を置くか、動名詞を置くかで、意味が変わります。意味の違いを例文で確かめて、形を選べるようにします。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "remember・forget: 〜したことを覚えている・忘れる / 忘れずに〜する・〜するのを忘れる",
+          "explanation": "remember と forget は、動名詞なら「過去にしたこと」、to 不定詞なら「これからすること」を表します。\n\n・remember -ing: 〜したことを覚えている(過去)\n・remember to 不定詞: 忘れずに〜する(これから)\n・forget -ing: 〜したことを忘れる(過去)\n・forget to 不定詞: 〜するのを忘れる(これから)\n\n動名詞は、すでに行ったことを思い出したり忘れたりする場面で使います。",
+          "examples": [
+            {
+              "en": "I remember **locking** the door, but I am not sure.",
+              "ja": "ドアに鍵をかけたことは覚えているが、確信はない。",
+              "note": "remember + 動名詞(過去にしたこと)"
+            },
+            {
+              "en": "Please remember **to lock** the door before you leave.",
+              "ja": "出るときは、忘れずにドアに鍵をかけてください。",
+              "note": "remember + to 不定詞(これからすること)"
+            },
+            {
+              "en": "I will never forget **meeting** him in Paris.",
+              "ja": "パリで彼に会ったことは、決して忘れない。",
+              "note": "forget + 動名詞(過去にしたこと)"
+            }
+          ],
+          "cautions": [
+            "× I remember to lock the door last night. → ○ I remember locking the door last night.(過去のことは動名詞で表す)"
+          ]
+        },
+        {
+          "heading": "regret・try: 後悔する・残念ながら〜する / 試しに〜してみる・〜しようと努力する",
+          "explanation": "regret は、-ing で「〜したことを後悔する」、to 不定詞で「残念ながら〜する」を表します。to 不定詞の形は、お知らせの文でよく使われます。try は、-ing で「試しに〜してみる」、to 不定詞で「〜しようと努力する」を表します。\n\n・regret -ing: 〜したことを後悔する\n・regret to 不定詞: 残念ながら〜する\n・try -ing: 試しに〜してみる\n・try to 不定詞: 〜しようと努力する",
+          "examples": [
+            {
+              "en": "I regret **saying** that to my boss.",
+              "ja": "上司にあんなことを言ってしまい、後悔している。",
+              "note": "regret + 動名詞(〜したことを後悔する)"
+            },
+            {
+              "en": "We regret **to inform** you that the flight has been delayed.",
+              "ja": "残念ながら、そのフライトが遅れていることをお知らせします。",
+              "note": "regret + to 不定詞(残念ながら〜する)"
+            },
+            {
+              "en": "Try **restarting** the computer before you call the help desk.",
+              "ja": "ヘルプデスクに電話する前に、試しにパソコンを再起動してみてください。",
+              "note": "try + 動名詞(試しに〜してみる)"
+            },
+            {
+              "en": "She tried **to finish** the report before noon.",
+              "ja": "彼女は、正午までにレポートを仕上げようと努力した。",
+              "note": "try + to 不定詞(〜しようと努力する)"
+            }
+          ]
+        },
+        {
+          "heading": "stop・go on: やめる・立ち止まる / 〜し続ける・次に〜する",
+          "explanation": "stop は、-ing で「〜するのをやめる」、to 不定詞で「〜するために立ち止まる」を表します。to 不定詞は、動作の目的を表します。go on は、-ing で「〜し続ける」、to 不定詞で「(前の動作の後で)次に〜する」を表します。\n\n・stop -ing: 〜するのをやめる\n・stop to 不定詞: 〜するために立ち止まる\n・go on -ing: 〜し続ける\n・go on to 不定詞: (次に)〜へと進む、次に〜する",
+          "examples": [
+            {
+              "en": "Please stop **talking** and listen carefully.",
+              "ja": "話すのをやめて、よく聞いてください。",
+              "note": "stop + 動名詞(〜するのをやめる)"
+            },
+            {
+              "en": "They stopped **to check** the map at the corner.",
+              "ja": "彼らは、角で地図を確認するために立ち止まった。",
+              "note": "stop + to 不定詞(〜するために立ち止まる)"
+            },
+            {
+              "en": "The speaker went on **talking** for another hour.",
+              "ja": "講演者は、さらに1時間話し続けた。",
+              "note": "go on + 動名詞(〜し続ける)"
+            },
+            {
+              "en": "After the introduction, he went on **to explain** the budget.",
+              "ja": "紹介の後、彼は次に予算について説明した。",
+              "note": "go on + to 不定詞(次に〜する)"
+            }
+          ],
+          "cautions": [
+            "× She stopped to smoke.(やめた、の意味にはならない) → ○ She stopped smoking.(タバコをやめた)"
+          ]
+        },
+        {
+          "heading": "mean: 〜することになる・〜するつもりだ",
+          "explanation": "mean は、-ing で「〜することを意味する、〜することになる」を表します。to 不定詞で「〜するつもりだ」を表します。\n\n・mean -ing: 〜することになる、〜することを伴う\n・mean to 不定詞: 〜するつもりだ、〜するように意図する\n\nThe new schedule will mean working on Saturdays.(新しい予定では、土曜日も働くことになる)は、結果を表します。I didn't mean to hurt you.(あなたを傷つけるつもりはなかった)は、意図を表します。",
+          "examples": [
+            {
+              "en": "The new schedule will **mean working** on Saturdays.",
+              "ja": "新しい予定では、土曜日も働くことになる。",
+              "note": "mean + 動名詞(〜することになる)"
+            },
+            {
+              "en": "I didn't **mean to hurt** your feelings.",
+              "ja": "あなたの気持ちを傷つけるつもりはなかった。",
+              "note": "mean + to 不定詞(〜するつもりだ)"
+            }
+          ]
+        }
+      ]
     }
   ],
   "summary": [
@@ -288,7 +696,9 @@
     "前置詞の to の後ろは動名詞: look forward to -ing、be used to -ing、object to -ing",
     "慣用: be worth -ing(価値)、It is no use -ing(無駄)、insist on -ing、be prone to -ing",
     "前置詞の後ろに不定詞は置けない。名詞か動名詞を置く",
-    "動名詞の意味上の主語は所有格か目的格。主節より前は having + 過去分詞"
+    "動名詞の意味上の主語は所有格か目的格。主節より前は having + 過去分詞",
+    "need・want・deserve + -ing は受け身の意味(needs repairing は needs to be repaired と同じ)",
+    "remember・forget・regret・try・stop・go on・mean は、動名詞と不定詞で意味が変わる"
   ],
   "quiz": [
     {

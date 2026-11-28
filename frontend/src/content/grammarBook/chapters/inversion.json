@@ -135,9 +135,104 @@
             { "en": "This is **the very best** place to start.", "ja": "ここが、まさに始めるのに最もよい場所だ。", "note": "the very + 最上級" },
             { "en": "The new system is **even faster** than before.", "ja": "新しいシステムは、以前よりさらに速い。", "note": "even + 比較級" }
           ]
+        },
+        {
+          "heading": "強調構文の例: 人・時・理由を強調する",
+          "explanation": "強調構文は、It is (was) と that(人の場合は who も使う)の間に、強調したい語句を挟む形です。挟まれた語句は、主語・目的語・副詞句のどれでもかまいません。人を強調するときは who、時や理由を強調するときは that を使います。\n\n見分け方は、It is と that を取り除いて読むことです。残りの文が、ふつうの意味の通る文になれば、強調構文です。\n\n・It was Tom who broke the window.(窓を割ったのはトムだった)\n・It was yesterday that the package arrived.(荷物が届いたのは、昨日だった)\n・It was because of the storm that the flight was delayed.(フライトが遅れたのは、嵐のせいだった)",
+          "examples": [
+            { "en": "**It was Tom who** broke the window last night.", "ja": "昨夜、窓を割ったのはトムだった。", "note": "人を強調するので who を使う(that でもよい)" },
+            { "en": "**It was yesterday that** the package arrived.", "ja": "荷物が届いたのは、昨日だった。", "note": "時を表す副詞を強調する。that は省略しない" },
+            { "en": "**It was because of the storm that** the flight was delayed.", "ja": "フライトが遅れたのは、嵐のせいだった。", "note": "理由を表す前置詞句 because of the storm を強調する" }
+          ],
+          "cautions": ["強調構文の that は省略できない。× It was yesterday the package arrived. → ○ It was yesterday that the package arrived."]
+        },
+        {
+          "heading": "What ... is ~: 「~のは…だ」で、強調したい語句を後ろに置く",
+          "explanation": "What(~すること・~のもの)で始まる名詞節を主語にして、is(was)の後ろに強調したい語句を置く形です。擬似分裂文(pseudo-cleft)と呼ばれることもあります。What の節の中では、動詞の目的語などが欠けています。\n\n・What I need is more time.(私に必要なのは、もっと時間だ)\n・What surprised me was his calm attitude.(私を驚かせたのは、彼の落ち着いた態度だった)\n\nis(was)の後ろの語句が、文の中心の情報です。強調したい内容を後ろに回すので、話の中心がはっきりします。",
+          "examples": [
+            { "en": "**What I need is** more time to finish the report.", "ja": "私に必要なのは、報告書を仕上げるためのもっと多くの時間だ。", "note": "What の節(I need の目的語が欠けている)の後ろに is を置き、more time を強調する" },
+            { "en": "**What we need is** a clear plan, not more meetings.", "ja": "私たちに必要なのは、もっと会議を開くことではなく、明確な計画だ。", "note": "is の後ろに強調したい a clear plan を置き、not 以下で対比する" },
+            { "en": "**What surprised me was** his calm attitude.", "ja": "私を驚かせたのは、彼の落ち着いた態度だった。", "note": "What の節が主語。was の後ろに強調したい his calm attitude を続ける" }
+          ]
+        },
+        {
+          "heading": "助動詞 do による強調: 「本当に」「確かに」",
+          "explanation": "一般動詞の肯定文で、動詞の前に do / does / did を置くと、動詞の意味を「本当に」「確かに」と強めることができます。相手の疑いに反論するときや、自分の主張を強めるときに使います。\n\n・I do believe you.(本当にあなたを信じています)\n・She does look tired.(確かに彼女は疲れて見える)\n\ndo / does / did は、主語の人称と文の時制に合わせます。命令文の Do come in!(どうぞお入りください)のように、歓迎や丁寧さを強める使い方もあります。",
+          "examples": [
+            { "en": "I **do believe** you, but we need proof.", "ja": "あなたを本当に信じています。でも、証拠が必要です。", "note": "do + 動詞の原形で、肯定の気持ちを強める" },
+            { "en": "She **does look** tired, so let her rest.", "ja": "彼女は確かに疲れて見える。休ませてあげよう。", "note": "3人称単数の主語なので does を使う" },
+            { "en": "**Do come** in and make yourself at home.", "ja": "どうぞお入りください。楽にしてくださいね。", "note": "命令文で do を置くと、歓迎の気持ちが強まる" }
+          ],
+          "cautions": ["be 動詞の文には do を付けない。× She does is busy. → ○ She really is busy.(be 動詞の強調は、really などの副詞を使う)"]
+        },
+        {
+          "heading": "否定の強調: not ... at all・by no means・not in the least",
+          "explanation": "not ... at all(まったく~ない)、by no means(決して~ない)、not in the least(少しも~ない)は、ふつうの not より強い否定を表します。相手の言ったことを強く打ち消すときや、強い否定の気持ちを伝えるときに使います。\n\n・I do not like the idea at all.(その考えは、まったく好きではない)\n・He is by no means a lazy student.(彼は決して怠け者の学生ではない)\n・She was not in the least worried about the exam.(彼女は、試験のことを少しも心配していなかった)\n\nat all は、文末や動詞のあとに置きます。by no means は「決して~ない」の意味で、「~によって」を表す by means of とは別の表現です。",
+          "examples": [
+            { "en": "I do not like the idea **at all**.", "ja": "その考えは、まったく好きではない。", "note": "at all は not を強めて、文末に置く" },
+            { "en": "He is **by no means** a lazy student.", "ja": "彼は決して怠け者の学生ではない。", "note": "by no means は、be 動詞と補語の間に置いて否定を強める" },
+            { "en": "She was **not in the least** worried about the exam.", "ja": "彼女は、試験のことを少しも心配していなかった。", "note": "not in the least は、形容詞の前に置いて少しも~ないを表す" }
+          ],
+          "cautions": ["by no means(決して~ない)と by means of(~によって)は、語が似ていても意味が違う。× He succeeded by no means of hard work. → ○ He succeeded by means of hard work.(by means of は「~によって」の意味)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、It was ~ that の強調構文の that(関係代名詞との区別)や、So ~ that・Such ~ that の形を選ばせる問題が出ます。"
+    },
+    {
+      "id": "special-inversion",
+      "title": "特殊な倒置: 場所・補語・譲歩・同意の形",
+      "intro": "文頭に場所を表す語句や補語が来ると、主語と動詞が入れ替わることがあります。また、Young as he is(若いけれど)のような譲歩の形や、So do I(私もそうだ)も倒置の形です。ふつうの語順との違いを、ひとつずつ確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "場所・方向を表す語句の倒置: Here comes the bus",
+          "explanation": "here(ここに)、there(そこに)、on the wall(壁に)、in the corner(隅に)などの場所や方向を表す語句が文頭に出ると、動詞が主語の前に出ることがあります。使われる動詞は、come・go・stand・hang・lie・sit など、存在や動きを表す動詞です。\n\n・Here comes the bus.(バスが来た)\n・On the wall hangs a picture.(壁には、一枚の絵がかかっている)\n\n主語が代名詞(he、it、they など)のときは、倒置しません。Here comes it. ではなく、Here it comes. と、主語 + 動詞の順にします。",
+          "examples": [
+            { "en": "**Here comes** the bus. We need to hurry.", "ja": "バスが来た。急がなければならない。", "note": "Here が文頭で、動詞 comes が主語 the bus の前に出る" },
+            { "en": "**On the wall hangs** a photo of our first office.", "ja": "壁には、私たちの最初の事務所の写真がかかっている。", "note": "場所の語句が文頭で、動詞 hangs が主語 a photo の前に出る" },
+            { "en": "**Here it comes**, right on time.", "ja": "ほら、時間どおりに来た。", "note": "主語が代名詞 it のときは、倒置しない" }
+          ],
+          "cautions": ["主語が代名詞のとき、倒置しない。× Here comes it. → ○ Here it comes.(it は代名詞なので、主語 + 動詞の語順)"]
+        },
+        {
+          "heading": "補語の前置: Such was his answer・Silent was the hall",
+          "explanation": "補語(主語の状態や内容を説明する語句)が文頭に出ると、be 動詞の後ろに主語が続く形になることがあります。文章では、強調や対比を表す固い響きになります。\n\n・Such was his answer.(彼の答えは、そのようなものだった)\n・Silent was the hall as the speaker entered.(講演者が入ってきたとき、ホールは静まり返っていた)\n\nこの節の前の項目で見た So + 形容詞 + be 動詞 + 主語 + that は、補語の前置に that 節の結果が続く形です。ここでは、that 節のない形を確かめます。",
+          "examples": [
+            { "en": "**Such was** his answer, and nobody argued with it.", "ja": "彼の答えはそのようなものだった。誰も反論しなかった。", "note": "補語の Such が文頭に出て、was の後ろに主語 his answer が続く" },
+            { "en": "**Silent was** the hall as the speaker entered.", "ja": "講演者が入ってきたとき、ホールは静まり返っていた。", "note": "補語の形容詞 Silent が文頭に出る" },
+            { "en": "**Wise was** the decision to delay the launch.", "ja": "発売を延期するという判断は、賢明だった。", "note": "補語の Wise が文頭に出て、the decision が主語になる" }
+          ],
+          "cautions": ["補語が前に出ても、主語は be 動詞の後ろに置く。× Wise the decision was. → ○ Wise was the decision."]
+        },
+        {
+          "heading": "譲歩の倒置: Young as he is・Try as I might",
+          "explanation": "「~だけれども」「~だとしても」を表す譲歩の形です。形容詞・名詞・副詞(動詞の原形の場合もある)を文頭に置き、as + 主語 + 動詞(be 動詞・助動詞)を続けます。Young as he is は、Though he is young(彼は若いけれども)と同じ意味です。\n\n・Young as he is, he has already led a team of ten.(彼は若いけれど、すでに十人のチームを率いている)\n・Try as I might, I could not solve the problem.(どんなに努力しても、その問題は解けなかった)\n\nTry as I might は、「どんなに努力しても」を表す決まった形です。might は、「たとえ~だとしても」を表す助動詞です。",
+          "examples": [
+            { "en": "**Young as he is**, he has already led a team of ten.", "ja": "彼は若いけれど、すでに十人のチームを率いている。", "note": "形容詞 Young + as + 主語 + be 動詞(譲歩)" },
+            { "en": "**Try as I might**, I could not solve the problem.", "ja": "どんなに努力しても、その問題は解けなかった。", "note": "動詞の原形 Try + as + 主語 + might(譲歩)" },
+            { "en": "**Much as I like** the design, the price is too high.", "ja": "そのデザインはとても気に入っているけれど、価格が高すぎる。", "note": "副詞 Much + as + 主語 + 動詞(譲歩)" }
+          ],
+          "cautions": ["形容詞を文頭に出し、as は形容詞の後ろに置く。× As young he is, he ... → ○ Young as he is, he ...(as young he is とは言わない)"]
+        },
+        {
+          "heading": "than・as の後の倒置: as did our profits・than does her brother",
+          "explanation": "比較の than や、同じ程度を表す as の後で、主語と助動詞(do / does / did、be 動詞、助動詞など)が入れ替わる形があります。主に文語的な文章で見られます。\n\n・Sales rose by 20%, as did our profits.(売上は20%伸び、利益も同じように伸びた)\n・She earns more than does her brother.(彼女は、弟よりも多く稼いでいる)\n\n最初の例の as did は、as our profits did (rose) の省略です。did は、前の rose の代わりに使われています。日常の文では、She earns more than her brother does. のように、主語を先に置くことが多いです。",
+          "examples": [
+            { "en": "Sales rose by 20%, **as did** our profits.", "ja": "売上は20%伸び、利益も同じように伸びた。", "note": "as did = as our profits did(rose)。did は前の rose の代わり" },
+            { "en": "She **earns more than does** her brother.", "ja": "彼女は、弟よりも多く稼いでいる。", "note": "than の後で、助動詞 does が主語 her brother の前に出る(文語的)" }
+          ]
+        },
+        {
+          "heading": "So do I・Neither do I・Nor did I: 「私もそうだ」の倒置",
+          "explanation": "相手の文に同意するとき、肯定の「私も」は so + 助動詞 + 主語、否定の「私も~ない」は neither(または nor)+ 助動詞 + 主語で表します。助動詞は、前の文の動詞に合わせて選びます。be 動詞の文では be 動詞、助動詞の文では助動詞を使います。\n\n・A: I like this café. B: So do I.(私もこのカフェが好きです)\n・A: I didn't agree. B: Neither did I.(私も賛成しなかった)\n\n否定の同意は、neither か nor を使います。and nor did I(私も~ない)のように、文の途中で使うこともあります。",
+          "examples": [
+            { "en": "She has finished the report, and **so have** I.", "ja": "彼女は報告書を書き終えたし、私も書き終えた。", "note": "so + 助動詞(have)+ 主語(I)。主語の前で助動詞が入れ替わる" },
+            { "en": "He did not attend the meeting, and **nor did** I.", "ja": "彼は会議に出なかったし、私も出なかった。", "note": "nor + did + 主語。否定の同意も、主語と助動詞が入れ替わる" }
+          ],
+          "cautions": ["so は、so + 助動詞 + 主語の語順にする。× I so do. → ○ So do I.(「私もそうだ」の so は、助動詞の前に出す)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、Here comes のような場所の倒置、Try as I might などの譲歩の形、So do I・Neither did I の語順を選ばせる問題が出ることがあります。文頭の語を見てから、主語が名詞か代名詞かで、倒置するかどうかを判断します。"
     },
     {
       "id": "omission",
@@ -174,9 +269,100 @@
           "examples": [
             { "en": "**Written** in simple English, the guide is easy to follow.", "ja": "簡単な英語で書かれているので、そのガイドは分かりやすい。", "note": "being が省略された分詞構文" }
           ]
+        },
+        {
+          "heading": "副詞節の「主語 + be」の省略: though tired・while in London・when possible",
+          "explanation": "when・if・though・while などで始まる副詞節では、「主語 + be 動詞」が省略されることがあります。省略されるのは、主節と同じ主語の場合か、it(状況を指す it)の場合に限られます。残るのは、接続詞と、形容詞・前置詞句などです。\n\n・主節と同じ主語: Though (he was) tired, he kept working.(疲れていたが、彼は働き続けた)\n・it is の場合: When (it is) possible, call me.(できるときに電話をください)\n\n省略されているかは、接続詞の後ろに形容詞・前置詞句だけが残っているかで見分けます。主語が主節と違うときは、省略せずに書きます。",
+          "table": {
+            "caption": "「主語 + be 動詞」が省略された副詞節",
+            "headers": ["接続詞", "省略前", "省略後"],
+            "rows": [
+              ["though", "though he was tired", "though tired"],
+              ["while", "while he was in London", "while in London"],
+              ["when", "when it is possible", "when possible"],
+              ["if", "if it is possible", "if possible"],
+              ["if", "if it is necessary", "if necessary"]
+            ]
+          },
+          "examples": [
+            { "en": "**Though tired**, he finished the report before midnight.", "ja": "疲れていたが、彼は真夜中前に報告書を仕上げた。", "note": "though he was tired の he was が省略された形(主節と同じ主語)" },
+            { "en": "I will call you **when possible**.", "ja": "可能なときに、あなたに電話します。", "note": "when it is possible の it is が省略された形" },
+            { "en": "**While in London**, she visited several museums.", "ja": "ロンドンにいた間に、彼女はいくつかの美術館を訪れた。", "note": "while she was in London の she was が省略された形" },
+            { "en": "We can change the schedule **if necessary**.", "ja": "必要であれば、予定を変更できます。", "note": "if it is necessary の it is が省略された形" }
+          ],
+          "cautions": ["省略するのは、主節と同じ主語のときだけ。× Though tired, the rain kept falling. → ○ Though the rain was heavy, it kept falling.(雨は tired にならないので、省略できない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、if necessary・if any などの慣用的な省略、倒置の Should が選択肢に出ます。"
+    },
+    {
+      "id": "proform-ellipsis",
+      "title": "代用の省略: 代不定詞 to・代動詞 do・so と not",
+      "intro": "同じ語句の繰り返しを避けるため、英語では to・do・so・not だけで前の内容を言い換えることがあります。この節では、代不定詞(to)、代動詞(do)、so・not による代用を確かめます。空所補充では、どの語を入れるかを前の動詞や文の内容から決めます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "代不定詞 to: 「to + 動詞」の動詞を省略し、to だけを残す",
+          "explanation": "一度出てきた「to + 動詞」の、動詞の部分を省略して、to だけを残すことがあります。これを代不定詞と呼びます。to の後ろに動詞がなく、文の終わりや、接続詞・カンマの前に来ることで見分けます。前に出た動詞を補って読むと、意味がはっきりします。\n\n・I didn't want to, but I did.(行きたくはなかったが、行った)\n・You can join us if you want to.(参加したければ、私たちと一緒にどうぞ)\n\n1つめの例は、I didn't want to (go), but I did (go). の (go) が省略された形です。",
+          "examples": [
+            { "en": "She asked me to help, and I was happy **to**.", "ja": "彼女に手伝ってほしいと頼まれ、私は喜んで手伝った。", "note": "to の後ろの help が省略された代不定詞" },
+            { "en": "You can join us if you **want to**.", "ja": "参加したければ、私たちと一緒にどうぞ。", "note": "want to の後ろの join us が省略された形" },
+            { "en": "I didn't **want to**, but I **did**.", "ja": "行きたくはなかったが、行った。", "note": "want to + did(go の代わり)。to と did の後ろに動詞を補う" }
+          ],
+          "cautions": ["to の後ろに did などを付けない。× I wanted to, but I didn't to. → ○ I wanted to, but I didn't."]
+        },
+        {
+          "heading": "代動詞 do: 繰り返しの動詞を do・does・did で代える",
+          "explanation": "一般動詞の文で、前に出た動詞の繰り返しを避けるために、do / does / did を使うことがあります。これを代動詞と呼びます。do の時制と主語は、前の動詞に合わせます。比較の than や as の後、so・neither の後でよく見られる形です。\n\n・He plays the piano better than I do.(彼は、私よりもピアノが上手に弾く)\n・She said she would call me, and she did.(彼女は電話すると言い、実際にかけてきた)\n\nbe 動詞の文や、助動詞の文では、do を使わず、be 動詞や助動詞をそのまま残します。",
+          "examples": [
+            { "en": "He plays the piano better than **I do**.", "ja": "彼は、私よりもピアノが上手に弾く。", "note": "I do = I play the piano(前の動詞句の代わり)" },
+            { "en": "She said she would call me, and **she did**.", "ja": "彼女は電話すると言い、実際にかけてきた。", "note": "did = called(前の過去形の動詞の代わり)" },
+            { "en": "You can use the room if you **do**.", "ja": "使いたければ、その部屋を使ってかまいません。", "note": "do = use the room(if 節の中の繰り返しを代える)" }
+          ],
+          "cautions": ["be 動詞の文では do を使わず、be 動詞を残す。× She is happy, and I do too. → ○ She is happy, and I am too."]
+        },
+        {
+          "heading": "so・not の代用: I think so・I hope not",
+          "explanation": "前に出た文の内容(that 節の内容)を、so(そうだ)や not(そうではない)で代わりに表すことがあります。think・believe・suppose・expect・hope などの後ろで、that 節の代わりに so や not を使います。\n\n・Is the new policy going to be approved? I think so.(新しい方針は承認されると思います)\n・Will the flight be delayed? I hope not.(フライトは遅れるだろうか。遅れないといいのですが)\n\n否定の形は、think の場合、I don't think so と言うのが一般的です。I think not は、文語的な言い方です。",
+          "examples": [
+            { "en": "Is the new policy going to be approved? I **think so**.", "ja": "新しい方針は承認されると思います。", "note": "I think so = I think the new policy is going to be approved(that 節の代わり)" },
+            { "en": "Will the flight be delayed? I **hope not**.", "ja": "フライトは遅れるだろうか。遅れないといいのですが。", "note": "I hope not = I hope the flight will not be delayed(not が that 節の代わり)" },
+            { "en": "Is the shop open today? I'm **afraid not**.", "ja": "その店は今日、開いていますか。残念ながら、開いていません。", "note": "I'm afraid not = I'm afraid the shop is not open(残念ながら、否定の答え)" }
+          ],
+          "cautions": ["I think not. は文語的な言い方で、会話では I don't think so. を使うのが一般的です。"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、代動詞の do・does・did や、is・am など be 動詞の形を選ばせる問題が出ることがあります。前に出た動詞の時制と主語を見て、do なのか be 動詞なのかを決めます。so・not は、前の think・hope などの後ろに来ます。"
+    },
+    {
+      "id": "insertion-apposition",
+      "title": "挿入と同格: カンマで区切る語句と、名詞の中身を説明する形",
+      "intro": "文の途中に、話し手の考えや補足を挿入することがあります。また、名詞の後ろに that 節や of 句を置き、その名詞の中身を説明する同格もあります。カンマの有無と、that の後ろの形で、両者を区別します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "挿入: , I think, ・, as you know, ・, however, のようにカンマで区切る",
+          "explanation": "文の途中に、話し手の考えや補足を、カンマで区切って入れることがあります。これを挿入と呼びます。挿入の語句を取り除いても文が成り立ち、主語と動詞の関係は変わりません。\n\n・The project, I think, is behind schedule.(そのプロジェクトは、私の考えでは予定より遅れている)\n・The plan, as you know, has some risks.(ご存じのとおり、その計画にはいくつかのリスクがある)\n\nよく使われる挿入には、I think・as you know・however(しかし)、so to speak(いわば)などがあります。if any(あったとしても)や if possible(できれば)も、文中に挿入の形で置かれることがあります。",
+          "examples": [
+            { "en": "The project, **I think**, is behind schedule.", "ja": "そのプロジェクトは、私の考えでは予定より遅れている。", "note": "I think をカンマで挟んだ挿入。主語 The project と動詞 is の間に入る" },
+            { "en": "The plan, **as you know**, has some risks.", "ja": "ご存じのとおり、その計画にはいくつかのリスクがある。", "note": "as you know の挿入。取り除いても The plan has some risks. が残る" },
+            { "en": "The results, **however**, were better than we expected.", "ja": "しかし、その結果は、私たちの予想よりもよかった。", "note": "however をカンマで挟んだ挿入(接続副詞の用法)" },
+            { "en": "This, **so to speak**, is the heart of the problem.", "ja": "いわば、これがその問題の核心だ。", "note": "so to speak(いわば)は、言い方を和らげる挿入" }
+          ],
+          "cautions": ["カンマを忘れると、関係詞節と誤解されることがある。× The project I think is behind schedule. → ○ The project, I think, is behind schedule.(カンマがないと、I think が the project を修飾する節のように見える)"]
+        },
+        {
+          "heading": "同格: the idea that・the fact that・the city of(名詞の中身を言い換える)",
+          "explanation": "同格とは、名詞の直後に、その名詞の内容を説明する語句や節を続ける形です。that 節(the fact that ~ = ~という事実)、of 句(the city of Osaka = 大阪という都市)、カンマで挟んだ名詞(my brother, Tom = 私の兄のトム)があります。\n\nthat 節が同格か関係代名詞かは、that の後ろを見て判断します。同格の that 節は、主語と動詞がそろった完全な文になります。関係代名詞の that 節は、その中で主語か目的語が欠けています。\n\nカンマで名詞を続ける同格(my brother, Tom)は、非制限用法の関係詞(my brother, who lives in Tokyo)と形が似ています。ただし、非制限用法では that は使えず、who や which を使います。",
+          "examples": [
+            { "en": "There was no evidence **that** the product was unsafe.", "ja": "その製品が危険だという証拠は、なかった。", "note": "evidence の中身を that 節が説明する(同格の that)" },
+            { "en": "The fact **that** he was late surprised us.", "ja": "彼が遅れたという事実は、私たちを驚かせた。", "note": "that の後ろが完全な文(he was late)なので同格" },
+            { "en": "We visited **the city of** Osaka last spring.", "ja": "去年の春、私たちは大阪という都市を訪ねた。", "note": "of の後ろの Osaka が city の中身を説明する(同格の of)" }
+          ],
+          "cautions": ["同格の that と関係代名詞の that を見分ける。The idea that he presented was new.(彼が示した考え)は関係代名詞で、presented の目的語が欠けている。The idea that the plan would succeed was new.(計画が成功するという考え)は同格。"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 や英検準1級では、カンマで挟まれた挿入語句の判断や、that 節が同格か関係代名詞かを見分ける問題が出ることがあります。that の後ろが完全な文なら同格、主語か目的語が欠けていれば関係代名詞と考えます。"
     }
   ],
   "summary": [
@@ -187,7 +373,11 @@
     "So + 形容詞、Such は、文頭に出ると be 動詞と主語が入れ替わる",
     "It is ~ that の強調構文: 強調したい語句を It is と that の間に置く",
     "if necessary・if any・unless approved は、慣用的な省略",
-    "Should + 主語 + 原形は、if を省略した「万一~なら」の倒置"
+    "Should + 主語 + 原形は、if を省略した「万一~なら」の倒置",
+    "場所・方向の語句(Here comes the bus)や補語が文頭に出ると倒置することがある。主語が代名詞なら倒置しない",
+    "譲歩の倒置(Young as he is、Try as I might)と、So do I・Neither do I の同意の倒置は、語順を確かめる",
+    "代不定詞の to、代動詞の do、so・not の代用は、繰り返しを避ける省略の形。be 動詞の文では do を使わない",
+    "強調: It was ~ that(that は省略しない)、What ... is ~、do・does・did による強調、not ... at all で、強調の形を区別する"
   ],
   "quiz": [
     {

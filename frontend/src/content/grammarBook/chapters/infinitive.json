@@ -2,7 +2,7 @@
   "id": "infinitive",
   "no": 13,
   "title": "不定詞",
-  "lead": "不定詞は、to + 動詞の原形の形で、名詞・形容詞・副詞の働きをします。「~すること」(名詞的用法)、「~するための」(形容詞的用法)、「~するために」(副詞的用法)の三つの用法があります。TOEIC Part 5 では、too ... to と enough to の使い分け、意味上の主語(for 人)、be to 構文の意味、動詞と不定詞の組み合わせがよく問われます。この章では、それぞれの形と意味を確かめます。",
+  "lead": "不定詞は、to + 動詞の原形の形で、名詞・形容詞・副詞の働きをします。「~すること」(名詞的用法)、「~するための」(形容詞的用法)、「~するために」(副詞的用法)の三つの用法があります。このほか、形式主語・形式目的語の it、完了・進行・受動の形、原形不定詞、独立不定詞などがあります。TOEIC Part 5 では、too ... to と enough to の使い分け、意味上の主語(for 人)、be to 構文の意味、動詞と不定詞の組み合わせがよく問われます。この章では、それぞれの形と意味を確かめます。",
   "sections": [
     {
       "id": "basics",
@@ -20,11 +20,54 @@
           ]
         },
         {
+          "heading": "名詞的用法①: 主語になる(To ... は~することだ)",
+          "explanation": "名詞的用法の不定詞は、文の主語・目的語・補語になり、「~すること」を表します。主語になるときは、文の頭に「to + 動詞の原形」を置きます。\n\n・To learn a new language takes time.(新しい言語を学ぶには時間がかかる)\n\n主語が長くなるときは、ふつう形式主語の It を使い、to 不定詞を後ろに回します(後の「形式主語 it」の項目で説明します)。主語になる不定詞は、単数扱いです。",
+          "examples": [
+            { "en": "**To keep** the data safe is our first priority.", "ja": "データを安全に保つことが、私たちの最優先事項だ。", "note": "to + 原形が文の主語(名詞的用法)。動詞は単数扱い" },
+            { "en": "**To swim** across the lake takes a lot of energy.", "ja": "湖を泳いで渡るには、多くの体力が要る。", "note": "to + 原形が主語。takes と単数で一致させる" }
+          ]
+        },
+        {
+          "heading": "名詞的用法②: 目的語になる(~することを~する)",
+          "explanation": "不定詞は、動詞の目的語にもなり、「~すること」を表します。動詞の後ろに「to + 動詞の原形」を置きます。動名詞(-ing)を目的語にとる動詞(enjoy、finish など)と違い、不定詞を目的語にとる動詞(decide、hope、want など)があるので、動詞ごとに形を覚える必要があります。\n\n・I want to finish this today.(今日中に終わらせたい)\n・We decided to delay the launch.(私たちは発売を延期することに決めた)",
+          "examples": [
+            { "en": "We **decided to delay** the launch until next spring.", "ja": "私たちは、発売を来春まで延期することに決めた。", "note": "decide + to 不定詞(目的語)" },
+            { "en": "I **hope to visit** our office in London next year.", "ja": "来年、ロンドンにある私たちの事務所を訪ねたいと思っている。", "note": "hope + to 不定詞(目的語)" }
+          ]
+        },
+        {
+          "heading": "名詞的用法③: 補語になる(主語は~することだ)",
+          "explanation": "不定詞は、be 動詞の後ろに置いて補語にもなります(第2文型 SVC)。「主語は~することだ」の意味で、主語の内容を説明します。目標、仕事、夢などを説明するときによく使われます。\n\n・My goal is to pass the exam.(私の目標は、試験に合格することだ)\n・Her job is to check the contracts.(彼女の仕事は、契約書を確認することだ)\n\n補語の不定詞は主語の内容を説明するので、「主語 = 不定詞の内容」と読むと分かりやすいです。",
+          "examples": [
+            { "en": "My goal is **to score** 930 points on the TOEIC test.", "ja": "私の目標は、TOEIC で930点を取ることだ。", "note": "be 動詞の後ろの to 不定詞(補語)" },
+            { "en": "Our task is **to reduce** the cost of shipping.", "ja": "私たちの仕事は、配送費を減らすことだ。", "note": "主語 Our task の内容を説明する補語" }
+          ]
+        },
+        {
           "heading": "形式主語 it: It is ~ to ...",
-          "explanation": "主語の不定詞が長いときは、主語を it にして、不定詞を後ろに回すことがあります(形式主語)。意味上の主語が必要なときは、for + 人を不定詞の前に置きます。\n\n・It is important to check the data.(データを確認することは重要だ)\n・It is difficult for me to understand the new policy.(新しい方針を理解するのは、私には難しい)",
+          "explanation": "主語の不定詞が長いときは、主語を it にして、不定詞を後ろに回すことがあります。この it を形式主語といい、中身のない、形だけの主語です(訳すときは「それは」と訳さない)。本当の主語は、後ろの to 不定詞です。\n\n・It is important to check the data.(データを確認することは重要だ)\n\n「It is + 形容詞 + to 不定詞」の形で、形容詞が判断や評価を表します。意味上の主語(だれがするか)を示すときは、for + 人を to の前に置きます。ただし、kind、careless、wise など人の性質を表す形容詞では、of + 人を使います(「意味上の主語」の項目で説明します)。",
           "examples": [
             { "en": "**It** is important **to check** the data before the meeting.", "ja": "会議の前にデータを確認することは重要だ。", "note": "形式主語 it + to 不定詞" },
-            { "en": "It is difficult **for me to understand** the new policy.", "ja": "新しい方針を理解するのは、私には難しい。", "note": "for 人 + to 不定詞(意味上の主語)" }
+            { "en": "It is difficult **for me to understand** the new policy.", "ja": "新しい方針を理解するのは、私には難しい。", "note": "for 人 + to 不定詞(意味上の主語)" },
+            { "en": "It is not easy **to change** old habits.", "ja": "古い習慣を変えるのは、簡単ではない。", "note": "否定の形容詞 + to 不定詞" }
+          ],
+          "cautions": ["× It is important that to check the data. → ○ It is important to check the data.(It is ~ の後ろに that と to を重ねない)"]
+        },
+        {
+          "heading": "形式目的語 it: find it ~ to ...",
+          "explanation": "目的語の不定詞が長いときや、目的語の後ろに補語(形容詞など)が来るときは、目的語の位置に it を置き、不定詞を後ろに回すことがあります。これを形式目的語といいます。find、make、think、consider、believe などの動詞で使われ、「動詞 + it + 補語 + to 不定詞」の形になります。\n\n・We consider it wise to keep a backup.(バックアップを取っておくのは賢明だと考えている)\n・We make it a rule to check the data twice.(データを2回確認することを決まりにしている)\n\nit は、後ろの to 不定詞を指します。it を省略すると、目的語と補語の区別がつかなくなるので、落とさないようにします。",
+          "examples": [
+            { "en": "I **found it difficult to understand** the new policy.", "ja": "新しい方針は、理解するのが難しいと分かった。", "note": "find + it(形式目的語)+ 形容詞 + to 不定詞" },
+            { "en": "The board **considers it important to protect** customer data.", "ja": "取締役会は、顧客情報を守ることが重要だと考えている。", "note": "consider + it + 形容詞 + to 不定詞" }
+          ],
+          "cautions": ["× I found difficult to understand the policy. → ○ I found it difficult to understand the policy.(find の後ろの it を落とさない)"]
+        },
+        {
+          "heading": "It takes ~ to ...: 時間・労力がかかる",
+          "explanation": "「~するのに時間(労力・お金)がかかる」は、It takes + 時間(・労力)+ to 不定詞で表します。人を示すときは、It takes の後ろに人、時間の順に置きます。過去のことは It took で表します。\n\n・It takes three hours to finish the report.(そのレポートを終えるのに3時間かかる)\n\n日本語の「~に時間がかかる」は、主語を it にして It takes(過去は It took)の形で表す、と覚えておくと便利です。",
+          "examples": [
+            { "en": "It **takes** about two hours **to commute** to the office.", "ja": "オフィスまで通勤するのに、約2時間かかる。", "note": "It takes + 時間 + to 不定詞" },
+            { "en": "It **took me** a week **to adapt** to the new system.", "ja": "新しいシステムに慣れるのに、1週間かかった。", "note": "It takes + 人 + 時間 + to 不定詞(過去は took)" }
           ]
         }
       ],
@@ -59,6 +102,32 @@
             { "en": "She was happy **to receive** the award.", "ja": "彼女は賞を受けて嬉しかった。", "note": "感情の原因を表す不定詞" },
             { "en": "He hurried to the office, **only to find** the meeting canceled.", "ja": "彼はオフィスへ急いだが、会議は中止になっていた。", "note": "only to(予想外の結果)" }
           ]
+        },
+        {
+          "heading": "感情の原因: glad to hear・sorry to hear",
+          "explanation": "glad、sorry、pleased、delighted、sad などの感情を表す形容詞の後ろに不定詞を置くと、その感情の原因を表します。「~して、(感情)だ」という意味です。\n\n・I am glad to see you again.(また会えて嬉しい)\n・We were sorry to miss the party.(パーティーに出られず、残念だった)\n\n感情を表す形容詞は、人を主語にするのが普通です。to 不定詞は、そう感じた理由(そのことを聞いた、そうなった)を示します。",
+          "examples": [
+            { "en": "I was **glad to hear** that the project succeeded.", "ja": "プロジェクトが成功したと聞いて、嬉しかった。", "note": "glad + to 不定詞(感情の原因)" },
+            { "en": "The client was **pleased to receive** our proposal.", "ja": "顧客は、私たちの提案を受け取って喜んだ。", "note": "pleased + to 不定詞(感情の原因)" }
+          ]
+        },
+        {
+          "heading": "判断の根拠: wise to・kind to・careless to",
+          "explanation": "wise、kind、careless、foolish、generous などの、人の性質や判断を表す形容詞の後ろに不定詞を置くと、その判断の根拠を表します。「~したのは賢明だ」「~するなんて不注意だ」のように、人の行いをほめたり、評価したりする言い方です。\n\n・You were wise to accept the offer.(その申し出を受けたのは賢明だった)\n・It was careless of him to leave the door open.(ドアを開けたままにしたのは、彼の不注意だった)\n\n主語が人なら「人 + be + 形容詞 + to 不定詞」、It で始めるなら「It is + 形容詞 + of + 人 + to 不定詞」の形にします。for ではなく of を使うのは、「意味上の主語」の項目と同じ考え方です。",
+          "examples": [
+            { "en": "You **were wise to save** money for the future.", "ja": "将来に備えてお金を貯めたのは賢明だった。", "note": "wise + to 不定詞(判断の根拠)" },
+            { "en": "It **was careless of him to leave** the door unlocked.", "ja": "ドアに鍵をかけずに出たのは、彼の不注意だった。", "note": "It is 形容詞 + of 人 + to 不定詞" }
+          ],
+          "cautions": ["× It was careless for him to leave the door unlocked. → ○ It was careless of him to leave the door unlocked.(人の性質の形容詞では of + 人)"]
+        },
+        {
+          "heading": "形容詞 + to 不定詞: 能動の形で受け身の意味(easy to read)",
+          "explanation": "easy、hard、difficult、pleasant、impossible などの形容詞の後ろに「to + 原形」を置くと、「~するのが易しい(難しい)」の意味になります。この to 不定詞は、形容詞を説明する副詞的用法です。\n\n主語が、to の後ろの動作を受ける側になるので、意味は受け身になります。しかし、to 不定詞の形は能動形(to read)のままです。\n\n・This book is easy to read.(この本は読みやすい)\n・The new software is hard to use.(その新しいソフトは使いにくい)",
+          "examples": [
+            { "en": "This **book is easy to read**, even for beginners.", "ja": "この本は、初心者でも読みやすい。", "note": "easy + to 不定詞(能動形で受け身の意味)" },
+            { "en": "The printer is **hard to set up** without a manual.", "ja": "マニュアルがないと、そのプリンターは設定しにくい。", "note": "hard + to 不定詞" }
+          ],
+          "cautions": ["× This book is easy to be read. → ○ This book is easy to read.(to 不定詞は能動形のままにする)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、目的を表す so as to と、否定の so as not to の区別が出題されます。"
@@ -83,7 +152,8 @@
           "examples": [
             { "en": "The project **is likely to be** delayed.", "ja": "プロジェクトは遅れそうだ。", "note": "be likely to(可能性)" },
             { "en": "We **have yet to decide** on the budget.", "ja": "予算についてはまだ決めていない。", "note": "have yet to + 原形(未完了)" }
-          ]
+          ],
+          "cautions": ["× We have yet decide the budget. → ○ We have yet to decide the budget.(yet の後ろに to を入れる)", "× We have not yet to decide the budget. → ○ We have not decided the budget yet. / We have yet to decide the budget.(have yet to と not yet を重ねない)"]
         },
         {
           "heading": "疑問詞 + to 不定詞: how to・what to・where to",
@@ -99,6 +169,23 @@
           "examples": [
             { "en": "It is important **for us to finish** the project on time.", "ja": "期限どおりにプロジェクトを終えることが、私たちにとって重要だ。", "note": "for + 人 + to 不定詞" },
             { "en": "It was **kind of you to help** us.", "ja": "手伝ってくれて、ご親切にありがとう。", "note": "kind + of + 人 + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "be supposed to: ~することになっている・~のはずだ",
+          "explanation": "be supposed to + 原形は、二つの意味で使われます。一つは、「~することになっている」(決まり・義務・予定)です。もう一つは、「~のはずだ」(予想)です。どちらの意味になるかは、文脈で判断します。\n\n否定文の be not supposed to は、「~してはいけないことになっている」(禁止)の意味になります。\n\n・The meeting is supposed to start at ten.(会議は10時に始まることになっている)\n・The package is supposed to arrive by Friday.(荷物は金曜日までに届くはずだ)",
+          "examples": [
+            { "en": "Visitors **are supposed to** sign in at the front desk.", "ja": "訪問者は、受付で記帳することになっている。", "note": "be supposed to(決まり・義務)" },
+            { "en": "You **are not supposed to** use your phone in the lab.", "ja": "実験室では、携帯電話を使ってはいけないことになっている。", "note": "not supposed to(禁止)" }
+          ],
+          "cautions": ["× You don't supposed to use your phone. → ○ You are not supposed to use your phone.(be 動詞を忘れない)"]
+        },
+        {
+          "heading": "be due to: ~する予定だ",
+          "explanation": "be due to + 原形は、「~する予定だ」「~することになっている」を表します。飛行機や列車の到着・出発、発表の時期など、予定されたことを表すときによく使われます。\n\n・The train is due to arrive at nine.(列車は9時に到着する予定だ)\n・The report is due to be published next month.(その報告書は来月発表される予定だ)\n\ndue to の後ろに名詞が続くと、「~が原因で」という前置詞の意味になります(The flight was delayed due to the storm. = 嵐のため、便が遅れた)。",
+          "examples": [
+            { "en": "The flight **is due to land** at 9:30 p.m.", "ja": "その便は、午後9時30分に着陸する予定だ。", "note": "be due to + 原形(予定)" },
+            { "en": "The new policy **is due to take effect** in April.", "ja": "新しい方針は、4月に施行される予定だ。", "note": "be due to + 原形(予定)" }
           ]
         }
       ],
@@ -131,6 +218,31 @@
           "explanation": "too ... to は、so ... that ... can not の形で書き換えられます。意味は同じですが、語法の問題では、形の違いを見分ける必要があります。\n\n・The task was too difficult to finish.\n・The task was so difficult that we could not finish it.",
           "examples": [
             { "en": "The task was **so difficult that** we **could not** finish it.", "ja": "その仕事は難しすぎて、終えられなかった。", "note": "so ... that ... could not" }
+          ]
+        },
+        {
+          "heading": "too ... for 人 to ~: 人にとって~すぎて…できない",
+          "explanation": "too + 形容詞(副詞)の後ろに「for + 人 + to 不定詞」を置くと、「(人)にとってあまりに~で、…できない」の意味になります。to 不定詞の意味上の主語(だれが~するか)を、for 人で示す形です。\n\n・The box is too heavy for me to carry.(その箱は重すぎて、私には運べない)\n\nこの形も否定の意味をすでに含むので、not を付けません。",
+          "examples": [
+            { "en": "The bag is **too heavy for him to carry** up the stairs.", "ja": "そのかばんは重すぎて、彼は階段の上まで運べない。", "note": "too + 形容詞 + for 人 + to 不定詞" },
+            { "en": "The question was **too difficult for** most students **to answer**.", "ja": "その問題は難しすぎて、ほとんどの学生には解けなかった。", "note": "too ... for 人 + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "enough for 人 to ~: 人が~するのに十分…だ",
+          "explanation": "形容詞・副詞 + enough の後ろに「for + 人 + to 不定詞」を置くと、「(人)が~するのに十分…だ」の意味になります。enough の前の形容詞・副詞の程度が、後ろの不定詞の動作を可能にするほど十分だ、と示す形です。\n\n・The room is large enough for us to hold the meeting.(その部屋は、私たちが会議をするのに十分広い)\n\nenough は形容詞・副詞の後ろに置きます(enough large は誤り)。",
+          "examples": [
+            { "en": "The training was **easy enough for** beginners **to follow**.", "ja": "その研修は、初心者でもついていけるほど十分やさしかった。", "note": "形容詞 + enough for 人 + to 不定詞" },
+            { "en": "The table is **big enough for** six people **to sit** around.", "ja": "そのテーブルは、6人が囲んで座れるほど十分大きい。", "note": "形容詞 + enough for 人 + to 不定詞" }
+          ],
+          "cautions": ["× The room is enough large for us to hold the meeting. → ○ The room is large enough for us to hold the meeting.(enough は形容詞の後ろ)"]
+        },
+        {
+          "heading": "so ... as to ~: (親切にも)~する",
+          "explanation": "so + 形容詞・副詞 + as to 不定詞は、「(人が)~するほど…だ」「~してくれるほど…だ」を表します。主語の人の性質や態度を、程度を示す形で表します。kind、good、rude などの人の性質を表す形容詞とよく組み合わせます。\n\n・He was so kind as to give me a ride.(彼は親切にも、車で送ってくれた)\n\n意味は kind enough to と近く、「親切にも~してくれた」と訳すと自然です。",
+          "examples": [
+            { "en": "She was **so kind as to** show me around the city.", "ja": "彼女は親切にも、私に街を案内してくれた。", "note": "so + 形容詞 + as to(親切にも~する)" },
+            { "en": "Would you be **so kind as to** send me the file?", "ja": "ご面倒でなければ、そのファイルを送っていただけますか。", "note": "丁寧な依頼の表現" }
           ]
         }
       ],
@@ -165,20 +277,231 @@
             { "en": "I remember **meeting** her at the conference.", "ja": "会議で彼女に会ったのを覚えている。", "note": "過去の出来事は -ing" },
             { "en": "Please remember **to send** the file tomorrow.", "ja": "明日ファイルを送ることを忘れないでください。", "note": "これからの行為は to 不定詞" }
           ]
+        },
+        {
+          "heading": "regret to ~・regret -ing: 残念ながら~する・~したことを後悔する",
+          "explanation": "regret の後ろに不定詞を置くと、「残念ながら~する」の意味になります。これから伝える悪い知らせの前置きとして、ビジネスの手紙やメールでよく使われます。-ing を置くと、「~したことを後悔する」の意味で、すでに起こったことを表します。\n\n・We regret to inform you that the meeting is canceled.(残念ですが、会議が中止になったことをお知らせします)\n・I regret telling him the truth.(彼に本当のことを話したのを後悔している)",
+          "examples": [
+            { "en": "We **regret to inform** you that your order has been delayed.", "ja": "誠に残念ながら、ご注文の品が遅れていることをお知らせします。", "note": "regret + to 不定詞(残念ながら~する)" },
+            { "en": "She **regretted saying** that in front of the clients.", "ja": "彼女は、顧客の前であんなことを言ったのを後悔した。", "note": "regret + -ing(~したことを後悔する)" }
+          ]
+        },
+        {
+          "heading": "go on to ~・go on -ing: 次に~する・~し続ける",
+          "explanation": "go on の後ろの形で意味が変わります。go on to 不定詞は、「(前のことが終わって)次に~する」を表します。go on -ing は、「~し続ける」を表します。\n\n・He went on to say that prices would rise.(彼は続けて、値段が上がるだろうと言った)\n・Despite the rain, they went on playing.(雨にもかかわらず、彼らは試合を続けた)",
+          "examples": [
+            { "en": "After the greeting, the CEO **went on to discuss** the budget.", "ja": "あいさつの後、最高経営責任者は続けて予算について話した。", "note": "go on to 不定詞(次に~する)" },
+            { "en": "The team **went on working** until midnight.", "ja": "チームは深夜まで働き続けた。", "note": "go on -ing(~し続ける)" }
+          ]
+        },
+        {
+          "heading": "mean to ~・mean -ing: ~するつもりだ・~を意味する",
+          "explanation": "mean + 不定詞は、「~するつもりだ」(意図)を表します。主語は人です。mean + -ing は、「~を意味する」「~につながる」を表し、主語は行為や出来事などの物事であることが多いです。\n\n・I didn't mean to hurt you.(あなたを傷つけるつもりはなかった)\n・Missing the deadline means losing the contract.(締め切りに遅れることは、契約を失うことを意味する)",
+          "examples": [
+            { "en": "I **didn't mean to** upset anyone. I'm sorry.", "ja": "だれかを怒らせるつもりはなかった。ごめんなさい。", "note": "mean + 不定詞(~するつもりだ)" },
+            { "en": "A sudden drop in sales **means cutting** costs.", "ja": "売上の急減は、コストを削減しなければならないことを意味する。", "note": "mean + -ing(~を意味する・伴う)" }
+          ],
+          "cautions": ["× I didn't mean hurting you. → ○ I didn't mean to hurt you.(意図を表すときは mean to。mean -ing は「~を伴う」の意味になる)"]
+        },
+        {
+          "heading": "tell・advise・allow・enable + 人 + to 不定詞",
+          "explanation": "tell、advise、allow、enable などの動詞は、目的語の人の後ろに to 不定詞を置きます。「(人)に~するように言う・勧める」「(人)が~することを許す・可能にする」の意味です。\n\n・The doctor advised him to rest for a week.(医師は彼に、1週間休むように勧めた)\n・The new system enables users to log in from home.(新しいシステムにより、利用者は自宅からログインできる)",
+          "table": {
+            "caption": "人を目的語にとり、to 不定詞が続く動詞(1)",
+            "headers": ["動詞", "形", "意味"],
+            "rows": [["tell", "tell 人 to do", "人に~するように言う"], ["advise", "advise 人 to do", "人に~するよう勧める"], ["allow", "allow 人 to do", "人が~することを許す"], ["enable", "enable 人 to do", "人が~することを可能にする"]]
+          },
+          "examples": [
+            { "en": "The manager **told** the interns **to report** to her every morning.", "ja": "部長は、インターンに毎朝自分に報告するよう言った。", "note": "tell + 人 + to 不定詞" },
+            { "en": "The company **allows** employees **to work** from home on Fridays.", "ja": "その会社は、金曜日に社員が在宅勤務をすることを認めている。", "note": "allow + 人 + to 不定詞" }
+          ]
+        },
+        {
+          "heading": "encourage・force・persuade・expect + 人 + to 不定詞",
+          "explanation": "encourage(勧める・励ます)、force(無理に~させる)、persuade(説得して~させる)も、人の後ろに to 不定詞を続けます。expect は、人を目的語にとると「(人が)~すると予想する・期待する」の意味になります。人を目的語にとらない expect to do(~するつもりだ・~する予定だ)とは、形で区別します。\n\n・They persuaded the client to sign the contract.(彼らは顧客を説得して、契約に署名させた)\n・We expect the manager to approve the budget.(部長が予算を承認すると期待している)",
+          "table": {
+            "caption": "人を目的語にとり、to 不定詞が続く動詞(2)",
+            "headers": ["動詞", "形", "意味"],
+            "rows": [["encourage", "encourage 人 to do", "人に~するよう勧める・励ます"], ["force", "force 人 to do", "人に無理に~させる"], ["persuade", "persuade 人 to do", "人を説得して~させる"], ["expect", "expect 人 to do", "人が~すると予想する・期待する"]]
+          },
+          "examples": [
+            { "en": "The storm **forced** the airline **to cancel** dozens of flights.", "ja": "嵐のため、航空会社は何十便もの欠航を余儀なくされた。", "note": "force + 人 + to 不定詞(無理に~させる)" },
+            { "en": "We **expect** the new supplier **to deliver** the parts on time.", "ja": "私たちは、新しい仕入れ先が部品を期限どおりに届けてくれると期待している。", "note": "expect + 人 + to 不定詞(~すると期待する)" }
+          ],
+          "cautions": ["× Our manager allowed us going home early. → ○ Our manager allowed us to go home early.(allow + 人 + to 不定詞。-ing や原形にしない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、人 + to 不定詞の形(ask + 人 + to do)と、remember・stop の不定詞・動名詞の違いが出題されます。"
+    },
+    {
+      "id": "verbs-to-only",
+      "title": "不定詞だけを目的語にとる動詞",
+      "intro": "動詞の中には、後ろに動名詞(-ing)を続けられず、to 不定詞だけを目的語にとるものがあります。decide、plan、hope、want などです。動詞ごとに、どちらの形をとるかを覚えておくと、空所補充で迷いません。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "decide・plan・agree・promise・refuse: これから行うことを決める",
+          "explanation": "decide、plan、agree、promise、refuse は、「~することを決める・計画する・同意する・約束する・拒む」の意味で、これから行う動作を目的語にとります。後ろには to 不定詞だけを続け、動名詞(-ing)は続けられません。\n\n未来の行為を決めたり約束したりする動詞なので、目的語には未来の行為を表す不定詞を置く、と考えると分かりやすいです。",
+          "table": {
+            "caption": "不定詞だけを目的語にとる動詞(1)",
+            "headers": ["動詞", "形", "意味"],
+            "rows": [["decide", "decide to do", "~することに決める"], ["plan", "plan to do", "~する計画を立てる"], ["agree", "agree to do", "~することに同意する"], ["promise", "promise to do", "~すると約束する"], ["refuse", "refuse to do", "~することを拒む"]]
+          },
+          "examples": [
+            { "en": "The board **decided to sell** the old building.", "ja": "取締役会は、その古いビルを売却することに決めた。", "note": "decide + to 不定詞" },
+            { "en": "We **agreed to share** the cost of the project.", "ja": "私たちは、プロジェクトの費用を分担することに同意した。", "note": "agree + to 不定詞" },
+            { "en": "The supplier **refused to accept** the late order.", "ja": "その仕入れ先は、遅れた注文を受けることを拒否した。", "note": "refuse + to 不定詞" }
+          ],
+          "cautions": ["× We decided buying a new server. → ○ We decided to buy a new server.(decide の後ろに -ing や原形を置かない)"]
+        },
+        {
+          "heading": "hope・want・wish・learn・afford・fail: to 不定詞だけを続ける",
+          "explanation": "hope、want、wish、learn、afford、fail も、後ろに to 不定詞だけを続けます。意味は、「~したいと思う」(hope、want、wish)、「~できるようになる」(learn)、「~する余裕がある」(afford)、「~しない・~できない」(fail)です。afford は、ふつう can や could と一緒に使います。\n\n・The company can afford to hire more engineers.(その会社は、技術者をもっと雇う余裕がある)",
+          "table": {
+            "caption": "不定詞だけを目的語にとる動詞(2)",
+            "headers": ["動詞", "形", "意味"],
+            "rows": [["hope", "hope to do", "~したいと思う"], ["want", "want to do", "~したい"], ["wish", "wish to do", "~したいと思う(改まった言い方)"], ["learn", "learn to do", "~できるようになる"], ["afford", "afford to do", "~する余裕がある"], ["fail", "fail to do", "~しない・~できない"]]
+          },
+          "examples": [
+            { "en": "The company **can afford to hire** more engineers this year.", "ja": "その会社は、今年はさらに技術者を雇う余裕がある。", "note": "afford + to 不定詞(~する余裕がある)" },
+            { "en": "He **failed to meet** the deadline again.", "ja": "彼はまた締め切りに間に合わなかった。", "note": "fail + to 不定詞(~しない・できない)" },
+            { "en": "I **learned to drive** when I was eighteen.", "ja": "私は18歳のとき、運転できるようになった。", "note": "learn + to 不定詞(~できるようになる)" }
+          ],
+          "cautions": ["× We can't afford losing another client. → ○ We can't afford to lose another client.(afford は to 不定詞だけを取る)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、decide・plan・agree・refuse などの後ろに -ing を入れた形が誤りの選択肢として出やすいです。動詞の後ろの形を見て、to 不定詞だけを取る動詞かどうかを判断します。"
+    },
+    {
+      "id": "perfect-progressive-passive",
+      "title": "完了・進行・受動の不定詞: to have done・to be doing・to be done",
+      "intro": "不定詞は、形を変えて時と態を表せます。to have + 過去分詞は文の動詞より前の時、to be + -ing は進行中の動作、to be + 過去分詞は受け身を表します。seem、pretend、happen などと組み合わせて使われます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "完了不定詞: to have + 過去分詞(~したようだ・~したふりをする)",
+          "explanation": "to have + 過去分詞の形を、完了不定詞といいます。文の動詞より前に起きたことを表すときに使います。seem to have done は「~したようだ」、pretend to have done は「~したふりをする」の意味です。\n\n・The team seems to have finished the project early.(チームは、プロジェクトを早く終えたようだ)\n\n「~したようだ」は、今の時点から見て、過去の出来事について推測する意味です。to の後ろの have + 過去分詞は、その出来事が起きた時を表します。",
+          "examples": [
+            { "en": "She **seems to have forgotten** the meeting.", "ja": "彼女は、会議のことを忘れてしまったようだ。", "note": "seem + to have + 過去分詞(~したようだ)" },
+            { "en": "My boss **pretended to have heard** nothing about the delay.", "ja": "上司は、遅れについて何も聞いていないふりをした。", "note": "pretend + to have + 過去分詞(~したふりをした)" },
+            { "en": "The company **is believed to have lost** millions of dollars.", "ja": "その会社は、数百万ドルの損失を出したとされている。", "note": "be believed to have + 過去分詞(受け身 + 完了)" }
+          ],
+          "cautions": ["× She seems to have forgot the meeting. → ○ She seems to have forgotten the meeting.(完了形の過去分詞は forgotten)"]
+        },
+        {
+          "heading": "進行不定詞: to be + -ing(~しているようだ・たまたま~している)",
+          "explanation": "to be + -ing の形を、進行不定詞といいます。文の動詞と同じ時、またはその時点で進行中の動作を表します。seem to be doing は「今~しているようだ」、happen to be doing は「たまたま~している」の意味です。\n\n・The train seems to be running late today.(今日は、電車が遅れているようだ)\n・I happened to be reading the same article.(私はたまたま、同じ記事を読んでいた)",
+          "examples": [
+            { "en": "The sales team **seems to be struggling** this quarter.", "ja": "営業チームは、今四半期は苦戦しているようだ。", "note": "seem + to be + -ing(今~しているようだ)" },
+            { "en": "We **happened to be visiting** Kyoto when the festival began.", "ja": "祭りが始まったとき、私たちはたまたま京都を訪れていた。", "note": "happen + to be + -ing(たまたま~している)" }
+          ],
+          "cautions": ["× He seems to working now. → ○ He seems to be working now.(to の後ろは be + -ing)"]
+        },
+        {
+          "heading": "受動不定詞: to be + 過去分詞(~される・~されるべき)",
+          "explanation": "to be + 過去分詞の形を、受動不定詞といいます。不定詞の動作を受ける側になるとき、受け身の意味になります。名詞や代名詞を後ろから修飾して「~されるべき」「~される」の意味を表すことが多いです。\n\n・The report needs to be reviewed by the manager.(そのレポートは、部長が確認する必要がある)\n\n受け身の意味は、to be + 過去分詞の形で表します。to の後ろが能動の動詞(to review)なら、「~する」の意味になります。",
+          "examples": [
+            { "en": "There are three tasks **to be completed** by Friday.", "ja": "金曜日までに終えるべき仕事が3つある。", "note": "名詞 + to be + 過去分詞(~されるべき)" },
+            { "en": "The new office **is expected to be opened** in the spring.", "ja": "新しいオフィスは、春に開設される予定だ。", "note": "to be + 過去分詞(受け身)" }
+          ],
+          "cautions": ["× The report needs to review. → ○ The report needs to be reviewed.(レポートは「見直される」ので、受け身の to be reviewed)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、seem の後ろの to have + 過去分詞と to be + -ing の形の違い、受け身の to be + 過去分詞を選ばせる問題が出やすいです。時の違いは、文の動詞の時を基準に見ます。"
+    },
+    {
+      "id": "bare-infinitive",
+      "title": "原形不定詞: 使役動詞・help・知覚動詞",
+      "intro": "to を付けない動詞の原形(原形不定詞)は、make・let・have と、知覚動詞(see・hear など)の後ろで使われます。help は原形も to 不定詞も取れます。使役と知覚の形の違いは、受け身にしたときと、意味の違いに表れます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "make・let・have + 人 + 原形: 使役の形",
+          "explanation": "make、let、have は、「O が~する(させる)」の形で、目的語の後ろに to を付けない原形不定詞を取ります。make は強制(無理に~させる)、let は許可(~させてやる)、have は人に頼んで~してもらう(依頼)を表します。\n\n・The manager made us stay late.(部長は、私たちを遅くまで残らせた)\n・Let me know if you need any help.(手伝いが必要なら、教えてください)\n\n受け身にすると、make は be made to do(to が戻る)、let は be allowed to do と言います。",
+          "examples": [
+            { "en": "The new rule **made** all staff **attend** the training.", "ja": "新しい規則により、全員が研修に参加することになった。", "note": "make + 人 + 原形(強制)" },
+            { "en": "The manager **let** the staff **leave** early on Friday.", "ja": "部長は、金曜日にスタッフを早く帰らせた。", "note": "let + 人 + 原形(許可)" },
+            { "en": "I **had** my assistant **book** the flight.", "ja": "秘書に、飛行機を予約してもらった。", "note": "have + 人 + 原形(依頼して~してもらう)" }
+          ],
+          "cautions": ["× The manager made us to stay late. → ○ The manager made us stay late.(make は to を付けない)"]
+        },
+        {
+          "heading": "help + 人 + (to)原形: 人が~するのを助ける",
+          "explanation": "help は、目的語の後ろに原形と to 不定詞のどちらも取れます。「O が~するのを助ける」の意味です。原形の形がよく使われますが、to を付けた形も正しい形です。\n\n・Good notes help us remember the key points.(よいメモは、重要な点を覚える助けになる)\n・Can you help me (to) finish this report?(このレポートを仕上げるのを手伝ってくれますか)",
+          "examples": [
+            { "en": "The mentor **helped** me **prepare** for the interview.", "ja": "メンターは、面接の準備を手伝ってくれた。", "note": "help + 人 + 原形" },
+            { "en": "Clear instructions **help** new staff **to learn** the system quickly.", "ja": "わかりやすい説明は、新人が早くシステムを覚える助けになる。", "note": "help + 人 + to 原形(to を付けた形も正しい)" }
+          ],
+          "cautions": ["× Could you help to me finish this? → ○ Could you help me finish this?(help の後ろの人に to は付けない)"]
+        },
+        {
+          "heading": "知覚動詞 + 人 + 原形/-ing: see・hear・watch・notice",
+          "explanation": "see、hear、watch、notice、feel などの知覚動詞は、「O が~するのを見る・聞く」の形で、目的語の後ろに原形か -ing を取ります。原形は、動作の始めから終わりまでを全体として見た・聞いたことを表します。-ing は、動作の途中を見た・聞いたことを表します。\n\n・I saw her enter the room.(彼女が部屋に入るのを見た)\n・I saw her entering the room.(彼女が部屋に入ろうとしているところを見た)\n\n受け身にすると、to が戻ります(She was seen to enter the room.)。",
+          "examples": [
+            { "en": "I **heard** the phone **ring** in the next room.", "ja": "隣の部屋で電話が鳴るのが聞こえた。", "note": "hear + 人 + 原形(動作の全体)" },
+            { "en": "We **watched** the workers **loading** the trucks.", "ja": "私たちは、作業員がトラックに荷物を積んでいるのを見ていた。", "note": "watch + 人 + -ing(動作の途中)" }
+          ],
+          "cautions": ["× I saw him to leave the building. → ○ I saw him leave the building.(知覚動詞の後ろに to は付けない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、make・let・have の後ろに to を入れた形が誤りの選択肢として出やすいです。知覚動詞の後ろは、動作の全体(原形)か途中(-ing)かで選びます。"
+    },
+    {
+      "id": "special-forms",
+      "title": "特殊な形の不定詞: 独立不定詞・代不定詞・分離不定詞",
+      "intro": "不定詞には、文の他の部分と文法的につながらないもの、to の後ろの動詞が省略されるもの、to と動詞の原形の間に副詞が入るものがあります。to be honest、needless to say などは、読み飛ばさず、話し手の態度や話の流れを表す語句として読みます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "独立不定詞: to be honest など(話し手の態度)",
+          "explanation": "不定詞の中には、文の他の部分と文法的につながらず、独立して使われるものがあります。これを独立不定詞といいます。話し手の気持ちや態度を表し、文頭・文末・文中にカンマで区切って置かれます。To be honest(正直に言うと)、To tell the truth(本当のことを言うと)、To be frank(率直に言うと)、To be sure(確かに)などが代表的です。\n\n・To be frank, your idea is too risky.(率直に言うと、あなたの案はリスクが大きすぎる)\n・The results, to be sure, were better than expected.(確かに、結果は予想より良かった)",
+          "examples": [
+            { "en": "**To be honest**, I don't think the plan will work.", "ja": "正直に言うと、その計画はうまくいかないと思う。", "note": "独立不定詞(話し手の態度)。文頭でカンマを付ける" },
+            { "en": "The proposal, **to tell the truth**, needs more work.", "ja": "本当のことを言うと、その提案にはもっと手を加える必要がある。", "note": "文中に挿入されることもある" }
+          ]
+        },
+        {
+          "heading": "独立不定詞: needless to say など(話の流れ・論評)",
+          "explanation": "独立不定詞には、話の順序や状況の説明を表すものもあります。Needless to say(言うまでもなく)、To make matters worse(さらに悪いことに)、To begin with(まず第一に)、So to speak(いわば)などです。これらは、決まった言い回しとして覚えます。\n\n・To begin with, the budget was too small.(そもそも、予算が少なすぎた)",
+          "examples": [
+            { "en": "**Needless to say**, the new policy affects every employee.", "ja": "言うまでもなく、新しい方針は全社員に影響する。", "note": "needless to say(言うまでもなく)" },
+            { "en": "The project was over budget. **To make matters worse**, the deadline was moved up.", "ja": "プロジェクトは予算を超えていた。さらに悪いことに、締め切りが早められた。", "note": "to make matters worse(さらに悪いことに)" },
+            { "en": "He is, **so to speak**, the face of the company.", "ja": "彼は、いわば会社の顔だ。", "note": "so to speak(いわば・言ってみれば)" }
+          ]
+        },
+        {
+          "heading": "代不定詞: to だけを残す(I'd like to.)",
+          "explanation": "同じ動詞が前に出ているとき、繰り返しを避けるために、to の後ろの動詞の原形を省略して、to だけを残すことがあります。これを代不定詞(to 不定詞の省略)といいます。会話でよく使われます。\n\n前の文で、省略された動詞が何か分かるときだけ使えます。\n\n・A: Do you want to come? B: Yes, I'd like to.(A: 来たい? B: うん、ぜひそうしたい。)",
+          "examples": [
+            { "en": "A: Would you like to join us for lunch? B: I'd love to, but I have a meeting.", "ja": "A: 昼食に一緒に来ませんか。 B: ぜひ行きたいのですが、会議があるんです。", "note": "I'd love to の後ろに join us for lunch が省略されている" },
+            { "en": "You don't have to finish it today, but you may want to.", "ja": "今日中に終える必要はないが、終えたくなったら終えてもよい。", "note": "may want to の後ろに finish it today が省略されている" }
+          ],
+          "cautions": ["× Yes, I want go. → ○ Yes, I want to.(代不定詞は to を残し、動詞の原形だけを省略する)"]
+        },
+        {
+          "heading": "分離不定詞: to と原形の間に副詞が入る(to boldly go)",
+          "explanation": "to と動詞の原形の間に副詞を入れる形を、分離不定詞(split infinitive)といいます。to boldly go(大胆に行く)のように、副詞が to と原形の間に入ります。昔の英文法では避けるべきとされましたが、現代英語では、意味が明確な場合に広く使われています。\n\n副詞を置く位置は、強調したい語で決まります。to carefully review と to review carefully はどちらも意味が通るので、試験では、意味が通るか、副詞の位置が不自然でないかを見ます。",
+          "examples": [
+            { "en": "The team hopes **to quickly resolve** the issue.", "ja": "チームは、その問題を素早く解決したいと考えている。", "note": "to と原形の間に副詞 quickly(分離不定詞)" },
+            { "en": "It is important **to carefully review** the contract.", "ja": "契約書を慎重に確認することが重要だ。", "note": "to carefully review(to review carefully とも言える)" }
+          ]
+        }
+      ],
+      "examNote": "英検準1級の長文では、独立不定詞(needless to say など)が話の流れを示す語句として出やすいです。文の主語や動詞と関係しない挿入として読み、前後の論理をつかみます。"
     }
   ],
   "summary": [
-    "不定詞の三つの用法: 名詞的(~すること)、形容詞的(~するための)、副詞的(~するために)",
-    "形式主語: It is 形容詞 for 人 to 不定詞 ...。人の性質の形容詞では for ではなく of + 人",
+    "不定詞の三つの用法: 名詞的(~すること・主語・目的語・補語になる)、形容詞的(~するための)、副詞的(~するために)",
+    "形式主語: It is 形容詞 for 人 to 不定詞 ...。人の性質の形容詞では for ではなく of + 人。形式目的語は find it 形容詞 to 不定詞",
     "目的は、to・in order to・so as to で表す。so as not to は「~しないように」",
-    "too 形容詞 to 原形: あまりに~で…できない。enough to は、十分~で…できる",
-    "be to 構文は、予定・命令・可能・運命を表す。be likely to・be about to・have yet to も覚える",
+    "too 形容詞 to 原形: あまりに~で…できない(too ... for 人 to も)。enough to は、十分~で…できる",
+    "be to 構文は、予定・命令・可能・運命を表す。be likely to・be about to・have yet to・be supposed to・be due to も覚える",
     "疑問詞 + to 不定詞は、名詞句(how to・what to・where to)",
-    "ask・want・encourage + 人 + to 不定詞。stop・remember などは、不定詞と動名詞で意味が変わる",
-    "remember -ing は過去の出来事、remember to do はこれからの行為"
+    "ask・want・tell・advise + 人 + to 不定詞。decide・plan・hope・afford・fail などは、to 不定詞だけを取る",
+    "remember・forget・regret・stop・try・go on・mean は、不定詞と動名詞で意味が変わる。remember -ing は過去の出来事、remember to do はこれからの行為",
+    "完了不定詞(to have 過去分詞)は、文の動詞より前の時。進行(to be -ing)と受動(to be 過去分詞)も覚える",
+    "原形不定詞: make・let・have + 人 + 原形、知覚動詞 + 人 + 原形/-ing。受け身では to が戻る(be made to do)",
+    "独立不定詞(to be honest、needless to say など)は、文の一部ではなく、話し手の態度や話の流れを表す"
   ],
   "quiz": [
     {

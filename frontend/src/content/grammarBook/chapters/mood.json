@@ -30,9 +30,37 @@
           "heading": "仮定法過去の be 動詞は、主語にかかわらず were",
           "explanation": "仮定法過去で be 動詞を使うとき、主語が I、he、she、it でも、were を使うのが正式な形です。口語では was も使われますが、試験では were が正解になることが多いです。\n\n・If I were you, I would accept the offer.(私があなたなら、その申し出を受けるだろう)",
           "examples": [
-            { "en": "If I **were** you, I **would accept** the offer.", "ja": "私があなたなら、その申し出を受けるだろう。", "note": "仮定法過去の be は were" }
+            { "en": "If I **were** you, I **would accept** the offer.", "ja": "私があなたなら、その申し出を受けるだろう。", "note": "仮定法過去の be は were" },
+            { "en": "If he **were** here, he **would help** us.", "ja": "彼がここにいれば、私たちを手伝ってくれるだろう。", "note": "主語が he でも be 動詞は were" }
           ],
           "cautions": ["× If I was you, ... → ○ If I were you, ...(仮定法では were を使う)"]
+        },
+        {
+          "heading": "命令法: 主語を省き、動詞の原形で命じる",
+          "explanation": "命令法は、相手に直接命じたり、指示したりする形です。主語を省き、動詞の原形で文を始めます。\n\n・Close the door.(ドアを閉めなさい)\n・Be careful on the stairs.(階段では気をつけてください)\n\n英語の「法」は、3つに分けて考えると整理しやすくなります。直説法は、事実や実際に起こりうることを述べる形です。仮定法は、事実と違う仮定や願望を述べる形です。命令法は、相手に行動を求める形です。否定の命令は、Don't の後ろに動詞の原形を置きます。",
+          "table": {
+            "caption": "法の3つの違い",
+            "headers": ["法", "述べる内容", "動詞の形の例"],
+            "rows": [
+              ["直説法", "事実・実際に起こりうること", "It rains. / If it rains, ..."],
+              ["命令法", "相手への命令・依頼", "Close the door. / Don't be late."],
+              ["仮定法", "事実と違う仮定・願望", "If I knew ... / If I were ..."]
+            ]
+          },
+          "examples": [
+            { "en": "**Close** the window before you **leave**.", "ja": "出かける前に窓を閉めなさい。", "note": "主語を省き、動詞の原形で命じる" },
+            { "en": "**Don't be** late for the meeting tomorrow.", "ja": "明日の会議に遅れないでください。", "note": "否定の命令は Don't + 動詞の原形" }
+          ],
+          "cautions": ["× Closes the window. → ○ Close the window.(命令文は動詞の原形で始める。三人称単数の s は付けない)"]
+        },
+        {
+          "heading": "直説法の条件文: 実現しうる条件は、現在形と will など",
+          "explanation": "「もし~なら、…する」の文でも、条件が実際に起こりうるときは、仮定法ではなく直説法を使います。if の節は現在形で書き、主節は will・can・must などの形になります。\n\n・If it rains, I will stay home.(雨が降ったら、家にいるつもりだ)\n\nこの文では、雨が降る可能性が十分にあります。そのため、事実として述べる直説法で書きます。仮定法の If it rained ... は、雨が降る可能性が低いと考えている、現実味の薄い仮定に使います。\n\nif の節に will を置かないことも大切です。未来のことでも、if の節では現在形を使います。見分ける手順は、「その条件が実際に起こりうるか」を先に考えることです。",
+          "examples": [
+            { "en": "If it **rains** tomorrow, I **will stay** home.", "ja": "明日雨が降ったら、家にいるつもりだ。", "note": "実現しうる未来の条件(直説法)。if の節は現在形" },
+            { "en": "If you **heat** ice, it **melts**.", "ja": "氷を熱すると、溶ける。", "note": "いつでも成り立つ事実なので、直説法の現在形のまま" }
+          ],
+          "cautions": ["× If it will rain, I will stay home. → ○ If it rains, I will stay home.(if の節に will を置かない)"]
         }
       ],
       "examNote": "TOEIC Part 5 の仮定法問題は、if の節の動詞の形(過去形か過去完了か)を見て、主節の助動詞(would か would have か)を判断させる形で出ます。"
@@ -73,6 +101,32 @@
             { "en": "**With** more staff, we **could finish** the project sooner.", "ja": "もっと人手があれば、そのプロジェクトを早く終えられるのに。", "note": "with + 名詞が if の節の代わり" },
             { "en": "**Without** your support, the team **would have given up**.", "ja": "あなたの支えがなければ、チームは諦めていただろう。", "note": "without + 名詞(過去の反対の仮定)" }
           ]
+        },
+        {
+          "heading": "仮定法過去の主節: would・could・might を使い分ける",
+          "explanation": "仮定法過去の主節は、would だけに限りません。could(~できるだろう)や might(~かもしれない)も使われます。どの助動詞を選ぶかは、主節が表す内容で決まります。\n\n・would: 結果として、そうなるだろう\n・could: 能力や可能性(~できるだろう)\n・might: 控えめな推量(~かもしれない)\n\nif の節は、どの助動詞の場合も過去形のままです。仮定法の主節に can を使うのは誤りです。「できる」という意味なら could、「~するかもしれない」という意味なら might を選ぶと、意味が合います。",
+          "examples": [
+            { "en": "If she **spoke** French, she **could get** the job.", "ja": "彼女がフランス語を話せれば、その仕事に就けるだろう。", "note": "could は「~できる」の意味(能力・可能性)" },
+            { "en": "If we **had** a bigger budget, we **might hire** more engineers.", "ja": "予算がもっと大きければ、エンジニアをもっと雇うかもしれない。", "note": "might は「~かもしれない」の控えめな推量" }
+          ],
+          "cautions": ["× If I had time, I can go. → ○ If I had time, I could go.(仮定法の主節に can は使わない)"]
+        },
+        {
+          "heading": "仮定法過去完了の主節: could have・might have を使い分ける",
+          "explanation": "仮定法過去完了の主節も、would have だけに限りません。過去に起こらなかったことの結果を、could have(~できただろう)や might have(~したかもしれない)で表すこともあります。\n\n・could have + 過去分詞: あのとき~できた(のに)\n・might have + 過去分詞: あのとき~したかもしれない\n\nif の節は、どの場合も had + 過去分詞です。主節は、助動詞 + have + 過去分詞の形にします。would have の代わりに could have を使うと、「できた」という意味が加わります。",
+          "examples": [
+            { "en": "If the weather **had been** better, we **could have enjoyed** the picnic.", "ja": "天気がもっと良ければ、ピクニックを楽しめたのに。", "note": "過去の事実(天気が悪かった)の反対。could have は「~できた」" },
+            { "en": "If you **had called** me, I **might have helped** you.", "ja": "電話をくれていたら、手伝っていたかもしれない。", "note": "might have は「~したかもしれない」" }
+          ],
+          "cautions": ["× If I had known, I would go. → ○ If I had known, I would have gone.(過去の仮定の主節は would have + 過去分詞)"]
+        },
+        {
+          "heading": "混合の逆の形: if の節は今の状態、主節は過去の結果",
+          "explanation": "混合型には、もう1つの形があります。if の節では今の性格や状況を仮定し、主節では、過去にそうなっていた結果を述べます。if の節は過去形(were・knew など)、主節は would + have + 過去分詞です。\n\n・If I were more careful, I would have caught the error earlier.(もっと注意深い人間なら、そのミスをもっと早く見つけていただろう)\n\n「今の状態」と「過去の結果」を結びつける文です。前の項目の混合(if の節が過去、主節が今)と、どちらが今で、どちらが過去かを比べて覚えます。",
+          "examples": [
+            { "en": "If I **were** more confident, I **would have applied** for the job last year.", "ja": "もっと自信があれば、去年その仕事に応募していただろう。", "note": "条件は今の性格(現在の仮定)、結果は去年の出来事(過去)" },
+            { "en": "If he **were** not so busy, he **would have called** you yesterday.", "ja": "彼がそれほど忙しくなければ、昨日あなたに電話していただろう。", "note": "条件は今の状況、結果は昨日の出来事" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、if の節の時制と主節の助動詞の組み合わせのひっかけが多く出ます。今の状況なら過去形と would、過去の出来事なら過去完了と would have を組み合わせます。"
@@ -101,19 +155,39 @@
         },
         {
           "heading": "as if・as though: まるで~のように",
-          "explanation": "as if と as though は、「まるで~のように」を表します。後ろに続く内容が事実と違うときは、仮定法を使います。\n\n・as if + 過去形: 現在のことを、事実と違う形でたとえる\n・as if + 過去完了: 過去のことを、事実と違う形でたとえる",
+          "explanation": "as if と as though は、「まるで~のように」を表します。後ろに続く内容が事実と違うときは、仮定法を使います。\n\n・as if + 過去形: 現在のことを、事実と違う形でたとえる\n・as if + 過去完了: 過去のことを、事実と違う形でたとえる\n\n実際に起こりそうなことをたとえる場合は、直説法(will など)を使うこともあります。",
           "examples": [
             { "en": "He talks **as if** he **knew** everything.", "ja": "彼はまるで何でも知っているかのように話す。", "note": "実際は知らないことのたとえ" },
-            { "en": "She looked **as though** she **had seen** a ghost.", "ja": "彼女はまるで幽霊を見たかのような顔をしていた。", "note": "過去完了で過去の出来事のたとえ" }
+            { "en": "She looked **as though** she **had seen** a ghost.", "ja": "彼女はまるで幽霊を見たかのような顔をしていた。", "note": "過去完了で過去の出来事のたとえ" },
+            { "en": "It **looks** as though it **will rain**.", "ja": "今にも雨が降りそうだ。", "note": "実際に起こりそうなことなので直説法" }
           ]
         },
         {
           "heading": "would rather: ~してほしい・むしろ~したい",
-          "explanation": "would rather + 主語 + 過去形は、「(今)~してほしい」を表します。would rather + 原形は、「むしろ~したい」を表します。\n\n・I would rather you didn't send the email today.(今日はそのメールを送らないでほしい)\n・I would rather stay home.(むしろ家にいたい)",
+          "explanation": "would rather + 主語 + 過去形は、「(今)~してほしい」を表します。would rather + 原形は、「むしろ~したい」を表します。\n\n・I would rather you didn't send the email today.(今日はそのメールを送らないでほしい)\n・I would rather stay home.(むしろ家にいたい)\n\n過去のことへの願いは、would rather + 主語 + had + 過去分詞で表します。",
           "examples": [
             { "en": "I would rather you **didn't** send the email today.", "ja": "今日はそのメールを送らないでほしい。", "note": "would rather + 主語 + 過去形(今の願い)" },
-            { "en": "I would rather **stay** home than go out tonight.", "ja": "今夜は、出かけるよりむしろ家にいたい。", "note": "would rather + 原形(むしろ~したい)" }
+            { "en": "I would rather **stay** home than go out tonight.", "ja": "今夜は、出かけるよりむしろ家にいたい。", "note": "would rather + 原形(むしろ~したい)" },
+            { "en": "I would rather you **had told** me earlier.", "ja": "前もって教えてくれていればよかったのに。", "note": "過去の事実への願い(would rather + 過去完了)" }
           ]
+        },
+        {
+          "heading": "if only: ~でさえあれば、~ならなあ",
+          "explanation": "if only は、I wish と同じ願望を、感情を強めて表します。文頭に if only を置き、後ろは仮定法の形にします。\n\n・If only I had more time.(もっと時間があればなあ)\n・If only she had listened.(彼女が聞いてくれていたらなあ)\n\n後ろの時制は、I wish と同じです。現在の事実と違うなら過去形、過去の事実と違うなら過去完了を使います。if only の文には主節がなく、残念な気持ちや強い願いを、感嘆のように述べます。",
+          "examples": [
+            { "en": "**If only** I **were** taller.", "ja": "背が高ければなあ。", "note": "現在の事実と違う願望。be 動詞は were" },
+            { "en": "**If only** we **had left** earlier.", "ja": "もっと早く出発していればなあ。", "note": "過去の事実と違う後悔(過去完了)" }
+          ],
+          "cautions": ["× If only I would have more time. → ○ If only I had more time.(if only の後ろに would have を置かない)"]
+        },
+        {
+          "heading": "I wish + would: 相手や物事が変わってほしいという願い",
+          "explanation": "I wish の後ろに would を置くと、相手の行動や、物事が変わってほしいという、いらだちや願いを表します。自分では変えられない相手の行動に対して使うことが多く、「~してくれればいいのに」と訳せます。\n\n・I wish you would listen to me.(私の話を聞いてくれればいいのに)\n・I wish it would stop raining.(雨がやんでくれればいいのに)\n\n自分の能力についての願いには、I wish I could ~(~できればいいのに)を使います。「背が高くなる」のように自分の状態を変えられないことには、I wish I were ~ を使います。",
+          "examples": [
+            { "en": "I **wish** you **would listen** to me.", "ja": "私の話を聞いてくれればいいのに。", "note": "相手の行動への願い(would)" },
+            { "en": "I **wish** I **could swim** across the lake.", "ja": "湖を泳いで渡れればいいのに。", "note": "自分の能力への願い(could + 原形)" }
+          ],
+          "cautions": ["× I wish I would be taller. → ○ I wish I were taller.(自分の状態には would を使わない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、I wish と as if の後ろの時制(過去形か過去完了か)を選ばせる問題が出ます。"
@@ -129,7 +203,8 @@
           "explanation": "if I were ... を、if を省略して Were I ... の形にすると、仮定法過去の意味を表します。\n\n・If I were the manager, I would change the plan.\n・Were I the manager, I would change the plan.(私が部長なら、その計画を変えるだろう)",
           "examples": [
             { "en": "**Were** I in your position, I **would accept** the offer.", "ja": "私があなたの立場なら、その申し出を受けるだろう。", "note": "Were + 主語で if の代わり" },
-            { "en": "**Were** the price lower, more customers **would buy** it.", "ja": "もし価格がもっと安ければ、もっと多くの客が買うだろう。", "note": "Were + 主語 + 補語(形容詞)" }
+            { "en": "**Were** the price lower, more customers **would buy** it.", "ja": "もし価格がもっと安ければ、もっと多くの客が買うだろう。", "note": "Were + 主語 + 補語(形容詞)" },
+            { "en": "**Were** it **possible**, we **would finish** the project by Monday.", "ja": "もし可能なら、月曜日までにそのプロジェクトを終えられるだろう。", "note": "Were + it(主語) + 補語(形容詞)" }
           ]
         },
         {
@@ -137,7 +212,8 @@
           "explanation": "if we had known を Had we known ... の形にすると、仮定法過去完了の意味を表します。\n\n・If we had known, we would have acted differently.\n・Had we known, we would have acted differently.(知っていたら、違う行動をとっていただろう)",
           "examples": [
             { "en": "**Had** we **known** about the delay, we **would have changed** the plan.", "ja": "遅れのことを知っていたら、計画を変えていただろう。", "note": "Had + 主語 + 過去分詞" },
-            { "en": "**Had** you **asked** me earlier, I **could have helped** you.", "ja": "もっと早く聞いてくれていたら、手伝えたのに。", "note": "過去の事実の反対" }
+            { "en": "**Had** you **asked** me earlier, I **could have helped** you.", "ja": "もっと早く聞いてくれていたら、手伝えたのに。", "note": "過去の事実の反対" },
+            { "en": "**Had** I **known** about the meeting, I **would have attended** it.", "ja": "その会議のことを知っていたら、出席していただろう。", "note": "Had + 主語 + 過去分詞(if の省略)" }
           ]
         },
         {
@@ -154,6 +230,14 @@
           "examples": [
             { "en": "**Suppose** you **were** the manager. What would you do?", "ja": "仮に、あなたが部長だったら、どうしますか。", "note": "suppose + 仮定法過去" },
             { "en": "If the company **were to** fail, many employees would lose their jobs.", "ja": "万一その会社が倒産すれば、多くの社員が職を失うだろう。", "note": "were to は実現性の低い仮定" }
+          ]
+        },
+        {
+          "heading": "Had it not been for ~: 過去の事実の反対(否定の倒置)",
+          "explanation": "If it had not been for ~ の if を省略すると、Had it not been for ~ の形になります。Had を文頭に出し、not は主語の後ろに残します。意味は「~がなかったら」で、過去の事実と反対のことを表します。主節は would have + 過去分詞です。\n\n・If it had not been for the traffic, we would have been on time.(渋滞がなかったら、時間どおりに着いていただろう)\n・Had it not been for the traffic, we would have been on time.\n\n文頭が Had で始まり、その後ろに it や not が続くときは、if の省略だと考えます。Were it not for ~(現在の事実の反対)と対応させて覚えると、整理しやすくなります。",
+          "examples": [
+            { "en": "**Had it not been** for your help, I **would have failed**.", "ja": "あなたの助けがなかったら、私は失敗していただろう。", "note": "Had + it + not + been(if の省略)" },
+            { "en": "**Had it not been** for the rain, the picnic **would have been** a great success.", "ja": "雨がなかったら、ピクニックは大成功だったろう。", "note": "過去の事実の反対。主節は would have been" }
           ]
         }
       ],
@@ -179,6 +263,14 @@
           "examples": [
             { "en": "**Were it not for** the storm, the flight **would arrive** on time.", "ja": "嵐がなければ、その便は定刻に着くだろう。", "note": "現在の事実の反対(Were it not for)" },
             { "en": "**If it had not been for** the storm, the flight **would have arrived** on time.", "ja": "嵐がなければ、その便は定刻に着いていただろう。", "note": "過去の事実の反対(If it had not been for)" }
+          ]
+        },
+        {
+          "heading": "without: 前置詞の「~なしで」と、仮定の「~がなければ」",
+          "explanation": "without は、ふつうは「~なしで」を表す前置詞です。後ろには名詞や -ing が来ます。文に仮定の意味があるかどうかは、主節を見て判断します。主節が would have などの仮定の形なら、without の句は「~がなければ」という条件になります。\n\n・She left the room without a word.(彼女は一言も言わずに部屋を出た)\n\n前置詞の without は、実際にあった出来事を述べます。一方、主節に仮定の形があるときは、「~がなければ」という仮定の意味になります。同じ without でも、文の形で意味が変わることを確かめます。",
+          "examples": [
+            { "en": "**Without** your advice, I **would have made** a serious mistake.", "ja": "あなたの助言がなければ、私は重大なミスをしていただろう。", "note": "主節が仮定の形なので、「~がなければ」の意味" },
+            { "en": "We **finished** the report **without** any help.", "ja": "私たちは、誰の助けも借りずに報告書を仕上げた。", "note": "前置詞の without(事実を述べる)" }
           ]
         }
       ],
@@ -220,20 +312,176 @@
           "examples": [
             { "en": "The judge ordered that the witness **be** present at the hearing.", "ja": "裁判官は、証人が審理に出頭するよう命じた。", "note": "命令の that 節は原形" }
           ]
+        },
+        {
+          "heading": "insist・request・order・urge の後ろの that 節も原形",
+          "explanation": "主張・要求・命令・催促を表す動詞の後ろの that 節も、動詞は原形か should + 原形になります。insist(強く主張する)、request(頼む)、order(命じる)、urge(強く促す)が代表的です。前の項目の suggest や demand と、同じ仕組みで考えます。\n\n・The doctor insisted that he take a few days off.(医者は、彼が数日休むよう強く主張した)\n・The union requested that the schedule be changed.(組合は、予定を変更するよう要求した)\n\nこの that 節を否定するときは、not を動詞の前に置きます。(We suggested that he not go.(彼が行かないように提案した))",
+          "examples": [
+            { "en": "The doctor **insisted** that he **take** a few days off.", "ja": "医者は、彼が数日休むよう強く主張した。", "note": "insist の後ろの that 節は原形" },
+            { "en": "The union **requested** that the schedule **be** changed.", "ja": "組合は、その予定を変更するよう要求した。", "note": "request の後ろの that 節は be(原形)" }
+          ],
+          "cautions": ["× The doctor insisted that he takes a few days off. → ○ The doctor insisted that he take a few days off.(that 節の動詞は s を付けない原形)"]
+        },
+        {
+          "heading": "necessary・imperative の後ろの that 節も原形",
+          "explanation": "必要や、絶対に必要という意味の形容詞の後ろの that 節も、動詞は原形か should + 原形になります。It is necessary that ~、It is imperative that ~ の形でよく使われます。imperative は「絶対に必要な」「避けられない」という強い意味です。\n\n・It is necessary that everyone bring an ID card.(全員が身分証を持参することが必要だ)\n・It is important that the message be clear.(メッセージが明確であることが大切だ)\n\n主語が三人称単数でも、動詞に s は付けません。形容詞の意味が「必要・重要・命令」なら、that 節は原形と考えます。",
+          "examples": [
+            { "en": "It is **necessary** that everyone **bring** an ID card.", "ja": "全員が身分証を持参することが必要だ。", "note": "necessary の後ろの that 節は原形" },
+            { "en": "It is **imperative** that the staff **follow** the safety rules.", "ja": "職員が安全規則を守ることは、絶対に必要だ。", "note": "imperative の後ろも原形" }
+          ]
+        },
+        {
+          "heading": "It is certain that ~ は直説法: 事実を表す形容詞との区別",
+          "explanation": "It is ~ that の形でも、that 節の動詞の形は、形容詞の意味で決まります。certain(確かな)、clear(明らかな)、true(本当の)、likely(~しそうな)、obvious(明白な)などは、事実や見通しを述べる形容詞です。その後ろの that 節では、直説法(will や現在形など)を使います。\n\n・It is certain that the project will succeed.(そのプロジェクトが成功するのは確かだ)\n・It is important that the project succeed.(そのプロジェクトが成功することが大切だ)\n\n1つめは、成功することを確実だと述べるので、直説法の will を使います。2つめは、成功することの重要性を述べるので、仮定法現在(原形)です。形容詞の意味を見てから、that 節の動詞の形を決めます。",
+          "examples": [
+            { "en": "It is **certain** that the project **will succeed**.", "ja": "そのプロジェクトが成功するのは確かだ。", "note": "certain は事実を述べる形容詞。直説法の will" },
+            { "en": "It is **important** that the project **succeed**.", "ja": "そのプロジェクトが成功することが大切だ。", "note": "important は必要を表す形容詞。仮定法現在の原形" }
+          ],
+          "cautions": ["× It is important that the project will succeed. → ○ It is important that the project succeed.(必要・重要の形容詞の後ろは原形。標準的な文法では will を使わない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、suggest・demand などの後ろの that 節で、原形を選ばせる問題がよく出ます。主語が三人称単数でも、s を付けないことに注意します。"
+    },
+    {
+      "id": "conditional-phrases",
+      "title": "if 以外で仮定を表す語句",
+      "intro": "if を使わなくても、otherwise・in case・suppose・provided that・as long as・what if などの語句で、条件や仮定を表せます。語句ごとに、実際に起こりうることか、事実と違う仮定かを見分けることが大切です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "otherwise: さもないと、そうでなければ",
+          "explanation": "otherwise は「さもないと」「そうでなければ」を表します。前の文で述べた行動を条件とし、それをしなかった場合の結果を後ろで述べます。実際に起こりうる内容なら直説法、事実と違う仮定なら仮定法を使います。\n\n・Hurry up; otherwise, you will miss the train.(急ぎなさい。さもないと、電車に乗り遅れますよ)\n\n前の文を「条件」として読み、後ろの結果が実際に起こりそうかどうかで、時制を決めます。文章では、前の文との間にセミコロン(;)を置き、otherwise の後ろにカンマを置くのが一般的な書き方です。",
+          "examples": [
+            { "en": "Hurry up; **otherwise**, you **will miss** the train.", "ja": "急ぎなさい。さもないと、その電車に乗り遅れますよ。", "note": "実際に起こりうる結果なので、直説法の will" },
+            { "en": "**Otherwise**, I **would have failed** the exam.", "ja": "そうでなければ、私は試験に落ちていただろう。", "note": "事実と違う仮定なので、would have + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "in case: ~の場合に備えて(if との違い)",
+          "explanation": "in case は、「~の場合に備えて」「~かもしれないので」を表します。if のように条件を述べて結果を導くのではなく、起こるかもしれないことへの準備を述べます。in case の後ろは、未来のことでも現在形を使います。will は使いません。\n\n・Keep my number in case you need help.(助けが必要になったときのために、私の番号を控えておいてください)\n\n似た表現の if は、「~ならば」と条件を述べます。in case は、起こるかどうか分からないことに備える、という意味だと覚えると区別しやすくなります。",
+          "examples": [
+            { "en": "Take an **umbrella** in case it **rains**.", "ja": "雨が降るかもしれないので、傘を持って行きなさい。", "note": "in case の後ろは現在形(will は使わない)" },
+            { "en": "I **wrote down** the address in case I **got lost**.", "ja": "道に迷ったときのために、住所を書き留めておいた。", "note": "主節が過去なので、in case の後ろも過去形" }
+          ],
+          "cautions": ["× Take an umbrella in case it will rain. → ○ Take an umbrella in case it rains.(in case の後ろは現在形)"]
+        },
+        {
+          "heading": "suppose・what if: 仮に~だとしたら、~だったらどうなるか",
+          "explanation": "suppose(仮定する)と supposing は、文頭で「仮に~だとしたら」と仮定を示します。what if は、「~だったらどうなるだろう」と、起こりうることを想定して問いかける言い方です。\n\nsuppose の後ろの時制は、仮定の現実味で決まります。実際に起こりうる仮定なら現在形、事実と違う仮定なら過去形(were など)を使います。what if も同じように、現実味の高い心配には現在形、現実と違う想像には過去形を使います。主節は、結果を述べる would などです。",
+          "examples": [
+            { "en": "**Suppose** the plan **fails**. What would we do then?", "ja": "仮にその計画が失敗したら、そのときは何をするだろうか。", "note": "実現しうる仮定なので、suppose の後ろは現在形" },
+            { "en": "**Suppose** the bridge **were** closed. How would you get to work?", "ja": "仮に橋が閉鎖されていたら、どうやって仕事に行きますか。", "note": "現実と違う仮定なので、過去形の were" },
+            { "en": "**What if** the flight **is delayed**?", "ja": "もし便が遅れたら、どうなるだろうか。", "note": "what if + 現在形で、起こりうる心配を表す" }
+          ]
+        },
+        {
+          "heading": "provided (that)・as long as: ~という条件で、~である限り",
+          "explanation": "provided that(providing that とも)は「~という条件で」「~であれば」を表します。as long as と so long as は、「~である限り」「~さえすれば」を表します。どれも条件を述べる接続詞として使い、後ろの動詞は、ふつうの時制(現在形など)で書きます。\n\nas long as には、「~の間ずっと」という期間の意味もあります。(as long as the battery lasts = 電池が持つ間ずっと)\n\n試験では、前後の意味から、条件か期間かを読み分けます。",
+          "examples": [
+            { "en": "You can use the room **provided that** you **clean** it afterward.", "ja": "後片付けをするという条件で、その部屋を使ってかまいません。", "note": "provided that は「~という条件で」" },
+            { "en": "You can stay here **as long as** you **keep** quiet.", "ja": "静かにしている限り、ここにいてかまいません。", "note": "as long as は「~である限り」の条件" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、otherwise・in case・provided that などの意味を選ばせる問題や、in case の後ろの動詞の形(現在形か will か)を問う問題が出ることがあります。"
+    },
+    {
+      "id": "future-conditional",
+      "title": "仮定法未来: 万一~なら",
+      "intro": "仮定法未来は、実現する可能性が低い未来の仮定を表します。should は「万一~なら」、were to は「仮に~するとしたら」で、起こる可能性の強さが違います。どちらも if の後ろは動詞の原形です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "If + should: 万一~なら(起こる可能性は低い)",
+          "explanation": "仮定法未来は、実現する可能性は低いが、起こるかもしれない未来を仮定する形です。if の節に should を置き、動詞は原形にします。「万一~なら」と訳すと自然です。主節は、would・could・might・will のほか、命令文(please など)も使えます。\n\n・If it should rain tomorrow, the event would be moved indoors.(万一明日雨が降ったら、そのイベントは屋内に移されるだろう)\n・If you should have any questions, please contact us.(万一ご質問がありましたら、ご連絡ください)\n\n文頭に should を出す倒置(Should you ~)と、同じ意味です。起こりそうにないが、起こったときの備えを述べるときによく使われます。",
+          "examples": [
+            { "en": "If it **should rain** tomorrow, the event **would be moved** indoors.", "ja": "万一明日雨が降ったら、そのイベントは屋内に移されるだろう。", "note": "if + should + 原形(万一)" },
+            { "en": "If you **should need** more time, please let us know.", "ja": "万一もっと時間が必要でしたら、お知らせください。", "note": "主節に命令文(please)を置くことも多い" }
+          ]
+        },
+        {
+          "heading": "If + were to: ほとんど起こらない仮定(仮に~するとしたら)",
+          "explanation": "if + were to + 原形は、実現する可能性がほとんどない、または、ありえない仮定を述べる形です。「仮に~するとしたら」と訳します。主語が何であっても、were to の後ろは動詞の原形です。主節は would・could・might の形になります。\n\nshould は、起こる可能性を低いとしても、ありうるものとして述べます。were to は、起こるとは考えにくい想像を述べるときに使います。どちらも、主節の結果は would などで表します。",
+          "examples": [
+            { "en": "If the sun **were to disappear**, the earth **would freeze**.", "ja": "仮に太陽が消えてしまったら、地球は凍りつくだろう。", "note": "were to は、ほとんどありえない仮定" },
+            { "en": "If I **were to** start over, I **would choose** a different career.", "ja": "もしやり直すとしたら、別の職業を選ぶだろう。", "note": "were to + 原形(仮に~するとしたら)" }
+          ]
+        }
+      ],
+      "examNote": "英検準1級の長文では、should と were to の違いが、仮定の現実味で読み分けられているかを問われることがあります。"
+    },
+    {
+      "id": "hidden-conditions",
+      "title": "名詞・不定詞・主語に隠れた条件",
+      "intro": "if の節がなくても、主語や名詞、不定詞、前置詞句の中に「もし~なら」の条件が隠れていることがあります。主節の would や could などの仮定の形を手がかりに、隠れた条件を見つけます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "名詞の中に条件が隠れた文: A wise man would ~",
+          "explanation": "主語や、名詞を説明する語句の中に、「もし~なら」という条件が隠れていることがあります。たとえば、A wise man(賢い人)は、If he were wise(もし彼が賢ければ)と言い換えられます。主節が would などの仮定の形になっていれば、名詞の中に条件があると考えます。\n\n英文を読むときは、「主語の名詞が、もし~であれば、という条件になっていないか」を確かめます。",
+          "examples": [
+            { "en": "A **wise man** would not **do** that.", "ja": "賢い人なら、そんなことはしないだろう。", "note": "A wise man = If he were wise(条件)" },
+            { "en": "A **sensible person** would have **asked** for help.", "ja": "分別のある人なら、助けを求めていただろう。", "note": "名詞の中の条件(過去の仮定)。主節は would have + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "不定詞の中に条件が隠れた文: To hear him, you would ~",
+          "explanation": "不定詞(to + 動詞の原形)が、「~すれば」「~するとしたら」という条件を表すことがあります。文頭の To + 動詞は、if の節の代わりになります。主節が would などの仮定の形なら、条件を表す不定詞だと分かります。\n\n・To hear him sing, you would think he was a professional.(彼が歌うのを聞けば、プロだと思うだろう)\n\n「~すれば」と訳して意味が通るかどうかが、見分けるための目安です。目的(~するために)の不定詞とは、文脈と、主節に仮定の形があるかで区別します。",
+          "examples": [
+            { "en": "**To hear** him speak, you **would think** he was a native speaker.", "ja": "彼が話すのを聞けば、ネイティブ・スピーカーだと思うだろう。", "note": "To hear = If you heard ...(条件)" },
+            { "en": "**To do** the job well, you **would need** more training.", "ja": "その仕事をうまくやるには、もっと訓練が必要だろう。", "note": "To do = If you did ...(条件)。主節は would + 原形" }
+          ]
+        },
+        {
+          "heading": "主語や前置詞句に条件が隠れた文: A sudden storm would ~",
+          "explanation": "主語や前置詞句にも、「もし~なら」という条件が含まれることがあります。主語が A sudden storm(突然の嵐)なら、「もし突然の嵐が来れば」という仮定を表します。In your position(あなたの立場なら)、Under those circumstances(そのような状況なら)も、同じように条件として読みます。\n\n訳すときは、「もし~なら」と条件として訳すと、自然な日本語になります。主節の would などが、条件があることを示す手がかりです。",
+          "examples": [
+            { "en": "A **sudden storm** would **ruin** the event.", "ja": "突然の嵐があれば、そのイベントは台無しになるだろう。", "note": "主語が条件(もし突然の嵐が来れば)" },
+            { "en": "**Under those circumstances**, we **would have to cancel** the trip.", "ja": "そのような状況なら、旅行を中止せざるをえないだろう。", "note": "前置詞句が条件(もしそういう状況なら)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 6 の文章では、if の節が見当たらないのに主節が would で続く文が出ることがあります。主語・不定詞・前置詞句のどれかに条件が含まれていないかを確かめます。"
+    },
+    {
+      "id": "polite-conditional",
+      "title": "丁寧な仮定法: 依頼や希望をやわらかく",
+      "intro": "仮定法過去の形(could・would など)を使うと、依頼や希望を、現実と少し距離を置いて、控えめに言えます。ビジネスの手紙やメールでよく使われる言い方です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "I wonder if you could ~: 控えめな依頼",
+          "explanation": "I wonder if you could ~ は、「~していただけないでしょうか」と、控えめに頼むときの言い方です。wonder(疑問に思う)を使い、if の後ろを仮定法過去(could)にします。Can you ~? と直接聞くより、遠回しで丁寧な響きになります。\n\n現実の「できるかどうか」を尋ねるのではなく、「もし可能であれば」という想像の形にすることで、相手に断る余地を残します。過去の形の could が、現在の依頼を表している点に注意します。",
+          "examples": [
+            { "en": "I **wonder** if you **could** help me with this report.", "ja": "この報告書を手伝っていただけないでしょうか。", "note": "wonder + if + could で、控えめな依頼" },
+            { "en": "I **was wondering** if we **could** move the meeting to Friday.", "ja": "会議を金曜日に変更できないかと思いまして。", "note": "was wondering で、さらに遠慮がちな響き" }
+          ]
+        },
+        {
+          "heading": "It would be nice if ~: ~だったら嬉しい、~していただけるとありがたい",
+          "explanation": "It would be nice if ~ は、「~だったら嬉しい」と、希望をやわらかく述べる形です。if の後ろは仮定法過去にします。実現するかどうか分からない希望を、現実と少し距離を置いた想像として述べると、押しつけがましくなりません。\n\nまた、I would appreciate it if you could ~ は、ビジネスの依頼で使う定型の言い方です。「~していただけると助かります」「~していただけるとありがたいです」と訳します。依頼の内容を、丁寧に伝えられます。",
+          "examples": [
+            { "en": "It **would be** nice if we **could** meet next week.", "ja": "来週お会いできたら嬉しいです。", "note": "希望を仮定法過去で、やわらかく表す" },
+            { "en": "I **would appreciate** it if you **could** send me the file by Friday.", "ja": "金曜日までにそのファイルを送っていただけると助かります。", "note": "would appreciate it if ~ は丁寧な依頼の定型" }
+          ]
+        }
+      ],
+      "examNote": "ビジネスメールの空所補充では、I would appreciate it if you could ~ のような丁寧な依頼の定型が、選択肢に並ぶことがあります。"
     }
   ],
   "summary": [
-    "法は、事実を述べる直説法と、事実と違う仮定を述べる仮定法に分かれる",
-    "仮定法過去は、if + 過去形、主語 + would + 原形(現在の事実の反対)。be は were が正式",
-    "仮定法過去完了は、if + had + 過去分詞、主語 + would have + 過去分詞(過去の事実の反対)",
-    "混合: if の節は過去、主節は現在(If + had + 過去分詞、主語 + would + 原形)",
-    "I wish + 過去形は現在の願望、I wish + had + 過去分詞は過去の後悔",
-    "as if・as though は、事実と違うたとえ。would rather + 過去形は「今~してほしい」",
+    "法は、事実を述べる直説法と命令法、事実と違う仮定や願望を述べる仮定法に分かれる。実現しうる条件(If it rains, I will ~)は直説法",
+    "仮定法過去は、if + 過去形、主語 + would / could / might + 原形(現在の事実の反対)。be 動詞は主語にかかわらず were が正式",
+    "仮定法過去完了は、if + had + 過去分詞、主語 + would / could / might have + 過去分詞(過去の事実の反対)",
+    "混合: if の節が過去なら主節は現在(If + had + 過去分詞、主語 + would + 原形)。if の節が現在なら主節は過去(If + were、主語 + would have + 過去分詞)",
+    "I wish + 過去形は現在の願望、I wish + had + 過去分詞は過去の後悔。if only は、その願望を強めた形",
+    "as if・as though は、事実と違うたとえ。would rather + 過去形は「今~してほしい」、would rather + 過去完了は「過去に~してほしかった」",
     "if を省略すると倒置: Were I ~、Had S + 過去分詞 ~、Should S + 原形 ~(万一)",
-    "but for・without・Were it not for は「~がなければ」。提案・要求の that 節では、動詞は原形"
+    "仮定法未来: If S should + 原形(万一~なら)、If S were to + 原形(ほとんど起こらない仮定)",
+    "but for・without・Were it not for は「~がなければ」。without は、仮定でなければ「~なしで」の前置詞",
+    "otherwise・in case・suppose・provided that・as long as・what if など、if 以外にも条件や仮定を表す語句がある",
+    "名詞・不定詞・主語に条件が隠れることがある(A wise man would ~、To hear him, you would ~)。丁寧な仮定法(I wonder if you could ~)は依頼をやわらかく述べる",
+    "提案・要求・必要の that 節は、動詞が原形か should + 原形。It is certain that ~ のように事実を表す形容詞の後ろは直説法"
   ],
   "quiz": [
     {

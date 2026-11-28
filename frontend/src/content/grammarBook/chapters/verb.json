@@ -30,6 +30,98 @@
       "examNote": "TOEIC Part 5 の動詞問題は、空所の後ろに前置詞があるか、目的語があるかで判断します。"
     },
     {
+      "id": "verb-types",
+      "title": "動詞の種類と、活用の形",
+      "intro": "動詞は、be 動詞・一般動詞・助動詞の3種類に分かれ、それぞれ文の中での役割が違います。また、動詞は原形・過去形・過去分詞の形を変えて使います(活用)。規則動詞と不規則動詞の違いと、過去形・過去分詞を間違えやすい語を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "動詞の3種類: be 動詞・一般動詞・助動詞",
+          "explanation": "動詞は、文の中での役割によって、be 動詞・一般動詞・助動詞の3種類に分けられます。\n\n・be 動詞(am、is、are など): 「~である」「~にいる」を表す。進行形(be + -ing)や受動態(be + 過去分詞)の be にも使う\n・一般動詞(work、write、go など): 動作や状態を表す。疑問文と否定文では do・does・did を使う\n・助動詞(can、will、must、should など): 単独では述語にならず、動詞の前に置いて、可能・推量・義務などを加える。助動詞の後ろには、必ず動詞の原形が来る\n\n3つを混ぜないことが大切です。助動詞のある文では、動詞の形を変えません。",
+          "table": {
+            "caption": "動詞の3種類と、主な役割",
+            "headers": ["種類", "役割", "例"],
+            "rows": [["be 動詞", "~である、~にいる。進行形・受動態の be にもなる", "am、is、are、was、were"], ["一般動詞", "動作・状態を表す", "work、write、go、know"], ["助動詞", "可能・推量・義務などを加える。後ろは原形", "can、will、must、should"]]
+          },
+          "examples": [
+            { "en": "She **is** a sales manager in Osaka.", "ja": "彼女は大阪の営業部長だ。", "note": "be 動詞: 「~である」を表す" },
+            { "en": "We **work** closely with the design team.", "ja": "私たちはデザインチームと密接に協力している。", "note": "一般動詞: 動作を表す。疑問文・否定文では do を使う" },
+            { "en": "The client **can** approve the budget today.", "ja": "顧客は今日、予算を承認できる。", "note": "助動詞: 後ろに動詞の原形 approve が来る" }
+          ],
+          "cautions": ["× He can goes to the office. → ○ He can go to the office.(助動詞の後ろは原形。goes は使わない)", "× Does she is a manager? → ○ Is she a manager?(be 動詞の疑問文は be 動詞を前に出す。do は使わない)"]
+        },
+        {
+          "heading": "規則動詞と不規則動詞: 過去形・過去分詞の作り方",
+          "explanation": "動詞は、原形・過去形・過去分詞の3つの形で使われます。これを活用と言います。規則動詞は、原形に -ed を付けて過去形と過去分詞を作ります。不規則動詞は、形が決まっていないので、語ごとに覚えます。\n\n・規則動詞のつづり: 語尾が e なら d だけを付ける(live → lived)。子音 + y なら y を i に変えて -ed を付ける(study → studied)。1音節で「母音 + 子音」で終わる語は、子音を重ねる(stop → stopped)\n・不規則動詞: 過去形と過去分詞が、規則の形と違う(go → went → gone)\n\n過去形と過去分詞は、同じ形の語もあれば、違う形の語もあります。",
+          "table": {
+            "caption": "規則動詞と不規則動詞の代表例",
+            "headers": ["種類", "原形", "過去形", "過去分詞"],
+            "rows": [["規則動詞", "work", "worked", "worked"], ["規則動詞", "study", "studied", "studied"], ["規則動詞", "stop", "stopped", "stopped"], ["不規則動詞", "go", "went", "gone"], ["不規則動詞", "write", "wrote", "written"]]
+          },
+          "examples": [
+            { "en": "The team **finished** the report on time.", "ja": "チームは、レポートを期限どおりに仕上げた。", "note": "規則動詞: 原形 finish に -ed を付けて過去形を作る" },
+            { "en": "We **studied** the new sales data last week.", "ja": "私たちは先週、新しい販売データを検討した。", "note": "study は y を i に変えて -ed(studied)" }
+          ],
+          "cautions": ["× The team studyed the data. → ○ The team studied the data.(子音 + y の語は、y を i に変えて -ed を付ける)"]
+        },
+        {
+          "heading": "不規則動詞の4つの型: 過去形と過去分詞の組み合わせ",
+          "explanation": "不規則動詞は、原形・過去形・過去分詞の組み合わせで、次の4つの型に分けると覚えやすくなります。型は目安なので、語ごとの例外は例文とセットで覚えます。\n\n・A-A-A(3つ同じ): 原形・過去形・過去分詞が同じ形\n・A-B-B(過去形と過去分詞が同じ): 過去形を覚えれば、過去分詞も分かる\n・A-B-A(原形と過去分詞が同じ): come の過去分詞は come\n・A-B-C(3つすべて違う): 最も形を覚えにくい型\n\n過去分詞は、have・has・had の後ろ(完了形)や、受動態で使います。",
+          "table": {
+            "caption": "不規則動詞の型と代表例",
+            "headers": ["型", "原形 - 過去形 - 過去分詞", "代表例"],
+            "rows": [["A-A-A(3つ同じ)", "cut - cut - cut", "put、hit、set"], ["A-B-B(過去形 = 過去分詞)", "build - built - built", "send、buy、spend、lend"], ["A-B-A(原形 = 過去分詞)", "come - came - come", "become、run、overcome"], ["A-B-C(3つすべて違う)", "write - wrote - written", "go、begin、take、speak"]]
+          },
+          "examples": [
+            { "en": "The manager **wrote** the report last night.", "ja": "部長は昨夜、そのレポートを書いた。", "note": "write の過去形は wrote(過去分詞は written)" },
+            { "en": "The new product **has become** popular in Asia.", "ja": "その新製品は、アジアで人気が出てきた。", "note": "become の過去分詞は become(原形と同じ)" },
+            { "en": "We **had** already **sent** the invoice to the client.", "ja": "私たちは、すでに請求書を顧客に送っていた。", "note": "send の過去分詞は sent(過去形と同じ)" }
+          ],
+          "cautions": ["× I have wrote the report. → ○ I have written the report.(完了形の後ろは過去分詞)", "× He has went to Tokyo. → ○ He has gone to Tokyo.(go の過去分詞は gone)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、have・has・had の後ろに過去形と過去分詞のどちらが入るかを選ばせる問題が出ます。過去の語句(yesterday、last week など)があれば過去形、完了形の形なら過去分詞を選びます。"
+    },
+    {
+      "id": "stative-dynamic",
+      "title": "状態動詞と動作動詞: 進行形にしない動詞",
+      "intro": "動詞には、状態を表す状態動詞と、動作を表す動作動詞があります。状態動詞は、原則として進行形(be + -ing)にできません。同じ動詞でも、状態の意味と動作の意味で進行形の可否が変わるものがあるので、意味から判断します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "進行形にしない状態動詞: know・like・need など",
+          "explanation": "状態動詞は、ある状態が続いていることを表します。動作の途中という考え方がないので、原則として進行形(be + -ing)にしません。\n\n・知る・考える: know、believe、understand\n・好き嫌い・必要: like、love、hate、prefer、need、want\n・所有・所属・含有: have(持っている)、own、belong to、contain、include\n・存在・見た目・似ている: exist、seem、resemble、look like\n\n日本語で「~している」と訳しても、状態動詞は進行形にせず、現在形で表します。「私はその部長を知っている」は、I am knowing ではなく、I know です。",
+          "examples": [
+            { "en": "I **know** the manager well.", "ja": "私はその部長をよく知っている。", "note": "know は状態動詞なので、進行形にしない" },
+            { "en": "This report **contains** three important charts.", "ja": "このレポートには、重要なグラフが3つ含まれている。", "note": "contain は状態を表す(進行形にしない)" },
+            { "en": "We **need** more time to finish the project.", "ja": "そのプロジェクトを終えるには、もっと時間が必要だ。", "note": "need は必要な状態を表す(進行形にしない)" }
+          ],
+          "cautions": ["× I am knowing the answer. → ○ I know the answer.(know は状態動詞なので、進行形にしない)", "× This car is belonging to my boss. → ○ This car belongs to my boss.(belong to も進行形にしない)"]
+        },
+        {
+          "heading": "同じ動詞でも、状態と動作で進行形の可否が変わる: have・think・see",
+          "explanation": "同じ動詞でも、「持っている」「思う」のような状態の意味では進行形にできず、「食べる」「考える」のような動作の意味では進行形にできます。\n\n・have: I have a car.(持っている。状態)/ I am having lunch.(食べている。動作)\n・think: I think it is a good idea.(~と思う。状態)/ I am thinking about the offer.(考えている。動作)\n・see: I see what you mean.(分かる。状態)/ I am seeing a doctor tomorrow.(医者に診てもらう予定。動作)\n\n迷ったら、「~する」という動作として言えるかを考えます。「持つ」「思う」「分かる」は状態、「食べる」「考える」「会う」は動作です。",
+          "examples": [
+            { "en": "She **has** two offices in Tokyo.", "ja": "彼女は東京に事務所を2つ持っている。", "note": "have は「持っている」の状態。進行形にしない" },
+            { "en": "We **are having** a meeting about the budget now.", "ja": "私たちは今、予算について会議をしている。", "note": "have が「(会議を)行う」という動作なので、進行形にできる" },
+            { "en": "I **am thinking** about your proposal.", "ja": "あなたの提案について、考えているところです。", "note": "think が「考える」という動作の意味なので、進行形にできる" }
+          ],
+          "cautions": ["× I am having a car. → ○ I have a car.(「持っている」という状態は、進行形にしない)"]
+        },
+        {
+          "heading": "動作動詞は進行形にできる: 進行中の動作・一時的な状態",
+          "explanation": "動作動詞(work、write、run、meet など)は、動作の途中や、一時的な動作・状態を、進行形(be + -ing)で表せます。\n\n・進行中の動作: Who is writing the report right now?(今、誰がレポートを書いているのですか)\n・一時的な状態: The team is working on a new project this month.(チームは今月、新しいプロジェクトに取り組んでいる)\n・近い予定: We are meeting the client tomorrow.(明日、顧客と会う予定だ)\n\n状態動詞か動作動詞かは、動詞の意味で決まります。同じ語を使う文でも、意味が違えば、進行形にできるかどうかも変わります。",
+          "examples": [
+            { "en": "Who **is writing** the report right now?", "ja": "今、誰がそのレポートを書いているのですか。", "note": "write は動作動詞。動作の途中を進行形で表す" },
+            { "en": "The team **is working** on a new project this month.", "ja": "チームは今月、新しいプロジェクトに取り組んでいる。", "note": "work は動作動詞。一時的な動きを進行形で表す" },
+            { "en": "We **are meeting** the client tomorrow.", "ja": "私たちは明日、顧客と会う予定だ。", "note": "meet の進行形で、近い予定を表す" }
+          ],
+          "cautions": ["× I am believing that the plan works. → ○ I believe that the plan works.(believe は状態動詞なので、進行形にしない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、状態動詞に進行形を付けた誤りの選択肢(is knowing、is belonging to など)が出ます。動詞の意味が「持つ・思う・知る」なら状態、「~する」という動作なら進行形、と判断します。"
+    },
+    {
       "id": "transitive",
       "title": "自動詞と他動詞: 前置詞を付けるか、付けないか",
       "intro": "動詞には、目的語を直接取る他動詞と、目的語を取らない自動詞があります。自動詞の中には、前置詞を伴って使うものもあります。TOEIC では、他動詞に前置詞を付けてしまう誤りが、よく選択肢に並びます。",
@@ -52,6 +144,53 @@
             { "en": "Please **attend** the meeting on Monday.", "ja": "月曜日の会議に出席してください。", "note": "attend は直接目的語を取る(attend to は「世話をする」の意味)" }
           ],
           "cautions": ["× We discussed about the plan. → ○ We discussed the plan.(discuss に about は付けない)", "× She entered into the room. → ○ She entered the room.", "× He resembles with his father. → ○ He resembles his father."]
+        },
+        {
+          "heading": "lie と lay: 横たわる(自動詞)と、横たえる・置く(他動詞)",
+          "explanation": "lie と lay は、形と意味が似ていて、自動詞と他動詞の区別で間違えやすい動詞です。\n\n・lie(自動詞・横たわる、ある): 目的語を取らない。活用は lie - lay - lain - lying\n・lay(他動詞・横たえる、置く): 後ろに目的語が必要。活用は lay - laid - laid - laying\n\n「lie の過去形は lay」なので、lay を見ると「置く」か「横たわった」か迷いやすいです。日本語の「置く」を見て lie を使うと誤りになります。後ろに目的語(~を)が来るなら、lay を使います。",
+          "examples": [
+            { "en": "The documents are **lying** on the desk.", "ja": "書類が机の上に置いてある。", "note": "lie は自動詞。目的語を取らず、「ある・横たわる」の意味" },
+            { "en": "Please **lay** the documents on the desk.", "ja": "書類を机の上に置いてください。", "note": "lay は他動詞。目的語 the documents を取る" },
+            { "en": "He **lay** on the sofa after lunch.", "ja": "昼食後、彼はソファに横になった。", "note": "lie の過去形は lay(laid ではない)" }
+          ],
+          "cautions": ["× Please lie the documents on the desk. → ○ Please lay the documents on the desk.(lie は目的語を取らない)", "× I laid down on the bed to rest. → ○ I lay down on the bed to rest.(lie down の過去形は lay)"]
+        },
+        {
+          "heading": "rise と raise: 上がる(自動詞)と、上げる(他動詞)",
+          "explanation": "rise と raise も、自他の区別で間違えやすい動詞です。\n\n・rise(自動詞・上がる、増える): 目的語を取らない。活用は rise - rose - risen\n・raise(他動詞・上げる、引き上げる): 後ろに目的語が必要。活用は raise - raised - raised\n\n物価・売上・気温など、それ自体が「上がる」ときは rise を使います。人が何かを上げる、金額や水準を引き上げるときは raise を使います。目的語があるかどうかで判断します。",
+          "examples": [
+            { "en": "Sales **rose** by ten percent this year.", "ja": "今年、売上は10%増えた。", "note": "rise は自動詞。目的語を取らない(過去形は rose)" },
+            { "en": "The bank **raised** the interest rate to two percent.", "ja": "銀行は金利を2%に引き上げた。", "note": "raise は他動詞。目的語 the interest rate を取る" }
+          ],
+          "cautions": ["× Prices raised last month. → ○ Prices rose last month.(「物価が上がる」は自動詞の rise)", "× The company rose its prices. → ○ The company raised its prices.(raise は目的語 its prices を取る)"]
+        },
+        {
+          "heading": "sit と seat: 座る(自動詞)と、座らせる(他動詞)",
+          "explanation": "sit は「座る」(自動詞)、seat は「座らせる」(他動詞)です。\n\n・sit(自動詞・座る): 目的語を取らない。活用は sit - sat - sat - sitting。sit down、sit at the desk、sit on the chair のように、前置詞や副詞を伴う\n・seat(他動詞・座らせる、席に案内する): 後ろに目的語(人)が必要。活用は seat - seated - seated\n\n日本語で「(人)を座らせる」と言うとき、sit を使うと誤りです。「座らせる」は seat を使い、人が自分で座る場合は seat oneself(改まった表現)を使います。",
+          "examples": [
+            { "en": "Please **sit** down. The meeting will start soon.", "ja": "どうぞお座りください。まもなく会議が始まります。", "note": "sit は自動詞。目的語を取らず、sit down で「座る」" },
+            { "en": "The receptionist **seated** us near the window.", "ja": "受付の人は、私たちを窓際の席に案内した。", "note": "seat は他動詞。目的語 us(人)を取る" }
+          ],
+          "cautions": ["× The waiter sat us at the table. → ○ The waiter seated us at the table.(「座らせる」は seat。sat は sit の過去形)", "× Please seat down. → ○ Please sit down.(座る意味の自動詞は sit)"]
+        },
+        {
+          "heading": "arise と arouse: 生じる(自動詞)と、かき立てる(他動詞)",
+          "explanation": "arise と arouse は、どちらも「起こる」に近い意味ですが、自他が違います。\n\n・arise(自動詞・生じる、起こる): 目的語を取らない。活用は arise - arose - arisen。problems arise(問題が生じる)のように使う\n・arouse(他動詞・かき立てる、引き起こす): 後ろに目的語が必要。活用は arouse - aroused - aroused。interest(関心)、anger(怒り)、suspicion(疑い)などを「かき立てる」\n\n問題・機会・疑問などが「生じる」なら arise、人の感情を「引き起こす」なら arouse、と覚えます。",
+          "examples": [
+            { "en": "Several problems **arose** during the project.", "ja": "プロジェクトの途中で、いくつかの問題が生じた。", "note": "arise は自動詞。目的語を取らない(過去形は arose)" },
+            { "en": "The new plan **aroused** strong interest among investors.", "ja": "その新しい計画は、投資家の強い関心をかき立てた。", "note": "arouse は他動詞。目的語 strong interest を取る" }
+          ],
+          "cautions": ["× A problem aroused during the meeting. → ○ A problem arose during the meeting.(問題が生じるのは arise)", "× The news arose strong interest. → ○ The news aroused strong interest.(関心を引き起こすのは arouse)"]
+        },
+        {
+          "heading": "answer・consider: 前置詞を付けない他動詞",
+          "explanation": "answer(~に答える)と consider(~を考慮する、検討する)は、直後に目的語を直接置きます。to や about を付けると誤りになります。\n\n・answer the question(質問に答える)。人に返事をするときも、answer him のように前置詞なしで書く\n・consider the offer(提案を検討する)。consider -ing の形で「~することを検討する」も表す(consider moving)\n\n日本語の「~に」「~について」を見て、answer や consider に to や about を付けないように注意します。",
+          "examples": [
+            { "en": "Please **answer** the questions before the deadline.", "ja": "締め切りの前に、質問に答えてください。", "note": "answer は前置詞を付けず、直接目的語を取る" },
+            { "en": "We are **considering** a new office in Osaka.", "ja": "私たちは、大阪に新しい事務所を設けることを検討している。", "note": "consider は前置詞を付けず、目的語 a new office を取る" },
+            { "en": "The board will **consider** your proposal next week.", "ja": "取締役会は来週、あなたの提案を検討する。", "note": "consider the proposal(提案を検討する)" }
+          ],
+          "cautions": ["× She answered to my question. → ○ She answered my question.(answer に to は付けない)", "× We will consider about the offer. → ○ We will consider the offer.(consider に about は付けない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、discuss や attend に前置詞を付けた誤りの選択肢が多く出ます。空所の後ろに名詞が直接来るかを確かめます。"
@@ -87,6 +226,62 @@
             { "en": "The manager **entrusted** the new staff **with** the project.", "ja": "部長は新しいスタッフにそのプロジェクトを任せた。", "note": "entrust A with B" },
             { "en": "We **attribute** the success **to** the team's hard work.", "ja": "私たちは、その成功をチームの努力のおかげだと考えている。", "note": "attribute A to B(原因を B に帰す)" }
           ]
+        },
+        {
+          "heading": "第4文型をとれない動詞: explain・suggest・introduce",
+          "explanation": "第4文型(SVOO)は、「人に物を与える・伝える」型で、give、send、show、tell、offer などが取れます。\n\nしかし、explain(説明する)、suggest(提案する)、introduce(紹介する)、say などは、SVOO(人 + 物)の形を取れません。人の前には to を置いて、「物 + to + 人」の形で書きます。\n\n・explain the plan to me(私にその計画を説明する)\n・suggest a new idea to the team(チームに新しい案を提案する)\n・introduce the new manager to the staff(新しい部長をスタッフに紹介する)\n\n動詞が SVOO をとれるかは、語ごとに覚えます。",
+          "examples": [
+            { "en": "She **explained** the plan **to** me.", "ja": "彼女は、私にその計画を説明してくれた。", "note": "explain は SVOO にできない。人の前に to を置く" },
+            { "en": "He **introduced** the new manager **to** the staff.", "ja": "彼は、新しい部長をスタッフに紹介した。", "note": "introduce も「人 + to + 人」の形" },
+            { "en": "The manager **told** the team the good news.", "ja": "部長はチームに、その良い知らせを伝えた。", "note": "tell は第4文型をとれる(tell + 人 + 物)" }
+          ],
+          "cautions": ["× She explained me the plan. → ○ She explained the plan to me.(explain は SVOO の形を取らない)", "× He suggested us a new idea. → ○ He suggested a new idea to us.(suggest も「物 + to + 人」の形)"]
+        },
+        {
+          "heading": "provide・supply: A with B と B to A",
+          "explanation": "provide(提供する)と supply(供給する)は、「(人・場所)に(物)を与える」の意味ですが、前置詞の使い方が決まっています。\n\n・provide A with B: A(人・場所)に B(物)を提供する(provide the staff with training)\n・supply A with B: A に B を供給する(supply the factory with parts)\n・supply B to A: B を A に供給する(supply parts to the factory)\n\nprovide は、with の後ろに物を置く形で覚えます。「provide the staff training」とは、普通は言いません。",
+          "examples": [
+            { "en": "The company **provides** its staff **with** free lunches.", "ja": "その会社は、社員に無料の昼食を提供している。", "note": "provide A with B(A に B を提供する)" },
+            { "en": "The supplier **supplies** the factory **with** steel.", "ja": "その供給業者は、工場に鋼材を供給している。", "note": "supply A with B(A に B を供給する)" },
+            { "en": "The supplier **supplies** steel **to** the factory.", "ja": "その供給業者は、鋼材をその工場に供給している。", "note": "supply B to A(B を A に供給する)" }
+          ],
+          "cautions": ["× The company provides its staff free lunches. → ○ The company provides its staff with free lunches.(provide は with を付けて物を後ろに置く)"]
+        },
+        {
+          "heading": "rob・rid A of B: A から B を奪う・取り除く",
+          "explanation": "rob と rid も、deprive と同じく、「A から B を奪う・取り除く」の形で使います。A の後ろに of を続けます。\n\n・rob A of B: A から B を奪う。rob him of his wallet(彼から財布を奪う)。場所を目的語にするときは、rob a bank(銀行を襲う)のように直接続ける\n・rid A of B: A から B を取り除く。rid the office of old files(事務所から古いファイルを取り除く)\n\n「get rid of ~」(~を処分する、取り除く)も、rid の慣用表現として覚えます。",
+          "examples": [
+            { "en": "The fraud **robbed** him **of** his savings.", "ja": "その詐欺で、彼は貯金を失った。", "note": "rob A of B(A から B を奪う)" },
+            { "en": "We need to **rid** the office **of** old files.", "ja": "事務所から古いファイルを取り除く必要がある。", "note": "rid A of B(A から B を取り除く)" }
+          ],
+          "cautions": ["× The thief robbed the money from the bank. → ○ The thief robbed the bank of the money.(rob は、人や場所から物を奪う)"]
+        },
+        {
+          "heading": "convince・inform A of B: A に B を納得させる・知らせる",
+          "explanation": "convince A of B は「A に B(事実・考え)を納得させる」、inform A of B は「A に B を知らせる」です。どちらも「人 + of + 内容」の形です。\n\n・convince A of B: A に B を納得させる(convince the client of the quality)\n・inform A of B: A に B を知らせる(inform the staff of the change)\n\n「知らせる」は、inform A that 節(A に~ということを知らせる)や、inform A about B の形でも表せます。convince は、convince A to do(A に~するよう説得する)の形もあります。",
+          "examples": [
+            { "en": "We **convinced** the client **of** the product's quality.", "ja": "私たちは、その製品の品質の高さを顧客に納得させた。", "note": "convince A of B(A に B を納得させる)" },
+            { "en": "Please **inform** the staff **of** the schedule change.", "ja": "スタッフに、日程の変更を知らせてください。", "note": "inform A of B(A に B を知らせる)" }
+          ],
+          "cautions": ["× We informed the change to the staff. → ○ We informed the staff of the change.(inform は「人 + of + 内容」の形)"]
+        },
+        {
+          "heading": "blame A for B・accuse A of B: A を B のことで責める",
+          "explanation": "blame と accuse は、どちらも「A(人)を責める・非難する」ですが、前置詞が違います。\n\n・blame A for B: A(人)を、B(出来事・結果)のことで責める。blame the manager for the delay(遅れを部長のせいにする)\n・accuse A of B: A(人)に、B(悪いこと・罪)があると非難する。accuse him of stealing(彼が盗んだと非難する)\n\n「出来事・結果」なら blame A for B、「罪・不正」なら accuse A of B、と覚えます。blame B on A(B を A のせいにする)も、同じ意味です。",
+          "examples": [
+            { "en": "They **blamed** the manager **for** the delay.", "ja": "彼らは、遅れを部長のせいにした。", "note": "blame A for B(A を B のことで責める)" },
+            { "en": "The company **accused** him **of** stealing data.", "ja": "会社は、彼がデータを盗んだと非難した。", "note": "accuse A of B(A に B の罪があると非難する)" }
+          ],
+          "cautions": ["× They blamed him of the delay. → ○ They blamed him for the delay.(blame は for)", "× They accused him for stealing data. → ○ They accused him of stealing data.(accuse は of)"]
+        },
+        {
+          "heading": "replace A with B: A を B と取り替える",
+          "explanation": "replace A with B は、「A を B と取り替える(置き換える)」の意味です。\n\n・replace the old system with a new one(古いシステムを新しいものに取り替える)\n\n取り替えられるもの(A)が replace の後ろ、新しいもの(B)が with の後ろに来ます。受け身では、be replaced by(~に取って代わられる)の形になります。",
+          "examples": [
+            { "en": "We will **replace** the old printers **with** new models.", "ja": "古いプリンターを、新しい機種に取り替える予定だ。", "note": "replace A with B(A を B と取り替える)" },
+            { "en": "The company **replaced** its manager **with** an outside expert.", "ja": "その会社は部長を、社外の専門家と交代させた。", "note": "replace A with B(A を B と交代させる)" }
+          ],
+          "cautions": ["× The old system was replaced to the new one. → ○ The old system was replaced by the new one.(受け身では be replaced by)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、deprive A of B、remind A of B などの前置詞(of・with・to)の組み合わせを選ばせる問題が出ます。"
@@ -128,6 +323,21 @@
             { "en": "The team **helped** me **finish** the report.", "ja": "チームはレポートを終えるのを手伝ってくれた。", "note": "help + 人 + 原形" },
             { "en": "The team **helped** me **to finish** the report.", "ja": "チームはレポートを終えるのを手伝ってくれた。", "note": "help + 人 + to 不定詞(意味は同じ)" }
           ]
+        },
+        {
+          "heading": "使役動詞の違いのまとめ: make・let・have・get",
+          "explanation": "使役動詞は、「(人)に~させる」を表します。make、let、have、get は、目的語の後ろに続く形で区別します。\n\n・make + 人 + 原形: 強制して~させる。受け身は be made to + 原形(to が戻る)\n・let + 人 + 原形: 許可して~させる\n・have + 人 + 原形: 頼んで~させる。目的語が物なら have + 物 + 過去分詞\n・get + 人 + to 不定詞: 働きかけて~させる。目的語が物なら get + 物 + 過去分詞\n\n人の後ろに原形を取るのは make・let・have、to 不定詞を取るのは get です。",
+          "table": {
+            "caption": "使役動詞の形と意味",
+            "headers": ["動詞", "人の後ろ", "物の後ろ", "意味"],
+            "rows": [["make", "原形(make + 人 + 原形)", "(通常は使わない)", "強制して~させる"], ["let", "原形(let + 人 + 原形)", "(通常は使わない)", "許可して~させる"], ["have", "原形(have + 人 + 原形)", "過去分詞(have + 物 + 過去分詞)", "頼んで~させる、~してもらう"], ["get", "to 不定詞(get + 人 + to 不定詞)", "過去分詞(get + 物 + 過去分詞)", "働きかけて~させる、~してもらう"]]
+          },
+          "examples": [
+            { "en": "The new rule **lets** employees **work** from home on Fridays.", "ja": "新しい規則で、社員は金曜日に在宅勤務をしてもよくなった。", "note": "let + 人 + 原形(許可)" },
+            { "en": "The company **got** the old system **replaced** last month.", "ja": "会社は先月、古いシステムを取り替えてもらった。", "note": "get + 物 + 過去分詞(~してもらう)" },
+            { "en": "The manager **got** the new staff **to** **join** the training.", "ja": "部長は新人に、研修に参加するよう働きかけた。", "note": "get + 人 + to 不定詞(働きかけて~させる)" }
+          ],
+          "cautions": ["× The manager let us to leave early. → ○ The manager let us leave early.(let は原形を取る。to は付けない)", "× The manager got us work overtime. → ○ The manager got us to work overtime.(get は人の後ろに to 不定詞を取る)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、使役動詞の後ろの形(原形・過去分詞・to 不定詞)を選ばせる問題が出ます。have + 物 + 過去分詞の形は、「~してもらう」の意味で覚えておきます。"
@@ -162,6 +372,16 @@
           "examples": [
             { "en": "Please **refrain from** **eating** in the meeting room.", "ja": "会議室での飲食はお控えください。", "note": "refrain from + 動名詞" }
           ]
+        },
+        {
+          "heading": "prevent・stop・keep O from -ing: O が~するのを妨げる",
+          "explanation": "prevent(防ぐ)、stop(止める)、keep(妨げる)は、「O + from + 動名詞」の形で、「O が~するのを妨げる・止める」を表します。from の後ろには動名詞(-ing)が来ます。\n\n・prevent O from -ing: O が~するのを防ぐ\n・stop O from -ing: O が~するのを止める\n・keep O from -ing: O が~するのを妨げる\n\nこの形は、to 不定詞を続けられない点に注意します。from の後ろは、to 不定詞ではなく動名詞になります。",
+          "examples": [
+            { "en": "The heavy snow **prevented** us **from** **arriving** on time.", "ja": "大雪で、私たちは時間どおりに着けなかった。", "note": "prevent O from -ing(O が~するのを妨げる)" },
+            { "en": "A new rule **stopped** staff **from** **using** personal phones at work.", "ja": "新しい規則で、社員は仕事中に私用の携帯電話を使えなくなった。", "note": "stop O from -ing(O が~するのを止める)" },
+            { "en": "Strong security **keeps** outsiders **from** **entering** the building.", "ja": "強固な警備で、部外者がビルに入るのを防いでいる。", "note": "keep O from -ing(O が~するのを妨げる)" }
+          ],
+          "cautions": ["× The rain prevented us to go out. → ○ The rain prevented us from going out.(prevent の後ろは from + 動名詞。to 不定詞は続けられない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、to の後ろが不定詞か動名詞かを選ばせる問題が出ます。前置詞の to(look forward to、object to など)は、後ろが動名詞になります。"
@@ -220,6 +440,24 @@
           "examples": [
             { "en": "All prices are **subject to** change.", "ja": "価格は変更されることがある。", "note": "subject to + 名詞" }
           ]
+        },
+        {
+          "heading": "提案・要求の that 節: propose・demand・require は原形",
+          "explanation": "提案・要求を表す that 節では、動詞は原形(または should + 原形)になります。suggest(提案する)、propose(提案する)、demand(要求する)、require(求める)などが、この形を取ります。\n\n・propose that + 主語 + 原形: 提案する\n・demand that + 主語 + 原形: 要求する\n・require that + 主語 + 原形: 求める、義務付ける\n\nthat 節の中では、主語が三人称単数でも、動詞に s を付けません。should を入れる形と入れない形のどちらも使われ、英米で好まれる形に違いがあることもあります。",
+          "examples": [
+            { "en": "The committee **proposed** that the meeting **be** moved to Friday.", "ja": "委員会は、会議を金曜日に移すよう提案した。", "note": "propose that + 原形(be)" },
+            { "en": "The union **demanded** that the company **raise** wages.", "ja": "組合は、会社が賃金を上げるよう要求した。", "note": "demand that + 原形(raise)" },
+            { "en": "The new policy **requires** that every employee **complete** the training.", "ja": "新しい方針では、全員が研修を修了することが求められている。", "note": "require that + 原形(complete)" }
+          ],
+          "cautions": ["× The union demanded that the company raises wages. → ○ The union demanded that the company raise wages.(要求の that 節の動詞は原形)"]
+        },
+        {
+          "heading": "suggest・insist が「示す」「主張する」の意味のとき: 普通の時制",
+          "explanation": "suggest と insist は、that 節の動詞が原形になるのは「提案する」「要求する」の意味のときだけです。「示す」(suggest)や「主張する」(insist)の意味では、that 節に普通の時制(直説法)を使います。\n\n・suggest(示す、示唆する): The data suggest that sales are rising.(そのデータは、売上が伸びていることを示している)\n・insist(主張する): He insisted that he was at home that night.(彼は、その夜は自宅にいたと主張した)\n\n同じ動詞でも、that 節の形が違います。文の意味が「提案・要求」なのか、「示す・主張する」なのかで判断します。",
+          "examples": [
+            { "en": "The data **suggest** that sales **are rising**.", "ja": "そのデータは、売上が伸びていることを示している。", "note": "suggest = 示す。that 節は普通の時制(are rising)" },
+            { "en": "The witness **insisted** that he **was** at home that night.", "ja": "証人は、その夜は自宅にいたと主張した。", "note": "insist = 主張する。that 節は普通の時制(was)" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、句動詞の前置詞(come into effect の into、abide by の by)を選ばせる問題が出ます。"
@@ -255,6 +493,25 @@
             { "en": "The meeting **is about to** start.", "ja": "会議はまさに始まろうとしている。", "note": "be about to + 原形" },
             { "en": "We moved the meeting **so as to** include the client.", "ja": "顧客を含めるために、会議の日程を変えた。", "note": "so as to + 原形(目的)" }
           ]
+        },
+        {
+          "heading": "allow・permit・forbid + O + to 不定詞: O が~することを許す・禁じる",
+          "explanation": "allow(許す)、permit(許可する)、forbid(禁じる)は、「O に~することを許す・禁じる」の形を取ります。O(人)の後ろには to 不定詞を置きます。\n\n・allow + O + to 不定詞: O が~することを認める(allow staff to work from home)\n・permit + O + to 不定詞: O が~することを許可する(permit visitors to take photos)\n・forbid + O + to 不定詞: O が~することを禁じる(forbid staff to use personal phones)\n\nO の後ろは、動名詞ではなく to 不定詞になる点に注意します。",
+          "examples": [
+            { "en": "The company **allows** staff **to work** from home on Fridays.", "ja": "その会社は、金曜日の在宅勤務を社員に認めている。", "note": "allow + O + to 不定詞" },
+            { "en": "The museum **does not permit** visitors **to take** photos.", "ja": "博物館では、来館者が写真を撮ることを許可していない。", "note": "permit + O + to 不定詞" },
+            { "en": "The rules **forbid** staff **to use** personal phones at work.", "ja": "規則により、社員は仕事中に私用の携帯電話を使うことを禁じられている。", "note": "forbid + O + to 不定詞(禁じる)" }
+          ],
+          "cautions": ["× The company allows staff working from home. → ○ The company allows staff to work from home.(allow の後ろの O は to 不定詞を取る)"]
+        },
+        {
+          "heading": "ask・tell・advise・order + O + to 不定詞: O に~するよう頼む・勧める",
+          "explanation": "ask(頼む)、tell(言う)、advise(勧める)、order(命じる)などは、「O に~するよう…する」の形を取り、O の後ろに to 不定詞を置きます。\n\n・ask + O + to: O に~するよう頼む(ask him to call back)\n・tell + O + to: O に~するよう言う(tell the staff to arrive early)\n・advise + O + to: O に~するよう勧める(advise customers to book early)\n・order + O + to: O に~するよう命じる(order the crowd to leave)\n\n相手に行動を求める内容は、O + to 不定詞で表すのが基本です。",
+          "examples": [
+            { "en": "Our manager **asked** us **to submit** the report by Friday.", "ja": "部長は、金曜日までにレポートを提出するよう私たちに頼んだ。", "note": "ask + O + to 不定詞" },
+            { "en": "The doctor **advised** him **to take** a break.", "ja": "医者は彼に、休息を取るよう勧めた。", "note": "advise + O + to 不定詞" }
+          ],
+          "cautions": ["× The manager asked us submit the report. → ○ The manager asked us to submit the report.(ask は O の後ろに to 不定詞を置く)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、動詞の後ろが to 不定詞か動名詞かで、意味が変わるものを選ばせる問題が出ます。特に remember、forget、regret は注意します。"
@@ -262,12 +519,16 @@
   ],
   "summary": [
     "動詞の後ろで、文の型(SV・SVC・SVO・SVOO・SVOC)が決まる。語ごとの型は覚える",
-    "自動詞は前置詞を伴う(arrive at、depend on)。discuss・attend・enter などは前置詞を付けない",
-    "第4文型は、to・for で書き換えられる動詞がある。deprive A of B、remind A of B などはセットで覚える",
+    "動詞は be 動詞・一般動詞・助動詞の3種類。不規則動詞は、過去形と過去分詞を語ごとに覚える(write - wrote - written)",
+    "状態動詞(know、like、need など)は、原則として進行形にしない。同じ動詞でも、状態と動作で進行形の可否が変わるものがある",
+    "自動詞は前置詞を伴う(arrive at、depend on)。discuss・answer・attend・enter などは前置詞を付けない",
+    "lie/lay、rise/raise、sit/seat、arise/arouse は、自動詞と他動詞の組。目的語の有無で選ぶ",
+    "第4文型は、to・for で書き換えられる動詞がある。explain・suggest・introduce は第4文型にできない",
+    "deprive・rob・remind・convince の A of B、provide A with B、blame A for B、accuse A of B、replace A with B は、前置詞をセットで覚える",
     "使役: make・let・have + 人 + 原形。have・get + 物 + 過去分詞は「~してもらう」。知覚動詞は原形と -ing を使い分ける",
     "suggest・avoid・finish などは動名詞だけを取る。前置詞の to(be used to、object to)も後ろは動名詞",
+    "recommend・propose・demand などの that 節の動詞は原形。suggest・insist が「示す」「主張する」の意味なら普通の時制",
     "第5文型の regard は、A as B の形を取る",
-    "recommend・insist などの that 節の動詞は原形",
     "remember・forget・regret は、to 不定詞と動名詞で意味が変わる"
   ],
   "quiz": [

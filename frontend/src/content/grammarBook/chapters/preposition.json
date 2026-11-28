@@ -2,7 +2,7 @@
   "id": "preposition",
   "no": 20,
   "title": "前置詞",
-  "lead": "前置詞は、名詞(代名詞・動名詞を含む)の前に置いて、時・場所・原因・関係などを表す語です。TOEIC Part 5 では、空所の後ろに名詞があるか、主語と動詞があるかで、前置詞と接続詞のどちらを選ぶかが頻繁に問われます。この章では、前置詞の基本、時・場所・原因・譲歩などの使い分け、群前置詞(前置詞のまとまり)を学びます。",
+  "lead": "前置詞は、名詞(代名詞・動名詞を含む)の前に置いて、時・場所・原因・関係などを表す語です。TOEIC Part 5 では、空所の後ろに名詞があるか、主語と動詞があるかで、前置詞と接続詞のどちらを選ぶかが頻繁に問われます。この章では、前置詞の基本、時・場所・原因・譲歩などの使い分け、群前置詞(前置詞のまとまり)を学びます。さらに、紛らわしい前置詞の組、慣用句、動詞・形容詞・名詞と結びつく前置詞も扱います。",
   "sections": [
     {
       "id": "basics",
@@ -12,12 +12,12 @@
       "items": [
         {
           "heading": "前置詞の後ろに来るもの",
-          "explanation": "前置詞の後ろには、名詞・代名詞・動名詞(-ing)が来ます。冠詞や形容詞を含む名詞のかたまりも、ひとつの名詞として扱います。\n\n・名詞: after the meeting\n・代名詞: after it\n・動名詞: after reviewing the report\n\n前置詞の後ろに「主語 + 動詞」が続く形は、文法的に正しくありません。その場合は、接続詞を使います。",
+          "explanation": "前置詞の後ろには、名詞・代名詞・動名詞(-ing)が来ます。冠詞や形容詞を含む名詞のかたまりも、ひとつの名詞として扱います。\n\n・名詞: after the meeting\n・代名詞: after it\n・動名詞: after reviewing the report\n\n前置詞の後ろに「主語 + 動詞」が続く形は、文法的に正しくありません。その場合は、接続詞を使います。\n\n前置詞の後ろの代名詞は、目的格(me、him、them など)にします。主格(I、he、they)は置けません。前置詞 + 関係代名詞(in which、of whom など)は、第19章「関係詞」で扱います。",
           "examples": [
             { "en": "We will update you **after** the **meeting**.", "ja": "会議のあとで、お知らせします。", "note": "after の後ろは名詞 meeting" },
             { "en": "She left the office **after** **reviewing** the report.", "ja": "彼女はそのレポートを確認してから、オフィスを出た。", "note": "after の後ろは動名詞 reviewing" }
           ],
-          "cautions": ["× Despite it was raining, we went out. → ○ Despite the rain, we went out.(despite は前置詞なので、後ろは名詞)"]
+          "cautions": ["× Despite it was raining, we went out. → ○ Despite the rain, we went out.(despite は前置詞なので、後ろは名詞)", "× Please come with I. → ○ Please come with me.(前置詞の後ろの代名詞は目的格)"]
         },
         {
           "heading": "前置詞か接続詞か: 後ろを見て決める",
@@ -149,6 +149,16 @@
             { "en": "The team voted **against** the plan.", "ja": "チームは、その計画に反対票を投じた。", "note": "against は反対" }
           ],
           "cautions": ["× besides the window → ○ beside the window(窓のそば。besides は「~に加えて」の意味)"]
+        },
+        {
+          "heading": "in front of・ahead of・adjacent to: 前・先・隣接",
+          "explanation": "in front of は「~の前に(空間の位置)」、ahead of は「~より前に・~の先に(場所や時間)」、adjacent to は「~に隣接して、~と接して」を表します。\n\n・in front of: 建物などの正面(in front of the station、駅の正面に)\n・ahead of: 予定や他の人より先(ahead of schedule、予定より早く)\n・adjacent to: 隣り合って接している(adjacent to the main road、大通りに隣接して)\n\nin front of と ahead of は、どちらも「前」ですが、in front of は空間の位置、ahead of は時間や進み具合の「先」に使うことが多いです。",
+          "examples": [
+            { "en": "The company will open a new office **in front of** the station.", "ja": "その会社は、駅の正面に新しいオフィスを開く。", "note": "in front of は空間の位置(前)" },
+            { "en": "The project is **ahead of** schedule, so we can finish early.", "ja": "プロジェクトは予定より進んでいるので、早く終えられる。", "note": "ahead of schedule は予定より前に" },
+            { "en": "Our new store is **adjacent to** the main road.", "ja": "私たちの新しい店は、大通りに隣接している。", "note": "adjacent to は隣り合って接している" }
+          ],
+          "cautions": ["× in front the station → ○ in front of the station(in front は of と組んで前置詞になる)"]
         }
       ],
       "examNote": "TOEIC Part 5 の場所の前置詞は、between と among、in と at のように、対になる語のどちらかを選ばせる問題が多いです。数(2つか3つ以上か)、場所の種類(地点か、囲まれた空間か)で判断します。"
@@ -190,6 +200,16 @@
           "examples": [
             { "en": "The store closed early **on account of** the power outage.", "ja": "停電のため、その店は早く閉まった。", "note": "on account of の後ろは名詞 the power outage" }
           ]
+        },
+        {
+          "heading": "by means of・thanks to・as a result of・on the grounds of: 手段と原因",
+          "explanation": "by means of は「~という手段によって」、thanks to は「~のおかげで」、as a result of は「~の結果として」、on the grounds of は「~という理由で」を表します。どれも後ろに名詞を置きます。\n\n・by means of: 手段を示す(by means of video calls、ビデオ通話で)\n・thanks to: 良い原因を示す(thanks to your help、あなたの助けのおかげで)\n・as a result of: 結果の原因を示す(as a result of the price increase、値上げの結果)\n・on the grounds of: 理由や根拠を示す(on the grounds of safety、安全上の理由で)\n\nby means of は、by(手段)より改まった言い方です。thanks to は、良い結果を表すことが多いです。because of や due to と同じく、後ろに主語と動詞は続けられません。",
+          "examples": [
+            { "en": "The team finished the work **by means of** a shared online system.", "ja": "チームは、共有のオンラインシステムを使って作業を終えた。", "note": "by means of は、手段(どうやって)を表す" },
+            { "en": "The project succeeded **thanks to** your hard work.", "ja": "あなたの努力のおかげで、プロジェクトは成功した。", "note": "thanks to は良い原因の後ろに置く" },
+            { "en": "The factory was temporarily closed **on the grounds of** safety.", "ja": "安全上の理由で、その工場は一時閉鎖された。", "note": "on the grounds of は理由・根拠" }
+          ],
+          "cautions": ["× thanks you to your help → ○ thanks to your help(thanks to は前置詞の形で使う)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、due to と because が並んだ問題がよく出ます。空所の後ろに名詞だけがあれば前置詞(due to など)、主語と動詞があれば接続詞(because)です。"
@@ -239,6 +259,17 @@
           "examples": [
             { "en": "The company grew **in the face of** strong competition.", "ja": "その会社は、激しい競争の中で成長した。", "note": "in the face of は困難に直面して" }
           ]
+        },
+        {
+          "heading": "with the exception of・excluding・besides: 除外と追加",
+          "explanation": "with the exception of は「~を除いて」(except for と同じ意味で、やや改まった言い方)、excluding は「~を除いて・~を含めずに」、besides は「~のほかに」(追加)を表します。どれも後ろに名詞を置きます。\n\n・with the exception of: 例外を一つ示す(with the exception of the manager、支配人を除いて)\n・excluding: 数や金額から外す(excluding tax、税を除いて)\n・besides: 追加を表す(besides the salary、給料のほかに)。否定文の後では「~を除いて」の意味にもなる(nobody besides him、彼のほかに誰も)\n\nbeside(~の横に)と綴りが似ていますが、意味は違います。この違いは、本章の「紛らわしい前置詞の組」の節で確かめます。",
+          "examples": [
+            { "en": "All staff attended the meeting **with the exception of** the manager.", "ja": "支配人を除いて、全員が会議に出席した。", "note": "with the exception of は例外を一つ示す" },
+            { "en": "The price is 500 yen, **excluding** tax.", "ja": "価格は税を除いて500円だ。", "note": "excluding は数や金額から外す" },
+            { "en": "**Besides** the salary, the company provides free lunch.", "ja": "給料のほかに、会社は無料の昼食も提供している。", "note": "besides は「~のほかに」の追加" },
+            { "en": "Nobody **besides** him knew the answer.", "ja": "彼のほかに、その答えを知っている人はいなかった。", "note": "否定文の後の besides は「~を除いて」" }
+          ],
+          "cautions": ["× Besides the window, there is a desk. → ○ Beside the window, there is a desk.(窓の横に机がある。besides は「~のほかに」、窓のそばは beside)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、despite と although、except for と except の区別が問われます。despite・except for の後ろは名詞、although・except(接続詞)の後ろは主語と動詞です。"
@@ -281,6 +312,17 @@
             { "en": "The fee is 500 yen **per** person.", "ja": "料金は1人500円だ。", "note": "per は単位あたり" },
             { "en": "The new model is **on par with** the market leader.", "ja": "その新機種は、市場の首位と同等の性能だ。", "note": "on par with は同等" }
           ]
+        },
+        {
+          "heading": "according to・contrary to・in line with・in compliance with: 情報源・反対・沿う・守る",
+          "explanation": "according to は「~によると、~に従って」、contrary to は「~に反して」、in line with は「~に沿って、~と一致して」、in compliance with は「~を守って、~に従って」を表します。どれも後ろに名詞を置きます。\n\n・according to: 情報源や基準を示す(according to the report、報告書によると)\n・contrary to: 予想や規則に反する(contrary to expectations、予想に反して)\n・in line with: 方針や計画に沿う(in line with the policy、方針に沿って)\n・in compliance with: 法律や規則を守る(in compliance with the law、法律を守って)\n\nin accordance with(~に基づいて)と意味が近いですが、in compliance with は「守る」ことを強調します。",
+          "examples": [
+            { "en": "**According to** the report, sales rose last quarter.", "ja": "報告書によると、売上は前四半期に伸びた。", "note": "according to は情報源を示す" },
+            { "en": "The result was **contrary to** our expectations.", "ja": "その結果は、私たちの予想に反していた。", "note": "contrary to は、反対・逆らう" },
+            { "en": "The new design is **in line with** the company's policy.", "ja": "新しいデザインは、会社の方針に沿っている。", "note": "in line with は、沿って一致する" },
+            { "en": "All products must be made **in compliance with** safety rules.", "ja": "すべての製品は、安全規則を守って作られなければならない。", "note": "in compliance with は規則を守る" }
+          ],
+          "cautions": ["× according the report → ○ according to the report(according の後ろは to)"]
         }
       ],
       "examNote": "TOEIC Part 5 の群前置詞は、意味の似た語句が選択肢に並ぶことが多いです。in addition to と in place of(~の代わりに)のように、意味が反対になるものもあるので、文の意味で確かめます。"
@@ -333,9 +375,169 @@
             { "en": "The project **consists of** three phases.", "ja": "そのプロジェクトは3つの段階からなる。", "note": "consist of は構成" }
           ],
           "cautions": ["× consist from → ○ consist of", "× depend of → ○ depend on"]
+        },
+        {
+          "heading": "in case of・in the event of・amid・in the wake of: 万一・状況の中で",
+          "explanation": "in case of と in the event of は「~の場合には」を表し、万一の事態に備える文でよく使われます。amid は「~の最中に、~の中で」、in the wake of は「~の直後に、~の結果として」を表します。どれも後ろに名詞を置きます。\n\n・in case of fire(火災の場合には)\n・in the event of a power failure(停電の場合には)\n・amid the crisis(危機の最中に)\n・in the wake of the scandal(スキャンダルの直後に)\n\n接続詞の in case(万一に備えて)は、後ろに主語と動詞が来るので、in case of(前置詞)と区別します。",
+          "examples": [
+            { "en": "**In case of** fire, please leave the building by the nearest exit.", "ja": "火災の場合は、最寄りの出口から建物の外に出てください。", "note": "in case of の後ろは名詞 fire" },
+            { "en": "**In the event of** a power failure, the backup system will start.", "ja": "停電の場合には、予備のシステムが起動する。", "note": "in the event of は「~の場合には」" },
+            { "en": "The company announced a new plan **amid** growing concern about costs.", "ja": "費用への懸念が高まる中、その会社は新しい計画を発表した。", "note": "amid は「~の最中に、~の中で」" },
+            { "en": "Sales declined **in the wake of** the product recall.", "ja": "製品の回収の後、売上が落ち込んだ。", "note": "in the wake of は「~の直後に」" }
+          ],
+          "cautions": ["× In case of it rains, we will cancel. → ○ In case it rains, we will cancel.(in case of の後ろは名詞。主語と動詞が続くときは in case)"]
+        },
+        {
+          "heading": "instead of・in place of・in exchange for: 代わり・交換",
+          "explanation": "instead of と in place of は「~の代わりに」、in exchange for は「~と引き換えに、~の見返りとして」を表します。instead of は、後ろに動名詞(-ing)も置けます。\n\n・instead of: 名詞または動名詞(instead of the bus、instead of taking the bus)\n・in place of: 代わりに置かれるもの(in place of the manager、支配人の代わりに)\n・in exchange for: 引き換えに得るもの(in exchange for a discount、割引と引き換えに)\n\nin lieu of(~の代わりに)は、前の項目「in lieu of・in excess of・in the absence of」で扱いました。",
+          "examples": [
+            { "en": "We took the train **instead of** driving to the conference.", "ja": "会議に車で行く代わりに、電車で行った。", "note": "instead of の後ろは動名詞 driving" },
+            { "en": "Mr. Sato attended the meeting **in place of** his manager.", "ja": "佐藤さんは、上司の代わりに会議に出席した。", "note": "in place of は代わりに置かれる人・もの" },
+            { "en": "The customer received a refund **in exchange for** the damaged item.", "ja": "顧客は、傷ついた商品と引き換えに返金を受けた。", "note": "in exchange for は引き換えに得る" }
+          ],
+          "cautions": ["× instead the bus → ○ instead of the bus(instead の後ろには of が必要)"]
+        },
+        {
+          "heading": "in charge of・in favor of・in recognition of・at the expense of: 担当・賛成・評価・犠牲",
+          "explanation": "in charge of は「~を担当して、~の責任者で」、in favor of は「~に賛成して、~に有利で」、in recognition of は「~を評価して、~の功績として」、at the expense of は「~を犠牲にして、~の代償として」を表します。どれも後ろに名詞を置きます。\n\n・in charge of: 担当している(in charge of sales、営業の担当)\n・in favor of: 賛成している(in favor of the plan、その計画に賛成)\n・in recognition of: 評価として(in recognition of his service、彼の貢献を評価して)\n・at the expense of: 犠牲にして(at the expense of quality、品質を犠牲にして)\n\nin favor of は、反対を表す against と対になります。英国では favour と綴ります。",
+          "examples": [
+            { "en": "Ms. Kim is **in charge of** the sales team.", "ja": "キムさんは、営業チームの担当だ。", "note": "in charge of は担当・責任者" },
+            { "en": "Most members voted **in favor of** the proposal.", "ja": "ほとんどの会員が、その提案に賛成票を投じた。", "note": "in favor of は賛成" },
+            { "en": "The company received an award **in recognition of** its service to the community.", "ja": "その会社は、地域社会への貢献が評価されて賞を受けた。", "note": "in recognition of は評価・功績を表す" },
+            { "en": "The team finished on time, but **at the expense of** quality.", "ja": "チームは期限どおりに終えたが、品質を犠牲にした。", "note": "at the expense of は、失うものを示す" }
+          ],
+          "cautions": ["× in charge for the sales → ○ in charge of the sales(in charge の後ろは of)", "× in favor to the plan → ○ in favor of the plan(in favor の後ろは of)"]
         }
       ],
       "examNote": "TOEIC Part 5 の群前置詞・動詞+前置詞は、語句のまとまりで覚えておくと、空所の選択が速くなります。"
+    },
+    {
+      "id": "confusing-pairs",
+      "title": "紛らわしい前置詞の組: 違いを一覧で確かめる",
+      "intro": "前置詞には、意味が似ていて選択肢に並びやすい組があります。by と until、during と while、between と among などは、違いを押さえると空所問題で迷いにくくなります。この節では、8つの組を表にまとめて確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "紛らわしい8つの組の一覧",
+          "explanation": "次の表は、試験で並びやすい8つの組の違いをまとめたものです。by と until、during と while、between と among、in と within、beside と besides、since と for は、本章の他の項目でも詳しく説明しています。\n\n判断の手順は、(1) 意味(期限か継続か、数が2つか3つ以上か、起点か期間か)を考え、(2) 後ろが名詞か、主語と動詞かを確かめる、の順です。during と while は、後ろが名詞か節かで決まります。",
+          "table": {
+            "caption": "紛らわしい前置詞の組",
+            "headers": ["組", "違い", "例"],
+            "rows": [
+              ["by と until", "by は期限(その時までに)、until は継続(その時まで続く)", "by Friday(金曜日までに) / until Friday(金曜日まで)"],
+              ["during と while", "during は前置詞(期間の中で)、while は接続詞(~している間に)", "during the meeting / while we were talking"],
+              ["between と among", "between は2つの間、among は3つ以上の中", "between the two sites / among the five sites"],
+              ["since と for", "since は起点(~以来)、for は期間の長さ(~の間)", "since 2020 / for five years"],
+              ["in と within", "in は「~後に・~の中で」、within は「~以内に」", "in two weeks(2週間後に) / within two weeks(2週間以内に)"],
+              ["over と above", "over は上を越えて覆う感じ、above は基準より上の位置", "over the river(川の上を越えて) / above the clouds(雲の上)"],
+              ["beside と besides", "beside は横・そば、besides は「~のほかに」", "beside the desk(机の横に) / besides the salary(給料のほかに)"],
+              ["through と throughout", "through は通り抜ける、throughout は全体にわたって", "through the tunnel(トンネルを通って) / throughout the city(市内全体で)"]
+            ]
+          },
+          "examples": [
+            { "en": "Please finish the task **by** noon, and we will work **until** 3 p.m.", "ja": "正午までに作業を終えてください。私たちは午後3時まで作業を続けます。", "note": "by は期限、until は継続" },
+            { "en": "We will launch the product **in** two weeks, and we must finish testing **within** one week.", "ja": "私たちは2週間後に製品を発売するが、テストは1週間以内に終えなければならない。", "note": "in は「~後に」、within は「~以内に」" },
+            { "en": "She has worked here **since** 2020, and she has led the team **for** five years.", "ja": "彼女は2020年からここで働いており、5年間チームを率いている。", "note": "since は起点(いつから)、for は期間の長さ" }
+          ],
+          "cautions": ["× during she was sleeping → ○ while she was sleeping(during の後ろは名詞。主語と動詞が続くときは while)"]
+        },
+        {
+          "heading": "over と above、through と throughout: 位置と範囲",
+          "explanation": "over と above はどちらも「上」ですが、over は真上を越えて覆う感じ、above は基準より上の位置を表すことが多いです。\n\n・over: a bridge over the river(川にかかる橋)、the lamp over the desk(机の真上のライト)\n・above: above the clouds(雲の上)、above average(平均より上)\n\nthrough は「~を通り抜けて」、throughout は「~の全体にわたって、~の間ずっと」を表します。throughout は、場所にも時間にも使えます。\n\n・through: through the tunnel(トンネルを通って)\n・throughout: throughout the country(国中で)、throughout the year(1年中)",
+          "examples": [
+            { "en": "A **bridge** over the river connects the two towns.", "ja": "川の上にかかる橋が、2つの町をつないでいる。", "note": "over は川を越えて覆うように" },
+            { "en": "The temperature stayed **above** freezing all day.", "ja": "一日中、気温は氷点より上のままだった。", "note": "above は基準より上の位置" },
+            { "en": "The train goes **through** a long tunnel.", "ja": "その列車は、長いトンネルを通り抜ける。", "note": "through は通り抜ける" },
+            { "en": "The company operates stores **throughout** the country.", "ja": "その会社は、国中に店舗を展開している。", "note": "throughout は全体にわたって" }
+          ],
+          "cautions": ["× The train goes throughout the tunnel. → ○ The train goes through the tunnel.(通り抜けるは through。throughout は全体に広がる)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、by と until、during と while、between と among、in と within、since と for のような組が、そのまま選択肢に並びます。期限・継続・期間・数の違いを、文の意味と後ろの形で判断します。"
+    },
+    {
+      "id": "idioms",
+      "title": "慣用句の前置詞: まとまりで覚える",
+      "intro": "on time、in the end、on purpose など、前置詞を含む慣用句は、一語ずつ訳すと意味が取れません。まとまりごと覚えると、空所問題や長文の読解で迷いにくくなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "時と順序の慣用句: on time・in time・on schedule・in advance・in the end・at the end",
+          "explanation": "on time は「定刻どおりに」、in time は「間に合って」、on schedule は「予定どおりに」、in advance は「前もって」を表します。in the end は「結局、最後には」、at the end of は「~の終わりに」です。\n\n・on time: 定刻に(The train arrived on time.)\n・in time: 間に合って(in time for the meeting、会議に間に合って)\n・on schedule: 予定どおりに\n・in advance: 前もって(book in advance、前もって予約する)\n・in the end: 結局は\n・at the end of: ~の終わりに(at the end of the month、月末に)\n\non time と in time は、似ているので注意します。in time は「間に合う」、on time は「時刻どおり」の意味です。",
+          "examples": [
+            { "en": "The train arrived **on time**, so we got to the meeting **in time**.", "ja": "電車は定刻に着いたので、会議に間に合った。", "note": "on time は定刻、in time は間に合う" },
+            { "en": "**In the end**, the team finished the project two days early.", "ja": "結局、チームはプロジェクトを2日早く終えた。", "note": "in the end は結局・最後には" },
+            { "en": "The new report was finished **at the end of** the month.", "ja": "新しい報告書は、その月の末に完成した。", "note": "at the end of は~の終わりに" }
+          ],
+          "cautions": ["× on the end → ○ in the end / at the end(最後に・結局。on the end は使わない)"]
+        },
+        {
+          "heading": "意図・偶然・事実・程度の慣用句: on purpose・by accident・in fact・in particular・at least・at most・on average",
+          "explanation": "on purpose は「わざと、意図的に」、by accident は「偶然に」、in fact は「実は、実際には」、in particular は「特に」を表します。at least は「少なくとも」、at most は「多くても」、on average は「平均して」を表します。\n\n・on purpose と by accident は、反対の意味で対になります。\n・in fact は、前の文を補足します。\n・in particular は、いくつかの中から特に一つを取り出します。\n・at least と at most は、数量の下限と上限を表します。\n\nat least と at most は、ひっかけに使われやすい組です。意味を取り違えないように注意します。",
+          "examples": [
+            { "en": "He broke the vase **by accident**, but he did not do it **on purpose**.", "ja": "彼は偶然花瓶を割ったが、わざとやったのではない。", "note": "by accident は偶然、on purpose はわざと" },
+            { "en": "The project costs **at least** 5 million yen and **at most** 10 million yen.", "ja": "そのプロジェクトは、少なくとも500万円、多くても1,000万円かかる。", "note": "at least は下限、at most は上限" },
+            { "en": "The new product sold well. **In fact**, it sold out in one week.", "ja": "その新製品はよく売れた。実際、1週間で売り切れた。", "note": "in fact は前の文を補足する" },
+            { "en": "Customers spend, **on average**, twenty minutes in the store.", "ja": "平均すると、顧客は店に20分いる。", "note": "on average は平均して" }
+          ],
+          "cautions": ["× 多くても1,000万円のつもりで at least 10 million yen → ○ at most 10 million yen(多くても。at least は「少なくとも」)"]
+        },
+        {
+          "heading": "状態・在庫・勤務の慣用句: out of order・under construction・in progress・on sale・for sale・in stock・out of stock・on duty・on leave",
+          "explanation": "out of order は「故障中」、under construction は「工事中」、in progress は「進行中」を表します。商品では、on sale は「特売中」、for sale は「売りに出ている」、in stock は「在庫がある」、out of stock は「在庫切れ」です。勤務では、on duty は「勤務中」、on leave は「休暇中」を表します。\n\n・out of order: 機械などが故障している\n・under construction: 建物などが工事中\n・in progress: 作業などが進行中\n・on sale / for sale: 特売中 / 売りに出ている\n・in stock / out of stock: 在庫がある / 在庫切れ\n・on duty / on leave: 勤務中 / 休暇中\n\non sale は値下げして売ること、for sale は売り手が売りに出していることを表します。",
+          "examples": [
+            { "en": "The elevator is **out of order**, so please use the stairs.", "ja": "エレベーターは故障中なので、階段を使ってください。", "note": "out of order は故障中" },
+            { "en": "The new office building is still **under construction**.", "ja": "新しいオフィスビルは、まだ工事中だ。", "note": "under construction は工事中" },
+            { "en": "The sweaters are **on sale** this week, but the jacket is **out of stock**.", "ja": "今週、セーターは特売中だが、そのジャケットは在庫切れだ。", "note": "on sale は特売、out of stock は在庫切れ" },
+            { "en": "Our manager is **on leave** until next Monday.", "ja": "私たちの部長は、次の月曜日まで休暇中だ。", "note": "on leave は休暇中" }
+          ],
+          "cautions": ["× The copier is in order. → ○ The copier is out of order.(故障中。in order は「整っている」)"]
+        }
+      ],
+      "examNote": "慣用句は、前置詞を別の語に替えると意味が変わるか、不自然になります。at the end と in the end、at least と at most のような組は、文の意味で判断します。"
+    },
+    {
+      "id": "collocations",
+      "title": "動詞・形容詞・名詞と結びつく前置詞",
+      "intro": "動詞や形容詞は、決まった前置詞と結びついて使われます。前置詞を覚え違えると、空所問題で不正解になりやすいです。名詞の形になっても同じ前置詞を使うことが多いので、セットで覚えます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "動詞・形容詞と前置詞のセット(名詞の形も同じ前置詞)",
+          "explanation": "動詞や形容詞は、決まった前置詞と結びついて使われます。例えば、responsible は for、aware は of、familiar は with を続けます。前置詞は意味だけでは選べないことが多いので、語句のまとまりで覚えます。\n\n名詞の形になっても、同じ前置詞を使います(responsibility for、awareness of)。動詞の形と名詞の形をセットで覚えると、語形の問題にも対応しやすくなります。",
+          "table": {
+            "caption": "動詞・形容詞と、その名詞の形",
+            "headers": ["動詞・形容詞の形", "名詞の形", "意味"],
+            "rows": [
+              ["be responsible for", "responsibility for", "~を担当している、~に責任がある"],
+              ["be aware of", "awareness of", "~に気づいている"],
+              ["be familiar with", "familiarity with", "~をよく知っている"],
+              ["be capable of", "capability of", "~する能力がある(名詞は~の能力)"],
+              ["be famous for", "reputation for", "~で有名だ(名詞は~という評判)"],
+              ["depend on", "dependence on", "~次第である、~に頼る(名詞は~への依存)"],
+              ["be interested in", "interest in", "~に興味がある"]
+            ]
+          },
+          "examples": [
+            { "en": "She **is responsible for** the marketing budget.", "ja": "彼女は、マーケティングの予算を担当している。", "note": "be responsible for は担当・責任" },
+            { "en": "He **is aware of** the risks involved in the deal.", "ja": "彼は、その取引に伴うリスクに気づいている。", "note": "be aware of は気づいている" },
+            { "en": "The staff are **familiar with** the new system.", "ja": "スタッフは、新しいシステムをよく知っている。", "note": "be familiar with は、よく知っている" },
+            { "en": "Her **responsibility for** the budget is clear.", "ja": "予算に対する彼女の責任は明確だ。", "note": "名詞 responsibility も for を続ける" }
+          ],
+          "cautions": ["× be responsible of → ○ be responsible for", "× be familiar of → ○ be familiar with(familiar の後ろは with)"]
+        },
+        {
+          "heading": "look for・look after: 前置詞で意味が変わる",
+          "explanation": "look は、後ろに続く前置詞で意味が変わります。look for は「~を探す」、look after は「~の世話をする、~を担当する」を表します。\n\n・look for: 探す(look for the keys、鍵を探す)\n・look after: 世話をする(look after the children、子どもの世話をする)\n\nlook forward to(~を楽しみにする)は、「前置詞 to と、to 不定詞の違い」の項目で扱いました。動詞と前置詞の組は、目的語とセットで覚えると確実です。",
+          "examples": [
+            { "en": "I cannot find my keys. Could you help me **look for** them?", "ja": "鍵が見つからないの。探すのを手伝ってくれない？", "note": "look for は探す(them は for の目的語)" },
+            { "en": "Could you **look after** my dog while I am away?", "ja": "私が留守の間、犬の世話をしてくれませんか。", "note": "look after は世話をする" },
+            { "en": "The new manager will **look after** the customers in this area.", "ja": "新しい担当者が、この地域の顧客を担当する。", "note": "look after は担当して面倒を見る" }
+          ],
+          "cautions": ["× look after the keys(鍵の世話をする)→ ○ look for the keys(鍵を探す)。探すは for、世話は after"]
+        }
+      ],
+      "examNote": "動詞・形容詞と前置詞の組は、語句ごとに決まっています。空所の直前の動詞や形容詞を見て、決まった前置詞を選びます。名詞の形でも同じ前置詞が続くことを知っていると、語形の問題にも役立ちます。"
     }
   ],
   "summary": [
@@ -346,7 +548,9 @@
     "原因: due to・owing to・because of は名詞の前。because は主語と動詞の前",
     "譲歩・除外: despite・in spite of は名詞の前で「~にもかかわらず」。except for は「~を除いて」",
     "群前置詞(in terms of、in accordance with、on behalf of など)は、まとまりで覚える",
-    "紛らわしい組: by と until、during と while、between と among、despite と although"
+    "紛らわしい組: by と until、during と while、between と among、despite と although",
+    "動詞・形容詞と結びつく前置詞は、名詞の形(responsibility for、awareness of)でも同じ前置詞を使う",
+    "慣用句は、前置詞を含むまとまりで覚える(on time、in the end、on purpose、out of order)"
   ],
   "quiz": [
     {

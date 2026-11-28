@@ -2,7 +2,7 @@
   "id": "tense",
   "no": 11,
   "title": "時制",
-  "lead": "時制は、動詞の形によって、出来事がいつ起こったか、いつまで続いているかを表す仕組みです。英語には、現在・過去・未来の3つの時を、単純形・進行形・完了形・完了進行形の4つの形で表す、12の時制があります。TOEIC Part 5 では、現在完了と過去形の使い分け、時の副詞との結びつき、未来を表す表現の選び方がよく問われます。この章で、それぞれの使い分けを確かめます。",
+  "lead": "時制は、動詞の形によって、出来事がいつ起こったか、いつまで続いているかを表す仕組みです。英語には、現在・過去・未来の3つの時を、単純形・進行形・完了形・完了進行形の4つの形で表す、12の時制があります。TOEIC Part 5 では、現在完了と過去形の使い分け、時の副詞との結びつき、未来を表す表現の選び方がよく問われます。この章では、現在完了と過去形の使い分け、未来を表す表現の違い、進行形にできない動詞、時の前置詞との関係まで、使い分けを順に確かめます。",
   "sections": [
     {
       "id": "basics",
@@ -12,7 +12,7 @@
       "items": [
         {
           "heading": "12の時制の全体像",
-          "explanation": "英語の時制は、時(現在・過去・未来)と形(単純・進行・完了・完了進行)の組み合わせです。\n\n・単純形: 事実・習慣(He works here.)\n・進行形: 進行中の動作(He is working now.)\n・完了形: 過去から今まで、または過去のある時点までの完了・経験・結果(He has worked here for five years.)\n・完了進行形: ある期間ずっと続いている動作(He has been working here since 2020.)\n\n3つの時と4つの形を組み合わせると、12の時制になります。",
+          "explanation": "英語の時制は、「いつの話か(時)」と「どんな形か(形)」の組み合わせで決まります。時は、現在・過去・未来の3つです。形は、単純形・進行形・完了形・完了進行形の4つです。\n\n・単純形: 事実・習慣(He works here.)。be 動詞や一般動詞の、そのままの形\n・進行形: be 動詞 + -ing で、進行中の動作や一時的な状況(He is working now.)\n・完了形: have + 過去分詞で、完了・経験・継続・結果(He has worked here for five years.)\n・完了進行形: have been + -ing で、ある期間ずっと続いている動作(He has been working here since 2020.)\n\n3つの時と4つの形を組み合わせると、12の時制になります。学習書では、この12を基本として数えることが多いです。\n\n・現在: 現在形・現在進行形・現在完了・現在完了進行形\n・過去: 過去形・過去進行形・過去完了・過去完了進行形\n・未来: will + 動詞・will be + -ing・will have + 過去分詞・will have been + -ing\n\n未来は、will 以外に、be going to や現在進行形、現在形でも表せます(くわしくは後の節で扱います)。表と見比べて、どの形がどの時に当たるかを確かめてください。",
           "table": {
             "caption": "12の時制(He work- の例)",
             "headers": ["時", "単純形", "進行形", "完了形", "完了進行形"],
@@ -24,7 +24,8 @@
           },
           "examples": [
             { "en": "She **works** in Osaka.", "ja": "彼女は大阪で働いている。", "note": "現在の事実は単純現在" },
-            { "en": "She **has worked** in Osaka since 2020.", "ja": "彼女は2020年から大阪で働いている。", "note": "現在完了(継続)" }
+            { "en": "She **has worked** in Osaka since 2020.", "ja": "彼女は2020年から大阪で働いている。", "note": "現在完了(継続)" },
+            { "en": "She **will be working** in Tokyo next year.", "ja": "彼女は来年、東京で働いているだろう。", "note": "未来のある時点での進行(未来進行形)" }
           ]
         },
         {
@@ -43,6 +44,16 @@
             { "en": "The team **is having** a difficult time.", "ja": "チームは今、難しい時期を迎えている。", "note": "have は「経験する」の意味では進行形にできる" }
           ],
           "cautions": ["× I am knowing the answer. → ○ I know the answer.(状態動詞は進行形にしない)"]
+        },
+        {
+          "heading": "時制を選ぶ手順: 時の語句・時・形の順に確かめる",
+          "explanation": "時制の問題は、次の順に考えると答えが決まりやすくなります。\n\n・手順1: 時を表す語句を探す。yesterday・ago・last week なら過去、by next Monday なら未来の完了が候補になります。\n・手順2: 出来事がいつのことかを決める。過去の特定の時点か、今とのつながりか、未来か。\n・手順3: 形を決める。途中の動作なら進行形、経験・継続・完了・結果なら完了形、ある期間ずっと続いている動作なら完了進行形です。\n\n時の副詞節(when・if など)の中では、未来のことも現在形で表すので、主節と分けて考えます。",
+          "examples": [
+            { "en": "We **finished** the test **last week**.", "ja": "私たちは先週、そのテストを終えた。", "note": "last week は過去の特定の時点なので過去形" },
+            { "en": "The team **will have completed** the test **by** next Monday.", "ja": "チームは次の月曜日までに、そのテストを終えているだろう。", "note": "by で示した未来の時点までの完了なので未来完了" },
+            { "en": "Our team **has been testing** the app **since** morning.", "ja": "私たちのチームは朝からずっと、そのアプリを試している。", "note": "since(起点)とずっと続く動作なので現在完了進行形" }
+          ],
+          "cautions": ["× I will finish it when I will have time. → ○ I will finish it when I have time.(時の副詞節の中では will を使わない)"]
         }
       ],
       "examNote": "TOEIC Part 5 の時制問題は、時の副詞(already、yesterday、by など)と、主節・従属節の時制の組み合わせで答えを決めます。"
@@ -59,7 +70,10 @@
           "examples": [
             { "en": "I **have visited** Paris twice.", "ja": "私はパリに2回行ったことがある。", "note": "経験" },
             { "en": "She **has lived** here **since** 2015.", "ja": "彼女は2015年からここに住んでいる。", "note": "継続(since は起点)" },
-            { "en": "He **has just finished** the report.", "ja": "彼はちょうどレポートを終えたところだ。", "note": "完了(just)" }
+            { "en": "He **has just finished** the report.", "ja": "彼はちょうどレポートを終えたところだ。", "note": "完了(just)" },
+            { "en": "The train **has arrived**, so we can board now.", "ja": "電車が到着したので、今乗ることができる。", "note": "結果: 今、電車がホームにいる" },
+            { "en": "She **has seen** that movie **twice**.", "ja": "彼女はその映画を2回見たことがある。", "note": "経験(回数を示す twice と一緒に使う)" },
+            { "en": "He **has been** sick **for** a week.", "ja": "彼は1週間ずっと病気だ。", "note": "継続(for は期間の長さ)" }
           ]
         },
         {
@@ -89,6 +103,54 @@
             { "en": "I **have finished** the report **recently**.", "ja": "私は最近、報告書を終えた。", "note": "recently は時点を特定しないので現在完了と使える" }
           ],
           "cautions": ["× I have seen him yesterday. → ○ I saw him yesterday.(yesterday は過去形と使う)"]
+        },
+        {
+          "heading": "When・ago は過去形と使う(現在完了は使えない)",
+          "explanation": "When で過去の時点をたずねるときは、過去形を使います。When は「いつ」という特定の時点をたずねるので、今とのつながりを表す現在完了とは合いません。ago(~前)も、過去の特定の時点を表すので、過去形と使います。\n\n・誤り: When have you visited Kyoto?\n・正しい: When did you visit Kyoto?\n・誤り: I have met him two days ago.\n・正しい: I met him two days ago.\n\n一方、時点をたずねない経験の質問(Have you ever ...?)は、現在完了で表します。",
+          "examples": [
+            { "en": "**When did** you **visit** Kyoto?", "ja": "あなたはいつ京都に行きましたか。", "note": "when で時点をたずねるので、過去形(did + 動詞の原形)" },
+            { "en": "I **met** him two days **ago**.", "ja": "私は2日前に彼に会った。", "note": "ago は過去の特定の時点を表すので過去形" },
+            { "en": "**Have** you **ever eaten** sushi?", "ja": "寿司を食べたことはありますか。", "note": "時点を問わない経験の質問なので現在完了" }
+          ],
+          "cautions": ["× When have you finished the report? → ○ When did you finish the report?(時点をたずねる when は過去形と使う)"]
+        },
+        {
+          "heading": "現在完了と過去形: 今の結果か、過去の出来事か",
+          "explanation": "同じ出来事でも、今の状態に注目するか、過去の出来事として話すかで、現在完了と過去形を使い分けます。\n\n・現在完了: 今の結果に注目する。I have lost my keys.(今、鍵がない)\n・過去形: 過去の出来事を、時点を含めて話す。I lost my keys this morning.(今朝、鍵をなくした)\n\n日本語では「鍵をなくした」と過去の形で言えますが、英語では、今も鍵がないことを伝えたいときに現在完了を使います。過去の時点を言葉で示せるときは、過去形を選ぶのが基本です。",
+          "examples": [
+            { "en": "I **have lost** my keys, so I can't get in.", "ja": "鍵をなくしてしまったので、中に入れない。", "note": "今も鍵がない(結果)ので現在完了" },
+            { "en": "I **lost** my keys on the train **this morning**.", "ja": "今朝、電車の中で鍵をなくした。", "note": "this morning という過去の時点を示すので過去形" }
+          ],
+          "cautions": ["× I have lost my keys this morning. → ○ I lost my keys this morning.(this morning のような時点を示す語は過去形と使う)"]
+        },
+        {
+          "heading": "have been to と have gone to: 行って戻ったか、行ったきりか",
+          "explanation": "have been to は、「行ったことがある」(経験)を表します。行って戻ってきたことを含みます。have gone to は、「行ってしまった」を表します。行ったきりで、今その場所にはいないことを示します。\n\n・have been to: I have been to London three times.(ロンドンに3回行ったことがある)\n・have gone to: She has gone to London.(彼女はロンドンに行ってしまった。今ここにはいない)\n\n「Where have you been?」は、どこに行っていたのかを、今戻ってきた人にたずねる表現です。",
+          "examples": [
+            { "en": "I **have been to** London three times.", "ja": "私はロンドンに3回行ったことがある。", "note": "have been to は、行って戻ってきた経験" },
+            { "en": "She **has gone to** London, so she is not here now.", "ja": "彼女はロンドンに行ってしまったので、今ここにはいない。", "note": "have gone to は、行ったきりで今その場所にいない" },
+            { "en": "Where **have** you **been** all morning?", "ja": "午前中ずっと、どこに行っていたの。", "note": "戻ってきた人に、行っていた場所をたずねる" }
+          ],
+          "cautions": ["× She has been to the bank, so she is not here now. → ○ She has gone to the bank, so she is not here now.(行ったきりで今いないのは have gone to)"]
+        },
+        {
+          "heading": "It has been ... since ...: 〜してから〜がたつ",
+          "explanation": "It has been + 期間 + since + 主語 + 過去形 は、「~してから(~の期間が)たつ」を表す決まった形です。since の後ろは、過去にあった出来事なので過去形になります。\n\n・It has been three years since she left the company.(彼女が会社を辞めてから3年になる)\n・同じ内容を、現在完了の継続で言うこともできる: She has been away from the company for three years.\n\nこの形では、since の後ろを現在完了(since she has left)にしない点に注意します。",
+          "examples": [
+            { "en": "It **has been** three years **since** she **left** the company.", "ja": "彼女が会社を辞めてから3年になる。", "note": "since の後ろの節は過去形" },
+            { "en": "It **has been** two weeks **since** we **last met**.", "ja": "私たちが最後に会ってから2週間になる。", "note": "since 節は、過去の出来事を表すので過去形" }
+          ],
+          "cautions": ["× It has been three years since she has left the company. → ○ It has been three years since she left the company.(since 節は過去形)"]
+        },
+        {
+          "heading": "現在完了進行形: 過去から今まで続いている動作",
+          "explanation": "現在完了進行形(have / has been + -ing)は、過去のある時点から今まで、動作が続いていることを表します。「ずっと~している」「~の間、~し続けている」の意味です。現在完了の継続が「続いている状態や事実」に注目するのに対し、現在完了進行形は「続いている動作そのもの」に注目します。\n\n・for や since と一緒に使うことが多い。\n・動作の結果が、今も目に見えて残っていることを示すこともある(Your hands are dirty.)。\n\n状態動詞(know、like など)は、進行形にできないので、現在完了(have known)を使います。",
+          "examples": [
+            { "en": "We **have been waiting** for the bus for an hour.", "ja": "私たちは、バスを1時間ずっと待っている。", "note": "for(期間)と一緒に、今まで続く動作" },
+            { "en": "It **has been raining** since this morning.", "ja": "今朝からずっと雨が降っている。", "note": "since(起点)と現在完了進行形" },
+            { "en": "Your hands are dirty. **Have** you **been** cooking?", "ja": "手が汚れているね。料理をしていたの?", "note": "今も残っている結果(手の汚れ)に注目する" }
+          ],
+          "cautions": ["× I have been knowing him for ten years. → ○ I have known him for ten years.(状態動詞は進行形にしない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、現在完了と過去形のひっかけ(yesterday や ago と have done)が頻出です。過去の特定の時点があれば過去形、今とのつながりがあれば現在完了で判断します。"
@@ -122,6 +184,33 @@
             { "en": "We **were preparing** the report when the phone **rang**.", "ja": "電話が鳴ったとき、私たちはレポートを準備していた。", "note": "進行中の出来事に、過去形の出来事が割り込む" },
             { "en": "At noon yesterday, she **was working** on the budget.", "ja": "昨日の正午、彼女は予算の作業をしていた。", "note": "過去の一時点での進行" }
           ]
+        },
+        {
+          "heading": "過去形と過去進行形の区別: 終わった動作か、途中の動作か",
+          "explanation": "過去形は、過去に起こり、終わった動作や出来事を表します。過去進行形は、過去のある時点で、動作が途中だったことを表します。\n\n・過去形: I wrote the report last night.(昨夜、レポートを書き上げた)\n・過去進行形: I was writing the report at ten last night.(昨夜の10時、レポートを書いていた)\n\n過去進行形は、途中の動作や背景を表すので、「~したとき」のように、割り込む過去形の出来事と一緒に使われることがよくあります。過去形だけで書くと、動作が終わったことになります。",
+          "examples": [
+            { "en": "I **wrote** the report last night.", "ja": "昨夜、私はレポートを書き上げた。", "note": "過去形は、動作が終わったことを表す" },
+            { "en": "I **was writing** the report at ten last night.", "ja": "昨夜の10時、私はレポートを書いていた。", "note": "過去の一時点で、動作が途中だった" },
+            { "en": "The phone **rang** while I **was taking** a shower.", "ja": "シャワーを浴びているとき、電話が鳴った。", "note": "途中の動作(過去進行形)に、過去形の出来事が割り込む" }
+          ]
+        },
+        {
+          "heading": "過去完了の用法: 経験・継続・結果を、過去のある時点までに表す",
+          "explanation": "過去完了(had + 過去分詞)は、過去のある時点までの経験・継続・結果を表します。現在完了の「今」が、「過去のある時点」に置き換わったと考えると分かりやすいです。\n\n・経験: 過去のその時点までに、あったこと(一度もなかったことも含む)\n・継続: 過去のその時点まで、続いていた期間\n・結果: 過去のその時点で、すでに終わっていたこと\n\nbefore、by the time、when などで、基準になる過去の時点を示すことが多いです。",
+          "examples": [
+            { "en": "I **had never seen** snow **before** I moved to Hokkaido.", "ja": "北海道に引っ越すまで、私は雪を一度も見たことがなかった。", "note": "経験: 引っ越した時点までの経験" },
+            { "en": "She **had worked** at the bank for ten years **before** she started her own company.", "ja": "独立する前、彼女は銀行で10年働いていた。", "note": "継続: 独立の時点まで続いていた期間" },
+            { "en": "**By the time** the rain stopped, the children **had gone** home.", "ja": "雨がやんだときには、子どもたちはもう家に帰っていた。", "note": "結果: 雨がやんだ時点で、すでに終わっていた" }
+          ]
+        },
+        {
+          "heading": "過去完了進行形: 過去のある時点までの継続",
+          "explanation": "過去完了進行形(had been + -ing)は、過去のある時点まで、動作が続いていたことを表します。過去の出来事より前から続いていた動作を、その出来事の理由や背景として示すときによく使われます。\n\n・for や since と一緒に使うことが多い。\n・「続いていた」という動作の進行に焦点がある。過去完了の「終わっていた」とは、焦点が違う。\n\n状態動詞は、過去完了進行形にもできません(had known、had wanted)。",
+          "examples": [
+            { "en": "The road was wet because it **had been raining** all morning.", "ja": "午前中ずっと雨が降っていたので、道路はぬれていた。", "note": "道路がぬれていた(過去)より前から続いていた動作" },
+            { "en": "We **had been waiting** for an hour when the bus finally arrived.", "ja": "1時間待っていたとき、ようやくバスが来た。", "note": "バスが来た(過去の時点)まで続いていた動作" }
+          ],
+          "cautions": ["× I had been knowing him since 2010. → ○ I had known him since 2010.(状態動詞は進行形にしない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、過去完了と過去形の区別(前後関係が明確かどうか)が問われます。by the time や before があれば、過去完了を検討します。"
@@ -153,7 +242,10 @@
           "explanation": "when、before、after、if などに導かれる副詞節では、未来のことも現在形で表します。主節の方に will を置きます。\n\n・正しい: I will let you know when I hear from them.\n・誤り: I will let you know when I will hear from them.",
           "examples": [
             { "en": "I will let you know **when** I **hear** from them.", "ja": "その会社から連絡があったら、お知らせします。", "note": "時の副詞節は現在形" },
-            { "en": "We will cancel the event **if** it **rains** tomorrow.", "ja": "明日雨が降ったら、そのイベントは中止する。", "note": "条件の副詞節は現在形" }
+            { "en": "We will cancel the event **if** it **rains** tomorrow.", "ja": "明日雨が降ったら、そのイベントは中止する。", "note": "条件の副詞節は現在形" },
+            { "en": "Please call me **as soon as** you **land**.", "ja": "着陸したらすぐに電話してください。", "note": "as soon as(~したらすぐに)の時の副詞節は現在形" },
+            { "en": "The meeting will start **once** everyone **arrives**.", "ja": "全員が到着したら、会議を始める。", "note": "once(いったん~すると)の時の副詞節は現在形" },
+            { "en": "**Unless** it **stops** raining, we will stay at home.", "ja": "雨がやまなければ、私たちは家にいる。", "note": "unless(~しなければ)の条件の副詞節は現在形" }
           ],
           "cautions": ["× We will call you when it will be ready. → ○ We will call you when it is ready.(時の副詞節に will は使わない)"]
         },
@@ -162,6 +254,53 @@
           "explanation": "未来進行形(will be + -ing)は、未来のある時点で進行していることを表します。\n\n・This time tomorrow, I will be flying to Osaka.(明日の今ごろは、大阪へ向かう飛行機の中にいるだろう)",
           "examples": [
             { "en": "This time tomorrow, I **will be flying** to Osaka.", "ja": "明日の今ごろは、大阪へ向かう飛行機の中にいるだろう。", "note": "未来の一時点の進行" }
+          ]
+        },
+        {
+          "heading": "be about to: 今まさに〜しようとしている",
+          "explanation": "be about to + 動詞の原形は、「今まさに~しようとしている」、つまり直前の出来事を表します。時間が近いことを表すので、tomorrow や next week のように未来の日時を示す語とは一緒に使いません。\n\n・The meeting is about to start.(会議がまさに始まろうとしている)\n・be going to との違い: be going to は、少し先の予定や意図を表す(The meeting is going to start at ten.)\n\n「まさに」という切迫感が出る表現なので、会話で「すぐに~する」と言いたいときに使います。",
+          "examples": [
+            { "en": "The train **is about to** leave, so please get on now.", "ja": "電車がまさに出発するところです。今すぐ乗ってください。", "note": "直前の出来事を表す" },
+            { "en": "I **was about to** call you when you walked in.", "ja": "あなたが入ってきたとき、ちょうど電話しようとしていた。", "note": "過去形と使うと、「~しようとしていた」の意味になる" }
+          ],
+          "cautions": ["× The meeting is about to start tomorrow. → ○ The meeting will start tomorrow.(about to は直前を表すので、tomorrow とは合わない)"]
+        },
+        {
+          "heading": "be to: 公式の予定・指示・命令を表す",
+          "explanation": "be to + 動詞の原形は、公式の予定、取り決められた約束、指示・命令を表します。ニュースや公式の発表でよく使われ、話し手の意思よりも、決まっていることを示す表現です。\n\n・予定: The president is to visit Osaka next month.(大統領は来月、大阪を訪問する予定だ)\n・指示・命令: You are to report to the manager at nine.(9時に部長に報告すること)\n\n指示や命令の意味は、話し手が相手に何をするよう求めるときに使われます。普通の会話で、ただ予定や意図を言うなら、will や be going to で十分です。",
+          "examples": [
+            { "en": "The president **is to** visit Osaka next month.", "ja": "大統領は来月、大阪を訪問する予定だ。", "note": "公式の予定を表す" },
+            { "en": "You **are to** report to the manager at nine.", "ja": "9時に部長に報告するように。", "note": "指示・命令を表す" }
+          ]
+        },
+        {
+          "heading": "未来進行形: 普通の流れの予定や、相手の予定をたずねる",
+          "explanation": "未来進行形(will be + -ing)は、未来のある時点で進行していることに加え、普通の流れとして起こる予定や、相手の予定を丁寧にたずねるときにも使います。will の「意志」の響きが弱まり、押しつけない言い方になります。\n\n・The bus will be arriving at the station at noon.(バスは正午に駅に着く予定だ。普通の流れとして)\n・Will you be using the printer this afternoon?(今日の午後、プリンターをお使いになりますか。相手の予定をたずねる)\n\n相手の予定を聞くときは、Will you use the printer? よりも、Will you be using ...? の方が柔らかく聞こえます。",
+          "examples": [
+            { "en": "**Will** you **be using** the printer this afternoon?", "ja": "今日の午後、プリンターをお使いになりますか。", "note": "相手の予定を、押しつけずにたずねる" },
+            { "en": "The bus **will be arriving** at the station at noon.", "ja": "そのバスは正午に駅に着く予定だ。", "note": "普通の流れとして起こる予定を表す" }
+          ]
+        },
+        {
+          "heading": "未来を表す表現の使い分け(まとめ)",
+          "explanation": "未来を表す表現は、話し手の気持ちと、予定の確かさで使い分けます。\n\n・その場で決めたこと、予測: will\n・前からの計画、目の前の証拠からの予測: be going to\n・手配済みの、確定した予定: 現在進行形\n・時刻表・公式の予定: 現在形\n・直前の出来事: be about to\n・公式の予定・指示: be to\n・未来のある時点での進行、普通の流れの予定: will be -ing\n・未来のある時点までの完了: will have + 過去分詞\n\n迷ったら、「決断か、計画か、決まった予定か、時刻表か」を順に考えます。",
+          "table": {
+            "caption": "未来を表す表現の比較",
+            "headers": ["表現", "使う場面", "例文"],
+            "rows": [
+              ["will", "その場での決断・約束、単純な予測", "I will call you tonight."],
+              ["be going to", "前からの計画、目の前の証拠からの予測", "Look at those clouds. It is going to rain."],
+              ["現在進行形", "手配済みの確定した予定", "We are meeting the client on Monday."],
+              ["現在形", "時刻表・公式の予定", "The last train leaves at 11:40."],
+              ["be about to", "今まさに~しようとしている(直前)", "The train is about to leave."],
+              ["be to", "公式の予定・指示・命令", "The mayor is to open the bridge on Monday."],
+              ["will be -ing", "未来のある時点での進行、普通の流れの予定", "The bus will be arriving at noon."],
+              ["will have + 過去分詞", "未来のある時点までの完了", "I will have finished the report by noon."]
+            ]
+          },
+          "examples": [
+            { "en": "Look at those clouds. It **is going to** rain soon.", "ja": "あの雲を見て。もうすぐ雨が降りそうだ。", "note": "目の前の証拠からの予測は be going to" },
+            { "en": "I **will have finished** the report by noon.", "ja": "正午までには、そのレポートを書き終えているだろう。", "note": "by で示した未来の時点までの完了" }
           ]
         }
       ],
@@ -187,6 +326,14 @@
           "examples": [
             { "en": "By June, the team **will have been working** on the plan for a year.", "ja": "6月までに、チームは1年間その計画に取り組んでいることになる。", "note": "未来完了進行形は継続を強調" },
             { "en": "The project **will have been completed** by 2030.", "ja": "そのプロジェクトは2030年までに完了しているだろう。", "note": "未来完了の受動態" }
+          ]
+        },
+        {
+          "heading": "未来完了と未来完了進行形: 完了か、続けてきた動作か",
+          "explanation": "未来完了(will have + 過去分詞)は、未来のある時点までに「完了している」ことを、結果に注目して表します。未来完了進行形(will have been + -ing)は、その時点まで「続けてきた動作」そのものに注目します。\n\n・未来完了: By June, she will have finished the report.(6月までに、彼女はそのレポートを書き終えているだろう)\n・未来完了進行形: By June, she will have been writing the report for six months.(6月までに、彼女はそのレポートを6か月間書き続けていることになる)\n\n「終わったこと」を言うのか、「続けていること」を言うのかで選びます。",
+          "examples": [
+            { "en": "By June, she **will have finished** the report.", "ja": "6月までに、彼女はそのレポートを書き終えているだろう。", "note": "完了に注目する未来完了" },
+            { "en": "By June, she **will have been writing** the report for six months.", "ja": "6月までに、彼女はそのレポートを6か月間書き続けていることになる。", "note": "続けてきた動作に注目(for + 期間)" }
           ]
         }
       ],
@@ -221,9 +368,114 @@
             { "en": "**Before** you **leave**, please check the door.", "ja": "出る前に、ドアを確認してください。", "note": "before の節は現在形" },
             { "en": "**After** she **finished** the report, she went home.", "ja": "彼女はレポートを終えた後、家に帰った。", "note": "前後とも過去の出来事は過去形" }
           ]
+        },
+        {
+          "heading": "現在形: 確定した未来・時刻表・実況中継",
+          "explanation": "現在形は、習慣や事実のほかに、未来のことも表します。時刻表や公式の決まりのように、確実に決まっている予定を表すときです。また、スポーツや実況の中継では、今起きていることを現在形で描写します。\n\n・時刻表: The last train leaves at 11:40 tonight.(今夜の最終電車は11時40分に出る)\n・実況中継: Smith passes the ball, and Jones shoots!(スミスがパスを出し、ジョーンズがシュートを打つ!)\n\n個人的な予定は、現在進行形や be going to で表すのが普通です。",
+          "examples": [
+            { "en": "The last train **leaves** at 11:40 tonight.", "ja": "今夜の最終電車は11時40分に出る。", "note": "時刻表は現在形で未来を表す" },
+            { "en": "Smith **passes** the ball to Jones, and Jones **shoots**!", "ja": "スミスがジョーンズにパスを出し、ジョーンズがシュートを打つ!", "note": "実況中継は、今起きていることを現在形で描写する" }
+          ]
+        },
+        {
+          "heading": "現在進行形: 変化・発展を表す",
+          "explanation": "現在進行形は、今この時点の動作に加えて、今まさに変化している状況や、増えていく・減っていく傾向を表すときにも使います。変化が途中であることに注目する形です。\n\n・Prices are rising.(物価が上がっている)\n・Our sales are growing every month.(私たちの売上は毎月伸びている)\n\n変化の途中であることを言いたいときは、現在進行形を使い、変化の結果や完了を言いたいときは、現在完了などを使います。",
+          "examples": [
+            { "en": "Prices **are rising** faster than wages this year.", "ja": "今年は、物価が賃金より速く上がっている。", "note": "変化が今も進んでいる状況" },
+            { "en": "Our sales **are growing** every month.", "ja": "私たちの売上は毎月伸びている。", "note": "今も続いている変化" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、時の副詞節(before・after・when)の時制を選ばせる問題が出ます。主節と副詞節の時制の関係を確認します。"
+    },
+    {
+      "id": "progressive-verbs",
+      "title": "進行形の注意: 状態動詞と、意味で変わる動詞",
+      "intro": "進行形は、動作が途中であることを表します。状態動詞は、普通は進行形にできません。have・think・see・feel のように、意味によって進行形にできるかが変わる動詞もあります。この節では、その見分け方と、always との組み合わせを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "状態動詞: 感情・思考・所有・感覚は進行形にしない",
+          "explanation": "状態動詞は、ある状態がそのまま続いていることを表すので、普通は進行形にしません。進行形は「今まさに動いている」ことを表す形なので、状態を表す語とは合わないと考えると分かりやすいです。\n\n代表的な状態動詞は、次のようなグループに分けられます。\n\n・感情・好み: like、love、hate、want、prefer\n・思考・認識: know、believe、understand、remember、suppose\n・所有・関係: belong、own、contain、consist of、depend on\n・感覚・様子: seem、appear、resemble\n\n「~しているところだ」という動作の意味がないので、I am wanting や This bag is belonging to me とは言えません。ただし、同じ語でも動作の意味で使うときは進行形にできます(次の項目)。",
+          "examples": [
+            { "en": "I **want** a quiet room for the meeting.", "ja": "会議のために、静かな部屋がほしい。", "note": "want は希望を表す状態動詞" },
+            { "en": "This bag **belongs** to my sister.", "ja": "このかばんは妹のものだ。", "note": "belong は所有の状態を表すので進行形にしない" },
+            { "en": "It **seems** that the store is closed.", "ja": "その店は閉まっているようだ。", "note": "seem は様子を表す状態動詞" }
+          ],
+          "cautions": ["× I am wanting a new car. → ○ I want a new car.(want は状態動詞なので進行形にしない)"]
+        },
+        {
+          "heading": "have・think・see・feel: 意味によって進行形にできるかが変わる",
+          "explanation": "have、think、see、feel は、よく使う動詞ですが、意味によって、進行形にできるかが変わります。「持っている」「~と思う」「分かる」「~と感じる」のような状態の意味なら、進行形にはしません。「食べる」「考える」「会う(診てもらう)」「触って確かめる」のような動作の意味なら、進行形にできます。\n\n表の例を見て、文の中の目的語や語句から、どちらの意味かを判断します。",
+          "table": {
+            "caption": "意味で変わる動詞",
+            "headers": ["動詞", "状態(進行形にしない)", "動作(進行形にできる)"],
+            "rows": [
+              ["have", "have a car(車を持っている)、have a cold(風邪をひいている)", "have dinner(夕食をとる)"],
+              ["think", "think that ...(~だと思う)", "think about ...(~について考える)"],
+              ["see", "see(分かる)", "see a doctor(医者に診てもらう)"],
+              ["feel", "feel tired(疲れていると感じる)", "feel the cloth(布の感触を確かめる)"]
+            ]
+          },
+          "examples": [
+            { "en": "I **am having** dinner now, so I can't talk.", "ja": "今、夕食をとっているので、話せない。", "note": "have が「食べる」の意味の動作なので進行形にできる" },
+            { "en": "I **think** the plan is good.", "ja": "その計画はよいと思う。", "note": "think が「~と思う」の意味は状態なので、進行形にしない" },
+            { "en": "I **am thinking** about your offer.", "ja": "あなたの申し出について考えているところです。", "note": "think about は「考える」という動作なので進行形にできる" },
+            { "en": "I **see** what you mean.", "ja": "おっしゃる意味は分かります。", "note": "see が「分かる」の意味は状態なので、進行形にしない" },
+            { "en": "I **am seeing** a doctor this afternoon.", "ja": "今日の午後、医者に診てもらう予定だ。", "note": "see が「診てもらう」の意味は動作なので進行形にできる" },
+            { "en": "I **feel** tired after the long flight.", "ja": "長いフライトの後は、疲れを感じる。", "note": "feel が「~と感じる」の意味は状態" }
+          ],
+          "cautions": ["× I am having a car. → ○ I have a car.(have が「持っている」の意味なら進行形にしない)", "× I am seeing what you mean. → ○ I see what you mean.(see が「分かる」の意味なら進行形にしない)"]
+        },
+        {
+          "heading": "always + 進行形: 不満や、困った習慣を表す",
+          "explanation": "always(いつも)と現在進行形を組み合わせると、「いつも~ばかりしている」という、話し手の不満やいら立ちを表します。現在形の always は、ふつうの習慣を淡々と述べるので、感情は含みません。\n\n・現在形: He always arrives on time.(彼はいつも時間どおりに来る。事実として)\n・現在進行形: He is always arriving late.(彼はいつも遅れて来る。困ったという気持ち)\n\n過去のことでも、was always -ing で、過去の困った習慣を表せます(He was always losing his keys.)。always は、be 動詞の後、一般動詞の前に置きます。",
+          "examples": [
+            { "en": "She **is always complaining** about the noise.", "ja": "彼女はいつも騒音に文句を言っている。", "note": "always + 進行形は、不満やいら立ちを表す" },
+            { "en": "He **always arrives** on time.", "ja": "彼はいつも時間どおりに到着する。", "note": "always + 現在形は、ふつうの習慣を表す(感情は含まない)" },
+            { "en": "My brother **was always losing** his keys when he was a child.", "ja": "兄は子どものころ、いつも鍵をなくしていた。", "note": "過去の困った習慣は was always -ing" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、want・know・belong などを進行形にした誤りの選択肢がよく出ます。have・see などは、意味が文脈で決まるので、目的語(a meal、a doctor など)を見て判断します。"
+    },
+    {
+      "id": "time-prepositions",
+      "title": "時の前置詞と時制: by・until・for・during・in・within",
+      "intro": "by・until・for・during・in・within は、時制と一緒に使うと、意味と使い方が決まります。期限と継続、期間の長さと出来事の期間、未来の「後」と「以内」を区別して、時制を選ぶ手がかりにします。時の前置詞の全体は、第20章「前置詞」で扱います。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "by と until: 期限までに完了するか、その時点まで続くか",
+          "explanation": "by は「~までに」の意味で、動作や出来事が完了する期限を表します。その時点までに終わっていればよいので、finish・submit・arrive のような完了の動詞と組み合わせます。until は「~まで(ずっと)」の意味で、動作や状態が、その時点まで続くことを表します。\n\n・by: Please submit the form by Friday.(金曜日までに用紙を出してください)\n・until: Please stay here until Friday.(金曜日まで、ここにいてください)\n\n「期限までに終える」なら by、「その時点まで続ける」なら until と考えます。until の後ろに時を表す節を続けるときも、未来のことは現在形で表します(until the rain stops)。",
+          "examples": [
+            { "en": "Please submit the form **by** Friday.", "ja": "金曜日までに用紙を提出してください。", "note": "by は期限。その時点までに完了していればよい" },
+            { "en": "We will **wait** here **until** the rain stops.", "ja": "雨がやむまで、私たちはここで待つ。", "note": "until は、その時点まで続く動作。時を表す節は現在形" }
+          ],
+          "cautions": ["× Please stay here by Friday. → ○ Please stay here until Friday.(stay は続く動作なので until)"]
+        },
+        {
+          "heading": "for と during: 期間の長さと、出来事の期間",
+          "explanation": "for と during は、どちらも「~の間」の意味ですが、後ろに置くものが違います。for は、期間の長さ(three years、two hours)を続けます。during は、名詞(the summer holiday、a meeting など、出来事や期間を表す語)を続けます。\n\n・for: The office was closed for three days.(その事務所は3日間閉まっていた)\n・during: The office was closed during the holiday.(その事務所は休暇中、閉まっていた)\n\nfor は、現在完了(have lived for ten years)や過去形(was closed for three days)のどちらとも使えます。during の後ろには「主語 + 動詞」を続けられない点にも注意します。",
+          "examples": [
+            { "en": "We have lived in this city **for** ten years.", "ja": "私たちはこの町に10年間住んでいる。", "note": "for は期間の長さ。現在完了の継続と使う" },
+            { "en": "The shop was closed **during** the summer holiday.", "ja": "その店は夏休みの間、閉まっていた。", "note": "during の後ろには名詞(出来事・期間)を置く" },
+            { "en": "I was away **for** two weeks.", "ja": "私は2週間、留守にしていた。", "note": "for は過去形と使うこともできる" }
+          ],
+          "cautions": ["× We stayed in Paris during three days. → ○ We stayed in Paris for three days.(期間の長さには for)"]
+        },
+        {
+          "heading": "in と within: 「~後に」と「~以内に」",
+          "explanation": "in は、未来の文で「今から~後に」の意味を表します。within は「~以内に」の意味で、その期間の中に収まることを表します。\n\n・in: The package will arrive in three days.(小包は3日後に届く)\n・within: The package will arrive within three days.(小包は3日以内に届く)\n\n完了の動詞(finish など)と in を使うと、「~かかって」の意味になります(She finished the report in two hours.)。どちらの意味かは、文の時制と動詞で判断します。",
+          "examples": [
+            { "en": "The package **will arrive** **in** three days.", "ja": "小包は3日後に届く予定だ。", "note": "in は、今から3日後という時点を表す(未来の文)" },
+            { "en": "The package **will arrive** **within** three days.", "ja": "小包は3日以内に届く。", "note": "within は、3日の期間の中に収まる" },
+            { "en": "She **finished** the report **in** two hours.", "ja": "彼女は2時間でレポートを仕上げた。", "note": "完了の動詞と in は、「~かかって」の意味" }
+          ],
+          "cautions": ["× I will finish the report two days ago. → ○ I will finish the report in two days.(ago は過去の時点。未来には in を使う)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、by と until、for と during、in と within の使い分けが、時制と組み合わせて問われます。空所の後ろが期間の長さか、名詞か、節かを見ると、前置詞が決まります。"
     }
   ],
   "summary": [
@@ -231,10 +483,14 @@
     "現在完了は、今とのつながりを表す。過去を表す語句(yesterday・ago・last year)とは一緒に使わない",
     "過去形は、過去の特定の時点や期間の出来事を表す。ago・yesterday は過去形と使う",
     "過去完了は、過去のある時点より前の出来事(by the time・before など)",
-    "未来は will・be going to・現在進行形・現在形で表す。時の副詞節と条件の副詞節では現在形",
+    "未来は will・be going to・現在進行形・現在形で表す。直前は be about to、公式の予定・指示は be to。時の副詞節と条件の副詞節では現在形",
     "未来完了は、by で示した未来の時点までの完了・継続(will have done)",
-    "for は期間の長さ、since は起点。since は現在完了と使い、過去形とは使わない",
-    "状態動詞(know・like・belong など)は、普通は進行形にしない"
+    "for は期間の長さ、since は起点。since の後ろに節を続けるときは過去形(since she left)",
+    "状態動詞(know・like・belong など)は、普通は進行形にしない",
+    "have・think・see・feel は、意味によって進行形にできるかが変わる(have dinner・think about)",
+    "always + 進行形は、不満や困った習慣を表す。always + 現在形は、ふつうの習慣",
+    "have been to は行って戻った経験、have gone to は行ったきりで今いない。It has been ... since ... の since 節は過去形",
+    "by は期限(完了)、until は継続の終わり。for は期間の長さ、during は名詞の期間。in は「~後に」、within は「~以内に」"
   ],
   "quiz": [
     {

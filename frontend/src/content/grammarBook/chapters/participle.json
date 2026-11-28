@@ -66,6 +66,25 @@
             { "en": "The **approving** manager signed the form.", "ja": "承認する部長が、その書類に署名した。", "note": "manager は承認する側(現在分詞)" },
             { "en": "The **approved** budget was sent to the team.", "ja": "承認された予算は、チームに送られた。", "note": "budget は承認される側(過去分詞)" }
           ]
+        },
+        {
+          "heading": "動名詞と現在分詞の区別: 名詞の前の -ing",
+          "explanation": "名詞の前に -ing を置くとき、「~するための」(用途・目的)を表す動名詞と、「~している」(名詞が動作をする)を表す現在分詞があります。\n\n動名詞の場合は、名詞が「何のためのものか」を表し、「~用の」と訳せます。現在分詞の場合は、名詞が今その動作をしていることを表します。\n\n見分けるときは、-ing を「~用の」と置き換えられるかを考えます。",
+          "table": {
+            "caption": "名詞の前の -ing: 動名詞と現在分詞",
+            "headers": ["種類", "例", "意味"],
+            "rows": [
+              ["動名詞(用途・目的)", "a sleeping bag", "寝るための袋(寝袋)"],
+              ["現在分詞(動作をする)", "a sleeping baby", "眠っている赤ちゃん"],
+              ["動名詞(用途・目的)", "a waiting room", "待つための部屋(待合室)"],
+              ["現在分詞(動作をする)", "a waiting customer", "待っている客"]
+            ]
+          },
+          "examples": [
+            { "en": "Please wait in the **waiting** room until your name is called.", "ja": "名前が呼ばれるまで、待合室でお待ちください。", "note": "waiting room は、待つための部屋(動名詞)" },
+            { "en": "The **sleeping** baby did not wake up during the flight.", "ja": "その眠っている赤ちゃんは、フライト中に目を覚まさなかった。", "note": "sleeping baby は、眠っている赤ちゃん(現在分詞)" },
+            { "en": "Please bring a **sleeping** bag for the camp.", "ja": "キャンプ用の寝袋を持ってきてください。", "note": "sleeping bag は、寝るための袋(動名詞)" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、名詞の前の -ing と -ed の選択が問われます。名詞が「する」のか「される」のかを考えると、答えが決まります。"
@@ -113,6 +132,76 @@
       "examNote": "TOEIC Part 5 では、感情を表す分詞の -ed と -ing の選択が出題されます。主語や修飾される名詞が「感じる人」か「感じさせる物」かを先に決めます。"
     },
     {
+      "id": "emotion-pairs",
+      "title": "感情の分詞の詳しい一覧: 八つの動詞の組",
+      "intro": "感情を表す動詞から作られる分詞は、組で覚えると整理しやすくなります。この節では、interest・surprise・bore・tire・excite・satisfy・confuse・disappoint の八つについて、人の気持ちを表す -ed と、物や出来事の性質を表す -ing を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "interesting・interested と surprising・surprised",
+          "explanation": "interest は「興味を持たせる」、surprise は「驚かせる」が元の意味です。人が感じる気持ちは -ed、物や出来事の性質は -ing で表します。\n\n・interested: 興味を持っている(人)\n・interesting: 興味深い(物・話)\n・surprised: 驚いた(人)\n・surprising: 驚くべき(物・出来事)",
+          "examples": [
+            { "en": "The lecture was very **interesting**.", "ja": "その講義は、とても興味深かった。", "note": "講義(物)の性質(-ing)" },
+            { "en": "Many students were **interested** in the new course.", "ja": "多くの学生が、新しい講座に興味を持った。", "note": "学生(人)の気持ち(-ed)" },
+            { "en": "It was **surprising** that sales doubled in one month.", "ja": "一か月で売上が倍になったのは、驚くべきことだった。", "note": "that 節の出来事が驚かせる(-ing)" },
+            { "en": "We were **surprised** by the sudden drop in sales.", "ja": "売上の急な落ち込みに、私たちは驚いた。", "note": "私たち(人)の驚き(-ed)" }
+          ],
+          "cautions": ["× I am interesting in music. → ○ I am interested in music.(自分が興味を持つので -ed)"]
+        },
+        {
+          "heading": "boring・bored と tiring・tired",
+          "explanation": "bore は「退屈させる」、tire は「疲れさせる」が元の意味です。退屈した人・疲れた人は -ed、退屈させる物や仕事、疲れさせる旅などは -ing で表します。\n\n・bored: 退屈している(人)\n・boring: 退屈な、つまらない(物)\n・tired: 疲れている(人)\n・tiring: 疲れさせる、骨の折れる(物・出来事)",
+          "examples": [
+            { "en": "The long meeting was **boring**, and many staff members were **bored**.", "ja": "長い会議は退屈で、多くのスタッフが退屈していた。", "note": "meeting(会議)は boring、staff members(人)は bored" },
+            { "en": "The long trip was **tiring**, so we were **tired** on arrival.", "ja": "長い旅は骨が折れたので、到着したときには私たちは疲れていた。", "note": "trip(旅)は tiring、私たち(人)は tired" }
+          ],
+          "cautions": ["× I am boring. (私は人を退屈させる) → ○ I am bored.(私は退屈している)。自分の気持ちは -ed で表す"]
+        },
+        {
+          "heading": "exciting・excited と satisfying・satisfied",
+          "explanation": "excite は「わくわくさせる」、satisfy は「満足させる」が元の意味です。わくわくしている人・満足している人は -ed、わくわくさせる物や満足のいく結果は -ing で表します。\n\n・excited: わくわくしている、興奮している(人)\n・exciting: わくわくさせる、刺激的な(物)\n・satisfied: 満足している(人)\n・satisfying: 満足させる、満足のいく(物・結果)",
+          "examples": [
+            { "en": "The **exciting** news made everyone cheer.", "ja": "わくわくするその知らせに、みんなが歓声を上げた。", "note": "news(知らせ)が、わくわくさせる(-ing)" },
+            { "en": "The customers were **satisfied** with the new service.", "ja": "顧客は、新しいサービスに満足した。", "note": "customers(人)が満足した(-ed)" },
+            { "en": "The **satisfying** result of the test pleased the team.", "ja": "テストの満足のいく結果に、チームは喜んだ。", "note": "result(結果)が満足させる(-ing)" }
+          ],
+          "cautions": ["satisfying は物や結果の性質を表す。人が満足したときは satisfied を使う(× The customers were satisfying. → ○ The customers were satisfied.)"]
+        },
+        {
+          "heading": "confusing・confused と disappointing・disappointed",
+          "explanation": "confuse は「混乱させる」、disappoint は「がっかりさせる」が元の意味です。混乱した人・がっかりした人は -ed、混乱させる物や期待外れの結果は -ing で表します。\n\n・confused: 混乱している(人)\n・confusing: 分かりにくい、混乱させる(物)\n・disappointed: がっかりした(人)\n・disappointing: 期待外れの、がっかりさせる(物・出来事)",
+          "examples": [
+            { "en": "The **confusing** map made it hard for us to find the station.", "ja": "分かりにくい地図のせいで、私たちは駅を見つけにくかった。", "note": "map(地図)が混乱させる(-ing)" },
+            { "en": "The **disappointing** sales figures left the managers **disappointed**.", "ja": "期待外れの売上の数字に、部長たちはがっかりした。", "note": "figures(数字)は -ing、managers(人)は -ed" }
+          ]
+        },
+        {
+          "heading": "感情の分詞と前置詞: be interested in・be surprised at など",
+          "explanation": "感情を表す -ed の形は、後ろに前置詞を続けて使うことが多いです。前置詞と一緒に覚えておくと、語法の問題や、形を選ぶ問題で役立ちます。\n\n・be interested in(~に興味がある)\n・be surprised at / by(~に驚く)\n・be disappointed with / at(~にがっかりする)\n・be satisfied with(~に満足する)\n・be excited about(~にわくわくしている)\n・be bored with(~に退屈している)\n・be tired of(~にうんざりしている)",
+          "table": {
+            "caption": "感情の -ed 形と、結びつく前置詞",
+            "headers": ["形", "前置詞", "意味"],
+            "rows": [
+              ["be interested in", "in", "~に興味がある"],
+              ["be surprised at / by", "at / by", "~に驚く"],
+              ["be disappointed with / at", "with / at", "~にがっかりする"],
+              ["be satisfied with", "with", "~に満足する"],
+              ["be excited about", "about", "~にわくわくしている"],
+              ["be bored with", "with", "~に退屈している"],
+              ["be tired of", "of", "~にうんざりしている"]
+            ]
+          },
+          "examples": [
+            { "en": "I am **interested** in learning more about the new system.", "ja": "私は、新しいシステムについてもっと学びたいと思っている。", "note": "be interested in + 動名詞" },
+            { "en": "Many customers were **disappointed** with the delay.", "ja": "多くの顧客が、遅延にがっかりした。", "note": "be disappointed with(~にがっかりした)" },
+            { "en": "The team was **excited** about the new project.", "ja": "チームは、その新しいプロジェクトにわくわくしていた。", "note": "be excited about(~にわくわくしていた)" }
+          ],
+          "cautions": ["be tired of(~にうんざりしている)と be tired from(~で疲れている)は意味が違う。(I am tired of waiting. / I am tired from the trip.)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、感情の分詞の組から、主語や修飾される名詞が人か物かで形を選ばせる問題が出ます。be interested in のような前置詞と結びつく形も、語法として覚えておくと役立ちます。"
+    },
+    {
       "id": "participial-phrase",
       "title": "分詞構文: 時・理由・条件・付帯状況",
       "intro": "分詞構文は、副詞節(接続詞 + 主語 + 動詞)を、分詞を使った短い形に書き換えたものです。時・理由・条件・付帯状況などを表します。接続詞がないので、意味は文脈で判断します。",
@@ -154,6 +243,126 @@
       "examNote": "TOEIC Part 5 では、分詞構文の前後の関係(時・理由・条件)を文脈で判断させる問題が出ます。Given と Once は、慣用的な形として覚えておきます。"
     },
     {
+      "id": "participial-meaning",
+      "title": "分詞構文の意味: 時・理由・条件・譲歩・付帯状況・連続動作",
+      "intro": "分詞構文には接続詞がないので、意味は前後の文脈から判断します。この節では、時・理由・条件・譲歩・付帯状況・連続動作の六つの意味を、一つずつ例文で確かめます。どの意味かは、接続詞を補って考えると分かりやすくなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "時: ~するとき、~している間に",
+          "explanation": "分詞構文が時を表すときは、「~するとき」「~している間に」を表します。when や while を補って考えると分かりやすくなります。\n\n・Walking home, I met an old friend.(家へ歩いて帰る途中、旧友に会った)\n・Opening the door, she saw a package on the floor.(ドアを開けると、床に小包があるのが見えた)\n\n時を表す分詞構文は、主節の動作と同時か、その直前に起きたことを表すことが多いです。",
+          "examples": [
+            { "en": "**Walking** home, I met an old friend.", "ja": "家へ歩いて帰る途中、旧友に会った。", "note": "時(~している間に)。While I was walking と言い換えられる" },
+            { "en": "**Opening** the door, she saw a package on the floor.", "ja": "ドアを開けると、床に小包があるのが見えた。", "note": "時(~したとき)。When she opened the door と言い換えられる" }
+          ]
+        },
+        {
+          "heading": "理由: ~なので、~だから",
+          "explanation": "分詞構文が理由を表すときは、「~なので」「~だから」を表します。because や as を補って考えると分かりやすくなります。否定の分詞構文(Not knowing ...)は、理由を表すことが多いです。\n\n・Feeling tired, he went to bed early.(疲れていたので、彼は早く寝た)\n・Not having a car, I took the train.(車がなかったので、電車に乗った)\n\n主節の結果(早く寝た)と、分詞構文の原因(疲れていた)の関係を見ると、意味が決まります。",
+          "examples": [
+            { "en": "**Feeling** tired, he went to bed early.", "ja": "疲れていたので、彼は早く寝た。", "note": "理由(~なので)。Because he felt tired と言い換えられる" },
+            { "en": "**Not having** a car, I took the train.", "ja": "車がなかったので、電車に乗った。", "note": "理由(否定の分詞構文)。Because I did not have a car と言い換えられる" }
+          ]
+        },
+        {
+          "heading": "条件: ~すれば、~なら",
+          "explanation": "分詞構文が条件を表すときは、「~すれば」「~なら」を表します。if を補って考えると分かりやすくなります。条件の分詞構文は主節の前に置くことが多く、主節は未来や一般的な事実を表すことが多いです。\n\n・Taking the next train, you will arrive before noon.(次の電車に乗れば、正午より前に着く)\n・Using this key, you can open the back door.(この鍵を使えば、裏口を開けられる)\n\n主節の内容が成り立つための前提として読むと、条件の意味が分かりやすくなります。",
+          "examples": [
+            { "en": "**Taking** the next train, you will arrive before noon.", "ja": "次の電車に乗れば、正午より前に着く。", "note": "条件(~すれば)。If you take the next train と言い換えられる" },
+            { "en": "**Using** this key, you can open the back door.", "ja": "この鍵を使えば、裏口を開けられる。", "note": "条件(~すれば)。If you use this key と言い換えられる" }
+          ]
+        },
+        {
+          "heading": "譲歩: ~だけれども、~にもかかわらず",
+          "explanation": "分詞構文が譲歩を表すときは、「~だけれども」「~にもかかわらず」を表します。although を補って考えると分かりやすくなります。主節の内容と、分詞構文の内容が対立するときに使われます。\n\n・Knowing the risks, they decided to invest anyway.(危険を知っていたが、彼らはそれでも投資することにした)\n・Admitting his mistake, he still refused to apologize.(自分の誤りを認めたが、彼はそれでも謝ろうとしなかった)\n\n譲歩の意味をはっきり伝えたいときは、接続詞の although・though を使う方が確実です。",
+          "examples": [
+            { "en": "**Knowing** the risks, they decided to invest anyway.", "ja": "危険を知っていたが、彼らはそれでも投資することにした。", "note": "譲歩(~だけれども)。Although they knew the risks と言い換えられる" },
+            { "en": "**Admitting** his mistake, he still refused to apologize.", "ja": "自分の誤りを認めたが、彼はそれでも謝ろうとしなかった。", "note": "譲歩(~にもかかわらず)。Although he admitted his mistake と言い換えられる" }
+          ]
+        },
+        {
+          "heading": "付帯状況: ~しながら、~を連れて",
+          "explanation": "分詞構文が付帯状況を表すときは、主節の動作に、同時に起きている様子を付け加えます。「~しながら」「~した状態で」を表します。現在分詞は進行している動作、過去分詞は状態を表すことが多いです。\n\n・She sat by the window, reading a magazine.(彼女は雑誌を読みながら、窓際に座った)\n・He walked into the room, followed by his dog.(彼は犬を後ろに連れて、部屋に入ってきた)\n\n付帯状況は主節の動作の様子を表すので、主節と同時に起きる動作だと考えると分かりやすくなります。",
+          "examples": [
+            { "en": "She **sat** by the window, **reading** a magazine.", "ja": "彼女は雑誌を読みながら、窓際に座った。", "note": "付帯状況(~しながら)。現在分詞は進行している動作" },
+            { "en": "He **walked** into the room, **followed** by his dog.", "ja": "彼は犬を後ろに連れて、部屋に入ってきた。", "note": "付帯状況(~された状態で)。過去分詞は状態" }
+          ]
+        },
+        {
+          "heading": "連続動作: ~して、それから~する",
+          "explanation": "分詞構文が連続動作を表すときは、続けて起きた二つの動作を一文にまとめます。「~して、それから~する」の意味で、和文では「~して、…した」と訳します。and then を補って考えると分かりやすくなります。\n\n・Opening the envelope, she took out a letter.(封筒を開けて、彼女は手紙を取り出した)\n・Getting off the train, he walked to the office.(電車を降りて、彼はオフィスまで歩いた)\n\n動作の順番がはっきりしているときは、having + 過去分詞で「先に終えたこと」を表すこともあります。",
+          "examples": [
+            { "en": "**Opening** the envelope, she took out a letter.", "ja": "封筒を開けて、彼女は手紙を取り出した。", "note": "連続動作(開けて、それから取り出す)" },
+            { "en": "**Getting** off the train, he walked to the office.", "ja": "電車を降りて、彼はオフィスまで歩いた。", "note": "連続動作(降りて、それから歩く)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、分詞構文の前後の関係(時・理由・条件)を文脈から判断させる問題が出ます。意味がはっきりしないときは、when・because・if などを補って、主節とのつながりを確かめます。"
+    },
+    {
+      "id": "idiomatic-conjunction",
+      "title": "慣用的な分詞構文と、接続詞・with を伴う分詞",
+      "intro": "generally speaking や judging from のように、決まった形で使われる分詞構文があります。また、while や if を残した分詞や、with + 目的語 + 分詞の形もあります。この節では、それらを意味の組ごとに確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "話題を示す慣用句: generally speaking・strictly speaking・speaking of",
+          "explanation": "speaking(話すこと)を使った分詞構文は、話の範囲や話題の変え方を示す慣用句です。主節の主語とは関係なく、文の前置きとして使います。\n\n・generally speaking(一般的に言えば)\n・strictly speaking(厳密に言えば)\n・speaking of ~(~と言えば、~の話が出たので)\n\n話し手が考えを前置きとして示すときに使うので、そのまま覚えておくと便利です。",
+          "examples": [
+            { "en": "**Generally speaking**, the new policy has been well received.", "ja": "一般的に言えば、新しい方針は好意的に受け止められている。", "note": "慣用的な分詞構文(一般的に言えば)" },
+            { "en": "**Strictly speaking**, a whale is not a fish.", "ja": "厳密に言えば、クジラは魚ではない。", "note": "慣用的な分詞構文(厳密に言えば)" },
+            { "en": "**Speaking of** vacations, have you booked yours yet?", "ja": "休暇といえば、もう予約はしましたか。", "note": "Speaking of ~(話題に出たものについて)。yours は your vacation の代わり" }
+          ]
+        },
+        {
+          "heading": "判断・考慮の慣用句: judging from・considering",
+          "explanation": "judging from ~(~から判断すると)と considering ~(~を考えると、~の割には)は、判断の根拠や、考慮すべき事情を表す慣用的な分詞構文です。\n\n・Judging from the sales figures, the product is popular.(売上の数字から判断すると、その商品は人気がある)\n・Considering the short time, the team did an excellent job.(短い期間を考えると、そのチームは素晴らしい仕事をした)\n\nconsidering には、considering that ... の形で、「~ということを考えると」と節を続ける使い方もあります。",
+          "examples": [
+            { "en": "**Judging from** the reviews, the new café will be popular.", "ja": "口コミから判断すると、その新しいカフェは人気が出そうだ。", "note": "judging from(~から判断すると)" },
+            { "en": "**Considering** the short time, the team did an excellent job.", "ja": "短い期間を考えると、そのチームは素晴らしい仕事をした。", "note": "considering(~を考えると)" }
+          ]
+        },
+        {
+          "heading": "仮定・条件の慣用句: granted・supposing・provided",
+          "explanation": "granted(~だと認めると)、supposing(もし~なら)、provided / providing(~という条件で)は、仮定や条件を表す慣用的な分詞構文です。if の代わりの意味で使うと考えると分かりやすくなります。\n\n・Granted that the plan is risky, we should still try it.(その計画が危険だと認めるとしても、やってみるべきだ)\n・Supposing it rains, we will hold the event indoors.(もし雨が降ったら、イベントは屋内で行う)\n・You can borrow the book, provided you return it on time.(期限までに返すなら、その本を借りてよい)\n\nprovided と providing は同じ意味で、that を付けても、省いても使えます。",
+          "examples": [
+            { "en": "**Granted** that the plan is risky, we should still try it.", "ja": "その計画が危険だと認めるとしても、やってみるべきだ。", "note": "granted that(~だと認めると)。譲歩の意味にもなる" },
+            { "en": "**Supposing** it rains, we will hold the event indoors.", "ja": "もし雨が降ったら、そのイベントは屋内で行う。", "note": "supposing(もし~なら)。If it rains と言い換えられる" },
+            { "en": "You can borrow the book, **provided** you return it on time.", "ja": "期限までに返すなら、その本を借りてよい。", "note": "provided(~という条件で)。if の代わりに使える" }
+          ]
+        },
+        {
+          "heading": "接続詞を残した分詞: while walking・when asked・if possible",
+          "explanation": "分詞構文の前に接続詞(while・when・if など)を残すことがあります。接続詞があると、時や条件などの意味がはっきりします。\n\n・while walking(歩いている間に)\n・when asked(聞かれたとき)\n・if possible(可能であれば)\n\n副詞節の「主語 + be 動詞」が主節の主語と同じときは、主語と be 動詞を省きます。たとえば、When he was asked は When asked になります。if possible は、if it is possible の it is を省いた決まった形です。",
+          "examples": [
+            { "en": "**While** walking to the station, I saw my old teacher.", "ja": "駅まで歩いている途中、昔の先生を見かけた。", "note": "while walking(while I was walking の省略)" },
+            { "en": "**When** asked about the schedule, the manager said nothing.", "ja": "予定について聞かれたとき、部長は何も言わなかった。", "note": "when asked(when he was asked の省略)" },
+            { "en": "Please call me **if possible**.", "ja": "可能であれば、私に電話してください。", "note": "if possible(if it is possible の省略)" }
+          ],
+          "cautions": ["省かれた主語が主節の主語と違うときは、分詞を使えない。接続詞 + 主語 + 動詞の節にする(× While walking, the phone rang. → ○ While I was walking, the phone rang.)"]
+        },
+        {
+          "heading": "接続詞 + 過去分詞: unless otherwise stated・although admitted",
+          "explanation": "接続詞 + 過去分詞の形では、「主語 + be 動詞」の部分が省かれています。unless otherwise stated(特に述べられていない限り)は、説明文や契約書でよく見る決まった形です。although admitted は、「認められているけれども」と譲歩を表します。\n\n・unless otherwise stated(特に明記がなければ)\n・although admitted(認められているが)\n\n接続詞 + 過去分詞は、接続詞 + it is / it was + 過去分詞 の it is / it was を省いた形と考えると分かりやすくなります。",
+          "examples": [
+            { "en": "All prices are in dollars **unless otherwise stated**.", "ja": "特に明記がない限り、すべての価格はドル表示である。", "note": "unless otherwise stated(特に明記がなければ)" },
+            { "en": "**Although admitted** by many experts, the theory is still debated.", "ja": "多くの専門家に認められているが、その理論は今も議論されている。", "note": "although admitted(認められているが)。Although it is admitted と同じ" }
+          ]
+        },
+        {
+          "heading": "with + 目的語 + 分詞: 付帯状況を表す",
+          "explanation": "with + 目的語 + 分詞は、「(目的語)が~している状態で」「(目的語)を~された状態で」を表す付帯状況の形です。分詞の動作を目的語がするなら -ing、目的語が受けるなら過去分詞を使います。\n\n・with him sleeping(彼が眠っている状態で)\n・with the door closed(ドアを閉めた状態で)\n\nwith の後ろに「主語 + 動詞」は続けられません。名詞(目的語)と分詞の組み合わせだけを置きます。",
+          "examples": [
+            { "en": "She studied in the kitchen, **with** him **sleeping** in the next room.", "ja": "隣の部屋で彼が眠っている中、彼女は台所で勉強した。", "note": "with + 目的語(him)+ 現在分詞(眠っている)" },
+            { "en": "He studied **with** the radio **playing** in the background.", "ja": "ラジオを流したまま、彼は勉強した。", "note": "with + 目的語 + 現在分詞(ラジオが鳴っている)" },
+            { "en": "She went out **with** the lights **turned** off.", "ja": "電気を消したまま、彼女は外出した。", "note": "with + 目的語 + 過去分詞(電気が消された状態)" }
+          ],
+          "cautions": ["with の後ろの目的語は目的格にする(× with he sleeping → ○ with him sleeping)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 では、慣用的な分詞構文や、if possible のような決まった形が、文の一部として使われます。意味を文脈で考えるより、形ごと覚えておくと読み取りが速くなります。"
+    },
+    {
       "id": "negative-perfect-subject",
       "title": "分詞構文の否定・完了形・意味上の主語",
       "intro": "分詞構文を否定するときは、分詞の前に not や never を置きます。主節より前の出来事は、having + 過去分詞で表します。また、分詞構文の意味上の主語は、主節の主語と一致させます。",
@@ -190,9 +399,93 @@
           "examples": [
             { "en": "**Written** in simple English, the manual is easy to follow.", "ja": "簡単な英語で書かれているので、その説明書は分かりやすい。", "note": "being が省略された受動の分詞構文" }
           ]
+        },
+        {
+          "heading": "完了形の分詞構文の否定: not having + 過去分詞",
+          "explanation": "完了形の分詞構文を否定するときは、having の前に not を置きます(Not having + 過去分詞)。主節より前に起きたことが、そうでなかったことを表します。\n\n理由を表すことが多く、Because I had not received ... のように言い換えられます。\n\n受動の完了を否定するときは、Not having been + 過去分詞 の形になります。",
+          "examples": [
+            { "en": "**Not having received** the email, I missed the deadline.", "ja": "そのメールを受け取っていなかったので、締め切りに遅れた。", "note": "not having + 過去分詞(主節より前の否定)" },
+            { "en": "**Not having been told** about the change, the staff were confused.", "ja": "変更を知らされていなかったので、スタッフは混乱した。", "note": "not having been + 過去分詞(受動の完了の否定)" }
+          ]
+        },
+        {
+          "heading": "being の省略: 受動の分詞構文で、being を省く",
+          "explanation": "受動の分詞構文では、being を省いて過去分詞だけを置くことが多いです。主語と分詞の関係が受け身であることが分かれば、being がなくても意味は伝わります。\n\n・(Being) Invited by the mayor, the team attended the ceremony.(市長に招かれて、そのチームは式典に出席した)\n・(Being) Built in 1900, the bridge is still in use.(1900年に建てられたので、その橋は今も使われている)\n\n一方で、being の後ろに名詞や形容詞の補語が続くときは、being を残すのが普通です。例: Being a student, she has little money.(学生なので、彼女はあまりお金を持っていない)",
+          "examples": [
+            { "en": "**Invited** by the mayor, the team attended the ceremony.", "ja": "市長に招かれて、そのチームは式典に出席した。", "note": "Being invited の being が省略された受動の分詞構文" },
+            { "en": "**Being** a student, she has little money to spend.", "ja": "学生なので、彼女は使えるお金があまりない。", "note": "補語(a student)の前では being を残す" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、分詞構文の意味上の主語が主節の主語と違う誤り(Reading the report, the phone rang.)が選択肢に出ます。"
+    },
+    {
+      "id": "complement",
+      "title": "補語としての分詞: SVC・SVOC と知覚動詞",
+      "intro": "分詞は、動詞の後ろで主語や目的語の状態や動作を説明する補語にもなります。keep・find・get などの後ろに「目的語 + 分詞」を置く形は、試験でもよく使われます。この節では、補語の分詞の作り方と、知覚動詞との違いを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "SVC: 主語の状態を分詞で表す",
+          "explanation": "分詞は、動詞の後ろに置いて、主語の状態や動作の様子を説明することもできます(SVC)。remain・stay・sit・lie・come・go などの動詞の後ろで使われます。\n\n・現在分詞: 動作が続いている様子(~している)\n・過去分詞: 状態や結果(~された状態だ)\n\n主語が「~している」のか「~された状態」なのかで、分詞の形を選びます。",
+          "examples": [
+            { "en": "The shop **remained closed** all day.", "ja": "その店は一日中閉まったままだった。", "note": "remain + 過去分詞(閉められた状態が続く)" },
+            { "en": "The customers **remained waiting** in the lobby.", "ja": "客たちは、ロビーで待ち続けた。", "note": "remain + 現在分詞(待っている動作が続く)" },
+            { "en": "She **came running** into the room.", "ja": "彼女は走って部屋に入ってきた。", "note": "come + 現在分詞(走ってくる様子)" }
+          ]
+        },
+        {
+          "heading": "keep O -ing と keep O 過去分詞: 目的語の状態を保つ",
+          "explanation": "keep + 目的語 + -ing は「(目的語)に~させ続ける」、keep + 目的語 + 過去分詞は「(目的語)を~された状態に保つ」を表します。目的語が分詞の動作をするなら -ing、目的語が分詞の動作を受けるなら過去分詞です。\n\n・keep the customer waiting(客を待たせておく。客が待つ)\n・keep the door closed(ドアを閉めておく。ドアが閉められる)",
+          "examples": [
+            { "en": "Sorry to **keep** you **waiting**.", "ja": "お待たせして申し訳ありません。", "note": "you が待つ(keep O -ing)" },
+            { "en": "Please **keep** the door **closed** at all times.", "ja": "いつもドアを閉めておいてください。", "note": "the door が閉められる(keep O 過去分詞)" }
+          ],
+          "cautions": ["× Please keep the door closing. → ○ Please keep the door closed.(ドアは「閉められる」側なので過去分詞)"]
+        },
+        {
+          "heading": "find・leave・catch + O + 分詞: 目的語の状態や動作を表す",
+          "explanation": "find・leave・catch は、目的語の後ろに -ing か過去分詞を置いて、「O が~しているのを見つける」「O を~のままにする」などの意味を表します。目的語と分詞の関係(する側か、される側か)で、形を選びます。\n\n・find O -ing: O が~しているのを見つける\n・find O 過去分詞: O が~された状態だと分かる\n・leave O -ing: O を~させたままにする\n・leave O 過去分詞: O を~された(未完成の)まま残す\n・catch O -ing: O が~しているところを捕まえる",
+          "examples": [
+            { "en": "I **found** him **working** late in the office.", "ja": "私は、彼が遅くまで会社で働いているのを見つけた。", "note": "him が働いている(find O -ing)" },
+            { "en": "I **found** the door **locked** when I came back.", "ja": "戻ると、ドアには鍵がかかっていた。", "note": "the door が鍵をかけられた状態(find O 過去分詞)" },
+            { "en": "Please do not **leave** the water **running**.", "ja": "水を出しっぱなしにしないでください。", "note": "the water が流れている(leave O -ing)" },
+            { "en": "The guard **caught** him **stealing** a bag.", "ja": "警備員は、彼が鞄を盗んでいるところを捕まえた。", "note": "catch O -ing(していることの場面を押さえる)" }
+          ],
+          "table": {
+            "caption": "find・leave・catch の O + 分詞",
+            "headers": ["動詞", "形", "意味", "例"],
+            "rows": [
+              ["find", "find O -ing", "O が~しているのを見つける", "I found him working late."],
+              ["find", "find O 過去分詞", "O が~された状態だと分かる", "I found the door locked."],
+              ["leave", "leave O -ing", "O を~させたままにする", "He left the light burning."],
+              ["leave", "leave O 過去分詞", "O を~された(未完成の)まま残す", "She left the work unfinished."],
+              ["catch", "catch O -ing", "O が~しているところを捕まえる", "The guard caught him stealing a bag."]
+            ]
+          },
+          "cautions": ["× She left the work unfinishing. → ○ She left the work unfinished.(仕事は「終えられる」側なので過去分詞)"]
+        },
+        {
+          "heading": "get + O + 過去分詞: ~してもらう・~される",
+          "explanation": "get + 目的語 + 過去分詞は、「(目的語)を~してもらう」を表します。また、自分の意思と関係なく「~される」という、好ましくない出来事にも使います。have + O + 過去分詞と似ていますが、get は口語的に使われることが多いです。\n\n・get the car repaired(車を修理してもらう)\n・get my bag stolen(鞄を盗まれる)\n\nget + 目的語 + -ing は、「(目的語)を~し始めさせる」「(目的語)を~の状態にする」を表します。\n・get the engine running(エンジンをかける)",
+          "examples": [
+            { "en": "I **got** my laptop **repaired** at the shop.", "ja": "私は店でノートパソコンを修理してもらった。", "note": "get + 物 + 過去分詞(してもらう)" },
+            { "en": "Be careful, or you will **get** your bag **stolen**.", "ja": "気をつけないと、鞄を盗まれてしまうよ。", "note": "get + 物 + 過去分詞(好ましくない出来事)" },
+            { "en": "He **got** the old engine **running** again.", "ja": "彼は古いエンジンを、もう一度動かした。", "note": "get + 物 + -ing(~の状態にする)" }
+          ],
+          "cautions": ["get + 人 + to 不定詞(人に~させる)と、get + 物 + 過去分詞(物が~される)を区別する。(I got him to help me. / I got the letter sent.)"]
+        },
+        {
+          "heading": "知覚動詞との違い: 原形・-ing・過去分詞の意味",
+          "explanation": "see・hear・watch・feel・notice などの知覚動詞も、「O + 原形」「O + -ing」「O + 過去分詞」をとります。形によって、見聞きした内容の範囲が変わります。\n\n・O + 原形: 動作の始めから終わりまでを見た・聞いた\n・O + -ing: 動作の途中を見た・聞いた\n・O + 過去分詞: O が~された状態を見た・聞いた\n\nfind や catch の O + -ing(~しているのを見つける)は、知覚動詞の用法とは別に、「見つける・捕まえる」の意味で使われることも覚えておくと、文の意味を取りやすくなります。",
+          "examples": [
+            { "en": "I **saw** him **cross** the street.", "ja": "彼が通りを渡るところを、最後まで見た。", "note": "原形: 動作の始めから終わりまで" },
+            { "en": "I **saw** him **crossing** the street when I looked up.", "ja": "顔を上げたとき、彼が通りを渡っているのが見えた。", "note": "-ing: 動作の途中を見た" },
+            { "en": "I **saw** the window **broken** from outside.", "ja": "外から見て、窓が割れているのが分かった。", "note": "過去分詞: 目的語の状態を見た" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、keep O -ing と keep O 過去分詞、get O 過去分詞のような形で、目的語が「する側」か「される側」かを選ばせる問題が出ます。O の後ろは、動作を表す -ing か、状態・受け身を表す過去分詞かで判断します。"
     },
     {
       "id": "causative-perfect",
@@ -215,6 +508,22 @@
             { "en": "The meeting **must have started** by now.", "ja": "会議はもう始まっているに違いない。", "note": "must have + 過去分詞(推量)" },
             { "en": "You **should have called** me earlier.", "ja": "もっと早く電話してくれればよかったのに。", "note": "should have + 過去分詞(後悔)" }
           ]
+        },
+        {
+          "heading": "have + 目的語 + 過去分詞: 被害や経験を表す",
+          "explanation": "have + 目的語 + 過去分詞は、「~してもらう」(依頼)のほかに、自分の意思と関係なく「~される」という被害や経験も表します。好ましくない出来事に使うことが多いです。\n\n・I had my bag stolen on the train.(電車で鞄を盗まれた)\n・She had her phone broken by her son.(息子に携帯電話を壊された)\n\n「~してもらう」か「~される」かは、目的語と分詞の内容、文脈で判断します。",
+          "examples": [
+            { "en": "I had my bag **stolen** on the train.", "ja": "電車で鞄を盗まれた。", "note": "have + 目的語 + 過去分詞(被害)" },
+            { "en": "She had her phone **broken** by her son.", "ja": "彼女は息子に携帯電話を壊された。", "note": "have + 目的語 + 過去分詞(被害)" }
+          ]
+        },
+        {
+          "heading": "want + 物 + 過去分詞 と want + 人 + to 不定詞",
+          "explanation": "want + 目的語 + 過去分詞は、「(物や出来事)が~された状態になってほしい」という気持ちを表します。目的語が人で、その人に動作をしてほしいときは、want + 人 + to 不定詞を使います。\n\n・I want the contract signed by Monday.(月曜日までに、その契約が結ばれていてほしい)\n・I want you to sign the contract by Monday.(月曜日までに、あなたにその契約に署名してほしい)\n\n目的語が物なら過去分詞、人が動作をするなら to 不定詞、と覚えると区別がつきます。",
+          "examples": [
+            { "en": "I want the contract **signed** by Monday.", "ja": "月曜日までに、その契約が結ばれていてほしい。", "note": "want + 物 + 過去分詞(契約が結ばれる)" },
+            { "en": "I want you **to sign** the contract by Monday.", "ja": "月曜日までに、あなたにその契約に署名してほしい。", "note": "want + 人 + to 不定詞(人が署名する)" }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、have・want の後ろの過去分詞(物が~される)と、must have・should have の形を選ばせる問題が出ます。"
@@ -228,7 +537,11 @@
     "分詞構文の意味上の主語は、主節の主語と一致させる。一致しないときは接続詞の節にする",
     "否定は not・never を分詞の前に置く。主節より前の出来事は having + 過去分詞",
     "have・want + 物 + 過去分詞は「~してもらう・~された状態にする」",
-    "助動詞 + have + 過去分詞は、過去への推量や後悔(must have、should have)"
+    "助動詞 + have + 過去分詞は、過去への推量や後悔(must have、should have)",
+    "補語の分詞: keep O -ing(~させ続ける)、keep O 過去分詞(~された状態に保つ)、get O 過去分詞(~してもらう・~される)",
+    "慣用的な分詞構文(generally speaking、judging from、granted、provided)は、形ごと覚える",
+    "with + 目的語 + 分詞は付帯状況を表す(with him sleeping)。接続詞 + 分詞(while walking、if possible)は、接続詞を残した形",
+    "名詞の前の -ing は、用途なら動名詞(a sleeping bag)、動作の主なら現在分詞(a sleeping baby)"
   ],
   "quiz": [
     {

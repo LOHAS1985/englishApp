@@ -39,6 +39,75 @@
       "examNote": "TOEIC Part 5 の接続詞問題では、空所の後ろが名詞か、主語と動詞かで、前置詞と接続詞のどちらかを選ぶ問題が多いです。等位接続詞は、前後が同じ形でつながっているかで判断します。"
     },
     {
+      "id": "coordinating",
+      "title": "等位接続詞を一つずつ: and・but・or・nor・so・yet・for",
+      "intro": "等位接続詞は、対等な語・句・節をつなぎます。どの語も、前後の形がそろっていることが前提です。意味(追加・対立・選択・結果・理由の補足など)は語ごとに違うので、この節では7語を一つずつ確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "and: 追加(~と、そして)",
+          "explanation": "and は、前後の内容を並べて加える接続詞です。語と語、句と句、節と節のように、同じ形のものを並べてつなぎます。\n\n・名詞と名詞: a pen and a notebook(ペンと手帳)\n・節と節: カンマと and で、2つの節を一つの文にする\n\nand は命令文の後ろに置くと、「~しなさい、そうすれば…」の意味になります(命令文 + and)。and の前後は、同じ種類の要素にそろえます。",
+          "examples": [
+            { "en": "She has a sharp mind **and** a strong sense of humor.", "ja": "彼女は頭の回転が速く、ユーモアのセンスもある。", "note": "and は名詞句どうし(a sharp mind と a strong sense of humor)をつなぐ" },
+            { "en": "Try the new system, **and** you will see how fast it is.", "ja": "新しいシステムを試してみれば、どれほど速いかがわかる。", "note": "命令文の後の and は「~すれば…」の意味" }
+          ]
+        },
+        {
+          "heading": "but: 対立(~だが、しかし)",
+          "explanation": "but は、前の内容と反対の内容、または予想に反する内容をつなぎます。前の内容を一度認めてから、それと対立することを続けるのが特徴です。\n\n・The plan is simple, but the result is impressive.(計画は単純だが、結果は素晴らしい)\n\nbut は、前後の内容が対立しているかを見ます。「それでも」「~ではあるが」の意味が自然に合えば、but が使えます。",
+          "examples": [
+            { "en": "The hotel was small, **but** the staff were very kind.", "ja": "そのホテルは小さかったが、従業員はとても親切だった。", "note": "前の内容(小さい)に対し、反対の内容(親切)を続ける" },
+            { "en": "We wanted to finish today, **but** the data was incomplete.", "ja": "今日中に終えたかったが、データがそろっていなかった。", "note": "期待していたことに反する事実を but で続ける" }
+          ]
+        },
+        {
+          "heading": "or: 選択(~か)・命令文の後の「さもないと」",
+          "explanation": "or は「~か」を表し、2つ以上の選択肢のどれか一つを示します。\n\n・Would you like tea or coffee?(紅茶かコーヒーはいかがですか)\n\n命令文の後ろに or を置くと、「~しなさい、さもないと…」の意味になります。また、否定文の中の or は「~も…も(ない)」の意味になり、両方を否定します。",
+          "examples": [
+            { "en": "Would you like tea **or** coffee?", "ja": "紅茶とコーヒーのどちらになさいますか。", "note": "or は2つのうち一つを選ばせる" },
+            { "en": "Leave now, **or** you will miss the first train.", "ja": "今すぐ出なさい。そうしないと、始発に乗り遅れる。", "note": "命令文 + or は「さもないと」" }
+          ],
+          "cautions": ["× Would you like tea and coffee? → ○ Would you like tea or coffee?(and は両方、or はどちらか一つ。意味が違う)"]
+        },
+        {
+          "heading": "nor: 否定の追加(~もまた…ない)",
+          "explanation": "nor は「~もまた…ない」を表す接続詞です。前の節が not や never などで否定されているときに、その否定を続けて使います。\n\nnor の後ろは「助動詞 + 主語」の語順(倒置)になります。\n\n・The manager did not approve the budget, nor did she explain the reason.(部長は予算を承認せず、理由も説明しなかった)\n\n否定を続けるときに、nor の後ろを肯定文の語順にするのは誤りです。neither A nor B(相関接続詞)の nor と組になる形も、あわせて確かめておきます。",
+          "examples": [
+            { "en": "The manager did not approve the budget, **nor** did she explain the reason.", "ja": "部長は予算を承認せず、その理由も説明しなかった。", "note": "nor の後ろは did she(助動詞 + 主語)の倒置" },
+            { "en": "I cannot attend the meeting, **nor** can my colleague.", "ja": "私は会議に出られないし、同僚も出られない。", "note": "nor can my colleague で、前の否定を受けて「~もまた…ない」" }
+          ],
+          "cautions": ["× She did not call, nor she wrote a letter. → ○ She did not call, nor did she write a letter.(nor の後ろは「助動詞 + 主語」の倒置)"]
+        },
+        {
+          "heading": "so: 結果(だから)",
+          "explanation": "so は「だから」「その結果」を表します。前の節が原因や理由、後ろの節が結果になります。\n\n・The plan was delayed, so we changed the schedule.(計画が遅れたので、予定を変えた)\n\nso の前にはカンマを置きます。原因を表す because と一緒に使うと、理由が二重になり誤りです。結果を表す so ~ that の形は、別の項目(「so ~ that と such ~ that」)で扱います。",
+          "examples": [
+            { "en": "The data was incomplete, **so** the report was not finished.", "ja": "データがそろっていなかったので、報告書は完成しなかった。", "note": "so の前が原因、後ろが結果" },
+            { "en": "The client changed the order at the last minute, **so** we had to start over.", "ja": "取引先が直前に注文を変えたので、最初からやり直さなければならなかった。", "note": "so の後ろに結果(やり直し)を置く" }
+          ],
+          "cautions": ["× Because the plan was delayed, so we changed the schedule. → ○ The plan was delayed, so we changed the schedule.(because と so は一緒に使わない)"]
+        },
+        {
+          "heading": "yet: 対立(それでも、~だが)",
+          "explanation": "yet は but と同じく「~だが」の意味で、前後の内容を対立させます。but より、予想に反する結果を強調する響きがあります。\n\n・The project is difficult, yet it is worth trying.(そのプロジェクトは難しいが、挑戦する価値はある)\n\n副詞の yet(まだ、not yet)とは別の働きです。2つの節をつなぐ接続詞の yet は、but と同じ位置(カンマの後)に置きます。",
+          "examples": [
+            { "en": "The price was high, **yet** many customers bought the product.", "ja": "価格は高かったが、多くの客がその製品を買った。", "note": "yet は予想に反する結果をつなぐ" },
+            { "en": "The plan was risky, **yet** the team decided to go ahead.", "ja": "その計画は危険だったが、チームは進めることにした。", "note": "yet は「それでも」の響きを持つ" }
+          ]
+        },
+        {
+          "heading": "for: 理由の補足(改まった「なぜなら~だから」)",
+          "explanation": "for は、主節の後ろに置いて、その理由を補足する等位接続詞です。because より改まった文(書き言葉)で使われ、話し言葉ではほとんど使いません。\n\n・The meeting was postponed, for the manager was ill.(部長が体調を崩していたので、会議は延期された)\n\nfor は、前置詞の for(~のために、~の間)とは別の語です。for の後ろに名詞が来れば前置詞、主語と動詞が来れば接続詞、と見分けます。接続詞の for は文の前半には置かず、主節の後ろに置きます(前半に置くのは because)。",
+          "examples": [
+            { "en": "The meeting was postponed, **for** the manager was ill.", "ja": "部長が体調を崩していたので、会議は延期された。", "note": "for は後から理由を補う(改まった文)" },
+            { "en": "He seemed tired, **for** he had worked through the night.", "ja": "彼は疲れた様子だった。徹夜で働いていたからだ。", "note": "for の後ろは主語 + 動詞(he had worked)" }
+          ],
+          "cautions": ["× For the manager was ill, the meeting was postponed. → ○ The meeting was postponed, for the manager was ill.(接続詞の for は文の前半に置かない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、so と because の併用、nor の後ろの倒置、for と前置詞 for の区別が、ひっかけとして使われやすいです。等位接続詞は、前後が同じ形でつながっているかで判断します。"
+    },
+    {
       "id": "correlative",
       "title": "相関接続詞: 組になる接続詞",
       "intro": "相関接続詞は、2つの語句を組にして使う接続詞です。both A and B、either A or B、not only A but also B などがあります。組の両方をそろえて覚え、動詞の数(主語の一致)に注意します。",
@@ -101,6 +170,44 @@
             { "en": "We received the **news** **that** the project was canceled.", "ja": "そのプロジェクトが中止になったという知らせを受けた。", "note": "news の内容を説明する同格の that" }
           ],
           "cautions": ["× the news which the company will merge → ○ the news that the company will merge(同格の that は which にしない)"]
+        },
+        {
+          "heading": "that 節: 補語になる(主語 + be + that 節)",
+          "explanation": "that 節は、be 動詞の後ろに置いて補語(C)にもなります。主語の内容を、that 節で言い換えて説明する形です。\n\n・The problem is that we have no budget.(問題は、予算がないことだ)\n・My concern is that the schedule is too tight.(私の心配は、日程が詰まりすぎていることだ)\n\n補語になる that 節は、the problem、the reason、the concern などの名詞が主語のときによく使われます。主語は説明される名詞、that 節はその中身を表す、と読みます。",
+          "examples": [
+            { "en": "The problem is **that** we have no budget left.", "ja": "問題は、予算がもう残っていないことだ。", "note": "that 節が補語(be 動詞の後ろ)" },
+            { "en": "The main reason is **that** the software was not tested fully.", "ja": "主な理由は、そのソフトが十分に試験されていなかったことだ。", "note": "主語の reason の中身を that 節が説明する" }
+          ],
+          "cautions": ["× The problem is we have no budget left. → ○ The problem is that we have no budget left.(試験や文書では、補語の that を省かない)"]
+        },
+        {
+          "heading": "疑問詞で始まる名詞節: 主語・目的語・補語になる",
+          "explanation": "what、who、which、where、when、how、why などの疑問詞で始まる節も、名詞のはたらきをします。文の中では、疑問文の語順(疑問詞 + 助動詞 + 主語)ではなく、平叙文の語順(主語 + 動詞)になります。\n\n・主語: What we need now is more time.(今私たちに必要なのは、もっと時間だ)\n・目的語: I don't know where the meeting room is.(会議室がどこにあるのか、私は知らない)\n・補語: The question is who will pay the bill.(問題は、誰が代金を払うかだ)\n\n疑問詞の語順について詳しくは、第6章「疑問詞」で扱います。",
+          "examples": [
+            { "en": "**What** we need now is more time.", "ja": "今私たちに必要なのは、もっと時間だ。", "note": "What で始まる節が主語。節の中は we need(主語 + 動詞)" },
+            { "en": "I don't know **where** the meeting room is.", "ja": "会議室がどこにあるのか、私は知らない。", "note": "目的語の節では、where the room is と平叙文の語順になる" },
+            { "en": "The question is **who** will pay the bill.", "ja": "問題は、誰が代金を払うかだ。", "note": "who will pay の節が補語になる" }
+          ],
+          "cautions": ["× I don't know where is the meeting room. → ○ I don't know where the meeting room is.(名詞節の中は平叙文の語順)"]
+        },
+        {
+          "heading": "whether と if の使い分け: 位置と、to 不定詞・or not の形",
+          "explanation": "「~かどうか」を表す名詞節は、whether と if のどちらでも作れる場合がありますが、使える位置が違います。\n\n・主語になるとき: whether だけ(if で始めると主語にはならない)\n・補語になるとき: whether が標準\n・前置詞の後ろ: whether だけ(about whether ... は可、about if は不可)\n・to 不定詞の前: whether だけ(whether to go は可、if to go は不可)\n・or not を続けるとき: whether を使う\n\n目的語(動詞の後ろ)では両方使えますが、迷ったら whether を選ぶと安全です。",
+          "examples": [
+            { "en": "I have not decided **whether** to accept the offer.", "ja": "その申し出を受けるかどうか、まだ決めていない。", "note": "to 不定詞の前では whether を使う(if は不可)" },
+            { "en": "The question is **whether** we can finish by Friday.", "ja": "問題は、金曜日までに終えられるかどうかだ。", "note": "補語の位置では whether が標準" },
+            { "en": "Please let me know **if** you can attend the meeting.", "ja": "会議に出られるかどうか、知らせてください。", "note": "目的語の位置では if も使える" }
+          ],
+          "cautions": ["× I have not decided if to accept the offer. → ○ I have not decided whether to accept the offer.(if は to 不定詞の前に置けない)"]
+        },
+        {
+          "heading": "that の省略: 目的語の that 節は省略できる",
+          "explanation": "動詞の目的語になる that 節の that は、省略できます。think、believe、hope、be sure などの後ろでよく省かれ、意味は変わりません。\n\n・I am sure (that) the team will finish on time.(チームが時間どおりに終えると確信している)\n\n省略できないのは、主語になる that 節、同格の that(the fact that ...、the idea that ... など)、補語になる that 節です。同格の that は名詞の内容を説明する役割があるので、省くと名詞と節の関係が分からなくなります。",
+          "examples": [
+            { "en": "I am sure **that** the team will finish on time.", "ja": "チームが時間どおりに終えると、私は確信している。", "note": "that は省略できる(I am sure the team will finish ... とも言える)" },
+            { "en": "The fact **that** the project was late surprised no one.", "ja": "そのプロジェクトが遅れたという事実は、誰も驚かせなかった。", "note": "同格の that は省略しない" }
+          ],
+          "cautions": ["× The fact the project was late surprised no one. → ○ The fact that the project was late surprised no one.(同格の that は省略しない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、whether と if の違い、同格の that と関係代名詞の that の区別が問われることがあります。同格の that の後ろは、主語と動詞がそろった文になります。"
@@ -142,6 +249,15 @@
           "examples": [
             { "en": "We did not start **until** the report **was** ready.", "ja": "報告書の準備ができるまで、私たちは始めなかった。", "note": "until は「~まで~ない」" },
             { "en": "**Not until** the report was ready did we start the meeting.", "ja": "報告書の準備ができて初めて、私たちは会議を始めた。", "note": "not until が文頭では主節が倒置される" }
+          ]
+        },
+        {
+          "heading": "時の節の現在形: 習慣と、未来の例",
+          "explanation": "時の節(when、whenever、by the time、the moment など)の中の現在形は、未来のことを表すだけではありません。習慣や、いつも成り立つ事実を表すときにも、現在形を使います(この場合は未来の意味ではない)。\n\n・習慣・一般の事実: 現在形のまま(Whenever it rains, the street floods.)\n・未来の意味: 現在形を使う(By the time you arrive, we will have finished the report.)\n\n主節には、未来の will や未来完了(will have finished)が来ます。時の節に will を置かないことは、前の項目と同じです。",
+          "examples": [
+            { "en": "**Whenever** it rains, the street **floods**.", "ja": "雨が降るといつも、その通りは冠水する。", "note": "習慣・一般の事実を表す現在形(未来の意味ではない)" },
+            { "en": "**By the time** you **arrive**, we will have finished the report.", "ja": "あなたが着くまでに、私たちは報告書を終えているだろう。", "note": "by the time の節は現在形、主節は未来完了" },
+            { "en": "Please call me **the moment** you **land**.", "ja": "着陸したら、すぐに電話をください。", "note": "the moment の節も現在形で未来を表す" }
           ]
         }
       ],
@@ -286,14 +402,87 @@
         },
         {
           "heading": "前置詞と接続詞の区別(まとめ)",
-          "explanation": "前置詞と接続詞の区別を、もう一度確認します。\n\n・during(前置詞)/ while(接続詞)\n・despite(前置詞)/ although(接続詞)\n・because of(前置詞)/ because(接続詞)\n\n空所の後ろが名詞なら前置詞、主語と動詞なら接続詞を選びます。",
+          "explanation": "前置詞と接続詞の区別を、もう一度確認します。\n\n・during(前置詞)/ while(接続詞)\n・despite(前置詞)/ although(接続詞)\n・because of(前置詞)/ because(接続詞)\n・in case of(前置詞)/ in case(接続詞)\n\n空所の後ろが名詞なら前置詞、主語と動詞なら接続詞を選びます。",
           "examples": [
             { "en": "**During** the meeting, several issues were raised.", "ja": "会議の間に、いくつかの問題が提起された。", "note": "during の後ろは名詞 the meeting" },
-            { "en": "**While** the meeting was going on, the phone rang.", "ja": "会議が進んでいる間に、電話が鳴った。", "note": "while の後ろは主語 + 動詞" }
+            { "en": "**While** the meeting was going on, the phone rang.", "ja": "会議が進んでいる間に、電話が鳴った。", "note": "while の後ろは主語 + 動詞" },
+            { "en": "**Despite** the high price, the product sold well.", "ja": "価格は高かったが、その製品はよく売れた。", "note": "despite の後ろは名詞(the high price)。前置詞" },
+            { "en": "**Although** the price was high, the product sold well.", "ja": "価格は高かったが、その製品はよく売れた。", "note": "although の後ろは主語 + 動詞(the price was high)。接続詞" }
           ]
+        },
+        {
+          "heading": "接続副詞のその他: otherwise・instead・meanwhile・thus・furthermore・besides",
+          "explanation": "接続副詞には、however や therefore のほかに、次のような語があります。\n\n・otherwise: さもないと(前の内容が成り立たない場合の結果)\n・instead: その代わりに\n・meanwhile: その間に\n・thus: このように、その結果\n・furthermore / besides: さらに、そのうえ\n\nどれも、2つの文を一つにまとめるときは、セミコロン(;)か、ピリオドで文を区切り、接続副詞の後ろにカンマを置きます。besides は、後ろに名詞だけが続けば前置詞です(Besides the cost, ...「費用のほかに」)。",
+          "examples": [
+            { "en": "The team must finish the test first; **otherwise**, the product will be delayed.", "ja": "チームは先にテストを終えなければならない。そうしないと、製品の発売が遅れる。", "note": "otherwise は「さもないと」。前はセミコロン" },
+            { "en": "The plan was too expensive; **instead**, we chose a smaller option.", "ja": "その計画は高すぎたので、代わりに小規模な案を選んだ。", "note": "instead は「その代わりに」" },
+            { "en": "The meeting ran late; **meanwhile**, the team kept working.", "ja": "会議が長引いている間に、チームは作業を続けた。", "note": "meanwhile は「その間に」" }
+          ],
+          "cautions": ["× The plan was too expensive, instead we chose a smaller option. → ○ The plan was too expensive; instead, we chose a smaller option.(カンマだけでは2つの文をつなげない)"]
+        },
+        {
+          "heading": "接続副詞と接続詞の区別: however と but、therefore と so",
+          "explanation": "however と but は、どちらも「しかし」を表しますが、文の中での働きが違います。\n\n・but(接続詞): 2つの節を、カンマ1つで一つの文にまとめる。The product is popular, but sales were low.\n・however(接続副詞): 2つの文のあいだに置き、セミコロンかピリオドで区切る。The product is popular; however, sales were low.\n\ntherefore と so も同じ区別をします。so は接続詞なので、カンマだけで2つの節をつなげます。therefore は接続副詞なので、セミコロンで区切ります。接続副詞は、文の途中(主語と動詞の間など)に挿入することもできます(The price, however, is high.)。",
+          "examples": [
+            { "en": "The product is popular; **therefore**, we need more stock.", "ja": "その製品は人気がある。したがって、在庫を増やす必要がある。", "note": "therefore は接続副詞。前はセミコロン" },
+            { "en": "The product is popular, **so** we need more stock.", "ja": "その製品は人気があるので、在庫を増やす必要がある。", "note": "so は接続詞。カンマだけで1つの文にできる" }
+          ],
+          "cautions": ["× The product is popular, therefore we need more stock. → ○ The product is popular; therefore, we need more stock.(therefore はカンマだけでは、2つの文をつなげない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、however と but の違いが問われることがあります。接続副詞は前後をセミコロンやピリオドで区切り、but は接続詞として、前後の文を一つの文でつなぎます。"
+    },
+    {
+      "id": "adverbial-clause-types",
+      "title": "副詞節の種類ごとの一覧: 時・理由・目的・結果・条件・譲歩・対比・様態・範囲",
+      "intro": "副詞節は、主節の動作の時・理由・条件などを補う節です。接続詞の意味によって種類が決まります。この節では、種類ごとの代表的な接続詞を一覧にし、意味がまぎらわしい as と、範囲を表す as far as などを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "副詞節の種類と、代表的な接続詞(一覧)",
+          "explanation": "副詞節は、主節を時・理由・条件などの面から補う節です。どの種類の節かは、接続詞の意味で決まります。同じ接続詞でも、意味によって別の種類になることがあります(as long as は、条件の「~である限り」と、期間の「~する間は」の両方の意味を持つ)。\n\n空所問題では、空所の後ろの節が何を表しているか(時・理由・譲歩など)を先に決め、そこから接続詞を選ぶと、ひっかけに引っかかりにくくなります。",
+          "table": {
+            "caption": "副詞節の種類と代表的な接続詞",
+            "headers": ["種類", "代表的な接続詞", "例"],
+            "rows": [
+              ["時", "when・while・until・as soon as", "when the report is ready"],
+              ["理由", "because・since・as・now that", "since the plan was approved"],
+              ["目的", "so that・in order that・lest", "so that the team can review it"],
+              ["結果", "so ~ that ...", "so tired that he went to bed early"],
+              ["条件", "if・unless・provided that・as long as・in case", "unless you confirm the order"],
+              ["譲歩", "although・even though・even if", "although the plan was costly"],
+              ["対比", "while・whereas", "whereas sales in Europe declined"],
+              ["様態", "as・as if・as though", "as I told you"],
+              ["範囲", "as far as・so far as・insofar as", "as far as I know"]
+            ]
+          },
+          "examples": [
+            { "en": "**As long as** you have the key, you can enter the room.", "ja": "鍵を持っている限り、その部屋に入れる。", "note": "as long as は「~である限り」(条件)" },
+            { "en": "**Although** the plan was costly, the team approved it.", "ja": "その計画は費用がかかったが、チームは承認した。", "note": "although は譲歩。事実を述べる" }
+          ]
+        },
+        {
+          "heading": "as の多義: 時・理由・譲歩・様態",
+          "explanation": "as は、接続詞として多くの意味を持ちます。どの意味かは、節の内容と主節の関係で判断します。\n\n・時(~につれて、~するときに): As the market grew, prices rose.(市場が成長するにつれ、価格が上がった)\n・理由(~なので): As it was raining, we stayed inside.(雨が降っていたので、中にいた)\n・譲歩(~ではあるが): Tired as I was, I kept working.(疲れてはいたが、働き続けた)\n・様態(~のように、~どおりに): Please do it as I told you.(私が言ったとおりにしてください)\n\n譲歩の as は、形容詞(または名詞・副詞)を as の前に出す語順になります(Tired as I was)。この語順は、第23章「倒置・省略・強調・挿入」で扱います。as ~ as の比較の形は、第9章「比較」で扱います。",
+          "examples": [
+            { "en": "**As** the market grew, prices rose steadily.", "ja": "市場が成長するにつれ、価格は着実に上がった。", "note": "as は「~につれて」(時)" },
+            { "en": "**As** it was raining, we stayed inside.", "ja": "雨が降っていたので、私たちは中にいた。", "note": "as は「~なので」(理由)" },
+            { "en": "**Tired** **as** I was, I kept working.", "ja": "疲れてはいたが、私は働き続けた。", "note": "as は譲歩。補語 tired が as の前に出る" },
+            { "en": "Please do it **as** I told you.", "ja": "私が言ったとおりにしてください。", "note": "as は「~のように、~どおりに」(様態)" }
+          ],
+          "cautions": ["× As tired I was, I kept working. → ○ Tired as I was, I kept working.(譲歩の as では、形容詞を as の前に出す)"]
+        },
+        {
+          "heading": "範囲を表す as far as・so far as: ~の限りでは",
+          "explanation": "範囲を表す接続詞は、「~の限りでは」「~に関する限り」の意味を表します。\n\n・as far as: 「~の限りでは」。As far as I know(私の知る限りでは)のように、自分の知っていることの限界を示す。距離(as far as the station、駅まで)にも使う\n・so far as: as far as とほぼ同じ意味。改まった文で使われる\n・insofar as: 同じ範囲の意味(「because・now that・insofar as・in that」の項目を参照)\n\nas long as は、「~である限り」の意味で、条件(as long as you return the key)や期間(as long as I live)を表します。範囲の意味か、条件の意味かは、前後の文脈で判断します。",
+          "examples": [
+            { "en": "**As far as** I know, the meeting has been moved to Monday.", "ja": "私の知る限りでは、会議は月曜日に移された。", "note": "as far as I know は「私の知る限り」" },
+            { "en": "The plan is good **so far as** the budget is concerned.", "ja": "予算に関する限り、その計画は良い。", "note": "so far as は改まった文で、範囲を示す" }
+          ],
+          "cautions": ["× As long as I know, the meeting has been moved. → ○ As far as I know, the meeting has been moved.(知る限り、は as far as。as long as は「~である限り」)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、as と as far as・as long as の意味の違い、譲歩の as(Tired as I was)の語順が、ひっかけとして使われやすいです。空所の後ろの節の意味を先に決めると、接続詞を絞れます。"
     }
   ],
   "summary": [
@@ -304,7 +493,9 @@
     "so that は目的、so ... that ... は結果。lest は「~しないように」(should を伴う)",
     "接続副詞(however・therefore)は、接続詞ではなく、前後をセミコロンかピリオドで区切る",
     "名詞節の that・whether・if: 主語の位置では whether を使う。同格の that は which にしない",
-    "相関接続詞(both A and B、either A or B、not only A but also B)は、動詞の数の決め方に注意する"
+    "相関接続詞(both A and B、either A or B、not only A but also B)は、動詞の数の決め方に注意する",
+    "等位接続詞は7語(and・but・or・nor・so・yet・for)。nor の後ろは「助動詞 + 主語」の倒置、for は文の前半に置かない",
+    "as は時・理由・譲歩・様態の意味を持つ。譲歩は Tired as I was の語順、範囲は as far as、条件は as long as"
   ],
   "quiz": [
     {

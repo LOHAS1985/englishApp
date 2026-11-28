@@ -8,6 +8,7 @@
     { "keyword": "コロケーション", "chapter": null },
     { "keyword": "群動詞", "chapter": null },
     { "keyword": "句動詞", "chapter": null },
+    { "keyword": "比較(", "chapter": "comparison" },
     { "keyword": "仮定法", "chapter": "mood" },
     { "keyword": "倒置", "chapter": "inversion" },
     { "keyword": "省略", "chapter": "inversion" },
