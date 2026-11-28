@@ -37,9 +37,9 @@ class QuestionExportTests {
   private static final JsonMapper MAPPER = JsonMapper.builder().build();
   private static final Path OUT = Path.of("..", "frontend", "src", "generated", "questions");
 
-  /** 4択短文問題(文法・語彙)。正解・解説も含む(利用者は本人だけなので、画面から見えてもよい) */
-  record ChoiceExport(String id, String sentence, List<GrammarChoice> choices, String answer, String explanation,
-      String translation, int difficulty) {
+  /** 4択短文問題(文法・語彙)。正解・解説も含む(利用者は本人だけなので、画面から見えてもよい)。point は文法の教科書へのリンク(解答後)に使う */
+  record ChoiceExport(String id, String point, String sentence, List<GrammarChoice> choices, String answer,
+      String explanation, String translation, int difficulty) {
   }
 
   record SetQuestionExport(String question, List<String> choices, String answer, String explanation) {
@@ -84,8 +84,8 @@ class QuestionExportTests {
   }
 
   private static ChoiceExport choice(ChoiceQuestionBank bank, ChoiceQuestion q) {
-    return new ChoiceExport(q.id(), q.sentence(), q.choices(), q.answer(), q.explanation(), q.translation(),
-        bank.difficulty(q.id()));
+    return new ChoiceExport(q.id(), q.point(), q.sentence(), q.choices(), q.answer(), q.explanation(),
+        q.translation(), bank.difficulty(q.id()));
   }
 
   /**

@@ -18,6 +18,8 @@ const Mock = lazy(() => import("./features/mock/Mock"));
 const Wordbook = lazy(() => import("./features/wordbook/Wordbook"));
 const WordbookQuiz = lazy(() => import("./features/wordbook/WordbookQuiz"));
 const WordbookList = lazy(() => import("./features/wordbook/WordbookList"));
+const GrammarBook = lazy(() => import("./features/grammarBook/GrammarBook"));
+const GrammarBookChapter = lazy(() => import("./features/grammarBook/GrammarBookChapter"));
 
 export default function App() {
   // 前回送れなかった解答記録を送る。オンラインに戻ったとき・画面に戻ってきたときにも再送する
@@ -50,6 +52,8 @@ export default function App() {
         <Route path="/wordbook" element={<Wordbook />} />
         <Route path="/wordbook/quiz" element={<WordbookQuiz />} />
         <Route path="/wordbook/list" element={<WordbookList />} />
+        <Route path="/grammar-book" element={<GrammarBook />} />
+        <Route path="/grammar-book/:chapterId" element={<GrammarBookChapter />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/mypage" element={<MyPage />} />
         {/* catch-all: redirect unknown paths to home (handles invalid public base URLs) */}

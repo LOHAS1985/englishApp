@@ -1,0 +1,1483 @@
+{
+  "id": "article",
+  "no": 4,
+  "title": "冠詞",
+  "lead": "冠詞(a / an / the)は、名詞の前に置く小さな語です。日本語には冠詞がないので、「本」「ペン」と言うだけで1冊か複数か、どの本かを示さなくても文が成り立ちます。ところが英語は、名詞を使うたびに「数えられるものか」「1つか複数か」「聞き手にも分かる特定のものか」を、a / an / the / 無冠詞(冠詞を付けないこと)のどれかで示さなければなりません。\n\nこの章では、a と an の使い分け、a の意味、the を使う場面(既出・状況・修飾語による限定・唯一のもの・最上級)、冠詞を付けない場合(一般論・食事・by + 交通手段・go to school など)、the が付く固有名詞と付かない固有名詞、such a / quite a / half an hour のような特別な語順、in person や on time / in time などの慣用表現、総称用法、冠詞で意味が変わる名詞までを順に学びます。\n\nTOEIC Part 5 で冠詞そのものを問う問題は、品詞や前置詞の問題に比べると出番が多いとは言えません。しかし、a few / few、a number of / the number of のように冠詞の有無で意味や一致が変わる表現、前置詞と名詞の慣用表現、長文中の正確な読解では、冠詞の知識が確実に役に立ちます。「なぜここは the で、ここは a なのか」を、聞き手の立場で説明できるようになることが、この章の目標です。",
+  "sections": [
+    {
+      "id": "indefinite",
+      "title": "不定冠詞 a / an",
+      "intro": "冠詞とは何かを確認したうえで、a と an の使い分け(つづりではなく発音で決まる)、a の意味、不可算名詞や複数形に a が付かない理由、a few / a little などの数量表現を学びます。日本語に無い発想なので、基本から順に整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "冠詞とは何か:名詞の前に付く小さな語で、日本語には無い",
+          "explanation": "**冠詞(article)は、名詞の前に置いて「どんな名詞か」を示す語で、a / an(不定冠詞)と the(定冠詞)の3語だけです。** 冠詞を付けない場合(無冠詞)も、「付けない」という選択として意味を持ちます。\n\n日本語の「本」「ペン」は、1冊か複数か、どの本かを示す語がなくても文が成り立ちます。英語は、名詞を使うたびに次の3つを形で示さなければならない言語です。\n\n・その名詞は**数えられるもの**か、数えられないもの(水・情報など)か。\n・**単数**か複数か。\n・**特定のもの**(聞き手にも、どれのことか分かる)か、不特定のものか。\n\n冠詞は、このうち「特定か不特定か」を担う語です。名詞の前に置く語には、冠詞のほかに my / your(所有格)、this / that(指示詞)、some / any / each / every / no などがあり、まとめて**限定詞**と呼びます。限定詞どうしは原則として並べられないので、a と my を一緒に使うことはできません。「私の友人の1人」と言いたいときは、a friend of mine と of を使います。\n\n選び方の手順は次のとおりです。\n\n・手順1: その名詞は数えられるか(可算名詞か、不可算名詞か)。\n・手順2: 単数か複数か。\n・手順3: 聞き手にも、どれのことか分かるか(特定か不特定か)。\n\n表は、この3つの組み合わせでどの形になるかをまとめたものです。数えられる単数名詞は、冠詞(または my などの限定詞)なしでは使えないことに特に注意します。",
+          "table": {
+            "caption": "名詞の種類と、特定・不特定による形の違い",
+            "headers": ["名詞の種類", "不特定(初めて出す・どれでもよい)", "特定(聞き手にも分かる)"],
+            "rows": [
+              ["数えられる名詞・単数", "a pen / an apple", "the pen"],
+              ["数えられる名詞・複数", "pens(無冠詞)/ some pens", "the pens"],
+              ["数えられない名詞", "water(無冠詞)/ some water", "the water"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We need **a** new printer because **the** old printer keeps jamming.",
+              "ja": "新しいプリンターが必要だ。古いプリンターは紙詰まりを繰り返すからだ。",
+              "note": "初めて話題にする不特定の printer には a。すでに分かっている古いプリンターには the"
+            },
+            {
+              "en": "**Coffee** is available free of charge in the break room.",
+              "ja": "コーヒーは休憩室で無料で飲める。",
+              "note": "coffee は数えられない名詞(不可算名詞)で、特定のものでもないので冠詞を付けない"
+            }
+          ],
+          "cautions": [
+            "× I bought laptop yesterday. → ○ I bought a laptop yesterday. 数えられる単数名詞は、冠詞か my などの限定詞が必要",
+            "× I met a my colleague at the station. → ○ I met a colleague of mine at the station. 冠詞と所有格は並べられないので、of mine を使う"
+          ]
+        },
+        {
+          "heading": "a と an は「つづり」ではなく「次の語の最初の音」で決まる",
+          "explanation": "**a は子音(ア・イ・ウ・エ・オ以外の音)で始まる語の前、an は母音(ア・イ・ウ・エ・オに当たる音)で始まる語の前に付けます。決め手は、つづりではなく発音です。** an は、母音が2つ続く発音しにくさを避けるために、n を間に挟んだ形です。\n\n手順は次のとおりです。\n\n・手順1: 冠詞のすぐ後ろの語を、声に出して読む。\n・手順2: 最初の音が母音(ア・イ・ウ・エ・オの音)なら an、子音なら a を選ぶ。\n\n間違えやすいのは、つづりと音が食い違う次の3つです。\n\n・u や eu で始まるが、音は「ユ」(子音)の語: a university, a user, a European, a unit。\n・one は「ワン」と読むので、子音で始まる: a one-year plan。\n・h を発音しない語は、母音で始まる音になる: an hour, an honest person, an honor。\n\nまた、略語はアルファベット1文字ずつの読み方で決まります。M は「エム」と読むので母音で始まり、an MBA になります。\n\nhotel や historic は h を発音するので、ふつうは a hotel, a historic site です。an hotel / an historic は古い言い方として見られますが、現代では a を使うのが安全です。",
+          "table": {
+            "caption": "つづりと発音が食い違う語の冠詞",
+            "headers": ["最初の音", "冠詞", "例", "ひとこと"],
+            "rows": [
+              ["母音(ア・イ・ウ・エ・オの音)", "an", "an apple / an umbrella / an easy task", "ふつうの母音字で始まる語"],
+              ["母音字で始まるが、音は子音(ユ・ワ)", "a", "a university / a user / a European / a one-year plan", "u- や eu- は「ユ」、one は「ワン」"],
+              ["h を発音しない", "an", "an hour / an honest person / an honor", "h が発音されないので母音の音で始まる"],
+              ["略語(アルファベット読み)", "音で決める", "an MBA / an MRI / an FBI agent / an HR manager / a CEO / a UFO", "M・R・F・H は「エ」で始まり、C は「スィー」、U は「ユー」"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "It took us **an** hour to drive to **a** university in the next town.",
+              "ja": "隣町の大学まで車で1時間かかった。",
+              "note": "hour は h を発音しないので母音の音で始まり an。university は「ユ」で始まる子音なので a"
+            },
+            {
+              "en": "My brother is **an** MRI technician at **a** European hospital.",
+              "ja": "兄はヨーロッパの病院でMRI技師をしている。",
+              "note": "MRI は「エム」と読み、母音の音で始まるので an。European は「ユ」で始まる子音なので a"
+            }
+          ],
+          "cautions": [
+            "× a hour / a honest person → ○ an hour / an honest person。h を発音しない語は、母音の音で始まる",
+            "× an university → ○ a university。つづりは u でも、音は「ユ」で子音"
+          ]
+        },
+        {
+          "heading": "a / an は「すぐ後ろの語」で決まる:形容詞・副詞が間に入ると変わる",
+          "explanation": "**a か an かは、名詞ではなく、冠詞のすぐ後ろに来る語の最初の音で決まります。** 名詞の前に形容詞や副詞が入ると、冠詞の形も変わります。\n\n・an idea(idea が母音で始まる)\n・a new idea(間に new が入ったので、new の子音に合わせて a)\n・an entirely new idea(entirely が母音で始まるので an)\n\nこれは、冠詞が名詞だけでなく、名詞を含む「語のかたまり」の先頭に置かれることから生じます。名詞を見て an と決めてから形容詞を足すと、間違いのもとになります。\n\n見分け方は簡単で、**冠詞を書く前に、後ろに何が来るかを先に決め、その最初の音を見ます。** 空所補充の問題でも、空所のすぐ後ろの語だけを見れば、a か an かが決まります。後ろの名詞がどんな名詞か(母音で始まるか)は、判断に使いません。",
+          "table": {
+            "caption": "間に語が入ると、冠詞が変わる",
+            "headers": ["名詞だけ", "形容詞を足す", "副詞も足す"],
+            "rows": [
+              ["an idea", "a new idea", "an entirely new idea"],
+              ["a book", "an old book", "a very old book"],
+              ["an offer", "a generous offer", "an extremely generous offer"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "It was **an** easy question for **a** very experienced engineer.",
+              "ja": "それは、経験豊富な技術者にとってはやさしい質問だった。",
+              "note": "easy は母音で始まるので an。very は子音で始まるので a(名詞の question / engineer では決めない)"
+            },
+            {
+              "en": "She drives **an** old car, but he drives **a** brand-new one.",
+              "ja": "彼女は古い車に乗っているが、彼は新車に乗っている。",
+              "note": "old は母音で始まるので an。brand-new は子音で始まるので a"
+            }
+          ],
+          "cautions": [
+            "× an very old car → ○ a very old car。冠詞のすぐ後ろは very で、子音で始まる",
+            "× a interesting idea → ○ an interesting idea。名詞 idea ではなく、すぐ後ろの interesting(母音で始まる)で決まる"
+          ]
+        },
+        {
+          "heading": "a / an の意味:「1つの」「ある」「〜につき」「〜というもの」",
+          "explanation": "**a / an は、もともと one(1つの)から生まれた語で、「数えられる単数名詞を、不特定のものとして示す」働きをします。** 文脈によって、次のような意味になります。\n\n・「1つの」: 数を表す。a thousand people, a quarter。\n・「ある〜」: 初めて話題にする、特定されていない1つのもの。I saw a man at the door.\n・「〜につき」: twice a week(週に2回)のように、頻度や単価を表す。per と同じ意味です。\n・「〜というもの」: 総称(第6節で扱います)。\n・「〜という人」: A Ms. Chen called.(チェンさんという方から電話がありました)のように、会ったことのない人物を紹介するとき。\n\n**数を強調したいときは one を使います。** I have a brother. は「兄弟(または弟)が1人いる」という情報で、数は問題ではありません。I have only one brother. は「1人だけ」と、数を強調しています。\n\n日本語では「〜につき」を表すのに、「週に2回」のように助詞だけで済みますが、英語では a を使い、the は使いません。the は「特定のもの」を表す語なので、「週ごと」という一般的な割合を表すときには合わないためです。",
+          "table": {
+            "caption": "a / an のおもな意味",
+            "headers": ["意味", "例", "言い換え"],
+            "rows": [
+              ["1つの(数)", "a thousand people / a quarter of the budget", "one"],
+              ["ある〜(初めて出す)", "I saw a man at the door.", "a certain / some"],
+              ["〜につき", "twice a week / 80 km an hour / five dollars a kilo", "per"],
+              ["〜というもの(総称)", "A tiger is a large cat.", "any(第6節)"],
+              ["〜という人", "A Mr. Tanaka called.", "someone named ..."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The venue can hold about **a** thousand people.",
+              "ja": "その会場には約1000人が入れる。",
+              "note": "a thousand = one thousand。数の「1」を表す a"
+            },
+            {
+              "en": "I go to the gym three times **a** week.",
+              "ja": "私は週に3回ジムに通っている。",
+              "note": "「〜につき」を表す a。the week とは言わない"
+            },
+            {
+              "en": "**A** Ms. Chen from Orion Corp. called while you were out.",
+              "ja": "あなたが外出中に、オリオン社のチェンさんという方から電話がありました。",
+              "note": "a + 人名は「〜という人」。面識のない人物を、初めて伝えるときの言い方"
+            }
+          ],
+          "cautions": [
+            "× three times the week → ○ three times a week。「〜につき」は a(an)で表し、the は使わない"
+          ]
+        },
+        {
+          "heading": "不可算名詞と複数形には a / an を付けない",
+          "explanation": "**a / an は「1つ」という意味をもとにしているので、数えられる名詞の単数形にしか付けられません。** 数えられない名詞(不可算名詞)と複数形には付けません。\n\n**不可算名詞**とは、1つ、2つと数えられない名詞のことです。たとえば water, information, advice, equipment, furniture, luggage, news は、a や複数の -s を付けられません(第3章「名詞」で詳しく扱います)。日本語では「情報を1つ」「家具を2つ」のように数えられるので、特に間違えやすいところです。\n\n数えたいときは、**a piece of / two pieces of / a glass of** のように、数える単位を表す語を使います。不特定の量を示すだけなら、some または無冠詞で表します。\n\n複数形にも a / an は付きません。a は「1つ」なので、複数とは矛盾するからです。複数の不特定のものは、無冠詞(books)か some books で表します。\n\n見分け方の手順は、(1) 名詞が不可算名詞か確かめる、(2) 複数形か確かめる、(3) どちらかなら a / an は選ばない、です。選択肢に a / an が並んでいて、空所の後ろが advice や information のときは、a / an を消します。",
+          "table": {
+            "caption": "不特定のものを表す形",
+            "headers": ["名詞の種類", "不特定の形", "例"],
+            "rows": [
+              ["数えられる単数", "a / an + 名詞", "a document / an idea"],
+              ["数えられる複数", "無冠詞 / some / 数詞", "documents / some documents / two documents"],
+              ["数えられない名詞", "無冠詞 / some / 単位 + of", "advice / some advice / a piece of advice"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "She gave me **a piece of** advice that I will never forget.",
+              "ja": "彼女は、私が決して忘れないであろう助言をしてくれた。",
+              "note": "advice は数えられないので a advice とは言えず、a piece of を付けて数える"
+            },
+            {
+              "en": "Could you send me **some** information about the new schedule?",
+              "ja": "新しい日程についての情報を送っていただけますか。",
+              "note": "information は不可算名詞。不特定の量は some(または無冠詞)で表す"
+            },
+            {
+              "en": "We purchased **two pieces of** equipment for the new laboratory.",
+              "ja": "私たちは、新しい実験室のために機器を2点購入した。",
+              "note": "equipment は複数形にならない。数えるときは pieces of を使う"
+            }
+          ],
+          "cautions": [
+            "× I need an advice. → ○ I need some advice. / I need a piece of advice.",
+            "× She gave us an useful information. → ○ She gave us some useful information.(information は不可算で、an は付かない)",
+            "× Two luggages arrived late. → ○ Two pieces of luggage arrived late.(luggage は複数形にならない)"
+          ]
+        },
+        {
+          "heading": "数量を表す a:a few / a little / a number of など",
+          "explanation": "**a few と few、a little と little は、a の有無で意味が逆になります。a が付くと「少しはある」(肯定的)、付かないと「ほとんどない」(否定的)です。** 使い分けは、名詞が数えられるかどうかで決まります。\n\n・a few / few: 数えられる名詞の複数形に付く(a few ideas)。\n・a little / little: 数えられない名詞に付く(a little time)。\n\na が付くか付かないかは、話し手の気持ちの違いです。同じ「2〜3人」でも、「少しはいる」と思えば a few、「ほとんどいない」と思えば few を使います。\n\n他にも、冠詞を含む数量表現があります。quite a few は「かなり多くの」という意味で、quite が付くと意味が大きく変わる点に注意します。a number of 〜(いくつかの・多くの〜)は複数名詞を受けて複数扱い、the number of 〜(〜の数)は単数扱いです。この一致の違いは第21章「一致」で扱います。数量を表す形容詞の全体は第7章「形容詞」で扱います。\n\n見分け方の手順は、(1) 名詞が可算か不可算かを確かめる、(2) 「少しはある」か「ほとんどない」かを文脈で判断する、の2つです。",
+          "table": {
+            "caption": "a few / a little の使い分け",
+            "headers": ["表現", "意味", "後ろの名詞", "例"],
+            "rows": [
+              ["a few", "少しはある(いくつかある)", "可算名詞の複数形", "a few ideas"],
+              ["few", "ほとんどない", "可算名詞の複数形", "few ideas"],
+              ["a little", "少しはある", "不可算名詞", "a little time"],
+              ["little", "ほとんどない", "不可算名詞", "little time"],
+              ["quite a few", "かなり多くの", "可算名詞の複数形", "quite a few people"],
+              ["a number of", "いくつかの・多くの", "可算名詞の複数形", "a number of options"],
+              ["a great deal of", "大量の", "不可算名詞", "a great deal of work"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**A few** participants arrived late, but the workshop started on time.",
+              "ja": "数人の参加者は遅れて到着したが、研修は時間どおりに始まった。",
+              "note": "participants は可算名詞の複数形で、「少しはいる」という意味なので a few"
+            },
+            {
+              "en": "There is **little** hope that the supplier will deliver by Friday.",
+              "ja": "仕入れ先が金曜日までに納品する見込みは、ほとんどない。",
+              "note": "hope は不可算名詞。a が付かない little は「ほとんどない」という否定的な意味"
+            },
+            {
+              "en": "We have **a little** time left, so let's review the budget once more.",
+              "ja": "少し時間が残っているので、もう一度予算を見直しましょう。",
+              "note": "time は不可算名詞。a little は「少しはある」という肯定的な意味"
+            }
+          ],
+          "cautions": [
+            "× There are a little chairs in the room. → ○ There are a few chairs in the room.(chairs は数えられる複数形)",
+            "× We have few time. → ○ We have little time. / We have a little time.(time は不可算名詞)"
+          ]
+        }
+      ],
+      "examNote": "a / an の使い分け(an hour か a hour か)だけを直接問う問題は、TOEIC Part 5 では出番が多いとは言えません。ただし、冠詞の有無で意味や一致が変わる表現(a few / few、a little / little、a number of / the number of)は、選択肢に並ぶことがあります。解く手順は、(1) 空所の後ろの名詞が可算か不可算か、単数か複数かを見る、(2) a / an が付けられない名詞(information, advice, equipment, furniture, luggage, news など)は a / an の選択肢を消す、(3) a / an か迷うときは、空所のすぐ後ろの語の発音を確かめる、の順です。ひっかけとして、a の後ろに複数形、または不可算名詞を置いた選択肢が作られます。英検準1級の語彙・読解でも、a piece of / an item of のように不可算名詞を数える形が出ることがあります。"
+    },
+    {
+      "id": "definite",
+      "title": "定冠詞 the",
+      "intro": "the は「話し手と聞き手の両方が、どれのことか分かっている」ときに使います。既出・状況・修飾語・唯一のもの・最上級・the + 形容詞・楽器・体の部位など、the が必要になる場面と、付かない例外を、判断の手順とともに整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "the の基本:話し手と聞き手の両方に、どれのことか分かるとき",
+          "explanation": "**the は、「話し手と聞き手の両方が、どれのことか分かっている名詞」に付ける語です。** 単数・複数・不可算名詞のどれにも付きます。a / an が「聞き手はまだ知らない、不特定の1つ」を表すのに対し、the は「あなたも知っている、あの(その)〜」を表します。日本語の「その」「あの」に近い働きですが、日本語では省略されることが多いので、英語では意識して選ぶ必要があります。\n\n大切なのは、**判断の基準が、話し手の頭の中ではなく、聞き手の立場にある**ことです。自分には分かっていても、聞き手にとって「どれのことか分からない」なら、the は使えません。\n\nthe を使う場面は、おもに次の5つに分けられます(表)。次の項目から、それぞれ詳しく見ていきます。\n\nなお、the の発音は、次の語が子音で始まるときは [ðə](ざ)、母音で始まるときは [ði](ずぃ)です(the event, the hour)。文章の中で強く読む the は [ðiː] で、「あの有名な」という意味を表します。",
+          "table": {
+            "caption": "the を使う5つの場面",
+            "headers": ["特定される理由", "例"],
+            "rows": [
+              ["すでに話に出た", "I bought a jacket. The jacket is too big."],
+              ["場面・状況から分かる", "Please close the window.(その部屋の窓)"],
+              ["修飾語句で限定される", "the book on the table / the capital of Italy"],
+              ["世の中に1つしかない", "the sun / the Internet / the world"],
+              ["最上級・序数・the only など", "the best / the first / the only"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**A** customer called this morning. **The** customer wants to change her delivery date.",
+              "ja": "今朝、お客様から電話があった。そのお客様は、配達日の変更を希望している。",
+              "note": "初めて話題にする customer は a。2回目は聞き手にも分かるので the"
+            },
+            {
+              "en": "Could you pass me **the** stapler on your desk?",
+              "ja": "あなたの机の上のホチキスを取ってもらえますか。",
+              "note": "on your desk という限定と、目の前の状況から、どのホチキスか分かるので the"
+            },
+            {
+              "en": "**The** sun sets earlier in winter than in summer.",
+              "ja": "冬は夏よりも太陽が早く沈む。",
+              "note": "太陽は世の中に1つしかないので the"
+            }
+          ],
+          "cautions": [
+            "× A sun rises in the east. → ○ The sun rises in the east. 唯一のものには the を付ける",
+            "× I met the man at the station yesterday.(聞き手が、誰のことか分からない場合) → ○ I met a man at the station yesterday. 初めて話題にする人は a"
+          ]
+        },
+        {
+          "heading": "the の用法1:一度出てきた名詞(a → the)と、そこから連想できるもの",
+          "explanation": "**初めて話題にするときは a / an、同じものについて2回目以降に言うときは the を使います。** 2回目からは、聞き手も「どれのことか」分かっているからです。\n\n・We rented **a** car. **The** car broke down.(借りたその車)\n\n同じものでも、言い換えた語に the が付くことがあります。a car の後ろの the vehicle(その車両)がそうです。\n\n**連想で分かるものにも the を使います。** ホテルについて話し始めると、聞き手は「そのホテルには部屋(the rooms)も、従業員(the staff)も、サービス(the service)もある」と自然に分かります。そのため、初めて出す語でも、すでに話題になっているものの一部分なら、the が付きます。\n\n・I stayed at **a** small hotel; **the** rooms were clean and **the** service was excellent.\n\n見分け方の手順は、(1) 前の文に同じものが出ていないか、(2) 前に出たものの一部分や付属物ではないか、の2つを確かめます。どちらも当てはまらず、初めて話題にするものなら a / an か無冠詞です。",
+          "examples": [
+            {
+              "en": "We rented **a** car at the airport, but **the** car broke down on the way.",
+              "ja": "私たちは空港で車を借りたが、その車は途中で故障した。",
+              "note": "初出の car は a、2回目の car は the。同じ車を指しているので the"
+            },
+            {
+              "en": "I stayed at **a** small hotel near the station; **the** rooms were clean and **the** service was excellent.",
+              "ja": "私は駅の近くの小さなホテルに泊まったが、部屋は清潔で、サービスもすばらしかった。",
+              "note": "rooms や service は初出だが、そのホテルの一部分だと連想できるので the"
+            }
+          ],
+          "cautions": [
+            "× We hired a designer. A designer has revised the logo.(同じ人を指す場合) → ○ We hired a designer. The designer has revised the logo. 同じ人を2回目に言うときは the"
+          ]
+        },
+        {
+          "heading": "the の用法2:場面・状況から、どれのことか分かる",
+          "explanation": "**話し手と聞き手が同じ場面にいて、「どれのことか」が言わなくても分かるときも、the を使います。** 部屋の中の door や window、職場の manager や printer、街の bank や post office がその例です。\n\n・Please close **the** window.(その部屋の窓。言わなくても1つに決まっている)\n・I'll go to **the** bank.(いつも使う、その銀行。聞き手にも分かる)\n\n日本語では「窓を閉めて」と言っても、「その窓」を意識しませんが、英語では「どの窓か」が決まっているので the になります。**the は、日本語の訳には出てこなくても、英語では必要な語**です。\n\n共通の経験を前提にした the も多く使われます。the doctor(いつも行くかかりつけの医者)、the weather(今日の天気)、the news(今朝のニュース)などです。\n\n逆に、場面から1つに決まらないとき(部屋に窓が3つあり、どれか分からないとき)は、a window や one of the windows のように言います。\n\n見分け方の手順: 「聞き手は、言わなくてもどれのことか分かるか」を自問します。分かるなら the、分からなければ a / an です。",
+          "table": {
+            "caption": "場面から特定される名詞の例",
+            "headers": ["場面", "the が付く名詞の例"],
+            "rows": [
+              ["部屋の中", "the door / the window / the light / the air conditioner"],
+              ["職場", "the manager / the boss / the office / the meeting / the printer"],
+              ["街・地域", "the bank / the post office / the station / the supermarket"],
+              ["日常の話題", "the weather / the news / the doctor / the radio"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Please remember to lock **the** door when you leave the office.",
+              "ja": "オフィスを出るときは、忘れずにドアに鍵をかけてください。",
+              "note": "そのオフィスの出入口のドアで、聞き手にも分かるので the"
+            },
+            {
+              "en": "I have to stop by **the** post office on my way home.",
+              "ja": "帰りに郵便局に寄らなければならない。",
+              "note": "いつも使う、聞き手にも分かる郵便局なので the"
+            },
+            {
+              "en": "**The** manager would like to see you in her office.",
+              "ja": "部長が、ご自分の部屋であなたにお会いしたいそうです。",
+              "note": "その職場の manager は1人に決まっているので the"
+            }
+          ],
+          "cautions": [
+            "× Please open window. → ○ Please open the window. 目の前の特定の窓なので the が要る",
+            "× I'm going to bank. → ○ I'm going to the bank.(特定の銀行へ行く場合)"
+          ]
+        },
+        {
+          "heading": "the の用法3:修飾語句で「1つに決まる」名詞",
+          "explanation": "**名詞の後ろに、of 句・関係詞節・前置詞句・分詞などの修飾語句が付いて、「どれのことか」が1つに決まるとき、the を使います。** 修飾語句が、「その中のどれか」を特定する働きをするためです。\n\n・the capital of Italy(イタリアの首都は1つ)\n・the book that I told you about(私が話したその本)\n・the woman in the red jacket(赤い上着の、あの女性)\n・the man standing at the door(ドアのところに立っている男性)\n\nただし、**修飾語句が付いても、自動的に the になるわけではありません。** 修飾しても、同じ種類のものが他にもあり、1つに決まらないなら a / an です。\n\n・a member of the team(チームのメンバーは何人もいる。その中の1人)\n・a friend of mine(友人は何人もいる。その中の1人)\n\n見分け方の手順は、「修飾語句で言い表されるものが、世の中(またはその場面)に1つしか無いか」を考えます。1つなら the、複数ありうるなら a です。",
+          "table": {
+            "caption": "修飾語句があっても、a になる場合",
+            "headers": ["修飾の種類", "1つに決まる(the)", "他にもある(a / an)"],
+            "rows": [
+              ["of + 名詞", "the capital of Italy", "a member of the team"],
+              ["関係詞節", "the book that I told you about", "a book that I recommend"],
+              ["前置詞句", "the woman in the red jacket", "a woman in a red jacket"],
+              ["分詞", "the man standing at the door", "a man standing at the door"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**The** woman standing near the entrance is our new director.",
+              "ja": "入口の近くに立っている女性が、私たちの新しい部長だ。",
+              "note": "standing near the entrance で、どの女性かが決まるので the"
+            },
+            {
+              "en": "She is **a** colleague of mine from the Osaka office.",
+              "ja": "彼女は、大阪支社の私の同僚の1人だ。",
+              "note": "同僚は何人もいる。その中の1人なので、of mine が付いても a"
+            },
+            {
+              "en": "**The** capital of Australia is Canberra, not Sydney.",
+              "ja": "オーストラリアの首都は、シドニーではなくキャンベラだ。",
+              "note": "首都は国に1つしかないので、of Australia で限定されて the"
+            }
+          ],
+          "cautions": [
+            "× He is the friend of mine. → ○ He is a friend of mine. 友人は他にもいる。その中の1人なので a"
+          ]
+        },
+        {
+          "heading": "the の用法4:唯一のもの・最上級・序数・the only / the same",
+          "explanation": "**世の中に1つしかないもの、最上級、序数(the first など)、only / same / very を伴う名詞には、the を付けます。** どれも、「1つに決まる」という点で共通しています。\n\n・唯一のもの: the sun, the moon, the earth, the sky, the world, the Internet, the environment。\n・最上級: the best, the most expensive。「1番」は1つに決まるからです。\n・序数: the first, the second, the last, the next。順番は1つに決まります。\n・only / same / very: the only option, the same problem, the very person(まさにその人)。\n\nただし、次の例外に注意します。\n\n・**所有格が付くと the は付けません。** my best friend であり、× the my best friend は誤りです。\n・序数でも、「もう1つの」という意味を表すときは a を使います。a second chance(もう1度の機会)、a third option(3つ目の選択肢)。\n・副詞の最上級は、the を付けないことが多いです。This lake is deepest here.(この湖はここが一番深い)のように、同じものの中で場所や時を比べるときも、the は付けないことがあります。\n\n最上級の詳しい形は、第9章「比較」で扱います。",
+          "table": {
+            "caption": "the が付く名詞の種類",
+            "headers": ["種類", "例", "the が付く理由"],
+            "rows": [
+              ["唯一のもの", "the sun / the world / the Internet", "世の中に1つしか無い"],
+              ["最上級", "the best / the most expensive", "「1番」は1つに決まる"],
+              ["序数", "the first / the last / the next", "順番は1つに決まる"],
+              ["only / same / very", "the only option / the same problem", "限定する語なので1つに決まる"],
+              ["例外", "my best friend / a second chance", "所有格が付く。「もう1つの」の意味"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "She was **the** first employee to finish the training program.",
+              "ja": "彼女は、その研修プログラムを最初に修了した社員だった。",
+              "note": "序数 first が付くので、1人に決まって the"
+            },
+            {
+              "en": "We are facing **the** same problem as last year.",
+              "ja": "私たちは、昨年と同じ問題に直面している。",
+              "note": "same は「同じ」という限定を表すので、必ず the を伴う"
+            },
+            {
+              "en": "Of all the options, this is **the** most cost-effective one.",
+              "ja": "すべての選択肢の中で、これが最も費用対効果が高い。",
+              "note": "最上級 most cost-effective が付くので the"
+            },
+            {
+              "en": "**The** Internet has changed the way people shop.",
+              "ja": "インターネットは、人々の買い物の仕方を変えた。",
+              "note": "Internet は唯一のものとして、the が付く"
+            }
+          ],
+          "cautions": [
+            "× This is the my best idea. → ○ This is my best idea. 所有格と the は並べられない",
+            "× She gave me second chance. → ○ She gave me a second chance.「もう1度の機会」の意味では、序数に a が付く"
+          ]
+        },
+        {
+          "heading": "the + 形容詞(〜な人々)と、the + 国民名",
+          "explanation": "**「the + 形容詞」は、「〜な人々」という複数の人の集まりを表し、複数扱いにします。** the rich(金持ちの人々)、the poor(貧しい人々)、the elderly(お年寄り)、the unemployed(失業者)、the injured(けが人)などです。形容詞が名詞のように使われています。\n\nこの形で使う形容詞は、人の状態を表すものに限られます。**単数の1人を指すことはできません**(× a rich は不可。a rich man と名詞を補います)。\n\nまた、「the + 抽象的な意味の形容詞」は、「〜なもの・こと」という意味で、単数扱いになります。the beautiful(美しいもの)、the unknown(未知のもの)などです。\n\n**国民を表す the + 国民名** も同じ考え方です。the English, the British, the French, the Japanese, the Chinese のように、-sh / -ch / -ese で終わる語は、the を付けて「その国の人々全体」を表します。一方、-an などで終わる国民名(Americans, Germans, Italians, Koreans)は、複数形(-s)で表します。\n\n見分け方の手順: 空所の前に the があり、後ろに形容詞だけ(名詞が続かない)なら、「〜な人々」の意味で、動詞は複数形(are, have)になります。",
+          "table": {
+            "caption": "the + 形容詞 / 国民名の扱い",
+            "headers": ["形", "意味", "扱い", "例"],
+            "rows": [
+              ["the + 形容詞(人)", "〜な人々", "複数", "the rich / the elderly / the unemployed / the injured"],
+              ["the + 形容詞(抽象)", "〜なもの・こと", "単数", "the beautiful / the unknown"],
+              ["the + -sh / -ch / -ese の国民名", "その国の人々", "複数", "the English / the French / the Chinese"],
+              ["国民名の複数形(-s)", "その国の人々", "複数", "Americans / Germans / Koreans"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**The** elderly often need extra help with online banking.",
+              "ja": "お年寄りは、ネットバンキングで特別な手助けが必要なことが多い。",
+              "note": "the elderly = 「お年寄りの人々」。複数扱いなので、動詞は need"
+            },
+            {
+              "en": "**The** unemployed are eligible for free job training under the new program.",
+              "ja": "失業者は、新しい制度のもとで無料の職業訓練を受けられる。",
+              "note": "the unemployed = 失業している人々。are と複数で受ける"
+            },
+            {
+              "en": "**The** British drive on the left, while **Americans** drive on the right.",
+              "ja": "イギリス人は左側を、アメリカ人は右側を運転する。",
+              "note": "British は the を付けて国民全体を表し、American は複数形 Americans で表す"
+            }
+          ],
+          "cautions": [
+            "× The elderly is often lonely. → ○ The elderly are often lonely.「the + 形容詞」は複数の人々を表すので複数扱い",
+            "× He is a rich. → ○ He is a rich man. / He is rich. 1人を指すときは名詞を補うか、ふつうの形容詞として使う"
+          ]
+        },
+        {
+          "heading": "楽器には the、スポーツ・ゲームには無冠詞",
+          "explanation": "**楽器を演奏するときは the を付け(play the piano)、スポーツやゲームには冠詞を付けません(play tennis)。** 楽器は「ピアノという種類の楽器」を代表して指す the、スポーツは活動そのものの名前なので無冠詞、という違いです。\n\nこの the は、第6節で扱う総称用法(the + 単数名詞で種類全体を表す形)の1つです。the violin, the guitar, the flute などの楽器すべてに当てはまります。\n\nスポーツ(tennis, soccer, baseball, golf)、ゲーム(chess, cards, poker, bingo)には冠詞を付けません。\n\n例外・注意点は次のとおりです。\n\n・日常会話やバンドの話では、楽器名に the を付けず、plays guitar in a band のように言うことも、特にアメリカ英語で多く見られます。試験や正式な文章では the を付ける形が標準的です。\n・具体的な1台の楽器を指すときは、the や a を使います。I bought a guitar.",
+          "table": {
+            "caption": "play + 名詞の冠詞",
+            "headers": ["種類", "冠詞", "例"],
+            "rows": [
+              ["楽器", "the", "play the piano / the violin / the guitar / the flute"],
+              ["スポーツ", "無冠詞", "play tennis / soccer / baseball / golf"],
+              ["ゲーム", "無冠詞", "play chess / cards / poker"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My daughter plays **the** cello in the school orchestra and **soccer** on weekends.",
+              "ja": "娘は学校のオーケストラでチェロを弾き、週末にはサッカーをする。",
+              "note": "楽器 cello には the、スポーツ soccer には冠詞を付けない"
+            },
+            {
+              "en": "We play **chess** every Friday evening after work.",
+              "ja": "私たちは毎週金曜日の夕方、仕事のあとにチェスをする。",
+              "note": "ゲームの名前なので無冠詞"
+            }
+          ],
+          "cautions": [
+            "× I play the tennis on Sundays. → ○ I play tennis on Sundays. スポーツには the を付けない",
+            "× He plays the baseball. → ○ He plays baseball."
+          ]
+        },
+        {
+          "heading": "体の部位の the と、by the hour / by the dozen",
+          "explanation": "**「人 + 前置詞 + 体の部位」の形では、部位には所有格ではなく the を付けます。** take him **by the** hand のように、「誰の手か」は直前の人を表す語(him)で分かるからです。また、**「〜単位で」は by the + 単位**で表します。\n\n・The guard grabbed the intruder **by the** arm.(侵入者の腕をつかんだ)\n・She patted him **on the** back.(彼の背中を軽くたたいた)\n・paid **by the** hour(時間給で)、sold **by the** dozen(ダース単位で)\n\n前者は「人 + 前置詞 + the + 部位」の型で覚えます。hit him on the head(彼の頭をたたく)、look her in the eye(彼女の目を見る)、tap him on the shoulder(彼の肩を軽くたたく)も同じ型です。\n\n注意点は2つあります。1つ目は、**自分自身の体の部位は、所有格を使う**ことです。I hit **my** head on the door.(ドアに頭をぶつけた)。2つ目は、by the hour は「時間単位で」という意味で、「週に2回」の a(第1節「a / an の意味」)とは働きが違うことです。by + 単位は、料金や量の「計算の単位」を示します。",
+          "table": {
+            "caption": "the を使う2つの型",
+            "headers": ["型", "例", "意味"],
+            "rows": [
+              ["人 + 前置詞 + the + 部位", "take him by the hand / hit him on the head / look her in the eye", "相手の体の部位(誰の部位かは直前の人で分かる)"],
+              ["by the + 単位", "paid by the hour / sold by the dozen / rented by the day", "〜単位で(料金や量の単位)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The guard grabbed the intruder **by the** arm.",
+              "ja": "警備員は、侵入者の腕をつかんだ。",
+              "note": "「人 + by + the + 部位」の型。誰の腕かは the intruder で分かる"
+            },
+            {
+              "en": "Temporary staff are paid **by the** hour.",
+              "ja": "臨時職員は時間給で支払われる。",
+              "note": "「〜単位で」を表す by the + 単位"
+            },
+            {
+              "en": "She looked the client **in the** eye and answered calmly.",
+              "ja": "彼女は取引先の目を見て、落ち着いて答えた。",
+              "note": "相手の体の部位なので所有格(his / her)ではなく the"
+            }
+          ],
+          "cautions": [
+            "× paid by hour → ○ paid by the hour。「〜単位で」は by the + 単位",
+            "× I hit the head on the door. → ○ I hit my head on the door. 自分自身の体の部位は所有格で表す"
+          ]
+        }
+      ],
+      "examNote": "the を問う問題は、TOEIC Part 5 では、a / the / 無冠詞の中から選ばせる形で時々出ますが、出番は多くありません。空所の前後だけで決まる問題は少なく、文脈(すでに出たものか、1つに決まるか)の判断が要ります。解く手順は、(1) 空所の名詞が前の文に出ているか、(2) 名詞の後ろに of 句や関係詞節などの限定があるか、(3) 最上級・序数・only・same が付いているか、の順に確かめます。ひっかけとして、「修飾語句が付いているので the」と思い込ませる問題(a friend of mine のように a が正解)があります。同じ種類のものが他にもあれば a です。英検準1級の長文では、the が付く名詞は「すでに話題に出たもの」と判断でき、文章を読み進める手がかりになります。"
+    },
+    {
+      "id": "zero",
+      "title": "無冠詞:冠詞を付けない場合",
+      "intro": "冠詞を付けないことにも規則があります。一般論の複数形・不可算名詞、食事・学科・言語、by + 交通手段、go to school のような建物の本来の目的、役職・肩書き、Room 305 のような数字付きの名詞を整理します。the を付けたときとの意味の違いも確認します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "無冠詞の基本:一般論の複数形・不可算名詞と、不特定の複数・不可算",
+          "explanation": "**複数形や不可算名詞に冠詞を付けないのが、「〜というもの全般」(一般論)を表す形です。** Electric cars are becoming popular.(電気自動車というもの全般が人気になっている)のように、特定のものではなく、種類全体について述べるときに使います。\n\nthe を付けると、意味が変わります。the electric cars は「すでに話題にしている、特定の電気自動車」になります。**一般論には the を付けない**ことが、ここでの大事な点です。\n\n無冠詞には、もう1つの働きがあります。**不特定の複数・不特定の量を表す**働きで、a / an の複数形に当たります。We need volunteers.(ボランティアが何人か必要だ)のように、some の意味で使います。\n\n抽象名詞(honesty, freedom, life, success など)も、一般論では無冠詞です。ただし、後ろに限定する語句が付くと the になります。the honesty of the staff(従業員の誠実さ)。\n\n見分け方の手順は、(1) 名詞が複数形か不可算か、(2) 特定のもの(the)か、一般論・不特定(無冠詞)か、の順に判断します。",
+          "table": {
+            "caption": "一般論(無冠詞)と特定(the)の違い",
+            "headers": ["一般論・不特定(無冠詞)", "特定(the)"],
+            "rows": [
+              ["Children need sleep.", "The children in this class need sleep."],
+              ["Water boils at 100 degrees Celsius.", "The water in this tank is dirty."],
+              ["Life is short.", "The life of a farmer is hard."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Electric cars** are becoming more popular in big cities.",
+              "ja": "電気自動車は、大都市でますます人気になっている。",
+              "note": "一般論なので、複数形に冠詞を付けない"
+            },
+            {
+              "en": "We are looking for **volunteers** to help at the charity event.",
+              "ja": "私たちは、慈善イベントを手伝ってくれるボランティアを募集している。",
+              "note": "不特定の複数。a の複数形に当たる意味で、冠詞を付けない"
+            },
+            {
+              "en": "**Honesty** is more important than talent in our team.",
+              "ja": "私たちのチームでは、誠実さは才能よりも重要だ。",
+              "note": "抽象名詞は、一般論では無冠詞"
+            }
+          ],
+          "cautions": [
+            "× The electric cars are becoming popular.(一般論のつもりで) → ○ Electric cars are becoming popular. the を付けると、特定の電気自動車の話になる",
+            "× The life is full of surprises. → ○ Life is full of surprises.(一般論の life は無冠詞)"
+          ]
+        },
+        {
+          "heading": "食事・季節・曜日・月・言語・学科は、ふつう無冠詞",
+          "explanation": "**食事(breakfast, lunch, dinner)、季節、曜日・月、言語、学科は、ふつうは冠詞を付けません。** これらは「そのものの名前」として使われ、数えるものではないからです。\n\n・食事: have breakfast / lunch / dinner。\n・季節: in spring / summer(季節全般)。\n・曜日・月: on Monday, in March。\n・言語: speak English, study Spanish。\n・学科: study economics, major in biology。\n\nただし、**形容詞や修飾語句が付いて特定される、または1回の出来事として扱われると、冠詞が付きます。**\n\n・We had **a** late lunch with clients.(遅めの昼食。形容詞 late が付き、1回の食事として a)\n・**The** dinner was delicious.(その夕食。特定のものなので the)\n・in **the** spring of 2020(2020年の春。限定されて the)\n・**the** English language(英語という言語。language が付くと the)\n\n見分け方の手順: 習慣的に「食事をする」「言語を話す」という名前のままなら無冠詞。形容詞や of 句で限定されたら、a / the を付けます。",
+          "table": {
+            "caption": "無冠詞の名詞と、冠詞が付く場合",
+            "headers": ["種類", "無冠詞", "冠詞が付く場合"],
+            "rows": [
+              ["食事", "have lunch / eat breakfast", "a late lunch / The dinner was delicious."],
+              ["季節", "in spring / in summer", "in the spring of 2020"],
+              ["曜日・月", "on Monday / in March", "on the Monday after the conference"],
+              ["言語", "speak English / study Spanish", "the English language / the Spanish he spoke"],
+              ["学科", "study economics / major in biology", "the economics department"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We usually have **lunch** at noon, but today we had **a** late **lunch** with clients.",
+              "ja": "私たちはふだん正午に昼食をとるが、今日は取引先と遅めの昼食をとった。",
+              "note": "習慣的な食事は無冠詞。late という形容詞が付くと、1回の食事として a が付く"
+            },
+            {
+              "en": "She studied **economics** at university and speaks **Spanish** fluently.",
+              "ja": "彼女は大学で経済学を学び、スペイン語を流ちょうに話す。",
+              "note": "学科名・言語名は、ふつう無冠詞"
+            },
+            {
+              "en": "**Spring** is the busiest season for our tax department.",
+              "ja": "春は、私たちの税務部門にとって最も忙しい季節だ。",
+              "note": "季節全般を表すときは無冠詞"
+            }
+          ],
+          "cautions": [
+            "× I have the breakfast at seven. → ○ I have breakfast at seven.(習慣としての食事は無冠詞)",
+            "× He speaks the English very well. → ○ He speaks English very well."
+          ]
+        },
+        {
+          "heading": "by + 交通・通信手段は無冠詞(by bus, by e-mail, on foot)",
+          "explanation": "**「〜で」と手段を表す by の後ろの名詞には、冠詞を付けません。** by bus, by train, by car, by plane, by e-mail, by phone のようになります。手段を表すときは、具体的な1台の乗り物ではなく、「バスという手段」という考え方を示しているからです。\n\n具体的な乗り物を指すときは、by を使わず、他の前置詞と冠詞を使います。\n\n・on **the** bus / on **a** bus(バスの中で)\n・in **my** car(私の車で)\n・take **the** 8:15 train(8時15分の電車に乗る)\n\n歩いて行くときは、by ではなく on foot(無冠詞)です。\n\n日本語の「バスで」には、手段の意味も、乗り物そのものの意味も含まれるので、区別がつきにくいところです。見分け方は、「by + 乗り物」と言えるのは、手段を表すときだけで、**乗り物に冠詞や所有格が付くなら、by ではなく in / on / take を使う**と覚えます。",
+          "table": {
+            "caption": "手段(by + 無冠詞)と、具体的な乗り物",
+            "headers": ["意味", "手段(無冠詞)", "具体的な乗り物"],
+            "rows": [
+              ["交通", "by bus / by train / by car / by taxi / by plane", "on the bus / in my car / take a taxi / on the 8:15 train"],
+              ["通信", "by e-mail / by phone / by post / by fax", "on the phone / in an e-mail"],
+              ["歩行", "on foot", "—"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Most of our staff commute **by** train, but I usually come **on** foot.",
+              "ja": "社員の大半は電車で通勤しているが、私はたいてい歩いて来る。",
+              "note": "手段を表す by train は無冠詞。歩いての移動は on foot"
+            },
+            {
+              "en": "I'll send you the documents **by** e-mail this afternoon.",
+              "ja": "今日の午後、書類をメールでお送りします。",
+              "note": "通信手段の by e-mail も無冠詞"
+            },
+            {
+              "en": "She took **the** 8:15 train to Osaka and then **a** taxi to the office.",
+              "ja": "彼女は8時15分の電車で大阪へ行き、そこからタクシーでオフィスへ向かった。",
+              "note": "具体的な1本の電車・1台のタクシーなので冠詞が付く。by ではなく take の目的語"
+            }
+          ],
+          "cautions": [
+            "× I go to work by a bus. → ○ I go to work by bus. / I go to work on a bus.(手段は無冠詞)",
+            "× I'll send it by an e-mail. → ○ I'll send it by e-mail.",
+            "× I go to the station by my car. → ○ I go to the station by car. / I go to the station in my car. 所有格が付くなら in を使う"
+          ]
+        },
+        {
+          "heading": "建物の「本来の目的」は無冠詞(go to school / go to bed)",
+          "explanation": "**school, church, bed, hospital, prison, work, court などは、その場所の「本来の目的」(学ぶ・礼拝する・寝る・入院する・働く)で行くときは無冠詞、建物そのものを指すときは the を付けます。** 同じ語でも、行く目的が違うと冠詞が変わります。\n\n・go to **school**(通学する・授業を受けに行く)\n・go to **the school**(建物としての学校へ行く。たとえば保護者面談で)\n・go to **bed**(寝る)\n・go to **work**(出勤する)\n\n日本語では「学校に行く」と言うだけで、通学かどうかは文脈で分かりますが、英語は冠詞の有無で区別します。\n\n**英米の違いにも注意します。** イギリス英語では、患者として入院している意味で in hospital(無冠詞)と言い、アメリカ英語では in the hospital と the を付けるのがふつうです。大学も、イギリスでは at university、アメリカでは in college / at the university のように言います。どちらも誤りではなく、地域による違いです。\n\n見分け方の手順は、「その場所で、本来の目的の行動をするのか(無冠詞)、その建物に用事があって行くのか(the)」を考えます。",
+          "table": {
+            "caption": "本来の目的(無冠詞)と、建物そのもの(the)",
+            "headers": ["場所", "本来の目的(無冠詞)", "建物そのもの(the)"],
+            "rows": [
+              ["school", "go to school(通学する)", "go to the school(建物へ行く)"],
+              ["church", "go to church(礼拝に行く)", "go to the church(建物を訪ねる)"],
+              ["bed", "go to bed(寝る)", "sit on the bed(ベッドに座る)"],
+              ["hospital", "be in hospital(英・入院している)", "visit the hospital(病院を訪ねる)"],
+              ["work", "go to work(出勤する)", "the work(その仕事)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My son goes to **school** by bus, but I went to **the** school yesterday to meet his teacher.",
+              "ja": "息子はバスで学校に通っているが、私は昨日、担任の先生に会うために学校へ行った。",
+              "note": "通学は無冠詞の school。面談で建物へ行くので the school"
+            },
+            {
+              "en": "I usually leave for **work** at eight and go to **bed** around eleven.",
+              "ja": "私はたいてい8時に出勤し、11時ごろ寝る。",
+              "note": "go to work(出勤する)、go to bed(寝る)はどちらも本来の目的で無冠詞"
+            },
+            {
+              "en": "She has been in **hospital** since the accident.",
+              "ja": "彼女は事故以来、入院している。",
+              "note": "患者として入院している意味の in hospital はイギリス英語の言い方。アメリカ英語ではふつう in the hospital"
+            }
+          ],
+          "cautions": [
+            "× I go to the bed at ten. → ○ I go to bed at ten.(「寝る」の意味)",
+            "× My son goes to the school by bus.(通学の意味) → ○ My son goes to school by bus."
+          ]
+        },
+        {
+          "heading": "役職・肩書きは、補語・同格のとき無冠詞が多い",
+          "explanation": "**1人しかいない役職や身分が、補語(be や become の後ろ)や同格(名前の後ろにカンマで添える形)に置かれるとき、冠詞を付けないのがふつうです。** 役職を「資格・立場」として示しているためです。\n\n・We elected Mr. Evans **chairman** of the committee.(議長に選んだ)\n・Ms. Okada was appointed **head** of the new division.(責任者に任命された)\n・Dr. Weber, **director** of the research center, ...(同格)\n\n**補語**とは、主語や目的語がどういうものかを説明する語です。**同格**とは、名前の後ろに、その人を説明する語句を並べる形です。\n\n注意点は2つあります。1つ目は、無冠詞が標準的ですが、the を付ける形(She is the director of the lab.)も誤りではなく、「特定のその人」を示すときに使われることです。2つ目は、同じ役職が複数いる場合は、a を使うことです。She is a vice president of the firm.(副社長は複数いることがある)。\n\n見分け方の手順は、(1) その役職が組織に1人だけか、(2) 補語・同格か、を確かめます。両方当てはまれば、無冠詞が自然です。",
+          "examples": [
+            {
+              "en": "We elected Mr. Evans **chairman** of the committee.",
+              "ja": "私たちは、エバンズさんを委員会の議長に選んだ。",
+              "note": "選ばれる役職 chairman は補語で、1人だけの役職なので無冠詞"
+            },
+            {
+              "en": "Ms. Okada was appointed **head** of the new division last month.",
+              "ja": "岡田さんは先月、新しい部門の責任者に任命された。",
+              "note": "任命される立場を表す補語は無冠詞"
+            },
+            {
+              "en": "Dr. Weber, **director** of the research center, will present the findings.",
+              "ja": "研究センター所長のウェーバー博士が、調査結果を発表する。",
+              "note": "名前の後ろに添える同格の役職は無冠詞"
+            }
+          ],
+          "cautions": [
+            "× She became a president of the company in 2020. → ○ She became president of the company in 2020. 1人だけの役職が補語になるときは、ふつう無冠詞"
+          ]
+        },
+        {
+          "heading": "名詞 + 数字(Room 402, page 24)と、this / next などが付く時の表現",
+          "explanation": "**「名詞 + 基数(1, 2, 3...)」の形は、冠詞を付けません。** Room 402, page 24, Flight 208, Gate 14, Chapter 3 のように、番号が付くと名前のようなものになり、すでに1つに決まるためです。\n\n序数(first, second...)を前に出す形では、the が付きます。the 24th page, the fourth floor, the third chapter。「名詞 + 数字」と「the + 序数 + 名詞」の2通りがあり、冠詞の有無が逆になる点を押さえます。\n\n**this / last / next / every + 時を表す語**も、冠詞を付けません。this morning, last year, next Friday, every day。これらはすでに this や next などの限定詞が付いているので、冠詞を重ねられないためです(第1節「冠詞とは何か」で説明した、限定詞は並べられないというルール)。\n\nなお、this / last / next / every が付く時の表現には、前置詞も付けません。on next Friday とは言わず、next Friday だけで「次の金曜日に」を表します。",
+          "table": {
+            "caption": "数字・時の表現と冠詞",
+            "headers": ["形", "例", "冠詞"],
+            "rows": [
+              ["名詞 + 基数", "page 24 / Room 402 / Flight 208 / Gate 14 / Chapter 3", "無冠詞"],
+              ["the + 序数 + 名詞", "the 24th page / the fourth floor / the third chapter", "the(序数で特定)"],
+              ["this / last / next / every + 時", "this morning / last year / next Friday / every day", "無冠詞(限定詞があるため)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Passengers for **Flight 208** should proceed to **Gate 14**.",
+              "ja": "208便にご搭乗のお客様は、14番ゲートへお進みください。",
+              "note": "名詞 + 基数(Flight 208, Gate 14)は、冠詞を付けない"
+            },
+            {
+              "en": "The seminar will be held in **Room 402** **next** Tuesday.",
+              "ja": "セミナーは、来週の火曜日に402号室で開かれる。",
+              "note": "Room 402 は無冠詞。next Tuesday は前置詞も冠詞も付けない"
+            }
+          ],
+          "cautions": [
+            "× the Room 402 / Gate the 14 → ○ Room 402 / Gate 14。番号が付くと名前のようになり、冠詞は不要",
+            "× on next Friday → ○ next Friday。this / last / next / every が付く時の表現には、前置詞を付けない"
+          ]
+        }
+      ],
+      "examNote": "無冠詞かどうかを問う問題は、TOEIC Part 5 では、by + 手段(by e-mail, by train)や、go to school / go to work のような決まった形で出ることがあります。ただし出番は多いとは言えません。解く手順は、(1) 空所の前の前置詞を見て、by + 手段の形になっていないか、(2) 名詞が複数形・不可算名詞で、一般論や不特定の意味か、(3) 「建物の本来の目的」の表現(school, bed, work, church など)になっていないか、の順です。ひっかけとして、by の後ろに a / the を置いた選択肢(by a train, by the e-mail)が作られます。英検準1級の語彙・読解でも、at university(英)と in college(米)のような、英米の言い方の違いに触れることがあります。"
+    },
+    {
+      "id": "proper",
+      "title": "固有名詞と冠詞(the が付くもの・付かないもの)",
+      "intro": "人名・国名・都市名には冠詞が付かないのに、the Thames や the United States には the が付きます。固有名詞の冠詞を、種類ごとの傾向で整理します。名前ごとの慣用に任されている部分も多いので、規則と覚えるしかない部分も正直に示します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "原則:固有名詞は無冠詞(人名・国名・都市名・単独の山や湖・駅・空港)",
+          "explanation": "**固有名詞(人名・地名など、1つのものだけを指す名前)は、原則として冠詞を付けません。** 名前そのものが「それ1つ」を指しているので、特定を示す the が要らないためです。\n\n次のものは、ふつう無冠詞です(表)。\n\n・人名: Mr. Tanaka, Ms. Lopez。\n・国名・都市名: Japan, France, Tokyo, Paris。\n・州・県・大陸: California, Hokkaido, Asia, Europe。\n・単独の山・湖・島: Mt. Fuji, Lake Biwa, Okinawa。\n・通り・公園・駅・空港: Oxford Street, Central Park, Tokyo Station, Narita Airport。\n・「地名 + University / College」の大学: Stanford University, Osaka University。\n・会社名・ブランド: Toyota, Apple, Microsoft。\n\n日本語の感覚では「ジ」を付けたくなる語もありますが、これらの名前に the は付けません。the が付く固有名詞は、次の項目で扱う、川・海・山脈・群島・複数形の国名・公共の建物・新聞などの限られたグループです。\n\n見分け方の手順は、(1) 名前の種類を見る(人名・都市・駅・単独の山など)、(2) 次の項目の「the が付くグループ」に当たらなければ、無冠詞、の順です。",
+          "table": {
+            "caption": "ふつう無冠詞の固有名詞",
+            "headers": ["種類", "例"],
+            "rows": [
+              ["人名", "Mr. Tanaka / Ms. Lopez"],
+              ["国名・都市名", "Japan / France / Tokyo / Paris"],
+              ["州・県・大陸", "California / Hokkaido / Asia / Europe"],
+              ["単独の山・湖・島", "Mt. Fuji / Lake Biwa / Okinawa"],
+              ["通り・公園・駅・空港", "Oxford Street / Central Park / Tokyo Station / Narita Airport"],
+              ["地名 + University の大学", "Stanford University / Osaka University"],
+              ["会社名・ブランド", "Toyota / Apple / Microsoft"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We climbed **Mt. Fuji** last summer and then visited **Lake Kawaguchi**.",
+              "ja": "私たちは昨年の夏に富士山に登り、そのあと河口湖を訪れた。",
+              "note": "単独の山と湖は、冠詞を付けない"
+            },
+            {
+              "en": "The conference will be held at **Stanford University** in **California**.",
+              "ja": "学会は、カリフォルニアのスタンフォード大学で開かれる。",
+              "note": "「地名 + University」の大学と、州名は無冠詞"
+            },
+            {
+              "en": "Our flight leaves **Narita Airport** at noon and lands at **Heathrow Airport** in the evening.",
+              "ja": "私たちの便は、正午に成田空港を出発し、夕方にヒースロー空港に着く。",
+              "note": "空港名は無冠詞"
+            }
+          ],
+          "cautions": [
+            "× the Japan / the Tokyo → ○ Japan / Tokyo。国名・都市名には the を付けない",
+            "× the Harvard University → ○ Harvard University。「地名・人名 + University」の形は無冠詞(the University of Oxford のような of の形は、次の項目)"
+          ]
+        },
+        {
+          "heading": "the が付く固有名詞:川・海・山脈・群島・複数形の国名・新聞・ホテル・美術館など",
+          "explanation": "**川・海・運河・砂漠・山脈・群島、複数形の国名、新聞、ホテル、博物館・美術館、劇場、歴史的建造物には、the を付けます。** 共通点は、「広がりのあるもの」「複数のまとまり」「公共の施設や建物」という性質です。\n\n・川・海・洋: the Thames, the Amazon, the Pacific(Ocean), the Mediterranean(Sea), the North Sea。\n・山脈・砂漠・運河: the Alps, the Rockies, the Sahara, the Suez Canal。\n・群島・複数形の地名: the Hawaiian Islands, the Philippines, the Bahamas。\n・複数形・連合の国名: the United States, the United Kingdom, the Netherlands, the Czech Republic。\n・新聞: The Japan Times, The New York Times, The Wall Street Journal。\n・ホテル・博物館・美術館・劇場: the Hilton, the Imperial Hotel, the British Museum, the Louvre。\n・歴史的建造物: the White House, the Eiffel Tower, the Great Wall, the Tower of London。\n\nただし、名前ごとの慣用に任されている部分が大きく、規則だけでは割り切れません。たとえば Tokyo Tower, Buckingham Palace, Windsor Castle には the が付きません。雑誌は、Time のように冠詞を付けないものと、The Economist のように The が名前に含まれるものがあります。迷ったときは、辞書や実際の表記で確かめます。\n\n複数形の国名に the が付くのは、「島々」「州の集まり」のような複数のまとまりを指す名前だからです。",
+          "table": {
+            "caption": "the が付く固有名詞",
+            "headers": ["種類", "例"],
+            "rows": [
+              ["川", "the Thames / the Amazon / the Nile"],
+              ["海・洋・湾・海峡", "the Pacific / the Mediterranean / the North Sea / the English Channel"],
+              ["山脈・砂漠・運河", "the Alps / the Rockies / the Sahara / the Suez Canal"],
+              ["群島・複数形の地名", "the Hawaiian Islands / the Philippines / the Bahamas"],
+              ["複数形・連合の国名", "the United States / the United Kingdom / the Netherlands"],
+              ["新聞", "The Japan Times / The Wall Street Journal"],
+              ["ホテル・美術館・劇場", "the Hilton / the British Museum / the Louvre"],
+              ["歴史的建造物", "the White House / the Eiffel Tower / the Great Wall"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**The** Thames flows through central London and into **the** North Sea.",
+              "ja": "テムズ川は、ロンドン中心部を流れ、北海に注ぐ。",
+              "note": "川(Thames)と海(North Sea)には the が付く"
+            },
+            {
+              "en": "I read about the merger in **The** Wall Street Journal this morning.",
+              "ja": "私は今朝、その合併について、ウォール・ストリート・ジャーナル紙で読んだ。",
+              "note": "新聞名は The が名前の一部。冠詞を省かない"
+            },
+            {
+              "en": "The tourists spent a full day at **the** British Museum.",
+              "ja": "観光客たちは、まる1日を大英博物館で過ごした。",
+              "note": "博物館・美術館の名前には the が付く"
+            },
+            {
+              "en": "Several islands in **the** Philippines were affected by the typhoon.",
+              "ja": "フィリピンのいくつかの島が、台風の被害を受けた。",
+              "note": "複数形の国名(島々のまとまり)なので the が付く"
+            }
+          ],
+          "cautions": [
+            "× Thames flows through London. → ○ The Thames flows through London. 川の名前には the が付く",
+            "× Our branch in Philippines opened last year. → ○ Our branch in the Philippines opened last year. 複数形の国名には the が付く",
+            "× I read it in Japan Times. → ○ I read it in The Japan Times. 新聞名は The を含めて1つの名前"
+          ]
+        },
+        {
+          "heading": "the + A of B 型、組織名、略語(the University of Tokyo / the FBI / NASA)",
+          "explanation": "**「A of B」の形をした名称には the を付け(the University of Tokyo)、「地名 + 種類」の形には付けません(Tokyo University)。** 同じ大学でも、名称の形で冠詞が変わります。他の of 型の名称も同じです。the Bank of England, the Gulf of Mexico, the Statue of Liberty, the Republic of Korea。\n\n**官公庁・公的機関・国際機関にも the が付きます。** the Ministry of Finance, the Federal Reserve, the Senate, the United Nations, the European Union。\n\n**略語は、読み方で決まります。** アルファベットを1文字ずつ読むもの(the UN, the EU, the FBI, the BBC, the IMF)は the を付け、1つの語として読むもの(NATO, UNESCO, OPEC, NASA)は付けません。ただし、略語が別の名詞の前で修飾語として使われるときは、the は付きません(an FBI agent, a UN resolution)。\n\n**会社名・ブランド名は、ふつう無冠詞です。** Toyota, Apple, Microsoft, Google。\n\n見分け方の手順は、(1) 名称が「A of B」の形か、(2) 官公庁・国際機関か、(3) 略語なら、1文字ずつ読むか1語として読むか、を順に確かめます。",
+          "table": {
+            "caption": "名称の形と冠詞",
+            "headers": ["形", "冠詞", "例"],
+            "rows": [
+              ["A of B 型", "the", "the University of Tokyo / the Bank of England / the Gulf of Mexico / the Statue of Liberty"],
+              ["地名 + 種類の型", "無冠詞", "Tokyo University / Stanford University / Tokyo Station"],
+              ["官公庁・公的機関・国際機関", "the", "the Ministry of Finance / the Federal Reserve / the United Nations"],
+              ["1文字ずつ読む略語", "the", "the UN / the EU / the FBI / the BBC / the IMF"],
+              ["1語として読む略語", "無冠詞", "NATO / UNESCO / OPEC / NASA"],
+              ["会社名・ブランド", "ふつう無冠詞", "Toyota / Apple / Microsoft"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My cousin studies law at **the** University of Tokyo, while her friend attends **Osaka** University.",
+              "ja": "いとこは東京大学で法律を学び、彼女の友人は大阪大学に通っている。",
+              "note": "of 型の the University of Tokyo には the が付く。地名 + University の Osaka University には付かない"
+            },
+            {
+              "en": "Her brother works for **NASA**, while she has worked for **the** FBI since 2015.",
+              "ja": "彼女の兄は NASA で働き、彼女は2015年から FBI で働いている。",
+              "note": "NASA は1語として読むので無冠詞。FBI は1文字ずつ読むので the が付く"
+            },
+            {
+              "en": "A spokesperson for **the** Bank of Japan said that interest rates would remain unchanged.",
+              "ja": "日本銀行の広報担当者は、金利は据え置かれると述べた。",
+              "note": "the Bank of Japan は of 型で、公的機関でもあるので the"
+            }
+          ],
+          "cautions": [
+            "× Bank of Japan → ○ the Bank of Japan。of 型の名称には the が付く",
+            "× the NASA → ○ NASA。1語として読む略語には the を付けない",
+            "× FBI announced the results. → ○ The FBI announced the results. 1文字ずつ読む略語には the が付く"
+          ]
+        },
+        {
+          "heading": "the + 姓の複数形(the Johnsons)と、a + 人名(a Picasso)",
+          "explanation": "**the + 姓の複数形(-s)は、「〜家の人々」「〜夫妻」を表します。** the Johnsons(ジョンソン一家・ジョンソン夫妻)。姓には複数形の -s を付け、複数扱いにします。\n\n**a + 人名は、いくつかの意味に使われます。** a Mr. Smith は「スミスさんという人」(面識のない人)、a Picasso は「ピカソの作品(1点)」、a Newton は「ニュートンのような天才」のように、固有名詞が普通名詞(数えられる名詞)のように扱われています。\n\n**the + 固有名詞 + 修飾語**の形もあります。固有名詞に限定する語句が付くと、特定のもの(その時代の、その状態の〜)を表すために the が付きます。the Tokyo of the 1960s(1960年代の東京)、the late Mr. Brown(故ブラウン氏)。\n\nこれらは、固有名詞が「その名前の人(もの)1つ」ではなく、「ある面を持った存在」として扱われる場合です。\n\n見分け方の手順: 姓の後ろに -s が付いて the があれば家族、a があれば普通名詞化した使い方、固有名詞に of や関係詞節の修飾が付いて the があれば限定、と区別します。",
+          "table": {
+            "caption": "固有名詞に冠詞が付く形",
+            "headers": ["形", "意味", "例"],
+            "rows": [
+              ["the + 姓の複数形", "〜家の人々・〜夫妻", "the Johnsons / the Smiths"],
+              ["a + 人名", "〜という人", "a Mr. Smith"],
+              ["a + 人名", "〜の作品・〜のような人", "a Picasso / a Newton"],
+              ["the + 固有名詞 + 修飾語", "(ある時期・状態の)〜", "the Tokyo of the 1960s / the late Mr. Brown"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**The** Johnsons have just moved into the house next door.",
+              "ja": "ジョンソン一家が、隣の家に引っ越してきたところだ。",
+              "note": "the + 姓の複数形で一家を表す。複数扱いなので have"
+            },
+            {
+              "en": "I would love to own **a** Picasso someday.",
+              "ja": "いつかピカソの作品を1点所有してみたい。",
+              "note": "a + 人名で、その作家の作品1点を表す"
+            },
+            {
+              "en": "Tokyo today is very different from **the** Tokyo of the 1960s.",
+              "ja": "今日の東京は、1960年代の東京とはまったく違う。",
+              "note": "固有名詞に of 句が付いて、特定の時期の姿を表すので the"
+            }
+          ],
+          "cautions": [
+            "× Johnsons have just moved in. → ○ The Johnsons have just moved in. 一家を表すときは the が要る",
+            "× The Johnson are our neighbors. → ○ The Johnsons are our neighbors. 姓に複数形の -s を付ける"
+          ]
+        },
+        {
+          "heading": "方角・地域の冠詞:the Middle East / the north of Japan / northern Japan",
+          "explanation": "**地域名には the が付くものが多く(the Middle East, the Midwest)、方角は the + 方角 + of + 場所(the north of Japan)で表します。** 一方、northern / southern などの形容詞を前に付けた形(northern Japan)や、East Asia のような地域名は無冠詞です。\n\n・the + 地域名(慣用): the Middle East, the Midwest, the Far East, the West Coast。\n・the + 方角 + of + 場所: the north of the city, the south of France。「〜の北部」を表します。場所の中の一部分を指します。\n・方角を表す形容詞 + 地名: northern Japan, southern France, eastern Europe。無冠詞です。\n・East Asia, Southeast Asia, West Africa のように、方角の語から始まる地域名: 無冠詞です。\n・in the north, to the east, from the west: 方角そのものは the を付けます。\n\n**the north of Japan と northern Japan は、ほぼ同じ意味ですが、冠詞の有無が違います。** 形容詞 northern が前に付くと、Japan の一部を表す1つの名前のように扱われ、無冠詞になります。\n\n地域名の冠詞は慣用で決まる部分が大きく、規則だけでは割り切れません。よく使う地域名は、そのまま覚えておきます。",
+          "table": {
+            "caption": "方角・地域名の冠詞",
+            "headers": ["形", "例", "冠詞"],
+            "rows": [
+              ["慣用の地域名", "the Middle East / the Midwest / the Far East / the West Coast", "the"],
+              ["the + 方角 + of + 場所", "the north of Japan / the south of the city", "the"],
+              ["方角の形容詞 + 地名", "northern Japan / southern France / eastern Europe", "無冠詞"],
+              ["方角で始まる地域名", "East Asia / Southeast Asia / West Africa", "無冠詞"],
+              ["方角そのもの", "in the north / to the east / from the west", "the"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Demand for solar panels is growing rapidly in **the** Middle East.",
+              "ja": "中東では、太陽光パネルの需要が急速に伸びている。",
+              "note": "Middle East は慣用の地域名で、the が付く"
+            },
+            {
+              "en": "The new factory will be built in **the** north of the city.",
+              "ja": "新しい工場は、市の北部に建設される。",
+              "note": "the north of 〜 で「〜の北部」を表す"
+            },
+            {
+              "en": "Many tourists visit **northern** Japan in winter to ski.",
+              "ja": "多くの観光客が、スキーのために冬に日本の北部を訪れる。",
+              "note": "形容詞 northern が前に付くと、冠詞は付かない"
+            }
+          ],
+          "cautions": [
+            "× in north of the city → ○ in the north of the city。方角そのものには the が付く",
+            "× The northern Japan is cold in winter. → ○ Northern Japan is cold in winter. 形容詞 + 地名は無冠詞"
+          ]
+        }
+      ],
+      "examNote": "固有名詞の冠詞は、TOEIC Part 5 の空所補充で直接問われる機会は多くありません。ただし、Part 7 の記事・広告・メールには、the Ministry of ..., the University of ..., The Wall Street Journal のような名称が頻繁に出てきます。冠詞の有無は固有名詞の一部として読み取れると、読みやすくなります。英検準1級の語彙・読解でも、地名・機関名の冠詞を誤って読み違えることは少ないですが、書く場面(英作文)では、the Netherlands, the United States, the Philippines のような国名の冠詞を落とさないようにします。解く手順は、(1) 名称が of 型か、(2) 川・海・山脈・群島か、(3) 複数形の国名か、の順に確かめます。"
+    },
+    {
+      "id": "position",
+      "title": "冠詞の位置と、語順が特別な表現",
+      "intro": "冠詞はふつう「冠詞 + 形容詞 + 名詞」の順に置きますが、all the / half the、such a / quite a / what a、so beautiful a day のように、冠詞の位置が特別になる表現があります。half an hour のような時間・数量の言い方と、冠詞を繰り返すかどうかも整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "基本の語順と、all / both / half / twice + the + 名詞",
+          "explanation": "**冠詞は、名詞を含むかたまりの先頭に置き、「冠詞 + (副詞) + 形容詞 + 名詞」の順になります。** the very latest model(まさに最新のモデル)のように、冠詞は形容詞や副詞より前です。\n\nただし、次の語は、冠詞の前に置きます。**all, both, half, double, twice(3倍以上は three times など)は、the の前に出て、「all the + 名詞」「half the + 名詞」「twice the + 名詞」の語順になります。** all や half は、名詞の「全体」「半分」を表し、the が付いた特定の名詞に対する量を示すためです。\n\n・all the employees(その従業員全員)\n・both the proposals(2つの提案の両方)\n・half the seats(席の半分)\n・twice the size(2倍の大きさ)\n\nall, both は、所有格や指示詞の前にも置きます(all my friends, both his parents, all these files)。**冠詞や所有格が、all の前に出ることはありません。** × the all employees は誤りです。\n\nall of the employees のように of を入れた形も使えます。of を入れると代名詞も続けられます(all of them)。**of を入れない形(all the employees)は、名詞が直接続くときに使います。**",
+          "table": {
+            "caption": "冠詞の前に出る語",
+            "headers": ["語", "語順", "例"],
+            "rows": [
+              ["all", "all + the + 名詞", "all the employees / all my friends"],
+              ["both", "both + the + 複数名詞", "both the proposals / both his parents"],
+              ["half", "half + the + 名詞", "half the seats / half the price"],
+              ["double / twice / 〜 times", "倍数 + the + 名詞", "double the amount / twice the size / three times the speed"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**All the** employees must attend the safety briefing on Friday.",
+              "ja": "全従業員が、金曜日の安全説明会に出席しなければならない。",
+              "note": "all は the の前に置く。the all employees とは言わない"
+            },
+            {
+              "en": "The new warehouse is **twice the** size of the old one.",
+              "ja": "新しい倉庫は、古い倉庫の2倍の広さだ。",
+              "note": "倍数表現は、the の前に twice を置く"
+            },
+            {
+              "en": "**Half the** seats were still empty when the concert began.",
+              "ja": "コンサートが始まったとき、席の半分はまだ空いていた。",
+              "note": "half も the の前に置く"
+            }
+          ],
+          "cautions": [
+            "× the all employees / the both proposals → ○ all the employees / both the proposals。all と both は the の前に出る",
+            "× all of employees → ○ all the employees / all employees / all of the employees。of の後ろには、the などの限定詞が要る"
+          ]
+        },
+        {
+          "heading": "such a / what a / quite a / rather a:a が形容詞より前に出る",
+          "explanation": "**such, what, quite, rather の後ろでは、冠詞 a が形容詞の前に出て、「such + a + 形容詞 + 名詞」の語順になります。** 通常は a good idea(冠詞 + 形容詞 + 名詞)ですが、such a good idea となります。\n\n・such a good idea(とても良い考え)\n・What a good idea!(なんと良い考えだ)\n・quite a good idea(かなり良い考え)\n・rather a long day(ずいぶん長い1日)。a rather long day も可能です。\n\n**複数形・不可算名詞のときは a が付かないので、such good ideas, such good manners となります。** 冠詞の位置が変わるのは、数えられる単数名詞のときだけです。\n\nquite a は、後ろの語によって意味が変わります。quite a good idea は「かなり良い考え」、quite a performance は「たいした演技」(感心)です。quite a few は「かなり多くの」という数量表現になります。\n\nmany a(+ 単数名詞)は文語的で、「多くの〜」を意味します(many a person)。形は単数名詞でも、意味は複数に近い、かたい表現です。\n\n見分け方の手順は、such / what / quite / rather の直後で、名詞が数えられる単数名詞なら、a を such の直後に置く、と覚えます。",
+          "table": {
+            "caption": "a が前に出る表現",
+            "headers": ["語", "語順", "例", "意味"],
+            "rows": [
+              ["such", "such + a + 形容詞 + 名詞", "such a good idea", "とても良い考え"],
+              ["what", "What + a + 形容詞 + 名詞", "What a good idea!", "なんと良い考えだ"],
+              ["quite", "quite + a + (形容詞) + 名詞", "quite a surprise / quite a good idea", "たいした〜 / かなり良い〜"],
+              ["rather", "rather + a + 形容詞 + 名詞", "rather a long day / a rather long day", "ずいぶん長い1日"],
+              ["many", "many + a + 単数名詞(文語)", "many a person", "多くの〜"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "It was **such a** helpful workshop that everyone asked for a sequel.",
+              "ja": "とても役に立つ研修だったので、全員が続編を求めた。",
+              "note": "such の直後に a を置き、「such + a + 形容詞 + 名詞」の語順になる"
+            },
+            {
+              "en": "**What a** beautiful view this is from the top floor!",
+              "ja": "最上階からの眺めは、なんと美しいのだろう。",
+              "note": "感嘆文の What の直後に a を置く。view は数えられる単数名詞"
+            },
+            {
+              "en": "That presentation was **quite a** performance.",
+              "ja": "あのプレゼンテーションは、たいしたものだった。",
+              "note": "quite a + 名詞は「たいした〜」という感心を表す"
+            },
+            {
+              "en": "She has **such** good manners that clients always ask for her.",
+              "ja": "彼女はとても行儀がよいので、顧客はいつも彼女を指名する。",
+              "note": "manners は複数形なので a は付かず、such + 形容詞 + 名詞"
+            }
+          ],
+          "cautions": [
+            "× a such good idea → ○ such a good idea。a は such の直後に置く",
+            "× What beautiful view! → ○ What a beautiful view! 数えられる単数名詞なので a が要る(複数なら What beautiful views!)",
+            "× such good idea → ○ such a good idea / such good ideas"
+          ]
+        },
+        {
+          "heading": "so / as / too / how + 形容詞 + a + 名詞(かたい言い方)",
+          "explanation": "**so, as, too, how の後ろでは、「so + 形容詞 + a + 名詞」のように、形容詞が a の前に出ます。** 程度を表す副詞(so, as, too, how)は、後ろの形容詞とひとまとまりになって、直前に置かれるためです。so beautiful が1つのまとまりなので、a はその後ろに回ります。\n\n・so beautiful **a** day = such **a** beautiful day(こんなに美しい日)\n・as good **a** chance as this(これと同じくらい良い機会)\n・too short **a** notice(あまりに急な通知)\n・How big **a** risk is it?(それはどのくらい大きなリスクですか)\n\nこの語順は、書き言葉・かたい文体で使われます。日常会話では、such a beautiful day のような別の形のほうが自然です。ただし、as ... as 構文や too ... to 構文を含むときは、この語順を使う場面があります。\n\n**覚え方**: such / what / quite は「a が形容詞より前」、so / as / too / how は「形容詞が a より前」と、2つに分けて整理します。どちらも、数えられる単数名詞のときだけに現れる語順です。\n\n複数形・不可算名詞のときは、so は使えません。such を使います(such beautiful days)。",
+          "table": {
+            "caption": "so / as / too / how の語順",
+            "headers": ["語", "語順", "例", "ふつうの言い方"],
+            "rows": [
+              ["so", "so + 形容詞 + a + 名詞", "so beautiful a day", "such a beautiful day"],
+              ["as", "as + 形容詞 + a + 名詞 + as 〜", "as good a chance as this", "a chance as good as this"],
+              ["too", "too + 形容詞 + a + 名詞", "too short a notice", "a notice that is too short"],
+              ["how", "How + 形容詞 + a + 名詞 ...?", "How big a risk is it?", "How big is the risk?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "It was **too** short **a** notice for us to change the schedule.",
+              "ja": "予定を変更するには、通知があまりに急だった。",
+              "note": "too + 形容詞 + a + 名詞の語順。形容詞 short が a の前に出ている"
+            },
+            {
+              "en": "She is **as** capable **an** engineer as anyone in the department.",
+              "ja": "彼女は、部内の誰にも劣らない有能な技術者だ。",
+              "note": "as + 形容詞 + a(n) + 名詞 + as 〜。形容詞が前に出ても、a か an かは直後の名詞の音で決まる(engineer は母音で始まるので an)"
+            },
+            {
+              "en": "**How** big **a** budget do you need for the campaign?",
+              "ja": "そのキャンペーンには、どのくらい大きな予算が必要ですか。",
+              "note": "How + 形容詞 + a + 名詞の語順で、程度をたずねる"
+            },
+            {
+              "en": "I have never seen **so** beautiful **a** sunset.",
+              "ja": "こんなに美しい夕焼けは、見たことがない。",
+              "note": "so + 形容詞 + a + 名詞。such a beautiful sunset と同じ意味"
+            }
+          ],
+          "cautions": [
+            "× so beautiful day → ○ so beautiful a day / such a beautiful day。a が欠けている",
+            "× as a good chance as this → ○ as good a chance as this。形容詞を a の前に出す"
+          ]
+        },
+        {
+          "heading": "half an hour / an hour and a half / half a dozen:時間・数量と冠詞",
+          "explanation": "**「半分」を表す half は、a / an の前に置きます。** half an hour(30分)、half a dozen(半ダース)。冠詞のほうが half の後ろに回る形です。\n\n・half an hour / a half hour(30分): アメリカ英語では a half hour もよく使われます。\n・an hour and a half / one and a half hours(1時間半): and の後ろにも a を付けます。\n・half a dozen(半ダース、6個): a half dozen も使われます。\n・a quarter of an hour(15分): quarter + of + an hour の形です。\n\n**「1時間半」は、数が2つ続くので、an hour and a half と、a を2回付けます。** 日本語では「1時間半」で済むので、and a half の a を落としやすいところです。\n\n**数字の読み方にも a が関わります。** 100 は a hundred、150 は a hundred and fifty のように、a は先頭に1つだけ付けます。one hundred と言うこともでき、数を強調したいときや、数字をはっきり伝えたいときに使われます。\n\n頻度を表す once a week, twice a day などの a は、第1節で扱った「〜につき」の a です。",
+          "table": {
+            "caption": "時間・数量の言い方",
+            "headers": ["表現", "意味", "ひとこと"],
+            "rows": [
+              ["half an hour / a half hour", "30分", "a half hour はアメリカ英語で多い"],
+              ["an hour and a half / one and a half hours", "1時間半", "and の後ろにも a が必要"],
+              ["half a dozen / a half dozen", "半ダース(6個)", "a は half の後ろ"],
+              ["a quarter of an hour", "15分", "quarter + of + an hour"],
+              ["a hundred and fifty", "150", "a は先頭に1つだけ"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The commute takes about **half an** hour by train.",
+              "ja": "通勤は、電車でおよそ30分かかる。",
+              "note": "half の後ろに an を置く(an hour の an)"
+            },
+            {
+              "en": "The meeting lasted **an** hour **and a** half.",
+              "ja": "会議は1時間半続いた。",
+              "note": "「1時間半」は an hour and a half と、a を2回付ける"
+            },
+            {
+              "en": "We need **half a** dozen extra chairs for the seminar.",
+              "ja": "セミナーのために、予備のいすが半ダース(6脚)必要だ。",
+              "note": "half a dozen = 半ダース。a は half の後ろ"
+            }
+          ],
+          "cautions": [
+            "× a half of hour → ○ half an hour。half は冠詞の前に置く",
+            "× one and half hours → ○ one and a half hours。and の後ろにも a が必要"
+          ]
+        },
+        {
+          "heading": "冠詞を繰り返すか、繰り返さないか:同じ人か、別の人か",
+          "explanation": "**2つの名詞を and でつなぐとき、冠詞を1つだけ付けると同一人物(または1組のもの)、冠詞を繰り返すと別々の人(もの)を表します。** 冠詞の数が、人数を表すのです。\n\n・a writer and translator(作家であり翻訳家でもある、1人)\n・a writer and a translator(作家1人と翻訳家1人、2人)\n・the secretary and treasurer(書記と会計を兼ねる1人)\n・the secretary and the treasurer(書記と会計、2人)\n\n動詞の一致も、これに従います。冠詞が1つなら1人なので単数扱い、冠詞が2つなら2人なので複数扱いです(詳しくは第21章「一致」)。\n\n形容詞が2つ並ぶときも同じです。a red and white flag(赤と白の1本の旗)、a red and a white flag(赤い旗と白い旗、2本)。所有格でも同じで、my friend and colleague(友人でもある同僚)、my friend and my colleague(友人と同僚、別の人)となります。\n\n**ただし、実際の文では文脈も判断に使われます。** 冠詞を繰り返さなくても、文脈で明らかに別の人と分かる場合もあります。試験では、動詞の形(is / are)が手がかりになります。",
+          "table": {
+            "caption": "冠詞の数と人数",
+            "headers": ["形", "意味", "動詞"],
+            "rows": [
+              ["a writer and translator", "1人(作家で翻訳家)", "単数(is)"],
+              ["a writer and a translator", "2人(作家と翻訳家)", "複数(are)"],
+              ["the secretary and treasurer", "1人(書記と会計を兼ねる)", "単数(is)"],
+              ["the secretary and the treasurer", "2人(書記と会計)", "複数(are)"],
+              ["a red and white flag / a red and a white flag", "1本 / 2本", "単数 / 複数"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Ms. Park is **a** writer and translator who has lived in three countries.",
+              "ja": "パクさんは、3か国に住んだことのある、作家であり翻訳家でもある人だ。",
+              "note": "冠詞が1つなので、1人が2つの肩書きを持っている"
+            },
+            {
+              "en": "We invited **a** consultant and **an** accountant to the planning meeting.",
+              "ja": "私たちは、コンサルタント1名と会計士1名を、企画会議に招いた。",
+              "note": "冠詞を繰り返しているので、別々の2人"
+            },
+            {
+              "en": "**The** secretary and treasurer of the club **is** Mr. Hill.",
+              "ja": "クラブの書記兼会計係は、ヒルさんだ。",
+              "note": "冠詞が1つなので1人。動詞も単数の is"
+            }
+          ],
+          "cautions": [
+            "× The secretary and the treasurer is Ms. Lee.(同じ人のつもりで) → ○ The secretary and treasurer is Ms. Lee. 冠詞を繰り返すと2人になり、複数扱いになる"
+          ]
+        }
+      ],
+      "examNote": "冠詞の位置や語順を直接問う問題は、TOEIC Part 5 では出番が多いとは言えません。ただし、all the + 名詞、half an hour、such a + 形容詞 + 名詞のような決まった語順は、選択肢の並び(語順の間違い)で出ることがあります。解く手順は、(1) such / what / quite の直後に、a がなければ入れる、(2) all / both / half が冠詞より前にあるか、(3) 冠詞が1つか2つかで、動詞の単複を決める、の順に確かめます。so + 形容詞 + a + 名詞のかたい語順は、英検準1級の読解や、書き言葉で見ることがあります。読んで意味が取れるようにしておく程度で十分です。"
+    },
+    {
+      "id": "idiom",
+      "title": "慣用表現・総称用法・名詞による冠詞の違い",
+      "intro": "in person や on time のように、冠詞の有無が決まっている慣用表現、一般論を表す3つの形(総称用法)、paper と a paper のように冠詞で意味が変わる名詞を学びます。丸暗記になりやすい部分ですが、仕組みを知っておくと、覚えやすくなります。",
+      "keywords": ["in person", "慣用表現"],
+      "items": [
+        {
+          "heading": "冠詞が付かない慣用表現:in person / by mail / on purpose / out of order",
+          "explanation": "**「前置詞 + 名詞」が決まった表現として固まったものには、冠詞が付かないものが多くあります。** in person(本人が直接)、by accident(偶然に)、on purpose(わざと)などです。これらは1つの副詞や形容詞のように使われるので、冠詞を足したり、名詞を複数形にしたりしません。\n\n特に in person は、「代理人や電話・郵送ではなく、本人が直接」という意味です。You must apply in person.(本人が直接申し込む必要がある)のように使われます。the person / a person にはできません。\n\n慣用表現は、1つずつ覚えるしかない部分がありますが、**「冠詞なし」のものは、手段・状態・場所の本来の目的を表す**という共通点があります。表で、よく使う形をまとめます。\n\n覚えるときは、前置詞と名詞の組み合わせを、1つの語のように、そのまま音読して覚えます。冠詞を足してよいのかと迷ったら、辞書の用例で確かめます。",
+          "table": {
+            "caption": "冠詞が付かない慣用表現",
+            "headers": ["表現", "意味", "例"],
+            "rows": [
+              ["in person", "本人が直接", "apply in person"],
+              ["by mail / by phone", "郵送で / 電話で", "reply by mail"],
+              ["in general", "一般に", "In general, sales rise in December."],
+              ["in public / in private", "人前で / 内々で", "speak in public"],
+              ["in advance", "前もって", "book in advance"],
+              ["in fact", "実は", "In fact, the plan failed."],
+              ["on purpose", "わざと", "do it on purpose"],
+              ["by accident / by mistake", "偶然に / 誤って", "deleted by mistake"],
+              ["out of order", "故障中", "The machine is out of order."],
+              ["in stock / out of stock", "在庫がある / 在庫切れ", "The item is out of stock."],
+              ["on sale / for sale", "特売中・発売中 / 売り物の", "The house is for sale."],
+              ["on duty / off duty", "勤務中 / 非番", "The guard is on duty."],
+              ["at work / at home", "職場で / 家で", "He is at work now."],
+              ["under construction", "建設中", "The bridge is under construction."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "You must apply **in person** at the main office; online applications are not accepted.",
+              "ja": "申し込みは本社の窓口で本人が直接行う必要があり、オンラインの申し込みは受け付けていない。",
+              "note": "in person は冠詞の付かない決まった形。the person や a person にはならない"
+            },
+            {
+              "en": "Because he could not attend **in person**, the CEO joined the meeting **by** phone.",
+              "ja": "直接出席できなかったので、最高経営責任者は電話で会議に加わった。",
+              "note": "in person(本人が直接)と by phone(電話で)は、どちらも冠詞が付かない"
+            },
+            {
+              "en": "The elevator is **out of order**, so please use the stairs.",
+              "ja": "エレベーターは故障中なので、階段をご利用ください。",
+              "note": "out of order は無冠詞の決まった形"
+            },
+            {
+              "en": "Please confirm your reservation **in advance**.",
+              "ja": "予約は前もって確認してください。",
+              "note": "in advance も無冠詞の決まった形"
+            }
+          ],
+          "cautions": [
+            "× in the person / in a person → ○ in person。冠詞を付けない",
+            "× on the purpose → ○ on purpose。「わざと」の意味の on purpose は冠詞なし",
+            "× out of the order → ○ out of order。「故障中」の意味では冠詞なし"
+          ]
+        },
+        {
+          "heading": "the や a が付く慣用表現:by the way / on the other hand / in a hurry",
+          "explanation": "**慣用表現の中には、the や a が決まった形で付くものもあります。** 付く冠詞を、表現ごとに覚えます。\n\n・the が付く: by the way(ところで), on the other hand(一方), at the moment(現在), in the future(将来), at the same time(同時に), on the whole(全体として), in the meantime(その間に), for the first time(初めて), by the end of(〜の終わりまでに), in the middle of(〜の最中に)。\n・a が付く: in a hurry(急いで), in a row(連続して), as a result(その結果), in a way(ある意味で), for a while(しばらくの間), at a loss(途方に暮れて), keep an eye on(〜に目を配る)。\n・無冠詞: at first(最初は), at last(ついに), at night(夜に), at noon(正午に)。\n\nin the morning / in the afternoon / in the evening は the が付きますが、at night には付きません。これは、慣用として決まっている部分です。\n\n**動詞 + a + 名詞の形**(have a look, take a break, make a decision, give a speech)は、動作を「1回のまとまり」として示す形で、a が付きます。\n\nthe が付く表現は、「特定の1つ」という考え方(on the other hand = 2つのうちの、もう一方の手)、a が付く表現は「1つのまとまり」という考え方から来ています。",
+          "table": {
+            "caption": "冠詞の付き方で分けた慣用表現",
+            "headers": ["冠詞", "表現", "意味"],
+            "rows": [
+              ["the", "by the way / on the other hand / at the moment", "ところで / 一方 / 現在"],
+              ["the", "in the future / at the same time / on the whole", "将来 / 同時に / 全体として"],
+              ["the", "in the meantime / for the first time / in the middle of", "その間に / 初めて / 〜の最中に"],
+              ["a", "in a hurry / in a row / as a result", "急いで / 連続して / その結果"],
+              ["a", "in a way / for a while / at a loss", "ある意味で / しばらくの間 / 途方に暮れて"],
+              ["a / an(動詞 + a + 名詞)", "have a look / take a break / make a decision / keep an eye on", "見る / 休む / 決める / 目を配る"],
+              ["無冠詞", "at first / at last / at night / at noon", "最初は / ついに / 夜に / 正午に"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**By the way**, did you receive the revised invoice?",
+              "ja": "ところで、修正した請求書は届きましたか。",
+              "note": "by the way は the が付く決まった形(ところで)"
+            },
+            {
+              "en": "I was **in a hurry**, so I took a taxi to the airport.",
+              "ja": "急いでいたので、空港までタクシーに乗った。",
+              "note": "in a hurry は a が付く決まった形"
+            },
+            {
+              "en": "**On the other hand**, the larger model costs considerably more.",
+              "ja": "一方、大きいほうのモデルは、かなり値段が高い。",
+              "note": "on the other hand は the が付く決まった形(2つのうちのもう一方)"
+            },
+            {
+              "en": "Let's **take a break** and resume at three o'clock.",
+              "ja": "休憩にして、3時に再開しましょう。",
+              "note": "take a break は、動詞 + a + 名詞の形で、動作を1回のまとまりとして表す"
+            }
+          ],
+          "cautions": [
+            "× in hurry → ○ in a hurry。a が必要",
+            "× on other hand → ○ on the other hand。the が必要",
+            "× by way → ○ by the way。the が必要"
+          ]
+        },
+        {
+          "heading": "紛らわしい対:on time と in time、at the end と in the end、in front of と in the front of",
+          "explanation": "**冠詞や前置詞が1語違うだけで意味が変わる表現は、試験でもよく問われます。** 次の組み合わせを区別します。\n\n・**on time**: 時間どおりに(予定の時刻ちょうどに)。The train left on time.\n・**in time (for 〜 / to do)**: (期限・開始時刻に)間に合って。We arrived in time for the concert.\n・**at the end of 〜**: 〜の終わりに(終点・末)。at the end of the corridor, at the end of May。of が後ろに続きます。\n・**in the end**: 結局(最後には)。単独で使い、of は付きません。\n・**by the end of 〜**: 〜の終わりまでに(期限)。\n・**at the beginning of 〜 / in the beginning**: 〜の初めに / 最初のうちは。\n・**at first**: 最初は(後で状況が変わることを含みます)。\n・**in front of 〜 / in the front of 〜**: 建物などの前(外側)に / 乗り物や部屋の前部(内側)に。\n\n見分け方の手順は、(1) of が後ろに続くか(at the end of か in the end か)、(2) 「予定どおり」か「間に合った」か(on time か in time か)、(3) 内側か外側か(in the front of か in front of か)、の順に確かめます。\n\non time と in time は、日本語ではどちらも「時間に」と訳せるので区別がつきにくいですが、on time は「ちょうど」、in time は「間に合って」と、意味の中心が違います。",
+          "table": {
+            "caption": "紛らわしい慣用表現の区別",
+            "headers": ["表現", "意味", "例"],
+            "rows": [
+              ["on time", "時間どおりに", "The train left on time."],
+              ["in time (for 〜)", "間に合って", "We arrived in time for the concert."],
+              ["at the end of 〜", "〜の終わり(終点・末)に", "at the end of the corridor / at the end of May"],
+              ["in the end", "結局", "In the end, we signed the deal."],
+              ["by the end of 〜", "〜の終わりまでに(期限)", "by the end of the month"],
+              ["at the beginning of 〜", "〜の初めに", "at the beginning of the meeting"],
+              ["in the beginning / at first", "最初のうちは", "In the beginning, sales were slow."],
+              ["in front of 〜", "〜の前(外側)に", "in front of the building"],
+              ["in the front of 〜", "〜の前部(内側)に", "in the front of the bus"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The ferry departed **on time**, despite the heavy fog.",
+              "ja": "濃い霧にもかかわらず、フェリーは時間どおりに出港した。",
+              "note": "on time = 予定の時刻どおりに"
+            },
+            {
+              "en": "We reached the station just **in time** to catch the last train.",
+              "ja": "私たちは、最終電車にちょうど間に合って駅に着いた。",
+              "note": "in time to do = 〜するのに間に合って"
+            },
+            {
+              "en": "**In the end**, the board decided to postpone the launch until spring.",
+              "ja": "結局、取締役会は発売を春まで延期することに決めた。",
+              "note": "in the end = 結局。後ろに of は続かない"
+            },
+            {
+              "en": "Please submit the expense report **by the end of** the month.",
+              "ja": "経費報告書は、今月末までに提出してください。",
+              "note": "by the end of 〜 = 〜の終わりまでに(期限)"
+            },
+            {
+              "en": "You will find the printing room **at the end of** the corridor.",
+              "ja": "印刷室は、廊下の突き当たりにあります。",
+              "note": "at the end of 〜 = 〜の終わり(端・末)に。後ろに of が続く"
+            }
+          ],
+          "cautions": [
+            "× The meeting began in time.(時間どおりの意味) → ○ The meeting began on time.",
+            "× In the end of the month, ... → ○ At the end of the month, ...。of が続くときは at the end of",
+            "× We waited in the front of the building.(建物の外の前方の意味) → ○ We waited in front of the building. in the front of は、建物や乗り物の内部の前部を表す"
+          ]
+        },
+        {
+          "heading": "総称用法:一般論を表す3つの形(複数形・a + 単数・the + 単数)",
+          "explanation": "**「〜というもの全般」を表す総称用法には、(1) 複数形、(2) a + 単数名詞、(3) the + 単数名詞の3つの形があり、最もふつうなのは複数形です。** Dogs are loyal animals. のように、冠詞を付けない複数形で一般論を表します。\n\n**a + 単数名詞**は、「どの1匹を取っても〜」という意味で、定義や一般的な性質を述べるときに使います。A good manager listens carefully to the team.(よい管理職というものは、チームの意見をよく聞く)。\n\n**the + 単数名詞**は、種類全体をひとまとめにして述べる、かたい形です。動物の種、楽器、発明品に使われます。The tiger is in danger of extinction.(トラという種は絶滅の危機にある)。The telephone was invented in the 19th century.(電話は19世紀に発明された)。\n\n**注意点は、a + 単数名詞は、種全体の状態には使えないことです。** 「絶滅しそう」は、種全体の状態であり、個々の1頭の性質ではありません。A tiger is in danger of extinction. は、「任意の1頭が絶滅しそう」という意味になり、不自然です。この場合は the tiger か tigers を使います。\n\n不可算名詞の総称は、無冠詞だけです(Water is essential for life.)。",
+          "table": {
+            "caption": "総称用法の3つの形",
+            "headers": ["形", "例", "ニュアンス", "使い方"],
+            "rows": [
+              ["複数形(無冠詞)", "Dogs are loyal animals.", "「犬というもの」全般。最もふつう", "ほとんどの場面で使える"],
+              ["a + 単数名詞", "A dog is a loyal animal.", "「どの犬を取っても」という任意の1つ", "定義・一般的な性質。種全体の状態には使えない"],
+              ["the + 単数名詞", "The dog is a loyal animal.", "種類全体をひとまとめに", "かたい・学術的。動物の種・楽器・発明品"],
+              ["不可算名詞(無冠詞)", "Water is essential for life.", "物質・概念全般", "冠詞は付けない"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**A** good manager listens carefully to the team.",
+              "ja": "よい管理職は、チームの意見によく耳を傾ける。",
+              "note": "a + 単数名詞。どの管理職を取っても当てはまる一般的な性質"
+            },
+            {
+              "en": "**Honeybees** play a vital role in the pollination of crops.",
+              "ja": "ミツバチは、作物の受粉に重要な役割を果たしている。",
+              "note": "複数形(無冠詞)の総称。最もふつうの形"
+            },
+            {
+              "en": "**The** tiger is in danger of extinction in the wild.",
+              "ja": "トラは、野生では絶滅の危機にある。",
+              "note": "種全体の状態なので、the + 単数名詞(または Tigers are ...)"
+            }
+          ],
+          "cautions": [
+            "× A tiger is in danger of extinction. → ○ The tiger is in danger of extinction. / Tigers are in danger of extinction. 種全体の状態は、a + 単数では言えない",
+            "× I love a dog. → ○ I love dogs.「犬が好き」という一般論は複数形で言う(a dog は特定の1匹になる)"
+          ]
+        },
+        {
+          "heading": "冠詞で意味が変わる名詞:paper と a paper、glass と a glass、experience と an experience",
+          "explanation": "**同じ名詞でも、無冠詞(物質・概念)か、a が付く・複数形(具体的なもの・1回分・種類)かで、意味が変わるものがあります。** 不可算名詞が、可算名詞としても使われる例です。\n\n・paper(紙)/ a paper(新聞・論文・書類)\n・glass(ガラス)/ a glass(コップ・グラス)\n・iron(鉄)/ an iron(アイロン)\n・coffee(飲み物としてのコーヒー)/ a coffee(コーヒー1杯)\n・experience(経験という概念)/ an experience(1つの体験・出来事)\n・room(余地・空間)/ a room(部屋)\n・work(仕事・作業)/ a work(作品)\n・success(成功)/ a success(成功した出来事・成功者)\n・chicken(鶏肉)/ a chicken(鶏1羽)\n\n**抽象名詞は、形容詞が付くと a が付くことがあります。** knowledge は、ふつうは無冠詞ですが、a good knowledge of finance(金融についての十分な知識)のように、形容詞が付くと a が付くことがあります。\n\nただし、**information, advice, equipment, furniture, luggage, news のような、つねに不可算の名詞は、形容詞が付いても a は付きません**(第1節)。a piece of で数えます。\n\n見分け方の手順は、(1) 物質・概念全体を言いたいのか、具体的な1つ・1回分を言いたいのか、(2) その名詞は、可算にもなる名詞か、つねに不可算の名詞か、を確かめます。",
+          "table": {
+            "caption": "冠詞の有無で意味が変わる名詞",
+            "headers": ["名詞", "無冠詞(物質・概念)", "a / 複数形(具体物・1回分・種類)"],
+            "rows": [
+              ["paper", "紙(some paper)", "新聞・論文(a paper)"],
+              ["glass", "ガラス", "コップ(a glass)/ めがね(glasses)"],
+              ["iron", "鉄", "アイロン(an iron)"],
+              ["coffee", "コーヒー(飲み物)", "コーヒー1杯(a coffee)"],
+              ["experience", "経験(概念)", "体験(an experience)"],
+              ["room", "余地(room for improvement)", "部屋(a room)"],
+              ["work", "仕事・作業", "作品(a work of art)"],
+              ["success", "成功", "成功した出来事・人(a success)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I'd like **a** coffee and **a** glass of water, please.",
+              "ja": "コーヒーを1杯と、グラス1杯の水をお願いします。",
+              "note": "a coffee は1杯のコーヒー、a glass of water はコップ1杯の水"
+            },
+            {
+              "en": "This vase is made of **glass**, so please handle it carefully.",
+              "ja": "この花瓶はガラス製なので、取り扱いに注意してください。",
+              "note": "材料としてのガラスなので、無冠詞"
+            },
+            {
+              "en": "She presented **a** paper on supply chain management at the conference.",
+              "ja": "彼女は学会で、サプライチェーン管理に関する論文を発表した。",
+              "note": "a paper = 論文。無冠詞の paper は「紙」"
+            },
+            {
+              "en": "Do you have **experience** in project management?",
+              "ja": "プロジェクト管理の経験はありますか。",
+              "note": "経験という概念は無冠詞。求人情報などでよく使われる形"
+            },
+            {
+              "en": "Working abroad was **an** experience I will never forget.",
+              "ja": "海外で働いたことは、決して忘れられない体験だった。",
+              "note": "1つの具体的な体験を指すので an experience"
+            }
+          ],
+          "cautions": [
+            "× I need a paper to print this document. → ○ I need some paper to print this document.(紙は無冠詞。a paper は新聞・論文)",
+            "× Do you have an experience in sales? → ○ Do you have experience in sales?(経験という概念は無冠詞)",
+            "× She has a knowledge of French. → ○ She has knowledge of French. / She has a good knowledge of French. knowledge は、形容詞なしでは無冠詞がふつう"
+          ]
+        }
+      ],
+      "examNote": "慣用表現の冠詞は、TOEIC Part 5 で、前置詞や冠詞を選ばせる形で出ることがあります。in person, on time / in time, at the end of / in the end, by the end of は、特によく確認しておきたい表現です。解く手順は、(1) 空所の前後の語を見て、慣用表現の一部になっていないかを確かめる、(2) of が続くかどうかで at the end of と in the end を選び分ける、(3) 「間に合って」か「時間どおり」かで、in time と on time を選び分ける、の順です。ひっかけとして、in the person / by the mail のように、冠詞を足した形が選択肢に並びます。総称用法・冠詞で意味が変わる名詞(paper / a paper など)は、Part 5 で直接問われる機会は多くありませんが、Part 7 の文章を正確に読むときに役立ちます。英検準1級では、慣用表現を含む語彙問題や、英作文での冠詞の正確さに関わります。"
+    }
+  ],
+  "summary": [
+    "冠詞は、名詞が「数えられるか」「単数か複数か」「聞き手にも分かる特定のものか」を示す語。数えられる単数名詞は、冠詞か所有格などの限定詞なしでは使えない。",
+    "a と an は、つづりではなく、すぐ後ろの語の最初の音で決める(an hour, a university, an MBA)。形容詞や副詞が間に入ると、冠詞も変わる(an old car / a very old car)。",
+    "a / an は数えられる単数名詞だけに付き、information や advice のような不可算名詞と複数形には付かない。a few / few、a little / little は、a の有無で意味が逆になる。",
+    "the は、話し手と聞き手の両方が、どれのことか分かるときに使う。すでに出たもの、場面で分かるもの、修飾語で1つに決まるもの、唯一のもの、最上級・序数・only・same。修飾語が付いても、他にもあるなら a(a friend of mine)。",
+    "無冠詞になるのは、一般論の複数形・不可算名詞、食事・言語・学科、by + 交通・通信手段、go to school / go to bed のような建物の本来の目的、1人だけの役職、Room 402 のような名詞 + 数字。",
+    "固有名詞は原則として無冠詞。川・海・山脈・群島、複数形の国名、新聞、ホテル・美術館、the University of Tokyo のような of 型、the FBI のような1文字ずつ読む略語には the が付く。",
+    "冠詞の位置が特別な表現がある。all / both / half / twice は the の前(all the employees)、such / what / quite は a が前に出る(such a good idea)、so / as / too / how は形容詞が先(so beautiful a day)。half an hour, an hour and a half も覚える。",
+    "冠詞を繰り返すと別の人、繰り返さないと同じ人を表す(a writer and translator / a writer and a translator)。動詞の単複もこれに従う。",
+    "慣用表現は冠詞の有無が決まっている(in person, by accident, on purpose / by the way, on the other hand / in a hurry)。on time(時間どおり)と in time(間に合って)、at the end of と in the end は区別する。",
+    "総称用法は、複数形が最もふつう。a + 単数は任意の1つの性質、the + 単数は種全体(かたい形)。paper / a paper のように、冠詞で意味が変わる名詞にも注意する。"
+  ],
+  "quiz": [
+    {
+      "id": "article-q01",
+      "sentence": "It took us ------- hour to finish the inspection.",
+      "choices": [
+        { "label": "A", "text": "an" },
+        { "label": "B", "text": "a" },
+        { "label": "C", "text": "some" },
+        { "label": "D", "text": "any" }
+      ],
+      "answer": "A",
+      "explanation": "a と an は、つづりではなく、すぐ後ろの語の最初の音で決まります。hour は h を発音せず、母音の音(アウアー)で始まるので an が正解です。B の a は、子音の音で始まる語の前に使う形なので hour には合いません。C の some と D の any は、単数の可算名詞 hour の前では意味が通らず、「1時間かかった」という文になりません。",
+      "translation": "点検を終えるのに、1時間かかった。"
+    },
+    {
+      "id": "article-q02",
+      "sentence": "The consultant gave us ------- useful advice about reducing costs.",
+      "choices": [
+        { "label": "A", "text": "an" },
+        { "label": "B", "text": "a" },
+        { "label": "C", "text": "some" },
+        { "label": "D", "text": "many" }
+      ],
+      "answer": "C",
+      "explanation": "advice は数えられない名詞(不可算名詞)で、a / an を付けられず、複数形にもなりません。不特定の量を表すには some を使うので C が正解です。A の an と B の a は、不可算名詞には付きません(an は useful の発音からも不適切です)。D の many は、数えられる名詞の複数形に付く語なので、advice には使えません。a piece of advice の形なら a が使えます。",
+      "translation": "そのコンサルタントは、費用の削減について役に立つ助言をしてくれた。"
+    },
+    {
+      "id": "article-q03",
+      "sentence": "This is ------- most reliable of all the models we tested.",
+      "choices": [
+        { "label": "A", "text": "the" },
+        { "label": "B", "text": "a" },
+        { "label": "C", "text": "an" },
+        { "label": "D", "text": "its" }
+      ],
+      "answer": "A",
+      "explanation": "of all the models(すべてのモデルの中で)という範囲があり、most reliable は最上級です。最上級は「1番」で1つに決まるので、定冠詞 the を付けます。B の a と C の an は不特定の1つを表す冠詞で、最上級の「1番」とは合いません(an は子音で始まる most の前でも不適切です)。D の its は所有格で、「そのモデルの」という意味になるうえ、of all the models とつながりません。",
+      "translation": "これは、私たちが試験したすべてのモデルの中で、最も信頼できるものだ。"
+    },
+    {
+      "id": "article-q04",
+      "sentence": "Most of our employees commute to the head office ------- because parking nearby is very expensive.",
+      "choices": [
+        { "label": "A", "text": "by a train" },
+        { "label": "B", "text": "by the train" },
+        { "label": "C", "text": "in train" },
+        { "label": "D", "text": "by train" }
+      ],
+      "answer": "D",
+      "explanation": "交通手段を表す「by + 乗り物」では、乗り物に冠詞を付けません。by train が正解です。A の by a train と B の by the train は、具体的な1本の電車を指す形になり、手段を表す by とは合いません(具体的な電車なら on a train / on the train を使います)。C の in train は、そのような言い方がなく、「手段」を表すなら by train です。",
+      "translation": "従業員の大半は、近くの駐車場がとても高いので、電車で本社に通勤している。"
+    },
+    {
+      "id": "article-q05",
+      "sentence": "Because I had to leave early the next morning, I went to ------- at nine o'clock.",
+      "choices": [
+        { "label": "A", "text": "the bed" },
+        { "label": "B", "text": "a bed" },
+        { "label": "C", "text": "bed" },
+        { "label": "D", "text": "beds" }
+      ],
+      "answer": "C",
+      "explanation": "「寝る」という本来の目的で bed に行くときは、go to bed と無冠詞にします。C が正解です。A の the bed と B の a bed は、ベッドという家具(物)そのものへ歩いて行く意味になり、「9時に寝た」という文脈に合いません。D の beds は複数形で、「寝る」という意味にならず、go to bed という決まった形でもありません。",
+      "translation": "翌朝早く出発しなければならなかったので、私は9時に寝た。"
+    },
+    {
+      "id": "article-q06",
+      "sentence": "The elderly ------- eligible for a discount on public transportation in this city.",
+      "choices": [
+        { "label": "A", "text": "is" },
+        { "label": "B", "text": "are" },
+        { "label": "C", "text": "has" },
+        { "label": "D", "text": "was" }
+      ],
+      "answer": "B",
+      "explanation": "the + 形容詞(the elderly)は「お年寄りの人々」という複数の人を表し、複数扱いにします。複数形の動詞 are が正解で、現在形の文脈にも合います。A の is と D の was は単数の主語に対する形なので合いません。C の has は、後ろの eligible(形容詞)とつながらず、主語が複数であることとも合いません。",
+      "translation": "この市では、お年寄りは公共交通機関の割引を受けられる。"
+    },
+    {
+      "id": "article-q07",
+      "sentence": "Our European headquarters will move to ------- next spring.",
+      "choices": [
+        { "label": "A", "text": "Netherlands" },
+        { "label": "B", "text": "a Netherlands" },
+        { "label": "C", "text": "Netherland" },
+        { "label": "D", "text": "the Netherlands" }
+      ],
+      "answer": "D",
+      "explanation": "オランダは複数形の国名で、the Netherlands と the を付けて表します。D が正解です。A の Netherlands は、冠詞がない形で、この国名の正しい形ではありません。B の a Netherlands は、不特定の1つを表す形で、国名には使えません。C の Netherland は、語として存在しない形です。",
+      "translation": "当社のヨーロッパ本部は、来年の春にオランダへ移転する。"
+    },
+    {
+      "id": "article-q08",
+      "sentence": "It was ------- that many participants left before the end.",
+      "choices": [
+        { "label": "A", "text": "a such long meeting" },
+        { "label": "B", "text": "such a long meeting" },
+        { "label": "C", "text": "such long a meeting" },
+        { "label": "D", "text": "so long meeting" }
+      ],
+      "answer": "B",
+      "explanation": "such は、「such + a + 形容詞 + 名詞」の語順で、a が形容詞の前(such の直後)に来ます。such a long meeting が正解です。A の a such long meeting は、a が such の前にあるので誤りです。C の such long a meeting は、a が形容詞の後ろにあるので誤りです(形容詞が先に来る語順は so / as / too / how の場合です)。D の so long meeting は、so を使うなら so long a meeting と a が必要です。",
+      "translation": "とても長い会議だったので、多くの参加者が終わる前に退席した。"
+    },
+    {
+      "id": "article-q09",
+      "sentence": "The shuttle bus leaves ------- , exactly at 9:15, so please do not be late.",
+      "choices": [
+        { "label": "A", "text": "in time" },
+        { "label": "B", "text": "on time" },
+        { "label": "C", "text": "at time" },
+        { "label": "D", "text": "by time" }
+      ],
+      "answer": "B",
+      "explanation": "「予定の時刻ちょうどに、時間どおりに」は on time です。exactly at 9:15 という内容にも合うので B が正解です。A の in time は「間に合って」という意味で、for 〜 や to do を伴うのがふつうです(in time for the flight)。「時間どおりに出る」という意味にはなりません。C の at time と D の by time は、そのような決まった表現がありません。",
+      "translation": "シャトルバスは、9時15分ちょうどに時間どおりに出発するので、遅れないでください。"
+    },
+    {
+      "id": "article-q10",
+      "sentence": "Renewals must be made ------- at the front desk; requests by phone are not accepted.",
+      "choices": [
+        { "label": "A", "text": "at person" },
+        { "label": "B", "text": "by person" },
+        { "label": "C", "text": "with person" },
+        { "label": "D", "text": "in person" }
+      ],
+      "answer": "D",
+      "explanation": "「本人が直接」は in person という、冠詞の付かない決まった表現です。at the front desk(窓口で)や、電話での申し込みを認めないという内容とも合います。A の at person、B の by person、C の with person は、前置詞が合わず、そのような言い方もありません。冠詞を足して in the person や in a person にもなりません。",
+      "translation": "更新の手続きは、窓口で本人が直接行う必要があり、電話での申し込みは受け付けていない。"
+    },
+    {
+      "id": "article-q11",
+      "sentence": "------- employees in the Sales Department received a bonus this year.",
+      "choices": [
+        { "label": "A", "text": "The all" },
+        { "label": "B", "text": "All of" },
+        { "label": "C", "text": "All the" },
+        { "label": "D", "text": "Every the" }
+      ],
+      "answer": "C",
+      "explanation": "all は、冠詞 the の前に置き、「all the + 名詞」の語順になります。All the employees(その従業員全員)が正解です。A の The all は、the が all の前に来るので誤りです。B の All of は、of の後ろに the や所有格などの限定詞が必要で、All of employees の形は誤りです。D の Every the は、every と the を並べることができず、every は単数名詞と使う語でもあります。",
+      "translation": "営業部の従業員全員が、今年ボーナスを受け取った。"
+    }
+  ],
+  "related": ["noun", "adjective", "preposition", "pronoun"]
+}

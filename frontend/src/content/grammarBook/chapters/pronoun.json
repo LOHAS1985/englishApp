@@ -1,0 +1,2239 @@
+{
+  "id": "pronoun",
+  "no": 5,
+  "title": "代名詞",
+  "lead": "代名詞は、名詞の繰り返しを避けるために、名詞の代わりに使う語です。I / my / me / mine のように、同じ「私」でも文の中での働きによって形が変わること、this / that / one / it / other のように「何を指すか」で使い分けること、そして it のように意味のない主語や形式的な主語として働く用法があることが、日本語にはない難しさです。\n\nこの章では、人称代名詞の格変化と所有代名詞、再帰代名詞(myself など)、指示代名詞(this / that / those と that of / those who)、one・ones と it の違い、不定代名詞(some / any、-one / -body / -thing)、each / either / both / all / none などの数量を表す代名詞、other / another / the other と each other、そして it のいろいろな用法(天候・時間、形式主語、形式目的語、強調構文)を順に学びます。\n\nTOEIC Part 5・6 では、空所の前後から代名詞の形(格・数・種類)を選ぶ問題が繰り返し出ます。英検準1級の長文でも、it や that が何を指すのかを正しくつかめるかどうかが、読解の正確さを左右します。この章を読み終えると、「この代名詞は何を指し、文の中でどんな働きをしているか」を自分で判断できるようになります。",
+  "sections": [
+    {
+      "id": "personal",
+      "title": "人称代名詞・所有代名詞・whose",
+      "intro": "I / my / me / mine のように、人称代名詞は文の中での働き(格)によって形が変わります。この節では、格の決め方、所有格と所有代名詞の違い、a friend of mine のような二重所有格、そして所有を表す whose の使い方を学びます。",
+      "keywords": [
+        "代名詞",
+        "所有代名詞",
+        "(whose)",
+        "(所有格 whose と of which)"
+      ],
+      "items": [
+        {
+          "heading": "人称代名詞の一覧:人称・数・格で形が決まる",
+          "explanation": "**人称代名詞は、「だれが話しているか」(人称)と「1人か複数か」(数)、そして文の中での働き(格)で、形が決まる代名詞です。** 代名詞とは、名詞の繰り返しを避けるために名詞の代わりに使う語のことです。\n\n人称とは、話し手を表す1人称(I, we)、聞き手を表す2人称(you)、それ以外を表す3人称(he, she, it, they)の区別です。格とは、文の中での働きの区別で、主語になる形を主格(〜は・〜が)、「〜の」と持ち主を表す形を所有格、動詞や前置詞の目的語になる形を目的格(〜を・〜に)と呼びます。\n\n日本語では「私は」「私の」「私を」のように助詞を付ければ語の形は変わりませんが、英語では I / my / me のように語そのものの形が変わります。だから、空所に入れる語の形を、文の中での働きから決める力が必要になります。\n\n形の上で覚えておきたい点は次のとおりです。\n\n・you は単数も複数も同じ形で、主格と目的格も同じ形です。\n・it も、主格と目的格が同じ形です。\n・3人称単数の he / she / it が主語のとき、現在形の動詞には -s が付きます(第21章「一致」)。",
+          "table": {
+            "caption": "人称代名詞の変化表",
+            "headers": [
+              "人称・数",
+              "主格(〜は)",
+              "所有格(〜の)",
+              "目的格(〜を・に)",
+              "所有代名詞(〜のもの)",
+              "再帰代名詞(〜自身)"
+            ],
+            "rows": [
+              [
+                "1人称・単数",
+                "I",
+                "my",
+                "me",
+                "mine",
+                "myself"
+              ],
+              [
+                "2人称・単数",
+                "you",
+                "your",
+                "you",
+                "yours",
+                "yourself"
+              ],
+              [
+                "3人称・単数(男性)",
+                "he",
+                "his",
+                "him",
+                "his",
+                "himself"
+              ],
+              [
+                "3人称・単数(女性)",
+                "she",
+                "her",
+                "her",
+                "hers",
+                "herself"
+              ],
+              [
+                "3人称・単数(物・事柄)",
+                "it",
+                "its",
+                "it",
+                "(なし)",
+                "itself"
+              ],
+              [
+                "1人称・複数",
+                "we",
+                "our",
+                "us",
+                "ours",
+                "ourselves"
+              ],
+              [
+                "2人称・複数",
+                "you",
+                "your",
+                "you",
+                "yours",
+                "yourselves"
+              ],
+              [
+                "3人称・複数",
+                "they",
+                "their",
+                "them",
+                "theirs",
+                "themselves"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Ms. Tanaka is our new director. **She** joined **us** last week, and **her** office is on the fourth floor.",
+              "ja": "田中さんは私たちの新しい部長だ。先週私たちの部署に加わり、彼女の部屋は4階にある。",
+              "note": "She は主語(主格)、us は joined の目的語(目的格)、her は名詞 office の前に付く所有格"
+            },
+            {
+              "en": "My colleagues invited **me** to **their** annual picnic.",
+              "ja": "同僚たちが、毎年恒例のピクニックに私を招いてくれた。",
+              "note": "me は invited の目的語(目的格)、their は名詞 annual picnic の持ち主を表す所有格"
+            }
+          ],
+          "cautions": [
+            "× The company announced it's new policy. → ○ The company announced its new policy. it's は it is / it has の短縮形で、「それの」は its(アポストロフィなし)",
+            "× Her is our new manager. → ○ She is our new manager. 主語の位置には主格を使う"
+          ]
+        },
+        {
+          "heading": "格の決め方:空所の「後ろ」と「前」を見る",
+          "explanation": "**空所の直後に名詞があれば所有格、空所の後ろに動詞が続くなら主格、他動詞や前置詞の後ろで名詞が続かなければ目的格です。** 英語は語順が決まっているので、位置から格が分かります。\n\n手順は次のとおりです。\n\n・手順1: 空所の直後に名詞(または形容詞 + 名詞)があるか見る。ある → 所有格(my, your, his, her, its, our, their)。名詞の前に付いて「〜の」を表します。\n・手順2: 空所の直後が動詞(または助動詞)か見る。そうなら空所は主語 → 主格(I, you, he, she, it, we, they)。\n・手順3: 空所の直前が他動詞(目的語が必要な動詞)か前置詞で、空所の後ろに名詞が続かない → 目的格(me, you, him, her, it, us, them)。\n\nここで特に紛らわしいのが her です。her は所有格と目的格が同じ形なので、**後ろに名詞があれば所有格、無ければ目的格**と見分けます。同じ形は、you・it(主格と目的格)、his(所有格と所有代名詞)にもあります。\n\n動詞の後ろに目的語が2つ続く文(第4文型。第2章「文」)では、send me the file のように、人を表す目的格が先に来ます。",
+          "table": {
+            "caption": "空所の位置と入る格",
+            "headers": [
+              "空所の位置",
+              "入る格",
+              "例"
+            ],
+            "rows": [
+              [
+                "直後に名詞",
+                "所有格",
+                "**her** presentation / **our** budget"
+              ],
+              [
+                "直後に動詞",
+                "主格",
+                "**they** submitted / **she** has"
+              ],
+              [
+                "他動詞・前置詞の後ろ(名詞なし)",
+                "目的格",
+                "praised **her** / with **them**"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The manager praised **her** for the excellent presentation.",
+              "ja": "部長は、そのすばらしい発表について彼女をほめた。",
+              "note": "her の後ろに名詞が無く、前置詞 for が続く。praised の目的語なので目的格"
+            },
+            {
+              "en": "The manager praised **her** presentation at the staff meeting.",
+              "ja": "部長は、スタッフ会議での彼女の発表をほめた。",
+              "note": "her の直後に名詞 presentation があるので所有格。同じ her でも、後ろの語で働きが変わる"
+            },
+            {
+              "en": "**They** submitted the final report ahead of schedule.",
+              "ja": "彼らは最終報告書を予定より早く提出した。",
+              "note": "空所の後ろに動詞 submitted が続くので、主語になる主格の They"
+            }
+          ],
+          "cautions": [
+            "× The manager praised she for the excellent presentation. → ○ praised her ...。他動詞の後ろは目的格",
+            "× Please send I the file. → ○ Please send me the file. 動詞の目的語に主格は使えない"
+          ]
+        },
+        {
+          "heading": "迷いやすい場面:and でつないだ形・前置詞の後・than の後",
+          "explanation": "**and でつないだ形でも、代名詞は単独のときと同じ格を使います。** 空所が主語の位置なら I、前置詞の目的語なら me です。\n\n判断のコツは、and 以下を取り除いて、代名詞だけで文を作ってみることです。My manager and ------- will attend. なら、× Me will attend ではなく ○ I will attend なので、I を選びます。The CEO sent an invitation to my wife and ------- . なら、to me なので me です。\n\n代表的な誤りが between you and I です。between は前置詞なので、後ろは目的格になり、between you and me が正しい形です。\n\nなお、1人称の代名詞が名前と並ぶときは、礼儀として自分を後ろに置き、Ken and I のようにします。\n\n例外・揺れる場面もあります。\n\n・be 動詞の後ろ: かたい文では It is I. ですが、会話では It's me. がふつうです。\n・than / as の後ろ: She is taller than I (am). が正式ですが、会話では than me も広く使われます。than I am のように動詞を補える形なら、主格が自然です。\n・短い返事: Who did this? — Me. のように、動詞を伴わない返事では me が自然です。\n\nTOEIC などの試験では、標準的な書き言葉の形を基準にします。動詞が続くなら主格、前置詞の後ろなら目的格、という原則で判断すれば確実です。",
+          "examples": [
+            {
+              "en": "My manager and **I** will attend the conference in Boston next month.",
+              "ja": "上司と私が、来月ボストンの会議に出席する。",
+              "note": "and 以下を除くと「I will attend」。空所は主語の位置なので主格"
+            },
+            {
+              "en": "The CEO sent an invitation to my wife and **me**.",
+              "ja": "最高経営責任者は、妻と私に招待状を送ってきた。",
+              "note": "前置詞 to の目的語なので目的格の me。and があっても格は変わらない"
+            },
+            {
+              "en": "Ms. Chen has worked here longer than **I** have.",
+              "ja": "陳さんは私よりも長くここで働いている。",
+              "note": "than の後ろに動詞 have を補える形なので、主格の I が標準的"
+            }
+          ],
+          "cautions": [
+            "× This is a secret between you and I. → ○ ... between you and me. between は前置詞なので目的格を使う",
+            "× Me and Ken will attend. → ○ Ken and I will attend. 主語の位置は主格で、自分は後ろに置く"
+          ]
+        },
+        {
+          "heading": "所有格と所有代名詞:「〜の」と「〜のもの」の違い",
+          "explanation": "**所有格(my, your など)は後ろに名詞が必要で、所有代名詞(mine, yours など)は「所有格 + 名詞」を1語にまとめたもので、単独で使います。** 「〜のもの」という意味で、名詞の繰り返しを避けるときに便利です。\n\n・This is my bag, and that is **yours**.(yours = your bag)\n・Their proposal was clearer than **ours**.(ours = our proposal)\n\n所有代名詞は、1語で「所有格 + 名詞」の役目を果たすので、**後ろに名詞は続けません。** 逆に、所有格の後ろには必ず名詞が必要で、単独の my は使えません。\n\n作り方は、多くが所有格に -s を付けた形(yours, hers, ours, theirs)です。mine だけは別の形で、his は所有格と同じ形です。**its に対応する所有代名詞はありません。** また、yours や hers にアポストロフィ(')は付きません(× your's, × her's)。\n\n所有代名詞は名詞と同じ働きをするので、主語・目的語・補語になれます。Mine is the blue one.(主語)、I prefer yours.(目的語)、This pen is mine.(補語)。\n\n見分け方: 空所の後ろに名詞があれば所有格、名詞が無く、直前の名詞の繰り返しを避けたい箇所なら所有代名詞を選びます。",
+          "table": {
+            "caption": "所有格と所有代名詞",
+            "headers": [
+              "所有格(後ろに名詞が必要)",
+              "所有代名詞(単独で使う)",
+              "意味"
+            ],
+            "rows": [
+              [
+                "my",
+                "mine",
+                "私の / 私のもの"
+              ],
+              [
+                "your",
+                "yours",
+                "あなた(たち)の / あなた(たち)のもの"
+              ],
+              [
+                "his / her",
+                "his / hers",
+                "彼の・彼女の / 彼のもの・彼女のもの"
+              ],
+              [
+                "our",
+                "ours",
+                "私たちの / 私たちのもの"
+              ],
+              [
+                "their",
+                "theirs",
+                "彼らの / 彼らのもの"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My laptop is older than **yours**, but it works just as well.",
+              "ja": "私のノートパソコンはあなたのより古いが、同じようによく動く。",
+              "note": "yours = your laptop。名詞の繰り返しを避けるので、後ろに名詞は置かない"
+            },
+            {
+              "en": "We compared both quotes, and **theirs** was cheaper than **ours**.",
+              "ja": "両方の見積もりを比べると、先方のほうが私たちのより安かった。",
+              "note": "theirs = their quote、ours = our quote。主語や than の後ろの位置で、名詞の代わりをしている"
+            },
+            {
+              "en": "Is this umbrella **yours**, or does it belong to Mr. Lee?",
+              "ja": "この傘はあなたのものですか、それともリーさんのものですか。",
+              "note": "yours は補語の位置で「あなたのもの」。後ろに名詞が無い"
+            }
+          ],
+          "cautions": [
+            "× This is mine bag. → ○ This is my bag. / This bag is mine. 所有代名詞の後ろに名詞は置かない",
+            "× Is this pen her's? → ○ Is this pen hers? 所有代名詞にアポストロフィは付けない",
+            "× Our proposal is better than their. → ○ ... than theirs. 名詞が続かないので所有代名詞を使う"
+          ]
+        },
+        {
+          "heading": "a friend of mine:二重所有格と own",
+          "explanation": "**a / this / that / some などと所有格を同時に使いたいときは、「名詞 + of + 所有代名詞」の形にします。** a my friend のようには言えません。a と my はどちらも名詞の前に置いて名詞を限定する語(限定詞)で、並べて置けないからです。\n\n・× a my friend → ○ **a friend of mine**\n・× that your idea → ○ **that idea of yours**\n・○ some colleagues of **ours**\n\nof の後ろは、所有代名詞(mine, yours, his, hers, ours, theirs)か、名詞の所有格(Tom's)です。a friend of Tom's のように言えます。\n\n「自分自身の〜」を強調するときは、所有格 + **own** を使います。my own car(自分自身の車)。own の前には所有格が必要で、a / an を直接付けて × an own car とは言いません。「自分だけの〜」を a + 名詞 + of one's own で表すこともできます(a room of her own)。\n\n見分け方: a, an, this, that, these, those, some, any, no, another と所有格を一緒に使いたいなら、「名詞 + of + 所有代名詞」に作り変えます。",
+          "examples": [
+            {
+              "en": "A colleague of **mine** recommended this restaurant.",
+              "ja": "私の同僚の1人が、このレストランを勧めてくれた。",
+              "note": "a と my は並べられないので、a colleague of mine の形にする"
+            },
+            {
+              "en": "That idea of **yours** might solve the scheduling problem.",
+              "ja": "あなたのそのアイデアが、日程の問題を解決してくれるかもしれない。",
+              "note": "that と your を並べられないので、that idea of yours。「あなたのあの」と指示するニュアンスになる"
+            },
+            {
+              "en": "She hopes to start a business of **her own** someday.",
+              "ja": "彼女はいつか自分自身の事業を始めたいと思っている。",
+              "note": "of her own で「自分だけの」。own の前には所有格が必要"
+            }
+          ],
+          "cautions": [
+            "× a my colleague → ○ a colleague of mine。冠詞と所有格は並べられない",
+            "× He has an own office. → ○ He has his own office. own は所有格の後ろに置く"
+          ]
+        },
+        {
+          "heading": "whose:who の所有格(疑問詞と関係詞の2つの働き)",
+          "explanation": "**whose は who の所有格で、「誰の」「その人の」という持ち主を表します。** 疑問詞(質問を作る語)としての働きと、関係詞(前の名詞に説明を加える語)としての働きがあります。\n\n1つ目は疑問詞で、「誰の〜か」を尋ねます。Whose laptop is this?(これは誰のノートパソコンですか)のように、**whose の直後に名詞**を置きます。名詞を省いて Whose is this?(これは誰のものですか)と、所有代名詞のように単独でも使えます。\n\n2つ目は関係詞で、前にある名詞(先行詞。説明される名詞)の持ち主を表します。We hired a designer whose work has won several awards. では、whose work が「そのデザイナーの作品」を表します。詳しくは第19章「関係詞」で扱います。\n\nどちらの場合も、whose の後ろの名詞に a / the は付けません。whose 自体が my や his と同じ所有格の働きをして、限定詞を兼ねているからです。\n\n見分け方: 前に先行詞があれば関係詞、文頭や間接疑問(I wonder whose ...)なら疑問詞です。who's(= who is / who has の短縮形)とは別の語なので、後ろに名詞が来るかどうかで区別します。疑問詞の全体は第6章「疑問詞」を見てください。",
+          "examples": [
+            {
+              "en": "**Whose** laptop was left on the table in the meeting room?",
+              "ja": "会議室のテーブルに置き忘れられていたのは、誰のノートパソコンですか。",
+              "note": "疑問詞の whose。直後の名詞 laptop の持ち主を尋ねている"
+            },
+            {
+              "en": "This jacket was left in the lobby. **Whose** is it?",
+              "ja": "このジャケットがロビーに置き忘れられていました。誰のものですか。",
+              "note": "名詞を省いた単独の whose。「誰のもの」という所有代名詞に近い働き"
+            },
+            {
+              "en": "We are looking for a designer **whose** work has appeared in major magazines.",
+              "ja": "私たちは、作品が大手雑誌に掲載されたことのあるデザイナーを探している。",
+              "note": "関係詞の whose。先行詞 a designer があり、「そのデザイナーの作品」を表す"
+            }
+          ],
+          "cautions": [
+            "× Whose the laptop is this? → ○ Whose laptop is this? whose の後ろの名詞に the は付けない",
+            "× Who's laptop is this? → ○ Whose laptop is this? who's は who is の短縮形で、持ち主は whose"
+          ]
+        },
+        {
+          "heading": "物の持ち主を表す whose と of which",
+          "explanation": "**先行詞が物のときも whose は使え、かたい書き言葉ではそれと同じ意味で the + 名詞 + of which も使います。** whose は人専用ではありません。\n\n・a building **whose roof** was damaged by the storm\n・a building **the roof of which** was damaged by the storm(かたい言い方)\n\nどちらも「その建物の屋根」を表します。which には所有格の形が無いので、物の持ち主は whose か of which で表します。\n\nof which の形では、名詞の前に the が付き、「the + 名詞 + of which」の語順がふつうです。of which の方が長くてかたいので、日常の文章や TOEIC の空所補充では、whose の方がずっと出会いやすいです。\n\n見分け方: 直後(または of which の前)の名詞に、「その物の〜」という関係が成り立つかどうかを確かめます。成り立たない場合は、whose も of which も入りません。\n\n関係詞の文全体の仕組みは、第19章「関係詞」を見てください。",
+          "examples": [
+            {
+              "en": "We visited a factory **whose** production line is almost fully automated.",
+              "ja": "私たちは、生産ラインがほぼ完全に自動化された工場を見学した。",
+              "note": "先行詞 a factory は物だが、「その工場の生産ライン」なので whose を使える"
+            },
+            {
+              "en": "The committee reviewed a proposal, **the details of which** remain unclear.",
+              "ja": "委員会はある提案を検討したが、その詳細はまだはっきりしていない。",
+              "note": "the details of which = whose details。かたい書き言葉の言い方"
+            }
+          ],
+          "cautions": [
+            "× a building which roof was damaged → ○ a building whose roof was damaged。which の直後に名詞を置いて「その〜」の意味にはできない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、空所の前後から人称代名詞の格(主格・所有格・目的格)を選ぶ問題が基本として出ます。手順は、(1) 空所の直後が名詞なら所有格、(2) 直後が動詞なら主格、(3) 直前が他動詞か前置詞で後ろに名詞が無ければ目的格、の順です。選択肢に I / me / my / mine / myself のように同じ人称の5つの形が並ぶ形が典型で、文の中の働きだけが正解を決めます。所有代名詞(yours, theirs)は、直後に名詞が無いこと、直前の名詞の繰り返しを避けていることが条件で、「than ------- 」の空所に入れる形でよく出ます。whose は、直後に冠詞の付かない名詞があり、「先行詞の〜」の関係が成り立つときの選択肢です。英検準1級では、長文で代名詞(they, it, their など)が何を指すかを読み取る力が必要になります。複数の名詞が並ぶ文では、数・性・意味から指す対象を確かめます。"
+    },
+    {
+      "id": "reflexive",
+      "title": "再帰代名詞(myself, themselves など)",
+      "intro": "「自分自身」を表す myself や themselves の使い方を学びます。目的語が主語と同じ人のとき(再帰用法)、「〜自身」と強調するとき(強調用法)、by oneself などの慣用表現を、人称代名詞との使い分けと合わせて整理します。",
+      "keywords": [
+        "再帰代名詞",
+        "(themselves)"
+      ],
+      "items": [
+        {
+          "heading": "再帰代名詞の形:-self / -selves を付ける",
+          "explanation": "**再帰代名詞は「〜自身」を表す代名詞で、人称代名詞に -self(単数)または -selves(複数)を付けて作ります。** 「再帰」とは、動作が主語自身に戻ってくる、という意味です。\n\n作り方は2通りあります。1人称と2人称は所有格に付けます(my + self → myself、our + selves → ourselves)。3人称は目的格に付けます(him + self → himself、them + selves → themselves)。\n\n注意点は次のとおりです。\n\n・× hisself や × theirselves という形は標準的な英語にありません(himself / themselves が正しい形です)。\n・you は単数も複数も同じ形ですが、再帰代名詞では yourself(1人)と yourselves(2人以上)を区別します。\n・it には itself を使います。\n\n再帰代名詞は、**文の主語と同じ人・物を指す**ときの形で、数と人称が主語と一致します(We ... ourselves、She ... herself)。また、I / he のような「主語になる形」はないので、再帰代名詞だけを主語の位置に置くことはできません。",
+          "table": {
+            "caption": "再帰代名詞の作り方",
+            "headers": [
+              "人称",
+              "単数",
+              "複数",
+              "作り方"
+            ],
+            "rows": [
+              [
+                "1人称",
+                "myself",
+                "ourselves",
+                "所有格(my, our)+ self / selves"
+              ],
+              [
+                "2人称",
+                "yourself",
+                "yourselves",
+                "所有格(your)+ self / selves"
+              ],
+              [
+                "3人称",
+                "himself / herself / itself",
+                "themselves",
+                "目的格(him, it, them)+ self / selves(herself は her + self)"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Please help **yourself** to the coffee and pastries.",
+              "ja": "コーヒーとペストリーをご自由にどうぞ。",
+              "note": "相手が1人なので yourself。複数の相手には yourselves を使う"
+            },
+            {
+              "en": "The two interns introduced **themselves** to the whole team.",
+              "ja": "2人のインターンは、チーム全員に自己紹介をした。",
+              "note": "主語が複数の3人称なので themselves。主語と同じ人を指している"
+            }
+          ],
+          "cautions": [
+            "× Myself will handle the call. → ○ I will handle the call. 再帰代名詞だけでは主語になれない",
+            "× hisself / theirselves → ○ himself / themselves。3人称は目的格に -self(-selves)を付ける"
+          ]
+        },
+        {
+          "heading": "再帰用法:動詞や前置詞の目的語が、主語と同じ人・物のとき",
+          "explanation": "**動詞(または前置詞)の目的語が主語と同じ人・物を指すときは、人称代名詞ではなく再帰代名詞を使います。** この使い方を再帰用法と呼びます。\n\nたとえば She introduced her. と言うと、her は主語の She とは別の女性を指します。主語自身を指したいときは She introduced **herself**. と言います。英語は、「同じ人」か「別の人」かを、代名詞の形ではっきり区別します。\n\n・She introduced **herself**. → 自分自身(主語と同じ人)\n・She introduced **her**. → 別の女性(主語とは別の人)\n\n日本語では「彼女は自己紹介した」のように、「自分を」を言わなくても通じますが、英語の introduce は他動詞(目的語が必要な動詞)なので、目的語の herself が必要です。\n\n見分け方の手順: (1) 動詞や前置詞の目的語が空所になっている。(2) その目的語が、主語と同じ人・物かどうかを考える。(3) 同じなら再帰代名詞、別なら人称代名詞(目的格)を選びます。\n\n再帰用法でよく使う形は、introduce oneself, blame oneself, hurt oneself, prepare oneself for ..., teach oneself(独学する)、 remind oneself などです。",
+          "examples": [
+            {
+              "en": "Please introduce **yourself** to the group before the workshop begins.",
+              "ja": "ワークショップが始まる前に、グループの皆さんに自己紹介をしてください。",
+              "note": "introduce の目的語が主語(あなた)と同じ人なので yourself"
+            },
+            {
+              "en": "He blamed **himself** for the delay in the project.",
+              "ja": "彼はプロジェクトの遅れを自分のせいだと責めた。",
+              "note": "blamed の目的語が主語 He と同じ人なので himself。him だと別の男性になる"
+            },
+            {
+              "en": "She taught **herself** to use the accounting software.",
+              "ja": "彼女はその会計ソフトの使い方を独学で身につけた。",
+              "note": "teach oneself to do で「独学で〜できるようになる」。目的語が主語と同じ"
+            }
+          ],
+          "cautions": [
+            "× She introduced her to the new staff.(自己紹介のつもり)→ ○ She introduced herself to the new staff. her だと主語とは別の女性になる",
+            "× He hurt him in the match. → ○ He hurt himself in the match. 主語と同じ人なので再帰代名詞"
+          ]
+        },
+        {
+          "heading": "再帰代名詞を使わない場合:場所の前置詞の後ろと、省ける動詞",
+          "explanation": "**主語と同じ人でも、再帰代名詞を使わない場合があります。** 日本語の「自分を」「自分に」につられて、何でも再帰代名詞にしないよう注意します。\n\n1つ目は、場所・位置を表す前置詞(behind, beside, near, around, in front of など)や、with(〜を身につけて・持って)の後ろです。ここでは主語と同じ人でも**人称代名詞**を使います。\n\n・She heard footsteps behind **her**.(× behind herself)\n・He always carries a small notebook with **him**.(× with himself)\n\n2つ目は、動詞自体に「自分を」の意味が含まれていて、再帰代名詞を言わなくてよい動詞です。wash(体を洗う)、shave(ひげをそる)、dress(服を着る)などは、再帰代名詞を省いても、主語自身についての動作だと分かります。\n\n・He shaved, dressed, and left the house.\n\nただし、はっきり「自分自身」を示すために He dressed himself.(自分で服を着た)のように再帰代名詞を付けることもでき、意味や語感が少し変わります。\n\nまた、behave(行儀よくする)は behave oneself も使えますが、The children behaved well. のように再帰代名詞なしでも使えます。日本語の「自分をリラックスさせる」を relax oneself と直訳せず、Relax. と言うのが自然です。",
+          "table": {
+            "caption": "再帰代名詞が要る場合・要らない場合",
+            "headers": [
+              "場面",
+              "使う語",
+              "例"
+            ],
+            "rows": [
+              [
+                "他動詞の目的語が主語と同じ",
+                "再帰代名詞",
+                "She introduced **herself**."
+              ],
+              [
+                "場所の前置詞・with の後ろ",
+                "人称代名詞(目的格)",
+                "She heard footsteps behind **her**."
+              ],
+              [
+                "wash / shave / dress など",
+                "省略してよい",
+                "He shaved and dressed quickly."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "She heard footsteps behind **her** and turned around.",
+              "ja": "彼女は背後に足音を聞いて、振り返った。",
+              "note": "behind は場所の前置詞なので、主語と同じ人でも her を使う。herself は不可"
+            },
+            {
+              "en": "He had a copy of the contract with **him** when he arrived.",
+              "ja": "彼は到着したとき、契約書の写しを持っていた。",
+              "note": "with(〜を持って)の後ろは人称代名詞の him"
+            },
+            {
+              "en": "He shaved, dressed, and left the house before seven.",
+              "ja": "彼はひげをそり、服を着て、7時前に家を出た。",
+              "note": "shave と dress は、主語自身についての動作と分かるので再帰代名詞を省ける"
+            }
+          ],
+          "cautions": [
+            "× She heard footsteps behind herself. → ○ She heard footsteps behind her. 場所の前置詞の後ろは人称代名詞",
+            "× He had a map with himself. → ○ He had a map with him."
+          ]
+        },
+        {
+          "heading": "強調用法:「〜自身」「自分で」と強める",
+          "explanation": "**名詞・代名詞を強めて「〜自身」と言うときにも、再帰代名詞を使います。** これを強調用法と呼びます。強調用法の再帰代名詞は省いても文は成り立ちます。\n\n置く位置は2つです。\n\n・強めたい名詞・代名詞の**直後**: The CEO **herself** answered the complaint.(最高経営責任者自身が)\n・**文末**(または動詞の後ろ): I fixed the printer **myself**.(自分で直した)\n\n再帰用法との違いは、再帰用法の再帰代名詞は目的語で、省くと文が成り立たない(× She introduced.)のに対し、強調用法は付け足しで、省いても文が成り立つ点です。\n\n・再帰用法: He blamed himself.(himself は目的語。省けない)\n・強調用法: He himself blamed the delay on the weather.(省いても文が成り立つ)\n\n強調用法の文末の位置は、「ほかの人の助けを借りずに、自分で」という意味になることが多いです(by oneself「ひとりで」と似ています)。\n\nなお、強調の再帰代名詞は、主語を強めて I myself のように並べることもできます。この場合も、主語は I で、myself は付け足しです。",
+          "examples": [
+            {
+              "en": "The CEO **herself** answered the customer's complaint.",
+              "ja": "最高経営責任者本人が、顧客の苦情に返事をした。",
+              "note": "The CEO の直後に置いて「本人が」と強調。herself を省いても文は成り立つ"
+            },
+            {
+              "en": "I fixed the printer **myself** without calling the technician.",
+              "ja": "私は技術者を呼ばず、自分でプリンターを直した。",
+              "note": "文末の myself は「自分で」の意味の強調用法"
+            }
+          ],
+          "cautions": [
+            "× The CEO her answered the complaint. → ○ The CEO herself answered the complaint. 強調には再帰代名詞を使う"
+          ]
+        },
+        {
+          "heading": "再帰代名詞を使った慣用表現",
+          "explanation": "**再帰代名詞を含む決まった言い方は、そのまま意味ごと覚えます。** よく出る形を表にまとめます。\n\n**enjoy oneself** は、「楽しむ」を表す定番の形です。enjoy は他動詞なので、「何を」楽しむのかが必要です。パーティーを楽しむなら enjoy the party、「楽しい時間を過ごす」を言いたいときは enjoy oneself の形にします(× enjoy at the party)。\n\n**by oneself** は「ひとりで(誰もいない)」「独力で(助けなしに)」、**for oneself** は「自分のために」「自分で(ほかの人に頼らず)」です。両方とも、日本語の「自分で」に当たるので、混同しやすい表現です。\n\n**in itself** は「それ自体は」という意味で、「that 自体は悪くないが、...」と続けるときによく使います。**of itself** は「ひとりでに」という意味ですが、by itself の方がふつうに使われます。\n\n見分け方は、再帰代名詞が主語と同じ人・物を指しているかを確かめることです。by oneself などの「oneself」は、主語に合わせて myself / himself / themselves などと形が変わります。",
+          "table": {
+            "caption": "再帰代名詞の慣用表現",
+            "headers": [
+              "表現",
+              "意味",
+              "例"
+            ],
+            "rows": [
+              [
+                "enjoy oneself",
+                "楽しむ",
+                "We enjoyed **ourselves** at the picnic."
+              ],
+              [
+                "help oneself to ...",
+                "(飲食物などを)自由に取って食べる・飲む",
+                "Help **yourself** to the sandwiches."
+              ],
+              [
+                "make oneself at home",
+                "くつろぐ",
+                "Please make **yourself** at home."
+              ],
+              [
+                "by oneself",
+                "ひとりで・独力で・ひとりでに",
+                "She finished the report **by herself**."
+              ],
+              [
+                "for oneself",
+                "自分のために・自分で",
+                "See it **for yourself**."
+              ],
+              [
+                "in itself",
+                "それ自体は",
+                "The plan is not bad **in itself**."
+              ],
+              [
+                "between ourselves",
+                "ここだけの話だが",
+                "**Between ourselves**, I think he will resign."
+              ],
+              [
+                "beside oneself (with ...)",
+                "(喜び・怒りなどで)われを忘れて",
+                "He was **beside himself** with joy."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We **enjoyed ourselves** at the company picnic last weekend.",
+              "ja": "私たちは先週末の会社のピクニックを楽しんだ。",
+              "note": "enjoy oneself で「楽しむ」。enjoy だけだと目的語が足りない"
+            },
+            {
+              "en": "The plan is not a bad one **in itself**, but it costs too much.",
+              "ja": "その計画はそれ自体は悪くないが、費用がかかりすぎる。",
+              "note": "in itself = それ自体は。後ろに「しかし〜」と続く形でよく使う"
+            },
+            {
+              "en": "The old garage door opened **by itself**, and nobody could explain why.",
+              "ja": "古いガレージのドアがひとりでに開き、誰もその理由を説明できなかった。",
+              "note": "by itself = ひとりでに。主語 door に合わせて itself"
+            }
+          ],
+          "cautions": [
+            "× We enjoyed at the picnic. → ○ We enjoyed ourselves at the picnic. / We enjoyed the picnic. enjoy は他動詞で、目的語が必要",
+            "× She finished the report by himself. → ○ ... by herself. oneself は主語に合わせて形を変える"
+          ]
+        },
+        {
+          "heading": "主語と同じ人か別の人か:再帰代名詞と人称代名詞の判断手順",
+          "explanation": "**再帰代名詞か人称代名詞かで迷ったら、「それは同じ節の主語と同じ人・物か」を問います。** これだけで、ほとんどの問題は解決します。節とは、主語と動詞を含むまとまりのことです。\n\n手順は次のとおりです。\n\n・手順1: 空所に入る語が、他動詞または前置詞の目的語かを確かめる。\n・手順2: その節の主語と、空所が指す人・物が同じかどうかを考える。\n・手順3: 同じ → 再帰代名詞(ただし場所の前置詞・with の後ろは人称代名詞)。別 → 人称代名詞。\n\n文が長くなると、主語と別の人を指しているのに再帰代名詞を使ったり、その逆をしたりしがちです。たとえば The team leader asked us to send the report to her. では、send の主語は us なので、her は us とは別の女性(チームリーダーであることが多い)を指します。主語が同じ節に無ければ、再帰代名詞にはなりません。\n\nまた、再帰代名詞は主語になれず、「A and myself」のように主語の一部にもふつうは使いません。\n\n・× My colleague and myself will attend. → ○ My colleague and I will attend. 主語の位置には主格を使う\n・ビジネスのメールでは Please contact Ms. Kim or myself. という書き方も見られますが、標準的ではないと感じる人もいます。or me と書くのが無難です。",
+          "examples": [
+            {
+              "en": "The team leader asked us to send the report to **her** by noon.",
+              "ja": "チームリーダーは、正午までに報告書を彼女に送るよう私たちに頼んだ。",
+              "note": "send の主語は us で、her は us とは別の人。同じ節の主語と違うので人称代名詞を使う"
+            },
+            {
+              "en": "My colleague and **I** will present the results on Thursday.",
+              "ja": "同僚と私が、木曜日に結果を発表する。",
+              "note": "主語の位置なので主格の I。myself は主語の一部としては使わない"
+            }
+          ],
+          "cautions": [
+            "× My colleague and myself will present the results. → ○ My colleague and I will present the results. 再帰代名詞は主語にならない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、選択肢に she / her / hers / herself のように同じ人称の別の形が並び、再帰代名詞を選ばせる問題が出ます。手順は、(1) 空所が主語か目的語かを確かめる、(2) 目的語なら、主語と同じ人・物かを考える、(3) 同じなら再帰代名詞、ただし前置詞が場所を表すときは人称代名詞、の順です。「文の主語を強調する(強調用法)」の形では、再帰代名詞を省いても文が成り立つため、選択肢に再帰代名詞とそれ以外が並んだときの判断材料にします。by oneself(ひとりで)や enjoy oneself のような慣用表現は、空所の前後のかたまりで決まります。英検準1級では、ひとりで・自力で・自分のために、といった意味の違いを、文脈から読み取る力が必要になります。"
+    },
+    {
+      "id": "demonstrative",
+      "title": "指示代名詞(this・that・these・those、that of / those of、the former / the latter)",
+      "intro": "this / that / these / those は、近さ・遠さと単数・複数で使い分ける指示代名詞です。この節では、前の内容を受ける使い方、比較で名詞の繰り返しを避ける that of / those of、those who、the former / the latter を学びます。長い英文の内容をつかむために欠かせない形です。",
+      "keywords": [
+        "指示代名詞",
+        "(those)",
+        "(the former / the latter)"
+      ],
+      "items": [
+        {
+          "heading": "this / that / these / those:近さ・遠さと単数・複数",
+          "explanation": "**this と these は「近いもの」、that と those は「遠いもの」を指し、this / that は単数、these / those は複数です。** 指示代名詞とは、人や物を「指し示して」名詞の代わりをする代名詞です。\n\n距離は、実際の距離だけでなく、時間や気持ちの距離も表します。\n\n・this / these: 目の前にあるもの、今の話題、これから述べること\n・that / those: 少し離れたもの、過去のこと、相手が言ったこと\n\nthis / that などは、**単独で代名詞として使う**ほかに、**名詞の前に付いて形容詞(限定詞)として使う**こともできます(this report)。後ろに名詞があれば形容詞、無ければ代名詞です。複数の名詞を指すときは these / those にし、動詞も複数で受けます(These are ...)。\n\n電話や紹介の場面では、英語は This is ... と名乗ります(日本語の「こちらは〜です」に近い形)。電話の相手に確認するときは、アメリカ英語では Is this Mr. Hall? がふつうで、イギリス英語では Is that Mr. Hall? も使われます。\n\n・This is Aya Mori speaking.(こちらは森彩です)\n・Who is this?(どちら様ですか)/ Is this Mr. Hall?(ホールさんですか)\n\n見分け方: 空所の後ろに複数名詞があれば these / those、単数名詞なら this / that。名詞が無く、動詞の形が are / were なら複数を指す these / those、is / was なら単数を指す this / that です。",
+          "table": {
+            "caption": "指示代名詞の使い分け",
+            "headers": [
+              "区別",
+              "近い",
+              "遠い"
+            ],
+            "rows": [
+              [
+                "単数",
+                "this(これ)",
+                "that(あれ)"
+              ],
+              [
+                "複数",
+                "these(これら)",
+                "those(あれら)"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**These** are the documents you asked for.",
+              "ja": "これらが、あなたがお求めになった書類です。",
+              "note": "手元にある複数のものを指し、動詞が are なので these"
+            },
+            {
+              "en": "Hello, **this** is Aya Mori from Tokyo Trading. Is Mr. Hall available?",
+              "ja": "もしもし、東京トレーディングの森彩です。ホールさんはいらっしゃいますか。",
+              "note": "電話で自分が名乗るときは This is ...。I am ... とは言わない"
+            }
+          ],
+          "cautions": [
+            "× These is my business card. → ○ This is my business card. / These are my business cards. 単数・複数で be 動詞を合わせる"
+          ]
+        },
+        {
+          "heading": "前に述べた内容を指す this / that(it との違い)",
+          "explanation": "**this / that は、前の文や相手の発言の内容全体を指すことができます。** it は「すでに話題になっているそのもの」を指すのに対して、this / that は、出来事や考え全体を「指さす」ように受けるのが特徴です。\n\n・**that** は、すでに述べられたこと(特に相手の発言や過去のこと)を受けます。That's true.(それはそのとおりだ)\n・**this** は、今述べたことや、これから述べることを受けます。This is why we need a new system.(これが、新しいシステムが必要な理由だ)\n\nどちらを使うかは、この違いのほかに、話し手の気持ちの距離で変わることも多く、厳密に決まっているわけではありません。次の大事な点だけ覚えておけば十分です。\n\n・it: すでに話題に出た、特定の物・事を指す(名詞の代わり)\n・this / that: 文全体や、前に述べた内容を指す\n\n長文を読むときは、that や this が指している内容が、直前の1語なのか、文全体なのかを確かめることが大切です。Prices rose sharply. **This** led to a drop in sales. では、This は「価格が急に上がったこと」全体を指しています。",
+          "examples": [
+            {
+              "en": "We will relocate the office next spring. **This** will give us much more space.",
+              "ja": "私たちは来年の春に事務所を移転する。これで、ずっと広い場所が使えるようになる。",
+              "note": "This は直前の文全体(事務所を移転すること)を指している"
+            },
+            {
+              "en": "Our rivals have lowered their prices. **That** is why we must reconsider our strategy.",
+              "ja": "競合他社が価格を下げた。だから私たちは戦略を考え直さなければならない。",
+              "note": "That is why ... で「そのために〜」。That は前の文の内容全体を指す"
+            }
+          ],
+          "cautions": [
+            "this / that が何を指すか、直前の名詞だけを見て決めつけない。文全体を指すことがある"
+          ]
+        },
+        {
+          "heading": "that of / those of:比べる対象をそろえる",
+          "explanation": "**比較の文で、前に出た名詞(the + 名詞)をもう一度言う代わりに、単数なら that、複数なら those を使います。** 後ろには of ... や in ... などの前置詞句(または関係詞節)が続きます。\n\n・The population of Tokyo is larger than **that of** Osaka.\n・The prices at this store are lower than **those at** the store across the street.\n\n英語の比較では、**同じ種類のものどうしを比べる**決まりがあります。「東京の人口」を比べる相手は「大阪の人口」で、「大阪」という都市ではありません。だから、population を繰り返す代わりに that で受けて、than that of Osaka と言います。\n\nit や them を使わない理由は、it / them が「前に出たそのもの自体」を指すからです。比べる相手は「同じ種類の別のもの」なので、that / those を使います。\n\n見分け方の手順です。\n\n・手順1: than や as の前の名詞(比べられるもの)を見つける。\n・手順2: than の後ろに、同じ種類の名詞が必要。名詞を繰り返したくない箇所に that / those が入る。\n・手順3: 比べられる名詞が単数なら that、複数なら those。\n\n詳しい比較の形は、第9章「比較」で扱います。",
+          "examples": [
+            {
+              "en": "The unemployment rate in this region is higher than **that** in the neighboring region.",
+              "ja": "この地域の失業率は、隣の地域の失業率より高い。",
+              "note": "比べられるのは the unemployment rate(単数)。than の後ろでその繰り返しを避けるので that"
+            },
+            {
+              "en": "The salaries at our company are comparable to **those** at other firms in the industry.",
+              "ja": "当社の給与は、業界内の他社の給与と同程度だ。",
+              "note": "salaries(複数)の繰り返しを避けるので those。at ... という前置詞句が続く"
+            },
+            {
+              "en": "Her salary is higher than **that of** her predecessor.",
+              "ja": "彼女の給与は、前任者の給与より高い。",
+              "note": "× than her predecessor だと「給与」と「人」を比べてしまう。that of で「給与」にそろえる"
+            }
+          ],
+          "cautions": [
+            "× Her salary is higher than her predecessor. → ○ ... than that of her predecessor. 比べるものをそろえる",
+            "× The prices here are lower than that in other stores. → ○ ... than those in other stores. 名詞が複数なら those"
+          ]
+        },
+        {
+          "heading": "those who 〜 / those + 修飾語:「〜する人々」",
+          "explanation": "**those は、後ろに修飾語(関係詞節・分詞・前置詞句)を伴って、「(〜する)人々」という意味になります。** those who 〜、those interested in 〜、those in the back row のような形です。人称代名詞の they / them を、このように後ろから修飾することはできません。\n\n・Those **who wish to attend** must register.(関係詞節で修飾)\n・Those **interested in the course** should contact us.(過去分詞で修飾)\n・Those **in the back row** couldn't hear the speaker.(前置詞句で修飾)\n\nthose は複数なので、動詞も複数形で受けます。people とほぼ同じ意味ですが、少しかたい言い方で、案内文や告知に多く使われます。\n\nなお、「those + 関係詞節」の詳しい扱いは第19章「関係詞」を見てください。\n\n見分け方: 空所の後ろに who や分詞、前置詞句があり、「〜する人々」と読める箇所なら those が入ります。選択肢に they / them / these があっても、後ろから修飾される人々を表すのは those です。",
+          "examples": [
+            {
+              "en": "**Those** wishing to attend the seminar should register online by Friday.",
+              "ja": "セミナーへの参加を希望する方は、金曜日までにオンラインで登録してください。",
+              "note": "Those の後ろに現在分詞 wishing が続いて「〜を希望する人々」。those who wish の who wish を分詞にした形"
+            },
+            {
+              "en": "**Those** in the back row couldn't hear the speaker clearly.",
+              "ja": "後ろの列にいた人たちは、講演者の声がはっきり聞こえなかった。",
+              "note": "前置詞句 in the back row が those を後ろから修飾している"
+            }
+          ],
+          "cautions": [
+            "× Them who wish to attend should register. → ○ Those who wish to attend should register. them は後ろから修飾できない"
+          ]
+        },
+        {
+          "heading": "the former / the latter:「前者」と「後者」",
+          "explanation": "**2つのものに言及した後、1つ目を the former(前者)、2つ目を the latter(後者)で受けます。** 同じ語の繰り返しを避けて、文を短くまとめられます。\n\n・We offer two plans, Basic and Premium. **The former** costs $10 a month, and **the latter** costs $25.\n\nthe former / the latter は、人にも物にも使え、単数でも複数でも使えます。扱いは、指しているものの数に合わせます。\n\n注意点は2つです。\n\n・**対象は2つだけ**です。3つ以上のときは、the first / the last を使います。\n・the latter は「後者(後の方)」で、the last(最後の)とは別です。the latter は2つの中の後ろの方、the last は順番の最後を指します。\n\n日本語の「前者・後者」と同じように、読み手が「どれのこと」かを覚えておかないといけないので、文が長くなるときや、2つの対象が離れているときは、名詞を繰り返す方が分かりやすい場合もあります。\n\n長文を読むときは、the former / the latter が何を指すかを、先に述べられた2つの対象に戻って確かめます。",
+          "examples": [
+            {
+              "en": "We offer two plans: Basic and Premium. **The former** costs ten dollars a month, and **the latter** costs twenty-five.",
+              "ja": "当社は、ベーシックとプレミアムの2つのプランを提供している。前者は月10ドル、後者は月25ドルだ。",
+              "note": "the former = Basic(先に述べた方)、the latter = Premium(後に述べた方)"
+            },
+            {
+              "en": "Ms. Kato and Mr. Ito both applied for the post, but **the latter** has more experience.",
+              "ja": "加藤さんと伊藤さんは2人ともその職に応募したが、後者のほうが経験が豊富だ。",
+              "note": "the latter = Mr. Ito。人を指すこともできる"
+            }
+          ],
+          "cautions": [
+            "× Among the three plans, the latter is the cheapest. → ○ ... the last (one) is the cheapest. the former / the latter は2つのものに使う"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、than の後ろの空所に that / those を入れさせる問題が、比較と組み合わせて出ます。手順は、(1) than の前で比べられている名詞を見つける、(2) その名詞が単数なら that、複数なら those を選ぶ、(3) 後ろに of ... / in ... / at ... の前置詞句が続いていることを確かめる、の順です。ひっかけとして、it / them / one が選択肢に並びますが、it / them は「同じそのもの」を指すので、別のものと比べる文では使えません。those who の問題では、選択肢に they / them / those が並び、後ろから関係詞節や分詞で修飾されることを根拠に those を選びます。英検準1級の長文では、this や that が前の文全体を指すことが多く、「何を指すか」を問う設問の根拠になります。"
+    },
+    {
+      "id": "one-it",
+      "title": "one・ones と it の使い分け、総称の one",
+      "intro": "名詞の繰り返しを避ける代名詞には、one / ones と it / they があります。「同じ種類の別のもの」か「そのもの自体」かで使い分けます。この節では、one と it の違い、ones と the one の形、one が使えない場合、一般の人を表す one を学びます。",
+      "keywords": [
+        "(one / ones)",
+        "(one)"
+      ],
+      "items": [
+        {
+          "heading": "one と it の違い:「同じ種類のどれか」と「そのもの自体」",
+          "explanation": "**one は「前に出た名詞と同じ種類の、不特定のもの」を表し、it は「前に出たそのもの自体(特定のもの)」を表します。** 前の名詞の繰り返しを避ける働きは同じですが、指す対象が違います。\n\n・I lost my pen, so I need to buy **one**.(私は新しいペンを買う必要がある。one = a pen。どれでもよい別のペン)\n・I lost my pen, but I found **it** under the desk.(失くしたそのペンを見つけた。it = my pen。そのもの自体)\n\n見分けるには、代名詞を元の名詞に戻して、a / an が付くか the / my が付くかを考えます。\n\n・a + 名詞(不特定の1つ)に戻せる → one\n・the / my / this + 名詞(特定のもの)に戻せる → it\n\n複数の場合は、it に対応するのが they / them、one に対応するのが ones(または some)です。\n\nなぜ one と it を区別するのかというと、英語は「特定のもの(the)」か「不特定のもの(a)」かを重視する言語だからです(第4章「冠詞」)。日本語の「それ」は、どちらの意味でも使えるので、日本語に引きずられると混同しやすくなります。",
+          "table": {
+            "caption": "one と it の違い",
+            "headers": [
+              "代名詞",
+              "元の名詞",
+              "意味",
+              "例"
+            ],
+            "rows": [
+              [
+                "one",
+                "a / an + 名詞",
+                "同じ種類の、不特定のもの",
+                "I need a pen. Do you have **one**?"
+              ],
+              [
+                "it",
+                "the / my / this + 名詞",
+                "前に出たそのもの自体",
+                "I need the pen. Do you have **it**?"
+              ],
+              [
+                "ones",
+                "名詞の複数形",
+                "同じ種類の、不特定の複数のもの",
+                "I like red apples more than green **ones**."
+              ],
+              [
+                "they / them",
+                "the / my + 複数名詞",
+                "前に出たそれら自体",
+                "I found my keys. They were in my bag."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My old phone stopped working, so I bought a new **one**.",
+              "ja": "古い携帯電話が壊れたので、新しいのを買った。",
+              "note": "one = a phone。壊れた携帯そのものではなく、同じ種類の別の携帯なので one"
+            },
+            {
+              "en": "I left my phone on the train, but a station worker found **it** and kept it for me.",
+              "ja": "電車に携帯電話を置き忘れたが、駅員が見つけて預かってくれていた。",
+              "note": "it = my phone(置き忘れたそのもの自体)。a phone ではなく my phone に戻せるので it"
+            }
+          ],
+          "cautions": [
+            "× I lost my umbrella, so I need to buy it. → ○ ... so I need to buy one. 失くした傘そのものを買うのではないので it は不可",
+            "× I found the report and put one on your desk. → ○ ... put it on your desk. 見つけたそのものなので it"
+          ]
+        },
+        {
+          "heading": "one / ones の形:形容詞・指示語・the が付く形",
+          "explanation": "**one(単数)と ones(複数)は、前に形容詞・this / that / which / the などを付けて、「〜なもの」の形で使います。** 修飾する語が何も付かないときは、one ではなく、名詞を繰り返すか、some / any を使います。\n\nよく使う形は次のとおりです。\n\n・形容詞 + one(s): a new **one**, the red **ones**\n・this / that / these / those + one(s): Which **one** do you prefer?(this one, that one はふつうに使う)\n・the + one(s) + 修飾語: **the one** on the left、the ones that arrived yesterday、the one I mentioned\n・another / each / either / neither + one: another **one**, each **one**\n\n複数で「〜なもの」というときは ones を使います。The old chairs are uncomfortable, so we need to replace them with new **ones**. の new ones は、new chairs と同じ意味です。\n\nなお、these / those はそれだけで名詞の代わりになるので、後ろに one(s) を付けなくてかまいません(These are old. / Those are new.)。\n\n見分け方: one / ones の直前に、形容詞・指示語・the などの「どれのことか」を示す語があるか確かめます。無い場合は、不特定の複数なら some / any、特定のものなら it / them です。",
+          "examples": [
+            {
+              "en": "These chairs are old. We need to replace them with new **ones**.",
+              "ja": "これらのいすは古い。新しいものに替える必要がある。",
+              "note": "ones = chairs。new という形容詞が付き、複数なので ones"
+            },
+            {
+              "en": "**Which one** is yours, the black bag or the brown **one**?",
+              "ja": "あなたのはどちらですか。黒いかばんですか、茶色いほうですか。",
+              "note": "which one(どちらのもの)、the brown one(茶色いもの)。one は bag の繰り返しを避けている"
+            },
+            {
+              "en": "Please send me **the ones** that arrived yesterday, not the old samples.",
+              "ja": "古いサンプルではなく、昨日届いたものを送ってください。",
+              "note": "the ones + that 節。「どれのことか」を後ろから限定する形"
+            }
+          ],
+          "cautions": [
+            "× I like coffee. I like black one. → ○ I like black coffee. coffee は不可算名詞なので one は使えない",
+            "× My one is on the desk. → ○ Mine is on the desk. 所有格の直後に one は付けない"
+          ]
+        },
+        {
+          "heading": "one が使えない場合:不可算名詞と所有格の直後",
+          "explanation": "**one / ones は、数えられる名詞(可算名詞)の繰り返しを避けるときだけ使えます。** 次の場合は使えないので、別の形にします。\n\n1つ目は、**不可算名詞**(数えられない名詞)です。water, coffee, information, advice, furniture などは、one を使えません。不特定の量を言うときは some / any を使い、名詞をそのまま繰り返してもかまいません。\n\n・We ran out of coffee, so I bought **some** this morning.(× bought one)\n\n2つ目は、**所有格の直後**です。my one, your one とは言いません。所有代名詞(mine, yours)を使います。\n\n・× Your proposal is better than my one. → ○ ... than **mine**.\n\n3つ目は、冠詞(a / an)と one を続けて × a one のように置くことです。a は one の中にすでに含まれているので、one だけで言うか、形容詞を付けて a new one とします。\n\n・I need a pen. Do you have **one**?(one だけで、a pen の意味)\n\nまた、前に出たものが具体的に特定されている(the 〜、my 〜)場合は、one ではなく it を使います(前の項目)。\n\n見分け方: 前に出た名詞が不可算なら some / any、所有格が付いていれば所有代名詞、特定のものなら it、これらに当てはまらず可算名詞なら one / ones、と順に確かめます。",
+          "table": {
+            "caption": "名詞の繰り返しを避ける語の選び方",
+            "headers": [
+              "前に出たもの",
+              "使う語",
+              "例"
+            ],
+            "rows": [
+              [
+                "a + 可算名詞(不特定の1つ)",
+                "one",
+                "I need a pen. Do you have **one**?"
+              ],
+              [
+                "複数名詞(不特定)",
+                "ones / some",
+                "I like red apples more than green **ones**."
+              ],
+              [
+                "不可算名詞(不特定の量)",
+                "some / any",
+                "We need milk. Is there **any** left?"
+              ],
+              [
+                "所有格 + 名詞",
+                "所有代名詞",
+                "Mine is on the desk."
+              ],
+              [
+                "the / my + 名詞(特定のもの)",
+                "it / they / them",
+                "I found **it** yesterday."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We ran out of coffee, so I bought **some** this morning.",
+              "ja": "コーヒーを切らしていたので、今朝いくらか買ってきた。",
+              "note": "coffee は不可算名詞なので one は使えず、不特定の量を表す some を使う"
+            },
+            {
+              "en": "Your proposal is clearer than **mine**, so let's use yours.",
+              "ja": "あなたの提案は私のものより分かりやすいので、あなたのものを使おう。",
+              "note": "所有格の直後に one は付けられない。mine / yours を使う"
+            }
+          ],
+          "cautions": [
+            "× I like red wine better than white one. → ○ I like red wine better than white (wine). / ... than white. 不可算名詞に one は付かない"
+          ]
+        },
+        {
+          "heading": "総称の one:一般の人を表す one / one's / oneself",
+          "explanation": "**one は、特定の誰かではなく「(一般に)人は」という意味でも使えます。** かたい書き言葉・フォーマルな話し言葉で見られる用法です。\n\n・**One** should always check the contract before signing it.(契約書は署名する前に必ず確認すべきだ)\n\nこの one は、「人は誰でも」という一般論を表すので、日本語では主語を訳さなくても自然になることが多いです。\n\n後ろで同じ人を受けるときは、one's(〜の)、oneself(自分自身)を使います。\n\n・It is important to do **one's** best.(最善を尽くすことが大切だ)\n\nただし、この one はかたい響きがあり、日常の会話では you(一般の人)がふつうに使われます。You should always check the contract before signing it. のように言うのが自然です。また、後ろで受けるとき、アメリカ英語では he や they を使うこともあります(One should do his best など)。**同じ文の中では、one で始めたら one's / oneself で受けるのが最も形がそろいます。**\n\n見分け方: 文頭の One の後ろに should や must などが続き、特定の誰かを指さず、一般論を述べているときは、総称の one です。a / the の付いた one(one of the members など)や、数を表す one(one hour)とは別の使い方です。",
+          "examples": [
+            {
+              "en": "**One** should always read the terms and conditions before signing up.",
+              "ja": "申し込む前には、必ず利用規約を読むべきだ。",
+              "note": "特定の誰かではなく、一般の人を表す one。日本語では主語を訳さなくても自然"
+            },
+            {
+              "en": "It is not easy to admit **one's** own mistakes in public.",
+              "ja": "人前で自分自身の誤りを認めるのは簡単ではない。",
+              "note": "一般の人を表す one の所有格 one's。own を伴って「自分自身の」"
+            }
+          ],
+          "cautions": [
+            "× One should do your best. → ○ One should do one's best. / You should do your best. 総称の one は one's / oneself で受けるか、you で統一する"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 では、a new ------- のように、直前の形容詞や冠詞から one を選ばせる問題が出ます。選択肢には it / one / ones / that が並び、(1) 前の名詞が可算か不可算か、(2) 不特定か特定か、(3) 単数か複数か、の順に確かめて絞ります。Part 6 の長文穴埋めでは、前の文に出た名詞を受ける代名詞が何かを問う形で、it(そのもの)と one(同じ種類の別のもの)の区別が問われます。英検準1級の長文では、one や ones が何を指しているかを読み取る必要があり、直前の名詞だけでなく、修飾語を含めた名詞の種類を受けていることに注意します。"
+    },
+    {
+      "id": "some-any",
+      "title": "不定代名詞の基本:some / any と -one・-body・-thing",
+      "intro": "不定代名詞とは、特定の人・物を指さずに「だれか」「いくつか」「何か」を表す代名詞です。この節では、限定詞と代名詞の働きの違い、some と any の使い分け、someone / anything などの -one・-body・-thing の語、every one と everyone の違いを学びます。",
+      "keywords": [
+        "不定代名詞",
+        "(anyone)"
+      ],
+      "items": [
+        {
+          "heading": "不定代名詞とは:限定詞として使う形と、代名詞として使う形",
+          "explanation": "**不定代名詞は、特定の人・物を指さず、数量や範囲をおおまかに表す代名詞です。** some, any, each, every, either, neither, both, all, none, one, another, other や、someone, anything などがこの仲間です。\n\nこれらの多くは、2つの働きを持ちます。\n\n・**限定詞**(名詞の前に付いて、名詞を限定する語): some people, each employee, both offers\n・**代名詞**(名詞を省いて、単独で使う語): Some are ready. / Each of them has a badge. / I like both.\n\n名詞が後ろに続いていれば限定詞、名詞が無ければ代名詞です。代名詞として使うときは、**「of + the / these / my などの限定詞 + 名詞」または「of + 目的格の代名詞」**の形で、全体の中の一部を表すのがふつうです(some of the staff, each of them)。\n\nここで注意が必要なのは、**of の後ろには、the / these / my などの限定詞が付いた名詞か、代名詞が来る**ことです。some of the staff や some of them は正しいのですが、× some of staff は誤りです。\n\nそれぞれの語の使い分けは、この節と次の節で扱います。",
+          "table": {
+            "caption": "不定代名詞の働き",
+            "headers": [
+              "語",
+              "限定詞(+ 名詞)",
+              "代名詞(単独 / of + ...)"
+            ],
+            "rows": [
+              [
+                "some",
+                "some people",
+                "Some of the people left. / Some left."
+              ],
+              [
+                "any",
+                "any questions",
+                "Do you have any? / Any of them can help."
+              ],
+              [
+                "each",
+                "each employee",
+                "Each of them has a badge."
+              ],
+              [
+                "either / neither",
+                "either option",
+                "Either of the options is fine. / Neither of them came."
+              ],
+              [
+                "both",
+                "both offers",
+                "Both of the offers are good."
+              ],
+              [
+                "all",
+                "all employees",
+                "All of the employees agreed."
+              ],
+              [
+                "none",
+                "(限定詞の働きはない。no を使う)",
+                "None of the tickets were sold."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Many of our clients prefer to pay online, but **some** still pay in cash.",
+              "ja": "当社の顧客の多くはオンライン払いを好むが、現金で払う人もまだいる。",
+              "note": "名詞が無いので some は代名詞。「some of our clients」の意味"
+            },
+            {
+              "en": "**Some of the** attendees left before the final speech.",
+              "ja": "出席者の一部は、最後のスピーチの前に帰った。",
+              "note": "代名詞の some の後ろに of the + 名詞。「全体のうちの一部」を表す"
+            }
+          ],
+          "cautions": [
+            "× Some of staff were absent. → ○ Some of the staff were absent. / Some staff were absent. of の後ろには、限定詞の付いた名詞か代名詞を置く"
+          ]
+        },
+        {
+          "heading": "some と any の使い分け:肯定文・疑問文・否定文・if 節",
+          "explanation": "**some は主に肯定文で「いくつかの・いくらかの」、any は疑問文・否定文・if 節で「いくつかの」「少しも(〜ない)」を表します。** どちらも、数えられる名詞の複数形と、不可算名詞の両方に使えます。\n\n・肯定文: I have **some** questions.\n・否定文: I don't have **any** questions.(not ... any = 1つもない)\n・疑問文: Do you have **any** questions?\n・if 節: If you have **any** questions, please call us.\n\n例外もあります。\n\n・**相手に何かを勧める・頼む疑問文**では、「Yesの答えを期待している」ので some を使います。Would you like **some** more coffee? / Could you give me **some** advice?\n・**肯定文の any** は「どんな〜でも」という意味になります。**Any** employee may apply.(どの社員でも応募できる)。この意味では、any は単数名詞にも付きます。\n\n否定文で any を使うのは、not が「少しも〜ない」と全体を打ち消すからです。some を使うと「一部はある」という感じが残ります。\n\n見分け方: 空所を含む文が、否定文・疑問文・if 節なら any、肯定文なら some。ただし、勧誘・依頼の疑問文は some、「どれでも」の意味なら肯定文でも any、と覚えておきます。",
+          "table": {
+            "caption": "some と any",
+            "headers": [
+              "文の種類",
+              "使う語",
+              "例"
+            ],
+            "rows": [
+              [
+                "肯定文",
+                "some",
+                "We received some complaints."
+              ],
+              [
+                "否定文",
+                "any",
+                "We did not receive any complaints."
+              ],
+              [
+                "疑問文・if 節",
+                "any",
+                "Did you receive any complaints?"
+              ],
+              [
+                "勧誘・依頼の疑問文",
+                "some",
+                "Would you like some tea?"
+              ],
+              [
+                "肯定文で「どれでも」",
+                "any",
+                "Any seat is fine."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "If you have **any** questions about the schedule, please contact the office.",
+              "ja": "日程について質問がありましたら、事務所までご連絡ください。",
+              "note": "if 節の中なので any。この形はビジネス文書で定番"
+            },
+            {
+              "en": "Would you like **some** more coffee before the meeting starts?",
+              "ja": "会議が始まる前に、コーヒーをもう少しいかがですか。",
+              "note": "勧める疑問文なので some を使う"
+            },
+            {
+              "en": "**Any** employee who completes the course will receive a certificate.",
+              "ja": "この講座を修了した社員は誰でも、修了証を受け取る。",
+              "note": "肯定文の any は「どの〜でも」。単数名詞 employee に付く"
+            }
+          ],
+          "cautions": [
+            "× We did not receive some complaints. → ○ We did not receive any complaints. 否定文には any を使う",
+            "× I don't want some coffee. → ○ I don't want any coffee. 否定文では some ではなく any"
+          ]
+        },
+        {
+          "heading": "-one / -body / -thing の語:someone, anyone, everything など",
+          "explanation": "**some-, any-, every-, no- に -one / -body / -thing を付けた語は、「だれか・何か」を表す不定代名詞で、すべて単数扱いです。** -one と -body は「人」、-thing は「物・事」を表し、意味は同じで -body の方がくだけた感じです。\n\nsome / any の使い分けが、そのまま someone / anyone、something / anything に当てはまります。\n\n・肯定文: **Someone** called you this morning.\n・疑問文・否定文: Is there **anyone** who can translate this? / I didn't see **anyone**.\n・no- の語: **No one** came. = Nobody came.(not ... anyone と同じ意味)\n\n動詞は単数で受けます(Everyone **is** ready.)。受ける代名詞は、性別を限定しない they / their がよく使われます(Everyone has finished **their** report.)。\n\n**形容詞は後ろに置く**のが、この語の決まりです。something new, anything else, nothing special のようになります。\n\n注意が必要な点は次のとおりです。\n\n・no one は2語で書くのが標準的です(no-one というつづりもあります)。\n・not ... anything / anyone と、nothing / no one は同じ意味です。1つの文で、両方を重ねない(× I didn't see nobody)。",
+          "table": {
+            "caption": "-one / -body / -thing の語",
+            "headers": [
+              "種類",
+              "人(-one / -body)",
+              "物・事(-thing)",
+              "場所"
+            ],
+            "rows": [
+              [
+                "some-(肯定文)",
+                "someone / somebody",
+                "something",
+                "somewhere"
+              ],
+              [
+                "any-(疑問・否定・if)",
+                "anyone / anybody",
+                "anything",
+                "anywhere"
+              ],
+              [
+                "every-(すべて)",
+                "everyone / everybody",
+                "everything",
+                "everywhere"
+              ],
+              [
+                "no-(ひとつも〜ない)",
+                "no one / nobody",
+                "nothing",
+                "nowhere"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Is there **anyone** in the office who can speak Korean?",
+              "ja": "事務所に、韓国語が話せる人はいますか。",
+              "note": "疑問文なので anyone。who can speak ... が後ろから修飾している"
+            },
+            {
+              "en": "**Everyone** on the team has finished **their** report.",
+              "ja": "チームの全員が、報告書を書き終えた。",
+              "note": "everyone は単数扱いなので has。受ける所有格には、性別を限定しない their がよく使われる"
+            },
+            {
+              "en": "I'd like to try **something** different for the company event this year.",
+              "ja": "今年の社内イベントでは、何か違うことをやってみたい。",
+              "note": "形容詞 different は something の後ろに置く"
+            }
+          ],
+          "cautions": [
+            "× I'd like to try different something. → ○ I'd like to try something different. -thing の語を修飾する形容詞は後ろに置く",
+            "× I didn't see nobody. → ○ I didn't see anybody. / I saw nobody. 否定を二重にしない"
+          ]
+        },
+        {
+          "heading": "everyone と every one、anyone と any one の違い",
+          "explanation": "**1語の everyone / anyone は「人」を表し、2語の every one / any one は「(ある集まりの中の)どの1つ・どの1人でも」を表します。** 書くときの区別なので、混同しないようにします。\n\n・**Everyone** in the room agreed.(部屋の人全員が賛成した)\n・**Every one of** the samples was tested.(サンプルの1つ1つが検査された)\n\n2語の形は、必ず **of + the / these / them などの特定のもの** を伴い、「その中の1つ1つ」と個別に取り上げます。sample や document のような人以外の名詞にも使えます。\n\n同じように、anyone は「誰でも」、any one of the options は「それらの選択肢のどれか1つ」です。\n\n・**Anyone** can join the club.\n・You can choose **any one of** the three options.\n\nどちらも単数扱いなので、動詞は単数形になります(every one of the samples was)。\n\n見分け方: 後ろに of the + 名詞(または of them)が続いていれば2語の形、人全般を指していて of が続かなければ1語の形です。2語の形は、書かれた英語で区別が出るので、TOEIC では語形を見て選びます。",
+          "examples": [
+            {
+              "en": "**Everyone** in the department received a notice about the new policy.",
+              "ja": "部署の全員が、新しい方針に関する通知を受け取った。",
+              "note": "「人全員」を表す1語の Everyone。単数扱いなので received の主語として使える"
+            },
+            {
+              "en": "**Every one of** the samples was tested before shipment.",
+              "ja": "サンプルは1つ残らず、出荷の前に検査された。",
+              "note": "of the samples を伴う2語の形で、「1つ1つ」を強調している。動詞は単数の was"
+            }
+          ],
+          "cautions": [
+            "× Everyone of the samples was tested. → ○ Every one of the samples was tested. of が続くときは2語に分ける"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、文の種類(肯定・否定・疑問・if 節)から some か any かを選ばせる問題が基本です。ただし、勧誘の疑問文(Would you like some ...?)や、肯定文の any(どれでも)があるので、機械的に決めず、意味を確かめます。-one / -thing の語は、形容詞が後ろから修飾することや、単数扱いで動詞が合うことがひっかけの材料になります。「Everyone ------- (is / are)」のように動詞の形を選ぶ問題は、第21章「一致」と組み合わさって出ます。英検準1級では、some of the / any of the + 名詞の形や、anything but(決して〜ない)のような熟語を含む読解が出ます。"
+    },
+    {
+      "id": "each-either-all",
+      "title": "both・either・neither・each・every・all・none と数量を表す代名詞",
+      "intro": "「2つのうち」「1つ1つ」「全部」「ひとつも〜ない」のような数量・範囲を表す代名詞の使い分けを学びます。2つについて言う語(both / either / neither)、each と every、all、most / several などの数量代名詞、none と none other than を、動詞の数の扱いと合わせて整理します。",
+      "keywords": [
+        "(none)",
+        "(none other than)",
+        "(数量)",
+        "(either)"
+      ],
+      "items": [
+        {
+          "heading": "2つについて言う語:both / either / neither",
+          "explanation": "**both は「両方とも」、either は「どちらか一方」、neither は「どちらも〜ない」で、いずれも「2つ(2人)」について使います。** 3つ以上には使えません(3つ以上なら all / any / none)。\n\n扱いが違うのは動詞の数です。\n\n・**both** は複数扱い(Both of the offers **are** good.)\n・**either / neither** は単数扱い(Either of them **is** fine. / Neither of them **was** available.)\n\n3つとも名詞を直接伴う限定詞としても使えます(both offers, either option, neither candidate)。either と neither の後ろに名詞が続くときは、名詞は単数形です(× either options)。\n\nなお、either には「どちらの〜でも(2つのうちの)」の意味のほかに、否定文で「どちらも〜ない」を表す使い方があります。\n\n・I don't know **either** of them.(= I know neither of them. 2人とも知らない)\n\nこれは、not が either を全体的に打ち消して「どちらも〜ない」になるからです。\n\n否定文で both を使うと、「両方とも〜というわけではない」という部分否定(一部だけを打ち消す)になります。I can't attend **both** meetings. は「両方には出られない(片方なら出られる)」の意味です。「どちらにも出られない」は I can't attend either meeting. / I can attend neither meeting. と言います。\n\n見分け方: 空所の後ろに of the two / of them(2つ・2人)があれば both / either / neither を検討し、動詞が複数なら both、単数なら either / neither、文全体が否定の意味かどうかで either / neither を選びます。",
+          "table": {
+            "caption": "2つについて言う語",
+            "headers": [
+              "語",
+              "意味",
+              "動詞",
+              "例"
+            ],
+            "rows": [
+              [
+                "both",
+                "両方とも",
+                "複数",
+                "Both of the offers are good."
+              ],
+              [
+                "either",
+                "どちらか一方(否定文ではどちらも〜ない)",
+                "単数",
+                "Either of them is fine. / I don't like either."
+              ],
+              [
+                "neither",
+                "どちらも〜ない",
+                "単数",
+                "Neither of them was available."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Both** of the candidates have strong references.",
+              "ja": "2人の候補者は、どちらも強力な推薦状を持っている。",
+              "note": "both は複数扱いなので have。「2人のうちの両方」を表す"
+            },
+            {
+              "en": "You can pay by card or in cash; **either** is fine with us.",
+              "ja": "支払いはカードでも現金でもかまいません。どちらでも結構です。",
+              "note": "either = 2つのうちのどちらでも。単数扱いなので is"
+            },
+            {
+              "en": "**Neither** of the two flights was available on Friday, so we left on Saturday.",
+              "ja": "2つの便のどちらも金曜日は空いていなかったので、私たちは土曜日に出発した。",
+              "note": "neither で「どちらも〜ない」。neither 自体が否定の意味を持ち、単数扱いなので was"
+            }
+          ],
+          "cautions": [
+            "× Either of the three options is acceptable. → ○ Any of the three options is acceptable. either は2つ(2人)にだけ使う",
+            "× I don't know neither of them. → ○ I don't know either of them. / I know neither of them. neither は否定の意味を含むので、not と重ねない"
+          ]
+        },
+        {
+          "heading": "each と every:「1つ1つ」と「全体」",
+          "explanation": "**each は「めいめい・1つ1つ」と個別に見る言い方、every は「どれもみな」と全体をひとまとめに見る言い方です。** どちらも単数扱いで、動詞は単数形です。\n\n働きの違いは次のとおりです。\n\n・**each** は、限定詞(each employee)にも代名詞(Each of them has a badge.)にも、副詞(The tickets cost 20 dollars each.)にもなる。2つ以上のどんな数にも使える。\n・**every** は限定詞だけで、必ず後ろに名詞が続く(every employee)。単独の代名詞としては使えず、代わりに every one of ... や everyone を使う。3つ以上に使い、個別ではなく「例外なく全体」を指す。\n\nこの違いを意識すると、Every employee must wear an ID badge.(規則はすべての社員に当てはまる)と、Each employee receives a different badge.(1人1人が別々のバッジを受け取る)の語感の違いが分かります。\n\nまた、each と every の後ろの名詞は単数形です(× each employees)。ただし、each of の後ろは複数名詞(each of the employees)になり、動詞は単数のままです。\n\n・× Each of the employees have a badge. → ○ Each of the employees **has** a badge.\n\n見分け方: 空所の後ろが of + 複数名詞や代名詞なら each(every は直接 of が続かない)、単数名詞が直接続くなら each か every、動詞が単数形になっているかを確かめます。",
+          "table": {
+            "caption": "each と every",
+            "headers": [
+              "",
+              "each",
+              "every"
+            ],
+            "rows": [
+              [
+                "見方",
+                "1つ1つ(個別)",
+                "すべて(全体)"
+              ],
+              [
+                "数",
+                "2つ以上",
+                "3つ以上"
+              ],
+              [
+                "代名詞として単独で使う",
+                "できる(Each of them ...)",
+                "できない(every one of ... を使う)"
+              ],
+              [
+                "後ろの名詞",
+                "単数(each employee)",
+                "単数(every employee)"
+              ],
+              [
+                "動詞",
+                "単数",
+                "単数"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Each** of the new employees receives a laptop on the first day.",
+              "ja": "新入社員は1人ずつ、初日にノートパソコンを受け取る。",
+              "note": "each of + 複数名詞。動詞は単数の receives。「1人ずつ」と個別に見ている"
+            },
+            {
+              "en": "**Every** employee must wear an ID badge inside the building.",
+              "ja": "社員は全員、建物の中では身分証を着用しなければならない。",
+              "note": "every + 単数名詞 employee。例外なく全員に当てはまる決まり"
+            },
+            {
+              "en": "These notebooks cost five dollars **each**.",
+              "ja": "これらのノートは1冊5ドルだ。",
+              "note": "each は文末で副詞として「1つにつき」の意味でも使える"
+            }
+          ],
+          "cautions": [
+            "× Each employees must register. → ○ Each employee must register. each の後ろの名詞は単数形",
+            "× Every of the samples was tested. → ○ Every one of the samples was tested. every は of を直接伴わない"
+          ]
+        },
+        {
+          "heading": "all の使い方:名詞の前・of の前・文中の位置",
+          "explanation": "**all は「すべての」を表し、後ろに複数名詞か不可算名詞を伴います。** 動詞の数は、後ろの名詞(または代名詞)の数に合わせます。\n\n・all + 複数名詞: **All** employees must attend.(複数扱い)\n・all + 不可算名詞: **All** the information is correct.(単数扱い)\n・all of + the / these / 代名詞: **All of** the tickets have been sold. / All of **us** agreed.\n\nall に of が続くときは、後ろに the / these / my などの限定詞か目的格の代名詞が必要です(all of the tickets, all of them)。ただし、of を省いて all the tickets とも言えます。all of staff のように、冠詞の無い名詞に of を付けるのは誤りです。\n\nall には、ほかにも使い方があります。\n\n・**主語の後ろに置く(副詞的な位置)**: We **all** agreed. / They **all** left. be 動詞・助動詞の後ろ、一般動詞の前に置きます(We are all ready. / We all agreed.)。\n・**all + 単数名詞(時間)**: all day(1日中)、all year(1年中)。\n・**代名詞として「すべてのこと」**: **All** I need is a quiet place to work.(私に必要なのは静かな場所だけだ。= The only thing I need is ...)。この形の all は単数扱いです。\n\n見分け方: all の後ろに名詞が来るなら限定詞、of が来るなら代名詞、動詞の直前なら主語を後ろから修飾する副詞的な all です。",
+          "examples": [
+            {
+              "en": "**All of** the tickets for the concert have been sold.",
+              "ja": "コンサートのチケットは、すべて売り切れた。",
+              "note": "all of the + 複数名詞。動詞は複数の have"
+            },
+            {
+              "en": "We **all** agreed to postpone the product launch.",
+              "ja": "私たちは全員、製品の発売を延期することに同意した。",
+              "note": "主語 We の直後に置かれた all。「私たち全員が」の意味"
+            },
+            {
+              "en": "**All** I need is a quiet place to finish this report.",
+              "ja": "この報告書を仕上げるために私が必要なのは、静かな場所だけだ。",
+              "note": "all = the only thing。代名詞の all で、単数扱いなので is"
+            }
+          ],
+          "cautions": [
+            "× All of staff are present. → ○ All of the staff are present. / All staff are present. of の後ろには the などの限定詞が必要",
+            "× We agreed all. → ○ We all agreed. 副詞的な all は動詞の前に置く"
+          ]
+        },
+        {
+          "heading": "数量を表す代名詞:most / many / much / several / few / little / half",
+          "explanation": "**数量を表す語は、名詞の前(限定詞)でも、単独の代名詞(「〜のうちの多く」)でも使えます。** 代名詞として使うときは、全体の中の一部を表すので、of + the + 名詞(または of + 代名詞)の形を取るのがふつうです。\n\n・可算名詞(複数)に: many, several, a few, few, both, a number of(複数扱い)\n・不可算名詞に: much, a little, little, a great deal of\n・どちらにも: most, half, some, all, a lot of, plenty of\n\n動詞の数は、**of の後ろの名詞に合わせます。** Most of the **employees** are ... (複数) / Most of the **budget** has been ... (単数)。Half of the money was ... のように、half や most 自体ではなく、後ろの名詞が決め手です。\n\nまた、most と almost の使い分けにも注意が必要です。**most は「大部分の」**(most employees)、**almost は副詞で「ほとんど」**(almost all employees)で、almost は all / every / no などの前に置いて使い、名詞の前に直接置くことはできません。\n\n・× Almost employees → ○ Most employees / Almost all employees\n・× Most of employees → ○ Most of the employees\n\n見分け方: 空所の後ろに of the + 名詞(または of them)があれば代名詞の形、動詞の数は of の後ろの名詞で決める、というこの順で確かめます。",
+          "table": {
+            "caption": "数量を表す語と後ろの名詞",
+            "headers": [
+              "語",
+              "後ろに続く名詞",
+              "例"
+            ],
+            "rows": [
+              [
+                "many / several / few / a few",
+                "可算名詞の複数形",
+                "Several of our clients have complained."
+              ],
+              [
+                "much / little / a little",
+                "不可算名詞",
+                "Little of the budget was left."
+              ],
+              [
+                "most / half / some / all",
+                "複数名詞・不可算名詞のどちらも",
+                "Most of the staff are / Most of the money is ..."
+              ],
+              [
+                "almost",
+                "all / every / no などの前だけ",
+                "Almost all of the staff attended."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Most of** the budget has already been spent on advertising.",
+              "ja": "予算の大部分は、すでに広告に使われた。",
+              "note": "most of the + 不可算名詞 budget。動詞は budget に合わせて単数の has"
+            },
+            {
+              "en": "**Several of** our clients have asked for a refund this month.",
+              "ja": "今月は、数人の顧客が返金を求めてきた。",
+              "note": "several of + 複数名詞。動詞は複数の have"
+            },
+            {
+              "en": "**Few of** the guests stayed until midnight.",
+              "ja": "真夜中まで残った客はほとんどいなかった。",
+              "note": "few は「ほとんどない」という否定的な意味。a few なら「少しはいる」"
+            }
+          ],
+          "cautions": [
+            "× Most of employees attended the seminar. → ○ Most of the employees attended the seminar. / Most employees attended the seminar.",
+            "× Almost employees agreed. → ○ Almost all employees agreed. / Most employees agreed. almost は名詞を直接修飾できない"
+          ]
+        },
+        {
+          "heading": "none:「ひとつも〜ない」の代名詞(no と not any との関係)",
+          "explanation": "**none は、「(〜のうちの)ひとつも・だれも〜ない」を表す代名詞で、none of the + 名詞の形か、単独で使います。** 名詞の前に付く限定詞としては使えず、代わりに no を使います。\n\n・限定詞: **No** applicants had experience in logistics.(no + 名詞)\n・代名詞: **None of** the applicants had experience in logistics.(none of + the + 名詞)\n・not ... any: The applicants did **not** have **any** experience.\n\nこれらは、ほぼ同じ意味を表す3つの形です。none は、**単独で使うこともできます**。I wanted extra copies, but there were **none** left.(余分なコピーは1部も残っていなかった)\n\n動詞の数は、none of の後ろの名詞に合わせるのが基本です。\n\n・none of + 不可算名詞: 単数扱い(None of the information **is** correct.)\n・none of + 複数名詞: 単数でも複数でも使われる(None of the applicants **was / were** ...)。かたい書き言葉では単数を使う人も多いですが、複数も広く使われます。\n\nnone と no one(だれも〜ない)の違いにも注意が必要です。no one は人だけを表して単数扱いです。none は人にも物にも使えますが、「of + 全体」とセットで使うことが多い語です。\n\n見分け方: 後ろに名詞が直接続くなら no、of the + 名詞が続くか、単独なら none、と使い分けます。",
+          "table": {
+            "caption": "「ひとつも〜ない」の言い方",
+            "headers": [
+              "形",
+              "後ろ",
+              "例"
+            ],
+            "rows": [
+              [
+                "no + 名詞",
+                "名詞が直接続く",
+                "No applicants had experience."
+              ],
+              [
+                "none of + the + 名詞",
+                "of the + 名詞 / of them",
+                "None of the applicants had experience."
+              ],
+              [
+                "not ... any",
+                "名詞(any + 名詞)",
+                "The applicants did not have any experience."
+              ],
+              [
+                "none(単独)",
+                "名詞なし",
+                "I wanted copies, but there were none left."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**None of** the applicants had experience in logistics.",
+              "ja": "応募者のうち、物流の経験がある人はひとりもいなかった。",
+              "note": "none of the + 複数名詞。物流の経験を持つ人が全体でゼロ"
+            },
+            {
+              "en": "I asked for extra copies, but there were **none** left.",
+              "ja": "予備のコピーを頼んだが、1部も残っていなかった。",
+              "note": "名詞を省いた単独の none。「copies が1部もない」の意味"
+            }
+          ],
+          "cautions": [
+            "× None applicants had experience. → ○ No applicants had experience. / None of the applicants had experience. 名詞が直接続くときは no",
+            "× There were not none left. → ○ There were none left. none 自体が否定の意味を持つので not と重ねない"
+          ]
+        },
+        {
+          "heading": "none other than:「ほかならぬ〜」",
+          "explanation": "**none other than ... は、「ほかならぬ〜、まさに〜その人(その物)」という意味の強調表現で、意外な人物や重要な人物を紹介するときに使います。** 直訳は「〜以外の何者でもない」で、「だれか他の人ではなく、まさに〜だ」という驚きや強調を表します。\n\n・The guest speaker was **none other than** the founder of the company.\n\n構造は「none + other than ...」で、other than は「〜以外の」という意味です。none は「ひとりも〜ない」の意味で、「その人以外の者ではない」という二重否定の形から、強調の意味が生まれます。\n\n使える位置は、ふつうは be 動詞の後ろ(補語)や、前置詞の後ろです。くだけた文では少なく、新聞記事・演説・紹介文などで見かけます。\n\n似た表現との違いです。\n\n・nothing other than ...(〜にほかならない)は、物事について言う。\n・none other than ... は、人(まれに物)について言うのがふつう。\n\n見分け方: 「意外にも、まさにあの人だった」と紹介したい文脈で、A is none other than B の形になっていれば、none other than です。",
+          "examples": [
+            {
+              "en": "The winner of the award was **none other than** Ms. Sato, our intern from last year.",
+              "ja": "その賞の受賞者は、ほかならぬ、昨年のインターンだった佐藤さんだった。",
+              "note": "none other than + 人。「意外にも、まさにその人」という強調"
+            },
+            {
+              "en": "The man who answered the door was **none other than** the mayor himself.",
+              "ja": "玄関に出てきた男性は、ほかならぬ市長本人だった。",
+              "note": "none other than の後ろに、強調する人物(the mayor)を置く"
+            }
+          ],
+          "cautions": [
+            "× The man was none other the mayor. → ○ The man was none other than the mayor. other の後ろには than が必要"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、(1) of the + 名詞の前の空所に、both / either / each / all / most / none などを選ばせる問題と、(2) 空所の後ろの動詞の形(単数か複数か)を根拠に選ぶ問題が出ます。手順は、(1) 空所の後ろが of the + 名詞か、名詞が直接続くかを見る、(2) 名詞が直接続くなら、限定詞(each / every / all / no)から名詞の数(単数・複数・不可算)に合うものを選ぶ、(3) 動詞の数で絞る、の順です。ひっかけの典型は、every of、almost employees、each of は複数動詞、none employees、either of three のような形です。英検準1級では、none other than / neither of ... / each of ... の形を含む長文で、何についての数量かを読み取ります。"
+    },
+    {
+      "id": "other",
+      "title": "another・other・the other(s)、each other・one another",
+      "intro": "another / other / the other / others / the others は、形がよく似ていて、「残りが決まっているか」「いくつあるか」で使い分けます。この節では、その使い分けの手順と、お互いを表す相互代名詞 each other / one another、再帰代名詞との違いを学びます。",
+      "keywords": [
+        "(another)",
+        "(the other)",
+        "(each other)"
+      ],
+      "items": [
+        {
+          "heading": "another:「(同じ種類の)もう1つ・別の1つ」",
+          "explanation": "**another は an + other が1語になった形で、「(同じ種類の)もう1つ」「別の1つ」を表します。** an が入っているので、**単数の可算名詞**の前か、単独の代名詞として使い、「不特定の追加の1つ」を意味します。\n\n・Could I have **another** cup of tea?(お茶をもう1杯)\n・This pen doesn't work. Please give me **another**.(別のペンをください)\n\nもう1つの大事な用法が、**another + 数 + 複数名詞**(「さらに〜」)です。数と複数名詞を1つのまとまりとして見るので、複数名詞が来ても another を使えます。\n\n・We need **another two weeks** to finish the survey.(さらに2週間必要だ)\n\nanother は an を含むので、a / the など他の冠詞とは並べられません(× the another)。また、複数名詞の前には、そのまま another を付けられません(× another books)。複数の「別の〜」は other books、数を伴う「さらに〜」は another + 数 + 複数名詞です。\n\n見分け方: 空所の直後が**単数名詞**なら another、**数 + 複数名詞**でも「さらに」の意味なら another、**複数名詞**だけなら other、と順に確かめます。",
+          "examples": [
+            {
+              "en": "Could I have **another** cup of coffee, please?",
+              "ja": "コーヒーをもう1杯いただけますか。",
+              "note": "another + 単数名詞 cup。追加の1杯を頼んでいる"
+            },
+            {
+              "en": "We need **another** two weeks to complete the survey.",
+              "ja": "調査を終えるには、さらに2週間必要だ。",
+              "note": "another + 数 + 複数名詞。「さらに2週間」という追加の量を1つのまとまりと見る"
+            }
+          ],
+          "cautions": [
+            "× another books → ○ other books / another book。another は単数名詞の前(数があれば複数名詞も可)",
+            "× the another option → ○ the other option / another option。another と the は並べられない"
+          ]
+        },
+        {
+          "heading": "one ... the other:2つのうち、一方と残りの一方",
+          "explanation": "**2つ(2人)のうちの一方を one、残りの一方を the other で表します。** 2つしかないので、「残り」は自動的に決まります。決まっているものには the が付くので、the other になります。\n\n・I have two sisters. **One** lives in Osaka, and **the other** lives in Sendai.\n・She held a phone in **one** hand and a coffee in **the other**.\n\nthe other は、代名詞(単独)としても、形容詞(the other side のような形)としても使えます。\n\n・the other + 単数名詞: the other side(反対側)\n\n仕組みの要点は、**the が付くのは「特定できるもの」だから**です。2つのうち1つが決まれば、残りは1つに決まるので、the other と言えます。同じ理由で、2つのうちの「もう一方」を another と言うことはできません(another は特定できない、不特定の別のものを表すため)。\n\n見分け方: 全部で**2つ**あるか確かめます。2つなら、残りは the other です。3つ以上のときは、次の項目の形を使います。",
+          "examples": [
+            {
+              "en": "I have two sisters. **One** is a nurse, and **the other** is a teacher.",
+              "ja": "私には姉妹が2人いる。1人は看護師で、もう1人は教師だ。",
+              "note": "姉妹は全部で2人。残りの1人は特定できるので the other"
+            },
+            {
+              "en": "He held a folder in one hand and a cup of coffee in **the other**.",
+              "ja": "彼は片手にファイルを、もう片方の手にコーヒーカップを持っていた。",
+              "note": "手は2つなので、一方の手に対する残りの手は the other(hand の省略)"
+            }
+          ],
+          "cautions": [
+            "× I have two sisters. One is a nurse, and another is a teacher. → ○ ... and the other is a teacher. 2人しかいないので、残りは the other"
+          ]
+        },
+        {
+          "heading": "3つ以上のとき:another / the other / others / the others",
+          "explanation": "**3つ以上のときは、「残りがまだあるか(another, others)」「残り全部か(the other, the others)」で使い分けます。** 決まっているものに the を付ける、という考え方は同じです。\n\n・**another**: 不特定の1つ(まだ残りがある)\n・**the other**: 残りの1つ(これで全部)\n・**others**: 不特定のいくつか(まだ残りがある)\n・**the others**: 残りの全部(これで全部)\n\n3つの場合は、One is ..., another is ..., and **the other** is ... となります。最後の1つが決まっているので the other です。\n\n多数のものの場合は、Some ..., others ...(「〜するものもいれば、…するものもいる」。残りはまだほかにもいる)と、Some ..., the others ...(残りの全員・全部は〜)を使い分けます。\n\n・Some employees prefer remote work, while **others** like working in the office.\n・Two of the five proposals were approved, and **the others** were sent back for revision.\n\n複数形の others / the others は単独の代名詞です。名詞を後ろに付けるときは、other(複数形の s は付けない)を使います。\n\n・× others employees → ○ other employees / the other employees",
+          "table": {
+            "caption": "3つ以上のときの言い方",
+            "headers": [
+              "数",
+              "言い方",
+              "例"
+            ],
+            "rows": [
+              [
+                "3つ",
+                "One ..., another ..., the other ...",
+                "One is a doctor, another is a teacher, and the other is a pilot."
+              ],
+              [
+                "多数(残りも不特定)",
+                "Some ..., others ...",
+                "Some like tea, while others prefer coffee."
+              ],
+              [
+                "多数(残りが全部)",
+                "Some ..., the others ... / the rest ...",
+                "Two were approved, and the others were rejected."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I have three brothers: one is a doctor, **another** is a teacher, and **the other** is a pilot.",
+              "ja": "私には兄弟が3人いて、1人は医者、1人は教師、残りの1人はパイロットだ。",
+              "note": "3人のうち、2人目は不特定の another、最後の1人は決まっているので the other"
+            },
+            {
+              "en": "Some employees prefer remote work, while **others** like working in the office.",
+              "ja": "在宅勤務を好む社員もいれば、オフィスで働くのを好む社員もいる。",
+              "note": "他にも不特定の人がいるので others。限定された残りではない"
+            },
+            {
+              "en": "Two of the five proposals were approved, and **the others** were sent back for revision.",
+              "ja": "5つの提案のうち2つが承認され、残りは修正のために差し戻された。",
+              "note": "残りの全部(3つ)が決まっているので the others"
+            }
+          ],
+          "cautions": [
+            "× Some employees work remotely, and another work in the office. → ○ ... and others work in the office. another は単数なので、複数の「別の人たち」は others"
+          ]
+        },
+        {
+          "heading": "形の使い分けのまとめ:other の仲間を見分ける手順",
+          "explanation": "**空所に入る語は、(1) 後ろに名詞が続くか、(2) 名詞は単数か複数(または不可算)か、(3) 残りが特定されているか、の3つを順に見れば決まります。**\n\n・**後ろに名詞が続く**場合 → 形容詞の形を使う。単数名詞なら another(不特定)か the other(特定)、複数名詞・不可算名詞なら other(不特定)か the other(特定)。others / the others は代名詞なので、後ろに名詞を置けない。\n・**後ろに名詞が無い**場合 → 代名詞の形を使う。another / the other(単数)、others / the others(複数)。\n\n**other + 名詞**は、不特定の別のもの(複数名詞・不可算名詞に使う)です。\n\n・Besides English, she speaks two **other** languages.(英語のほかに、ほかの言語を2つ)\n\n**the other + 名詞**は、残りの特定のもので、単数・複数のどちらにも使えます。\n\n・Please keep this file and send **the other** documents to Accounting.(このファイルは手元に置いて、残りの書類は経理に送ってください)\n\n数を表す語と一緒に使うときは、**数 + other + 複数名詞**(two other languages)の語順になります。the を付けるときは **the + other + 数 + 複数名詞**(the other two languages = 残りの2つの言語)の語順です。another は an を含むので、「another + 数 + 複数名詞」(another two weeks = さらに2週間)の形で使います。",
+          "table": {
+            "caption": "other の仲間の見分け方",
+            "headers": [
+              "形",
+              "後ろの名詞",
+              "意味",
+              "例"
+            ],
+            "rows": [
+              [
+                "another",
+                "単数名詞(または数 + 複数名詞)/ なし",
+                "不特定の別の1つ",
+                "another cup / give me another"
+              ],
+              [
+                "other",
+                "複数名詞・不可算名詞",
+                "不特定の別の〜",
+                "other languages"
+              ],
+              [
+                "the other",
+                "名詞(単数・複数)/ なし",
+                "残りの特定の1つ、または残り全部",
+                "the other side / the other documents"
+              ],
+              [
+                "others",
+                "なし(代名詞)",
+                "不特定の別のもの(複数)",
+                "Some ... , others ..."
+              ],
+              [
+                "the others",
+                "なし(代名詞)",
+                "残りの全部",
+                "the others were rejected"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Besides English, she speaks two **other** languages.",
+              "ja": "英語のほかに、彼女は2つの言語を話せる。",
+              "note": "数 + other + 複数名詞。「ほかの言語を2つ」。複数名詞の前に another は付けられない"
+            },
+            {
+              "en": "Please keep this file and send **the other** documents to Accounting.",
+              "ja": "このファイルは手元に置き、残りの書類は経理に送ってください。",
+              "note": "残りの書類は特定できるので the other + 複数名詞"
+            }
+          ],
+          "cautions": [
+            "× others languages → ○ other languages。名詞を伴うときは複数の s を付けない other",
+            "× an other book → ○ another book。an と other は1語にして書く"
+          ]
+        },
+        {
+          "heading": "each other / one another:「お互い」を表す相互代名詞",
+          "explanation": "**each other と one another は「お互い(を・に)」を表す相互代名詞で、主語の人たちが互いに同じ動作をし合うことを表します。** 厳密には each other は2者、one another は3者以上に使うといわれますが、現在は区別せずに使うことが多いです。\n\n・The two managers respect **each other**.(2人の部長はお互いを尊敬している)\n・Our teams often share ideas with **one another**.\n\n相互代名詞は**代名詞**なので、動詞や前置詞の目的語として働きます。ここが日本語との大きな違いで、「お互いに話す」を × talk each other と言いたくなりますが、talk は自動詞(目的語をとらない動詞)なので、前置詞が必要です。talk to each other / talk with each other となります。\n\n・自動詞 + 前置詞 + each other: talk to / look at / listen to / depend on each other\n・他動詞 + each other: meet / know / help / love / respect / understand each other\n\n特に、**marry は他動詞**なので、marry each other(× marry with each other)です。meet も他動詞で、meet each other と言えます。\n\n所有格の形は **each other's** で、後ろに名詞を伴います(We borrowed each other's notes.)。また、each other は**目的語になる語**で、**主語にはなれません**(× Each other helps us.)。",
+          "table": {
+            "caption": "each other の使い方",
+            "headers": [
+              "形",
+              "説明",
+              "例"
+            ],
+            "rows": [
+              [
+                "動詞 + each other",
+                "他動詞の目的語",
+                "They respect each other."
+              ],
+              [
+                "前置詞 + each other",
+                "前置詞の目的語(自動詞は前置詞が必要)",
+                "They talk to each other."
+              ],
+              [
+                "each other's + 名詞",
+                "所有格(お互いの〜)",
+                "They read each other's reports."
+              ],
+              [
+                "one another",
+                "3者以上でも使える形(each other と区別しないことも多い)",
+                "The members help one another."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The two managers have respected **each other** for many years.",
+              "ja": "2人の部長は、長年お互いを尊敬してきた。",
+              "note": "each other は respect(他動詞)の目的語。前置詞は不要"
+            },
+            {
+              "en": "Our teams often share ideas with **one another**.",
+              "ja": "私たちのチームは、よくお互いにアイデアを共有している。",
+              "note": "with の目的語。3つ以上のチームなので one another も使える"
+            },
+            {
+              "en": "We borrowed **each other's** notes before the exam.",
+              "ja": "私たちは試験の前に、お互いのノートを借りた。",
+              "note": "each other's + 名詞 notes。所有格の形"
+            }
+          ],
+          "cautions": [
+            "× They talked each other. → ○ They talked to each other. talk は自動詞なので前置詞が必要",
+            "× They married with each other. → ○ They married each other. marry は他動詞"
+          ]
+        },
+        {
+          "heading": "each other と themselves の区別:相互と再帰",
+          "explanation": "**each other は「お互い」、themselves は「それぞれが自分自身」で、意味がまったく違います。** どちらも、主語と同じ人たちを指しますが、動作が向かう先が違います。\n\n・They blamed **each other**.(AはBを、BはAを責めた)\n・They blamed **themselves**.(AはA自身を、BはB自身を責めた)\n\n相互は、AとBが入れ替わる関係を表します。再帰は、それぞれが自分に戻る関係を表します。\n\n日本語の「お互いに」「自分たちで」は、場合によっては1つの訳語になってしまうので、文の意味から判断します。「2人が責任をなすり合った」なら each other、「それぞれが自分を責めた」なら themselves です。\n\nまた、主語が単数のときは each other は使えません(お互いは2者以上が必要)。\n\n・He blamed **himself**.(× He blamed each other.)\n\n見分け方: 主語が2者以上で、「AがBに、BがAに」の関係なら each other、「それぞれが自分に」なら themselves です。",
+          "examples": [
+            {
+              "en": "The two drivers blamed **each other** for the accident.",
+              "ja": "2人の運転手は、事故の責任をお互いになすり合った。",
+              "note": "AがBを、BがAを責めた。相互の関係なので each other"
+            },
+            {
+              "en": "The two drivers blamed **themselves** for the accident.",
+              "ja": "2人の運転手は、それぞれ事故を自分のせいだと責めた。",
+              "note": "AはA自身を、BはB自身を責めた。再帰の関係なので themselves"
+            }
+          ],
+          "cautions": [
+            "× He blamed each other for the accident. → ○ He blamed himself for the accident. 主語が1人なら each other は使えない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 では、another / other / the other / others が選択肢に並ぶ問題が出ます。手順は、(1) 空所の後ろの名詞(単数か複数か、名詞があるか)を見る、(2) 全体が2つか、それ以上かを確かめる、(3) 残りが特定されているかを確かめる、の順です。典型的なひっかけは、複数名詞の前に another を置く形と、名詞の前に others を置く形です。each other は、前置詞の要否が問われます(talk to each other など)。英検準1級では、One ..., the other ... や Some ..., others ... の対比を使った長文で、何と何を対比しているのかを読み取る力が必要になります。"
+    },
+    {
+      "id": "it",
+      "title": "it のいろいろな用法(人称・天候と時間・形式主語・形式目的語・強調構文)",
+      "intro": "it は「それ」と訳せないことが多い、最も働きの広い代名詞です。この節では、ふつうの it、天候・時間・距離を表す it、長い主語を後ろに回す形式主語、形式目的語、強調構文 It is ... that ...、そして it を含む定型表現を学びます。",
+      "keywords": [
+        "(it ... to do)",
+        "(it を形式目的語)",
+        "(it・天候/時間)",
+        "形式主語"
+      ],
+      "items": [
+        {
+          "heading": "人称代名詞としての it:物・事柄・状況・誰か分からない人",
+          "explanation": "**it は、すでに話題に出た物・動物・事柄を指す人称代名詞で、単数の「それ」にあたります。** 複数なら they / them を使います。\n\nit には、次のような使い方もあります。\n\n・**誰か分からない人・相手を尋ねるとき**: Who is it?(どなたですか)— It's me. / It's Ms. Kim.\n・**赤ちゃん・動物など、性別が分からないとき・気にしないとき**: The baby smiled when I picked it up.\n・**前の文の内容や、その場の状況**: The deadline is tomorrow. It makes everyone nervous.(それが皆を緊張させる)\n\nこの最後の使い方は、前の文全体を it で受けるものです。前の文の特定の名詞ではなく、状況全体を指しています。\n\n日本語では、「それ」を省略しても文が成り立つ場面が多くあります。英語では、主語や目的語を省略できないので、何を指すにしても代名詞(it)を置く必要があります。\n\n見分け方: it が指すものを、前の文から探します。特定の名詞が見つからないときは、前の文の内容全体か、「状況」を指しています。",
+          "examples": [
+            {
+              "en": "I sent you the invoice yesterday. Did you receive **it**?",
+              "ja": "昨日、請求書をお送りしました。届きましたか。",
+              "note": "it = the invoice。前に出た特定の物を指している"
+            },
+            {
+              "en": "The deadline was moved up to Friday, and **it** made everyone nervous.",
+              "ja": "締め切りが金曜日に早まり、そのせいで全員が緊張した。",
+              "note": "it は前半の内容全体(締め切りが早まったこと)を指している"
+            }
+          ],
+          "cautions": [
+            "× The new employees, it will start on Monday. → ○ The new employees will start on Monday. 主語は1つ。名詞と代名詞を重ねない"
+          ]
+        },
+        {
+          "heading": "天候・時間・距離・明暗の it:意味のない主語",
+          "explanation": "**天候・時間・日付・距離・明暗・寒暖を表す文では、主語に it を置きます。** この it には「それ」という意味はなく、主語の位置を埋めるためだけの形式的な語です。\n\n・天候: It is raining. / It snowed all night.\n・時間・日付・曜日: It is half past nine. / It is Monday today. / What time is it?\n・距離: It is about three kilometers from here to the station.\n・明暗・寒暖: It gets dark early in winter. / It was very cold.\n\n日本語は、「雨が降っている」「9時半だ」のように、主語を言わなくても文になります。英語は**主語が必ず必要**な言語なので、「だれも・何も主語にならないとき」に、形式的な主語として it を置きます。\n\nこの it は、「何を指すか」を考える必要はありません。「it is + 時間・天気」という決まった形として読みます。\n\n注意点は、there と it の使い分けです。天候・時間などの状態は it、「何かが存在する」ことは there is を使います。\n\n・**It** is cold today.(今日は寒い)\n・**There** is a cold wind today.(今日は冷たい風が吹いている。存在を表す)\n\n距離は **It is 〜 from A to B.**、所要時間は **It takes 〜 to do.**(次の項目)と表します。",
+          "examples": [
+            {
+              "en": "**It** has been snowing since early morning, so the trains are delayed.",
+              "ja": "早朝から雪が降り続いているので、電車が遅れている。",
+              "note": "天候を表す it。「それ」ではなく、主語の位置を埋める形式的な語"
+            },
+            {
+              "en": "**It** is about three kilometers from the hotel to the convention center.",
+              "ja": "ホテルからコンベンションセンターまでは約3キロだ。",
+              "note": "距離を表す it。from A to B と組み合わせる"
+            },
+            {
+              "en": "**It** gets dark early in the winter, so we start our meetings at noon.",
+              "ja": "冬は日が暮れるのが早いので、私たちは会議を正午に始める。",
+              "note": "明暗を表す it。dark(暗い)という状態を述べる文の主語"
+            }
+          ],
+          "cautions": [
+            "× Today is raining. → ○ It is raining today. 天気の文の主語は it",
+            "× It is a cold wind today. → ○ There is a cold wind today. 存在を表すときは there is"
+          ]
+        },
+        {
+          "heading": "形式主語の it:長い主語を後ろに回す(It is ... to do / that ...)",
+          "explanation": "**to 不定詞や that 節が主語になると文の頭が重くなるので、形式主語の it を主語の位置に置き、本当の主語(真主語)を後ろに回します。** 形式主語とは、「主語の位置を埋めるだけの it」のことで、後ろにある to 不定詞・that 節・動名詞が実質的な主語です。\n\n・To back up your files every day is essential.(頭でっかちで不自然)\n・**It** is essential **to back up your files every day**.(自然)\n\n英語は、主語を短くして、長い情報を文の後ろに置く傾向があります。\n\n形式主語の主な形は、次の3つです。\n\n・**It is + 形容詞 + to do**: It is important to check the schedule. 人を示すときは for(It is important for staff to ...)または of(It is kind of you to ...)。\n・**It is + 形容詞・名詞 + that 節**: It is likely that the shipment will be late.\n・**It takes + 人 + 時間 + to do**: It took me an hour to find the file.\n\n前の it は、「it = 後ろの to 不定詞 / that 節」と置き換えて読みます。\n\n見分け方: 文頭の It の後ろが「is + 形容詞(important, necessary, possible, likely など)」で、その後ろに to 不定詞か that 節があれば、形式主語です。動名詞を後ろに置くときは、It is no use crying over spilt milk. のように、一部の決まった形に限られます。",
+          "table": {
+            "caption": "形式主語の形",
+            "headers": [
+              "形",
+              "後ろに来るもの",
+              "例"
+            ],
+            "rows": [
+              [
+                "It is + 形容詞 + to do",
+                "to 不定詞",
+                "It is essential to back up your files."
+              ],
+              [
+                "It is + 形容詞 + that 節",
+                "that 節",
+                "It is likely that the shipment will be late."
+              ],
+              [
+                "It takes + 人 + 時間 + to do",
+                "to 不定詞",
+                "It took me an hour to find the file."
+              ],
+              [
+                "It is no use / no good + -ing",
+                "動名詞",
+                "It is no use arguing about it."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**It** is essential **to back up** your files every day.",
+              "ja": "毎日ファイルのバックアップを取ることが不可欠だ。",
+              "note": "It は形式主語で、真主語は to back up your files。主語が長いので後ろに回している"
+            },
+            {
+              "en": "**It** took me an hour **to find** the file you asked for.",
+              "ja": "あなたに頼まれたファイルを見つけるのに、1時間かかった。",
+              "note": "It takes + 人 + 時間 + to do の形。真主語は to find the file"
+            },
+            {
+              "en": "**It** is kind of you **to help** us with the move.",
+              "ja": "引っ越しを手伝ってくれて、ご親切にありがとう。",
+              "note": "kind は人の性質を表す形容詞なので「of + 人」。真主語は to help us"
+            }
+          ],
+          "cautions": [
+            "× Is essential to back up your files. → ○ It is essential to back up your files. 英語は主語を省略できない",
+            "× It is important that to check the schedule. → ○ It is important to check the schedule. that と to 不定詞を重ねない"
+          ]
+        },
+        {
+          "heading": "形式主語と長い that 節:It is clear / well known / said that ...",
+          "explanation": "**that 節(「〜ということ」を表す、主語と動詞を含むかたまり)が主語になるときは、ふつう形式主語の it を使います。** That the schedule has changed is clear. のように that 節を文頭に置くこともできますが、不自然で堅く感じられるため、It is clear that the schedule has changed. の形が自然です。\n\nこの形でよく使う語を、種類別にまとめます。\n\n・**It is + 形容詞 + that**: clear, true, obvious, likely, possible, important, essential, surprising\n・**It is + 名詞 + that**: a fact, a pity, a shame, no wonder, a surprise\n・**It is + 過去分詞 + that**: said, reported, announced, believed, known, expected, decided\n・**It + 動詞 + that**: seems, appears, happens, turns out\n\n過去分詞の形(It is said that ...)は、「〜と言われている」の意味で、受動態の一種です(第17章「態」)。S is said to ... の形に書き換えられます。\n\n要求・提案・驚きなどの意味を表す形容詞(essential, important, necessary, surprising など)の後ろの that 節では、動詞の形に注意が必要です(第16章「法」)。\n\n見分け方: 文頭の It の後ろに「be + 形容詞・過去分詞」があり、その後ろに that で始まる完全な文が続いていれば、形式主語です。",
+          "examples": [
+            {
+              "en": "**It** is well known **that** regular exercise improves concentration.",
+              "ja": "定期的な運動が集中力を高めることはよく知られている。",
+              "note": "真主語は that regular exercise improves concentration。It is + 過去分詞 + that の形"
+            },
+            {
+              "en": "**It** was announced **that** the merger would be completed in June.",
+              "ja": "合併は6月に完了する予定であると発表された。",
+              "note": "It was announced that ... で「〜と発表された」。報道文によく使う形"
+            },
+            {
+              "en": "**It** seems **that** the system is down again.",
+              "ja": "システムはまたダウンしているようだ。",
+              "note": "It seems that ... で「〜のようだ」。that 節の中身が真主語に近い"
+            }
+          ],
+          "cautions": [
+            "× It is clear what the plan is wrong. → ○ It is clear that the plan is wrong. 「〜ということ」には、完全な文を導く that を使う",
+            "× It is surprising that for him to be late. → ○ It is surprising that he is late. / It is surprising for him to be late. that 節と to 不定詞は同時に使えない"
+          ]
+        },
+        {
+          "heading": "形式目的語の it:find / think / make / consider + it + 形容詞 + to do",
+          "explanation": "**第5文型(SVOC。目的語と補語を持つ文型)の目的語が to 不定詞や that 節のときは、it を目的語の位置に置き、本当の目的語を後ろに回します。** これを形式目的語の it と呼びます。\n\n・I found **it** difficult **to concentrate** in the noisy office.\n\n元の形は I found to concentrate in the noisy office difficult. で、目的語(to concentrate ...)が長すぎて補語(difficult)から離れてしまいます。だから、it を仮の目的語として置き、本当の目的語を後ろに回します。\n\nこの形をとる動詞は、find, think, consider, make, believe, feel, take などです。\n\n・Online banking makes **it** easy **to transfer** money abroad.\n・The company has made **it** clear **that** all staff must attend.\n\n日本語は、「集中するのは難しいと思った」のように、目的語が先に来ても構わないので、この it を忘れやすくなります。英語では、**to 不定詞・that 節を直接 find / make などの目的語にすることはできません**(× I found to concentrate difficult)。\n\n見分け方: find / think / make / consider / believe の後ろに「形容詞 + to 不定詞(that 節)」が続いているなら、動詞と形容詞の間に it が必要です。",
+          "table": {
+            "caption": "形式目的語 it を取る形",
+            "headers": [
+              "形",
+              "例"
+            ],
+            "rows": [
+              [
+                "find + it + 形容詞 + to do",
+                "I found it difficult to concentrate."
+              ],
+              [
+                "make + it + 形容詞 + to do / for 人 to do",
+                "The system makes it easy to transfer money."
+              ],
+              [
+                "think / consider / believe + it + 形容詞 + to do",
+                "We consider it important to reply quickly."
+              ],
+              [
+                "take + it + for granted + that 節",
+                "We take it for granted that the service will be available."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Online banking makes **it** easy **to transfer** money abroad.",
+              "ja": "オンラインバンキングのおかげで、海外へ送金するのが簡単になる。",
+              "note": "make + it + easy + to do。it が形式目的語で、真の目的語は to transfer money abroad"
+            },
+            {
+              "en": "I found **it** difficult **to concentrate** in the noisy office.",
+              "ja": "騒がしいオフィスでは、集中するのが難しいと思った。",
+              "note": "find + it + difficult + to do。it を省略して find difficult to ... とはできない"
+            },
+            {
+              "en": "We take **it** for granted **that** the service will be available every day.",
+              "ja": "私たちは、そのサービスが毎日利用できることを当然のことと考えている。",
+              "note": "take it for granted that ... は決まった形。it は that 節を受ける形式目的語"
+            }
+          ],
+          "cautions": [
+            "× I found difficult to concentrate in the noisy office. → ○ I found it difficult to concentrate ... find と形容詞の間に it が必要",
+            "× The system makes possible to transfer money. → ○ The system makes it possible to transfer money."
+          ]
+        },
+        {
+          "heading": "強調構文 It is ... that ...:形式主語との見分け方",
+          "explanation": "**強調構文は、「It is + 強調したい語句 + that + 残りの部分」の形で、「〜なのは…だ」と、特定の語句を強調します。** 強調できるのは、主語・目的語・副詞(句)です。\n\n・普通の文: Ms. Park proposed the new schedule in March.\n・主語を強調: **It was** Ms. Park **that** proposed the new schedule in March.\n・副詞句を強調: **It was** in March **that** Ms. Park proposed the new schedule.\n\n強調した語句が人のときは、that の代わりに who も使えます。時間・場所の副詞句を強調するときの接続の語は that です(It was in March when ... のように言う人もいますが、標準的な形は that です)。\n\n強調構文と形式主語は、形が似ているので、次の手順で見分けます。\n\n・**It is と that を取り除いて、残りが文として成り立つ → 強調構文**\n(It was Ms. Park that proposed ... → Ms. Park proposed ... として成立)\n・**It と that 節の間の語が形容詞で、取り除くと成り立たない → 形式主語**\n(It is clear that the plan is wrong. → Clear the plan is wrong. は不成立)\n\n強調構文は書き言葉・話し言葉の両方で使われます。疑問詞の強調(What is it that ...?)を含む詳しい扱いは、第23章「倒置・省略・強調・挿入」で学びます。",
+          "table": {
+            "caption": "形式主語と強調構文の見分け方",
+            "headers": [
+              "",
+              "形式主語",
+              "強調構文"
+            ],
+            "rows": [
+              [
+                "形",
+                "It is + 形容詞 + that / to do",
+                "It is + 名詞・副詞句 + that + 残り"
+              ],
+              [
+                "例",
+                "It is clear that the plan is wrong.",
+                "It was Ms. Park that proposed the plan."
+              ],
+              [
+                "It is と that を除くと",
+                "文として成り立たない",
+                "文として成り立つ"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**It was** Ms. Park **who** proposed the new schedule at the meeting.",
+              "ja": "会議で新しい日程を提案したのは、パクさんだった。",
+              "note": "主語 Ms. Park を強調。人なので that の代わりに who も使える"
+            },
+            {
+              "en": "**It was** in March **that** we signed the contract with the supplier.",
+              "ja": "私たちが仕入れ先と契約を結んだのは、3月だった。",
+              "note": "副詞句 in March を強調。It was と that を除くと We signed the contract in March. が成り立つ"
+            }
+          ],
+          "cautions": [
+            "× It was in March when we signed the contract. は避け、○ It was in March that we signed the contract. が標準的。強調構文の that は、when / where に言い換えない",
+            "× It was Ms. Park which proposed the schedule. → ○ ... who (that) proposed ... 人を強調するときは which は使えない"
+          ]
+        },
+        {
+          "heading": "it を使った定型表現:appreciate it if、take it that、see to it that など",
+          "explanation": "**it を含む決まった言い方は、そのまま意味ごと覚えます。** it が何を指しているかを考えるのではなく、「形」として覚えるのが近道です。\n\nビジネス文書で特に多いのが、**I would appreciate it if you could ...**(〜していただけるとありがたいです)です。appreciate は他動詞で、目的語が必要なので、it を置きます。\n\n・I would appreciate **it** if you could reply by Friday.\n\nこの it は「あなたが金曜日までに返信してくれること」を指す形式的な目的語で、if 以下の内容を受けています。appreciate の後ろに if 節を直接続けることはできません(× I would appreciate if you could ...)。\n\nそのほかの定型表現です。\n\n・**take it that ...**: 〜と受け取る(〜ということですね)\n・**see to it that ...**: 〜するように取り計らう\n・**make it**: 間に合う・うまくいく\n・**It takes + 時間 + to do**: 〜するのに(時間)かかる\n・**It is + 時間 + since ...**: 〜してから(時間)になる\n\n見分け方: appreciate / depend on / rely on / see to / take のような動詞の後ろに、it が決まって置かれる形かどうかを覚えます。",
+          "table": {
+            "caption": "it を含む定型表現",
+            "headers": [
+              "表現",
+              "意味",
+              "例"
+            ],
+            "rows": [
+              [
+                "I would appreciate it if you could ...",
+                "〜していただけるとありがたい",
+                "I would appreciate it if you could reply soon."
+              ],
+              [
+                "take it that ...",
+                "〜ということだと受け取る",
+                "I take it that the meeting is canceled."
+              ],
+              [
+                "see to it that ...",
+                "〜するよう取り計らう",
+                "Please see to it that the room is ready."
+              ],
+              [
+                "It takes + 時間 + to do",
+                "〜するのに(時間)かかる",
+                "It takes two weeks to process an application."
+              ],
+              [
+                "It is + 時間 + since ...",
+                "〜してから(時間)になる",
+                "It is three years since we launched the service."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I would appreciate **it** if you could send me the revised schedule by Friday.",
+              "ja": "金曜日までに修正した日程表を送っていただけると、ありがたいです。",
+              "note": "appreciate は目的語が必要なので it を置いてから if 節を続ける"
+            },
+            {
+              "en": "**It** takes about two weeks to process an application.",
+              "ja": "申請の処理には、約2週間かかる。",
+              "note": "It takes + 時間 + to do の形。真主語は to process an application"
+            },
+            {
+              "en": "Please see to **it** that the meeting room is ready by nine.",
+              "ja": "9時までに会議室の準備ができているよう、取り計らってください。",
+              "note": "see to it that ... は決まった形。it は that 節の内容を受ける"
+            }
+          ],
+          "cautions": [
+            "× I would appreciate if you could reply soon. → ○ I would appreciate it if you could reply soon. appreciate には目的語 it が必要"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 では、(1) 形式主語 It is ... to do / that ... の It を選ばせる問題、(2) 形式目的語 it(make it possible, find it difficult など)を選ばせる問題、(3) appreciate it if のような定型表現、が出ます。手順は、(1) 空所の後ろが形容詞 + to 不定詞(that 節)かを見る、(2) 空所の前が find / make / think / consider などの動詞かを見る、の順です。ひっかけの選択肢には that / this / which があるので、「形式的な it」という発想を持たないと選べません。強調構文は、It is と that を除いて文が成り立つかで、形式主語と区別します。英検準1級では、It is said that ... や It is believed that ... の形で意見や報道を述べる長文があり、真主語が that 節であることを読み取ることが大切です。"
+    }
+  ],
+  "summary": [
+    "人称代名詞は、人称・数・格(主格・所有格・目的格)で形が決まる。空所の直後が名詞なら所有格、直後が動詞なら主格、他動詞・前置詞の後ろなら目的格。",
+    "所有代名詞(mine, yours, hers, ours, theirs)は「所有格 + 名詞」の代わりで、後ろに名詞を置かない。a friend of mine のように、冠詞や指示語と所有を並べたいときは「名詞 + of + 所有代名詞」にする。",
+    "再帰代名詞(myself など)は、目的語が主語と同じ人・物のとき、および「〜自身」の強調で使う。場所の前置詞や with の後ろは人称代名詞を使い、再帰代名詞は主語にならない。",
+    "比較で同じ種類の名詞の繰り返しを避けるときは、that of(単数)/ those of(複数)を使う。those は後ろから修飾されて「〜する人々」を表す。the former / the latter は2つのものに使う。",
+    "one は「同じ種類の不特定のもの」、it は「前に出たそのもの自体」。one は可算名詞にだけ使え、不可算名詞には some / any、所有格の後ろには所有代名詞を使う。",
+    "some は肯定文、any は否定文・疑問文・if 節。-one / -body / -thing の語は単数扱いで、形容詞は後ろに置く。both は複数、either / neither / each / every は単数扱い。none は none of the + 名詞か、no + 名詞。",
+    "2つなら one ... the other、3つ以上なら One ..., another ..., the other / Some ..., others ... / the others。各形は、名詞の有無・単複・残りが特定かで見分ける。",
+    "each other は代名詞なので、自動詞の後ろには前置詞が必要(talk to each other)。each other(お互い)と themselves(それぞれ自分自身)は意味が違う。",
+    "it は、天候・時間・距離を表す意味のない主語、長い主語を後ろに回す形式主語(It is ... to do / that ...)、第5文型の形式目的語(find it difficult to ...)、強調構文(It is ... that ...)に使う。",
+    "試験では、空所の前後の品詞・名詞の有無・単複・文の形(完全か不完全か)から、代名詞の格・種類を絞り込む。"
+  ],
+  "quiz": [
+    {
+      "id": "pronoun-q01",
+      "sentence": "My colleagues and ------- will present the new design at the conference in Boston next month.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "me"
+        },
+        {
+          "label": "B",
+          "text": "I"
+        },
+        {
+          "label": "C",
+          "text": "myself"
+        },
+        {
+          "label": "D",
+          "text": "mine"
+        }
+      ],
+      "answer": "B",
+      "explanation": "and 以下を取り除くと「------- will present」となり、空所は主語の位置なので主格の I が入ります。A の me は目的格で、標準的な書き言葉では主語に使えません。C の myself は再帰代名詞で、主語にはなれません(強調するなら I myself の形)。D の mine は所有代名詞で、主語にするなら「私のもの」の意味になり、人を表す colleagues と並べられません。",
+      "translation": "私の同僚たちと私が、来月ボストンで開かれる会議で新しいデザインを発表する。"
+    },
+    {
+      "id": "pronoun-q02",
+      "sentence": "Ms. Ito wrote the entire report -------, without any help from her team.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "her"
+        },
+        {
+          "label": "B",
+          "text": "hers"
+        },
+        {
+          "label": "C",
+          "text": "herself"
+        },
+        {
+          "label": "D",
+          "text": "she"
+        }
+      ],
+      "answer": "C",
+      "explanation": "wrote the entire report で文は完全なので、空所には主語を強める強調用法の再帰代名詞 herself(自分で)が入ります。A の her は、wrote の目的語がすでにあるので入れられません。B の hers は所有代名詞で「彼女のもの」の意味になり、文の中の働きがありません。D の she は主格で、文末には置けません。",
+      "translation": "伊藤さんは、チームの助けを借りず、自分で報告書全体を書いた。"
+    },
+    {
+      "id": "pronoun-q03",
+      "sentence": "We compared the two quotes and found that your estimate is lower than -------.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "they"
+        },
+        {
+          "label": "B",
+          "text": "them"
+        },
+        {
+          "label": "C",
+          "text": "their"
+        },
+        {
+          "label": "D",
+          "text": "theirs"
+        }
+      ],
+      "answer": "D",
+      "explanation": "your estimate(見積もり)と比べる相手は、「彼らの見積もり」です。所有格 + 名詞を1語にまとめた所有代名詞 theirs(= their estimate)が入ります。A の they と B の them は人を表すので、見積もりと人を比べることになり、意味が成り立ちません。C の their は所有格で、後ろに名詞が必要ですが、文はここで終わっています。",
+      "translation": "2つの見積もりを比べたところ、あなたの見積もりのほうが先方の見積もりより低かった。"
+    },
+    {
+      "id": "pronoun-q04",
+      "sentence": "My old phone stopped working, so I bought a new -------.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "one"
+        },
+        {
+          "label": "B",
+          "text": "ones"
+        },
+        {
+          "label": "C",
+          "text": "it"
+        },
+        {
+          "label": "D",
+          "text": "that"
+        }
+      ],
+      "answer": "A",
+      "explanation": "a new ------- は、「同じ種類の不特定のもの」を表す代名詞 one が入り、a new phone の意味になります。B の ones は複数形で、a(単数)と合いません。C の it は「前に出たそのもの自体」を指す代名詞で、形容詞 new を付けられず、壊れた携帯そのものを買ったことになってしまいます。D の that は、形容詞 new の後ろの名詞の代わりには使えません。",
+      "translation": "古い携帯電話が壊れたので、新しいものを買った。"
+    },
+    {
+      "id": "pronoun-q05",
+      "sentence": "I have two sisters. One is a nurse, and ------- is a teacher.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "other"
+        },
+        {
+          "label": "B",
+          "text": "another"
+        },
+        {
+          "label": "C",
+          "text": "the other"
+        },
+        {
+          "label": "D",
+          "text": "others"
+        }
+      ],
+      "answer": "C",
+      "explanation": "姉妹は全部で2人で、1人が決まれば残りの1人は特定できるので、the other が入ります。A の other は、名詞を伴わない代名詞としては単独で使えません。B の another は不特定の別の1人で、3人目がいることになり、「2人」と合いません。D の others は複数形で、動詞 is と合わず、残りが複数になってしまいます。",
+      "translation": "私には姉妹が2人いる。1人は看護師で、もう1人は教師だ。"
+    },
+    {
+      "id": "pronoun-q06",
+      "sentence": "There isn't ------- left in the budget for new equipment this quarter.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "something"
+        },
+        {
+          "label": "B",
+          "text": "anything"
+        },
+        {
+          "label": "C",
+          "text": "nothing"
+        },
+        {
+          "label": "D",
+          "text": "everything"
+        }
+      ],
+      "answer": "B",
+      "explanation": "isn't という否定文なので、「少しも〜ない」を表す anything が入ります(not ... anything)。A の something は肯定文で使う語で、否定文には不自然です。C の nothing はそれ自体が否定の意味を持つので、isn't と重ねると二重否定になります。D の everything は「すべて」で、「すべてが残っていない」という意味になり、文脈に合いません。",
+      "translation": "今四半期は、新しい備品に回せる予算が何も残っていない。"
+    },
+    {
+      "id": "pronoun-q07",
+      "sentence": "------- of the three applicants was interviewed by the director in person.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Every"
+        },
+        {
+          "label": "B",
+          "text": "Both"
+        },
+        {
+          "label": "C",
+          "text": "All"
+        },
+        {
+          "label": "D",
+          "text": "Each"
+        }
+      ],
+      "answer": "D",
+      "explanation": "空所の後ろが「of the three applicants」で、動詞が単数の was なので、代名詞として単独で使え、単数扱いの Each が入ります(各人が1人ずつ面接を受けた)。A の Every は限定詞で、of を直接続けられません。B の Both は2つ(2人)にだけ使い、3人には使えません。C の All も of the three applicants を受けますが、複数扱いで動詞は were になり、was と合いません。",
+      "translation": "3人の応募者は、1人ずつ部長から直接面接を受けた。"
+    },
+    {
+      "id": "pronoun-q08",
+      "sentence": "------- of the two flights was available on Friday, so we had to leave on Saturday.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Neither"
+        },
+        {
+          "label": "B",
+          "text": "Both"
+        },
+        {
+          "label": "C",
+          "text": "Either"
+        },
+        {
+          "label": "D",
+          "text": "All"
+        }
+      ],
+      "answer": "A",
+      "explanation": "「金曜日の便は2つとも使えなかったので、土曜日に出発した」という意味から、「どちらも〜ない」を表す Neither が入ります(単数扱いなので was と合います)。B の Both は複数扱いで was と合わず、意味も逆になります。C の Either(どちらか一方が使えた)は、so 以下の内容(出発を遅らせた)と矛盾します。D の All は3つ以上に使う語で、2つの便には使えません。",
+      "translation": "2つの便のどちらも金曜日は空いていなかったので、私たちは土曜日に出発しなければならなかった。"
+    },
+    {
+      "id": "pronoun-q09",
+      "sentence": "The unemployment rate in this region is much higher than ------- in the neighboring region.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "it"
+        },
+        {
+          "label": "B",
+          "text": "that"
+        },
+        {
+          "label": "C",
+          "text": "those"
+        },
+        {
+          "label": "D",
+          "text": "which"
+        }
+      ],
+      "answer": "B",
+      "explanation": "比べられているのは単数の the unemployment rate なので、than の後ろでその繰り返しを避ける that が入り、that in the neighboring region(隣の地域のそれ)となります。A の it は「前に出たそのもの自体」を指すので、この地域の失業率と隣の地域の失業率が同一になり、意味が合いません。C の those は複数形で、rate(単数)と合いません。D の which は関係代名詞で、than の後ろには置けません。",
+      "translation": "この地域の失業率は、隣の地域の失業率よりずっと高い。"
+    },
+    {
+      "id": "pronoun-q10",
+      "sentence": "------- is essential that all staff attend the safety briefing before they start work.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "That"
+        },
+        {
+          "label": "B",
+          "text": "This"
+        },
+        {
+          "label": "C",
+          "text": "It"
+        },
+        {
+          "label": "D",
+          "text": "What"
+        }
+      ],
+      "answer": "C",
+      "explanation": "that all staff attend ... という that 節が、実質的な主語です。それを後ろに回すために、主語の位置に形式主語の It を置きます(It is essential that ...)。A の That は、that 節をもう1つ重ねることになり、文が成り立ちません。B の This は、後ろの that 節を受けられません。D の What は名詞節を作る語ですが、後ろに that 節が続く形になりません。",
+      "translation": "全職員が、仕事を始める前に安全説明会に出席することが不可欠だ。"
+    },
+    {
+      "id": "pronoun-q11",
+      "sentence": "------- who wish to attend the workshop must register by Friday.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Those"
+        },
+        {
+          "label": "B",
+          "text": "Whoever"
+        },
+        {
+          "label": "C",
+          "text": "Them"
+        },
+        {
+          "label": "D",
+          "text": "That"
+        }
+      ],
+      "answer": "A",
+      "explanation": "who 以下に後ろから修飾されて「〜する人々」を表す語は those で、Those who wish to attend ... が主語になります。B の Whoever は「〜する人は誰でも」で、後ろにさらに who を続けることができません。C の Them は目的格で、主語の位置に置けません。D の That は単数で、「人々」を表せず、動詞 wish の複数形とも合いません。",
+      "translation": "ワークショップへの参加を希望する人は、金曜日までに登録しなければならない。"
+    },
+    {
+      "id": "pronoun-q12",
+      "sentence": "The two colleagues often read ------- reports before the weekly meetings.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "themselves"
+        },
+        {
+          "label": "B",
+          "text": "each other"
+        },
+        {
+          "label": "C",
+          "text": "one another"
+        },
+        {
+          "label": "D",
+          "text": "each other's"
+        }
+      ],
+      "answer": "D",
+      "explanation": "空所の後ろに名詞 reports が続いているので、「お互いの」を表す所有格 each other's が入ります。A の themselves と、B の each other、C の one another は、名詞の前に付けられない代名詞の形で、後ろの reports を修飾できません(themselves reports のようにはならない)。",
+      "translation": "その2人の同僚は、毎週の会議の前に、よくお互いの報告書を読む。"
+    },
+    {
+      "id": "pronoun-q13",
+      "sentence": "The new system has made ------- possible for us to cut costs significantly.",
+      "choices": [
+        {
+          "label": "A",
+          "text": "so"
+        },
+        {
+          "label": "B",
+          "text": "what"
+        },
+        {
+          "label": "C",
+          "text": "it"
+        },
+        {
+          "label": "D",
+          "text": "which"
+        }
+      ],
+      "answer": "C",
+      "explanation": "make + O + C(possible)の形で、目的語が to 不定詞(for us to cut costs)なので、形式目的語の it を置いて、for us to cut costs を後ろに回します(made it possible for us to ...)。A の so は副詞で、make の目的語にならず、so possible の形にもなりません。B の what と D の which は、名詞節・関係詞節を導く語で、この位置に置けません。",
+      "translation": "新しいシステムのおかげで、私たちは大幅にコストを削減できるようになった。"
+    }
+  ],
+  "related": [
+    "noun",
+    "interrogative",
+    "relative",
+    "agreement",
+    "comparison",
+    "inversion"
+  ]
+}

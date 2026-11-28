@@ -109,6 +109,8 @@ export interface GrammarQuestion {
   choices: GrammarChoice[];
   /** 1=基礎 / 2=標準 / 3=発展 / 4=難関 / 5=最難関 */
   difficulty: number;
+  /** 文法項目(例:「関係代名詞」)。解答後に、文法の教科書の該当する節へリンクするために使う */
+  point?: string;
 }
 
 /** level(1〜3)を省略すると、サーバーが直近の正答率に合わせて難易度を選ぶ */

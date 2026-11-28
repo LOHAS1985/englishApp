@@ -1,0 +1,1416 @@
+{
+  "id": "sentence",
+  "no": 2,
+  "title": "文",
+  "lead": "この章では、英文の「骨組み」を学びます。文の種類(平叙文・疑問文・命令文・感嘆文と付加疑問)、肯定文と否定文(部分否定・二重否定)、文の要素(S・V・O・C・M)、5文型と見分け方、文型で意味が変わる動詞、第4文型の書き換え、there 構文、句と節、単文・重文・複文、語順の基本を扱います。英語は日本語と違い、語の「位置」で主語や目的語が決まる言語です。文型が分かると、空所に入る品詞(形容詞か副詞か)や動詞の意味を自分で判断でき、長い文も骨組みから読み解けるようになります。TOEIC Part 5 の品詞問題・語法問題の土台になる章です。",
+  "sections": [
+    {
+      "id": "sentence-types",
+      "title": "文の種類(平叙文・疑問文・付加疑問)",
+      "intro": "英語の文は、話し手が「述べたいのか」「尋ねたいのか」「働きかけたいのか」によって形が変わります。この節では、文の4つの種類の見分け方と、疑問文の作り方(be 動詞・助動詞・do)、疑問詞疑問文・選択疑問文・否定疑問文、そして「〜ですよね」と確認する付加疑問の作り方を学びます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "文の種類は4つ。文頭の語順と文末の記号で見分ける",
+          "explanation": "**英語の文は、働きによって平叙文・疑問文・命令文・感嘆文の4種類に分けられます。**付加疑問は、平叙文の最後に短い疑問の形を付けたもので、平叙文と疑問文の中間にあたります。\n\n・平叙文(へいじょぶん): 事実や考えを「〜だ」「〜ではない」と述べる文。肯定文も否定文も平叙文です。語順は「主語 + 動詞」で、ピリオド(.)で終わります。\n・疑問文: 相手に質問する文。be 動詞・助動詞・do が主語の前に出て、クエスチョンマーク(?)で終わります。\n・命令文: 相手に「〜しなさい」「〜してください」と働きかける文。主語を置かず、動詞の原形で始めます。\n・感嘆文: 「なんて〜なんだろう」と驚きや感動を表す文。What か How で始め、感嘆符(!)で終わります。\n\n日本語は「〜か」「〜しなさい」のように**文の最後**の形で文の種類を表しますが、英語は**文の最初の語順**で表します。英文を読むときは、文頭が「主語」か「be 動詞・助動詞・do」か「動詞の原形」か「What・How」かを見ると、文の種類がすぐに分かります。\n\nなお、文の形と働きは必ずしも一致しません。Could you close the door? は形は疑問文ですが、内容は「ドアを閉めてください」という依頼です。英語では、命令文よりも疑問文の形のほうが丁寧な依頼になります。",
+          "table": {
+            "caption": "文の種類と形",
+            "headers": ["種類", "働き", "文頭の形", "文末", "例"],
+            "rows": [
+              ["平叙文", "事実・考えを述べる", "主語 + 動詞", ".", "The store opens at ten."],
+              ["疑問文", "質問する", "be 動詞・助動詞・do + 主語", "?", "Does the store open at ten?"],
+              ["命令文", "指示・依頼する", "動詞の原形(主語なし)", ". または !", "Open the window."],
+              ["感嘆文", "驚き・感動を表す", "What / How", "!", "What a nice store this is!"],
+              ["付加疑問", "確認・同意を求める", "平叙文 + , 助動詞 + 代名詞", "?", "The store opens at ten, doesn't it?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The shipment **arrived** at our warehouse this morning.",
+              "ja": "荷物は今朝、当社の倉庫に届いた。",
+              "note": "主語 The shipment の後ろに動詞 arrived が続く平叙文。事実をそのまま述べている"
+            },
+            {
+              "en": "**Did** the shipment arrive at our warehouse this morning?",
+              "ja": "荷物は今朝、当社の倉庫に届きましたか。",
+              "note": "Did が主語の前に出ることで疑問文になる。過去は Did が表すので、動詞は原形 arrive に戻る"
+            }
+          ],
+          "cautions": [
+            "× The store opens at ten?(語順を変えずに文末だけ上げる)は、会話では驚きや確認として使われるが、普通の質問では ○ Does the store open at ten? と語順を変える"
+          ]
+        },
+        {
+          "heading": "Yes/No 疑問文: be 動詞・助動詞は前へ、一般動詞は do を前に",
+          "explanation": "**Yes か No で答える疑問文(Yes/No 疑問文)は、be 動詞か助動詞を主語の前に出して作ります。一般動詞の文は、do・does・did を主語の前に置き、動詞を原形にします。**\n\n日本語は文の最後に「か」を付ければ疑問文になりますが、英語は語順を変えて疑問を表します。このように主語と動詞(または助動詞)の順番が入れ替わることを**倒置**といいます。\n\n一般動詞(play, work, offer など)は、そのまま主語の前に出すことができません。そこで、意味を持たない助動詞の do を代わりに前に出します。時制(現在・過去)と主語の人称・数は do・does・did が引き受けるので、後ろの動詞は**原形**(-s や -ed の付かない形)に戻ります。\n\n作り方の手順:\n・1. 文の述語動詞(主語に対して「どうする・どうである」を述べる、時制を持つ動詞)を見つける。\n・2. be 動詞(am, is, are, was, were)や助動詞(can, will, should, 完了形の have など)があれば、それを主語の前に出す。\n・3. 一般動詞だけなら、主語と時制に合わせて Do / Does / Did を主語の前に置き、動詞を原形にする。\n\n**紛らわしい場合**: 現在完了形(have + 過去分詞)の have は助動詞なので、Have you finished ...? のように have を前に出します。一方、「持っている」という意味の一般動詞の have は Do you have ...? とします(イギリス英語では Have you got ...? も使います)。",
+          "table": {
+            "caption": "Yes/No 疑問文の作り方",
+            "headers": ["元の文", "動詞の種類", "疑問文"],
+            "rows": [
+              ["She is busy.", "be 動詞", "Is she busy?"],
+              ["He can drive.", "助動詞", "Can he drive?"],
+              ["They have left.", "完了形の have(助動詞)", "Have they left?"],
+              ["You work here.", "一般動詞(現在)", "Do you work here?"],
+              ["She works here.", "一般動詞(現在・3人称単数)", "Does she work here?"],
+              ["He worked here.", "一般動詞(過去)", "Did he work here?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Is** the conference room available tomorrow afternoon?",
+              "ja": "明日の午後、その会議室は空いていますか。",
+              "note": "be 動詞 is を主語 the conference room の前に出す"
+            },
+            {
+              "en": "**Can** you send me the updated schedule by noon?",
+              "ja": "正午までに最新の予定表を送ってもらえますか。",
+              "note": "助動詞 can を主語 you の前に出す。動詞 send は原形のまま"
+            },
+            {
+              "en": "**Does** your company offer remote work options?",
+              "ja": "御社には在宅勤務の制度がありますか。",
+              "note": "一般動詞 offer の文なので Does を前に置く。offers の -s は Does が引き受け、offer は原形になる"
+            }
+          ],
+          "cautions": [
+            "× Does she works here? → ○ Does she work here? 3人称単数の -s は Does が引き受けるので、動詞は原形にする",
+            "× Did you went to the meeting? → ○ Did you go to the meeting? 過去を表すのは Did なので、動詞は原形",
+            "× Are you agree with me? → ○ Do you agree with me? agree は一般動詞なので、be 動詞ではなく Do を使う"
+          ]
+        },
+        {
+          "heading": "疑問詞疑問文・選択疑問文・否定疑問文",
+          "explanation": "**疑問詞(what, who, where, when, why, how など)で始まる疑問文は、「疑問詞 + Yes/No 疑問文の語順」で作ります。ただし、疑問詞そのものが主語のときは、平叙文と同じ語順のままにします。**\n\n例えば「あなたはどこに書類を置きましたか」は、You put the documents somewhere. の somewhere を Where にして文頭に出し、残りを did you put the documents と疑問文の語順にします。一方、「誰がこの報告書を承認したのか」では、Who が主語の位置にあるので、Who approved this report? と、do を使わずにそのまま動詞を続けます。\n\n**選択疑問文**は「A か B か」を尋ねる疑問文で、A or B の形を使います。Yes / No ではなく、どちらかを答えます。\n\n**否定疑問文**は Don't you ...? / Isn't it ...? のように否定の形で始める疑問文で、「〜しないのですか」という驚きや、「〜ですよね」という確認を表します。答え方に注意が必要です。英語では、**答えの内容が肯定なら Yes、否定なら No** を使います。質問が肯定か否定かは関係ありません。日本語は「相手の言ったことが正しいか」で「はい・いいえ」を決めるので、逆に見えます。\n\n・Didn't you go? — Yes, I did.(いいえ、行きました)\n・Didn't you go? — No, I didn't.(はい、行きませんでした)\n\n疑問詞の使い分けや間接疑問(Do you know where he is? の語順)は、第6章「疑問詞」で詳しく扱います。",
+          "examples": [
+            {
+              "en": "**Where** did you put the signed contracts?",
+              "ja": "署名済みの契約書はどこに置きましたか。",
+              "note": "疑問詞 Where を文頭に置き、その後ろは did you put という疑問文の語順にする"
+            },
+            {
+              "en": "**Who** approved this expense report?",
+              "ja": "この経費報告書を承認したのは誰ですか。",
+              "note": "Who が主語なので did は使わず、過去形 approved をそのまま続ける"
+            },
+            {
+              "en": "Would you prefer a window seat **or** an aisle seat?",
+              "ja": "窓側の席と通路側の席、どちらがよろしいですか。",
+              "note": "A or B を尋ねる選択疑問文。Yes / No ではなく、どちらかを答える"
+            },
+            {
+              "en": "**Didn't** you receive my email yesterday? — **No**, I didn't.",
+              "ja": "昨日、私のメールを受け取らなかったのですか。— はい、受け取っていません。",
+              "note": "受け取っていない(否定の内容)なので No。日本語の「はい」につられて Yes と言わない"
+            }
+          ],
+          "cautions": [
+            "× Who did approve this report?(普通の質問として)→ ○ Who approved this report? 疑問詞が主語のときは do を使わない(did を強く読むと「いったい誰が承認したのか」という強調になる)",
+            "× Where you put the documents? → ○ Where did you put the documents? 疑問詞の後ろは疑問文の語順にする"
+          ]
+        },
+        {
+          "heading": "付加疑問: 平叙文の最後に「〜ですよね」を付ける",
+          "explanation": "**付加疑問は、平叙文の最後に「, 助動詞 + 代名詞?」を付けて、「〜ですよね」と確認したり同意を求めたりする形です。本文が肯定なら否定の形を、本文が否定なら肯定の形を付けます。**\n\n作り方の手順:\n・1. 本文の動詞を見る。be 動詞・助動詞ならそれを使い、一般動詞なら時制と主語に合わせて do / does / did を使う。\n・2. 本文の肯定・否定を逆にする(肯定 → isn't / doesn't / can't など、否定 → is / does / can など)。否定の形は短縮形(isn't, don't)にする。\n・3. 主語を代名詞にする(the manager → he / she、the meeting → it、your colleagues → they)。\n\n例外・注意すべき形:\n・I am ... → aren't I?(amn't という形は普通使わない)\n・Let's ... → shall we?\n・命令文 → will you?(won't you? や can you? なども使う)\n・There is ... → isn't there?(there をそのまま使う)\n・never, hardly, seldom, no, nothing, nobody などを含む文は否定文として扱い、肯定の付加疑問を付ける。\n・everyone, someone, nobody などが主語のときは they で受ける。this / that は it で受ける。\n\n話すときは、文末を下げると「〜ですよね」という確認に、上げると「〜ですよね?」と本当に答えを求める質問になります。",
+          "table": {
+            "caption": "付加疑問の作り方",
+            "headers": ["本文", "付加疑問", "ポイント"],
+            "rows": [
+              ["It is cold today,", "isn't it?", "be 動詞の肯定 → 否定"],
+              ["You can swim,", "can't you?", "助動詞の肯定 → 否定"],
+              ["She works hard,", "doesn't she?", "一般動詞(現在・3人称単数)→ doesn't"],
+              ["They didn't come,", "did they?", "否定文 → 肯定"],
+              ["I'm late,", "aren't I?", "I am は aren't I"],
+              ["Let's start,", "shall we?", "Let's は shall we"],
+              ["Close the door,", "will you?", "命令文は will you"],
+              ["There is a bank nearby,", "isn't there?", "there をそのまま使う"],
+              ["He never complains,", "does he?", "never を含む文は否定扱い"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The new printer works well, **doesn't it**?",
+              "ja": "新しいプリンターは調子がいいですよね。",
+              "note": "works は一般動詞の現在形・3人称単数なので doesn't を使い、主語 The new printer は it で受ける"
+            },
+            {
+              "en": "You haven't met our new director yet, **have you**?",
+              "ja": "新しい部長にはまだお会いになっていませんよね。",
+              "note": "本文が否定(haven't)なので、付加疑問は肯定の have you"
+            },
+            {
+              "en": "Nobody has called about the order, **have they**?",
+              "ja": "その注文について、誰からも電話はありませんでしたよね。",
+              "note": "Nobody は否定の意味を持つので肯定の付加疑問にする。Nobody は they で受ける"
+            }
+          ],
+          "cautions": [
+            "× Mr. Brown is a lawyer, isn't it? → ○ Mr. Brown is a lawyer, isn't he? 付加疑問の代名詞は、本文の主語に合わせる",
+            "× You seldom eat out, don't you? → ○ You seldom eat out, do you? seldom は否定の意味を持つので、肯定の付加疑問を付ける"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 で、文の種類そのものを問う問題はあまり出ません。疑問文の語順は、Part 5 では間接疑問(第6章)の形で問われることが多いです。一方、TOEIC のリスニング Part 2 では、否定疑問文(Didn't you ...?)や付加疑問(..., isn't it?)で始まる質問がよく使われます。否定疑問・付加疑問は「否定の部分を気にせず、普通の疑問文として聞く」と答えを選びやすくなります(Didn't you call him? は Did you call him? と同じく、電話したかどうかを聞いている)。\n\n試験での位置づけ: 英検準1級の大問1(語彙)・大問2(長文の空所補充)で文の種類が直接問われることはまずありません。ただし、会話文や長文の読み取りで、否定疑問への Yes / No の意味を取り違えないことが大切です。"
+    },
+    {
+      "id": "imperative-exclamatory",
+      "title": "命令文と感嘆文",
+      "intro": "命令文は、マニュアル・掲示・メールの依頼など、TOEIC の英文に非常によく出てくる形です。この節では、命令文の作り方と丁寧さ、Let's の文、「命令文 + and / or」の意味、そして What と How の感嘆文の使い分けを学びます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "命令文: 主語を置かず、動詞の原形で始める",
+          "explanation": "**命令文は、主語を置かずに動詞の原形で文を始めます。否定の命令文は「Don't + 動詞の原形」です。**\n\n命令する相手は、目の前にいる「あなた(you)」に決まっているので、主語を省きます。動詞は、主語や時制に左右されない**原形**を使います。\n\n・一般動詞: Check the list.(リストを確認してください)\n・be 動詞: Be quiet. / Be careful.(be 動詞の原形 Be + 形容詞)\n・否定: Don't touch the screen. / Don't be late.(be 動詞の命令文も Don't be にする)\n・強い否定: Never open this door.(決して〜するな)\n・強調: Do come in.(ぜひお入りください。Do + 原形で気持ちを強める)\n・相手をはっきりさせる: You stay here, and I'll go.(主語の You を付けて「あなたは」と区別する)\n\n**please** を文頭か文末に付けると、丁寧さが少し加わります。文末に置くときは、Close the window, please. のようにカンマを入れるのが普通です。ただし please を付けても、相手に指示していることに変わりはありません。目上の人や取引先には、Could you ...? / Would you ...? / Would you mind -ing? のような疑問文の形のほうが丁寧です。\n\nTOEIC では、マニュアル・掲示・メールの中で、Please contact ... / Please note that ... / Do not ... のような命令文がよく出ます。空所が文頭や Please の直後にあり、主語が無いときは、**動詞の原形**を選びます。",
+          "table": {
+            "caption": "命令文の形",
+            "headers": ["種類", "形", "例"],
+            "rows": [
+              ["肯定", "動詞の原形 ...", "Sign here."],
+              ["be 動詞", "Be + 形容詞・名詞", "Be patient."],
+              ["否定", "Don't + 動詞の原形", "Don't worry."],
+              ["強い否定", "Never + 動詞の原形", "Never share your password."],
+              ["丁寧", "Please + 動詞の原形 / ..., please.", "Please wait here."],
+              ["強調", "Do + 動詞の原形", "Do sit down."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Please complete** the attached form and return it by Friday.",
+              "ja": "添付の用紙に記入し、金曜日までに返送してください。",
+              "note": "Please の後ろは動詞の原形 complete。and で並ぶ return も原形"
+            },
+            {
+              "en": "**Be** careful when you handle the glass samples.",
+              "ja": "ガラスの試料を扱うときは注意してください。",
+              "note": "careful は形容詞なので、be 動詞の原形 Be を前に置く"
+            },
+            {
+              "en": "**Don't leave** your belongings unattended in the lobby.",
+              "ja": "ロビーでは持ち物から目を離さないでください。",
+              "note": "否定の命令文は Don't + 原形。leave O unattended は「O を放置する」(第5文型)"
+            }
+          ],
+          "cautions": [
+            "× Don't be worry. → ○ Don't worry. worry は動詞なので be は不要(形容詞 worried を使うなら Don't be worried. も可)",
+            "× Please to call me back. → ○ Please call me back. Please の後ろは to を付けない原形"
+          ]
+        },
+        {
+          "heading": "Let's: 「(一緒に)〜しよう」と自分を含めて誘う",
+          "explanation": "**Let's + 動詞の原形で「(一緒に)〜しよう」と、自分を含めた相手を誘います。否定は Let's not + 動詞の原形です。**\n\nLet's は Let us の短縮形で、もともとは「私たちに〜させてください」という意味の命令文です。そこから「〜しよう」という提案の意味になりました。命令文の一種なので、後ろは**動詞の原形**です。\n\n・提案: Let's take a break.(休憩しよう)\n・否定: Let's not talk about it now.(今その話はやめよう)\n・付加疑問: Let's go, shall we?(行きましょうか)\n・答え方: Yes, let's.(そうしよう)/ No, let's not.(やめておこう)\n\n**Let's と Let us は同じとは限りません。**短縮しない Let us go. は、文脈によって「私たちを行かせてください」(let = 許す)の意味になります。また、**Let me + 動詞の原形**は「私に〜させてください」で、申し出や話の前置きに使います(Let me explain.)。\n\nlet は「O に〜させる(許す)」という意味の動詞で、let + O + 動詞の原形 の形をとります(使役動詞。第10章「動詞」で詳しく扱います)。Let's も Let me も、この形が元になっています。",
+          "examples": [
+            {
+              "en": "**Let's review** the budget once more before the meeting, shall we?",
+              "ja": "会議の前に、もう一度予算を見直しましょうか。",
+              "note": "Let's + 原形 review。Let's の文の付加疑問は shall we"
+            },
+            {
+              "en": "**Let's not discuss** this issue in front of the clients.",
+              "ja": "この問題を取引先の前で話すのはやめておきましょう。",
+              "note": "否定は Let's not + 原形。not の位置は Let's の直後"
+            },
+            {
+              "en": "**Let me check** my schedule and get back to you.",
+              "ja": "予定を確認して、折り返しご連絡します。",
+              "note": "Let me + 原形で「私に〜させてください」。and の後ろの get も原形"
+            }
+          ],
+          "cautions": [
+            "× Let's to start the meeting. → ○ Let's start the meeting. Let's の後ろは原形で、to は付けない",
+            "× Let's don't go. → ○ Let's not go. アメリカ英語のくだけた会話では Let's don't も聞かれるが、書き言葉と試験では Let's not を使う"
+          ]
+        },
+        {
+          "heading": "命令文 + and(そうすれば)/ 命令文 + or(さもないと)",
+          "explanation": "**「命令文, and ...」は「〜しなさい。そうすれば…」、「命令文, or ...」は「〜しなさい。さもないと…」という意味です。**\n\nand は「そして(その結果)」なので、命令を実行した結果を表します。or は「それとも(そうしなかった場合は)」なので、命令を実行しなかったときの結果を表します。どちらも、if を使った条件の文に書き換えられます。\n\n・Hurry up, and you'll catch the bus. = If you hurry up, you'll catch the bus.\n・Hurry up, or you'll miss the bus. = If you don't hurry up, you'll miss the bus. = Unless you hurry up, you'll miss the bus.\n\nor の代わりに or else / otherwise を使うこともあります。\n\n**見分け方の手順**: 後半の内容が「命令を実行した場合の結果」か「実行しなかった場合の結果」かを考えます。実行した結果なら and、実行しなかった結果なら or です。多くの場合、後半が望ましい結果なら and、望ましくない結果なら or になります。\n\n**例外**: 後半が望ましくない内容でも、「そんなことをすれば、こうなるぞ(だからやるな)」という警告では and を使います(Touch that wire, and you'll get a shock.「その電線に触ったら感電するぞ」)。この場合も、「触った(実行した)結果」なので and です。最終的には、実行した結果か、しなかった結果かで判断しましょう。\n\n命令文の代わりに名詞のかたまりを置く形もあります(One more step, and you'll fall.「もう一歩進んだら落ちるぞ」)。",
+          "table": {
+            "caption": "命令文 + and / or",
+            "headers": ["形", "意味", "if で書き換え"],
+            "rows": [
+              ["命令文, and ...", "〜しなさい。そうすれば…", "If you 〜, ..."],
+              ["命令文, or ...", "〜しなさい。さもないと…", "If you don't 〜, ... / Unless you 〜, ..."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Sign up for our newsletter today, **and** you will receive a discount coupon.",
+              "ja": "今日ニュースレターに登録すれば、割引クーポンがもらえます。",
+              "note": "登録した結果、クーポンがもらえるので and。= If you sign up ..."
+            },
+            {
+              "en": "Back up your files regularly, **or** you may lose important data.",
+              "ja": "ファイルは定期的にバックアップしてください。さもないと、大切なデータを失うおそれがあります。",
+              "note": "バックアップしなかった場合の結果なので or。= If you don't back up ..."
+            }
+          ],
+          "cautions": [
+            "× Leave now, and you will be late for the meeting.(「今出ないと遅れる」と言いたいとき)→ ○ Leave now, or you will be late for the meeting. 実行しなかった場合の結果は or で表す"
+          ]
+        },
+        {
+          "heading": "感嘆文: 名詞があれば What、形容詞・副詞だけなら How",
+          "explanation": "**感嘆文は、強調するかたまりに名詞があれば What、名詞が無く形容詞・副詞だけなら How で始めます。後ろの語順は「主語 + 動詞」(平叙文と同じ)です。**\n\n・What + (a / an) + 形容詞 + 名詞 + 主語 + 動詞!\n・How + 形容詞 / 副詞 + 主語 + 動詞!\n\n平叙文から作ると、仕組みが分かります。She is a very kind person. の a very kind person を強調するなら、名詞 person があるので What を使い、What a kind person she is! とします。She is very kind. の very kind を強調するなら、名詞が無いので How を使い、How kind she is! とします。どちらも、very の代わりに What / How が来て、そのかたまりが文頭に出た形です。\n\n見分け方の手順:\n・1. 強調したいかたまりの最後に名詞があるかを見る。\n・2. 名詞があれば What。その名詞が数えられる名詞の単数なら a / an を付け、複数形や数えられない名詞(information, advice, furniture, weather など)なら付けない。\n・3. 名詞が無く、形容詞か副詞だけなら How。\n\n後ろの「主語 + 動詞」は、言わなくても分かるときは省略されます(What a view! / How nice!)。\n\n**例外**: How kind a man he is! のように「How + 形容詞 + a + 名詞」の形もありますが、硬い言い方で、普通は What a kind man he is! と言います。\n\n感嘆文は主に話し言葉で使い、ビジネス文書ではあまり使いません。",
+          "table": {
+            "caption": "What と How の感嘆文",
+            "headers": ["元の文", "強調するかたまり", "感嘆文"],
+            "rows": [
+              ["It is a very old castle.", "a very old castle(名詞あり・単数)", "What an old castle it is!"],
+              ["They are very kind people.", "very kind people(名詞あり・複数)", "What kind people they are!"],
+              ["This is very useful information.", "very useful information(数えられない名詞)", "What useful information this is!"],
+              ["The castle is very old.", "very old(形容詞だけ)", "How old the castle is!"],
+              ["He speaks very fast.", "very fast(副詞だけ)", "How fast he speaks!"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What a** beautiful view you have from this office!",
+              "ja": "このオフィスからは、なんて美しい景色が見えるのでしょう。",
+              "note": "view は数えられる名詞の単数なので What a + 形容詞 + 名詞。後ろは you have(主語 + 動詞)"
+            },
+            {
+              "en": "**What** stylish furniture they have in their new office!",
+              "ja": "あの会社の新しいオフィスには、なんておしゃれな家具があるのだろう。",
+              "note": "furniture は数えられない名詞なので a を付けず、What + 形容詞 + 名詞"
+            },
+            {
+              "en": "**How** quickly the new staff learned the system!",
+              "ja": "新しいスタッフは、なんて早くシステムを覚えたのだろう。",
+              "note": "quickly は副詞で、後ろに名詞が無いので How。語順は the new staff learned(主語 + 動詞)"
+            }
+          ],
+          "cautions": [
+            "× What beautiful view! → ○ What a beautiful view! view は数えられる名詞の単数なので a が必要",
+            "× How a kind man he is! → ○ What a kind man he is! / How kind he is! How の直後に a は置けない",
+            "× What a kind man is he! → ○ What a kind man he is! 感嘆文の後ろは疑問文の語順にしない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5・6 では、命令文が「主語の無い文の空所に動詞の原形を入れる」問題としてよく出ます。Please ------- the attached file. や ------- the instructions carefully before ... のように、空所の前に主語が無ければ、選択肢から**動詞の原形**を選びます(-ing 形・to 不定詞・3人称単数の -s 形・過去形は不可)。Part 6 のメール・案内文でも、Please feel free to contact ... / Do not hesitate to ... などの命令文の決まり文句がよく使われます。\n\n「命令文, ------- ...」の空所に and / or を選ぶ問題は、後半が「実行した場合の結果」か「実行しなかった場合の結果」かで判断します。\n\n試験での位置づけ: 感嘆文は、TOEIC・英検準1級のどちらでも、筆記の問題で問われることはほとんどありません。会話文やリスニングで意味が分かれば十分です。"
+    },
+    {
+      "id": "negation",
+      "title": "肯定文と否定文(部分否定・二重否定)",
+      "intro": "否定の表し方には、not の位置、no と not の違い、「全部が〜というわけではない」(部分否定)と「全部〜ない」(全体否定)の区別など、意味を取り違えやすい点が多くあります。この節では、否定文の作り方から、部分否定・二重否定・準否定語までを整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "否定文: not は be 動詞・助動詞の後ろ、一般動詞は do not + 原形",
+          "explanation": "**be 動詞・助動詞の文は、その直後に not を置きます。一般動詞の文は、動詞の前に do not / does not / did not を置き、動詞を原形にします。**\n\n仕組みは疑問文と同じです。一般動詞の前に直接 not を置くことはできないので、助動詞の do を借りて、do に not を付けます。時制と人称は do / does / did が引き受けるので、後ろの動詞は原形に戻ります。\n\n・be 動詞: He is not here. / They were not ready.\n・助動詞: You should not park here. / I have not finished yet.\n・一般動詞: I do not agree. / She does not eat meat. / We did not receive it.\n\n話し言葉やくだけたメールでは、isn't, aren't, don't, doesn't, didn't, can't, won't(will not), shouldn't, haven't のような短縮形を使います。\n\n**never**(一度も〜ない・決して〜ない)も否定語で、not と同じく be 動詞・助動詞の後ろに置きます。一般動詞の文では、do を使わずに一般動詞の直前に置くのが特徴です(He never drinks coffee.)。\n\n**not と never の使い分け**: never は「一度も〜ない」「いつも〜しない」という経験・頻度の否定です。昨日1回来なかった、のような1回の出来事の否定には、普通 not を使います(He didn't come yesterday.)。",
+          "table": {
+            "caption": "否定文の作り方",
+            "headers": ["動詞の種類", "肯定文", "否定文"],
+            "rows": [
+              ["be 動詞", "She is busy.", "She is not (isn't) busy."],
+              ["助動詞", "He can come.", "He cannot (can't) come."],
+              ["完了形", "They have left.", "They have not (haven't) left."],
+              ["一般動詞(現在)", "She works on Sundays.", "She does not (doesn't) work on Sundays."],
+              ["一般動詞(過去)", "We met him.", "We did not (didn't) meet him."],
+              ["never", "He drinks coffee.", "He never drinks coffee."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The elevator in the east wing **is not** working this morning.",
+              "ja": "東棟のエレベーターは、今朝は動いていない。",
+              "note": "be 動詞 is の直後に not を置く(現在進行形の否定)"
+            },
+            {
+              "en": "We **did not receive** the invoice for last month's order.",
+              "ja": "先月の注文の請求書を受け取っていない。",
+              "note": "一般動詞の過去なので did not + 原形 receive。received にはしない"
+            },
+            {
+              "en": "I have **never** worked with such a talented team.",
+              "ja": "これほど優秀なチームと仕事をしたことは一度もない。",
+              "note": "never は助動詞 have と過去分詞 worked の間に置く"
+            }
+          ],
+          "cautions": [
+            "× I not agree with the plan. → ○ I don't agree with the plan. 一般動詞の前に直接 not は置けない",
+            "× She doesn't knows the answer. → ○ She doesn't know the answer. doesn't の後ろは原形",
+            "× He doesn't never call me. → ○ He never calls me. never と not を重ねると、標準的な英語では誤りになる"
+          ]
+        },
+        {
+          "heading": "no + 名詞と nothing・nobody・none: 「1つも〜ない」",
+          "explanation": "**no + 名詞は「1つも〜ない・少しも〜ない」で、not any + 名詞とほぼ同じ意味です。nothing / nobody / no one / none も、それだけで否定の意味を持ちます。**\n\n英語の否定は、動詞を否定する(not)だけでなく、**名詞の側を否定する**(no)こともできます。There are no seats left. と There aren't any seats left. は同じ内容ですが、no のほうが「ゼロだ」という響きがやや強くなります。\n\n・no + 名詞: no time, no problem, no questions。no の後ろには、数えられる名詞の単数・複数、数えられない名詞のどれも置ける(1つが普通のものは単数 no car、複数が普通のものは複数 no questions が自然)\n・nothing(何も〜ない)/ nobody・no one(誰も〜ない)/ nowhere(どこにも〜ない)\n・none(どれも・誰も〜ない): none of the + 名詞 の形で使うことが多い\n・neither(2つのうちどちらも〜ない)\n\n**not と no の見分け方**: not は動詞・形容詞・副詞などを否定し、no は名詞の前に置きます(形容詞が付いた名詞の前にも置けます: no new ideas)。空所の直後が名詞なら no、be 動詞の後ろの形容詞を否定するなら not です(There is no need to worry. / It is not necessary to worry.)。\n\n**any を主語にして、後ろに not を置くことはできません。**英語では、否定語が any より前に来る必要があります。「誰も来なかった」は、Nobody came. / No one came. と言います。",
+          "table": {
+            "caption": "not any と no",
+            "headers": ["not を使う形", "no などを使う形", "意味"],
+            "rows": [
+              ["I don't have any time.", "I have no time.", "時間が全くない"],
+              ["There isn't anybody here.", "There is nobody here.", "ここには誰もいない"],
+              ["I didn't buy anything.", "I bought nothing.", "何も買わなかった"],
+              ["(any の主語には使えない)", "Nobody knows the answer.", "誰も答えを知らない"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "There are **no** seats left for tonight's performance.",
+              "ja": "今夜の公演は、残っている席が1つもない。",
+              "note": "seats は名詞なので no を使う。= There aren't any seats left."
+            },
+            {
+              "en": "**Nobody** in the office knew the new password.",
+              "ja": "事務所の誰も、新しいパスワードを知らなかった。",
+              "note": "Nobody が主語。これだけで否定なので、動詞 knew に not は付けない"
+            },
+            {
+              "en": "I have **nothing** to add to the report.",
+              "ja": "報告書に付け加えることは何もありません。",
+              "note": "nothing = not anything。I don't have anything to add. と同じ意味"
+            }
+          ],
+          "cautions": [
+            "× Anyone didn't answer the phone. → ○ No one answered the phone. any を含む主語の後ろに not を置くことはできない",
+            "× There is not need to hurry. → ○ There is no need to hurry. 名詞 need の前は no"
+          ]
+        },
+        {
+          "heading": "部分否定(全部が〜とは限らない)と全体否定(全部〜ない)",
+          "explanation": "**not が「全部・いつも・必ず」を表す語と一緒に使われると、「全部が〜というわけではない」という部分否定になります。「全部〜ない」と言いたいときは、no / none / never / neither / not ... any を使います(全体否定)。**\n\n部分否定は、「全部」という考えを not が打ち消すので、「全部ではない = 一部は〜だ」という意味になります。Not all the staff agreed. は「スタッフ全員が賛成したわけではない(賛成した人もいる)」です。全員が反対したという意味ではありません。\n\n部分否定を作る語:\n・all(全部)、every(どれも)、both(両方)\n・always(いつも)、necessarily(必ず)\n・entirely / completely / altogether / wholly(完全に)、quite(すっかり)\n\n全体否定を作る語:\n・no / none(1つも・誰も〜ない)、nothing / nobody\n・never(一度も〜ない)\n・neither / not ... either(2つのどちらも〜ない)\n・not ... any(1つも〜ない)、not ... at all(全く〜ない)\n\n**All ... not の語順に注意**: All the members didn't come. は、部分否定(全員が来たわけではない)にも全体否定(全員来なかった)にも読めるあいまいな文です。自分で書くときは、部分否定なら Not all the members came.、全体否定なら None of the members came. と、意味がはっきりする形を使いましょう。\n\n2つのものについては、not both が部分否定(両方とも〜というわけではない)、neither / not ... either が全体否定(どちらも〜ない)です。",
+          "table": {
+            "caption": "部分否定と全体否定",
+            "headers": ["対象", "部分否定(一部は〜)", "全体否定(全部〜ない)"],
+            "rows": [
+              ["3つ以上・全部", "not all / not every(全部が〜とは限らない)", "none / no / not ... any(1つも〜ない)"],
+              ["2つ", "not both(両方とも〜とは限らない)", "neither / not ... either(どちらも〜ない)"],
+              ["頻度", "not always(いつも〜とは限らない)", "never(一度も〜ない)"],
+              ["程度", "not necessarily / not entirely(必ずしも・完全に〜ではない)", "not ... at all(全く〜ない)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Not all** of the applicants have relevant experience.",
+              "ja": "応募者の全員が、関連する経験を持っているわけではない。",
+              "note": "Not all = 全員が〜というわけではない(部分否定)。経験のある人もいる"
+            },
+            {
+              "en": "The most expensive option is **not always** the best one.",
+              "ja": "最も高い選択肢が、いつも最善だとは限らない。",
+              "note": "not always = いつも〜とは限らない(部分否定)"
+            },
+            {
+              "en": "**None of** the proposals met our requirements.",
+              "ja": "どの提案も、当社の要件を満たしていなかった。",
+              "note": "None of = どれも〜ない(全体否定)"
+            }
+          ],
+          "cautions": [
+            "「全員来なかった」と言いたいとき、× All the members didn't come.(あいまい)→ ○ None of the members came.",
+            "「どちらも好きではない」と言いたいとき、× I don't like both designs. → ○ I don't like either design. / I like neither design. not both は「両方好きというわけではない」という部分否定になる"
+          ]
+        },
+        {
+          "heading": "二重否定と準否定語(hardly, seldom など)",
+          "explanation": "**1つの文に否定語を2つ使うと、否定と否定が打ち消し合って「強い肯定」や「控えめな肯定」を表します(二重否定)。hardly, seldom などの準否定語は、それだけで否定の意味を持つので、not と一緒に使いません。**\n\n二重否定の主な形:\n・never / not ... without -ing: 「〜すれば必ず…する」(〜しないで…することはない)\n・There is no one who doesn't ...: 「〜しない人はいない = 誰でも〜する」\n・not + un- / in- などで始まる形容詞: not uncommon(珍しくない = よくある)、not impossible(不可能ではない)。はっきり言い切らない、控えめな肯定です。\n\n**注意**: くだけた話し言葉や一部の方言では、I don't know nothing. のように否定を強めるために否定語を重ねることがありますが、標準的な英語(試験・ビジネス)では誤りとされます。正しくは I don't know anything. / I know nothing. です。\n\n**準否定語**(ほぼ否定の意味を持つ語):\n・hardly / scarcely: ほとんど〜ない(程度)\n・barely: かろうじて〜する、ほとんど〜ない(「ぎりぎり足りる」という含みがある)\n・seldom / rarely: めったに〜ない(頻度)\n・few(数)/ little(量): ほとんど〜ない(a few / a little は「少しはある」で肯定の意味)\n\n準否定語は、never と同じく be 動詞・助動詞の後ろ、一般動詞の前に置きます。否定の意味を持つので、付加疑問は肯定の形にします(He seldom complains, does he?)。文頭に出すと倒置が起こる形(Seldom have I seen ...)は第23章で扱います。また、hard(熱心に)と hardly(ほとんど〜ない)のように、形が似ていて意味が全く違う副詞があることに注意しましょう(第8章「副詞」)。",
+          "table": {
+            "caption": "準否定語",
+            "headers": ["語", "意味", "例"],
+            "rows": [
+              ["hardly / scarcely", "ほとんど〜ない(程度)", "I could hardly sleep."],
+              ["barely", "かろうじて〜する・ほとんど〜ない", "We barely made the deadline."],
+              ["seldom / rarely", "めったに〜ない(頻度)", "She seldom takes a day off."],
+              ["few + 数えられる名詞", "ほとんど〜ない(数)", "Few people attended."],
+              ["little + 数えられない名詞", "ほとんど〜ない(量)", "There is little time left."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I **never** visit Kyoto **without** stopping by this old bookstore.",
+              "ja": "京都に行くと、必ずこの古い書店に立ち寄る。",
+              "note": "never ... without -ing = 〜せずに…することは決してない = …すると必ず〜する"
+            },
+            {
+              "en": "Mistakes like this are **not uncommon** among new employees.",
+              "ja": "このような間違いは、新入社員の間では珍しくない。",
+              "note": "not + uncommon(珍しい)で「珍しくない」。控えめな肯定"
+            },
+            {
+              "en": "She **hardly** had time to eat lunch during the busy season.",
+              "ja": "繁忙期には、彼女は昼食をとる時間もほとんどなかった。",
+              "note": "hardly は否定の意味を持つので not は付けない。一般動詞 had の前に置く"
+            }
+          ],
+          "cautions": [
+            "× I can't hardly hear you. → ○ I can hardly hear you. hardly だけで否定の意味があるので not と重ねない",
+            "× He seldom comes late, doesn't he? → ○ He seldom comes late, does he? seldom を含む文は否定文として扱う",
+            "× I don't know nothing about it. → ○ I don't know anything about it. / I know nothing about it."
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、否定に関する次のような問題が出ます。\n・no と not の選択: 空所の後ろが名詞なら no(There is ------- need to ... → no)、形容詞を否定するなら not。\n・hardly / hard、rarely / rare のような副詞の選択: 意味(ほとんど〜ない / 熱心に)と、文に not が既にあるかを確かめる。準否定語は not と重ねない。\n・never の位置: be 動詞・助動詞の後ろ、一般動詞の前。\n\n部分否定は、Part 5 で直接問われることは少ないものの、Part 7 の「本文の内容と合わないもの」を選ぶ問題や、英検準1級の長文の内容一致問題で、本文と選択肢の意味の違いを見抜くのに必要です。本文が not always(いつもではない)なのに、選択肢が never(一度もない)になっているような、言い換えのずれに気づけるようにしましょう。"
+    },
+    {
+      "id": "elements",
+      "title": "文の要素(S・V・O・C・M)",
+      "intro": "英文を正しく読み書きするには、文の中で各語句が「主語」「動詞」「目的語」「補語」「修飾語」のどの役割を持つかが分かる必要があります。この節では、文の要素 S・V・O・C・M の意味と、それぞれになれる語、見つけ方を学びます。次の節の5文型の土台になります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "文の要素は S・V・O・C と、修飾語 M",
+          "explanation": "**文の要素とは、文の骨組みになる部品のことで、主語(S)・動詞(V)・目的語(O)・補語(C)の4つがあります。骨組みに入らない「飾り」の語句を修飾語(M)といいます。**\n\n・S(Subject・主語): 「〜は・〜が」にあたる、文の主題になる人・もの。\n・V(Verb・動詞): 主語が「どうする・どうである」かを述べる語。\n・O(Object・目的語): 動詞の動作を受ける相手・対象。「〜を・〜に」にあたることが多い。\n・C(Complement・補語): 主語や目的語が「何であるか・どんな状態か」を補って説明する語。\n・M(Modifier・修飾語): 時・場所・様子などを付け加える語句。文型には数えない。\n\n**品詞と文の要素は別のもの**です。品詞(名詞・動詞・形容詞・副詞など)は「単語の種類」、文の要素は「文の中での役割」です。例えば名詞は、文の中で S にも O にも C にもなります。逆に、副詞は S・O・C のどれにもなれず、M にしかなりません。\n\n**なぜ文の要素を学ぶのか**: 日本語は「が・を・に」などの助詞で役割を示すので、「田中さんが山田さんを呼んだ」を「山田さんを田中さんが呼んだ」と入れ替えても意味は同じです。英語には助詞が無く、**位置**で役割が決まります。Mr. Tanaka called Mr. Yamada. と Mr. Yamada called Mr. Tanaka. では、呼んだ人と呼ばれた人が逆になります。英文を正しく読むには、どの語がどの位置(役割)にあるかを見抜く必要があるのです。",
+          "table": {
+            "caption": "文の要素と、なれる語",
+            "headers": ["記号", "名前", "役割", "なれる語・形"],
+            "rows": [
+              ["S", "主語", "文の主題(〜は・〜が)", "名詞・代名詞・動名詞・to 不定詞・名詞節"],
+              ["V", "動詞", "主語の動作・状態を述べる", "動詞(助動詞 + 動詞も全体で1つ)"],
+              ["O", "目的語", "動作の対象(〜を・〜に)", "名詞・代名詞・動名詞・to 不定詞・名詞節"],
+              ["C", "補語", "主語・目的語を説明する", "名詞・形容詞(分詞などを含む)"],
+              ["M", "修飾語", "時・場所・様子などを付け加える", "副詞・前置詞 + 名詞・副詞節など"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Our sales team** **closed** **a big deal** yesterday.",
+              "ja": "当社の営業チームは、昨日大きな契約をまとめた。",
+              "note": "Our sales team が S、closed が V、a big deal が O、yesterday が M(時を付け加える副詞)"
+            },
+            {
+              "en": "**The client** called **our manager** this morning.",
+              "ja": "今朝、取引先が当社の部長に電話をかけてきた。",
+              "note": "動詞の前の The client が S(電話をかけた側)、後ろの our manager が O(かけられた側)"
+            },
+            {
+              "en": "**Our manager** called **the client** this morning.",
+              "ja": "今朝、当社の部長が取引先に電話をかけた。",
+              "note": "同じ語でも位置を入れ替えると、電話をかけた人とかけられた人が逆になる"
+            }
+          ]
+        },
+        {
+          "heading": "主語 S: 述語動詞の前にある名詞のかたまり",
+          "explanation": "**主語(S)は、文の中で「〜は・〜が」にあたる名詞のかたまりです。述語動詞の前にある、名詞を中心とするかたまり全体が主語です。**\n\n主語になれるのは、名詞の働きをする語句です。\n・名詞・代名詞: The manager / She / Everyone\n・動名詞(-ing で「〜すること」): Reading English news ...\n・to 不定詞(to + 原形で「〜すること」): To learn a language takes time.(ただし、普通は形式主語 it を使う)\n・名詞節(主語 + 動詞を含む名詞のかたまり): What he said ... / Whether we win ...\n\n**主語の見つけ方の手順**:\n・1. まず述語動詞(時制を持つ動詞)を見つける。\n・2. その前にある名詞のかたまり全体が主語。前置詞句(on the desk など)や関係詞節(who ... など)が付いて長くなっていても、まとめて主語と考える。\n・3. 主語の中心になる名詞を見つける。動詞の形(is / are など)は、この中心の名詞に合わせる(第21章「一致」)。前置詞の後ろの名詞は、主語の中心にはならない。\n\n**英語の文には、原則として主語が必要です。**日本語は「明日は雨らしい」「大切なのは続けることだ」のように主語を言わないことが多いですが、英語では命令文などを除き、主語を省けません。意味のある主語が無いときは、it や there を形の上の主語として置きます。\n\n長い to 不定詞や that 節を主語にすると頭でっかちな文になるので、英語では **it** を主語の位置に置き、本当の主語を後ろに回す形がよく使われます。この it を**形式主語**といいます(it 自体に「それ」という意味は無い)。",
+          "examples": [
+            {
+              "en": "**Reading English news every day** improves your vocabulary.",
+              "ja": "毎日英語のニュースを読むと、語彙が増える。",
+              "note": "動名詞のかたまりが S。「〜すること」は1つの事柄なので単数扱いで improves"
+            },
+            {
+              "en": "**The files on the shared drive** are updated every Monday.",
+              "ja": "共有ドライブのファイルは、毎週月曜日に更新される。",
+              "note": "主語の中心は files。on the shared drive は修飾語なので、動詞は files に合わせて are"
+            },
+            {
+              "en": "**It** is important **to back up your data regularly**.",
+              "ja": "データを定期的にバックアップすることが大切だ。",
+              "note": "It は形式主語。本当の主語は to back up your data regularly"
+            }
+          ],
+          "cautions": [
+            "× Is important to keep the deadline. → ○ It is important to keep the deadline. 英語では主語を省けないので、形式主語 it を置く",
+            "× The list of participants are on the desk. → ○ The list of participants is on the desk. 主語の中心は list で、of participants は修飾語"
+          ]
+        },
+        {
+          "heading": "動詞 V: 文(節)に必ず1つある「述語動詞」",
+          "explanation": "**文(節)には、時制を持つ動詞=述語動詞が必ず1つあります。to 不定詞・動名詞・分詞(準動詞)だけでは、述語動詞になれません。**\n\n述語動詞とは、主語に対して「どうする・どうである」を述べ、**時制(現在・過去)と、主語に合わせた形**を持つ動詞です。He works / He worked の works / worked がそれにあたります。will take, has finished, is being repaired のように、助動詞・完了形・進行形・受動態は、全体で1つの V と考えます。\n\n一方、to 不定詞(to work)、動名詞(working)、分詞(working / worked)は**準動詞**と呼ばれ、動詞から作られていても時制を持たないので、単独では述語動詞になれません。分詞は名詞を修飾する形容詞のような働き(the report submitted yesterday)、to 不定詞・動名詞は名詞などの働きをします。\n\n**述語動詞を見つける手順**:\n・1. 主語を見つけ、その後ろで「時制を持つ動詞」を探す。\n・2. 過去形と過去分詞が同じ形の動詞(submitted, stored など)は要注意。名詞の直後にあり、さらに後ろに別の動詞があれば、名詞を修飾する過去分詞である可能性が高い。\n・3. 接続詞・関係詞が無い限り、1つの節に述語動詞は1つだけ。2つの動詞を並べるには and などの接続詞が必要。\n\nTOEIC Part 5 では、文の中に述語動詞が無ければ、空所に**述語動詞の形**(時制・主語との一致・能動か受動かが合う形)を入れます。逆に、述語動詞が既にあり、接続詞も無ければ、空所には準動詞(-ing・過去分詞・to 不定詞)や他の品詞が入ります。",
+          "table": {
+            "caption": "述語動詞になれる形・なれない形",
+            "headers": ["形", "例", "述語動詞になれるか"],
+            "rows": [
+              ["現在形・過去形", "works / worked", "なれる"],
+              ["助動詞 + 原形", "will work / can work", "なれる(全体で V)"],
+              ["完了形・進行形・受動態", "has worked / is working / was built", "なれる(全体で V)"],
+              ["to 不定詞", "to work", "なれない(準動詞)"],
+              ["動名詞・現在分詞", "working", "なれない(準動詞)"],
+              ["過去分詞(be・have を伴わない)", "the house built in 1990 の built", "なれない(名詞を修飾する)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The new policy **will take** effect next month.",
+              "ja": "新しい方針は来月から実施される。",
+              "note": "will take 全体で1つの述語動詞。take effect = 効力を生じる"
+            },
+            {
+              "en": "The report submitted by the marketing team **contains** several errors.",
+              "ja": "マーケティング部が提出した報告書には、いくつか誤りがある。",
+              "note": "submitted は report を修飾する過去分詞で、述語動詞ではない。述語動詞は contains"
+            }
+          ],
+          "cautions": [
+            "× The manager to approve the budget next week. → ○ The manager will approve the budget next week. to 不定詞だけでは述語動詞にならない",
+            "× We finished the report, sent it to the client. → ○ We finished the report and sent it to the client. 2つの述語動詞は接続詞でつなぐ"
+          ]
+        },
+        {
+          "heading": "目的語 O と補語 C: 主語とイコールかどうかで見分ける",
+          "explanation": "**目的語(O)は動詞の動作を受ける相手・対象で、主語とは別のものです。補語(C)は主語や目的語を説明する語で、説明される語と「イコール(=)」の関係にあります。動詞の後ろの名詞が O か C かは、「主語 = その名詞」が成り立つかどうかで見分けます。**\n\n**目的語 O**: 動詞の後ろに来て、「〜を・〜に」と動作を受けるもの。名詞・代名詞(目的格 him, them など)・動名詞・to 不定詞・名詞節がなれます。目的語をとる動詞を**他動詞**、とらない動詞を**自動詞**といいます。日本語の「〜を・〜に」と英語の目的語は必ずしも一致しません。marry her(彼女と結婚する)や discuss the plan(計画について話し合う)は、日本語では「と」「について」ですが、英語では前置詞の無い目的語です。\n\n**補語 C**: 主語や目的語が「何であるか・どんな状態か」を説明する語。名詞と形容詞(分詞を含む)がなれます。主語を説明するものを主格補語(第2文型 SVC の C)、目的語を説明するものを目的格補語(第5文型 SVOC の C)といいます。**副詞は補語になれません。**\n\n**見分け方の手順**:\n・1. 動詞の後ろの語(M を除く)を見る。\n・2. 形容詞なら、必ず C(形容詞は O になれない)。\n・3. 名詞なら、「主語 = その名詞」と言えるか確かめる。言えれば C、言えなければ O。\n\n例えば Mr. Tanaka became the head of the department. は「田中さん = 部長」なので C、Mr. Tanaka met the head of the department. は「田中さん ≠ 部長」なので O です。名詞が人を表していても、O とは限りません。\n\n同じ動詞でも、後ろの名詞が C か O かで意味が変わります。She made a good cake.(ケーキ ≠ 彼女 → O、「作った」)と She will make a good leader.(彼女 = リーダー → C、「〜になる」)が代表例です。\n\n**例外**: 前置詞 + 名詞(on the desk など)は、原則として C ではなく M と考えます。ただし、of importance(= important)のように形容詞と同じ働きをする前置詞句は、C と考えることがあります。",
+          "table": {
+            "caption": "O と C の見分け方",
+            "headers": ["文", "動詞の後ろの語", "主語とイコールか", "要素"],
+            "rows": [
+              ["He became a doctor.", "a doctor(名詞)", "He = a doctor", "C"],
+              ["He met a doctor.", "a doctor(名詞)", "He ≠ a doctor", "O"],
+              ["He looked tired.", "tired(形容詞)", "He = tired(の状態)", "C"],
+              ["She made a cake.", "a cake(名詞)", "She ≠ a cake", "O"],
+              ["She will make a good leader.", "a good leader(名詞)", "She = a good leader", "C"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The receptionist **answered** the phone on the first ring.",
+              "ja": "受付係は、1回目の呼び出し音で電話に出た。",
+              "note": "the phone は受付係とは別のもの = O。answer は他動詞なので to は不要"
+            },
+            {
+              "en": "The meeting room is **very quiet** in the morning.",
+              "ja": "その会議室は、午前中はとても静かだ。",
+              "note": "very quiet は主語 The meeting room の状態を説明する C(形容詞)"
+            },
+            {
+              "en": "Mr. Tanaka **became** **the head of the sales department**.",
+              "ja": "田中さんは営業部長になった。",
+              "note": "Mr. Tanaka = the head なので C(第2文型)"
+            },
+            {
+              "en": "Mr. Tanaka **met** **the head of the sales department**.",
+              "ja": "田中さんは営業部長に会った。",
+              "note": "Mr. Tanaka ≠ the head なので O(第3文型)"
+            },
+            {
+              "en": "Ms. Lee will **make** **an excellent manager**.",
+              "ja": "リーさんは優れた管理職になるだろう。",
+              "note": "Ms. Lee = an excellent manager なので C。この make は「(素質があって)〜になる」"
+            }
+          ],
+          "cautions": [
+            "× She looked happily. → ○ She looked happy. 補語の位置に副詞は置けない",
+            "× The manager invited we to the party. → ○ The manager invited us to the party. 代名詞が目的語のときは目的格にする"
+          ]
+        },
+        {
+          "heading": "修飾語 M: 文型に数えない「飾り」",
+          "explanation": "**修飾語(M)は、時・場所・様子・理由などを付け加える語句で、文の骨組み(S・V・O・C)には数えません。副詞・前置詞 + 名詞(前置詞句)・副詞節が M になります。**\n\nM は、取り除いても文法的に文が成り立つ「飾り」です。文型を考えるときは、まず M をカッコでくくって外すと、骨組みが見えやすくなります。\n\n・副詞: quickly, yesterday, here, always\n・前置詞句: in the conference room, on Monday, for two hours\n・副詞節: when the meeting ended, because it was raining\n\n**名詞を修飾する語の扱い**: a new office の new や、the woman in the red coat の in the red coat のように、名詞を修飾する語句は、文の要素としては数えず、名詞のかたまりの一部として扱います。the woman in the red coat 全体で、1つの S や O になります。文の要素としての M は、主に動詞や文全体を修飾する語句です。\n\n**例外**: 一部の動詞は、場所などを表す語句が無いと、文が不完全になったり意味が変わったりします。live(住む)、stay(滞在する)、put(置く)、be(〜にある・いる)などです。My grandparents live. だけでは普通の文になりません。5文型の考え方では in a small town は M ですが、意味の上では欠かせない語句です。英語圏の文法書では、このような語句を文に必要な要素として数える分類もあります。",
+          "examples": [
+            {
+              "en": "Our team usually **meets** in the small conference room on Monday mornings.",
+              "ja": "私たちのチームは、たいてい月曜日の朝に小会議室で打ち合わせをする。",
+              "note": "usually, in the small conference room, on Monday mornings はすべて M。外すと Our team meets(SV)が残る"
+            },
+            {
+              "en": "My grandparents **live** in a small town near the coast.",
+              "ja": "祖父母は海岸近くの小さな町に住んでいる。",
+              "note": "live は場所の語句が無いと文が完結しない。形の上では M だが、意味の上では必要"
+            }
+          ],
+          "cautions": [
+            "× He put the documents. → ○ He put the documents on the shelf. put は「どこに」を表す語句が必要"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 で「この文の文型は何か」と直接問われることはありません。しかし、文の要素が分かると、多くの問題を速く正確に解けます。\n・空所が述語動詞の位置か: 文に述語動詞が無ければ、空所は述語動詞(時制・数・態を合わせる)。既にあれば、準動詞や他の品詞。\n・空所が C の位置か: be, become, remain, seem などの後ろや、keep / find + O の後ろの空所は C なので、形容詞(または名詞)を選ぶ。副詞は不可。\n・空所が O の位置か: 他動詞の後ろの空所は名詞(代名詞なら目的格)。\n・長い主語: 主語の中心の名詞を見つけ、動詞の数を合わせる。\n\n英検準1級では、長文や語彙問題の英文が長く複雑なので、まず述語動詞を見つけ、その前の主語のかたまりを確定させる読み方が役立ちます。"
+    },
+    {
+      "id": "five-patterns",
+      "title": "5文型と見分け方",
+      "intro": "5文型は、動詞の後ろに「何が・いくつ・どんな関係で」続くかによって、英文を5つの型に分ける考え方です。文型が分かると、動詞の意味の選び方や、空所に入る品詞が分かるようになります。この節では、見分け方の手順と、各文型をとる代表的な動詞を学びます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "5文型の全体像と、見分け方の手順",
+          "explanation": "**文型は、述語動詞の後ろに何が来るかで決まります。修飾語(M)を外したあとに、①何も無い ②1つ ③2つ、のどれかを見て、さらにイコールの関係があるかで5つに分けます。**\n\n**見分け方の手順**:\n・1. 述語動詞(V)を見つける。その前のかたまりが主語(S)。\n・2. 副詞・前置詞句・副詞節などの修飾語(M)をカッコでくくって外す。\n・3. V の後ろに何も残らない → 第1文型 SV\n・4. 1つ残る → 「S = それ」なら第2文型 SVC、「S ≠ それ」なら第3文型 SVO\n・5. 2つ残る → 「1つ目 = 2つ目」なら第5文型 SVOC、「1つ目 ≠ 2つ目」(人に・物を)なら第4文型 SVOO\n\n2つ残る場合を詳しく見ます。They made him a sandwich. は「彼 ≠ サンドイッチ」なので SVOO(彼にサンドイッチを作った)、They made him captain. は「彼 = キャプテン」なので SVOC(彼をキャプテンにした)です。SVOC では、O と C の間に「O は C だ」(He is captain.)という主語と述語の関係があります。\n\n**文型を学ぶ利点**:\n・動詞の意味が決まる: make, get, find などは、文型によって意味が変わる(次の節)。\n・空所の品詞が決まる: C の位置なら形容詞、O の位置なら名詞。\n・長い文が読める: 修飾語を外して骨組みを見つけられる。\n\n**限界**: 5文型は日本の英語教育で広く使われる分類で、すべての英文がきれいに5つに収まるわけではありません。英語圏の文法書では、場所を表す語句などを必要な要素として加えた、より多くの型に分ける分類も使われます。5文型は、文の骨組みをつかむための道具と考えましょう。",
+          "table": {
+            "caption": "5文型の全体像",
+            "headers": ["文型", "形", "V の後ろ", "例", "訳"],
+            "rows": [
+              ["第1文型", "SV", "何も無い(M だけ)", "Prices rose.", "物価が上がった。"],
+              ["第2文型", "SVC", "C(S = C)", "She became a lawyer.", "彼女は弁護士になった。"],
+              ["第3文型", "SVO", "O(S ≠ O)", "She hired a lawyer.", "彼女は弁護士を雇った。"],
+              ["第4文型", "SVOO", "O + O(O1 ≠ O2)", "He gave me a map.", "彼は私に地図をくれた。"],
+              ["第5文型", "SVOC", "O + C(O = C)", "The news made me happy.", "その知らせで私はうれしくなった。"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The price of fuel **rose** sharply last month.",
+              "ja": "先月、燃料の価格が急激に上がった。",
+              "note": "sharply と last month は M。外すと V の後ろに何も残らないので SV"
+            },
+            {
+              "en": "The training program **gave** new employees useful skills.",
+              "ja": "その研修プログラムは、新入社員に役立つ技能を与えた。",
+              "note": "new employees ≠ useful skills。「人に・物を」の2つなので SVOO"
+            },
+            {
+              "en": "The long flight **made** the passengers tired.",
+              "ja": "長時間の飛行で、乗客は疲れてしまった。",
+              "note": "the passengers = tired(乗客が疲れている)の関係なので SVOC"
+            }
+          ]
+        },
+        {
+          "heading": "第1文型 SV: 動詞だけで文が完結する",
+          "explanation": "**第1文型(SV)は、主語と動詞だけで文が完結する形です。動詞は目的語をとらない自動詞で、普通は時・場所・様子を表す修飾語(M)が付きます。**\n\n代表的な動詞:\n・移動・出来事: go, come, arrive, leave(出発する), happen, occur, rise, fall\n・存在: be(いる・ある), live, stay, exist, remain(残る)\n・その他: work(働く), appear(現れる), disappear, wait, sleep\n\n**第1文型で特別な意味になる動詞**:\n・matter / count: 重要である(It doesn't matter. / Every vote counts.)\n・do: 間に合う・十分である(This room will do.)\n・pay: 割に合う・もうけになる(Honesty pays.)\n・work: (計画・薬などが)うまくいく・効く(The plan worked.)\n\n**自動詞 + 前置詞**: look at, wait for, depend on, listen to のように、自動詞は前置詞を介して名詞とつながります。5文型の考え方では、前置詞の後ろの名詞は O ではなく、前置詞 + 名詞 で M です。ただし、look at などをまとめて1つの他動詞のように扱う考え方もあり、受動態にもできます(be looked at)。\n\n**自動詞は受動態にできません。**happen, occur, arrive, exist などは「される」の形をとりません。\n\nThere is 構文(There is a bank near here.)も、第1文型の一種です(この章の最後の節で扱います)。",
+          "examples": [
+            {
+              "en": "The accident **happened** near the main entrance.",
+              "ja": "その事故は正面入口の近くで起きた。",
+              "note": "happen は自動詞で目的語をとらない。near the main entrance は M"
+            },
+            {
+              "en": "Every vote **counts** in a close election.",
+              "ja": "接戦の選挙では、1票1票が大切だ。",
+              "note": "count は第1文型で「重要である」。目的語が無いので「数える」の意味にはならない"
+            },
+            {
+              "en": "Our flight **arrived** at Narita Airport two hours late.",
+              "ja": "私たちの便は、2時間遅れて成田空港に到着した。",
+              "note": "arrive は自動詞なので、場所の前に at が必要"
+            }
+          ],
+          "cautions": [
+            "× Our flight arrived Narita Airport. → ○ Our flight arrived at Narita Airport. / Our flight reached Narita Airport. arrive は自動詞、reach は他動詞",
+            "× The accident was happened last night. → ○ The accident happened last night. 自動詞は受動態にできない"
+          ]
+        },
+        {
+          "heading": "第2文型 SVC: S = C の関係。C は名詞か形容詞",
+          "explanation": "**第2文型(SVC)は、主語(S)と補語(C)が「イコール」の関係になる形です。C には名詞か形容詞が来て、副詞は来ません。**\n\n第2文型の動詞は、S と C を結びつける「つなぎ」の働きをするので、**連結動詞**(linking verb)とも呼ばれます。be 動詞の「S = C」を基本に、「= の状態が続く」「= に変わる」「= に見える・感じる」などの意味が加わったものと考えると分かりやすくなります。\n\n・状態(〜である・〜のままである): be, remain, stay, keep\n・変化(〜になる): become, get, grow, turn, go, come, fall, run\n・判明(〜だと分かる): prove, turn out\n・感覚・印象(〜に見える・〜に思える): look, seem, appear, sound, smell, taste, feel\n\n**変化を表す動詞は、組み合わせが決まっているものが多い**です。go bad(腐る)、go wrong(うまくいかない)、come true(実現する)、fall asleep(眠り込む)、fall ill(病気になる)、run short(不足する)、turn red(赤くなる)、grow old(年をとる)などは、まとまりで覚えましょう。一般に、go と run は好ましくない方向への変化に、come は望ましい状態への変化に使われることが多いです。\n\n**見分け方**: 動詞の後ろが形容詞なら、その形容詞は C です。日本語で「おいしそうに見える」「元気そうに聞こえる」のように「〜に」と訳せても、英語では副詞(-ly)ではなく**形容詞**を使います。この動詞が説明しているのは「動作のしかた」ではなく、「主語の状態」だからです。\n\n**名詞を C にするとき**: seem, appear は seem (to be) + 名詞、look, sound, feel は like + 名詞 で「〜のように見える・聞こえる」と言うのが普通です(It sounds like a good idea.)。",
+          "table": {
+            "caption": "第2文型をとる主な動詞",
+            "headers": ["意味のグループ", "動詞", "例"],
+            "rows": [
+              ["状態", "be, remain, stay, keep", "The shop remained closed."],
+              ["変化", "become, get, grow, turn, go, come, fall, run", "The weather turned cold."],
+              ["判明", "prove, turn out", "The rumor proved false."],
+              ["感覚・印象", "look, seem, appear, sound, smell, taste, feel", "This fabric feels soft."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Your proposal **sounds** **interesting**.",
+              "ja": "ご提案は面白そうですね。",
+              "note": "sound + 形容詞で「〜に聞こえる・思える」。副詞 interestingly は不可"
+            },
+            {
+              "en": "The store **remained** **open** during the holidays.",
+              "ja": "その店は休暇中も営業を続けた。",
+              "note": "remain + 形容詞 = 〜のままである。open はここでは「開いている」という形容詞"
+            },
+            {
+              "en": "His prediction **came** **true** last year.",
+              "ja": "彼の予言は昨年、現実になった。",
+              "note": "come true = 実現する(決まった組み合わせ)。true は形容詞の C"
+            }
+          ],
+          "cautions": [
+            "× This cake tastes deliciously. → ○ This cake tastes delicious. 補語には形容詞を使う",
+            "△ That sounds a good idea.(イギリス英語では使われる)→ ○ That sounds like a good idea. sound / look の後ろに名詞を置くときは like を付けるのが無難"
+          ]
+        },
+        {
+          "heading": "第3文型 SVO: 他動詞の後ろに、前置詞なしで目的語",
+          "explanation": "**第3文型(SVO)は、主語(S)・他動詞(V)・目的語(O)の形で、「S が O を〜する」という意味です。他動詞の後ろには、前置詞を挟まずに直接目的語を置きます。**\n\n英語の文で最も多く見られる形で、目的語には名詞・代名詞(目的格)・動名詞・to 不定詞・that 節・疑問詞の節などが来ます(I enjoy cooking. / I hope to see you. / I think that he is right.)。\n\n**日本語の助詞に引きずられないことが大切です。**自動詞か他動詞かは、日本語の「を」が付くかどうかでは決まらず、英語の動詞ごとに決まっています。特に次の動詞は、日本語に引きずられて前置詞を入れたくなりますが、他動詞なので前置詞は不要です。\n\n・discuss the plan(計画について話し合う)× discuss about\n・mention the problem(問題について述べる)× mention about\n・reach the station(駅に着く)× reach to\n・enter the room(部屋に入る)× enter into\n・attend the meeting(会議に出席する)× attend to\n・approach the city(市に近づく)× approach to\n・marry him(彼と結婚する)× marry with\n・resemble her mother(母親に似ている)× resemble to\n・contact the office / answer the phone / accompany the client / join the team も前置詞不要\n\n反対に、次の動詞は自動詞なので、目的語の前に前置詞が必要です: apologize to 人 for 事、complain about / of、agree with 人 / to 提案、listen to、wait for、reply to、respond to、graduate from、object to。\n\n**例外**: enter into(交渉・契約などを始める)、attend to(対応する・世話をする)のように、前置詞を付けると別の意味になる組み合わせもあります。",
+          "table": {
+            "caption": "意味が似ていて、自動詞・他動詞が違う動詞",
+            "headers": ["他動詞(前置詞なし)", "自動詞 + 前置詞", "意味"],
+            "rows": [
+              ["reach the station", "arrive at / get to the station", "駅に着く"],
+              ["discuss the issue", "talk about the issue", "その問題について話す"],
+              ["enter the room", "go into the room", "部屋に入る"],
+              ["attend the meeting", "go to the meeting", "会議に出る"],
+              ["answer the email", "reply to / respond to the email", "メールに返事をする"],
+              ["oppose the plan", "object to the plan", "計画に反対する"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We **discussed** the new marketing strategy for two hours.",
+              "ja": "私たちは新しい販売戦略について2時間話し合った。",
+              "note": "discuss は他動詞なので、about を入れずに目的語を置く"
+            },
+            {
+              "en": "Please **contact** our customer service department for further details.",
+              "ja": "詳しくは、お客様サービス部までご連絡ください。",
+              "note": "動詞の contact は他動詞なので to は不要(名詞なら be in contact with と言う)"
+            },
+            {
+              "en": "The CEO **apologized to** the shareholders for the delay.",
+              "ja": "最高経営責任者は、遅れについて株主に謝罪した。",
+              "note": "apologize は自動詞なので、相手の前に to、理由の前に for が必要"
+            }
+          ],
+          "cautions": [
+            "× We discussed about the schedule. → ○ We discussed the schedule. discuss は他動詞",
+            "× She married with a doctor. → ○ She married a doctor. / She got married to a doctor.",
+            "× Please reply my email. → ○ Please reply to my email. reply は自動詞"
+          ]
+        },
+        {
+          "heading": "第4文型 SVOO: 「人に」「物を」の2つの目的語",
+          "explanation": "**第4文型(SVOO)は、「S が O1(人)に O2(物)を〜する」という形です。O1 と O2 はイコールの関係にありません。**\n\n1つ目の目的語 O1 を**間接目的語**(受け取る相手。主に人)、2つ目の O2 を**直接目的語**(渡す物・内容)といいます。語順は必ず「人 → 物」です。\n\n第4文型をとる動詞は、基本的に「O1 に O2 を与える・渡す・してあげる」という意味を持ちます。\n・渡す・伝える: give, send, show, tell, teach, lend, offer, pay, hand, bring, sell, write, owe, promise\n・してあげる: buy, make, cook, get, find, choose, build, book, reserve\n・尋ねる: ask(ask him a question)\n\n**「与える」と逆の意味の動詞**もあります。cost(O1 に O2 の費用・犠牲がかかる)、take(O1 に O2 の時間がかかる)、save(O1 の O2 を省く)などです。It took me two hours to finish the report.(報告書を終えるのに2時間かかった)のように使います。これらは、次の節で扱う to / for を使った第3文型への書き換えができません。\n\n**物が代名詞(it, them)のとき**: Give me it. は不自然とされ(イギリス英語のくだけた会話では聞かれる)、普通は Give it to me. のように第3文型にします。英語には、新しい情報・伝えたい情報を文の後ろに置く傾向があり、すでに話に出た it を文末に置くのは避けられるからです。",
+          "examples": [
+            {
+              "en": "The manager **showed** the new staff the emergency exits.",
+              "ja": "マネージャーは新しいスタッフに非常口の場所を教えた。",
+              "note": "the new staff(人)≠ the emergency exits(物)なので SVOO"
+            },
+            {
+              "en": "Could you **send** me a copy of the contract?",
+              "ja": "契約書の写しを送っていただけますか。",
+              "note": "me(人)→ a copy(物)の順。= send a copy of the contract to me"
+            },
+            {
+              "en": "The repairs **cost** the company nearly 5,000 dollars.",
+              "ja": "その修理で、会社には5,000ドル近い費用がかかった。",
+              "note": "cost は「O1 に O2 の費用がかかる」。to を使った書き換えはできない"
+            }
+          ],
+          "cautions": [
+            "× He gave a map me. → ○ He gave me a map. / He gave a map to me. SVOO の語順は人 → 物",
+            "× Please explain me the rule. → ○ Please explain the rule to me. explain は SVOO をとれない(次の節)"
+          ]
+        },
+        {
+          "heading": "第5文型 SVOC: O = C の関係(O が C である・C の状態になる)",
+          "explanation": "**第5文型(SVOC)は、目的語(O)のあとに、O を説明する補語(C)が来る形です。O と C の間には「O は C だ・O が C する」という主語と述語の関係があります。**\n\nThe news made me happy. では、me と happy の間に「私はうれしい(I am happy.)」という関係があります。このように、O と C を取り出して「O is C」と言えるかが、見分けるときの決め手です。\n\n第5文型をとる主な動詞は、意味でグループに分けられます。\n・O を C にする・C の状態にしておく: make, get, keep, leave, turn, paint, set(set the bird free)\n・O を C と呼ぶ・名づける・選ぶ: call, name, elect, appoint, choose\n・O が C だと思う・分かる: find, think, believe, consider\n\nC には、名詞・形容詞のほか、分詞(現在分詞・過去分詞)も来ます(keep the engine running / get the work done)。また、使役動詞(make / let / have + O + 動詞の原形)、知覚動詞(see / hear + O + 原形・-ing)、want / ask / tell + O + to 不定詞 も、O と C に主語と述語の関係があるので、第5文型に含めて考えることが多いです(第10章「動詞」で詳しく扱います)。\n\n**C には副詞を置けません。**keep the room clean(部屋をきれいにしておく)の clean は形容詞です。cleanly にすると誤りです。\n\n**名詞が C のとき**: elect, appoint, name などで役職名を C にするとき、1人しかいない役職には冠詞を付けないことが多いです(They elected her chairperson.)。think / consider O (to be) C の to be は省略できます。",
+          "table": {
+            "caption": "第5文型をとる主な動詞",
+            "headers": ["意味のグループ", "動詞", "例"],
+            "rows": [
+              ["O を C にする・保つ", "make, get, keep, leave, turn, paint", "Keep the door open."],
+              ["O を C と呼ぶ・選ぶ", "call, name, elect, appoint", "They named the dog Max."],
+              ["O を C と思う・分かる", "find, think, believe, consider", "I found the book useful."],
+              ["(広い意味で)O に〜させる", "make / let / have + O + 原形、ask / tell + O + to do", "She let me use her car."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The committee **appointed** Mr. Ito **project leader**.",
+              "ja": "委員会は伊藤さんをプロジェクトリーダーに任命した。",
+              "note": "Mr. Ito = project leader(伊藤さんがリーダーだ)なので SVOC。1人だけの役職名に冠詞は不要"
+            },
+            {
+              "en": "Many critics **consider** the film **a masterpiece**.",
+              "ja": "多くの評論家は、その映画を傑作だと考えている。",
+              "note": "the film = a masterpiece の関係。consider O (to be) C で「O を C だと考える」"
+            },
+            {
+              "en": "We **painted** the walls of the lobby **light blue**.",
+              "ja": "私たちはロビーの壁を水色に塗った。",
+              "note": "the walls = light blue(壁が水色になる)。paint O C で「O を C の色に塗る」"
+            }
+          ],
+          "cautions": [
+            "× Please keep the room cleanly. → ○ Please keep the room clean. C の位置に副詞は置けない",
+            "× We elected him to chairperson. → ○ We elected him chairperson. / We elected him as chairperson. elect O C の C の前に to は付けない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、文型の名前は問われませんが、文型の知識を使う問題がよく出ます。\n・C の位置の品詞: remain -------, seem -------, become -------, keep O -------, find O -------, make O ------- の空所には、形容詞(または名詞)を入れる。-ly の副詞はひっかけ。\n・他動詞か自動詞か: discuss / reach / attend などの直後に前置詞を入れる選択肢はひっかけ。逆に apologize / respond / comply などの後ろには前置詞(to / with)が必要。\n・自動詞の受動態: occur, happen, arise などは受動態にならないので、was occurred のような選択肢は不可。\n\n解く手順は、①空所の前の動詞を見る、②その動詞が何文型をとるかを考える、③空所が O の位置なら名詞、C の位置なら形容詞を選ぶ、です。\n\n英検準1級では、大問1の語彙問題で動詞を選ぶときに、空所の後ろの形(目的語があるか、形容詞が続くか)が手がかりになることがあります。長文では、SVOC の文(find it difficult to ... など)を正しく読む力が必要です。"
+    },
+    {
+      "id": "verb-patterns",
+      "title": "文型で意味が変わる動詞と、第4文型の書き換え",
+      "intro": "make, get, keep のような基本動詞は、後ろに続く形(文型)によって意味が大きく変わります。また、第4文型(SVOO)は前置詞 to / for を使って第3文型に書き換えられますが、どちらの前置詞を使うか、そもそも SVOO をとれない動詞はどれかが、試験でよく問われます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "make: 作る・作ってあげる・O を C にする・〜になる",
+          "explanation": "**make は、後ろの形によって「作る」(SVO)、「人に〜を作ってあげる」(SVOO)、「O を C にする」(SVOC)、「〜になる」(SVC)と意味が変わります。意味を考える前に、まず後ろの形を見て文型を決めましょう。**\n\n基本動詞は意味がたくさんあるので、辞書の訳を1つずつ覚えるよりも、「この形ならこの意味」と文型と結びつけて覚えるほうが確実です。make の場合、核になるイメージは「手を加えて、何かを生み出す・ある状態にする」です。\n\n・SVO: make a cake / make a decision / make a mistake(作る・する)\n・SVOO: make me a cup of tea(人に〜を作ってあげる)。= make a cup of tea for me\n・SVOC: make me happy / make the process simpler(O を C の状態にする)\n・SVC: She will make a good teacher.(〜になる・〜の素質がある)。C は主語とイコール\n・使役: make him wait(O に無理に〜させる)。make + O + 動詞の原形(第10章)\n\n**SVOO と SVOC の見分け**: 後ろに2つの語があるとき、1つ目と2つ目がイコールでなければ SVOO、イコールなら SVOC です。make him a sandwich(彼 ≠ サンドイッチ → SVOO)、make him the leader(彼 = リーダー → SVOC)。",
+          "table": {
+            "caption": "make の文型と意味",
+            "headers": ["文型", "形", "意味", "例"],
+            "rows": [
+              ["SVO", "make + 名詞", "作る・する", "make a plan"],
+              ["SVOO", "make + 人 + 物", "人に物を作ってあげる", "make him a sandwich"],
+              ["SVOC", "make + O + 形容詞・名詞", "O を C にする", "make the room warm"],
+              ["SVC", "make + 名詞(主語 = 名詞)", "〜になる(素質がある)", "She will make a fine doctor."],
+              ["使役", "make + O + 動詞の原形", "O に(無理に)〜させる", "make him wait"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Our factory **makes** parts for electric cars.",
+              "ja": "当社の工場は、電気自動車の部品を製造している。",
+              "note": "make + 名詞で「作る」(SVO)"
+            },
+            {
+              "en": "My colleague **made** me a cup of coffee.",
+              "ja": "同僚が私にコーヒーを1杯いれてくれた。",
+              "note": "me ≠ a cup of coffee なので SVOO「人に〜を作ってあげる」"
+            },
+            {
+              "en": "The new software **made** the process much simpler.",
+              "ja": "新しいソフトウェアのおかげで、作業がずっと簡単になった。",
+              "note": "the process = much simpler なので SVOC「O を C にする」。C は形容詞の比較級"
+            }
+          ],
+          "cautions": [
+            "× The news made me sadly. → ○ The news made me sad. SVOC の C は形容詞"
+          ]
+        },
+        {
+          "heading": "get: 着く・〜になる・手に入れる・O を C の状態にする",
+          "explanation": "**get は、後ろに何が来るかで、「着く」(SV)、「〜になる」(SVC)、「手に入れる」(SVO)、「人に〜を手に入れてあげる」(SVOO)、「O を C の状態にする」(SVOC)と意味が変わります。**\n\nget の核になるイメージは「ある物や状態を手に入れる・ある状態に移る」です。\n\n・SV: get to the station(駅に着く)/ get up(起きる)。get + 場所の副詞・前置詞句\n・SVC: get angry / get dark / get tired(〜になる)。get + 形容詞。become よりくだけた言い方。get married / get lost のような get + 過去分詞 もこの形\n・SVO: get a letter / get a job / get the joke(受け取る・得る・理解する)\n・SVOO: get me a ticket(人に〜を手に入れてあげる)。= get a ticket for me\n・SVOC: get the report finished(O を〜の状態にする・してもらう)/ get dinner ready(夕食の準備を整える)\n・get + O + to do: get him to help(説得して〜してもらう。第10章)\n\n**見分け方**: get の後ろが形容詞1つなら SVC(〜になる)、名詞1つなら SVO(得る)、名詞 + 名詞なら SVOO、名詞 + 形容詞・過去分詞なら SVOC です。SVOC の get the report finished では、「報告書が仕上げられる(The report is finished.)」という受け身の関係が O と C の間にあります。",
+          "table": {
+            "caption": "get の文型と意味",
+            "headers": ["文型", "例", "意味"],
+            "rows": [
+              ["SV", "get to the office", "会社に着く"],
+              ["SVC", "get tired", "疲れる"],
+              ["SVO", "get a refund", "返金を受ける"],
+              ["SVOO", "get her a present", "彼女にプレゼントを買ってあげる"],
+              ["SVOC", "get the work done", "仕事を終わらせる"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "It **gets** dark early in winter.",
+              "ja": "冬は早く暗くなる。",
+              "note": "get + 形容詞 dark で「〜になる」(SVC)。It は明暗を表す主語"
+            },
+            {
+              "en": "Could you **get** me a ticket for the concert?",
+              "ja": "コンサートのチケットを取ってもらえますか。",
+              "note": "me ≠ a ticket なので SVOO「人に〜を手に入れてあげる」"
+            },
+            {
+              "en": "I need to **get** this report **finished** by noon.",
+              "ja": "この報告書を正午までに仕上げなければならない。",
+              "note": "this report = finished(報告書が仕上がる)の関係なので SVOC。C は過去分詞"
+            }
+          ],
+          "cautions": [
+            "× I got to home at nine. → ○ I got home at nine. home は副詞なので to は付けない"
+          ]
+        },
+        {
+          "heading": "keep と leave: 「意図して保つ」と「そのまま放っておく」",
+          "explanation": "**keep と leave は、どちらも SVOC で「O を C の状態にしておく」という意味になりますが、keep は「意図してその状態を保つ」、leave は「手を加えずにそのままにする・放っておく」という違いがあります。他の文型では別の意味になります。**\n\n**keep**(核のイメージ: ある状態を保ち続ける)\n・SVO: keep the receipt(保管する)/ keep a promise(守る)\n・SVC: keep calm / keep quiet(〜のままでいる)\n・SVOO: keep me a seat(人に〜を取っておく)\n・SVOC: keep the door open / keep customers waiting(O を C のままにしておく)\n・keep -ing: keep trying(〜し続ける)\n\n**leave**(核のイメージ: 離れる・あとに残す)\n・SV: leave for Osaka(大阪に向けて出発する)\n・SVO: leave the office(会社を出る)/ leave my umbrella on the train(置き忘れる)\n・SVOO: leave you a message(人に〜を残す)\n・SVOC: leave the window open / leave the work unfinished(O を C のまま放っておく)\n\nSVOC の C には形容詞・分詞が来ます。keep customers waiting(客を待たせておく)では「客が待っている」、leave the work unfinished では「仕事が終わっていない」という関係が、O と C の間にあります。",
+          "table": {
+            "caption": "keep と leave の文型と意味",
+            "headers": ["文型", "keep", "leave"],
+            "rows": [
+              ["SV", "—", "leave for Tokyo(東京へ出発する)"],
+              ["SVC", "keep quiet(静かにしている)", "—"],
+              ["SVO", "keep the receipt(保管する)", "leave the office(会社を出る)"],
+              ["SVOO", "keep me a seat(席を取っておく)", "leave me a note(メモを残す)"],
+              ["SVOC", "keep the door open(開けておく)", "leave the door open(開けっぱなしにする)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Please **keep** your receipt in case you need to return the item.",
+              "ja": "商品を返品する場合に備えて、レシートは保管しておいてください。",
+              "note": "keep + 名詞で「保管する」(SVO)"
+            },
+            {
+              "en": "Try to **keep** **calm** during the job interview.",
+              "ja": "面接の間は、落ち着いているように心がけて。",
+              "note": "keep + 形容詞 calm で「〜のままでいる」(SVC)"
+            },
+            {
+              "en": "Someone **left** the window **open** all night.",
+              "ja": "誰かが窓を一晩中開けっぱなしにしていた。",
+              "note": "the window = open(窓が開いている)なので SVOC。leave は「放っておく」の意味合い"
+            },
+            {
+              "en": "Ms. Kato **left** you a message at the front desk.",
+              "ja": "加藤さんが、受付にあなたへの伝言を残していきましたよ。",
+              "note": "you ≠ a message なので SVOO「人に〜を残す」"
+            }
+          ],
+          "cautions": [
+            "× I'm sorry to keep you wait. → ○ I'm sorry to keep you waiting. keep O の後ろに動詞の原形は置けず、-ing にする"
+          ]
+        },
+        {
+          "heading": "turn・run・grow・prove: 自動詞・他動詞・「〜になる」を行き来する動詞",
+          "explanation": "**turn, run, grow, prove などは、後ろに何も無ければ自動詞(SV)、名詞が来て主語とイコールでなければ他動詞(SVO)、形容詞が来れば「〜になる・〜だと分かる」(SVC)と、文型によって意味が変わります。**\n\n見分け方の手順:\n・1. 動詞の後ろ(M を除く)に何があるかを見る。\n・2. 何も無ければ SV(その動詞の基本の動作の意味)。\n・3. 形容詞なら SVC。変化を表す動詞なら「〜になる」、prove なら「〜だと分かる」。\n・4. 名詞なら、主語とイコールかを確かめる。イコールでなければ SVO(他動詞の意味)。\n\n**run** は意外な意味を持つ動詞の代表です。SVO の run a company は「会社を経営する」、run a test は「テストを行う」、SVC の run short は「不足する」、run dry は「(水などが)かれる」です。\n\n**prove** は SVO では「証明する」ですが、SVC では「〜だと分かる・判明する」(= turn out)です。The rumor proved false.(そのうわさは誤りだと分かった)のように使います。C の前に to be を入れることもあります(prove to be useful)。\n\n**grow** は SV で「成長する・増える」、SVO で「(作物を)育てる」、SVC で「(しだいに)〜になる」(grow old, grow dark)です。\n\n**turn** は SV で「曲がる・振り向く」、SVO で「回す・(ページを)めくる」、SVC で「(色・状態が)〜に変わる」(turn red, turn cold)です。She turned 30. のように、turn + 年齢で「〜歳になる」という使い方もあります。",
+          "table": {
+            "caption": "文型で意味が変わる動詞",
+            "headers": ["動詞", "SV", "SVC", "SVO"],
+            "rows": [
+              ["turn", "turn left(左に曲がる)", "turn pale(青ざめる)", "turn the key(鍵を回す)"],
+              ["run", "run fast(速く走る)", "run short(不足する)", "run a hotel(ホテルを経営する)"],
+              ["grow", "grow rapidly(急成長する)", "grow tired(しだいに疲れる)", "grow rice(米を育てる)"],
+              ["prove", "—", "prove useful(役に立つと分かる)", "prove the theory(理論を証明する)"],
+              ["go", "go home(家に帰る)", "go bad(腐る)", "—"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The sky suddenly **turned** **dark**, and it started to rain.",
+              "ja": "空が急に暗くなり、雨が降り出した。",
+              "note": "turn + 形容詞 dark で「〜に変わる」(SVC)"
+            },
+            {
+              "en": "Her father **runs** a small bakery in Kobe.",
+              "ja": "彼女の父親は、神戸で小さなパン屋を経営している。",
+              "note": "run + 名詞(主語 ≠ 名詞)で「経営する」(SVO)"
+            },
+            {
+              "en": "We are **running** **short** of printer paper.",
+              "ja": "プリンター用紙が足りなくなってきている。",
+              "note": "run + 形容詞 short で「不足する」(SVC)。short of + 名詞で、何が足りないかを示す"
+            },
+            {
+              "en": "The new system **proved** **very useful** during the busy season.",
+              "ja": "新しいシステムは、繁忙期にとても役立つことが分かった。",
+              "note": "prove + 形容詞で「〜だと分かる」(SVC)。「証明する」の意味ではない"
+            }
+          ],
+          "cautions": [
+            "× The plan proved successfully. → ○ The plan proved successful. 「〜だと分かる」の prove の後ろは形容詞"
+          ]
+        },
+        {
+          "heading": "find と call: 形容詞か副詞か、名詞が1つか2つかで意味が変わる",
+          "explanation": "**find と call も、後ろの形で意味が変わります。特に find は、O の後ろが形容詞なら「O が C だと分かる・思う」(SVOC)、副詞なら「O を〜に見つける」(SVO + M)と、意味が大きく変わります。**\n\n**find**\n・SVO: find the key(見つける)\n・SVOO: find me a seat(人に〜を見つけてあげる)\n・SVOC: find the book interesting(O が C だと分かる・思う)\n\nI found the exam easy. と I found the exam room easily. を比べてみましょう。前者は easy(形容詞)が C で、「試験が易しいと分かった(思った)」という意味です。後者は easily(副詞)が M で、「試験会場を簡単に見つけた」という意味です。形容詞か副詞か、1語の違いで、find の意味が「思う」と「見つける」に分かれます。\n\nfind it + 形容詞 + to do の形(I found it difficult to concentrate.「集中するのが難しいと感じた」)もよく使われます。この it は**形式目的語**で、本当の目的語は to 以下です。\n\n**call**\n・SVO: call the office(電話する)/ call a meeting(会議を招集する)\n・SVOO: call me a taxi(人に〜を呼んであげる)\n・SVOC: call him Bob(O を C と呼ぶ)\n\nCall me a taxi. は普通 SVOO で「タクシーを呼んでください」ですが、形の上では SVOC(「私をタクシーと呼べ」)とも読めるので、これを使った冗談もあります。文型と意味の結びつきがよく分かる例です。",
+          "examples": [
+            {
+              "en": "I **found** the new manual **very helpful**.",
+              "ja": "新しいマニュアルはとても役に立つと思った。",
+              "note": "the new manual = very helpful なので SVOC「O が C だと思う」"
+            },
+            {
+              "en": "I **found** the meeting room **easily**.",
+              "ja": "会議室はすぐに見つかった。",
+              "note": "easily は副詞なので M。この find は「見つける」(SVO)"
+            },
+            {
+              "en": "Could you **call** me a taxi, please?",
+              "ja": "タクシーを呼んでいただけますか。",
+              "note": "me ≠ a taxi なので SVOO「人に〜を呼んであげる」"
+            },
+            {
+              "en": "His friends **call** him **Bob**.",
+              "ja": "友人たちは彼をボブと呼んでいる。",
+              "note": "him = Bob なので SVOC「O を C と呼ぶ」"
+            }
+          ],
+          "cautions": [
+            "× I found the test easily.(「易しいと思った」の意味で)→ ○ I found the test easy. 「O が C だと思う」の C は形容詞"
+          ]
+        },
+        {
+          "heading": "第4文型 → 第3文型の書き換え: to を使う動詞と for を使う動詞",
+          "explanation": "**SVOO は、「人」を前置詞の後ろに回して、SVO + 前置詞 + 人 に書き換えられます。前置詞は動詞によって決まり、「相手に届く」動詞は to、「相手のためにする」動詞は for を使います。**\n\n・He gave me a map. → He gave a map to me.\n・She bought me a watch. → She bought a watch for me.\n\n**to と for の見分け方**: その動作が、**相手がいないと成り立たないか**を考えます。\n・to: give, send, show, tell, teach, lend, offer, pay, hand, sell, write, owe, promise, pass など。「渡す・伝える」動作は、受け取る相手がいて初めて完結します(相手に「届く」ことを表す to)。\n・for: buy, make, cook, get, find, choose, build, book, reserve など。「買う・作る」は、相手がいなくても自分だけでできる動作で、それを相手の「ために」するので for を使います(利益を表す for)。\n・of: ask(ask a question of him)。硬い言い方で、普通は ask him a question の SVOO を使います。\n\nbring は普通 to を使いますが、「〜のために持ってくる」という意味では for も使います。\n\n**どちらの形を使うか**: 英語には、新しい情報・伝えたい情報を文の後ろに置く傾向があります。「誰に」を伝えたいとき(I gave it to her, not to him.)や、物が代名詞(it, them)のときは第3文型、「何を」を伝えたいときは第4文型が自然です。\n\n**書き換えられない動詞**: cost, take(時間がかかる), save, envy などは、SVOO の形でしか使いません(× It cost 100 dollars to me.)。",
+          "table": {
+            "caption": "SVOO → SVO + 前置詞 + 人",
+            "headers": ["前置詞", "主な動詞", "例"],
+            "rows": [
+              ["to(相手に届く)", "give, send, show, tell, teach, lend, offer, pay, hand, sell", "She sent the file to me."],
+              ["for(相手のためにする)", "buy, make, cook, get, find, choose, book, reserve", "He booked a room for us."],
+              ["of", "ask", "He asked a question of the speaker."],
+              ["書き換え不可", "cost, take, save, envy", "It took me an hour."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The hotel **offered** a free upgrade **to** our group.",
+              "ja": "ホテルは私たちの団体に、無料で部屋のグレードを上げてくれた。",
+              "note": "offer は「相手に差し出す」動作なので to。= offered our group a free upgrade"
+            },
+            {
+              "en": "Could you **reserve** a table **for** us at seven?",
+              "ja": "7時に私たちの席を予約していただけますか。",
+              "note": "reserve は相手がいなくてもできる動作を「相手のために」するので for"
+            },
+            {
+              "en": "I'd like to **ask** a favor **of** you.",
+              "ja": "あなたにお願いしたいことがあるのですが。",
+              "note": "ask の書き換えは of。会話では Can I ask you a favor? のほうが普通"
+            }
+          ],
+          "cautions": [
+            "× He bought a watch to his son. → ○ He bought a watch for his son. buy は「〜のために」の for",
+            "× It cost 100 dollars to me. → ○ It cost me 100 dollars. cost は第3文型に書き換えられない"
+          ]
+        },
+        {
+          "heading": "SVOO にできない動詞: explain, suggest, introduce など",
+          "explanation": "**explain, describe, suggest, introduce, announce, mention, say などは、「人に〜を」の意味でも SVOO の形をとれません。「動詞 + 物 + to 人」の形にします。**\n\n日本語では「私にその理由を説明する」「彼に良いホテルを提案する」と、「人に・物を」の形で言えるので、英語でも explain me the reason としたくなります。しかし、これらの動詞は目的語を1つしかとれない動詞で、相手は to で示します。\n\n・explain + 物 + to 人: explain the rule to me / explain to me how it works(物が長いときは to 人 を先に置く)\n・describe + 物 + to 人: describe the problem to the engineer\n・suggest + 物 / -ing / that 節(+ to 人): suggest a solution to them / suggest that we leave early\n・introduce A to B: introduce you to my boss(A を B に紹介する)\n・announce / mention / say + 物(+ to 人): say goodbye to him / announce the results to the staff\n\n傾向として、ラテン語・フランス語に由来する長めの動詞(explain, describe, suggest, introduce など)は SVOO をとりにくいと言われます。ただし、offer, promise のように SVOO をとるものもあるので、1つずつ覚えるのが確実です。\n\n**recommend** は、会話では recommend me a good restaurant のような SVOO も聞かれますが、書き言葉や試験では recommend a good restaurant to me の形を使うのが安全です。\n\n**tell と say の違い**: tell は tell me the truth のように SVOO をとれますが、say はとれません(say を使うなら say it to me)。",
+          "table": {
+            "caption": "SVOO にできない動詞",
+            "headers": ["動詞", "誤り", "正しい形"],
+            "rows": [
+              ["explain", "× explain me the plan", "explain the plan to me"],
+              ["describe", "× describe him the situation", "describe the situation to him"],
+              ["suggest", "× suggest us a new idea", "suggest a new idea to us"],
+              ["introduce", "× introduce her my friend", "introduce my friend to her"],
+              ["say", "× say me goodbye", "say goodbye to me"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Could you **explain** the new procedure **to** me?",
+              "ja": "新しい手順を説明していただけますか。",
+              "note": "explain は SVOO をとれないので、explain + 物 + to 人"
+            },
+            {
+              "en": "Our manager **suggested** **that** we postpone the product launch.",
+              "ja": "部長は、製品の発売を延期してはどうかと提案した。",
+              "note": "suggest は SVOO 不可。提案の内容は that 節で表す(that 節の動詞は原形 postpone。第16章)"
+            },
+            {
+              "en": "Allow me to **introduce** you **to** our new director, Ms. Brown.",
+              "ja": "あなたを、新しい部長のブラウンさんにご紹介させてください。",
+              "note": "introduce A to B = A を B に紹介する。× introduce you our director"
+            }
+          ],
+          "cautions": [
+            "× Please explain me the reason. → ○ Please explain the reason to me.",
+            "× She suggested me a good hotel. → ○ She suggested a good hotel to me. / She recommended a good hotel to me."
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、次の形がよく出ます。\n・SVOO をとれない動詞: explain / describe / suggest / introduce の後ろに「人」を直接置く選択肢はひっかけ。逆に、空所の後ろが「人 + 物」なら、give / send / offer / show などの SVOO をとれる動詞を選ぶ。\n・前置詞の選択: offer ... to / reserve ... for など、書き換えた形の前置詞。\n・SVOC の C の品詞: make / keep / find / leave + O + -------(形容詞)。副詞はひっかけ。\n\n解く手順は、①空所の前後の動詞と、その後ろの語の数を見る、②「人 + 物」「O + 形容詞」などの形から文型を決める、③その文型をとれる動詞・品詞を選ぶ、です。\n\n英検準1級の大問1(語彙)では、動詞を選ぶ問題で、選択肢の動詞がどの文型をとるかが正解を絞る手がかりになることがあります。また、run, prove, turn out などの基本動詞の SVC の意味は、長文の読解でよく出てきます。"
+    },
+    {
+      "id": "sentence-structure",
+      "title": "there 構文と文の組み立て(句・節・語順)",
+      "intro": "最後に、「〜がある」を表す there 構文と、文の組み立て方を学びます。句と節の区別、単文・重文・複文と主節・従属節、語順の基本が分かると、長い文の構造が見え、前置詞と接続詞の選択問題などにも強くなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "there 構文: 「〜がある・いる」。be 動詞は後ろの名詞に合わせる",
+          "explanation": "**There + be 動詞 + 名詞 + (場所) で「(場所に)〜がある・いる」という存在を表します。文の意味上の主語は be 動詞の後ろの名詞で、be 動詞の形もその名詞に合わせます。**\n\nThere is 構文は、**聞き手がまだ知らないもの(新しい情報)**の存在を伝えるときに使います。文頭の There は形の上で主語の位置に置かれる語で、「そこに」という意味はありません(「そこに」と言いたいときは、文末に別に there を付けて There is a cafe there. とします)。\n\n**be 動詞の形の決め方**: be 動詞の後ろの名詞が単数・数えられない名詞なら is / was、複数なら are / were です(There is a problem. / There are two problems.)。名詞を and で並べるとき、話し言葉では最初の名詞に合わせて There is a pen and two notebooks. と言うこともあります。\n\n**疑問文・否定文・付加疑問**: there を主語のように扱います。\n・疑問文: Is there a bank near here?\n・否定文: There isn't any milk. / There is no milk.\n・付加疑問: There is a meeting today, isn't there?\n\n**時制・助動詞との組み合わせ**: be 動詞の部分をいろいろな形に変えられます。\n・There was / There will be / There has been / There is going to be\n・There must be / There may be / There used to be(以前は〜があった)\n・There seems to be / There appears to be(〜があるようだ)\n\nThere is 構文は、5文型では第1文型(SV)の一種と考えます。",
+          "table": {
+            "caption": "there 構文のいろいろな形",
+            "headers": ["形", "例", "意味"],
+            "rows": [
+              ["There is / are", "There are three exits.", "出口が3つある"],
+              ["There was / were", "There was a fire last night.", "昨夜火事があった"],
+              ["There will be", "There will be a meeting tomorrow.", "明日会議がある"],
+              ["There has been", "There has been a change of plan.", "計画に変更があった"],
+              ["There used to be", "There used to be a cinema here.", "以前ここに映画館があった"],
+              ["There seems to be", "There seems to be a mistake.", "誤りがあるようだ"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**There are** several restaurants within walking distance of the hotel.",
+              "ja": "ホテルから歩いて行ける範囲に、レストランがいくつかある。",
+              "note": "後ろの名詞 several restaurants が複数なので are"
+            },
+            {
+              "en": "**There has been** a significant increase in online orders this year.",
+              "ja": "今年はオンラインの注文が大幅に増えている。",
+              "note": "現在完了形の there 構文。a significant increase が単数なので has"
+            },
+            {
+              "en": "**There seems to be** a problem with the projector.",
+              "ja": "プロジェクターに問題があるようだ。",
+              "note": "There seems to be = 〜があるようだ。seems は後ろの a problem(単数)に合わせる"
+            }
+          ],
+          "cautions": [
+            "× There is many people in the lobby. → ○ There are many people in the lobby. be 動詞は後ろの名詞に合わせる",
+            "× There have a lot of problems. → ○ There are a lot of problems. 「〜がある」を there + have で表さない(人を主語にするなら We have a lot of problems. は可)"
+          ]
+        },
+        {
+          "heading": "there 構文を使わない場合と、be 以外の動詞を使う there 構文",
+          "explanation": "**特定の人・もの(the + 名詞、所有格 + 名詞、固有名詞、this / that + 名詞)の存在や場所を言うときは、普通は there 構文を使わず、「主語 + be 動詞 + 場所」の形にします。**\n\nThere is 構文は、聞き手が知らない新しい情報を「あるよ」と紹介する形です。the key や my bag のように、聞き手がどれのことか分かっている特定のものを紹介するのは不自然なので、The key is on the table. / My bag is in the car. と、そのものを主語にします。日本語の「〜がある」は、新しい情報にも特定のものにも使えるので、つい There is my bag ... と言いたくなる点に注意しましょう。\n\n**例外**: 「ほかにもこういうものがある」と、聞き手に思い出させたり、リストのように挙げたりするときは、特定のものでも there 構文を使うことがあります(We could ask Tom. And there's Mary, too.「トムに頼めるね。それにメアリーもいるし」)。\n\n**be 以外の動詞を使う there 構文**: 書き言葉では、存在・出現を表す自動詞を there 構文に使うことがあります。動詞の形は、やはり後ろの名詞に合わせます。\n・There remain(s) ...: 〜が残っている\n・There exist(s) ...: 〜が存在する\n・There come(s) ...: 〜がやって来る(物語などで)\n・There live(d) ...: 〜が住んでいる(昔話の Once upon a time, there lived ...)",
+          "table": {
+            "caption": "新しい情報と特定のもの",
+            "headers": ["伝える内容", "形", "例"],
+            "rows": [
+              ["新しい情報(a / some / 数 + 名詞)", "There is / are + 名詞 + 場所", "There is a key on the table."],
+              ["特定のもの(the / my / 固有名詞)", "主語 + be 動詞 + 場所", "The key is on the table."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Your package is** at the front desk.",
+              "ja": "お荷物はフロントにございます。",
+              "note": "Your package は特定のもの(聞き手の荷物)なので、there 構文ではなく主語にする"
+            },
+            {
+              "en": "**There remain** a few questions about the budget.",
+              "ja": "予算については、まだいくつか疑問が残っている。",
+              "note": "remain を使った there 構文。後ろの a few questions(複数)に合わせて remain"
+            }
+          ],
+          "cautions": [
+            "× There is the manager in his office. → ○ The manager is in his office. 特定の人は主語にする"
+          ]
+        },
+        {
+          "heading": "句と節: 「主語 + 動詞」を含むかどうか",
+          "explanation": "**2語以上のまとまりのうち、「主語 + 動詞」を含まないものを句、含むものを節といいます。句も節も、文の中で名詞・形容詞・副詞の働きをします。**\n\n・句(phrase): in the morning / to finish the report / reading books のように、主語 + 動詞 を含まないまとまり。\n・節(clause): when the meeting ended / that he is right / who called me のように、主語 + 動詞 を含むまとまり。\n\nどちらも、働きによって3つに分けられます。\n・名詞の働き(S・O・C になる)→ 名詞句・名詞節\n・形容詞の働き(名詞を修飾する)→ 形容詞句・形容詞節\n・副詞の働き(動詞・文全体を修飾する)→ 副詞句・副詞節\n\n**句と節の区別が大事な理由**: 前置詞は後ろに**句**(名詞のかたまり)をとり、接続詞は後ろに**節**(主語 + 動詞)をとります。同じ「〜なので」でも、because of は前置詞(句をとる)、because は接続詞(節をとる)です。TOEIC Part 5 では、空所の後ろが句か節かを見て、前置詞と接続詞を選び分ける問題がよく出ます(第18章「接続詞」・第20章「前置詞」)。\n\n**見分け方の手順**: まとまりの中に、時制を持つ動詞(述語動詞)があるかを探します。あれば節、無ければ句です。-ing や to 不定詞は述語動詞ではないので、reading books や to finish the report は句です。",
+          "table": {
+            "caption": "句と節の種類",
+            "headers": ["働き", "句(主語 + 動詞なし)", "節(主語 + 動詞あり)"],
+            "rows": [
+              ["名詞", "I enjoy reading books.", "I know that he is right."],
+              ["形容詞", "the man in the gray suit / a book to read", "the man who called me"],
+              ["副詞", "in the morning / to catch the train", "when the meeting ended / because it rained"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Because of the heavy snow**, the flight was canceled.",
+              "ja": "大雪のため、その便は欠航になった。",
+              "note": "the heavy snow は名詞のかたまり(句)なので、前置詞 Because of を使う"
+            },
+            {
+              "en": "**Because it snowed heavily**, the flight was canceled.",
+              "ja": "雪がひどく降ったため、その便は欠航になった。",
+              "note": "it snowed(主語 + 動詞)を含む節なので、接続詞 Because を使う"
+            },
+            {
+              "en": "The woman **who called this morning** is our new client.",
+              "ja": "今朝電話をかけてきた女性は、当社の新しい取引先だ。",
+              "note": "who called this morning は名詞 woman を修飾する形容詞節(関係詞節)"
+            }
+          ],
+          "cautions": [
+            "× Because of it snowed heavily, ... → ○ Because it snowed heavily, ... / Because of the heavy snow, ... 前置詞の後ろに主語 + 動詞は置けない"
+          ]
+        },
+        {
+          "heading": "単文・重文・複文と、主節・従属節",
+          "explanation": "**主語 + 動詞 が1組だけの文を単文、等位接続詞(and, but など)で対等な節をつないだ文を重文、主節に従属節が付いた文を複文といいます。**\n\n・単文: 主語 + 動詞 が1組の文。\n・重文: 対等な2つ以上の節を、等位接続詞 and, but, or, so, yet, for, nor でつないだ文。どちらの節も単独で文になる。\n・複文: 文の中心になる**主節**に、それだけでは文にならない**従属節**が付いた文。\n\n**主節と従属節**: 従属節は、従属接続詞(when, because, if, although, that など)、関係詞(who, which など)、疑問詞(what, where など)で始まる節で、主節の中で名詞・形容詞・副詞の働きをします。Although sales increased, profits fell. では、profits fell が主節、Although sales increased が副詞の働きをする従属節です。\n\n**従属節だけでは文になりません。**書き言葉で Because the train was late. のように従属節だけをピリオドで切るのは誤りです(会話の受け答え Why? — Because ... は別)。\n\n**節を2つ並べるときの注意**: 正式な書き言葉では、節と節をカンマだけでつなぐことはできません(Prices rose, demand fell. は不可)。等位接続詞を入れる(Prices rose, but demand fell.)、従属接続詞を使う(Although prices rose, demand fell.)、ピリオドかセミコロン(;)で区切る、のどれかにします。however, therefore などは接続詞ではなく副詞(接続副詞)なので、これだけで節をつなぐことはできません(第18章)。\n\n副詞の働きをする従属節は、主節の前にも後ろにも置けます。前に置くときは、普通その後ろにカンマを入れます。",
+          "table": {
+            "caption": "単文・重文・複文",
+            "headers": ["種類", "構造", "例"],
+            "rows": [
+              ["単文", "主語 + 動詞 が1組", "We missed the train."],
+              ["重文", "節 + 等位接続詞 + 節(対等)", "We missed the train, so we took a taxi."],
+              ["複文", "主節 + 従属節", "We took a taxi because we missed the train."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The new branch **opened** last week.",
+              "ja": "新しい支店は先週開店した。",
+              "note": "主語 + 動詞 が1組だけの単文。last week は M"
+            },
+            {
+              "en": "The board approved the budget, **but** the CEO rejected the hiring plan.",
+              "ja": "取締役会は予算を承認したが、最高経営責任者は採用計画を却下した。",
+              "note": "but が対等な2つの節をつなぐ重文。どちらの節も単独で文になる"
+            },
+            {
+              "en": "**Although** sales increased, the company's profits fell.",
+              "ja": "売上は増えたが、会社の利益は減った。",
+              "note": "Although sales increased が従属節、the company's profits fell が主節の複文"
+            }
+          ],
+          "cautions": [
+            "× We were tired. Because we had worked late. → ○ We were tired because we had worked late. 従属節だけを1つの文にしない",
+            "× Prices rose, demand fell. → ○ Prices rose, but demand fell. 節と節はカンマだけでつながない",
+            "× The meeting ran long, however we finished on time. → ○ The meeting ran long; however, we finished on time. / The meeting ran long, but we finished on time."
+          ]
+        },
+        {
+          "heading": "語順の基本: 骨組みは S + V + (O / C)、修飾語は決まった位置に",
+          "explanation": "**英語の文は「S + V + (O / C)」の順が骨組みで、修飾語はその前後の決まった位置に置きます。日本語のように語順を自由に入れ替えることはできません。**\n\n日本語は助詞があるので「昨日、駅で、友達に会った」「友達に昨日駅で会った」のどちらでも通じます。英語は位置で役割を示すので、骨組みの順は崩せず、修飾語の位置にもおおよその決まりがあります。\n\n**名詞を修飾する語の位置**\n・形容詞1語は名詞の前: a new office\n・2語以上の句・節は名詞の後ろ: an office near the station / an office that has a view\n・-thing / -one / -body で終わる語は、形容詞1語でも後ろ: something new / someone reliable\n\n**副詞(句)の位置**\n・頻度の副詞(always, usually, often, sometimes, never など)は、be 動詞・助動詞の後ろ、一般動詞の前: She is always busy. / He often works late.\n・文末に「様子・場所・時」を並べるときは、基本は**様子 → 場所 → 時**の順: He spoke clearly at the meeting yesterday. 特に「場所 → 時」の順は崩さないのが普通です。\n・時や場所は、小さい単位から大きい単位へ: at 10 a.m. on Monday / in Shibuya, Tokyo(日本語の「東京都渋谷区」とは逆)\n\n**その他**\n・疑問文・否定文の語順は、be 動詞・助動詞(do を含む)が鍵になる(この章の第1節・第3節)。\n・強調などのために語順を変える倒置(Never have I seen ...)は、第23章で扱います。",
+          "table": {
+            "caption": "語順の基本",
+            "headers": ["項目", "基本の位置", "例"],
+            "rows": [
+              ["形容詞1語", "名詞の前", "a reliable supplier"],
+              ["前置詞句・関係詞節", "名詞の後ろ", "a supplier in Osaka"],
+              ["-thing / -one + 形容詞", "形容詞が後ろ", "something important"],
+              ["頻度の副詞", "be 動詞・助動詞の後ろ、一般動詞の前", "We usually start at nine."],
+              ["文末の修飾語", "様子 → 場所 → 時", "She worked hard in the office yesterday."],
+              ["時・場所の単位", "小さい → 大きい", "at 3 p.m. on Friday"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Our manager **always** arrives at the office before eight.",
+              "ja": "部長はいつも8時前に出社する。",
+              "note": "頻度の副詞 always は一般動詞 arrives の前。文末は場所(at the office)→ 時(before eight)の順"
+            },
+            {
+              "en": "We need **someone reliable** for this position.",
+              "ja": "この職には、信頼できる人が必要だ。",
+              "note": "-one で終わる語は、形容詞を後ろに置く"
+            },
+            {
+              "en": "The seminar will be held **at 2 p.m. on May 10**.",
+              "ja": "セミナーは5月10日の午後2時に開かれる。",
+              "note": "時は小さい単位(時刻)から大きい単位(日付)の順。日本語とは逆"
+            }
+          ],
+          "cautions": [
+            "× I go always to the gym on Saturdays. → ○ I always go to the gym on Saturdays. 頻度の副詞は一般動詞の前",
+            "× We need reliable someone. → ○ We need someone reliable. -one の語は形容詞を後ろに置く"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、次の形がよく出ます。\n・there 構文の be 動詞の数: There ------- several ... なら are。後ろの名詞を見て決める。\n・前置詞か接続詞か: 空所の後ろが句(名詞のかたまり)なら前置詞(because of, despite, during)、節(主語 + 動詞)なら接続詞(because, although, while)。\n・接続副詞と接続詞の区別: 節と節の間をカンマだけでつなぐ空所に、however や therefore は入らない。\n・語順: -thing + 形容詞、頻度の副詞の位置。\n\nPart 6 では、文と文をつなぐ語(接続副詞など)を選ぶ問題や、文を挿入する問題で、主節と従属節の関係や、文の流れを読み取る力が必要です。\n\n英検準1級の長文は、複文や重文が組み合わさった長い文が多いので、①従属節を始める語(when, because, which など)に印をつける、②主節の主語と述語動詞を見つける、という手順で骨組みをつかむと読みやすくなります。"
+    }
+  ],
+  "summary": [
+    "英文は働きで平叙文・疑問文・命令文・感嘆文に分かれ、文頭の語順で見分ける。付加疑問は本文と肯定・否定を逆にする",
+    "疑問文・否定文は be 動詞・助動詞を使い、一般動詞は do / does / did を借りて動詞を原形にする",
+    "命令文は動詞の原形で始める。「命令文, and」は「そうすれば」、「命令文, or」は「さもないと」",
+    "感嘆文は、名詞があれば What (a) + 形容詞 + 名詞、無ければ How + 形容詞・副詞。後ろは主語 + 動詞の語順",
+    "not + all / always / both などは部分否定(全部が〜とは限らない)。全体否定は no / none / never / neither",
+    "準否定語(hardly, seldom など)は not と重ねない。付加疑問は肯定の形にする",
+    "文の要素は S・V・O・C と修飾語 M。文(節)には時制を持つ述語動詞が1つ必要で、準動詞だけでは文にならない",
+    "動詞の後ろの語が主語とイコールなら補語 C、イコールでなければ目的語 O。補語に副詞は使えない",
+    "5文型は、M を外したあと V の後ろに何がいくつ来るか、イコールの関係があるかで見分ける",
+    "make, get, keep, find, run, prove などは文型で意味が変わる。先に後ろの形を見て文型を決める",
+    "SVOO → SVO の書き換えは、相手に届く動詞は to、相手のためにする動詞は for。explain, suggest, introduce は SVOO にできない",
+    "there 構文は新しい情報の存在を表し、be 動詞は後ろの名詞に合わせる。句と節(前置詞と接続詞)は主語 + 動詞の有無で見分ける"
+  ],
+  "quiz": [
+    {
+      "id": "sentence-q01",
+      "sentence": "空所に入る語は? Your manager has already approved the budget, ------- she?",
+      "choices": [
+        { "label": "A", "text": "doesn't" },
+        { "label": "B", "text": "hasn't" },
+        { "label": "C", "text": "isn't" },
+        { "label": "D", "text": "didn't" }
+      ],
+      "answer": "B",
+      "explanation": "本文の動詞は現在完了形 has approved で、has は助動詞です。本文が肯定文なので、付加疑問は否定の hasn't she? にします。A doesn't は一般動詞の現在形、D didn't は一般動詞の過去形の文で使う形で、完了形の has とは合いません。C isn't は be 動詞の文の付加疑問なので不可です。",
+      "translation": "あなたの上司は、もう予算を承認しましたよね。"
+    },
+    {
+      "id": "sentence-q02",
+      "sentence": "空所に入る語は? ------- useful advice she gave us!",
+      "choices": [
+        { "label": "A", "text": "What" },
+        { "label": "B", "text": "What a" },
+        { "label": "C", "text": "How" },
+        { "label": "D", "text": "How a" }
+      ],
+      "answer": "A",
+      "explanation": "強調するかたまり useful advice の最後に名詞 advice があるので What を使います。advice は数えられない名詞なので a は付けません。B What a は数えられる名詞の単数のときの形で、advice には使えません。C How は形容詞・副詞だけを強調するときの形で、後ろに名詞 advice があるので不可です(How useful her advice was! なら可)。D How a という形はありません。",
+      "translation": "彼女はなんて役に立つ助言をしてくれたのだろう。"
+    },
+    {
+      "id": "sentence-q03",
+      "sentence": "次の文の文型は? The new manager made the team stronger.",
+      "choices": [
+        { "label": "A", "text": "SVC" },
+        { "label": "B", "text": "SVO" },
+        { "label": "C", "text": "SVOO" },
+        { "label": "D", "text": "SVOC" }
+      ],
+      "answer": "D",
+      "explanation": "made の後ろに the team と stronger の2つがあり、「チームがより強い(The team is stronger.)」というイコールの関係があるので、第5文型 SVOC です。stronger は形容詞の比較級で、O を説明する補語です。C SVOO は2つ目も目的語(名詞)で、1つ目とイコールでない場合です。A SVC と B SVO は、動詞の後ろの要素が1つの場合なので当てはまりません。",
+      "translation": "新しいマネージャーは、チームをより強くした。"
+    },
+    {
+      "id": "sentence-q04",
+      "sentence": "The soup at this restaurant always tastes -------.",
+      "choices": [
+        { "label": "A", "text": "wonderfully" },
+        { "label": "B", "text": "wonder" },
+        { "label": "C", "text": "wonderful" },
+        { "label": "D", "text": "wonderfulness" }
+      ],
+      "answer": "C",
+      "explanation": "taste は「〜な味がする」という第2文型(SVC)の動詞で、後ろには主語の状態を表す補語(形容詞)が来ます。形容詞の C wonderful が正解です。A wonderfully は副詞なので補語になれません(日本語の「すばらしく」につられないこと)。B wonder(驚き・不思議に思う)と D wonderfulness(名詞)は、主語 The soup とイコールの関係にならず、意味も通りません。",
+      "translation": "このレストランのスープは、いつもすばらしい味がする。"
+    },
+    {
+      "id": "sentence-q05",
+      "sentence": "次の文の文型は? The project proved a great success.",
+      "choices": [
+        { "label": "A", "text": "SV" },
+        { "label": "B", "text": "SVC" },
+        { "label": "C", "text": "SVO" },
+        { "label": "D", "text": "SVOC" }
+      ],
+      "answer": "B",
+      "explanation": "proved の後ろには a great success が1つだけあり、「その事業 = 大成功」というイコールの関係があるので、第2文型 SVC です。この prove は「〜だと分かる・結果として〜になる」の意味です。C SVO だと「事業が大成功を証明した」となり、意味が通りません。A SV は後ろに要素が無い場合、D SVOC は後ろに2つの要素がある場合なので不可です。",
+      "translation": "その事業は大成功を収めた。"
+    },
+    {
+      "id": "sentence-q06",
+      "sentence": "次の文の文型は? The guests left the hotel early in the morning.",
+      "choices": [
+        { "label": "A", "text": "SV" },
+        { "label": "B", "text": "SVC" },
+        { "label": "C", "text": "SVO" },
+        { "label": "D", "text": "SVOC" }
+      ],
+      "answer": "C",
+      "explanation": "early と in the morning は時を表す修飾語(M)です。M を外すと、left の後ろには the hotel だけが残り、「客 ≠ ホテル」なので目的語です。よって第3文型 SVO で、leave は「〜を出る」の意味です。A SV は後ろに何も残らない場合です。B SVC は主語とイコールの語が来る場合、D SVOC は「O = C」の2つが来る場合で、early は修飾語なのでどちらも当てはまりません。",
+      "translation": "宿泊客たちは、朝早くホテルを出発した。"
+    },
+    {
+      "id": "sentence-q07",
+      "sentence": "空所に入る語は? Could you show your ID card ------- the security guard at the entrance?",
+      "choices": [
+        { "label": "A", "text": "to" },
+        { "label": "B", "text": "for" },
+        { "label": "C", "text": "of" },
+        { "label": "D", "text": "with" }
+      ],
+      "answer": "A",
+      "explanation": "show(見せる)は、相手に届いて初めて成り立つ動作なので、第4文型 show the guard your ID card を書き換えると show your ID card to the guard になります。B for は buy, make など「相手のためにする」動詞で使い、C of は ask で使う前置詞です。D with は show と結びついて「〜に見せる」という意味を表しません。",
+      "translation": "入口の警備員に身分証を見せていただけますか。"
+    },
+    {
+      "id": "sentence-q08",
+      "sentence": "第3文型に書き換えるとき、空所に入る語は? My father made me a wooden desk. → My father made a wooden desk ------- me.",
+      "choices": [
+        { "label": "A", "text": "to" },
+        { "label": "B", "text": "of" },
+        { "label": "C", "text": "by" },
+        { "label": "D", "text": "for" }
+      ],
+      "answer": "D",
+      "explanation": "make(作る)は、相手がいなくても自分だけでできる動作を「相手のために」するので、for を使います。A to は give, send など「相手に届く」動詞で使います。B of は ask で使う前置詞です。C by を使うと「私のそばで」などの別の意味になり、元の文と同じ意味になりません。",
+      "translation": "父は私に木の机を作ってくれた。"
+    },
+    {
+      "id": "sentence-q09",
+      "sentence": "「その提案に、参加者の全員が賛成したわけではない」という意味の文はどれ?",
+      "choices": [
+        { "label": "A", "text": "None of the participants agreed with the proposal." },
+        { "label": "B", "text": "Not all of the participants agreed with the proposal." },
+        { "label": "C", "text": "Neither of the participants agreed with the proposal." },
+        { "label": "D", "text": "No participant disagreed with the proposal." }
+      ],
+      "answer": "B",
+      "explanation": "「全員が〜したわけではない」は部分否定で、Not all を使う B が正解です。A None of は「誰も賛成しなかった」という全体否定です。C Neither of は「(2人の)どちらも賛成しなかった」という意味で、これも全体否定です。D は「反対した参加者は1人もいなかった」という二重否定で、「全員が賛成した」という逆の意味になります。",
+      "translation": "(B)参加者の全員がその提案に賛成したわけではなかった。"
+    },
+    {
+      "id": "sentence-q10",
+      "sentence": "空所に入る語は? The consultant ------- all the staff members the new procedure.",
+      "choices": [
+        { "label": "A", "text": "explained" },
+        { "label": "B", "text": "described" },
+        { "label": "C", "text": "introduced" },
+        { "label": "D", "text": "showed" }
+      ],
+      "answer": "D",
+      "explanation": "空所の後ろに all the staff members(人)と the new procedure(物)の2つの目的語が続く第4文型 SVOO なので、SVOO をとれる showed が正解です。A explained、B described、C introduced は「人に物を」の SVOO をとれず、explained the new procedure to all the staff members のように「物 + to 人」の形にする必要があります。",
+      "translation": "コンサルタントは、スタッフ全員に新しい手順を示した。"
+    },
+    {
+      "id": "sentence-q11",
+      "sentence": "空所に入る語は? Submit the form by Friday, ------- your application will not be processed.",
+      "choices": [
+        { "label": "A", "text": "and" },
+        { "label": "B", "text": "but" },
+        { "label": "C", "text": "or" },
+        { "label": "D", "text": "so" }
+      ],
+      "answer": "C",
+      "explanation": "「金曜日までに用紙を提出しなさい。さもないと申し込みは処理されない」という意味で、命令に従わなかった場合の結果を表すので or が正解です。A and は「そうすれば」となり、「提出すれば処理されない」と意味が逆になります。B but(しかし)と D so(だから)も、この命令文の後ろでは意味が通りません。",
+      "translation": "金曜日までに用紙を提出してください。さもないと、お申し込みは処理されません。"
+    },
+    {
+      "id": "sentence-q12",
+      "sentence": "空所に入る語は? The boxes stacked near the entrance ------- to the sales department.",
+      "choices": [
+        { "label": "A", "text": "belong" },
+        { "label": "B", "text": "belongs" },
+        { "label": "C", "text": "belonging" },
+        { "label": "D", "text": "to belong" }
+      ],
+      "answer": "A",
+      "explanation": "stacked は boxes を修飾する過去分詞(「積まれた」)で、述語動詞ではありません。この文にはまだ述語動詞が無いので、空所に述語動詞が必要です。主語の中心は複数形の boxes なので、A belong が正解です。B belongs は主語が3人称単数のときの形です。C belonging と D to belong は準動詞で、述語動詞になれません。",
+      "translation": "入口の近くに積まれた箱は、営業部のものだ。"
+    }
+  ],
+  "related": ["parts-of-speech", "verb", "interrogative", "conjunction", "agreement", "inversion", "transformation"]
+}

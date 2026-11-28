@@ -100,6 +100,13 @@ html[data-theme="dark"] .from-\[\#84fab0\] {
 html[data-theme="dark"] .to-\[\#8fd3f4\] {
   --tw-gradient-to: #245a6e;
 }
+/* 文法の教科書のカード(ホーム) */
+html[data-theme="dark"] .from-\[\#fbc2eb\] {
+  --tw-gradient-from: #5a2f52;
+}
+html[data-theme="dark"] .to-\[\#a6c1ee\] {
+  --tw-gradient-to: #2f4378;
+}
 /* 選択中の絞り込みボタン(濃い背景に白い文字)は、暗い背景に埋もれるので紺のボタンと同じ色にする */
 html[data-theme="dark"] .bg-slate-900 {
   background-color: #34508a;

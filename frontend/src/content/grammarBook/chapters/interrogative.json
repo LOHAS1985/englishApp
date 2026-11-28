@@ -1,0 +1,1349 @@
+{
+  "id": "interrogative",
+  "no": 6,
+  "title": "疑問詞",
+  "lead": "疑問詞(who, what, which, when, where, why, how など)は、「だれが」「何を」「いつ」「どこで」「なぜ」「どのように」のように、Yes か No では答えられない質問を作る語です。日本語では疑問詞が文の途中に入り、語順は平叙文とほとんど変わりませんが、英語では疑問詞を文頭に出し、助動詞と主語を入れ替える、という2つの操作が必要になります。この語順の違いに慣れることが、この章の最初の目標です。\n\nこの章では、疑問詞の3つの働き(疑問代名詞・疑問形容詞・疑問副詞)、疑問詞疑問文の語順と「疑問詞が主語のとき do を使わない」規則、what と which の使い分け、how を使った表現(how many, how much, how long など)を順に学びます。そのうえで、疑問文が別の文の一部になる間接疑問(Do you know where the station is? の語順)、疑問詞 + to 不定詞、否定疑問文の答え方、修辞疑問までを扱います。\n\nTOEIC Part 5・6 では、間接疑問の語順、whether と if の使い分け、疑問詞が作る名詞節の動詞の数、how many と how much の区別がよく問われます。リスニングの Part 2 は、疑問詞で始まる質問への答えを選ぶ形式なので、疑問詞の意味と形を正確につかんでいることが、そのまま得点につながります。英検準1級の英作文や面接でも、間接疑問を使うと丁寧で自然な表現になります。",
+  "sections": [
+    {
+      "id": "kinds",
+      "title": "疑問詞の種類と働き",
+      "intro": "疑問詞には、名詞の代わりをするもの(疑問代名詞)、名詞を修飾するもの(疑問形容詞)、副詞の働きをするもの(疑問副詞)があります。この節では、疑問詞疑問文と Yes/No 疑問文の違いと、どの語がどの働きをするかを確かめます。後の節の語順の規則は、すべてこの区別の上に成り立ちます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "疑問詞疑問文と Yes/No 疑問文:答えてほしい中身が違う",
+          "explanation": "**疑問詞(who, what, which, when, where, why, how など)は「知りたい部分」を表す語で、疑問詞を使った疑問文には Yes / No ではなく、具体的な情報で答えます。** 疑問詞を使わない疑問文(Do you like coffee? など)は Yes/No 疑問文といい、「その内容が正しいか」を聞きます。一方、疑問詞疑問文は「文の中の分からない部分」を聞きます。\n\n作り方の考え方は、平叙文(ふつうの文)の中で知りたい部分を疑問詞に置き換え、その疑問詞を文の先頭に出す、というものです。\n\n・You met **Mr. Sato** at the station.(平叙文)\n・→ **Who** did you meet at the station?(「だれに」を知りたい)\n\n答えるときは、疑問詞があった位置にそのまま答えを入れます。I met **Mr. Sato** at the station. となります。\n\n日本語との違いに注意してください。日本語では「あなたは駅でだれに会いましたか」のように、疑問詞(だれに)が文の途中の、元の位置に入ります。英語では、疑問詞は原則として文頭に出ます。相手の発言に驚いて聞き返す You met who? のような言い方は、特別な場合です。",
+          "table": {
+            "caption": "2種類の疑問文",
+            "headers": ["", "Yes/No 疑問文", "疑問詞疑問文"],
+            "rows": [
+              ["聞くこと", "内容が正しいかどうか", "知りたい部分(だれ・何・いつ・どこ…)"],
+              ["形", "do / be / 助動詞で始まる", "疑問詞(を含むかたまり)で始まる"],
+              ["答え", "Yes / No", "具体的な情報(人・物・場所・理由など)"],
+              ["例", "Do you work in Osaka?", "Where do you work?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Where** do you usually have lunch on weekdays?",
+              "ja": "平日はたいていどこで昼食をとりますか。",
+              "note": "場所を知りたいので Where を文頭に出す。答えは Yes / No ではなく、At the cafeteria. のような場所"
+            },
+            {
+              "en": "**Do** you usually have lunch at your desk?",
+              "ja": "昼食はたいてい自分の席でとりますか。",
+              "note": "疑問詞が無い Yes/No 疑問文。答えは Yes, I do. / No, I don't."
+            }
+          ],
+          "cautions": [
+            "× Did you meet who at the station? → ○ Who did you meet at the station? 英語では疑問詞を文頭に出す(日本語のように元の位置には置かない)",
+            "× Where do you work? — Yes, I do. → ○ I work in Osaka. 疑問詞疑問文に Yes / No で答えることはできない"
+          ]
+        },
+        {
+          "heading": "疑問代名詞:who・whom・whose・what・which(「だれ」「何」「どれ」)",
+          "explanation": "**疑問代名詞は、知りたい「名詞」の代わりをする疑問詞で、文の中で主語・目的語・補語の働きをします。** 代名詞とは、名詞の代わりをする語(he, it など)のことです。疑問代名詞は「知りたい名詞」の代わりをして、文頭に出ます。\n\n・**Who** called you?(主語。だれが)\n・**What** did you buy?(buy の目的語。何を)\n・**Which** is your desk?(補語。どれが)\n\nwho / whom / whose は人を、what は物・事柄を、which は決まった範囲の中から選ぶときに使います(what と which の使い分けは第3節)。\n\n形が変わるのは who の系列だけです。who(主格:だれが)、whom(目的格:だれを・だれに)、whose(所有格:だれの)は、he / him / his に対応しています。what と which は、主語でも目的語でも形が同じです。\n\n見分け方は、疑問詞の後ろを見ることです。後ろで主語が欠けていれば疑問詞が主語、目的語が欠けていれば疑問詞が目的語です(Who called you? は called の主語が無い。What did you buy? は buy の目的語が無い)。",
+          "table": {
+            "caption": "疑問代名詞の一覧",
+            "headers": ["語", "意味", "働き", "例"],
+            "rows": [
+              ["who", "だれが", "主語・補語(目的語にも使う)", "**Who** is the new director?"],
+              ["whom", "だれを・だれに", "目的語(かたい言い方)", "**Whom** did the board appoint?"],
+              ["whose", "だれの(もの)", "単独で「だれのもの」", "**Whose** is this jacket?"],
+              ["what", "何が・何を", "主語・目的語・補語", "**What** happened?"],
+              ["which", "どれが・どれを", "主語・目的語・補語", "**Which** do you prefer?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who** is responsible for ordering the office supplies?",
+              "ja": "事務用品の発注はだれの担当ですか。",
+              "note": "Who が is の主語になる。後ろの responsible ... は、主語についての説明"
+            },
+            {
+              "en": "**What** did the committee decide at yesterday's meeting?",
+              "ja": "委員会は昨日の会議で何を決めましたか。",
+              "note": "decide の目的語が分からないので、What が目的語の働きをする"
+            },
+            {
+              "en": "**Which** is faster, the express train or the local train?",
+              "ja": "快速と各駅停車では、どちらが速いですか。",
+              "note": "選ぶ範囲(2つ)が決まっているので Which。Which が is の主語"
+            }
+          ],
+          "cautions": [
+            "× Whom called you? → ○ Who called you? whom は目的語の形なので、主語には使えない"
+          ]
+        },
+        {
+          "heading": "疑問形容詞:what・which・whose + 名詞(「どんな〜」「どの〜」「だれの〜」)",
+          "explanation": "**what / which / whose は、すぐ後ろに名詞を置いて「どんな〜」「どの〜」「だれの〜」と聞くこともできます。このとき、疑問詞と名詞は1つのかたまりとして、一緒に文頭に出ます。** 形容詞とは名詞を説明する語のことで、この働きをする what / which / whose を疑問形容詞と呼びます。\n\n・**What time** does the store open?(何時に)\n・**Which route** should we take?(どの道を)\n・**Whose idea** was it?(だれの案だったか)\n\n日本語では「どの道を私たちは行くべきですか」のように、名詞と疑問詞を離して言うこともできますが、英語は Which route を切り離せません。名詞を後ろに残して Which should we take route? とは言えません。\n\n疑問形容詞のかたまりの後ろは、2通りの形になります。\n\n・かたまり全体が主語: そのまま動詞が続く(Which route is shorter?)\n・かたまりが目的語・副詞の働き: 疑問文の語順になる(Which route should we take?)\n\nこの違いは、第2節で詳しく扱います。",
+          "table": {
+            "caption": "疑問形容詞でよく使うかたまり",
+            "headers": ["かたまり", "意味", "例"],
+            "rows": [
+              ["what time", "何時に", "What time does the train depart?"],
+              ["what kind (type, sort) of + 名詞", "どんな種類の〜", "What kind of software do you use?"],
+              ["what + 名詞(day, size, color など)", "何の〜・どんな〜", "What size do you wear?"],
+              ["which + 名詞", "どの〜(範囲がある)", "Which seat is yours?"],
+              ["whose + 名詞", "だれの〜", "Whose bag is on the table?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What kind of** training do new employees receive in their first month?",
+              "ja": "新入社員は最初の1か月に、どんな種類の研修を受けますか。",
+              "note": "What kind of training が receive の目的語。名詞 training まで一緒に文頭に出る"
+            },
+            {
+              "en": "**Which flight** did you book for the trip to Singapore?",
+              "ja": "シンガポール出張には、どの便を予約しましたか。",
+              "note": "Which flight が book の目的語。名詞を疑問詞から離さず、かたまりで文頭へ"
+            },
+            {
+              "en": "**Whose proposal** was approved by the board last week?",
+              "ja": "先週、取締役会で承認されたのは、だれの提案ですか。",
+              "note": "Whose proposal 全体が主語。すぐ後ろに動詞(was approved)が続き、do は使わない"
+            }
+          ],
+          "cautions": [
+            "× Which do you like color? → ○ Which color do you like? 名詞は疑問詞から離さず、いっしょに文頭へ出す",
+            "× What kind of music you like? → ○ What kind of music do you like? 疑問詞のかたまりの後ろは、疑問文の語順(助動詞 + 主語)にする"
+          ]
+        },
+        {
+          "heading": "疑問副詞:when・where・why・how(「いつ」「どこで」「なぜ」「どのように」)",
+          "explanation": "**疑問副詞は、時・場所・理由・方法などを聞く疑問詞です。名詞の代わりではなく、副詞(動詞などを詳しくする語)の働きをするので、前置詞は付けません。** 答えは、at 3 p.m.、in Osaka、because ...、by train のような、副詞の働きをするかたまりです。\n\n・**When** will the new model be released?(時)\n・**Where** is the meeting being held?(場所)\n・**Why** was the flight canceled?(理由)\n・**How** did you get here?(方法)\n\n日本語は「いつから」「どこで」「どこに」のように助詞が付きますが、英語の疑問副詞は、その意味をすでに含んでいます。where は「どこで」「どこに」「どこへ」のどれにもなるので、at where のように前置詞を重ねません。ただし、from where や until when のように、前置詞が必要な意味のときは、前置詞が付くこともあります(Where are you from? のほうがふつうです)。\n\nhow は「どのように」のほか、状態(How are you?)や程度(How old ...?)も聞けます。how は第4節で詳しく扱います。",
+          "table": {
+            "caption": "疑問副詞",
+            "headers": ["語", "聞くこと", "答えの形", "例"],
+            "rows": [
+              ["when", "時・日時", "at 3 p.m. / next Monday", "**When** is the deadline?"],
+              ["where", "場所・方向", "in Osaka / at the hotel", "**Where** can I buy a ticket?"],
+              ["why", "理由", "Because ... / To ...", "**Why** did sales decline?"],
+              ["how", "方法・状態・程度", "by train / fine / very", "**How** can I reach you?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**When** will the results of the customer survey be published?",
+              "ja": "顧客アンケートの結果は、いつ公表されますか。",
+              "note": "時を聞く疑問副詞。答えは On May 10. のような、時を表す語句"
+            },
+            {
+              "en": "**Why** did the company decide to close its Osaka office?",
+              "ja": "その会社は、なぜ大阪事務所を閉鎖することにしたのですか。",
+              "note": "理由を聞く Why。答えは Because ... か、目的を表す To 不定詞"
+            },
+            {
+              "en": "**How** can customers update their payment information online?",
+              "ja": "顧客はオンラインで、支払い情報をどのように更新できますか。",
+              "note": "方法を聞く How。答えは By logging in to the account page. のような手段"
+            }
+          ],
+          "cautions": [
+            "× At where is the meeting held? → ○ Where is the meeting held? where が「どこで」の意味を含むので、at を重ねない"
+          ]
+        }
+      ],
+      "examNote": "疑問詞そのものの意味を直接問う問題は、TOEIC Part 5 ではあまり出ません(Part 5 は平叙文が中心です)。この節の内容が役に立つのは、リスニング Part 2 です。Part 2 は疑問詞で始まる質問への答えを選ぶ形式なので、疑問詞が何を聞いているか(時・場所・理由・方法・数)を聞き取り、それに合う答えを選びます。原則として、疑問詞疑問文に Yes / No で答える選択肢は、答えとして適切ではありません。Part 5・6 で疑問詞が関わるのは、主に第5節の間接疑問、第6節の疑問詞 + to 不定詞、名詞節を作る whether や what です。この節の区別は、それらを正しく読むための土台になります。"
+    },
+    {
+      "id": "word-order",
+      "title": "疑問詞疑問文の語順",
+      "intro": "疑問詞を文頭に出したあと、後ろをどんな語順にするかが、この節のテーマです。基本は「疑問詞 + 助動詞(do など) + 主語 + 動詞」ですが、疑問詞自体が主語になる場合は、語順が変わりません。この違いが、第5節の間接疑問で語順を決める土台になります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "基本の語順:疑問詞 + 助動詞(do・be・will など) + 主語 + 動詞",
+          "explanation": "**疑問詞疑問文の基本の語順は、「疑問詞 + 助動詞(または be 動詞) + 主語 + 動詞」です。** 助動詞とは、動詞を助ける語(do, does, did, will, can, have など)のことです。Yes/No 疑問文(Will you meet the client?)の先頭に、疑問詞を足した形と考えられます。\n\n作り方は次の3つの手順です。\n\n・手順1: 平叙文を作る(You will meet the client at noon.)。\n・手順2: 知りたい部分を疑問詞にして文頭に出す(at noon → When)。\n・手順3: 残りを Yes/No 疑問文の語順にする(will を主語の前に出す)→ When **will you** meet the client?\n\n一般動詞(play, meet など)だけの文で助動詞が無いときは、do / does / did を補います。時制(現在か過去か)と、主語が三人称単数のときの -s は do / does / did が受け持つので、その後ろの動詞は**原形**になります。\n\n・What did you **buy**?(× What did you bought?)\n・Where does she **work**?(× Where does she works?)\n\n日本語は疑問詞の位置も語順も変わりませんが、英語では「疑問詞を前に出す」と「主語と助動詞を入れ替える」の2つの操作が同時に起こります。",
+          "table": {
+            "caption": "疑問詞疑問文の形",
+            "headers": ["動詞の種類", "形", "例"],
+            "rows": [
+              ["be 動詞", "疑問詞 + be + 主語 ...", "Where **is** the meeting room?"],
+              ["一般動詞(現在・過去)", "疑問詞 + do / does / did + 主語 + 原形", "What time **does** the store **open**?"],
+              ["助動詞(will, can など)", "疑問詞 + 助動詞 + 主語 + 原形", "When **will** you **announce** the results?"],
+              ["完了形・進行形", "疑問詞 + have / be + 主語 + 過去分詞 / -ing", "How long **have** you **worked** here?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Where did** the delegation **stay** during its visit to Boston?",
+              "ja": "代表団はボストン訪問中、どこに滞在しましたか。",
+              "note": "stay は一般動詞の過去。did を補い、動詞は原形の stay になる"
+            },
+            {
+              "en": "**When will** the new store **open** in the shopping mall?",
+              "ja": "ショッピングモールの新店舗は、いつ開店しますか。",
+              "note": "助動詞 will を主語 the new store の前に出す。動詞 open は原形"
+            },
+            {
+              "en": "**How long have** you **been working** at this company?",
+              "ja": "この会社では、どのくらい働いていますか。",
+              "note": "現在完了進行形。have を主語の前に出し、その後ろは been working のまま"
+            }
+          ],
+          "cautions": [
+            "× Where you did go yesterday? → ○ Where did you go yesterday? 疑問詞の後ろは「助動詞 + 主語」の順にする",
+            "× What did you bought? → ○ What did you buy? did が過去を表すので、動詞は原形にする"
+          ]
+        },
+        {
+          "heading": "疑問詞が主語のとき:do を使わず、平叙文の語順のまま",
+          "explanation": "**疑問詞そのものが主語になるときは、疑問詞がすでに文頭の主語の位置にあるので、do / does / did を使わず、「疑問詞 + 動詞」の平叙文の語順になります。** 助動詞を主語の前に出す必要がない、というのが理由です。\n\n・主語を聞く: **Who** called Ms. Park?(だれが電話したか)→「Who + 動詞」\n・目的語を聞く: **Who** did Ms. Park call?(Ms. Park がだれに電話したか)→「Who + did + 主語 + 動詞」\n\n見分け方は、疑問詞の直後を見ることです。直後が動詞なら疑問詞は主語、直後に別の主語(名詞・代名詞)があるなら疑問詞は目的語などです。\n\n疑問詞が主語のとき、who / what / which は単数扱いが基本なので、現在形の動詞には三人称単数の -s が付きます(Who **wants** ...? What **happens** ...?)。過去形なら、動詞の過去形をそのまま使います(Who **wrote** ...?)。\n\n日本語では「だれが電話した?」と「だれに電話した?」は助詞が違うだけですが、英語では did が入るかどうかまで変わります。日本語の発想で、主語を聞く文にも did を入れてしまう間違いが起こりやすいところです。",
+          "table": {
+            "caption": "疑問詞が主語のときと、目的語のとき",
+            "headers": ["疑問詞の働き", "語順", "例", "疑問詞の直後"],
+            "rows": [
+              ["主語", "疑問詞 + 動詞", "**What** happened at the meeting?", "動詞"],
+              ["目的語", "疑問詞 + did + 主語 + 動詞", "**What** did you discuss at the meeting?", "主語(you)"],
+              ["主語", "疑問詞 + 動詞(三単現の -s)", "**Who** manages the Tokyo office?", "動詞"],
+              ["前置詞の目的語", "疑問詞 + does + 主語 + 動詞 + 前置詞", "**Who** does Mr. Tanaka report to?", "主語(Mr. Tanaka)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who** manages the customer service team at the Osaka branch?",
+              "ja": "大阪支店のカスタマーサービスのチームは、だれが管理していますか。",
+              "note": "Who が manages の主語。do は使わず、現在形の動詞に三単現の -s が付く"
+            },
+            {
+              "en": "**Who** did the board choose as the new treasurer?",
+              "ja": "取締役会は、新しい会計担当にだれを選びましたか。",
+              "note": "Who は choose の目的語。直後に主語 the board があるので did を使い、choose は原形"
+            },
+            {
+              "en": "**What** caused the sudden drop in website traffic last month?",
+              "ja": "先月のウェブサイトのアクセス数の急落は、何が原因でしたか。",
+              "note": "What が主語で、直後が動詞 caused。did は不要"
+            }
+          ],
+          "cautions": [
+            "× Who did call you yesterday? → ○ Who called you yesterday? 疑問詞が主語なら did は使わない(特に強く言いたい場合を除く)",
+            "× Who want to join the team? → ○ Who wants to join the team? 疑問詞が主語のとき、動詞は単数扱い"
+          ]
+        },
+        {
+          "heading": "「疑問詞 + 名詞」の後ろを見る:主語なら do は不要",
+          "explanation": "**「which + 名詞」「what + 名詞」「whose + 名詞」「how many + 名詞」のかたまりが主語のときも、do を使わず、平叙文の語順になります。かたまりが目的語や副詞の働きのときは、疑問文の語順です。** 判断の方法は前の項目と同じで、かたまりの直後を見ます。\n\n・直後が動詞 → かたまりが主語 → 平叙文の語順: **Which team** won the award?\n・直後が主語 + 動詞 → かたまりは目的語など → 疑問文の語順: **Which team** did you join?\n\nかたまりが主語のとき、動詞は名詞の数に合わせます(Which teams **were** ...? How many people **attend** ...?)。\n\n気をつけたいのは what time や what day のように、時を聞く表現です。What time **does** the meeting start? の what time は、「何時に」という副詞の働きなので、疑問文の語順になります。What time **is** it? は、it が主語で、what time が補語です。どちらも「かたまりの後ろに主語(the meeting, it)があるか」を確かめれば判断できます。",
+          "table": {
+            "caption": "「疑問詞 + 名詞」のかたまりの働きと語順",
+            "headers": ["かたまりの働き", "直後", "語順", "例"],
+            "rows": [
+              ["主語", "動詞", "平叙文の語順", "**How many people** attended the seminar?"],
+              ["目的語", "主語 + 動詞", "疑問文の語順", "**How many people** did you invite to the seminar?"],
+              ["副詞(時・程度)", "主語 + 動詞", "疑問文の語順", "**What time** does the seminar start?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Which candidate** has the strongest background in finance?",
+              "ja": "どの候補者が、財務に最も強い経歴を持っていますか。",
+              "note": "Which candidate が主語で、直後が動詞 has。do は不要"
+            },
+            {
+              "en": "**Which candidate** did the committee interview first?",
+              "ja": "委員会は、最初にどの候補者を面接しましたか。",
+              "note": "Which candidate は interview の目的語。直後に主語 the committee があるので did を使う"
+            },
+            {
+              "en": "**How many employees** work in the Singapore office?",
+              "ja": "シンガポール事務所では、何人の従業員が働いていますか。",
+              "note": "How many employees が主語。複数名詞なので work に -s は付かない"
+            }
+          ],
+          "cautions": [
+            "× How many people did attend the seminar? → ○ How many people attended the seminar? 「疑問詞 + 名詞」が主語なら did は使わない",
+            "× What time the meeting starts? → ○ What time does the meeting start? what time は副詞の働きなので、疑問文の語順にする"
+          ]
+        },
+        {
+          "heading": "前置詞の位置:Who are you talking to? と To whom are you talking?",
+          "explanation": "**疑問詞が前置詞の目的語になるとき、前置詞は文末に残すのがふつうです。かたい書き言葉では、前置詞を疑問詞の前に出す形(前置詞 + whom / which / what)も使います。** 前置詞を前に出すと、who ではなく whom を使います。\n\n・ふつう: **Who** are you waiting **for**?\n・かたい: **For whom** are you waiting?\n\n日本語の「だれを待っていますか」「だれと話していますか」では、助詞(を・と)が名詞に付くので、英語でも前置詞を落としてしまいがちです。wait for, talk to, look at のように、動詞が前置詞を必要とするかどうかは、動詞ごとに覚える必要があります。疑問詞が前に出ても、前置詞は動詞と一緒に必要です。\n\n前置詞を前に出す形では、次の2つに注意します。\n\n・前置詞の直後には whom を使う(who は、正式な英語では置かない)。\n・前置詞を前に出したら、文末にもう一度は付けない(× To whom are you talking to?)。\n\nwhen や where などの疑問副詞は、前置詞の意味を含んでいるので、この区別は要りません。",
+          "table": {
+            "caption": "前置詞の位置",
+            "headers": ["形", "例", "文体"],
+            "rows": [
+              ["前置詞を文末に残す", "Who are you waiting for?", "ふつう・会話"],
+              ["前置詞を前に出す", "For whom are you waiting?", "かたい・書き言葉"],
+              ["前置詞 + 疑問詞 + 名詞", "In which room is the meeting held? / Which room is the meeting held in?", "どちらも可"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who** is the manager planning to have lunch **with** tomorrow?",
+              "ja": "マネージャーは明日、だれと昼食をとる予定ですか。",
+              "note": "have lunch with + 人 の with が文末に残る。Who は with の目的語"
+            },
+            {
+              "en": "**To whom** should I address the complaint letter?",
+              "ja": "苦情の手紙は、だれ宛てにすればよいですか。",
+              "note": "前置詞 To を前に出したかたい形。前置詞の直後なので whom"
+            },
+            {
+              "en": "**What** are you looking **at** on the monitor?",
+              "ja": "モニターの何を見ているのですか。",
+              "note": "look at の at が文末に残る。What は at の目的語"
+            }
+          ],
+          "cautions": [
+            "× Who are you waiting? → ○ Who are you waiting for? wait は for を必要とする動詞。疑問詞が前に出ても for は落とせない",
+            "× To who did you send the invoice? → ○ To whom did you send the invoice? / Who did you send the invoice to? 前置詞の直後は whom",
+            "× To whom did you send the invoice to? → ○ To whom did you send the invoice? 前置詞を前に出したら、文末には残さない"
+          ]
+        },
+        {
+          "heading": "who と whom:目的語ではふつう who、かたい文では whom",
+          "explanation": "**疑問文の中で目的語になるとき、かたい書き言葉では whom を使いますが、現代の会話や一般的な文章では who がふつうに使われます。主語のときは必ず who です。**\n\n・主語: **Who** invited you?(× Whom invited you?)\n・目的語(ふつう): **Who** did you invite?\n・目的語(かたい): **Whom** did you invite?\n・前置詞の直後: **To whom** ...?(who は使わない)\n\n試験の選択肢に whom が出るのは、主に前置詞の直後と、関係詞(第19章「関係詞」)の場合です。疑問文の主語の位置に whom を選ぶと、必ず誤りになります。\n\n見分け方の手順は、次のとおりです。\n\n・疑問詞の直後が動詞 → 主語なので who\n・疑問詞の直前が前置詞 → whom\n・動詞の目的語の位置 → who でも whom でもよい(whom はかたい)",
+          "table": {
+            "caption": "who と whom の使える位置",
+            "headers": ["位置", "who", "whom"],
+            "rows": [
+              ["主語", "○ Who called?", "× Whom called?"],
+              ["動詞の目的語", "○ ふつうの言い方", "○ かたい言い方"],
+              ["前置詞の直後", "×", "○ To whom ...?"],
+              ["前置詞を文末に残す", "○ Who ... to?", "○ かたい言い方 Whom ... to?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who** should I contact about the missing shipment?",
+              "ja": "届いていない荷物の件は、だれに連絡すればよいですか。",
+              "note": "contact の目的語。会話ではふつう who を使う"
+            },
+            {
+              "en": "**Whom** did the committee nominate as the next chairperson?",
+              "ja": "委員会は、次の議長にだれを指名しましたか。",
+              "note": "目的語の whom はかたい言い方。直後に主語 the committee があるので目的語だと分かる"
+            }
+          ],
+          "cautions": [
+            "× Whom is responsible for the project? → ○ Who is responsible for the project? 主語の位置に whom は使えない"
+          ]
+        }
+      ],
+      "examNote": "疑問文そのものの語順を問う問題は、TOEIC Part 5・6 ではほとんど出ません。この節の内容は、(1) 第5節の間接疑問で、語順を平叙文に直す手順、(2) リスニング Part 2 や英検のスピーキング・ライティングで、正しい疑問文を作ること、の土台です。Part 5 で who と whom の選択が出るときは、前置詞の直後なら whom、直後が動詞なら who、という判断になります。「疑問詞の直後が動詞なら主語」という見方は、間接疑問や関係詞でもそのまま使えます。"
+    },
+    {
+      "id": "choosing",
+      "title": "what・which・whose の使い分けと選択疑問文",
+      "intro": "what と which は、どちらも「何」「どれ」と訳せるため、日本語話者が迷いやすい疑問詞です。この節では、what / which / whose の使い分けと、A or B で聞く選択疑問文、what を使った決まった聞き方、how come・what if など疑問詞を使う慣用的な言い方を学びます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "what と which の使い分け:選ぶ範囲が決まっているか",
+          "explanation": "**what は選ぶ範囲が決まっていないときに、which は相手と共有している範囲(候補)の中から選ぶときに使います。** 日本語の「何」と「どれ・どちら」の違いに近いものです。\n\n・What do you want for lunch?(範囲は決まっていない。何でもよい)\n・Which do you want, the sandwich or the pasta?(2つの候補から選ぶ)\n\nwhich は、候補が見えている場面(メニューを見ている、2つの案を比べているなど)で自然です。「or で選択肢を述べる」「of the + 複数名詞を続ける」「one(s) を続ける」のように、範囲が示される形でよく使います。\n\n・Which of the three proposals do you prefer?\n・Which one is yours?\n\nwhich of の後ろは、the / these / those / my などを付けた複数名詞か、代名詞(them, us, you)です。\n\nなお、これは「話し手が範囲を意識しているか」の違いなので、場面によっては what も which も使えることがあります。名前のように、範囲を考えられないものを聞くときは what だけを使います(What is your name?)。\n\n人について範囲から選ぶときも、Which of the candidates ...? のように which を使い、Who of the candidates とはふつう言いません。",
+          "table": {
+            "caption": "what と which",
+            "headers": ["", "what", "which"],
+            "rows": [
+              ["範囲", "決まっていない", "決まっている・限られている"],
+              ["日本語", "何、どんな", "どれ、どちら、どの"],
+              ["of + 複数名詞", "使えない", "Which of the + 複数名詞 が使える"],
+              ["例", "What is your favorite color?", "Which color do you prefer, red or blue?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What** subjects did you study at university?",
+              "ja": "大学では、何の科目を勉強しましたか。",
+              "note": "科目の範囲は決まっていない。聞かれた人が自由に答える"
+            },
+            {
+              "en": "**Which** of the two offices is closer to the airport?",
+              "ja": "2つの事務所のうち、どちらが空港に近いですか。",
+              "note": "2つという範囲が決まっているので which。of the two で範囲を示している"
+            },
+            {
+              "en": "**Which** seminar did you attend, the morning one or the afternoon one?",
+              "ja": "午前の回と午後の回のどちらのセミナーに出ましたか。",
+              "note": "or で候補が示されている。Which + 名詞 の形"
+            }
+          ],
+          "cautions": [
+            "× What of the three candidates is the best? → ○ Which of the three candidates is the best? of the + 複数名詞の前では which を使う",
+            "× Which is your name? → ○ What is your name? 名前のように範囲を考えられないものは what"
+          ]
+        },
+        {
+          "heading": "whose:「だれの」と「だれのもの」/ whose と who's",
+          "explanation": "**whose は「だれの」を聞く語で、「whose + 名詞」(Whose bag is this?)と、単独で「だれのもの」(Whose is this?)の2つの形があります。** who's とは別の語です。\n\nwhose は who の所有格(「〜の」を表す形)で、he に対する his のようなものです。「whose + 名詞」は疑問形容詞、単独の whose は疑問代名詞です。\n\n・Whose umbrella is this? = Whose is this?(これはだれの傘ですか)\n・答えは、Mine. / It's Ms. Lee's. のように、所有を表す形(所有代名詞や 's)が多くなります。\n\n「whose + 名詞」が主語のとき(Whose idea was it?)は、直後が動詞なので do を使いません。目的語のとき(Whose idea did the manager adopt?)は、do を使います。前の節で見た規則と同じです。\n\n発音が同じ who's は who is / who has の短縮形で、後ろに形容詞・分詞・名詞などが来ます(Who's the new manager?)。迷ったときは、who is / who has に置き換えて意味が通るかを確かめます。",
+          "table": {
+            "caption": "whose と who's",
+            "headers": ["形", "意味", "例"],
+            "rows": [
+              ["whose + 名詞", "だれの〜", "Whose laptop is this?"],
+              ["whose(単独)", "だれのもの", "Whose is this laptop?"],
+              ["who's", "who is / who has の短縮形", "Who's in charge of the project?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Whose** laptop was left in the meeting room this morning?",
+              "ja": "今朝、会議室に置き忘れられていたのは、だれのノートパソコンですか。",
+              "note": "Whose laptop が主語。was left が続き、do は使わない"
+            },
+            {
+              "en": "**Whose** is the blue folder on the printer?",
+              "ja": "プリンターの上の青いフォルダーは、だれのものですか。",
+              "note": "単独の whose は「だれのもの」。the blue folder が主語、Whose が補語"
+            },
+            {
+              "en": "**Who's** coming to the client dinner on Friday?",
+              "ja": "金曜日の顧客との夕食会には、だれが来ますか。",
+              "note": "Who's = Who is。coming と続く進行形"
+            }
+          ],
+          "cautions": [
+            "× Who's bag is this? → ○ Whose bag is this? 「だれの」は whose。who's は who is の短縮形"
+          ]
+        },
+        {
+          "heading": "what を使う代表的な聞き方:職業・種類・様子・意味",
+          "explanation": "**what は「何」だけでなく、職業・種類・様子・意味・用途などを聞く場面でも使います。同じ「どんな」「どう」でも、何を聞くかによって形が決まっています。** 日本語の「どんな」「どう」は幅が広いので、英語では、聞きたいことで形を選びます。\n\n特に注意したいのは、次の3組です。\n\n・What do you do? は職業を聞く表現(「お仕事は?」)。今していること(What are you doing?)とは別です。\n・What is she like? は人柄や全体的な様子、What does she look like? は外見を聞きます。\n・What does this word mean? は意味を聞きます(× What means this word?)。\n\nまた、what ... for は、「何のためのものか」という用途を聞きます(What is this button for?)。\n\nlike は、ここでは動詞の「好む」ではなく、「〜のような」を表す前置詞です。前置詞なので、疑問詞が前に出ても like は文末に残ります。How を使って How is she like? とは言えません。",
+          "table": {
+            "caption": "what を使う聞き方",
+            "headers": ["聞きたいこと", "表現", "例"],
+            "rows": [
+              ["職業", "What do you do?", "What does your brother do?"],
+              ["今している行動", "What are you doing?", "What are you working on?"],
+              ["人柄・様子", "What is X like?", "What is the new manager like?"],
+              ["外見", "What does X look like?", "What does the building look like?"],
+              ["意味", "What does X mean?", "What does this abbreviation mean?"],
+              ["用途・目的", "What is X for?", "What is this tool for?"],
+              ["種類", "What kind of X ...?", "What kind of tickets do you need?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What** is the weather **like** in Vancouver in early spring?",
+              "ja": "バンクーバーの早春の天気は、どんな感じですか。",
+              "note": "What is X like? で様子・状態を聞く。like は前置詞で、疑問詞が前に出ても残る"
+            },
+            {
+              "en": "**What** does this abbreviation **mean**?",
+              "ja": "この略語は、どういう意味ですか。",
+              "note": "mean は他動詞で、What がその目的語"
+            },
+            {
+              "en": "**What** is this switch **for**?",
+              "ja": "このスイッチは、何のためのものですか。",
+              "note": "用途を聞く What ... for"
+            }
+          ],
+          "cautions": [
+            "× How is the weather like in Vancouver? → ○ What is the weather like in Vancouver? / How is the weather in Vancouver? like を付けるなら what、how を使うなら like は付けない"
+          ]
+        },
+        {
+          "heading": "選択疑問文:A or B で聞く",
+          "explanation": "**選択疑問文は、「A か B か」を聞く疑問文で、Yes / No ではなく、選んだほうを答えます。** 形は、Yes/No 疑問文の後ろに A or B を付けるものと、疑問詞疑問文の後ろに A or B を付けるものの2つです。\n\n・Do you prefer coffee **or** tea?(コーヒーと紅茶のどちらが好きか)\n・Which do you prefer, coffee **or** tea?\n\nor で結ぶ前後は、同じ形(語・句・節)にそろえます。\n\n・Would you like to pay **by cash** or **by credit card**?\n\n話し言葉では、イントネーション(声の上げ下げ)が大切です。A の後ろを上げ、B の後ろを下げると、選択疑問文になります(Coffee↗ or tea↘?)。全体を上げて終わると、「コーヒーや紅茶のような飲み物を飲みますか」という意味の Yes/No 疑問文になります。そのため、Do you want coffee or tea? は、読み方によって2つの意味になり得ます。書き言葉では、文脈で判断します。\n\n選択疑問文に答えるときは、Yes / No ではなく、Coffee, please. のように、選んだものを言います。",
+          "table": {
+            "caption": "選択疑問文の形",
+            "headers": ["種類", "形", "答え"],
+            "rows": [
+              ["Yes/No 疑問文 + or", "Do you want A or B?(A を上げ、B を下げる)", "A / B(選んだもの)"],
+              ["疑問詞 + or", "Which do you want, A or B?", "A / B"],
+              ["Yes/No として読む場合", "Do you want coffee or tea?(全体を上げる)", "Yes, please. / No, thanks."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Would you like to meet on **Tuesday or Wednesday**?",
+              "ja": "火曜日と水曜日のどちらにお会いしたいですか。",
+              "note": "or で2つの候補を並べる。答えは Tuesday, please. のように、選んだほう"
+            },
+            {
+              "en": "**Is** the conference in Seoul **or** in Busan this year?",
+              "ja": "今年の会議は、ソウルですか、それとも釜山ですか。",
+              "note": "be 動詞の疑問文に A or B を付けた選択疑問文。Yes / No ではなく、場所を答える"
+            },
+            {
+              "en": "**Which** is cheaper, taking the bus **or** taking the train?",
+              "ja": "バスで行くのと電車で行くのでは、どちらが安いですか。",
+              "note": "Which で聞き、後ろに A or B で候補を示す。or の前後を同じ形(taking ...)にそろえる"
+            }
+          ],
+          "cautions": [
+            "× Do you prefer coffee or tea? — Yes, I do. → ○ I prefer tea. 選択疑問文には、選んだものを答える"
+          ]
+        },
+        {
+          "heading": "疑問詞を使う決まった言い方:how come・what if・how about・why don't you",
+          "explanation": "**疑問詞を使った決まった言い方には、ふつうの疑問文と語順が違うものがあります。特に how come は、後ろが平叙文の語順になります。**\n\nhow come は why とほぼ同じ意味(「どうして」)ですが、くだけた言い方です。how come の後ろは「主語 + 動詞」の平叙文の語順で、do / did は入りません(How come you didn't call?)。\n\nwhat if は「もし〜したらどうなるか」という意味で、後ろも平叙文の語順です。if の節は条件を表すので、未来のことでも現在形を使います(What if the shipment **arrives** late?)。\n\nhow about / what about は「〜はどうですか」で、後ろには名詞か -ing を置きます。to 不定詞は置けません。\n\nWhy don't we 〜? / Why don't you 〜? は、「〜しませんか」「〜してはどうですか」という提案・助言で、後ろは原形です。「なぜ〜しないのか」という理由の質問ではありません。\n\nWhy not? は、2通りに使われます。相手が断ったときの「なぜだめなの」と、相手の提案に対する「いいですね、そうしましょう」です。",
+          "table": {
+            "caption": "決まった言い方",
+            "headers": ["表現", "意味", "後ろの形", "例"],
+            "rows": [
+              ["how come", "どうして(くだけた言い方)", "主語 + 動詞(平叙文の語順)", "How come the server is down again?"],
+              ["what if", "もし〜したらどうなるか", "主語 + 動詞(平叙文の語順)", "What if the shipment arrives late?"],
+              ["how about / what about", "〜はどうですか", "名詞 / -ing", "How about meeting at nine?"],
+              ["why don't we / you", "〜しませんか / 〜してはどう", "原形", "Why don't we review the plan together?"],
+              ["why not", "なぜだめか / いいですね", "単独で使う", "Shall we start now? — Why not?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**How come** the shuttle bus hasn't arrived yet?",
+              "ja": "シャトルバスがまだ来ていないのは、どうしてだろう。",
+              "note": "How come の後ろは平叙文の語順(the shuttle bus hasn't arrived)。主語と助動詞を入れ替えない"
+            },
+            {
+              "en": "**What if** the supplier **delivers** the parts a week late?",
+              "ja": "仕入れ先が部品を1週間遅れて納品したら、どうしますか。",
+              "note": "What if の後ろは平叙文の語順。条件を表すので、未来のことでも現在形の delivers"
+            },
+            {
+              "en": "**How about** having the meeting in the afternoon instead?",
+              "ja": "代わりに、午後に会議を開いてはどうですか。",
+              "note": "How about の後ろは名詞か -ing。having は動名詞"
+            },
+            {
+              "en": "**Why don't** we ask the finance team to review the figures?",
+              "ja": "経理部に数字を確認してもらってはどうでしょうか。",
+              "note": "Why don't we + 原形 は提案。理由を聞いているのではない"
+            }
+          ],
+          "cautions": [
+            "× How come did you leave early? → ○ How come you left early? how come の後ろは平叙文の語順",
+            "× How about to meet at nine? → ○ How about meeting at nine? how about の後ろは名詞か -ing"
+          ]
+        }
+      ],
+      "examNote": "what と which の使い分けは、TOEIC Part 5 では「空所の後ろが of the + 複数名詞なら which」という形や、名詞節を導く what / which の選択として出ます。ただし、Part 5 での出番は多くありません。whose と who's も、紛らわしい選択肢として並ぶことがあります。選択疑問文や how come などの慣用表現は、Part 5 ではほとんど問われませんが、リスニング Part 2 では、or を使った質問に「選んだものを答える」選択肢が正解になる問題や、Why don't we ~? への返答を選ぶ問題があります。"
+    },
+    {
+      "id": "how",
+      "title": "how の働きと、how + 形容詞・副詞",
+      "intro": "how は「どのように」だけでなく、状態や程度も聞ける、使い道の広い疑問副詞です。how + 形容詞・副詞(how many, how long, how often など)は、数・期間・頻度・距離を聞くときの決まった形で、ビジネスの場面でもよく使います。この節では、how の働きと、日本語の「どう」との使い分けを整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "how の基本の3つの意味:方法・状態・程度",
+          "explanation": "**how は、(1) 方法・手段(どのように)、(2) 状態・感想(どうですか)、(3) 程度(どれくらい)の3つを聞きます。程度を聞くときは、how の直後に形容詞か副詞を付けます。**\n\n・方法: **How** did you hear about our service?(どうやって知りましたか)\n・状態: **How** was the conference?(会議はどうでしたか)\n・程度: **How** long ...? / **How** many ...?(次の項目以降)\n\n状態を聞く how は、How are you? や How was your trip? のように、調子や感想を聞くときに使います。答えは、Great. や Fine. のような形容詞でも、文でも構いません。\n\nhow の直後に名詞を直接置く形(× How time)はありません。「どれくらいの時間」は how long か how much time、「何時」は what time、「どんな種類」は what kind of を使います。",
+          "table": {
+            "caption": "how の3つの意味",
+            "headers": ["聞くこと", "例", "答えの例"],
+            "rows": [
+              ["方法・手段", "How did you travel to Berlin?", "By train."],
+              ["状態・感想", "How was the seminar?", "It was very informative."],
+              ["程度(形容詞・副詞と一緒に)", "How long is the flight?", "About nine hours."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**How** did you get to the venue so quickly?",
+              "ja": "どうやって、そんなに早く会場に着いたのですか。",
+              "note": "手段・方法を聞く how。答えは By taxi. など"
+            },
+            {
+              "en": "**How** was your meeting with the new client?",
+              "ja": "新しい顧客との会議は、どうでしたか。",
+              "note": "状態・感想を聞く how。過去のことなので was"
+            }
+          ],
+          "cautions": [
+            "× How time is the flight? → ○ How long is the flight?(所要時間) / What time is the flight?(出発時刻) how の直後に名詞は置けない"
+          ]
+        },
+        {
+          "heading": "how + 形容詞・副詞:程度を聞く決まった形",
+          "explanation": "**how + 形容詞・副詞は、数・量・期間・頻度・距離・年齢・大きさなど、程度を聞く決まった形で、全体で1つの疑問詞のかたまりとして文頭に出ます。** how と形容詞・副詞は離せません。\n\n・How **old** are you?(× How are you old?)\n・How **often** do you travel on business?\n・How **far** is the airport from here?\n\nhow の後ろの語が、聞きたい程度を決めます。形容詞(old, tall, big, wide, deep, long, high, heavy)なら、その形容詞が表す程度を、副詞(often, soon, fast, far, well)なら、その副詞が表す程度を聞きます。\n\nかたまりの後ろの語順は、他の疑問詞と同じです。かたまりが主語のときは、そのまま動詞が続きます(How many people came?)。補語(How tall is the tower?)や副詞の働き(How often do you ...?)のときは、疑問文の語順になります。",
+          "table": {
+            "caption": "how + 形容詞・副詞",
+            "headers": ["かたまり", "聞くこと", "答えの例", "例文"],
+            "rows": [
+              ["how old", "年齢・築年数", "ten years old", "How old is this building?"],
+              ["how tall / high", "背の高さ・高さ", "180 cm", "How tall is your brother?"],
+              ["how long", "期間・長さ", "two weeks", "How long is the warranty?"],
+              ["how far", "距離", "about 5 km", "How far is the station from here?"],
+              ["how often", "頻度", "twice a week", "How often does the bus run?"],
+              ["how soon", "今からどのくらいで", "within an hour", "How soon can you deliver it?"],
+              ["how fast", "速さ", "100 km/h", "How fast does the train go?"],
+              ["how many / how much", "数・量・金額", "5 people / 3,000 yen", "How many people came?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**How often** does the maintenance team inspect the equipment?",
+              "ja": "保守チームは、どのくらいの頻度で設備を点検しますか。",
+              "note": "頻度を聞く how often。かたまりの後ろは疑問文の語順(does + 主語 + 動詞)"
+            },
+            {
+              "en": "**How far** is the convention center from the central station?",
+              "ja": "中央駅からコンベンションセンターまで、どのくらいの距離ですか。",
+              "note": "距離を聞く how far。be 動詞 is を主語の前に出す"
+            },
+            {
+              "en": "**How soon** can you send us a revised quotation?",
+              "ja": "修正した見積書は、どのくらい早く送っていただけますか。",
+              "note": "how soon は「今からどのくらいで」。答えは Within two days. など"
+            }
+          ],
+          "cautions": [
+            "× How are you old? → ○ How old are you? how + 形容詞はかたまりで文頭に出す"
+          ]
+        },
+        {
+          "heading": "how many と how much:数えられるかで決める",
+          "explanation": "**how many は数えられる名詞(可算名詞)の複数形と、how much は数えられない名詞(不可算名詞)と一緒に使います。** 可算名詞は1つ、2つと数えられる名詞(book, employee など)、不可算名詞は数えられない名詞(information, luggage, time, money など)です。\n\n・How **many** employees ...?(employees は数えられる複数形)\n・How **much** time ...?(time は数えられない)\n\nhow much は、**金額(値段)**を聞くときにも、名詞を付けずに使います(How much is this? / How much does it cost?)。\n\nどちらも、名詞が文脈から分かるときは、名詞なしで単独でも使えます(How many do you need? / How much did you spend?)。\n\n日本語の「何人」「何個」「いくら」「どのくらい」は、数えるものによって言葉が変わりますが、英語は名詞が数えられるかどうかで決まります。information, advice, equipment, furniture, luggage, news, evidence などは、英語では数えられない名詞なので、日本語で「何個」と言いたくなる場面でも how much を使います(第3章「名詞」)。",
+          "table": {
+            "caption": "how many と how much",
+            "headers": ["", "how many", "how much"],
+            "rows": [
+              ["後ろの名詞", "可算名詞の複数形", "不可算名詞"],
+              ["例", "How many copies ...?", "How much information ...?"],
+              ["名詞なしで", "数を聞く", "値段・量を聞く(How much is it?)"],
+              ["「疑問詞 + 名詞」が主語のとき", "How many people attend ...?(複数扱い)", "How much work remains ...?(単数扱い)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**How many** copies of the brochure should we print for the expo?",
+              "ja": "博覧会用に、パンフレットを何部印刷すればよいですか。",
+              "note": "copies は数えられる複数形。how many + 複数名詞"
+            },
+            {
+              "en": "**How much** equipment are we allowed to bring into the venue?",
+              "ja": "会場には、どのくらいの機材を持ち込んでよいですか。",
+              "note": "equipment は不可算名詞(× equipments)なので how much"
+            },
+            {
+              "en": "**How much** does a one-way ticket to Kyoto cost?",
+              "ja": "京都までの片道切符は、いくらですか。",
+              "note": "名詞を付けずに値段を聞く how much。cost の主語は a one-way ticket"
+            }
+          ],
+          "cautions": [
+            "× How many luggage do you have? → ○ How much luggage do you have? luggage は数えられない名詞",
+            "× How much people attended? → ○ How many people attended? people は数えられる複数形"
+          ]
+        },
+        {
+          "heading": "how long の2つの意味と、時を聞く表現の使い分け",
+          "explanation": "**how long は「期間(どのくらいの間)」と「長さ」の2つを聞き、文の形で見分けます。** 期間を聞く形として、How long does it take (to 〜)?(どのくらいかかるか)や、How long have you worked here?(どのくらいの間働いているか)がよく使われます。長さを聞くときは、How long is the bridge?(その橋はどのくらいの長さか)です。\n\n時を聞く似た表現は、次のように区別します。\n\n・**when**: いつ(日時・時点)。When is the deadline?\n・**what time**: 何時(時刻)。What time does the shop close?\n・**how long**: どのくらいの間(期間)。How long will the repair take?\n・**how soon**: 今からどのくらい早く。How soon can you start?\n・**how often**: どのくらいの頻度で。How often do you travel?\n\n「どのくらいかかるか」の基本形は、How long does it take (人) to 〜? で、答えは It takes + 時間. です。how long の直後に time は付けません(How much time なら可)。",
+          "table": {
+            "caption": "時を聞く表現",
+            "headers": ["表現", "聞くこと", "答えの例"],
+            "rows": [
+              ["when", "日時・時点", "On Friday."],
+              ["what time", "時刻", "At 9:30."],
+              ["how long", "期間・長さ", "For two hours."],
+              ["how soon", "今から先の時点までの早さ", "Within a week."],
+              ["how often", "頻度", "Every Monday."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**How long** does it take to get from the airport to the hotel?",
+              "ja": "空港からホテルまで、どのくらいかかりますか。",
+              "note": "所要時間を聞く How long does it take (to 〜)?"
+            },
+            {
+              "en": "**How long** is the corridor that connects the two buildings?",
+              "ja": "2つの建物をつなぐ廊下は、どのくらいの長さですか。",
+              "note": "How long は、物の長さも聞く。ここは廊下の長さ"
+            },
+            {
+              "en": "**What time** does the last shuttle bus leave the airport?",
+              "ja": "最終のシャトルバスは、何時に空港を出ますか。",
+              "note": "時刻を聞くので what time。How long にすると所要時間を聞く意味になる"
+            }
+          ],
+          "cautions": [
+            "× How long time does it take? → ○ How long does it take? how long の直後に time は付けない(How much time does it take? なら可)"
+          ]
+        },
+        {
+          "heading": "how と what の使い分け:日本語の「どう」「どんな」に注意",
+          "explanation": "**日本語の「どう」「どんな」は、英語では how と what に分かれます。how は「状態・方法・程度」を、what は「中身・種類・意見」を聞くと考えると整理できます。** 特に、think と like のときに迷います。\n\n・意見を聞く: **What** do you think about the new design?(× How do you think about ...?)。think は「考える」で、考える内容(何)を聞くので what\n・気に入ったかを聞く: **How** do you like your new job?(いかがですか)。like(好む)の感想や程度を how で聞く\n・種類を聞く: **What kind of** job is it?\n・様子を聞く: **What** is it **like**? / **How** is it?\n\nまた、「どうして」(理由)は how ではなく、why か how come です。",
+          "table": {
+            "caption": "日本語の「どう」「どんな」と英語",
+            "headers": ["日本語", "英語", "例"],
+            "rows": [
+              ["どう思いますか(意見)", "What do you think of (about) X?", "What do you think of the proposal?"],
+              ["気に入りましたか", "How do you like X?", "How do you like your new office?"],
+              ["どうやって(方法)", "How ...?", "How do I reset the password?"],
+              ["どんな(種類)", "What kind of ...?", "What kind of work do you do?"],
+              ["どんな感じ(様子)", "What is X like? / How is X?", "What is the hotel like? / How is the hotel?"],
+              ["どうして(理由)", "Why ...? / How come ...?", "Why did you choose this plan?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What** do you think about moving the deadline to next Friday?",
+              "ja": "締め切りを来週の金曜日に移すことを、どう思いますか。",
+              "note": "意見(考える内容)を聞くので what。How do you think とは言わない"
+            },
+            {
+              "en": "**How** do you like the new project management software?",
+              "ja": "新しいプロジェクト管理ソフトは、いかがですか。",
+              "note": "気に入ったか、使い心地はどうかを聞く How do you like ~?"
+            }
+          ],
+          "cautions": [
+            "× How do you think about the plan? → ○ What do you think about the plan? 「どう思う」は What do you think ...? で、how は使わない"
+          ]
+        }
+      ],
+      "examNote": "how many と how much の使い分けは、名詞が数えられるかどうかを問う形で Part 5 に出ることがあります(luggage, equipment, information などが数えられない名詞だという知識が必要です)。how long の所要時間や how often の頻度は、リスニング Part 2 で、質問と答えの組み合わせを選ぶ形で重要です。Part 5 で how + 形容詞を直接問う問題は、多くありません。How do you think ~? のような誤りは、英作文や会話で出やすい間違いなので、What do you think ~? の形を確実にしておきましょう。"
+    },
+    {
+      "id": "indirect",
+      "title": "間接疑問(疑問文が文の一部になる)",
+      "intro": "「駅はどこですか」を、丁寧に「駅がどこにあるかを教えていただけますか」と言うように、疑問文が別の文の一部に入ったものを間接疑問といいます。日本語では語順が変わらないため、英語での語順の変更を忘れやすく、TOEIC Part 5 や英作文で特によく問われる、疑問詞の重要項目です。この節で、作り方の手順と、think 系の動詞との違いまでをまとめます。",
+      "keywords": ["間接疑問"],
+      "items": [
+        {
+          "heading": "間接疑問とは:疑問文が名詞節になって、別の文の中に入る",
+          "explanation": "**間接疑問とは、疑問詞(または if / whether)で始まる疑問文が、別の文の一部(名詞節)として組み込まれたものです。このとき語順は疑問文ではなく、平叙文(疑問詞 + 主語 + 動詞)になります。** 名詞節とは、主語・目的語・補語などの名詞の働きをする、「主語 + 動詞」を含むかたまりのことです。\n\n・直接疑問: **Where is the station?**\n・間接疑問: Do you know **where the station is**?\n\n2つ目の文では、where the station is が know の目的語になっています。Do you know ...? が文全体の疑問を作っていて、where 以下はもう独立した疑問文ではなく、「どこにあるか」という名詞のかたまりです。名詞のかたまりなので、疑問文の特徴(助動詞を主語の前に出す、do を使う)は不要になります。\n\n日本語は「駅はどこですか」と「駅がどこにあるか知っていますか」で、語順がほとんど同じです。そのため日本語話者は、語順を変えることを忘れて、× Do you know where is the station? と言ってしまいがちです。「疑問詞の後ろは、主語 + 動詞」と覚えておきます。",
+          "table": {
+            "caption": "直接疑問と間接疑問",
+            "headers": ["直接疑問", "間接疑問(Do you know ...?)"],
+            "rows": [
+              ["Where is the station?", "Do you know where the station is?"],
+              ["What time does the bank open?", "Do you know what time the bank opens?"],
+              ["When will the results be announced?", "Do you know when the results will be announced?"],
+              ["Why did she resign?", "Do you know why she resigned?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Do you know **where the nearest bank is**?",
+              "ja": "いちばん近い銀行がどこにあるか、知っていますか。",
+              "note": "where の後ろは the nearest bank is(主語 + be 動詞)。Where is the bank? の is と主語の順を入れ替える"
+            },
+            {
+              "en": "I'm not sure **what time the train arrives**.",
+              "ja": "電車が何時に着くのか、はっきりしません。",
+              "note": "what time の後ろは the train arrives(平叙文)。does は使わず、動詞に三単現の -s が付く"
+            },
+            {
+              "en": "Could you tell me **how much the repairs will cost**?",
+              "ja": "修理にいくらかかるか、教えていただけますか。",
+              "note": "how much のかたまりの後ろは the repairs will cost。will cost は平叙文の語順"
+            }
+          ],
+          "cautions": [
+            "× Do you know where is the station? → ○ Do you know where the station is? 間接疑問は平叙文の語順",
+            "× I don't know what is his name. → ○ I don't know what his name is. what が補語のときも、主語(his name)を前に出す"
+          ]
+        },
+        {
+          "heading": "間接疑問の作り方:3つの手順",
+          "explanation": "**間接疑問は、(1) 疑問文を平叙文の語順に直し、(2) 疑問詞を前に付け、(3) 主節(Do you know ... など)に入れる、の手順で作ります。** 特に、do / does / did を使う疑問文では、do を取り除いて、時制と三人称単数の -s を動詞に戻します。\n\n・元の文: **What time does the bank open?**\n・手順1: do を取り除き、動詞に -s を戻す → the bank **opens**\n・手順2: 疑問詞 + 平叙文 → what time the bank opens\n・手順3: 主節に入れる → Do you know what time the bank opens?\n\n助動詞(will, can など)や be 動詞は、取り除かず、主語の後ろに戻します。\n\n・When **will** the results be announced? → when the results **will** be announced\n・Where **is** the station? → where the station **is**\n\n過去形も同じです。Where **did** she go? は、did を取って動詞を過去形に戻し、where she **went** にします。",
+          "table": {
+            "caption": "間接疑問の作り方",
+            "headers": ["元の疑問文", "平叙文の語順", "間接疑問の文"],
+            "rows": [
+              ["Where does she work?", "she works", "I don't know where she works."],
+              ["What did he say?", "he said", "Do you remember what he said?"],
+              ["When will the shipment arrive?", "the shipment will arrive", "Could you tell me when the shipment will arrive?"],
+              ["How long has he lived here?", "he has lived here", "I wonder how long he has lived here."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Please let me know **when the new schedule will take effect**.",
+              "ja": "新しいスケジュールがいつ有効になるのか、教えてください。",
+              "note": "will は取り除かず、主語 the new schedule の後ろに置く"
+            },
+            {
+              "en": "I wonder **why the client canceled the order**.",
+              "ja": "顧客はなぜ注文を取り消したのだろう。",
+              "note": "Why did the client cancel ...? の did を取り除き、動詞を過去形 canceled に戻す"
+            },
+            {
+              "en": "He asked me **what kind of software we were using**.",
+              "ja": "彼は私に、私たちがどんな種類のソフトウエアを使っているのか尋ねた。",
+              "note": "What kind of software are we using? の are を主語の後ろに戻す。主節が過去なので were using になる(第22章「時制の一致と話法」)"
+            }
+          ],
+          "cautions": [
+            "× I don't know where does she work. → ○ I don't know where she works. do を残さない",
+            "× Do you remember what did he say? → ○ Do you remember what he said? do を取り除いたら、動詞を過去形に戻す",
+            "× I wonder where she work. → ○ I wonder where she works. do を取り除いたら、三単現の -s は動詞に戻す"
+          ]
+        },
+        {
+          "heading": "疑問詞が主語の疑問文は、間接疑問でも語順が変わらない",
+          "explanation": "**元の疑問文で疑問詞が主語のとき、間接疑問にしても語順は変わりません。** 元々「疑問詞 + 動詞」という、平叙文と同じ語順だからです。\n\n・**Who** called you? → Do you know **who called** you?\n・**What** happened? → I wonder **what happened**.\n・**Which** team won? → Tell me **which team won**.\n\nつまり、間接疑問を作るときは、元の疑問文の疑問詞の働きで判断します。\n\n・疑問詞が主語 → 何も変えず、そのまま主節に入れる\n・疑問詞が目的語・補語・副詞 → 疑問詞の後ろを、主語 + 動詞の順に直す\n\n見分け方は、第2節と同じで、疑問詞の直後が動詞か、助動詞や主語かです。\n\n注意したいのは、what が補語になる文です。What is the agenda? の what は補語で、主語は the agenda です。間接疑問にすると、what the agenda is になり、主語を前に出します。一方、What is on the agenda? の what は主語なので、what is on the agenda のまま変わりません。",
+          "table": {
+            "caption": "疑問詞の働きと、間接疑問",
+            "headers": ["元の疑問文", "疑問詞の働き", "間接疑問"],
+            "rows": [
+              ["Who called?", "主語", "I wonder who called."],
+              ["Who did she call?", "目的語", "I wonder who she called."],
+              ["What is on the agenda?", "主語", "Do you know what is on the agenda?"],
+              ["What is the agenda?", "補語", "Do you know what the agenda is?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Do you know **who is leading the workshop** tomorrow?",
+              "ja": "明日のワークショップを、だれが進行するか知っていますか。",
+              "note": "who が主語なので、元の Who is leading ...? と語順は同じ"
+            },
+            {
+              "en": "I'd like to know **who the client is going to meet**.",
+              "ja": "顧客がだれと会う予定なのか、知りたい。",
+              "note": "who は meet の目的語なので、who の後ろは主語 + 動詞(the client is going to meet)"
+            },
+            {
+              "en": "No one knows **what caused the power failure** at the factory.",
+              "ja": "工場の停電の原因が何だったのか、だれにも分からない。",
+              "note": "what が主語。caused は過去形で、do は出てこない"
+            }
+          ],
+          "cautions": [
+            "× I wonder what did happen. → ○ I wonder what happened. 疑問詞が主語なら、間接疑問でも do は使わない",
+            "× Do you know what is the agenda? → ○ Do you know what the agenda is? what が補語のときは、主語 the agenda を前に出す"
+          ]
+        },
+        {
+          "heading": "Yes/No 疑問文の間接疑問:if / whether を使う",
+          "explanation": "**Yes/No で答える疑問文を間接疑問にするときは、疑問詞が無いので、if または whether で導き、「if / whether + 主語 + 動詞」の語順にします。** 意味は「〜かどうか」です。\n\n・Is the store open on Sundays? → Do you know **if** the store is open on Sundays?\n・Will she accept the offer? → I wonder **whether** she will accept the offer.\n\nif と whether は、目的語の位置(know, wonder, ask, find out の後ろ)では、ほぼ入れ替えられます。if のほうがくだけた言い方です。ただし、次の場合は whether だけが使えます。\n\n・主語・補語になる節: **Whether** the plan succeeds depends on us.(× If the plan succeeds depends on us.)\n・前置詞の直後: It depends **on whether** ...(× on if)\n・to 不定詞の前: decide **whether to** accept(× if to accept)\n・or not を直後に付ける: whether or not ...(× if or not ...)\n\nif には「もし〜なら」(条件)の意味もあります。if と whether の詳しい違いは、第18章「接続詞」で扱います。",
+          "table": {
+            "caption": "whether と if",
+            "headers": ["場面", "whether", "if"],
+            "rows": [
+              ["動詞の目的語(know, ask, wonder など)", "○", "○(くだけた言い方)"],
+              ["主語・補語になる節", "○", "×"],
+              ["前置詞の直後", "○", "×"],
+              ["to 不定詞の前", "○ whether to do", "×"],
+              ["or not が直後に付く", "○ whether or not", "×"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Could you check **if** the conference room is available at three?",
+              "ja": "3時に会議室が空いているか、確認していただけますか。",
+              "note": "目的語の位置。疑問詞が無い Yes/No の疑問(Is it available?)なので if を使う"
+            },
+            {
+              "en": "**Whether** the new policy will reduce costs remains to be seen.",
+              "ja": "新しい方針が費用を減らすかどうかは、まだ分からない。",
+              "note": "節が主語なので whether。節全体が単数扱いで、動詞は remains"
+            },
+            {
+              "en": "We have not decided **whether or not** we will renew the contract.",
+              "ja": "契約を更新するかどうかは、まだ決めていない。",
+              "note": "whether or not は、whether のときだけ使える形"
+            }
+          ],
+          "cautions": [
+            "× I don't know if or not she will come. → ○ I don't know whether or not she will come. / I don't know if she will come or not. or not が if の直後に来る形は不可",
+            "× Do you know whether is the store open? → ○ Do you know whether the store is open? whether の後ろも平叙文の語順"
+          ]
+        },
+        {
+          "heading": "Do you know where ...? と Where do you think ...? の違い",
+          "explanation": "**間接疑問を含む疑問文では、主節の動詞によって疑問詞の位置が変わります。主節の動詞が Yes / No で答えられるもの(know, remember, understand など)なら、疑問詞は節の頭に置きます。think, believe, suppose, imagine, guess, say のように「考え」を聞く動詞なら、疑問詞を文頭に出します。**\n\n・Do you know **where he lives**?(答え: Yes, I do. / He lives in Osaka.)\n・**Where** do you think he lives?(答え: In Osaka, I think. Yes / No では答えない)\n\n理由は、質問の「いちばん知りたいこと」がどこにあるかです。Do you know ...? は、「知っているか」を Yes / No で聞くことができ、where 以下はその中身です。一方、Do you think where he lives? とすると、「あなたは思うか」という Yes / No の質問に、「どこ」が入り込んでしまいます。知りたいのは「どこだと思うか」なので、疑問詞を文頭に出します。\n\n疑問詞が文頭に出たあとも、残りは平叙文の語順です(Where do you think **he lives**?)。think の疑問文は do で作りますが、その後ろは主語 + 動詞になります。\n\n疑問詞が元は主語のとき(Who do you think **is** the best candidate?)は、疑問詞が文頭に出て、後ろは動詞から始まります。\n\nなお、guess は Can you guess what happened?(当てられますか)のように、Yes / No の質問にもなります。この場合は、疑問詞は節の頭に置きます。",
+          "table": {
+            "caption": "主節の動詞と、疑問詞の位置",
+            "headers": ["主節の動詞の種類", "動詞の例", "疑問詞の位置", "例"],
+            "rows": [
+              ["Yes / No で答えられる", "know, remember, understand, tell me", "節の頭", "Do you remember where you parked?"],
+              ["考えを聞く(Yes / No では答えにくい)", "think, believe, suppose, imagine, guess, say", "文頭", "Where do you think you parked?"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Do you know **why** the flight to Seattle was delayed?",
+              "ja": "シアトル行きの便がなぜ遅れたのか、知っていますか。",
+              "note": "know は Yes / No で答えられるので、why は節の頭。後ろは平叙文の語順"
+            },
+            {
+              "en": "**Why** do you think the flight to Seattle was delayed?",
+              "ja": "シアトル行きの便は、なぜ遅れたのだと思いますか。",
+              "note": "think の場合は、聞きたいのは理由なので Why を文頭に出す。後ろは the flight ... was delayed(平叙文)"
+            },
+            {
+              "en": "**Who** do you suppose will be appointed as the new director?",
+              "ja": "新しい取締役には、だれが任命されると思いますか。",
+              "note": "suppose と一緒なので Who を文頭に出す。Who は will be appointed の主語なので、後ろに主語は無い"
+            }
+          ],
+          "cautions": [
+            "× Do you think where he lives? → ○ Where do you think he lives? think 系の動詞では、疑問詞を文頭に出す",
+            "× Where do you know he lives? → ○ Do you know where he lives? know 系の動詞では、疑問詞は節の頭に置く",
+            "× Where do you think does he live? → ○ Where do you think he lives? 疑問詞を文頭に出しても、後ろは平叙文の語順"
+          ]
+        },
+        {
+          "heading": "間接疑問を導く主節の形と、文末の記号",
+          "explanation": "**間接疑問は、「Do you know ...?」のように質問する文にも、「I don't know ...」のように述べる文にも組み込めます。文末の記号(? か .)は、主節(文全体)の種類で決まります。** 間接疑問の部分は疑問ではなく名詞節なので、記号の決め手になりません。\n\n・主節が疑問文: Do you know where she is? → 疑問符 ?\n・主節が平叙文: I don't know where she is. → ピリオド .\n\nまた、直接疑問より間接疑問のほうが丁寧に聞こえます。Where is the restroom? よりも Could you tell me where the restroom is? のほうが、相手に答えを強く求める印象が弱く、依頼の形になるためです。ビジネスや接客の場面で、型として使える言い方を挙げます。\n\n・Could you tell me / Would you mind telling me / Do you happen to know ...\n・I'd like to know / I was wondering / I wonder ...\n・Please let me know / Please tell me ...\n・I'm not sure / I have no idea / It depends on ...\n\n主節が過去のときは、間接疑問の中の動詞も、時制の一致で過去系にそろえるのが原則です(第22章「時制の一致と話法」)。",
+          "table": {
+            "caption": "主節の形と文末の記号",
+            "headers": ["主節の形", "例", "文末"],
+            "rows": [
+              ["疑問文", "Do you know where she is?", "?"],
+              ["丁寧な依頼", "Could you tell me where she is?", "?"],
+              ["平叙文", "I don't know where she is.", "."],
+              ["丁寧な命令文", "Please let me know where she is.", "."],
+              ["I wonder の形", "I wonder where she is.", "."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Excuse me, do you happen to know **where the registration desk is**?",
+              "ja": "すみません、受付がどこにあるかご存じですか。",
+              "note": "主節が疑問文なので文末は ?。間接疑問の where ... is は平叙文の語順"
+            },
+            {
+              "en": "I have no idea **what the new password is**.",
+              "ja": "新しいパスワードが何なのか、まったく分かりません。",
+              "note": "主節が平叙文なので文末はピリオド。what が補語なので、主語 the new password を前に出す"
+            },
+            {
+              "en": "The manager asked me **what time the meeting started**.",
+              "ja": "マネージャーは私に、会議が何時に始まったのかと尋ねた。",
+              "note": "主節 asked が過去なので、節の中の動詞も過去形 started にそろえている"
+            }
+          ],
+          "cautions": [
+            "× Do you know where she is. → ○ Do you know where she is? 主節が疑問文なら、文末は疑問符",
+            "× I don't know where is she? → ○ I don't know where she is. 主節が平叙文なら、文末はピリオド。語順も平叙文にする"
+          ]
+        },
+        {
+          "heading": "間接疑問の節は名詞:主語・補語・前置詞の目的語にもなる",
+          "explanation": "**間接疑問(疑問詞や whether で始まる節)は名詞節なので、動詞の目的語だけでなく、主語・補語・前置詞の目的語にもなります。** 主語になるときは、節全体を単数扱いにして、動詞は三人称単数の形にします。\n\n・主語: **What she decided** surprised everyone.\n・補語: The question is **how we can reduce costs**.\n・前置詞の目的語: We talked about **who should lead the project**.\n\n主語になる節が長いときは、形式主語 it を使って、It is not clear whether the plan will work. のように言うことが多くあります(第5章「代名詞」)。\n\n前置詞の直後に置けるのは、疑問詞と whether です(if は置けません)。depends on whether ...、talked about who ... のように使います。\n\n名詞節の what は、関係代名詞の what(「〜のもの・こと」)と同じ形になることがあります(第19章「関係詞」)。what 節が主語で、補語が複数の名詞のとき(What we need are new ideas.)は、動詞の数が複数になる言い方もあり、揺れがあります(第21章「一致」)。試験では、疑問詞節が主語のときは、単数扱いが基本です。",
+          "table": {
+            "caption": "間接疑問の節の働き",
+            "headers": ["働き", "例", "動詞の注意"],
+            "rows": [
+              ["主語", "Whether the plan works is unclear.", "単数扱い(is)"],
+              ["目的語", "I don't know what she wants.", "なし"],
+              ["補語", "The problem is who will pay.", "なし"],
+              ["前置詞の目的語", "It depends on how much we spend.", "前置詞の後ろに if は不可"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who will lead the new project** has not been decided yet.",
+              "ja": "新しいプロジェクトをだれが率いるかは、まだ決まっていない。",
+              "note": "疑問詞の節が主語。単数扱いなので has been decided"
+            },
+            {
+              "en": "The real question is **how we can finish the work by Friday**.",
+              "ja": "本当の問題は、金曜日までにどうやって仕事を終えるかだ。",
+              "note": "疑問詞の節が補語(is の後ろ)。how we can finish は平叙文の語順"
+            },
+            {
+              "en": "The result depends on **how carefully we prepare**.",
+              "ja": "結果は、私たちがどれだけ入念に準備するかにかかっている。",
+              "note": "前置詞 on の目的語。how carefully のかたまりの後ろは、主語 + 動詞"
+            }
+          ],
+          "cautions": [
+            "× Whether the plan works are unclear. → ○ Whether the plan works is unclear. 節が主語のときの動詞は、単数扱い",
+            "× It depends on if the weather is fine. → ○ It depends on whether the weather is fine. 前置詞の後ろは whether"
+          ]
+        }
+      ],
+      "examNote": "間接疑問は、TOEIC Part 5・6 でも英検のライティングでも、疑問詞の中で特に重要な項目です。Part 5 では、(1) 選択肢に「主語 + 動詞」と「do / be + 主語」が並び、間接疑問の語順(平叙文)を選ぶ問題、(2) whether と if の使い分け(whether to、前置詞の直後、or not の直前)、(3) 疑問詞節が主語のときの動詞の単数、が典型です。解く手順は、(a) 空所の前に疑問詞・whether があるかを見る、(b) あれば、後ろが疑問文の語順(do, does が先に来る形)ではなく、主語 + 動詞になっているかを確かめる、の順です。think 系の動詞(Where do you think ...?)と know 系(Do you know where ...?)の違いは、会話文のひっかけに使われます。"
+    },
+    {
+      "id": "to-and-emphasis",
+      "title": "疑問詞 + to 不定詞と、疑問詞の強調",
+      "intro": "「何をすべきか」「どう使うか」を what to do, how to use のように短く言える、疑問詞 + to 不定詞を学びます。あわせて、疑問詞の意味を強める on earth や in the world、疑問詞と同じ形の関係詞・感嘆文の what や how との見分けも扱います。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "疑問詞 + to 不定詞:「〜すべきか」「〜のしかた」を1つのかたまりで表す",
+          "explanation": "**疑問詞 + to 不定詞は、what to do(何をすべきか)、how to use(どう使うか)のように、間接疑問を短くしたかたまりで、名詞と同じ働き(主語・目的語・補語)をします。** where / when / what / which / who(m) / how で使え、意味は「〜すべきか」「〜したらよいか」です。\n\n・I don't know **what to do**. = I don't know what I **should** do.\n・She showed me **how to use** the machine.\n\n作り方は、間接疑問の中の「主語 + should」を省いて、動詞を to 不定詞にするだけです。主語が主節の主語や一般の人と同じときに使えます。主語が別の人のときは、きちんと節で書きます(I don't know what she should do.)。\n\n疑問詞が to 不定詞の動詞の目的語のとき、目的語を重ねて置きません(what to buy で、buy の目的語は what です)。\n\n使えない組み合わせがあります。why + to 不定詞はふつう使わず、「なぜ〜すべきか」は why we should 〜 のように節で言います。if + to 不定詞も使えず、「〜すべきかどうか」は whether to 〜 と言います。\n\nこの形をよくとる動詞には、know, tell, show, teach, learn, decide, explain, understand, remember, forget, wonder, ask, find out などがあります。tell / show / teach は、「人」と「もの」の2つを目的語にとるので、tell + 人 + how to ...(人に〜のしかたを教える)の形になります。詳しくは第13章「不定詞」を参照してください。",
+          "table": {
+            "caption": "疑問詞 + to 不定詞",
+            "headers": ["形", "意味", "書き換え"],
+            "rows": [
+              ["what to do", "何をすべきか", "what + 主語 + should do"],
+              ["how to use", "どう使うか(使い方)", "how + 主語 + should / can use"],
+              ["where to go", "どこへ行くべきか", "where + 主語 + should go"],
+              ["when to start", "いつ始めるべきか", "when + 主語 + should start"],
+              ["who(m) to ask", "だれに尋ねるべきか", "who(m) + 主語 + should ask"],
+              ["which button to press", "どのボタンを押すべきか", "which button + 主語 + should press"],
+              ["whether to accept", "受け入れるべきかどうか", "whether + 主語 + should accept"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The training manual explains **how to file** an expense report.",
+              "ja": "研修用の手引きには、経費報告書の出し方が説明されている。",
+              "note": "how to file = how you should file。名詞のかたまりで、explains の目的語"
+            },
+            {
+              "en": "We haven't decided **whether to hire** a new designer or outsource the work.",
+              "ja": "新しいデザイナーを雇うか、仕事を外注するか、まだ決めていない。",
+              "note": "whether to hire = 雇うべきかどうか。if to hire とは言えない"
+            },
+            {
+              "en": "Could you tell me **which button to press** to restart the system?",
+              "ja": "システムを再起動するには、どのボタンを押せばよいか教えていただけますか。",
+              "note": "which + 名詞 + to 不定詞。which button が press の目的語"
+            },
+            {
+              "en": "Ms. Ito showed the new staff **where to park** their bicycles.",
+              "ja": "伊藤さんは新しいスタッフに、自転車をどこに止めればよいかを教えた。",
+              "note": "show + 人 + 疑問詞 + to 不定詞。where to park は「どこに止めるべきか」"
+            }
+          ],
+          "cautions": [
+            "× I don't know what to do it. → ○ I don't know what to do. what が do の目的語なので、it を重ねない",
+            "× I'm not sure if to accept the offer. → ○ I'm not sure whether to accept the offer. to 不定詞の前は whether",
+            "× I wonder why to apply. → ○ I wonder why we should apply. why + to 不定詞はふつう使わず、節で言う"
+          ]
+        },
+        {
+          "heading": "疑問詞の強調:on earth・in the world(「いったい」)",
+          "explanation": "**疑問詞の直後に on earth や in the world を置くと、「いったい」という驚き・いらだち・強い疑問の気持ちを加えられます。** 語順は変わらず、疑問詞(または疑問詞を含むかたまり)の直後に、強める語句を挟むだけで、あとはふつうの疑問文の語順です。\n\n・What **on earth** is this?(これはいったい何だ)\n・Why **in the world** did you delete the file?(いったいなぜファイルを消したのか)\n・Where **on earth** did you find this?(いったいどこでこれを見つけたのか)\n\n間接疑問の中でも使えます(I can't imagine what on earth he meant.)。\n\n疑問詞に ever を付けた形(whatever, however など)も、「いったい」の強調に使われることがあります(Whatever do you mean?)。ただし、やや文語的で、whatever と however は、関係詞や「どんなに〜でも」という意味(第19章「関係詞」)でも使われるので、区別が必要です。\n\nthe hell を使う言い方(What the hell ...?)は、強い口語で、乱暴・失礼に響くことがあります。ビジネスやフォーマルな場面では使わず、意味だけ知っておけば十分です。\n\nこれらは感情が強い場面(驚き・怒り・困惑)で使う表現なので、ビジネス文書にはあまり出てきません。",
+          "table": {
+            "caption": "疑問詞の強調",
+            "headers": ["表現", "意味", "例"],
+            "rows": [
+              ["疑問詞 + on earth", "いったい〜", "Where on earth did you find this?"],
+              ["疑問詞 + in the world", "いったい〜", "Who in the world would do that?"],
+              ["疑問詞 + ever(1語でも書く)", "いったい〜(やや文語的)", "Whatever do you mean?"],
+              ["疑問詞 + the hell", "いったい〜(乱暴・失礼になりやすい)", "What the hell ...?(使わない)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Why on earth** would the supplier raise its prices in the middle of the contract?",
+              "ja": "仕入れ先は契約の途中で、いったいなぜ価格を上げるのだろうか。",
+              "note": "Why の直後に on earth を挟んで強める。後ろの語順は、would the supplier raise と、ふつうの疑問文"
+            },
+            {
+              "en": "**Where in the world** did I put the key to the storage room?",
+              "ja": "倉庫の鍵を、いったいどこに置いたのだろう。",
+              "note": "Where in the world は「いったいどこに」。直後は疑問文の語順"
+            },
+            {
+              "en": "I can't imagine **what on earth** caused the system to crash.",
+              "ja": "システムが落ちたのは、いったい何が原因なのか見当もつかない。",
+              "note": "間接疑問の中でも使える。what が主語なので、後ろは動詞 caused"
+            }
+          ],
+          "cautions": [
+            "× On earth why did you leave? → ○ Why on earth did you leave? 強める語句は疑問詞の直後に置く"
+          ]
+        },
+        {
+          "heading": "疑問詞と同じ形の語:関係詞・感嘆文の what / how との見分け",
+          "explanation": "**what, how, who, which, where, when などは、疑問詞のほかに、関係詞や感嘆文の語としても使われます。形が同じなので、文の形と意味で見分けます。**\n\n・疑問詞(間接疑問を含む): 分からないことを聞く、または「何が〜か」という名詞のかたまりを作る。Do you know what he wants?(彼が何を欲しがっているか知っていますか)\n・関係代名詞の what: 「〜のもの・こと」(= the thing(s) which)。前に先行詞が無く、what の節全体が名詞の働きをする。This is what he wants.(これが彼の欲しがっているものだ)\n・関係副詞(when, where, why, how): 前に名詞(先行詞)があり、その名詞を説明する。the city where I grew up(私が育った町)\n・感嘆文の what / how: 「なんと〜だろう」。What + a / an + 形容詞 + 名詞、How + 形容詞 の形で、疑問文の語順にはならず、文末は ! を付ける。\n\n疑問詞の what と関係詞の what は、I know what he wants. のように同じ形になることがあり、「何を欲しがっているか」と「彼の欲しがっているもの」のどちらにも読めます。文脈で意味が決まるので、まず「前に先行詞があるか」「文末に ! があるか」を確かめます。\n\n詳しくは、第2章「文」(感嘆文)と第19章「関係詞」で扱います。",
+          "table": {
+            "caption": "疑問詞と同じ形の語",
+            "headers": ["語", "働き", "例", "見分け方"],
+            "rows": [
+              ["what", "疑問詞", "What did you order?", "答えが「何か」という情報"],
+              ["what", "関係代名詞(「〜のもの・こと」)", "This is what I ordered.", "前に先行詞が無く、what の節全体が名詞"],
+              ["what / how", "感嘆", "What a great idea! / How kind of you!", "文末が !、what の後ろに a + 名詞"],
+              ["where / when", "関係副詞", "the city where I grew up", "前に名詞(先行詞)がある"],
+              ["where / when / how", "疑問副詞(間接疑問)", "I don't know where he went.", "主節の動詞の目的語になっている"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What** a surprising result this is!",
+              "ja": "これは、なんと意外な結果だろう。",
+              "note": "What a + 形容詞 + 名詞 の感嘆文。疑問ではないので、疑問文の語順にならず、文末は !"
+            },
+            {
+              "en": "This is **what** we have been looking for.",
+              "ja": "これこそ、私たちが探していたものだ。",
+              "note": "関係代名詞の what。「探していたもの」という名詞のかたまりで、前に先行詞が無い"
+            },
+            {
+              "en": "Do you know **what** we have been looking for?",
+              "ja": "私たちが何を探していたか、知っていますか。",
+              "note": "間接疑問。what we have been looking for が know の目的語で、「何か」を問う"
+            }
+          ],
+          "cautions": [
+            "× What a surprising result is this! → ○ What a surprising result this is! 感嘆文は、疑問文の語順(is this)にしない"
+          ]
+        }
+      ],
+      "examNote": "疑問詞 + to 不定詞は、Part 5 で、how to 〜 や whether to 〜 を選ぶ形で出ることがあります(why to や if to は誤りです)。マニュアルや案内文では、on how to 〜(〜のしかたについて)のように、前置詞 + 疑問詞 + to 不定詞の形もよく見られます。疑問詞の強調(on earth など)は TOEIC ではほとんど問われず、会話文などで見かける程度です。what や how の感嘆・関係詞との見分けは、Part 5 では、空所の後ろが完全な文か欠けた文か、前に名詞(先行詞)があるか、で判断します。"
+    },
+    {
+      "id": "negative-rhetorical",
+      "title": "否定疑問文と修辞疑問",
+      "intro": "Don't you like jazz? のような否定疑問文は、日本語の「はい・いいえ」と英語の Yes・No の考え方が逆になるため、答え方を間違えやすいところです。また、Who knows? のように答えを求めない修辞疑問は、長文読解で意味を取り違えやすい表現です。この節では、この2つを整理します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "否定疑問文の形と、使われる場面",
+          "explanation": "**否定疑問文は、助動詞・be 動詞に not(短縮形 n't)を付けて始める疑問文で、驚き・確認・勧誘・非難などの気持ちを含みます。** ふつうの Yes/No 疑問文より、「〜ではないのですか」「〜でしょう?」という、話し手の予想が入ります。\n\n・Isn't it a beautiful day?(いい天気じゃないですか)\n・Haven't you finished the report yet?(まだ報告書を終えていないのですか。驚き・非難)\n・Won't you join us for dinner?(夕食をご一緒しませんか。勧誘)\n\n語順は「助動詞 + n't + 主語 + 動詞」で、短縮形が一般的です。かたい文では、Do you not agree? のように、not を主語の後ろに置きます。\n\n疑問詞を使った否定疑問(Why don't you ...? / Why didn't you ...?)もあります。Why don't you ...? は、「なぜ〜しないの」という理由の質問ではなく、「〜してはどうですか」という提案になることがあります(第3節)。\n\n否定疑問文は、話し手の予想を含むので、相手には詰問のように聞こえることがあります。ビジネスの場面では、使い方に注意します。",
+          "table": {
+            "caption": "否定疑問文の形と気持ち",
+            "headers": ["形", "例", "気持ち"],
+            "rows": [
+              ["Isn't / Aren't ...?", "Isn't this the best option?", "確認・同意を求める"],
+              ["Don't / Doesn't / Didn't ...?", "Didn't you receive my email?", "驚き・確認"],
+              ["Haven't / Hasn't ...?", "Haven't they replied yet?", "驚き・いらだち"],
+              ["Won't / Can't ...?", "Won't you sit down?", "勧誘・丁寧な誘い"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Isn't** the new software much easier to use than the old one?",
+              "ja": "新しいソフトは、前のものよりずっと使いやすいと思いませんか。",
+              "note": "否定疑問文は、「そうでしょう?」と同意を期待する気持ちを含む"
+            },
+            {
+              "en": "**Didn't** you receive the revised schedule this morning?",
+              "ja": "今朝、改訂版のスケジュールを受け取りませんでしたか。",
+              "note": "受け取っているはずだという予想があり、驚き・確認を表す"
+            },
+            {
+              "en": "**Haven't** the samples arrived yet?",
+              "ja": "サンプルは、まだ届いていないのですか。",
+              "note": "「届いているはずなのに」という驚きが加わる。Have the samples arrived yet? より予想が強い"
+            }
+          ],
+          "cautions": [
+            "× Didn't you received the schedule? → ○ Didn't you receive the schedule? didn't の後ろの動詞は原形"
+          ]
+        },
+        {
+          "heading": "否定疑問文への答え方:Yes / No は事実で決める(日本語と逆に感じる)",
+          "explanation": "**否定疑問文への答えは、質問が否定の形でも、答えの内容が肯定なら Yes、否定なら No です。** 日本語の「はい / いいえ」は、質問の形に対する同意・不同意で決まるので、英語と逆になることがあります。\n\n・Don't you like jazz?(ジャズは好きではないのですか)\n・好きなら: **Yes**, I do.(日本語では「いいえ、好きです」)\n・好きでないなら: **No**, I don't.(日本語では「はい、好きではありません」)\n\n英語の Yes は、あとに続く文が肯定になる答えにだけ使い、No は、あとに続く文が否定になる答えにだけ使います。\n\nコツは、Yes / No のあとに続く文を先に決めることです。続く文が肯定なら Yes、否定なら No です。Yes, I don't. や No, I do. は誤りです。\n\n誤解を避けたいときは、Yes / No だけで答えず、I do like it. / I don't like it. のように、文で答えます。",
+          "table": {
+            "caption": "否定疑問文への答え",
+            "headers": ["質問", "事実", "答え", "日本語の感覚"],
+            "rows": [
+              ["Don't you like jazz?", "好き", "Yes, I do.", "「いいえ、好きです」"],
+              ["Don't you like jazz?", "好きではない", "No, I don't.", "「はい、好きではありません」"],
+              ["Haven't you finished yet?", "終わった", "Yes, I have.", "「いいえ、終わりました」"],
+              ["Haven't you finished yet?", "終わっていない", "No, I haven't.", "「はい、まだです」"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Aren't you coming to the reception tonight? — **No**, I'm not. I have to finish a report.",
+              "ja": "今夜のレセプションには来ないのですか。 — はい、行きません。報告書を仕上げなければならないので。",
+              "note": "来ないという事実は否定なので、No, I'm not. 日本語の「はい」に引きずられて Yes と言わない"
+            },
+            {
+              "en": "Haven't you seen the new office yet? — **Yes**, I have. I visited it on Monday.",
+              "ja": "新しいオフィスは、まだ見ていないのですか。 — いいえ、見ました。月曜日に行きました。",
+              "note": "見たという事実は肯定なので、Yes, I have. 日本語では「いいえ」と答える場面"
+            }
+          ],
+          "cautions": [
+            "× Don't you like jazz? — Yes, I don't. → ○ No, I don't. Yes のあとに否定文は続けられない",
+            "× Don't you like jazz? — No, I do. → ○ Yes, I do. 好きなら Yes"
+          ]
+        },
+        {
+          "heading": "修辞疑問:答えを求めない疑問文(Who knows? は「だれも知らない」)",
+          "explanation": "**修辞疑問は、形は疑問文でも答えを求めず、疑問の形で強く主張する言い方です。肯定の形なら否定の意味、否定の形なら肯定の意味になるのが基本です。** 反語(問いかけの形で、逆の意味を強く言う表現)とも呼ばれ、文章や演説、会話で、強い気持ちを表すために使います。\n\n・**Who** knows?(= No one knows.)「だれが知っているだろうか(いや、だれも知らない)」\n・**Who** cares?(= No one cares.)\n・**Who** doesn't want to be happy?(= Everyone wants to be happy.)\n\n見分ける手がかりは、(1) 答えが分かりきっている、(2) 文脈が答えを求める場面ではない、(3) Who / What / Why / How のあとに、should, could, can などが付く、などです。\n\n読解では、修辞疑問を、ふつうの疑問と取り違えると、筆者の主張が正反対に読めてしまいます。疑問文のあとに答えが書かれていないときは、修辞疑問の可能性があります。逆に、筆者が自分で問いを立てて答える(自問自答)場合は、Why? のあとに説明が続きます。\n\n修辞疑問と平叙文の書き換えは、第24章「文の転換」でも扱います。",
+          "table": {
+            "caption": "修辞疑問と、言い換え",
+            "headers": ["修辞疑問", "言い換え", "形と意味"],
+            "rows": [
+              ["Who knows?", "No one knows.(だれにも分からない)", "形は肯定、意味は否定"],
+              ["Who cares?", "No one cares.(だれも気にしない)", "形は肯定、意味は否定"],
+              ["What is the use of worrying?", "There is no use worrying.(心配しても無駄だ)", "形は肯定、意味は否定"],
+              ["Who doesn't like a bonus?", "Everyone likes a bonus.(だれでもボーナスは好きだ)", "形は否定、意味は肯定"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Who knows** what the market will look like in ten years?",
+              "ja": "10年後に市場がどうなっているか、だれにも分からない。",
+              "note": "Who knows ...? は「だれも知らない」という修辞疑問。答えを求めていない"
+            },
+            {
+              "en": "**Who doesn't** want a shorter commute?",
+              "ja": "通勤時間が短くなってほしくない人が、いるだろうか(だれでもそう思う)。",
+              "note": "否定の形の修辞疑問は、肯定の意味。「だれもが望む」という主張"
+            },
+            {
+              "en": "**What is the use of** complaining about a decision that cannot be changed?",
+              "ja": "変えられない決定に不満を言って、何になるのか。",
+              "note": "What is the use of -ing? は「〜しても無駄だ」という意味の修辞疑問"
+            }
+          ],
+          "cautions": [
+            "× Who knows? を「だれが知っていますか」と受け取って答えを探す → ○ 文脈から「だれも知らない」と読む。修辞疑問は、答えを求めていない"
+          ]
+        }
+      ],
+      "examNote": "否定疑問文と修辞疑問は、Part 5 の空所補充ではほとんど問われません。出番があるのは、リスニング Part 2 での否定疑問文(Don't you ...? / Haven't you ...?)への答えの選択と、Part 7 や英検準1級の長文での修辞疑問の読み取りです。Part 2 では、Yes / No のあとの内容が事実と合っているかで答えを判断します。英検の長文では、Who knows? のような反語を、「答えを求める疑問」ではなく「筆者の主張」として読めるかが、内容の理解に関わります。"
+    }
+  ],
+  "summary": [
+    "疑問詞は「知りたい部分」を表す語で、疑問代名詞(who, whom, whose, what, which)、疑問形容詞(what / which / whose + 名詞)、疑問副詞(when, where, why, how)に分かれる。疑問詞疑問文には、Yes / No ではなく中身で答える。",
+    "基本の語順は「疑問詞 + 助動詞(do など) + 主語 + 動詞」。疑問詞(または「疑問詞 + 名詞」)が主語のときは do を使わず、平叙文の語順になる。見分け方は、疑問詞のかたまりの直後が動詞か、主語かを見ること。",
+    "前置詞は文末に残すのがふつう(Who are you waiting for?)。前置詞を前に出すなら、直後は whom(To whom ...?)。主語の位置に whom は使えない。",
+    "what は範囲が決まっていないとき、which は決まった範囲(or、of the + 複数名詞)から選ぶとき。whose(だれの)と who's(who is)は別の語。",
+    "how は方法・状態・程度。how many は可算名詞の複数形、how much は不可算名詞と値段。how long は期間と長さ。「どう思う」は What do you think ...? で、How do you think ... とは言わない。",
+    "間接疑問の語順は、平叙文の「疑問詞 + 主語 + 動詞」。do / does / did を取り除き、時制と三単現の -s を動詞に戻す。疑問詞が主語の疑問文は、語順が変わらない。",
+    "Yes/No 疑問文の間接疑問は if / whether で導く。主語・補語の節、前置詞の直後、to 不定詞の前、or not の直前では whether だけが使える。",
+    "Do you know where ...? のような know 系の動詞では、疑問詞は節の頭に置く。think, believe, suppose, imagine, guess, say 系では、疑問詞を文頭に出す(Where do you think he lives?)。疑問詞の節が主語のときは、単数扱いにする。",
+    "疑問詞 + to 不定詞は、「疑問詞 + 主語 + should + 動詞」の短縮形で、名詞の働きをする。why + to 不定詞や if + to 不定詞は使わず、whether to を使う。",
+    "否定疑問文への答えは、事実が肯定なら Yes、否定なら No(日本語と逆に感じる)。修辞疑問は、形が肯定なら否定の意味、否定の形なら肯定の意味になる。"
+  ],
+  "quiz": [
+    {
+      "id": "interrogative-q01",
+      "sentence": "What time ------- the shuttle bus leave the hotel tomorrow morning?",
+      "choices": [
+        { "label": "A", "text": "is" },
+        { "label": "B", "text": "does" },
+        { "label": "C", "text": "will it" },
+        { "label": "D", "text": "leaves" }
+      ],
+      "answer": "B",
+      "explanation": "What time(何時に)は副詞の働きをするので、後ろは「助動詞 + 主語 + 動詞の原形」の疑問文の語順になります。一般動詞 leave の現在形の疑問文なので does を使います。A の is は動詞 leave と並べられません。C の will it は主語が the shuttle bus と it で二重になります。D の leaves は疑問文の語順にならず、does も無いため不可です。",
+      "translation": "シャトルバスは、明日の朝、何時にホテルを出ますか。"
+    },
+    {
+      "id": "interrogative-q02",
+      "sentence": "Which department ------- the highest sales growth in the last quarter?",
+      "choices": [
+        { "label": "A", "text": "did it have" },
+        { "label": "B", "text": "was had" },
+        { "label": "C", "text": "does have" },
+        { "label": "D", "text": "had" }
+      ],
+      "answer": "D",
+      "explanation": "Which department が主語で、直後に動詞が来るので、do / did を使わない平叙文の語順になります。last quarter(過去)なので過去形の had が入ります。A の did it have は主語が Which department と it で二重になります。B の was had は受け身の形で意味が成り立ちません。C の does have は現在形で、last quarter と時制が合いません。",
+      "translation": "前四半期に、最も高い売上の伸びを記録したのは、どの部署でしたか。"
+    },
+    {
+      "id": "interrogative-q03",
+      "sentence": "------- is the new branch manager like? — She is very easygoing and a good listener.",
+      "choices": [
+        { "label": "A", "text": "What" },
+        { "label": "B", "text": "How" },
+        { "label": "C", "text": "Who" },
+        { "label": "D", "text": "Which" }
+      ],
+      "answer": "A",
+      "explanation": "人柄や様子を聞くときは What is X like? の形を使います。like は「〜のような」という前置詞で、その目的語が What です。B の How は like と一緒に使えません(How is she? なら可)。C の Who は名前や正体を聞く語で、like の目的語にはなりません。D の Which は範囲が決まっているときに使うので、ここでは不自然です。",
+      "translation": "新しい支店長は、どんな人ですか。 — とても穏やかで、聞き上手です。"
+    },
+    {
+      "id": "interrogative-q04",
+      "sentence": "Don't you like seafood? — ------- , I don't. I'm allergic to shellfish.",
+      "choices": [
+        { "label": "A", "text": "Yes" },
+        { "label": "B", "text": "Sure" },
+        { "label": "C", "text": "No" },
+        { "label": "D", "text": "Not" }
+      ],
+      "answer": "C",
+      "explanation": "否定疑問文への答えは、質問の形ではなく事実で決まります。「好きではない」という事実を述べる文(I don't)が続くので、No を使います。A の Yes は、後ろが肯定の内容でなければなりません(Yes, I do.)。B の Sure も肯定の同意で、I don't と矛盾します。D の Not は、Not really のような形で使われ、単独では I don't の前に置けません。",
+      "translation": "シーフードは、好きではないのですか。 — はい、好きではありません。貝類にアレルギーがあるので。"
+    },
+    {
+      "id": "interrogative-q05",
+      "sentence": "------- does it usually take to process a visa application?",
+      "choices": [
+        { "label": "A", "text": "How long" },
+        { "label": "B", "text": "How many" },
+        { "label": "C", "text": "How far" },
+        { "label": "D", "text": "How often" }
+      ],
+      "answer": "A",
+      "explanation": "所要時間を聞くときは How long does it take (to 〜)? の形を使います。B の How many は、days のような数えられる名詞が後ろに必要です。C の How far は距離を、D の How often は頻度を聞く語で、take(時間がかかる)の意味に合いません。",
+      "translation": "ビザの申請を処理するのに、ふつうどのくらいかかりますか。"
+    },
+    {
+      "id": "interrogative-q06",
+      "sentence": "------- of the three candidates has the most experience in logistics?",
+      "choices": [
+        { "label": "A", "text": "What" },
+        { "label": "B", "text": "Which" },
+        { "label": "C", "text": "Whom" },
+        { "label": "D", "text": "Whose" }
+      ],
+      "answer": "B",
+      "explanation": "of the three candidates と範囲が示されているので、範囲の中から選ぶ Which を使います。A の What は、of the + 複数名詞の前には置けません。C の Whom は目的語の形で、has の主語の位置には使えません。D の Whose は「だれの」の意味で、後ろに名詞が必要です。",
+      "translation": "3人の候補者のうち、物流の経験がいちばん豊富なのはだれですか。"
+    },
+    {
+      "id": "interrogative-q07",
+      "sentence": "------- luggage is each passenger allowed to carry onto the plane?",
+      "choices": [
+        { "label": "A", "text": "How many" },
+        { "label": "B", "text": "How long" },
+        { "label": "C", "text": "How much" },
+        { "label": "D", "text": "How few" }
+      ],
+      "answer": "C",
+      "explanation": "luggage は数えられない名詞(不可算名詞)なので、量を聞く How much を使います。A の How many は、数えられる名詞の複数形と一緒に使います。B の How long luggage は意味が成り立ちません。D の How few は、few が数えられる名詞に使う語であり、量を聞く形としては使われません。",
+      "translation": "各乗客は、どのくらいの量の荷物を機内に持ち込めますか。"
+    },
+    {
+      "id": "interrogative-q08",
+      "sentence": "I would like to know how long the renovation -------.",
+      "choices": [
+        { "label": "A", "text": "will it take" },
+        { "label": "B", "text": "it will take" },
+        { "label": "C", "text": "does it take" },
+        { "label": "D", "text": "will take" }
+      ],
+      "answer": "D",
+      "explanation": "how long 以下は間接疑問(know の目的語になる名詞節)なので、平叙文の語順で「主語 the renovation + 動詞 will take」になります。A と C は疑問文の語順で不可です。B の it will take は、主語が the renovation と it で二重になるため不可です。",
+      "translation": "改装工事にどのくらい時間がかかるのか、知りたいのですが。"
+    },
+    {
+      "id": "interrogative-q09",
+      "sentence": "------- do you think the supplier canceled the order so suddenly?",
+      "choices": [
+        { "label": "A", "text": "Why" },
+        { "label": "B", "text": "Whether" },
+        { "label": "C", "text": "If" },
+        { "label": "D", "text": "That" }
+      ],
+      "answer": "A",
+      "explanation": "do you think のように think 系の動詞が主節のときは、知りたい中身(理由)を聞くので、疑問詞 Why を文頭に出し、後ろは平叙文の語順(the supplier canceled ...)にします。B の Whether と C の If は「〜かどうか」の意味で、文頭に出して do you think とつなげません。D の That も、疑問文の先頭には置けません。",
+      "translation": "なぜ仕入れ先は、突然その注文を取り消したのだと思いますか。"
+    },
+    {
+      "id": "interrogative-q10",
+      "sentence": "The board has not yet decided ------- to accept the merger offer.",
+      "choices": [
+        { "label": "A", "text": "if" },
+        { "label": "B", "text": "that" },
+        { "label": "C", "text": "what" },
+        { "label": "D", "text": "whether" }
+      ],
+      "answer": "D",
+      "explanation": "「〜するかどうか」を to 不定詞で表すときは、whether to 〜 の形を使います。A の if は to 不定詞の前には置けません。B の that も to 不定詞と一緒には使えません。C の what to accept は、accept の目的語 the merger offer がすでにあるため、目的語が二重になり不可です。",
+      "translation": "取締役会は、その合併案を受け入れるかどうかを、まだ決めていない。"
+    },
+    {
+      "id": "interrogative-q11",
+      "sentence": "The handbook explains ------- to request time off and who to notify.",
+      "choices": [
+        { "label": "A", "text": "why" },
+        { "label": "B", "text": "that" },
+        { "label": "C", "text": "how" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "C",
+      "explanation": "「休暇の申請のしかた」を表す疑問詞 + to 不定詞は how to 〜 です。A の why + to 不定詞はふつう使いません。B の that は to 不定詞と一緒に使えません。D の which to request time off は、request の目的語 time off がすでにあるため、目的語が二重になり不可です。",
+      "translation": "その手引きには、休暇の申請のしかたと、だれに知らせるべきかが説明されている。"
+    },
+    {
+      "id": "interrogative-q12",
+      "sentence": "Whether the new system will reduce our costs ------- still unclear.",
+      "choices": [
+        { "label": "A", "text": "are" },
+        { "label": "B", "text": "is" },
+        { "label": "C", "text": "being" },
+        { "label": "D", "text": "were" }
+      ],
+      "answer": "B",
+      "explanation": "Whether 以下は全体が主語になる名詞節で、単数扱いなので、動詞は is になります。A の are と D の were は複数の主語に対する形で、節が主語のときは使いません。C の being は、述語動詞として働けません(文に定まった動詞が無くなります)。",
+      "translation": "新しいシステムが費用を減らすかどうかは、まだはっきりしない。"
+    }
+  ],
+  "related": ["sentence", "pronoun", "infinitive", "conjunction", "relative", "sequence-narration", "inversion"]
+}

@@ -45,7 +45,7 @@ public class GrammarService {
   public GrammarQuestion reviewQuestion(String exclude) {
     String id = reviewService.pickDue("grammar", exclude);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
-    return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
+    return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()), q.point());
   }
 
   /**

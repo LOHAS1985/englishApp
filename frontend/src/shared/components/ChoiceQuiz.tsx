@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerReadingWord, type GrammarQuestion, type GrammarAnswerResult } from "../../api/client";
+import { bookPath, chapterOf } from "../../content/grammarBook/chapterOf";
+import { writtenChapterId } from "../../features/grammarBook/loadChapter";
 import { LETTERS, shuffle } from "../shuffle";
 import WordCapture from "../../features/wordbook/WordCapture";
 import { toHeadword } from "../../features/wordbook/wordbookRules";
@@ -37,13 +39,15 @@ interface ChoiceQuizProps {
   ) => Promise<GrammarAnswerResult>;
   /** 解答後に、正解の語を単語帳へ追加するボタンを出す(語彙の問題。正解が英単語1語のときだけ) */
   wordbookAdd?: boolean;
+  /** 解答後に、文法の教科書の該当する節へのリンクを出す(文法の問題。語彙の point は品詞なので出さない) */
+  bookLink?: boolean;
 }
 
 /** 出題から解答までの秒数(学習時間の記録用) */
 const secondsSince = (start: number) => Math.round((Date.now() - start) / 1000);
 
 /** 短文の空所に4択で答える問題(文法・語彙)の共通画面。問題文と選択肢だけを表示する */
-export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = false }: ChoiceQuizProps) {
+export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = false, bookLink = false }: ChoiceQuizProps) {
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState<GrammarQuestion | null>(null);
@@ -207,6 +211,8 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
   });
   useQuizKeys(!loading && !finished && !!question && !submitting, keyActions);
 
+  const bookChapter = bookLink && question ? writtenChapterId(chapterOf(question.point)) : null;
+
   return (
     <div className="min-h-screen bg-[#f0f2f5]">
       <Header />
@@ -298,6 +304,14 @@ export default function ChoiceQuiz({ fetchQuestion, submitAnswer, wordbookAdd = 
                   <p className="text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
                     {result.translation}
                   </p>
+
+                  {bookChapter && (
+                    <p className="mt-3 text-sm">
+                      <Link to={bookPath(bookChapter, question.point)} className="text-[#2463a8] hover:underline">
+                        この項目の解説を読む →
+                      </Link>
+                    </p>
+                  )}
 
                   {addableWord && (
                     <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">

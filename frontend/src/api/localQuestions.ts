@@ -17,6 +17,8 @@ interface Choice {
 
 export interface LocalChoiceQuestion {
   id: string;
+  /** 文法項目(教科書へのリンクに使う) */
+  point?: string;
   sentence: string;
   choices: Choice[];
   answer: string;
@@ -155,7 +157,7 @@ export async function pickChoiceQuestion(feature: ChoiceFeature, exclude?: strin
   const bank = await loadChoiceBank<LocalChoiceQuestion>(feature);
   const q = bank.byId.get(chooseId(feature, bank.all, exclude, level));
   if (!q) throw new Error("問題が見つかりません");
-  return { id: q.id, sentence: q.sentence, choices: q.choices, difficulty: q.difficulty };
+  return { id: q.id, sentence: q.sentence, choices: q.choices, difficulty: q.difficulty, point: q.point };
 }
 
 /**

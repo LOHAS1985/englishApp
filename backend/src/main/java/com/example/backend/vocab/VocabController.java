@@ -44,7 +44,7 @@ public class VocabController {
   public GrammarQuestion getQuestion(@RequestParam(required = false) String exclude) {
     String id = reviewService.pickDue("vocab", exclude);
     ChoiceQuestion q = questionBank.findById(id).orElseThrow();
-    return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()));
+    return new GrammarQuestion(q.id(), q.sentence(), q.choices(), questionBank.difficulty(q.id()), q.point());
   }
 
   /** 解答記録・学習ログ・復習を1つのトランザクションにする(一部だけ保存されて再送で重複するのを防ぐ) */

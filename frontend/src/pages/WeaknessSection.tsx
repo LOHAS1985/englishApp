@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchWeakness, type WeaknessItem } from "../api/client";
+import { bookPath, chapterOfCategory } from "../content/grammarBook/chapterOf";
+import { writtenChapterId } from "../features/grammarBook/loadChapter";
 import { TYPE_LABELS } from "../shared/exams";
 
 /** 1〜2問の結果で苦手と決めつけないよう、この数以上解いた分類だけを苦手に挙げる */
@@ -66,12 +69,19 @@ export default function WeaknessSection() {
 function Row({ item, showType = false }: { item: WeaknessItem; showType?: boolean }) {
   const r = rate(item);
   const weak = item.total >= MIN_ANSWERS && r < WEAK_RATE;
+  // 文法の分野は、文法の教科書の該当する章へ(語彙・コロケーションなど範囲外の分野は出さない)
+  const bookChapter = item.feature === "grammar" ? writtenChapterId(chapterOfCategory(item.category)) : null;
   return (
     <div className={showType ? "bg-white border border-slate-200 rounded-md px-4 py-3" : ""}>
       <div className="flex justify-between text-sm mb-1 gap-3">
         <span className="truncate">
           {showType && <span className="text-xs text-slate-500 mr-2">{TYPE_LABELS[item.type] ?? item.type}</span>}
           {item.category}
+          {bookChapter && (
+            <Link to={bookPath(bookChapter)} className="ml-2 text-xs text-[#2463a8] hover:underline">
+              教科書で学ぶ
+            </Link>
+          )}
         </span>
         <span className={`font-mono shrink-0 ${weak ? "text-[#c0392b]" : ""}`}>
           {r}%<span className="text-slate-400">({item.correct}/{item.total})</span>

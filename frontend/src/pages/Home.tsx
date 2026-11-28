@@ -44,7 +44,7 @@ export default function Home() {
         {!menu ? (
           <>
             <TodayMenuSection />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {EXAM_MENUS.map((m) => (
                 <button
                   key={m.exam}
@@ -80,6 +80,19 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+
+              <button
+                onClick={() => navigate("/grammar-book")}
+                className="text-left rounded-lg shadow-lg p-6 transform transition hover:scale-[1.02] bg-gradient-to-br from-[#fbc2eb] to-[#a6c1ee]"
+              >
+                <span className="flex items-center justify-between gap-2">
+                  <span className="text-2xl font-bold text-slate-900">文法の教科書</span>
+                  <span className="text-2xl" aria-hidden>
+                    📖
+                  </span>
+                </span>
+                <span className="mt-2 block text-sm text-slate-800">例文つきで、基礎から試験対策まで</span>
+              </button>
             </div>
 
             <WeeklyStatsSection />

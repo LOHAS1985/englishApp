@@ -1,0 +1,2043 @@
+{
+  "id": "relative",
+  "no": 19,
+  "title": "関係詞",
+  "lead": "関係詞(who, which, that, whose, what, where, when など)は、名詞のすぐ後ろに「どんな〜か」という説明の節をつなぐことばです。日本語は「昨日会った人」のように説明を名詞の前に置きますが、英語は the person I met yesterday のように名詞の後ろに置きます。この語順の違いに慣れることが、長い英文を速く正確に読むための土台になります。\n\nこの章では、関係代名詞の格(主格・目的格・所有格)の決め方、that の使い方と省略、前置詞 + 関係代名詞、カンマ付きの非制限用法、先行詞を含む what、関係副詞(when, where, why, how)、複合関係詞(whoever, whatever, however など)、疑似関係代名詞(as, than, but)、関係詞節の中の一致・時制・態までを順に学びます。\n\nTOEIC Part 5 では「空所の後ろに何が欠けているか」で関係詞を選ぶ問題が繰り返し出ます。英検準1級の長文でも、関係詞節がどこからどこまでかを見抜けるかどうかが、読む速さと正確さを大きく左右します。最後まで読むと、空所の後ろを見るだけで正解を絞り込む手順が身につきます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "関係代名詞の基本:先行詞と格",
+      "intro": "関係代名詞とは何か、先行詞(関係詞の前にある、説明される名詞)が人か物かと、関係詞節の中での働き(格)によって who / whom / which / that をどう選ぶかを学びます。ここがあいまいだと、この章の後の内容がすべて不安定になります。",
+      "keywords": ["主格", "目的格", "(who)", "(whom)", "(制限", "those who", "関係代名詞"],
+      "items": [
+        {
+          "heading": "関係詞とは:名詞を後ろから説明する「形容詞節」を作る語",
+          "explanation": "**関係詞は、名詞のすぐ後ろに「主語 + 動詞」を含むかたまり(節)をつなぎ、その名詞が「どんな〜か」を説明させる語です。** 説明される名詞を**先行詞**(関係詞の前に先に出てくる詞)、関係詞から始まるかたまりを**関係詞節**と呼びます。関係詞節は名詞を説明するので、働きとしては形容詞と同じであり、**形容詞節**とも呼ばれます。\n\n日本語では「昨日駅で会った女性」のように、説明が名詞の前に来ます。英語では the woman **who** I met at the station yesterday のように、まず名詞(the woman)を言ってから、後ろに説明を足します。日本語の感覚で読むと「説明がどこで終わるか」が分かりにくくなるので、英文を読むときは「名詞 → 関係詞 → 説明 → 説明が終わったら文の続き」という順で読む練習をします。\n\n関係代名詞は、2つの文をつなぐ「接続詞」と、名詞の代わりをする「代名詞」の働きを同時にします。\n\n・I have a colleague. + **She** speaks five languages.\n・→ I have a colleague **who** speaks five languages.\n\n2つ目の文の She(= a colleague)が who に変わり、先行詞のすぐ後ろに移動して、2つの文が1つになっています。who は「接続詞 + She」の役目を1語で果たしているので、接続詞の and などは要りません。\n\n関係詞には大きく分けて、関係代名詞(who, whom, whose, which, that, what)、関係副詞(when, where, why, how)、複合関係詞(whoever, whatever など)があります。この節ではまず関係代名詞の基本を扱います。",
+          "table": {
+            "caption": "日本語と英語の語順の違い",
+            "headers": ["日本語(説明が前)", "英語(説明が後ろ)"],
+            "rows": [
+              ["5か国語を話す同僚", "a colleague **who** speaks five languages"],
+              ["私が先月買ったカメラ", "the camera **which** I bought last month"],
+              ["父親が医者をしている友人", "a friend **whose** father is a doctor"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I have a colleague **who** speaks five languages fluently.",
+              "ja": "私には5か国語を流ちょうに話す同僚がいる。",
+              "note": "先行詞 a colleague のすぐ後ろに who を置き、「どんな同僚か」を後ろから説明している"
+            },
+            {
+              "en": "The report **which** Mr. Ito wrote last week was praised by the board.",
+              "ja": "伊藤さんが先週書いた報告書は、役員会で高く評価された。",
+              "note": "主語 The report の後ろに関係詞節が入り、文の動詞 was praised は関係詞節が終わってから出てくる"
+            }
+          ],
+          "cautions": [
+            "× I have a colleague and who speaks five languages. → ○ I have a colleague who speaks five languages. 関係代名詞が接続詞の働きもするので、and は要らない",
+            "× The report which Mr. Ito wrote it last week ... → ○ The report which Mr. Ito wrote last week ... which が wrote の目的語の代わりなので、it を残すと目的語が二重になる"
+          ]
+        },
+        {
+          "heading": "関係代名詞は「先行詞」と「格」の2つで選ぶ",
+          "explanation": "**関係代名詞は、(1) 先行詞が人か物か、(2) 関係詞節の中で主語・目的語・所有格のどれの働きをするか(格)、の2つで決まります。** この2つを表にしたものが、関係代名詞を選ぶときの基本の地図です。\n\n**格**とは、名詞・代名詞が文の中でどんな働きをしているかを表す区別です。代名詞の he / him / his と同じで、主語の働きなら主格(he に当たる)、目的語の働きなら目的格(him に当たる)、「〜の」という持ち主の働きなら所有格(his に当たる)です。関係代名詞の who / whom / whose は、ちょうど he / him / his に対応しています。\n\n先行詞が物・動物・事柄なら which を使い、which は主格も目的格も同じ形です。that は人にも物にも使え、主格・目的格の両方に使えます(ただし使えない場面があります。第3節で扱います)。what は先行詞を自分の中に含む特別な関係代名詞で、前に先行詞を置きません(第6節)。\n\n選ぶ順番は、まず先行詞を見て「人か物か」を決め、次に関係詞の後ろを見て「何が欠けているか」から格を決めます。格の決め方は、この節の後の項目で詳しく扱います。",
+          "table": {
+            "caption": "関係代名詞の一覧",
+            "headers": ["先行詞", "主格(主語の働き)", "目的格(目的語の働き)", "所有格(〜の)"],
+            "rows": [
+              ["人", "who / that", "whom / who / that", "whose"],
+              ["物・動物・事柄", "which / that", "which / that", "whose / of which"],
+              ["(先行詞なし)", "what", "what", "なし"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The engineer **who** designed this bridge received an international award.",
+              "ja": "この橋を設計した技術者は、国際的な賞を受けた。",
+              "note": "先行詞 The engineer は人で、関係詞節の中で designed の主語なので主格の who"
+            },
+            {
+              "en": "The bridge **which** the engineer designed has become a local landmark.",
+              "ja": "その技術者が設計した橋は、地元の名所になっている。",
+              "note": "先行詞 The bridge は物で、designed の目的語の働きなので目的格の which"
+            },
+            {
+              "en": "We hired a designer **whose** portfolio impressed everyone on the team.",
+              "ja": "私たちは、作品集がチーム全員を感心させたデザイナーを採用した。",
+              "note": "「そのデザイナーの作品集」という持ち主の関係なので所有格の whose"
+            }
+          ],
+          "cautions": [
+            "× the bridge who the engineer designed → ○ the bridge which (that) the engineer designed。who は人だけに使う",
+            "× the engineer which designed this bridge → ○ the engineer who (that) designed this bridge。which は人には使わない"
+          ]
+        },
+        {
+          "heading": "主格の関係代名詞:直後に動詞が来る",
+          "explanation": "**関係詞節の中で主語の働きをする関係代名詞を主格といい、主格の関係代名詞の直後には動詞(または助動詞)が来ます。** 先行詞が人なら who または that、物なら which または that を使います。\n\n仕組みは、2つ目の文の主語が関係代名詞に変わったものです。\n\n・The company hired a manager. + **The manager** has worked in Singapore.\n・→ The company hired a manager **who** has worked in Singapore.\n\n関係詞節の中を見ると、主語の位置が空いていて、who がその代わりをしています。つまり「関係代名詞の後ろに主語が無く、いきなり動詞が来る」のが主格の目印です。\n\n主格の関係代名詞の後ろの動詞は、**先行詞の数(単数か複数か)と人称に合わせます。** who 自体には単数・複数の区別がないので、「誰が」の中身である先行詞を見て動詞の形を決めます。a manager who **has** / managers who **have** のようになります(詳しくは第10節)。\n\n見分け方の手順は次のとおりです。\n\n・空所の直後が動詞(has, is, was, can など)で始まっている → 主格\n・先行詞が人なら who / that、物なら which / that\n\n例外として、主格の関係代名詞は原則として省略できません(目的格は省略できます。第3節)。",
+          "examples": [
+            {
+              "en": "Customers **who** sign up before Friday will receive a ten percent discount.",
+              "ja": "金曜日までに登録した顧客は、1割引きを受けられる。",
+              "note": "who の直後に動詞 sign が来ているので主格。先行詞 Customers が複数なので sign に -s が付かない"
+            },
+            {
+              "en": "This is a tool **which** helps small businesses manage their accounts.",
+              "ja": "これは小規模な会社が帳簿を管理するのを助けるツールだ。",
+              "note": "先行詞 a tool は物で単数。which が helps の主語なので主格で、動詞は helps"
+            }
+          ],
+          "cautions": [
+            "× Customers who signs up ... → ○ Customers who sign up ...。主格の後ろの動詞は先行詞(Customers は複数)に合わせる",
+            "× a tool which it helps small businesses ... → ○ a tool which helps small businesses ...。which が主語なので it は要らない"
+          ]
+        },
+        {
+          "heading": "目的格の関係代名詞:後ろに「主語 + 動詞」が来て、目的語が欠けている",
+          "explanation": "**関係詞節の中で目的語の働きをする関係代名詞を目的格といい、目的格の関係代名詞の後ろには「主語 + 他動詞」(または「主語 + 動詞 + 前置詞」)が来て、その目的語が欠けています。** 先行詞が人なら whom / who / that、物なら which / that です。\n\n・The candidate impressed us. + We interviewed **the candidate** yesterday.\n・→ The candidate **whom** we interviewed yesterday impressed us.\n\ninterviewed は他動詞(目的語が必要な動詞)なので、本来は後ろに目的語が要ります。関係詞節の中では、その目的語が whom に変わって前に出ているので、interviewed の後ろが空いています。これが目的格の目印です。\n\n人の目的格は、正式には **whom** です。ただし、会話やくだけた文章では who を目的格に使うことがふつうで、さらに目的格の関係代名詞は省略されることがとても多いです(第3節)。試験では、選択肢に who と whom が両方あり、空所の後ろが「主語 + 他動詞」で目的語が欠けている場合は、whom を選ぶのが確実です。逆に、空所の直後が動詞なら主格なので whom は選べません。\n\n手順: (1) 空所の後ろに主語があるか → ある。(2) その動詞(または前置詞)の後ろに目的語があるか → ない。この2つがそろえば目的格です。",
+          "table": {
+            "caption": "主格と目的格の見分け方",
+            "headers": ["空所の後ろ", "欠けている要素", "選ぶもの(人)", "選ぶもの(物)"],
+            "rows": [
+              ["動詞 ...", "主語", "who / that", "which / that"],
+              ["主語 + 他動詞(目的語なし)", "目的語", "whom / who / that(省略可)", "which / that(省略可)"],
+              ["主語 + 動詞 + 前置詞(目的語なし)", "前置詞の目的語", "whom / who / that(省略可)", "which / that(省略可)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The candidate **whom** we interviewed yesterday has strong sales experience.",
+              "ja": "私たちが昨日面接した候補者は、豊富な営業経験を持っている。",
+              "note": "we interviewed の後ろに目的語が無いので目的格。先行詞が人なので whom"
+            },
+            {
+              "en": "The software **which** our team developed is now used in over forty countries.",
+              "ja": "私たちのチームが開発したソフトウエアは、今では40か国以上で使われている。",
+              "note": "developed の目的語が欠けていて、先行詞が物なので目的格の which"
+            },
+            {
+              "en": "The colleague **who** I was talking to is our new office manager.",
+              "ja": "私が話していた同僚は、新しい事務長だ。",
+              "note": "前置詞 to の目的語が欠けている目的格。くだけた文では whom の代わりに who がよく使われる"
+            }
+          ],
+          "cautions": [
+            "× The candidate whom has strong sales experience ... → ○ The candidate who has ...。直後が動詞なら主格で、whom は使えない",
+            "× The software which our team developed it ... → ○ The software which our team developed ...。目的語は which が代わりをしているので it を残さない"
+          ]
+        },
+        {
+          "heading": "格の決め方の手順:関係詞節の中で「欠けている要素」を探す",
+          "explanation": "**関係詞の問題は、空所の後ろの節を見て「何が欠けているか」を確かめれば、ほとんどが解けます。** 関係代名詞は、関係詞節の中の名詞(主語・目的語・前置詞の目的語)の代わりをするので、関係代名詞の後ろは必ず「名詞が1つ欠けた、不完全な文」になります。一方、関係副詞(where, when など)や「前置詞 + 関係代名詞」の後ろは、名詞が欠けていない完全な文になります。\n\nここで言う**完全な文**とは、主語・動詞があり、他動詞なら目的語も、前置詞なら後ろの名詞もそろっている文のことです。**不完全な文**とは、そのどれかが欠けている文のことです。\n\n解く手順は次のとおりです。\n\n・手順1: 先行詞を見つける(空所の直前の名詞。人か物か、単数か複数か)。\n・手順2: 空所の直後を見る。動詞で始まる → 主語が欠けている → 主格(who / which / that)。\n・手順3: 「主語 + 動詞」で始まる → 動詞の後ろ(他動詞の目的語、前置詞の後ろ)を確かめる。目的語が欠けている → 目的格(whom / which / that、省略も可)。\n・手順4: 空所の直後が冠詞の付かない名詞で、その後ろが「動詞 ...」または「主語 + 動詞 ...」 → 所有格(whose)。\n・手順5: 後ろが完全な文 → 関係副詞(where / when / why)か、前置詞 + which / whom。\n\n注意したいのは、自動詞(目的語をとらない動詞)と他動詞の区別です。たとえば stay は自動詞なので、the hotel ------- we stayed の後ろ「we stayed」は完全な文です。このため which ではなく where(または at which)が入ります。一方、visit は他動詞なので、the hotel ------- we visited は目的語が欠けた不完全な文で、which / that が入ります。日本語では「ホテルに泊まる」「ホテルを訪れる」と助詞が違うだけですが、英語では文の形そのものが変わります。\n\nもう1つの注意点は、関係詞節の中に「I think」「they say」などが挟まる場合です(連鎖関係詞節。第10節)。the man who I think is honest では、I think を取り除いて the man who is honest と考えると、who が is の主語(主格)だと分かります。",
+          "table": {
+            "caption": "空所の後ろの形と、入る関係詞",
+            "headers": ["空所の後ろの形", "欠けているもの", "入る関係詞"],
+            "rows": [
+              ["動詞 + ...", "主語", "who / which / that(主格)"],
+              ["主語 + 他動詞(目的語なし)", "目的語", "whom / which / that(目的格)"],
+              ["主語 + 動詞 + 前置詞(後ろの名詞なし)", "前置詞の目的語", "whom / which / that(目的格)"],
+              ["無冠詞の名詞 + 動詞 / 主語 + 動詞", "「〜の」の持ち主", "whose(所有格)"],
+              ["完全な文", "なし(副詞の働き)", "where / when / why、前置詞 + which / whom"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The hotel **which** we visited during the tour was built in the 1920s.",
+              "ja": "ツアー中に私たちが訪れたホテルは、1920年代に建てられた。",
+              "note": "visit は他動詞で、visited の後ろの目的語が欠けている。だから関係代名詞の which"
+            },
+            {
+              "en": "The hotel **where** we stayed during the tour was close to the station.",
+              "ja": "ツアー中に私たちが泊まったホテルは、駅に近かった。",
+              "note": "stay は自動詞で、we stayed は完全な文。欠けている名詞が無いので関係副詞の where"
+            }
+          ],
+          "cautions": [
+            "× the hotel which we stayed → ○ the hotel where we stayed / the hotel at which we stayed / the hotel which we stayed at。stay は自動詞なので、which を使うなら前置詞が要る",
+            "× the hotel where we visited → ○ the hotel which (that) we visited。visit は他動詞で目的語が欠けているので関係代名詞を使う"
+          ]
+        },
+        {
+          "heading": "who と which の使い分け:動物・会社・組織の場合",
+          "explanation": "**先行詞が人なら who、それ以外(物・動物・事柄・組織)なら which が基本です。** ただし、先行詞が人なのか物なのか迷いやすいものがあるので、整理しておきます。\n\n・動物: 原則は which / that です。ただし、名前のあるペットなど、人のように親しみをもって扱う動物には who を使うこともあります。\n・会社・組織・チーム: 原則は which / that です。会社を「人の集まり」として見るときに who が使われることもあり、特にイギリス英語ではよく見られます。ただし試験では、company, firm, organization などには which / that を選ぶのが安全です。\n・人を表す語でも、「役割・種類」としての説明(He is not the man that he used to be. など)では that が使われます。\n\n日本語では、人にも物にも「〜する」「〜した」と同じ形で説明を付けられるので、人と物の区別を意識しません。英語では先行詞の種類によって関係代名詞が変わるので、先行詞が何かを必ず確かめます。\n\n見分け方の手順: 空所の前の名詞が「人」を表すか確かめる。人なら who / whom / whose / that、物・組織なら which / whose / that。選択肢に that があり、他の条件(カンマ、前置詞の直後でない)を満たすなら、that は人にも物にも使えます。",
+          "examples": [
+            {
+              "en": "We signed a contract with a firm **which** specializes in data security.",
+              "ja": "私たちはデータセキュリティを専門とする会社と契約を結んだ。",
+              "note": "先行詞 a firm は組織。試験では which / that を選ぶのが基本"
+            },
+            {
+              "en": "Our neighbor has a dog **that** barks whenever the doorbell rings.",
+              "ja": "隣の家には、玄関のチャイムが鳴るたびにほえる犬がいる。",
+              "note": "動物は原則 which / that。ここでは that を使っている"
+            }
+          ],
+          "cautions": [
+            "× a firm who specializes in data security(試験では避ける) → ○ a firm which (that) specializes in data security。組織は which / that が基本"
+          ]
+        },
+        {
+          "heading": "those who 〜(〜する人々)と anyone who 〜",
+          "explanation": "**those who 〜 は「〜する人々」という意味で、those は「人々」を表す代名詞、who 以下がその人々を説明します。動詞は複数で受けます。** those は that の複数形ですが、関係詞節と組み合わせると「(〜する)人たち」という意味になります。people who 〜 とほぼ同じ意味で、少しかたい言い方です。\n\n・**Those who** have registered will receive an email.(登録した人は、メールを受け取る)\n\nこの文では、主語は Those who have registered 全体で、文の動詞は will receive です。those が複数なので、関係詞節の中の動詞も have(has ではない)になります。\n\n似た言い方に、anyone who 〜(〜する人は誰でも)、everyone who 〜(〜する人は全員)、someone who 〜(〜する人)があります。anyone / everyone / someone は単数扱いなので、関係詞節の中の動詞は has, wants のように3人称単数の形になります。\n\n古い言い方・ことわざでは、he who 〜(〜する者は)という形も見られます(He who hesitates is lost. ためらう者は機会を逃す)。現代の文章では those who や anyone who を使います。\n\n試験では、空所に those / them / they などを選ばせて、「関係詞の前に置けるのはどれか」を問う形があります。them や they の後ろに関係詞節は続けられないので、those を選びます。",
+          "table": {
+            "caption": "「〜する人」を表す言い方",
+            "headers": ["形", "意味", "関係詞節の中の動詞"],
+            "rows": [
+              ["those who 〜", "〜する人々", "複数(have, want)"],
+              ["people who 〜", "〜する人々", "複数"],
+              ["anyone who 〜", "〜する人は誰でも", "単数(has, wants)"],
+              ["everyone who 〜", "〜する人は全員", "単数"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Those who** wish to join the tour should gather in the lobby at nine.",
+              "ja": "ツアーに参加したい方は、9時にロビーに集まってください。",
+              "note": "Those who = 「〜する人々」。those が複数なので wish に -es が付かない"
+            },
+            {
+              "en": "**Anyone who** has questions about the schedule can contact Ms. Kim.",
+              "ja": "日程について質問のある人は誰でも、キムさんに連絡してよい。",
+              "note": "anyone は単数扱いなので、関係詞節の動詞は has"
+            }
+          ],
+          "cautions": [
+            "× Them who wish to join ... → ○ Those who wish to join ...。人称代名詞 them / they の後ろに関係詞節は付けない",
+            "× Those who wishes to join ... → ○ Those who wish to join ...。those は複数"
+          ]
+        },
+        {
+          "heading": "先行詞の見つけ方:直前の名詞とは限らない",
+          "explanation": "**先行詞は、ふつうは関係詞の直前の名詞ですが、「名詞 + of + 名詞」の後ろや、関係詞節が文の後ろに回った文では、意味と動詞の形から先行詞を判断します。**\n\n1つ目の場合は、the price of the products **that** ... のように名詞が2つ並ぶときです。that が the price を指すのか the products を指すのかは、関係詞節の動詞の数(単数か複数か)と意味から決まります。たとえば the price of the products that **were** launched last year なら、were が複数で、「発売された」のは製品なので、先行詞は the products です。\n\n2つ目の場合は、主語が長くなりすぎるのを避けて、関係詞節を文の終わりに回す文です。A package arrived **that** needs your signature. では、先行詞 A package と関係詞節 that needs ... の間に arrived が入っています。英語には「主語を短くして、長い部分は後ろに回す」傾向があるため、このような形が自然に使われます。\n\n見分け方の手順: (1) 関係詞節の中の動詞の数を見る(単数か複数か)。(2) 関係詞節の内容が「どの名詞の説明として意味が通るか」を考える。(3) 関係詞の直前に名詞が無いときは、文の前の方にある名詞を探す。\n\nPart 5 では、先行詞が離れていても、関係詞節の動詞の数で正解を決める問題(who has / who have)が出ることがあります。",
+          "examples": [
+            {
+              "en": "The sales figures for the products **that were** launched in spring are encouraging.",
+              "ja": "春に発売された製品の売上の数字は、期待が持てるものだ。",
+              "note": "were が複数で、「発売された」のは製品なので、先行詞は the products"
+            },
+            {
+              "en": "A package arrived this morning **that** needs your signature.",
+              "ja": "今朝、あなたの署名が必要な荷物が届いた。",
+              "note": "先行詞 A package と関係詞節の間に arrived this morning が入っている。主語を短くするために関係詞節を後ろに回した形"
+            }
+          ],
+          "cautions": [
+            "先行詞を「関係詞の直前の名詞」と決めつけない。関係詞節の動詞の数と意味で確かめる"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、選択肢に who / whom / whose / which / that / what が並び、空所の前の名詞(先行詞)と、空所の後ろの形から1つを選ぶ問題がよく出ます。解く手順は、(1) 空所の直前の名詞が人か物かを見る、(2) 空所の直後が動詞なら主格、主語 + 動詞で目的語が欠けていれば目的格、無冠詞の名詞なら whose、完全な文なら関係副詞か前置詞 + 関係代名詞、の順です。ひっかけとして多いのは、(a) 直後が動詞なのに whom を選ばせる、(b) 先行詞があるのに what を選ばせる、(c) 先行詞が人なのに which を置く、の3つです。英検準1級の長文では、主語に長い関係詞節が付いた文で「文の本当の動詞」を見失わないことが大切です。関係詞節の中の動詞と、文全体の動詞を区別して読みましょう。"
+    },
+    {
+      "id": "whose",
+      "title": "所有格の関係代名詞 whose",
+      "intro": "「その人の〜が」「その物の〜が」という持ち主の関係を表す whose の使い方を学びます。whose は人にも物にも使え、直後に必ず名詞が来ます。who / which / who's との取り違えが試験のひっかけになりやすいところです。",
+      "keywords": ["所有"],
+      "items": [
+        {
+          "heading": "whose + 名詞:「その人の〜が(を)」を表す",
+          "explanation": "**whose は所有格の関係代名詞で、「whose + 名詞」で「先行詞の〜」という意味のかたまりを作ります。whose の直後には必ず名詞が来て、その名詞には a / the / my などを付けません。**\n\n仕組みは、2つ目の文の his / her / their / its(所有格の代名詞)が whose に変わったものです。\n\n・I know a writer. + **Her** novels have been made into films.\n・→ I know a writer **whose** novels have been made into films.\n\nHer novels の Her が whose に変わり、whose novels というかたまりのまま先行詞の後ろに移動しています。whose だけが動くのではなく、**「whose + 名詞」が1つのかたまりとして動く**のがポイントです。\n\n日本語では「小説が映画化された作家」のように、「の」を使わずに説明できますが、英語では「その作家の小説が」という持ち主の関係を whose ではっきり示します。\n\nwhose の後ろの名詞に冠詞が付かないのは、whose 自体が my や his と同じ「所有格」の働きをしていて、所有格と冠詞は一緒に使えないからです(× my the car と同じ理由)。\n\n見分け方: 空所の直後に「冠詞の付かない名詞」があり、先行詞とその名詞の間に「〜の」の関係が成り立つなら whose です。",
+          "examples": [
+            {
+              "en": "I know a writer **whose novels** have been made into films.",
+              "ja": "私は、小説が映画化されたことのある作家を知っている。",
+              "note": "「その作家の小説が」という関係なので whose。whose novels がかたまりで関係詞節の主語になっている"
+            },
+            {
+              "en": "Employees **whose contracts** expire this year must meet with HR.",
+              "ja": "今年契約が切れる社員は、人事部と面談しなければならない。",
+              "note": "「社員の契約が切れる」。whose の直後の contracts には冠詞が付かない"
+            }
+          ],
+          "cautions": [
+            "× a writer whose the novels ... → ○ a writer whose novels ...。whose の後ろの名詞に冠詞は付けない",
+            "× a writer who her novels have been made into films → ○ a writer whose novels have been made into films。who + 所有格の代名詞ではなく、whose 1語で表す"
+          ]
+        },
+        {
+          "heading": "物が先行詞のときの whose と of which",
+          "explanation": "**whose は人だけでなく、物・動物・組織が先行詞のときにも使えます。物の場合は、かたい書き言葉で「the + 名詞 + of which」という言い方もあります。**\n\n・a building **whose roof** was damaged by the storm(屋根が嵐で傷んだ建物)\n・a building **the roof of which** was damaged by the storm(同じ意味、かたい言い方)\n\nwho は人専用なので、「whose も人専用」と思い込む人がいますが、whose は who の所有格であると同時に、which の所有格の役目も兼ねています。物の先行詞に whose を使うのは、正しい英語です。ただし、人によっては物に whose を使うのを避け、with を使う言い方(a building with a damaged roof)や、of which を使う言い方を好むこともあります。\n\nof which を使う形は、語順に注意が必要です。the roof of which(名詞 + of which)の語順のほか、of which the roof という語順もありますが、the roof of which が一般的です。of which の後ろ(または前)の名詞には the が付きます。\n\n会社などの組織も先行詞になります。a company whose headquarters are in Osaka(本社が大阪にある会社)のように使います。",
+          "table": {
+            "caption": "物の所有格の表し方",
+            "headers": ["形", "例", "特徴"],
+            "rows": [
+              ["whose + 名詞", "a car whose engine was replaced", "ふつうの言い方"],
+              ["the + 名詞 + of which", "a car the engine of which was replaced", "かたい書き言葉"],
+              ["with + 名詞(関係詞を使わない)", "a car with a new engine", "短く言い換える方法"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We visited a factory **whose** production line is fully automated.",
+              "ja": "私たちは、生産ラインが完全に自動化された工場を見学した。",
+              "note": "先行詞 a factory は物。「その工場の生産ライン」なので物でも whose を使える"
+            },
+            {
+              "en": "The committee reviewed a proposal, **the details of which** were still unclear.",
+              "ja": "委員会はある提案を検討したが、その詳細はまだはっきりしていなかった。",
+              "note": "the details of which = 「その提案の詳細」。whose details と同じ意味の、かたい言い方"
+            }
+          ],
+          "cautions": [
+            "× a factory which production line is fully automated → ○ a factory whose production line is fully automated。which の直後に名詞を続けて「その〜」の意味にはできない"
+          ]
+        },
+        {
+          "heading": "whose を選ぶ手順:直後の名詞と、その後ろの形を見る",
+          "explanation": "**空所の直後に冠詞の付かない名詞があり、「空所 + その名詞」を取り除いても後ろが「動詞 ...」または「主語 + 動詞 ...」として続くなら、whose が入ります。**\n\nwho や which との違いは、後ろの形で分かります。\n\n・who / which(主格)の後ろ: 動詞がすぐ来る(who **manages** ...)。\n・whose の後ろ: 名詞が来てから、動詞が来る(whose **team** manages ...)。\n\nつまり、whose の後ろの節は「whose + 名詞」を主語(または目的語)として埋めると完全な文になります。逆に、空所の直後の名詞が、関係詞節の主語として働いている場合(the manager ------- team won the award)、who を入れると who team won ... という意味の通らない形になってしまいます。\n\n手順は次のとおりです。\n\n・手順1: 空所の直後を見る。冠詞の付かない名詞(team, office, price など)か。\n・手順2: 先行詞と、その名詞の間に「先行詞の〜」という関係が成り立つか(the manager の team)。\n・手順3: 成り立てば whose。名詞の後ろが動詞なら「whose + 名詞」が主語、「主語 + 動詞」なら「whose + 名詞」が目的語。\n\n直後の名詞が「主語」なのか、主格の関係代名詞の後ろの「動詞」なのかを見誤らないことが大切です。たとえば the people ------- work here の work は動詞なので who が入りますが、the people ------- work is praised の work は名詞(仕事)なので whose が入ります。",
+          "table": {
+            "caption": "who / which / whose の後ろの形",
+            "headers": ["関係代名詞", "後ろの形", "例"],
+            "rows": [
+              ["who / which(主格)", "動詞 ...", "the manager **who** leads the team"],
+              ["whom / which(目的格)", "主語 + 他動詞(目的語なし)", "the manager **whom** we admire"],
+              ["whose", "無冠詞の名詞 + 動詞 / 主語 + 動詞", "the manager **whose** team won the award"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The manager **whose team** won the sales award will give a short speech.",
+              "ja": "チームが営業賞を受けたマネージャーが、短いスピーチをする。",
+              "note": "空所の直後に無冠詞の名詞 team、その後ろに動詞 won。「マネージャーのチーム」なので whose"
+            },
+            {
+              "en": "The artist **whose work** we saw at the gallery lives in Kyoto.",
+              "ja": "私たちが画廊で作品を見た芸術家は、京都に住んでいる。",
+              "note": "whose work が saw の目的語。「主語 + 動詞(we saw)」の前に whose + 名詞が出ている形"
+            }
+          ],
+          "cautions": [
+            "× The manager who team won the award ... → ○ The manager whose team won the award ...。直後が無冠詞の名詞で「その人の〜」なら whose"
+          ]
+        },
+        {
+          "heading": "whose + 名詞が前置詞の後ろに来る形",
+          "explanation": "**「whose + 名詞」が関係詞節の中で前置詞の目的語になるときは、前置詞を後ろに残すのがふつうで、かたい文では「前置詞 + whose + 名詞」の語順にもなります。**\n\n・We work with a supplier. + We rely on **its** products.\n・→ We work with a supplier **whose products** we rely on.(ふつう)\n・→ We work with a supplier **on whose products** we rely.(かたい)\n\nどちらも「whose + 名詞」をかたまりとして動かしている点は同じです。前置詞を前に出すかどうかは、次の第4節「前置詞 + 関係代名詞」と同じ考え方です。\n\n読むときは、whose products we rely on のように「whose + 名詞 + 主語 + 動詞 + 前置詞」の形が来たら、最後の前置詞の目的語が whose products だと考えると意味がつかめます。\n\nこの形は TOEIC ではそれほど多く出ませんが、英検準1級の長文や、かたいビジネス文書で見かけます。",
+          "examples": [
+            {
+              "en": "We work closely with a supplier **whose products** we rely on.",
+              "ja": "私たちは、製品を頼りにしている仕入れ先と密接に協力している。",
+              "note": "rely on の目的語が whose products。前置詞 on を後ろに残した、ふつうの語順"
+            },
+            {
+              "en": "She thanked the professor **under whose guidance** she had completed her research.",
+              "ja": "彼女は、その指導のもとで研究を仕上げた教授に感謝した。",
+              "note": "under the professor's guidance の関係。前置詞 under を whose guidance の前に出した、かたい語順"
+            }
+          ],
+          "cautions": [
+            "× a supplier whose we rely on products → ○ a supplier whose products we rely on。whose と名詞は離さずに、かたまりで前に出す"
+          ]
+        },
+        {
+          "heading": "whose と who's の違い/疑問詞の whose との区別",
+          "explanation": "**whose(所有格の関係代名詞)と who's(who is / who has の短縮形)は発音が同じですが、まったく別の語です。** 書き言葉で取り違えやすいので注意します。\n\n・whose の後ろ: 名詞(whose car)\n・who's の後ろ: 形容詞・分詞・名詞など(who's responsible = who is responsible、who's been = who has been)\n\n迷ったら who is / who has に置き換えてみます。意味が通れば who's、通らなければ whose です。\n\nまた、whose には疑問詞の用法(「誰の〜」)もあります。\n\n・疑問詞: I wonder **whose** umbrella this is.(これは誰の傘だろう)→ 前に先行詞が無い。\n・関係代名詞: The woman **whose** umbrella I borrowed is my aunt.(私が傘を借りた女性はおばだ)→ 前に先行詞 The woman がある。\n\n見分け方は、前に説明される名詞(先行詞)があるかどうかです。先行詞があれば関係代名詞、無ければ疑問詞です。",
+          "table": {
+            "caption": "whose / who's / 疑問詞 whose",
+            "headers": ["語", "働き", "例"],
+            "rows": [
+              ["whose(関係代名詞)", "先行詞の「〜の」", "the woman **whose** umbrella I borrowed"],
+              ["whose(疑問詞)", "誰の〜", "I wonder **whose** umbrella this is."],
+              ["who's", "who is / who has の短縮形", "the person **who's** in charge"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The woman **whose** umbrella I borrowed turned out to be my new neighbor.",
+              "ja": "私が傘を借りた女性は、新しい隣人だと分かった。",
+              "note": "先行詞 The woman があり、直後に名詞 umbrella が続くので関係代名詞の whose"
+            },
+            {
+              "en": "Please ask the person **who's** in charge of the front desk.",
+              "ja": "受付の責任者に尋ねてください。",
+              "note": "who's = who is。who is in charge と置き換えて意味が通る"
+            }
+          ],
+          "cautions": [
+            "× the person whose in charge → ○ the person who's (who is) in charge。whose の後ろには名詞が来る"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、選択肢に who / whom / whose / which が並び、空所の直後に冠詞の付かない名詞がある問題で whose を選ばせる形がよく出ます。手順は、(1) 空所の直後が無冠詞の名詞か、(2) 先行詞とその名詞の間に「〜の」の関係があるか、(3) 「whose + 名詞」の後ろが動詞、または主語 + 動詞で続くか、の順に確かめることです。ひっかけとして、先行詞が物(company, building, product)のときに「whose は人だけ」と思わせて which を選ばせるものがあります。物でも whose は使えます。また、直後の語が名詞か動詞か(work, cost, change など両方になる語)を取り違えると、who と whose の判断を誤ります。"
+    },
+    {
+      "id": "that",
+      "title": "関係代名詞 that と、関係代名詞の省略",
+      "intro": "人にも物にも使える that の使い方、that が好まれる先行詞(最上級・the only・all など)、that が使えない場面(カンマの後・前置詞の直後)、目的格の関係代名詞の省略を学びます。接続詞の that との見分けも、長文を読むときに欠かせません。",
+      "keywords": ["that・最上級", "最上級の先行詞", "that only"],
+      "items": [
+        {
+          "heading": "that は人にも物にも使え、主格・目的格の両方になる",
+          "explanation": "**関係代名詞の that は、先行詞が人でも物でも使え、主格(主語の働き)にも目的格(目的語の働き)にもなります。** who / which の代わりに使える、便利な関係代名詞です。\n\n・the man **that** lives next door(主格・人)= the man who lives next door\n・the book **that** I lent you(目的格・物)= the book which I lent you\n\nアメリカ英語では、制限用法(カンマの無い、名詞を限定する用法)で物が先行詞のとき、which よりも that を使うことが多いとされます。ただし which も誤りではなく、イギリス英語では which もよく使われます。人が先行詞のときは who の方がよく使われますが、that も正しい言い方です。\n\nthat には所有格がありません。「〜の」を表すときは whose を使います。また、that は後で見るように、カンマの後と前置詞の直後には使えません。\n\n見分け方: 選択肢の中に that と who / which が両方あり、どちらも文法的に入りそうなときは、カンマの有無と前置詞の有無を確かめます。どちらも無ければ、両方とも正しい可能性があるので、試験では他の選択肢の条件(人・物、格)で1つに絞られるように作られています。",
+          "examples": [
+            {
+              "en": "The printer **that** we ordered last month still hasn't arrived.",
+              "ja": "先月注文したプリンターがまだ届かない。",
+              "note": "先行詞は物で、ordered の目的語が欠けている。目的格の that(which でもよい)"
+            },
+            {
+              "en": "She is the consultant **that** helped us reorganize the sales department.",
+              "ja": "彼女は、私たちが営業部を再編するのを手伝ってくれたコンサルタントだ。",
+              "note": "先行詞は人で、helped の主語。主格の that(who でもよい)"
+            }
+          ],
+          "cautions": [
+            "× the consultant that's advice we followed → ○ the consultant whose advice we followed。that に所有格は無い"
+          ]
+        },
+        {
+          "heading": "that が好まれる先行詞:最上級・the only・the first・all・no など",
+          "explanation": "**先行詞に最上級(the best, the most 〜)、序数(the first, the last)、the only, the very, the same, all, every, any, no、-thing の語(everything, nothing, anything)が付くときは、関係代名詞に that が好まれます。** 先行詞が「人と物の両方」のときも that を使います。\n\n理由としてよく説明されるのは、これらの語が先行詞を「これしかない」「すべて」「1つも無い」と強く限定するので、限定の働きが強い that と相性がよい、ということです。\n\n・This is **the best** film **that** I have ever seen.(今まで見た中で最高の映画)\n・You are **the only** person **that** can solve this problem.\n・**All that** glitters is not gold.(光るもの必ずしも金ならず)\n・There is **nothing that** I can do.\n\nただし、これは「that が好まれる」という傾向で、which や who が誤りになるという規則ではありません。特に先行詞が人の場合、the only person who 〜、the first woman who 〜 のように who もふつうに使われます。一方、all / everything / nothing / anything の後ろで物を指すときは、which より that がずっと自然です(× all which は避けます)。\n\n試験では、選択肢に that と which(または what)が並び、先行詞に最上級や all が付いていれば that を選ぶ、という形で出ます。また、先行詞が「the man and his dog」のように人と物の両方を含むときは、who でも which でも片方しか表せないので that を使います。\n\nall that の後ろの that は、目的格なら省略もできます(All I want is a quiet room.)。",
+          "table": {
+            "caption": "that が好まれる先行詞",
+            "headers": ["先行詞に付く語", "例", "注意"],
+            "rows": [
+              ["最上級", "the most useful tool **that** I know", "人なら who も使われる"],
+              ["序数・the last", "the first person **that** arrived", "人なら who も使われる"],
+              ["the only / the very / the same", "the only option **that** remains", "the same には as も使う(第9節)"],
+              ["all / every / any / no", "all **that** you need", "物の all の後ろでは which を避ける"],
+              ["-thing の語", "everything **that** happened", "what は使えない(先行詞があるので)"],
+              ["人 + 物", "the driver and the car **that** ...", "who / which では片方しか表せない"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "This is **the most reliable** supplier **that** we have ever worked with.",
+              "ja": "これは、私たちが今まで取引した中で最も信頼できる仕入れ先だ。",
+              "note": "先行詞に最上級 the most reliable が付いているので that が好まれる"
+            },
+            {
+              "en": "**Everything that** was discussed at the meeting will be summarized in the minutes.",
+              "ja": "会議で話し合われたことはすべて、議事録にまとめられる。",
+              "note": "-thing の語 Everything が先行詞。物を指すので which より that が自然。先行詞があるので what は使えない"
+            },
+            {
+              "en": "Mr. Wada was **the only** applicant **that** had experience in both sales and design.",
+              "ja": "和田さんは、営業とデザインの両方の経験がある唯一の応募者だった。",
+              "note": "the only が付いた先行詞。that が好まれるが、人なので who も使える"
+            }
+          ],
+          "cautions": [
+            "× Everything what was discussed ... → ○ Everything that was discussed ...。先行詞があるときに what は使えない(what は先行詞を含む)",
+            "× All which you need is a passport. → ○ All (that) you need is a passport. all の後ろで物を指すときは that を使うか省略する"
+          ]
+        },
+        {
+          "heading": "that が使えない場合:カンマの後(非制限用法)と前置詞の直後",
+          "explanation": "**that は、(1) カンマの後の非制限用法と、(2) 前置詞の直後には使えません。** この2つは試験のひっかけとしてよく使われるので、確実に覚えておきます。\n\n(1) 非制限用法(継続用法)は、先行詞の後ろにカンマを打って、補足の説明を加える使い方です(第5節)。that は「どれのことか」を限定する働きが強く、補足説明には使えません。カンマの後は who / whom / whose / which を使います。\n\n・× Tokyo, that is the capital of Japan, ...\n・○ Tokyo, **which** is the capital of Japan, ...\n\n(2) 前置詞の直後に関係代名詞を置く形(前置詞 + 関係代名詞。第4節)では、whom か which しか使えません。前置詞を後ろに残す形なら that も使えます。\n\n・× the company for that she works\n・○ the company **for which** she works / the company **that** she works **for**\n\n見分け方の手順: 選択肢に that があったら、まず空所の直前を見ます。カンマがあれば that は消し、前置詞があれば that は消します。この手順だけで選択肢を減らせる問題がよくあります。",
+          "table": {
+            "caption": "that を使えるか",
+            "headers": ["場面", "that", "使えるもの"],
+            "rows": [
+              ["制限用法(カンマなし)", "○", "who / whom / which / that"],
+              ["カンマの後(非制限用法)", "×", "who / whom / whose / which"],
+              ["前置詞の直後", "×", "whom / which"],
+              ["前置詞を後ろに残す形", "○", "that / which / who(m) / 省略"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Kyoto, **which** attracts millions of visitors each year, is famous for its temples.",
+              "ja": "京都は毎年何百万人もの観光客が訪れ、寺で有名だ。",
+              "note": "カンマの後の非制限用法なので、that ではなく which"
+            },
+            {
+              "en": "This is the department **in which** Ms. Ogawa worked for ten years.",
+              "ja": "ここは、小川さんが10年間働いた部署だ。",
+              "note": "前置詞 in の直後なので which。that は使えない(that ... worked in なら可)"
+            }
+          ],
+          "cautions": [
+            "× The new manager, that joined us in May, ... → ○ The new manager, who joined us in May, ...。カンマの後に that は使えない",
+            "× the department in that she worked → ○ the department in which she worked / the department that she worked in"
+          ]
+        },
+        {
+          "heading": "目的格の関係代名詞は省略できる",
+          "explanation": "**目的格の関係代名詞(whom / who / which / that)は、制限用法では省略できます。省略しても意味は変わらず、会話ではむしろ省略する方がふつうです。** 名詞の直後に「主語 + 動詞」が直接続く形になります(このような関係詞節を「接触節」と呼ぶことがあります)。\n\n・the book (**that**) I borrowed from the library\n・the people (**whom**) we met in Paris\n\n省略された文を読むときは、「名詞 + 名詞(または代名詞)+ 動詞」の並びに気づくことが大切です。the book I borrowed では、book と I の間に関係代名詞が隠れていると考えると、「私が借りた本」と読めます。日本語の「私が借りた本」と同じく、説明の中に「を」に当たる語が無いのが目印です。\n\n前置詞を後ろに残す形でも、関係代名詞は省略できます。\n\n・the house (**which**) I grew up **in**(私が育った家)\n\n省略できない場合は、次のとおりです。\n\n・主格の関係代名詞(× the man lives next door is ... は誤り)。ただし連鎖関係詞節(the man I think is honest)では省略されます(第10節)。\n・非制限用法(カンマの後)の関係代名詞。\n・前置詞の直後の関係代名詞(in which の which だけを省略することはできない)。\n・所有格の whose。",
+          "table": {
+            "caption": "関係代名詞を省略できるか",
+            "headers": ["種類", "省略", "例"],
+            "rows": [
+              ["目的格(制限用法)", "できる", "the book (that) I read"],
+              ["目的格 + 後ろに前置詞", "できる", "the chair (which) you are sitting on"],
+              ["主格", "原則できない", "the man who lives next door"],
+              ["非制限用法", "できない", "my car, which I bought last year"],
+              ["前置詞の直後", "できない", "the room in which we met"],
+              ["所有格 whose", "できない", "a friend whose son is a pilot"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The presentation **you gave** yesterday was very persuasive.",
+              "ja": "あなたが昨日行ったプレゼンテーションは、とても説得力があった。",
+              "note": "The presentation と you の間に目的格の that / which が省略されている。gave の目的語が欠けている"
+            },
+            {
+              "en": "Is this the file **you were looking for**?",
+              "ja": "これがあなたの探していたファイルですか。",
+              "note": "the file の後ろの which / that が省略され、前置詞 for が後ろに残っている"
+            }
+          ],
+          "cautions": [
+            "× The man lives next door is a pilot. → ○ The man who lives next door is a pilot. 主格の関係代名詞は省略できない",
+            "× my car, I bought last year, ... → ○ my car, which I bought last year, ...。非制限用法の関係代名詞は省略できない"
+          ]
+        },
+        {
+          "heading": "関係代名詞の that と、接続詞の that・同格の that の見分け方",
+          "explanation": "**that の後ろが「名詞が欠けた不完全な文」なら関係代名詞、「何も欠けていない完全な文」なら接続詞(名詞節を作る that)か同格の that です。** that には関係代名詞のほかに、「〜ということ」を表す接続詞の用法があるので、どちらかを見分ける必要があります。\n\n**同格の that** とは、the fact that 〜(〜という事実)、the news that 〜(〜という知らせ)のように、名詞の後ろに「その名詞の中身」を述べる that 節を続ける用法です。見た目は関係代名詞と同じ「名詞 + that + 節」ですが、that の後ろが完全な文になっている点が違います。\n\n・the news **that** he told me(彼が私に話した知らせ)→ told の目的語(the news)が欠けている → 関係代名詞\n・the news **that** he had resigned(彼が辞めたという知らせ)→ 欠けている要素が無い → 同格の that\n\n同格の that をとる名詞は、fact, news, idea, belief, possibility, evidence, rumor, conclusion, hope など、「考え・情報」を表す名詞に限られます。\n\n日本語ではどちらも「〜知らせ」と訳せるので、意味からは区別しにくいことがあります。後ろの節の形で判断するのが確実です。\n\nこの見分けは、Part 5 で that と which / what を選ぶ問題にも役立ちます。後ろが完全な文で、前に fact や news などの名詞があれば、which ではなく(同格の)that が入ります。",
+          "table": {
+            "caption": "that の3つの働き",
+            "headers": ["働き", "前に名詞", "後ろの形", "例"],
+            "rows": [
+              ["関係代名詞", "ある(先行詞)", "不完全(名詞が欠ける)", "the plan **that** she proposed"],
+              ["同格の that", "ある(fact, news など)", "完全", "the fact **that** sales fell"],
+              ["接続詞(名詞節)", "無い(動詞の目的語など)", "完全", "I think **that** sales fell."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The idea **that** she proposed at the meeting was adopted by the team.",
+              "ja": "彼女が会議で提案した案は、チームに採用された。",
+              "note": "proposed の目的語が欠けている不完全な文なので、関係代名詞の that"
+            },
+            {
+              "en": "The idea **that** we could work from home twice a week appealed to everyone.",
+              "ja": "週に2回在宅勤務ができるという考えは、全員に受け入れられた。",
+              "note": "that の後ろが完全な文で、idea の中身を述べているので同格の that。which には置き換えられない"
+            }
+          ],
+          "cautions": [
+            "× The idea which we could work from home appealed to everyone. → ○ The idea that we could work from home ...。後ろが完全な文の同格には which を使えない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、(1) 先行詞に最上級・the only・all・everything が付いていて that を選ばせる問題、(2) カンマの後や前置詞の直後に that を置いたひっかけ選択肢、(3) 先行詞があるのに what を置いたひっかけ選択肢、がよく見られます。解く手順は、空所の直前にカンマや前置詞があるかを最初に確かめ、あれば that を消すことです。次に、先行詞の有無で what を消します。英検準1級の長文では、関係代名詞が省略された「名詞 + 主語 + 動詞」の並びに気づけるかが読解の速さを左右します。また、the fact that ... の同格の that と関係代名詞の that を、後ろが完全な文かどうかで見分けられるようにしておきましょう。"
+    },
+    {
+      "id": "preposition",
+      "title": "前置詞 + 関係代名詞(in which, to whom, some of which など)",
+      "intro": "関係代名詞が前置詞の目的語になるとき、前置詞を関係代名詞の前に出す形(in which, to whom)を学びます。どの前置詞を選ぶか、who / that が使えない理由、some of which / all of whom、the extent to which など、TOEIC Part 5 で特によく問われる形を扱います。",
+      "keywords": ["前置詞+which", "前置詞+関係代名詞", "前置詞+whom", "前置詞 + whom"],
+      "items": [
+        {
+          "heading": "仕組み:前置詞の目的語が関係代名詞になり、前置詞ごと前に出る",
+          "explanation": "**関係詞節の中で前置詞の目的語になる関係代名詞は、前置詞を後ろに残すか、前置詞と一緒に関係詞節の先頭に出すことができます。** 前置詞を前に出した形が「前置詞 + 関係代名詞」です。\n\n2つの文から作る過程を見てみます。\n\n・This is the client. + I spoke **to the client** yesterday.\n・前置詞を後ろに残す: This is the client (**whom** / **who** / **that**) I spoke **to** yesterday.\n・前置詞を前に出す: This is the client **to whom** I spoke yesterday.\n\nどちらも意味は同じですが、前置詞を前に出す形はかたく、書き言葉・ビジネス文書でよく使われます。前置詞を後ろに残す形は、会話や、くだけた文章でふつうに使われます。\n\n大事なのは、**「前置詞 + 関係代名詞」の後ろは、名詞が欠けていない完全な文になる**ことです。to whom I spoke yesterday の I spoke yesterday は、speak が自動詞なので、それだけで完全な文です。前置詞の目的語が関係代名詞として前に出ているので、後ろにはもう欠けた名詞が残っていません。この点で、関係副詞(where, when)と同じ形になります(第7節)。\n\n見分け方の手順:\n\n・手順1: 空所の後ろが完全な文かを確かめる(主語・動詞・目的語がそろっているか)。\n・手順2: 完全な文なら、関係代名詞だけ(which / whom)は入らない。「前置詞 + which / whom」か関係副詞を選ぶ。\n・手順3: 前置詞は、関係詞節の中の動詞・形容詞や、先行詞との結びつきで決める(次の項目)。",
+          "table": {
+            "caption": "前置詞の位置と、使える関係代名詞",
+            "headers": ["形", "例", "使える関係代名詞", "文体"],
+            "rows": [
+              ["前置詞を後ろに残す", "the client (whom) I spoke to", "whom / who / that / 省略", "ふつう・会話"],
+              ["前置詞を前に出す", "the client to whom I spoke", "whom だけ(物なら which だけ)", "かたい・書き言葉"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The client **to whom** I spoke yesterday has agreed to sign the contract.",
+              "ja": "昨日私が話した顧客は、契約に署名することに同意した。",
+              "note": "speak to the client の to が whom と一緒に前に出た形。後ろの I spoke yesterday は完全な文"
+            },
+            {
+              "en": "The client I spoke **to** yesterday has agreed to sign the contract.",
+              "ja": "昨日私が話した顧客は、契約に署名することに同意した。",
+              "note": "前置詞 to を後ろに残すと、関係代名詞を省略できる。会話的でふつうの言い方"
+            }
+          ],
+          "cautions": [
+            "× the client to whom I spoke to yesterday → ○ the client to whom I spoke yesterday。前置詞を前に出したら、後ろには残さない",
+            "× the client whom I spoke yesterday → ○ the client to whom I spoke yesterday / the client whom I spoke to yesterday。speak は自動詞なので前置詞が必要"
+          ]
+        },
+        {
+          "heading": "前置詞の直後に置けるのは whom と which だけ",
+          "explanation": "**前置詞の直後には、人なら whom、物なら which しか置けません。who と that は使えません。** また、前置詞の直後の関係代名詞は省略できません。\n\n理由は、前置詞の後ろには目的格の形が来るという英語の決まりにあります。代名詞で言えば、with him は正しくても with he は誤りです。関係代名詞でも同じで、目的格の形がはっきりしている whom を使い、主格の形の who は使いません。関係代名詞の that については、理由を考えるよりも「前置詞の直後には置けない」という決まりとしてそのまま覚えておくのが確実です。\n\n・○ the colleague **with whom** I share an office\n・× the colleague with who I share an office\n・× the colleague with that I share an office\n\n前置詞を後ろに残す形なら、who も that も使え、省略もできます。\n\n・○ the colleague **who** (**that** / 省略) I share an office **with**\n\n試験では、空所の前に前置詞があり、選択肢に who / whom / which / that が並ぶ問題が典型です。先行詞が人なら whom、物なら which を選びます。",
+          "table": {
+            "caption": "前置詞の直後の関係代名詞",
+            "headers": ["先行詞", "○ 使える", "× 使えない"],
+            "rows": [
+              ["人", "前置詞 + whom", "前置詞 + who / that / 省略"],
+              ["物・事柄", "前置詞 + which", "前置詞 + that / what / 省略"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Ms. Lopez is the colleague **with whom** I share an office.",
+              "ja": "ロペスさんは、私がオフィスを共有している同僚だ。",
+              "note": "前置詞 with の直後で先行詞が人なので whom。who や that は置けない"
+            },
+            {
+              "en": "The folder **in which** the contracts are stored is kept in a locked cabinet.",
+              "ja": "契約書が保管されているフォルダーは、鍵のかかる棚にしまってある。",
+              "note": "前置詞 in の直後で先行詞が物なので which。the contracts are stored は完全な文"
+            }
+          ],
+          "cautions": [
+            "× the colleague with who I share an office → ○ the colleague with whom I share an office",
+            "× the folder in that the contracts are stored → ○ the folder in which the contracts are stored"
+          ]
+        },
+        {
+          "heading": "前置詞の選び方1:関係詞節の中の動詞・形容詞と結びつく前置詞",
+          "explanation": "**「前置詞 + 関係代名詞」の前置詞は、関係詞節の中の動詞・形容詞・名詞が、もともとどの前置詞と結びつくかで決まります。** 関係詞節を元の文に戻して考えると、前置詞がすぐに分かります。\n\n・the project ------- she is responsible → 元の文: she is responsible **for** the project → the project **for which** she is responsible\n・the supplier ------- we depend → 元の文: we depend **on** the supplier → the supplier **on which** we depend\n\n手順は次のとおりです。\n\n・手順1: 空所の後ろの節の、動詞・形容詞を見る(depend, responsible, apply, belong など)。\n・手順2: その語と先行詞をつないで、元の文を作る(we depend ___ the supplier)。\n・手順3: 元の文に必要な前置詞が、関係代名詞の前に来る。\n\n日本語の「〜に頼る」「〜に責任がある」「〜に応募する」の「に」は、英語では on, for, for とばらばらです。日本語の助詞から前置詞を推測するのではなく、英語の「動詞 + 前置詞」「形容詞 + 前置詞」の組み合わせとして覚えておくことが必要です。",
+          "table": {
+            "caption": "関係詞節の中でよく使われる「語 + 前置詞」",
+            "headers": ["元の形", "意味", "関係詞の形"],
+            "rows": [
+              ["depend on / rely on", "〜に頼る", "on which / on whom"],
+              ["be responsible for", "〜に責任がある", "for which"],
+              ["apply for", "〜に応募する", "for which"],
+              ["work for", "〜に勤める", "for which"],
+              ["belong to", "〜に属する", "to which"],
+              ["be familiar with / deal with", "〜をよく知っている / 〜に対処する", "with which / with whom"],
+              ["be interested in / participate in", "〜に興味がある / 〜に参加する", "in which"],
+              ["report to", "〜の下で働く(上司に報告する)", "to whom"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The project **for which** Mr. Sato is responsible must be completed by June.",
+              "ja": "佐藤さんが責任を持っているプロジェクトは、6月までに完了しなければならない。",
+              "note": "be responsible for the project の for が which の前に出ている"
+            },
+            {
+              "en": "The position **for which** she applied requires fluency in Spanish.",
+              "ja": "彼女が応募した職は、スペイン語に堪能であることが求められる。",
+              "note": "apply for the position の for。後ろの she applied は完全な文なので which だけでは入らない"
+            },
+            {
+              "en": "The director **to whom** all team leaders report will retire next spring.",
+              "ja": "チームリーダー全員の上司である部長は、来春退職する。",
+              "note": "report to the director の to が whom の前に出ている。先行詞が人なので whom"
+            }
+          ],
+          "cautions": [
+            "× the position which she applied → ○ the position for which she applied / the position (which) she applied for。apply は「〜に応募する」の意味では for が要る"
+          ]
+        },
+        {
+          "heading": "前置詞の選び方2:先行詞と結びつく前置詞(the extent to which など)",
+          "explanation": "**前置詞が、関係詞節の中の動詞ではなく、先行詞の名詞と結びついて決まる場合があります。the extent to which, the rate at which, the speed at which のような形は、決まった組み合わせとして覚えます。**\n\n仕組みは、先行詞の名詞を元の文に戻したときに必要な前置詞が前に出る、というものです。\n\n・We don't know **the extent to which** the policy will help. ← The policy will help **to** a certain **extent**.(ある程度まで役立つ)\n・**the rate at which** prices are rising ← Prices are rising **at** a high **rate**.(高い割合で上がっている)\n\n日本語に訳すと「どの程度〜か」「〜する速さ」となり、前置詞の意味が見えにくいので、表の組み合わせで覚えるのが近道です。これらは TOEIC Part 5 で前置詞の部分を空所にして問われることがあります。",
+          "table": {
+            "caption": "先行詞と結びつく「前置詞 + which」",
+            "headers": ["形", "元になる組み合わせ", "意味"],
+            "rows": [
+              ["the extent to which 〜", "to ... extent", "どの程度〜か、〜する程度"],
+              ["the degree to which 〜", "to ... degree", "どの程度〜か"],
+              ["the rate at which 〜", "at ... rate", "〜する割合・速さ"],
+              ["the speed at which 〜", "at ... speed", "〜する速さ"],
+              ["the way in which 〜", "in ... way", "〜するやり方"],
+              ["the time at which 〜 / the date by which 〜", "at ... time / by ... date", "〜する時刻 / 〜までの期日"],
+              ["the period during which 〜", "during ... period", "〜する期間"],
+              ["the reason for which 〜", "for ... reason", "〜する理由"],
+              ["the purpose for which 〜", "for ... purpose", "〜する目的"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Researchers are studying **the extent to which** the new law has reduced traffic accidents.",
+              "ja": "研究者たちは、新しい法律がどの程度交通事故を減らしたかを調べている。",
+              "note": "to a certain extent(ある程度まで)の to が which の前に出た形"
+            },
+            {
+              "en": "**The rate at which** online sales are growing has surprised many analysts.",
+              "ja": "オンライン販売が伸びている速さは、多くのアナリストを驚かせている。",
+              "note": "grow at a rapid rate の at。rate には at を使う"
+            },
+            {
+              "en": "Please check **the date by which** the application must be submitted.",
+              "ja": "申込書を提出しなければならない期日を確認してください。",
+              "note": "「〜までに」を表す by が date と結びつく"
+            }
+          ],
+          "cautions": [
+            "× the extent which the law has reduced ... → ○ the extent to which the law has reduced ...。後ろが完全な文なので前置詞が必要",
+            "× the rate in which prices are rising → ○ the rate at which prices are rising。rate は at と結びつく"
+          ]
+        },
+        {
+          "heading": "数量 + of + whom / which(some of which, all of whom など)",
+          "explanation": "**「some of which」「all of whom」のように、数量を表す語 + of + which / whom で、「そのうちのいくつか」「その全員」を表せます。主にカンマの後(非制限用法)で使い、which / whom を them / it に変えることはできません。**\n\n・The company has ten branches. + Three **of them** are in Asia.\n・→ The company has ten branches, three **of which** are in Asia.\n\n2つ目の文の them が which に変わり、three of which というかたまりで関係詞節の先頭に出ています。which が接続詞の働きもするので、2つの文がカンマだけでつながります。\n\nここが最大のひっかけです。of them のままだと、接続詞が無いのに2つの文をカンマでつないだことになり、誤りになります(コンマスプライスと呼ばれる誤り)。and を入れて and three of them are in Asia とするなら正しくなります。\n\n・× ten branches, three of them are in Asia\n・○ ten branches, three **of which** are in Asia\n・○ ten branches, and three **of them** are in Asia\n\n使われる数量の語は、some, many, most, all, none, both, neither, either, each, one, two, half, several, a few, the majority, much, little などです。先行詞が人なら whom、物なら which です(of の後ろは前置詞の目的語なので、who は使えません)。\n\n関係詞節の中の動詞は、数量の語に合わせます。none of which は単数・複数の両方で使われますが、all of whom / most of which(複数名詞を指すとき)/ both of which は複数、each of which / one of which は単数で受けます。",
+          "table": {
+            "caption": "数量 + of + which / whom",
+            "headers": ["形", "意味", "動詞の数"],
+            "rows": [
+              ["all of whom / all of which", "その全員 / そのすべて", "複数(数えられる名詞のとき)"],
+              ["most of which / many of whom", "その大部分 / そのうちの多く", "複数(数えられる名詞のとき)"],
+              ["some of which / several of whom", "そのいくつか / そのうちの数人", "複数"],
+              ["both of which / neither of which", "その両方 / そのどちらも〜ない", "both は複数、neither は単数が基本"],
+              ["one of which / each of whom", "そのうちの1つ / その一人ひとり", "単数"],
+              ["none of whom / none of which", "誰も〜ない / どれも〜ない", "単数・複数の両方が使われる"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The company has ten overseas branches, **three of which** are in Southeast Asia.",
+              "ja": "その会社には海外支店が10あり、そのうちの3つは東南アジアにある。",
+              "note": "three of them だとカンマだけで2つの文をつなぐことになり誤り。which が接続の働きをする"
+            },
+            {
+              "en": "We interviewed twelve applicants, **all of whom** had excellent qualifications.",
+              "ja": "私たちは12人の応募者と面接したが、その全員が優れた資格を持っていた。",
+              "note": "先行詞が人で、of の後ろなので whom。all of who は誤り"
+            },
+            {
+              "en": "She suggested two solutions, **neither of which** was acceptable to the client.",
+              "ja": "彼女は解決策を2つ提案したが、どちらも顧客には受け入れられなかった。",
+              "note": "neither of which は「そのどちらも〜ない」。neither は単数で受けるのが基本"
+            }
+          ],
+          "cautions": [
+            "× ten branches, three of them are in Asia → ○ ten branches, three of which are in Asia。接続詞が無いのに them を使うと、2つの文をカンマだけでつないだことになる",
+            "× twelve applicants, all of who had ... → ○ twelve applicants, all of whom had ...。前置詞 of の後ろは whom"
+          ]
+        },
+        {
+          "heading": "名詞 + of which / of whom(the cost of which など)",
+          "explanation": "**「the + 名詞 + of which / of whom」で、「その〜」という所有に近い関係を表せます。whose + 名詞と同じ意味を、かたく表す言い方です。** 主にカンマの後(非制限用法)で使われます。\n\n・The firm launched a new app, **the price of which** has not been announced.\n・= The firm launched a new app, **whose price** has not been announced.\n\nthe price of which のかたまりが、関係詞節の主語になっています。後ろの has not been announced は、主語が欠けた形です。\n\n人の場合は of whom を使います。the members of whom(そのメンバー)のような言い方もありますが、人には whose を使う方がふつうです。\n\n読むときは、カンマの後に「the + 名詞 + of which」が来たら、「その(先行詞の)〜は」と訳すとすっきり読めます。試験では、the price ------- has ... の空所に of which を選ばせる問題や、whose を選ばせる問題として出ます。",
+          "examples": [
+            {
+              "en": "The firm launched a new app, **the price of which** has not yet been announced.",
+              "ja": "その会社は新しいアプリを発売したが、その価格はまだ発表されていない。",
+              "note": "the price of which = 「そのアプリの価格」。whose price と同じ意味"
+            },
+            {
+              "en": "They bought an old farmhouse, **the walls of which** were made of stone.",
+              "ja": "彼らは古い農家を買ったが、その壁は石でできていた。",
+              "note": "名詞 the walls + of which で「その家の壁」。かたい書き言葉の形"
+            }
+          ],
+          "cautions": [
+            "× a new app, the price of it has not been announced → ○ a new app, the price of which has not been announced。接続詞が無いので it ではなく which"
+          ]
+        },
+        {
+          "heading": "句動詞は前置詞を切り離さない(look after, put up with など)",
+          "explanation": "**look after(〜の世話をする)、put up with(〜を我慢する)のように、動詞と前置詞・副詞が結びついて1つの動詞として働く句動詞(群動詞)では、前置詞を関係代名詞の前に出さず、後ろに残すのが原則です。**\n\n・the children whom she **looks after**(○)\n・× the children after whom she looks\n\n理由は、look after の after は「〜の後で」という独立した意味ではなく、look と組み合わさって「世話をする」という1つの意味を作っているからです。after だけを切り離すと、意味のまとまりが壊れてしまいます。\n\nこれに対して、speak to, work for, depend on のように、前置詞が動詞と一緒に使われていても、前置詞の意味(〜に、〜のために、〜の上に)が比較的はっきりしている場合は、前に出すことができます。\n\n判断に迷ったら、前置詞を後ろに残す形を使えば誤りにはなりません。句動詞の例: look after, look for, look into, put up with, come up with, take care of, deal with(deal with は with which も使われる)など。take care of のような「動詞 + 名詞 + 前置詞」の形も、前置詞を前に出しません。",
+          "examples": [
+            {
+              "en": "The patients **whom** the nurses **look after** are mostly elderly.",
+              "ja": "看護師たちが世話をしている患者は、ほとんどが高齢者だ。",
+              "note": "look after は句動詞なので、after を whom の前に出さない"
+            },
+            {
+              "en": "The noise **that** we had to **put up with** during the construction was terrible.",
+              "ja": "工事中に私たちが我慢しなければならなかった騒音はひどかった。",
+              "note": "put up with は3語で1つの動詞。with を切り離して with which とはしない"
+            }
+          ],
+          "cautions": [
+            "× the noise with which we had to put up → ○ the noise (that) we had to put up with",
+            "× the patients after whom the nurses look → ○ the patients whom the nurses look after"
+          ]
+        },
+        {
+          "heading": "前置詞 + which / whom + to 不定詞(a place in which to live)",
+          "explanation": "**「前置詞 + which / whom」の後ろには、「主語 + 動詞」の代わりに to 不定詞を続けることができます。「〜するための(場所・道具・人)」という意味になり、かたい書き言葉で使われます。**\n\n・a quiet place **in which to** work(仕事をするための静かな場所)\n・= a quiet place **to work in**(ふつうの言い方)\n\nこの形は、「to 不定詞の形容詞的用法(a place to work in)」の前置詞を前に出したものです。前置詞を前に出したときは、which / whom の後ろに to 不定詞を置き、前置詞は後ろに残しません。\n\nなお、前置詞が無い形で「which + to 不定詞」とすることはできません。\n\n・○ a place **in which to** live / ○ a place **to live in**\n・× a place which to live\n\nTOEIC でこの形が正解として問われることは多くありませんが、長文やビジネス文書で見かけたときに「〜するための」と読めるようにしておきます。",
+          "examples": [
+            {
+              "en": "The library offers a quiet space **in which to** study after school.",
+              "ja": "その図書館は、放課後に勉強するための静かな場所を提供している。",
+              "note": "in which to study = to study in。前置詞 in が前に出たかたい形"
+            },
+            {
+              "en": "New employees need someone **with whom to** discuss their concerns.",
+              "ja": "新入社員には、悩みを相談できる相手が必要だ。",
+              "note": "someone to discuss their concerns with の with を前に出した形。人なので whom"
+            }
+          ],
+          "cautions": [
+            "× a quiet space which to study → ○ a quiet space in which to study / a quiet space to study in"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では「前置詞 + 関係代名詞」が特によく出ます。典型は、(1) 空所の前に前置詞があり、選択肢に whom / who / which / that が並ぶ形(人なら whom、物なら which)、(2) 空所に in which / for which / to whom のような「前置詞 + 関係代名詞」のセットが並び、関係詞節の中の動詞や先行詞と結びつく前置詞を選ぶ形、(3) ten branches, three of ------- are ... のように them / which / whom を選ばせる形、の3つです。解く手順は、まず空所の後ろが完全な文かを確かめ(完全なら関係代名詞だけは入らない)、次に元の文に戻して必要な前置詞を考えます。ひっかけとして、カンマの後に「数量 + of + them」を置いた選択肢がよく使われます。接続詞が無いなら them は入りません。英検準1級では、the extent to which のような形が長文に出てくるので、「どの程度〜か」とすばやく読めるようにしておきましょう。"
+    },
+    {
+      "id": "non-restrictive",
+      "title": "非制限用法(継続用法):カンマ + 関係詞",
+      "intro": "先行詞の後ろにカンマを打って補足の説明を加える非制限用法を学びます。制限用法との意味の違い、that が使えないなどの決まり、前の文全体を受ける which、in which case のような which + 名詞まで扱います。Part 6 の文脈問題でもよく使われる形です。",
+      "keywords": ["非制限", "前の文全体"],
+      "items": [
+        {
+          "heading": "制限用法と非制限用法:カンマの有無で意味が変わる",
+          "explanation": "**カンマの無い関係詞節(制限用法)は「どの〜か」を限定し、カンマの後の関係詞節(非制限用法、継続用法とも言う)は、すでに特定されている先行詞に補足の説明を加えます。** カンマ1つで意味が変わるので、読むときも書くときも注意が必要です。\n\n・He has two sons **who** work in Osaka.(制限用法)\n 「大阪で働いている息子が2人いる」→ ほかにも息子がいるかもしれない。「大阪で働いている」という条件で、どの息子かを限定している。\n・He has two sons, **who** work in Osaka.(非制限用法)\n 「息子が2人いて、(その2人は)大阪で働いている」→ 息子は2人だけ。大阪で働いていることは追加の情報。\n\n制限用法の関係詞節は、取り除くと先行詞が「どれのことか」分からなくなる、必要な情報です。非制限用法の関係詞節は、取り除いても文の中心の意味は成り立つ、追加の情報です。\n\n日本語にはカンマによるこの区別が無く、どちらも「大阪で働く2人の息子」と訳せてしまいます。非制限用法は「〜で、その人は…」「〜だが、それは…」のように、前から順に訳すと意味をとらえやすくなります。\n\n見分け方: カンマがあれば非制限用法、無ければ制限用法です。話し言葉では、非制限用法の関係詞節の前後に短い間(ポーズ)が入ります。",
+          "table": {
+            "caption": "制限用法と非制限用法",
+            "headers": ["", "制限用法", "非制限用法(継続用法)"],
+            "rows": [
+              ["カンマ", "なし", "あり(先行詞の後ろ、節の終わりにも)"],
+              ["働き", "どの〜かを限定する", "特定された先行詞に情報を足す"],
+              ["取り除くと", "先行詞が特定できなくなる", "文の中心の意味は残る"],
+              ["that", "使える", "使えない"],
+              ["目的格の省略", "できる", "できない"],
+              ["訳し方", "後ろから「〜する…」", "前から「…で、それは〜」"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The employees **who** completed the training received a certificate.",
+              "ja": "研修を修了した社員は、修了証を受け取った。",
+              "note": "制限用法。研修を修了した社員だけが受け取った(修了していない社員もいる)"
+            },
+            {
+              "en": "The employees, **who** completed the training, received a certificate.",
+              "ja": "社員たちは研修を修了し、修了証を受け取った。",
+              "note": "非制限用法。社員全員が研修を修了したという追加の情報"
+            }
+          ],
+          "cautions": [
+            "カンマを付けるかどうかで意味が変わる。「限定したいのか、補足したいのか」を考えて使い分ける"
+          ]
+        },
+        {
+          "heading": "非制限用法の決まり:that 不可・省略不可・固有名詞に使える",
+          "explanation": "**非制限用法では、(1) that は使えない、(2) 目的格でも関係代名詞を省略できない、(3) 固有名詞やすでに1つに決まっているものを先行詞にできる、という3つの決まりがあります。**\n\n(1) that は限定の働きが強く、補足の説明には使えません。人には who / whom / whose、物には which / whose を使います。\n\n(2) 非制限用法の関係代名詞は、目的格でも省略できません。省略すると、カンマで区切られた部分が何の働きをしているのか分からなくなるからです。\n\n(3) 固有名詞(Mount Fuji, Ms. Brown, Tokyo など)、my father のように1人に決まる人、the sun のように1つしかないものは、もともと「どれのことか」が決まっています。このため、限定する必要が無く、関係詞節を付けるなら非制限用法にします。\n\n・○ My father, **who** is a doctor, works in Kobe.\n・× My father who is a doctor works in Kobe.(父が何人もいるような意味になる)\n\n文の途中に非制限用法の関係詞節を入れるときは、前と後ろの両方にカンマを打ちます(My father, who is a doctor, works in Kobe.)。後ろのカンマを忘れやすいので注意します。",
+          "examples": [
+            {
+              "en": "Ms. Brown, **whom** you met at the conference, will join our team in May.",
+              "ja": "ブラウンさんは、あなたが会議で会った方ですが、5月に私たちのチームに加わります。",
+              "note": "固有名詞 Ms. Brown を補足する非制限用法。目的格でも whom を省略できず、that も使えない"
+            },
+            {
+              "en": "Mount Fuji, **which** rises 3,776 meters above sea level, is Japan's highest mountain.",
+              "ja": "富士山は海抜3,776メートルあり、日本で最も高い山だ。",
+              "note": "1つしかないものを補足するので非制限用法。前後にカンマを打つ"
+            }
+          ],
+          "cautions": [
+            "× Ms. Brown, that you met at the conference, ... → ○ Ms. Brown, whom (who) you met at the conference, ...",
+            "× Ms. Brown, you met at the conference, will ... → ○ Ms. Brown, whom you met at the conference, will ...。非制限用法の関係代名詞は省略できない"
+          ]
+        },
+        {
+          "heading": "前の文全体・一部を受ける which",
+          "explanation": "**非制限用法の which は、直前の名詞だけでなく、前の文全体や、前の文の一部(動詞句・形容詞など)を先行詞にすることができます。** 「そしてそのことは〜」「だが、それは〜」という意味になります。\n\n・He said he was sick, **which** was not true.(彼は病気だと言ったが、それは本当ではなかった)\n\nこの which が指しているのは、「彼が病気だと言った(その内容)」という前の文の内容で、特定の名詞ではありません。\n\nこの用法の which の後ろの動詞は、単数で受けます(which **was** / which **has** / which **means**)。文の内容は数えられる「もの」ではなく、1つの事柄として扱われるからです。\n\nこの用法では、that も what も使えません。また、it や this を使うと、接続詞が無いのに2つの文をカンマだけでつないだことになり、誤りです(This was not true. と2文に分ければ正しい)。\n\n見分け方: カンマの後の which の直後の動詞が単数で、which が直前の名詞を指すと意味が通らない(または数が合わない)ときは、前の文全体を指していると考えます。which は前の形容詞を指すこともあります(She was very patient, which I am not.「彼女はとても辛抱強かったが、私はそうではない」)。",
+          "examples": [
+            {
+              "en": "The train was delayed by an hour, **which** meant we missed our connecting flight.",
+              "ja": "列車が1時間遅れ、そのせいで私たちは乗り継ぎ便に乗り遅れた。",
+              "note": "which は「列車が1時間遅れたこと」全体を指す。だから動詞は単数の meant(過去形)"
+            },
+            {
+              "en": "Our sales rose by 15 percent last quarter, **which** is a record for the company.",
+              "ja": "前四半期に売上が15%伸びたが、これは会社にとって過去最高だ。",
+              "note": "which が「売上が15%伸びたこと」を受ける。it や that を使うと誤り"
+            },
+            {
+              "en": "Several team members volunteered to work late, **which** was very helpful.",
+              "ja": "チームの何人かが自ら遅くまで残ると申し出てくれて、とても助かった。",
+              "note": "直前の名詞ではなく、「残業を申し出たこと」全体が先行詞。単数の was で受ける"
+            }
+          ],
+          "cautions": [
+            "× Sales rose by 15 percent, it is a record. → ○ Sales rose by 15 percent, which is a record. it だと2つの文をカンマだけでつないだことになる",
+            "× ..., that is a record. / ..., what is a record. → ○ ..., which is a record. 前の文全体を受けられるのは which"
+          ]
+        },
+        {
+          "heading": "非制限用法の who / whom / whose",
+          "explanation": "**人を補足する非制限用法でも、格の決め方は制限用法と同じです。カンマの後が動詞なら who、主語 + 動詞で目的語が欠けていれば whom(くだけた文では who)、無冠詞の名詞が続けば whose を選びます。**\n\n・Dr. Hill, **who** led the research, will present the results.(主格)\n・Dr. Hill, **whom** many students admire, will present the results.(目的格)\n・Dr. Hill, **whose** book became a bestseller, will present the results.(所有格)\n\n非制限用法では目的格を省略できないので、試験でも whom や who がそのまま空所になります。また、that は使えないので、カンマの後の空所に that があれば、すぐに選択肢から外せます。\n\n前置詞と組み合わせた形(, to whom、, with whom)や、数量の語と組み合わせた形(, many of whom、, all of whom)も非制限用法でよく使われます(第4節)。",
+          "examples": [
+            {
+              "en": "Dr. Hill, **who** led the research, will present the results next week.",
+              "ja": "ヒル博士は、その研究を率いた人物で、来週結果を発表する。",
+              "note": "カンマの直後に動詞 led が来るので主格の who"
+            },
+            {
+              "en": "Our CEO, **whose** father founded the company, rarely gives interviews.",
+              "ja": "当社の CEO は、父親が会社の創業者だが、めったに取材を受けない。",
+              "note": "直後に無冠詞の名詞 father、「CEO の父親」なので whose"
+            }
+          ],
+          "cautions": [
+            "× Dr. Hill, whom led the research, ... → ○ Dr. Hill, who led the research, ...。直後が動詞なら主格"
+          ]
+        },
+        {
+          "heading": "非制限用法は「接続詞 + 代名詞」で読み換えられる",
+          "explanation": "**非制限用法の関係詞は、文脈に合わせて「and + 代名詞」「but + 代名詞」「because + 代名詞」などに置き換えて読むことができます。** 前から順に訳していくと、意味を自然にとらえられます。\n\n・I called Mr. Tan, **who** didn't answer.\n= I called Mr. Tan, **but he** didn't answer.(電話したが、彼は出なかった)\n・We hired Ms. Ota, **who** had ten years of experience.\n= We hired Ms. Ota **because she** had ten years of experience.(10年の経験があったので)\n\nこのように、非制限用法の関係詞節は、前の内容に対して「そして」「しかし」「なぜなら」という関係で情報を足していることが多いです。どの接続詞の意味になるかは文脈で決まります。\n\n反対に、関係詞を使わずに書くときは、必ず接続詞を入れるか、文を2つに分けます。接続詞も関係詞も無しに、カンマだけで2つの文をつなぐのは誤りです。これは TOEIC で which と it、whom と them を選ばせる問題の根拠になります。",
+          "table": {
+            "caption": "非制限用法と「接続詞 + 代名詞」",
+            "headers": ["非制限用法", "接続詞 + 代名詞", "関係"],
+            "rows": [
+              [", who didn't answer", "but he didn't answer", "逆接"],
+              [", who had ten years of experience", "because she had ...", "理由"],
+              [", which arrived on Monday", "and it arrived on Monday", "追加"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I emailed Ms. Chen, **who** replied within an hour.",
+              "ja": "私がチェンさんにメールを送ると、1時間以内に返事が来た。",
+              "note": "who = and she。前から順に「送ると、彼女は〜」と読む"
+            },
+            {
+              "en": "We ordered a new copier, **which** still hasn't been delivered.",
+              "ja": "新しいコピー機を注文したが、まだ届いていない。",
+              "note": "which = but it。逆接の意味で補足している"
+            }
+          ],
+          "cautions": [
+            "× We ordered a new copier, it still hasn't been delivered. → ○ ..., which still hasn't been delivered. / ..., but it still hasn't been delivered."
+          ]
+        },
+        {
+          "heading": "which + 名詞(in which case, at which point など)",
+          "explanation": "**非制限用法の which は、直後に名詞を置いて「その〜」という意味でも使えます。in which case(その場合には)、at which point(その時点で)、by which time(その時までには)が代表的です。** この which は、名詞の前に付いて形容詞のように働くので、**関係形容詞**と呼ばれることがあります。\n\n・You may need a visa, **in which case** you should apply early.\n= You may need a visa. **In that case**, you should apply early.\n(ビザが必要かもしれず、その場合は早めに申請すべきだ)\n\nin which case の which は「前の内容(ビザが必要なこと)」を受けているので、意味は in that case と同じです。ただし、in that case は副詞のかたまりなので、前の文とは文を分けるか、セミコロンや接続詞でつなぐ必要があります。in which case なら、関係詞の働きでカンマだけでつなげます。\n\nこの形は、ビジネスメールや案内文(Part 6・7)によく出てきます。",
+          "table": {
+            "caption": "which + 名詞の代表的な形",
+            "headers": ["形", "意味", "同じ意味の言い方"],
+            "rows": [
+              [", in which case 〜", "その場合には〜", "In that case, 〜"],
+              [", at which point 〜", "その時点で〜", "At that point, 〜"],
+              [", by which time 〜", "その時までには〜", "By then, 〜"],
+              [", during which time 〜", "その間に〜", "During that time, 〜"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The flight may be canceled, **in which case** passengers will be offered a full refund.",
+              "ja": "その便は欠航になるかもしれないが、その場合、乗客には全額払い戻しが提示される。",
+              "note": "in which case = 「その場合には」。前の内容(欠航)を which が受けている"
+            },
+            {
+              "en": "The renovation will take three months, **during which time** the lobby will be closed.",
+              "ja": "改装には3か月かかり、その間ロビーは閉鎖される。",
+              "note": "during which time = 「その期間中」。which が three months を受けて time の前に付いている"
+            }
+          ],
+          "cautions": [
+            "× ..., in that case passengers will be offered a full refund.(カンマだけでつなぐのは誤り)→ ○ ..., in which case passengers will be offered ... / ... . In that case, passengers ..."
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、カンマの後の空所に which / that / what / it を並べ、which を選ばせる問題がよく出ます。手順は、(1) 空所の直前にカンマがあれば that を消す、(2) 先行詞(または前の文全体)があるので what を消す、(3) 接続詞が無いので it / this / them を消す、の順です。前の文全体を受ける which の後ろは単数の動詞になることも、判断の手がかりになります。Part 6 では、前の文の内容を受ける which や、in which case / at which point のような形が、文脈をつなぐ働きで使われます。英検準1級の長文では、非制限用法を「前から順に、接続詞を補って」読むと、筆者の論理(追加・逆接・理由)を追いやすくなります。"
+    },
+    {
+      "id": "what",
+      "title": "関係代名詞 what",
+      "intro": "先行詞を自分の中に含む関係代名詞 what(〜すること・〜するもの)を学びます。what と which / that / 接続詞 that の見分けは、TOEIC Part 5 の定番です。what is called, what is more, A is to B what C is to D, what S is, what little など、what を使った決まった表現もまとめて扱います。",
+      "keywords": ["(what)", "関係代名詞 what", "what little"],
+      "items": [
+        {
+          "heading": "what = the thing(s) which:先行詞を含む関係代名詞",
+          "explanation": "**関係代名詞の what は、「先行詞 + 関係代名詞」を1語で表し、「〜すること」「〜するもの」という意味になります。what = the thing(s) which と考えると分かりやすくなります。** このため、what の前には先行詞を置きません。\n\n・**What** she said surprised me.(彼女が言ったことに驚いた)\n= **The thing which** she said surprised me.\n\nwhat が作るかたまり(what she said)は、名詞と同じ働きをするので、**名詞節**と呼びます。ほかの関係代名詞(who, which など)の節は名詞を説明する形容詞節でしたが、what の節は、それ自体が文の主語や目的語になる点が大きく違います。\n\nwhat の後ろは、ほかの関係代名詞と同じく、名詞が1つ欠けた不完全な文です。what she said では、said の目的語が欠けていて、what がその代わりをしています。\n\n疑問詞の what(何を〜か)と形が同じなので、I don't know **what** he wants. のような文は、「彼が欲しいもの」とも「彼が何を欲しいのか」とも読めます。どちらに読んでも文の形は同じなので、文脈に合う方で訳せば十分です。",
+          "examples": [
+            {
+              "en": "**What** the customer wants is faster delivery, not a lower price.",
+              "ja": "その顧客が求めているのは、値下げではなく、より速い配送だ。",
+              "note": "What = The thing which。What the customer wants 全体が文の主語で、動詞は is"
+            },
+            {
+              "en": "This software does exactly **what** we need.",
+              "ja": "このソフトウエアは、まさに私たちが必要としていることをしてくれる。",
+              "note": "前に先行詞が無く、need の目的語が欠けているので what。what we need が does の目的語"
+            }
+          ],
+          "cautions": [
+            "× The thing what she said surprised me. → ○ What she said surprised me. / The thing which (that) she said surprised me. what は先行詞を含むので、前に名詞を置かない"
+          ]
+        },
+        {
+          "heading": "what 節の働き:主語・目的語・補語・前置詞の目的語",
+          "explanation": "**what が作る名詞節は、名詞と同じように、文の主語・目的語・補語・前置詞の目的語になります。** 文のどこに what 節があるかを見ると、文の構造が分かります。\n\n・主語: **What** he proposed sounds reasonable.\n・目的語: I didn't understand **what** the speaker meant.\n・補語: This is **what** I have been looking for.\n・前置詞の目的語: We were surprised by **what** we found.\n\nwhat 節が主語になるときは、主語が長くなるので、文の動詞を見失わないようにします。what 節の中の動詞(proposed)と、文全体の動詞(sounds)の2つがあることを確認します。what 節が主語のとき、文の動詞は原則として単数で受けます(What he proposed **sounds** ...)。ただし、補語が複数名詞のときは are で受けることもあります(What we need **are** more volunteers. のように。is も使われ、用法に揺れがあります)。\n\nwhat 節は名詞のかたまりなので、前置詞の後ろにも置けます。前置詞の後ろに「主語 + 動詞」を直接置くことはできませんが、what 節なら置けます(× by we found → ○ by what we found)。",
+          "table": {
+            "caption": "what 節の働き",
+            "headers": ["働き", "例", "訳"],
+            "rows": [
+              ["主語", "**What** he proposed sounds reasonable.", "彼が提案したことは妥当に思える"],
+              ["目的語", "I didn't understand **what** the speaker meant.", "話し手の言いたいことが分からなかった"],
+              ["補語", "This is **what** I have been looking for.", "これこそ私が探していたものだ"],
+              ["前置詞の目的語", "We were surprised by **what** we found.", "見つけたものに驚いた"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**What** impressed the judges most was the team's creative use of data.",
+              "ja": "審査員を最も感心させたのは、そのチームの独創的なデータの使い方だった。",
+              "note": "What が impressed の主語(主格)。What impressed the judges most 全体が文の主語で、動詞は was"
+            },
+            {
+              "en": "The inspectors were shocked by **what** they discovered in the warehouse.",
+              "ja": "検査官たちは、倉庫で発見したものに衝撃を受けた。",
+              "note": "前置詞 by の後ろに what 節。what は discovered の目的語"
+            }
+          ],
+          "cautions": [
+            "× We were surprised by we found. → ○ We were surprised by what we found. 前置詞の後ろに「主語 + 動詞」は置けないが、what 節は名詞のかたまりなので置ける"
+          ]
+        },
+        {
+          "heading": "what と which / that の見分け方:先行詞があるか",
+          "explanation": "**空所の前に先行詞(説明される名詞)があれば which / that / who、無ければ what を選びます。** what は先行詞を含んでいるので、前に名詞があると「先行詞が二重」になってしまいます。\n\n手順は次のとおりです。\n\n・手順1: 空所の後ろが、名詞が欠けた不完全な文か確かめる(関係代名詞が入る条件)。\n・手順2: 空所の前を見る。説明される名詞(先行詞)がある → which / that / who。\n・手順3: 先行詞が無い(空所の前が動詞・前置詞・文頭・be 動詞など)→ what。\n\n・I bought **the book which** you recommended.(先行詞 the book がある)\n・I bought **what** you recommended.(先行詞が無い。動詞 bought の後ろ)\n\n間違えやすいのは、空所の前に名詞があっても、それが先行詞ではない場合です。たとえば Tell me ------- you want. の me は、tell の目的語(「私に」)であって、「〜するもの」の説明を受ける名詞ではありません。この場合は what が入ります(Tell me what you want. 欲しいものを教えて)。空所の前の名詞を関係詞節が説明しているかどうか(「あなたが欲しい私」では意味が通らない)で判断します。\n\nまた、all, everything, anything など、先行詞になる語の後ろには what ではなく that を使います(All that I have / × All what I have)。",
+          "table": {
+            "caption": "what と which / that",
+            "headers": ["空所の前", "空所の後ろ", "入る語", "例"],
+            "rows": [
+              ["先行詞(名詞)あり", "不完全な文", "which / that / who", "the plan **that** he made"],
+              ["先行詞なし", "不完全な文", "what", "I liked **what** he made."],
+              ["all / everything など", "不完全な文", "that(省略可)", "everything (**that**) he made"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Please send me **the files which** you edited yesterday.",
+              "ja": "昨日あなたが編集したファイルを送ってください。",
+              "note": "先行詞 the files があるので which(that)。what は入らない"
+            },
+            {
+              "en": "Please send me **what** you edited yesterday.",
+              "ja": "昨日あなたが編集したものを送ってください。",
+              "note": "send me の後ろに先行詞が無いので what。me は「私に」で、先行詞ではない"
+            }
+          ],
+          "cautions": [
+            "× the files what you edited → ○ the files which (that) you edited",
+            "× All what I need is time. → ○ All (that) I need is time."
+          ]
+        },
+        {
+          "heading": "what と接続詞 that の見分け方:後ろが不完全か完全か",
+          "explanation": "**先行詞が無い空所で、後ろが不完全な文(名詞が欠けている)なら what、完全な文なら接続詞の that(または whether / if)を選びます。** what と that はどちらも名詞節を作り、文の主語や目的語になるので、形が似ています。違いは、後ろの節が完全か不完全かです。\n\n・I know **what** she wants.(wants の目的語が欠けている → what)\n・I know **that** she wants a new job.(欠けている要素が無い → that)\n\n接続詞の that は「〜ということ」という意味で、that 自体は節の中で何の働きもしません。そのため、that の後ろは完全な文になります。what は関係代名詞なので、節の中で名詞の代わりをし、その分だけ後ろの文が不完全になります。\n\n手順:\n\n・手順1: 空所の前に先行詞が無いことを確かめる。\n・手順2: 後ろの文が完全か不完全かを確かめる。\n・手順3: 不完全 → what。完全 →「〜ということ」なら that、「〜かどうか」なら whether / if。\n\n前置詞の後ろでは、接続詞の that は原則として使えません(in that 〜「〜という点で」、except that 〜 などの決まった形を除く)。前置詞の後ろで後ろが不完全なら what、完全で「〜かどうか」なら whether を選びます。",
+          "table": {
+            "caption": "名詞節を作る what / that / whether",
+            "headers": ["語", "後ろの形", "意味", "例"],
+            "rows": [
+              ["what", "不完全(名詞が欠ける)", "〜すること・もの", "**What** he said was true."],
+              ["that(接続詞)", "完全", "〜ということ", "**That** he resigned was a shock."],
+              ["whether / if", "完全", "〜かどうか", "I wonder **whether** he will come."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The survey showed **what** most customers value in a product.",
+              "ja": "その調査は、大半の顧客が製品に何を重視しているかを明らかにした。",
+              "note": "value の目的語が欠けている不完全な文なので what"
+            },
+            {
+              "en": "The survey showed **that** most customers value quality over price.",
+              "ja": "その調査は、大半の顧客が価格よりも品質を重視していることを明らかにした。",
+              "note": "value quality over price は完全な文なので、接続詞の that"
+            }
+          ],
+          "cautions": [
+            "× The survey showed what most customers value quality. → ○ ... showed that most customers value quality. 後ろが完全な文なら what は入らない"
+          ]
+        },
+        {
+          "heading": "what is called / what we call(いわゆる)",
+          "explanation": "**what is called 〜 と what we (you, they) call 〜 は、「いわゆる〜」「〜と呼ばれるもの」という意味の決まった表現です。** 新しい言葉や、専門的な言い方を紹介するときに使います。\n\n・He is **what is called** a workaholic.(彼はいわゆる仕事中毒だ)\n・He is **what we call** a workaholic.\n\n仕組みは、what = the thing which と考えると分かります。what is called a workaholic は「a workaholic と呼ばれるもの(人)」、what we call a workaholic は「私たちが a workaholic と呼ぶもの(人)」です。call O C(O を C と呼ぶ)の O が what になっています。\n\n時制や主語は、文脈に合わせて変わります(what was called、what people call など)。また、似た表現に so-called(いわゆる)がありますが、so-called は「いわゆる(本当はそうではないが)」という皮肉な意味で使われることも多いので、使い方に注意します。",
+          "examples": [
+            {
+              "en": "Many young employees are **what is called** digital natives.",
+              "ja": "若い社員の多くは、いわゆるデジタルネイティブだ。",
+              "note": "what is called = 「〜と呼ばれるもの」。digital natives を紹介している"
+            },
+            {
+              "en": "This agreement is **what we call** a win-win deal for both companies.",
+              "ja": "この合意は、両社にとっていわゆる「双方に利益のある取引」だ。",
+              "note": "call O C の O が what になった形。what we call = 「私たちが〜と呼ぶもの」"
+            }
+          ],
+          "cautions": [
+            "× He is which is called a workaholic. → ○ He is what is called a workaholic. 先行詞が無いので what を使う"
+          ]
+        },
+        {
+          "heading": "what is more / what is worse / what is better(さらに・さらに悪いことに)",
+          "explanation": "**what is more(さらに、その上)、what is worse(さらに悪いことに)、what is better(さらによいことに)は、文の途中に挟んで情報を追加する決まった表現です。** 前の内容に、同じ方向の情報を積み重ねるときに使います。\n\n・The hotel was clean, and **what is more**, it was inexpensive.(清潔で、その上安かった)\n・We missed the bus, and **what was worse**, it started to rain.(さらに悪いことに雨が降り出した)\n\nwhat is more は、moreover / furthermore とほぼ同じ意味です。what is worse は、悪いことが重なるときに使います。to make matters worse(さらに悪いことに)とも言い換えられます。\n\n過去の出来事を述べるときは what was worse のように was を使うこともありますが、what is more / what is worse を決まり文句としてそのまま使うことも多く、どちらも見られます。\n\nこの表現は、and や but の後ろに置いたり、セミコロン(;)の後ろに置いたりします。Part 6 では、前後の文の関係(追加か、悪い追加か)から、what is more と what is worse を選び分ける問題になりえます。",
+          "table": {
+            "caption": "what を使った「追加」の表現",
+            "headers": ["表現", "意味", "言い換え"],
+            "rows": [
+              ["what is more", "さらに、その上", "moreover, furthermore, besides"],
+              ["what is worse", "さらに悪いことに", "to make matters worse"],
+              ["what is better", "さらによいことに", "even better"],
+              ["what is most important", "最も大事なことに", "most importantly"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The new laptop is lighter than the old model, and **what is more**, its battery lasts twice as long.",
+              "ja": "新しいノートパソコンは旧型より軽く、その上、電池が2倍長持ちする。",
+              "note": "よい情報に、さらによい情報を足しているので what is more"
+            },
+            {
+              "en": "Our flight was delayed, and **what was worse**, our luggage was sent to the wrong city.",
+              "ja": "便が遅れ、さらに悪いことに、荷物が別の都市に送られてしまった。",
+              "note": "悪いことが重なっているので what was worse。過去の話なので was を使っている"
+            }
+          ],
+          "cautions": [
+            "what is worse は、前の内容が「悪いこと」のときに使う。よい情報を足すときは what is more / what is better"
+          ]
+        },
+        {
+          "heading": "A is to B what C is to D(A と B の関係は、C と D の関係と同じ)",
+          "explanation": "**A is to B what C is to D は、「A の B に対する関係は、C の D に対する関係と同じだ」という意味の決まった表現です。** 分かりやすいもの(C と D)にたとえて、分かりにくい関係(A と B)を説明するときに使います。\n\n・Reading is to the mind **what** exercise is to the body.\n(読書の精神に対する関係は、運動の身体に対する関係と同じだ → 読書は心にとって、運動が体にとってのようなものだ)\n\n仕組みは、what = the thing which で、what exercise is to the body は「運動が体に対してそうであるもの(役割)」です。文全体は「読書は、心に対して、運動が体に対してそうであるもの(と同じ)である」という形になっています。\n\n語順が変わって、What C is to D, A is to B. となることもあります。英検準1級の長文や、論説文で見かける表現です。訳すときは「A と B の関係は、C と D の関係に等しい」「A は B にとって、C が D にとってのようなものだ」とします。",
+          "examples": [
+            {
+              "en": "Data is to modern businesses **what** oil was to industry in the past.",
+              "ja": "データは現代の企業にとって、かつての石油が産業にとってそうであったようなものだ。",
+              "note": "A(Data)と B(modern businesses)の関係を、C(oil)と D(industry)の関係にたとえている"
+            },
+            {
+              "en": "Sleep is to the brain **what** charging is to a smartphone.",
+              "ja": "睡眠は脳にとって、充電がスマートフォンにとってそうであるようなものだ。",
+              "note": "A is to B what C is to D の形。what の後ろに「C is to D」が続く"
+            }
+          ],
+          "cautions": [
+            "× Sleep is to the brain which charging is to a smartphone. → ○ ... what charging is to a smartphone. 決まった形なので what を使う"
+          ]
+        },
+        {
+          "heading": "what S is / what S was / what S used to be(現在の・昔の S の姿)",
+          "explanation": "**what S is は「現在の S(の姿・人柄)」、what S was / what S used to be は「昔の S」を表します。** 人や町、会社などの「あり方」を表すときに使います。\n\n・He is not **what** he was ten years ago.(彼は10年前の彼ではない)\n・I owe **what** I am today to my parents.(今日の私があるのは両親のおかげだ)\n\n仕組みは、what = the thing which で、what he was は「彼がそうであったもの(状態・人柄)」です。be 動詞の補語が what に変わっているので、what の後ろは補語が欠けた形になっています。\n\n同じ考え方で、what S has(S が持っているもの=財産)、what S does(S がしていること)などもありますが、特に試験でよく見るのは be 動詞の形です。\n\nwhat is called などと同じく、決まった形として丸ごと覚えておくと読解が速くなります。",
+          "examples": [
+            {
+              "en": "The town is very different from **what** it was twenty years ago.",
+              "ja": "その町は、20年前の姿とは大きく違っている。",
+              "note": "what it was = 「その町がかつてそうであったもの」= 昔の町の姿"
+            },
+            {
+              "en": "She owes **what** she is today to the mentor who trained her.",
+              "ja": "彼女が今日あるのは、自分を育ててくれた指導者のおかげだ。",
+              "note": "what she is today = 「今日の彼女」。owe A to B(A は B のおかげだ)の A になっている"
+            }
+          ],
+          "cautions": [
+            "× The town is very different from that it was. → ○ ... different from what it was. 前置詞の後ろで、補語が欠けた不完全な文なので what"
+          ]
+        },
+        {
+          "heading": "what little + 名詞 / what few + 名詞 / what + 名詞(〜なものはすべて)",
+          "explanation": "**「what + 名詞 + 主語 + 動詞」で「(主語が〜する)名詞はすべて」という意味になり、what little + 不可算名詞、what few + 可算名詞の複数形は「少ないながらも〜するすべての…」という意味になります。** この what は名詞の前に付いて形容詞のように働くので、関係形容詞と呼ばれます。\n\n・She gave me **what money** she had.(彼女は持っていたお金をすべてくれた)\n= She gave me **all the money that** she had.\n・She gave me **what little money** she had.(少ないながら持っていたお金をすべてくれた)\n= She gave me **all the little money that** she had.\n\nlittle は不可算名詞(数えられない名詞: money, time, information など)に、few は可算名詞の複数形(friends, books など)に使います。\n\n・**what little** time I have(少ないながら私にあるすべての時間)\n・**what few** friends he had(少ないながら彼にいたすべての友人)\n\n訳すときは「少ないながらも、持っている〜をすべて」と、「少ない」と「すべて」の両方の意味を入れるのがコツです。試験では、what little を選ばせたり、little と few の使い分け(不可算か可算か)を問うたりする形で出ます。",
+          "table": {
+            "caption": "what + 名詞の形",
+            "headers": ["形", "意味", "言い換え"],
+            "rows": [
+              ["what + 名詞", "〜するすべての…", "all the + 名詞 + that"],
+              ["what little + 不可算名詞", "少ないながら〜するすべての…", "all the little + 名詞 + that"],
+              ["what few + 可算名詞の複数形", "少ないながら〜するすべての…", "all the few + 名詞 + that"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "He spent **what little** free time he had with his children.",
+              "ja": "彼は、わずかな自由時間をすべて子どもたちと過ごした。",
+              "note": "free time は不可算名詞なので little。what little = 「少ないながらすべての」"
+            },
+            {
+              "en": "The volunteers collected **what few** supplies remained after the storm.",
+              "ja": "ボランティアたちは、嵐の後に残っていたわずかな物資をすべて集めた。",
+              "note": "supplies は可算名詞の複数形なので few。what few supplies が remained の主語になっている"
+            },
+            {
+              "en": "We will offer **what** support we can during the transition.",
+              "ja": "移行期間中は、できる限りの支援をいたします。",
+              "note": "what support we can (offer) = all the support that we can offer"
+            }
+          ],
+          "cautions": [
+            "× what few money she had → ○ what little money she had。money は不可算名詞なので little を使う",
+            "× what little friends he had → ○ what few friends he had。friends は可算名詞の複数形なので few を使う"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、選択肢に what / which / that / whatever が並ぶ問題がよく出ます。手順は、(1) 空所の前に先行詞があるか(あれば what を消す)、(2) 空所の後ろが不完全な文か(完全なら what を消して that / whether を検討する)、の2段階です。特に、空所が文頭にあり「------- the manager suggested was ...」のように後ろが不完全な文で、主語になる形は what が正解の典型です。ひっかけとして、空所の前の me / us などの代名詞を先行詞と勘違いさせる形や、everything / all の後ろに what を置いた選択肢があります。英検準1級では、A is to B what C is to D、what S is、what little のような決まった形が長文や語句の空所で問われることがあるので、意味をすぐに取り出せるようにしておきましょう。"
+    },
+    {
+      "id": "adverb",
+      "title": "関係副詞 when・where・why・how(と whereby)",
+      "intro": "場所・時・理由・方法を表す先行詞の後ろに使う関係副詞を学びます。関係副詞の後ろは完全な文になることが、関係代名詞との最大の違いです。先行詞が場所でも which が入る場合、the way how が誤りになる理由、先行詞や関係副詞の省略、whereby まで扱います。",
+      "keywords": ["関係副詞", "whereby"],
+      "items": [
+        {
+          "heading": "関係副詞とは:「前置詞 + which」の代わりをし、後ろは完全な文",
+          "explanation": "**関係副詞(when, where, why, how)は、場所・時・理由・方法を表す先行詞を説明する節を作ります。関係副詞は「前置詞 + which」の代わりをするので、後ろには名詞の欠けていない完全な文が来ます。**\n\n2つの文から作る過程を見てみます。\n\n・This is the hotel. + We stayed **at the hotel**.\n・→ This is the hotel **at which** we stayed.(前置詞 + 関係代名詞)\n・→ This is the hotel **where** we stayed.(関係副詞)\n\nat the hotel は「そのホテルに」という、動詞を修飾する副詞のかたまりです。このかたまり全体を1語で表すのが関係副詞 where です。副詞のかたまりの代わりをするので「関係副詞」と呼びます。\n\n関係代名詞は、節の中の「名詞」(主語・目的語)の代わりをするので、後ろが不完全な文になります。関係副詞は、節の中の「副詞のかたまり」の代わりをするので、後ろの文には名詞の欠けがありません。この違いが、関係代名詞と関係副詞を見分ける決め手になります。",
+          "table": {
+            "caption": "関係副詞の一覧",
+            "headers": ["関係副詞", "先行詞", "言い換え", "例"],
+            "rows": [
+              ["where", "場所・場面(place, city, office, case, situation)", "at / in / on + which", "the office **where** I work"],
+              ["when", "時(day, time, year, moment, period)", "on / in / at + which", "the day **when** we met"],
+              ["why", "理由(the reason だけ)", "for which", "the reason **why** he quit"],
+              ["how", "方法(先行詞は置かない)", "the way (in which)", "**how** she solved it"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "This is the hotel **where** we stayed during our business trip.",
+              "ja": "ここが、出張中に私たちが泊まったホテルだ。",
+              "note": "we stayed は完全な文(stay は自動詞)。at which の代わりに関係副詞 where"
+            },
+            {
+              "en": "This is the hotel **at which** we stayed during our business trip.",
+              "ja": "ここが、出張中に私たちが泊まったホテルだ。",
+              "note": "where = at which。前置詞 + 関係代名詞の形でも同じ意味を表せる"
+            }
+          ],
+          "cautions": [
+            "× the hotel where we stayed at → ○ the hotel where we stayed / the hotel which we stayed at。where は前置詞の意味を含むので、at を重ねない"
+          ]
+        },
+        {
+          "heading": "where:場所と「場面・状況」を表す先行詞",
+          "explanation": "**where は、場所を表す先行詞(place, city, room, office, country など)の後ろで、「〜する(場所)」という意味の節を作ります。さらに、case, situation, point, stage, circumstance, condition のような「場面・状況・段階」を表す名詞にも使えます。**\n\n・the city **where** I was born(私が生まれた都市)\n・a situation **where** quick decisions are needed(すばやい判断が必要な状況)\n・We have reached a point **where** we need outside help.(外部の助けが必要な段階に達した)\n\n抽象的な名詞に where を使うのは、「状況の中で」「段階で」という意味が、場所のイメージで表されるからです。in which に置き換えても同じ意味になります(a situation in which quick decisions are needed)。\n\n注意したいのは、先行詞が場所だからといって、必ず where が入るわけではないことです。後ろが不完全な文(目的語が欠けている)なら、関係代名詞の which / that を使います(次の見分けの項目)。",
+          "examples": [
+            {
+              "en": "The conference will be held in the city **where** our company was founded.",
+              "ja": "会議は、当社が創業された都市で開かれる。",
+              "note": "our company was founded は受動態の完全な文。in which の代わりに where"
+            },
+            {
+              "en": "There are cases **where** the warranty does not cover repairs.",
+              "ja": "保証が修理費を負担しない場合がある。",
+              "note": "cases(場合)という抽象的な先行詞にも where を使える。= cases in which"
+            }
+          ],
+          "cautions": [
+            "× a situation which quick decisions are needed → ○ a situation where (in which) quick decisions are needed。後ろが完全な文なので which だけでは入らない"
+          ]
+        },
+        {
+          "heading": "when:時を表す先行詞",
+          "explanation": "**when は、時を表す先行詞(day, time, year, month, moment, period, era など)の後ろで、「〜する(時)」という意味の節を作ります。when = on / in / at + which です。**\n\n・I still remember the day **when** I first met her.(彼女に初めて会った日を今でも覚えている)\n= I still remember the day **on which** I first met her.\n\n前置詞は、先行詞に合わせて決まります。day には on、year や month には in、moment や time には at を使うのがふつうです(on the day, in the year, at the moment)。\n\nwhen は省略されることが多く、the day I first met her のようにも言います。また、when の代わりに that を使うこともあります(the day that I first met her)。\n\n先行詞が時を表しても、後ろが不完全な文なら関係代名詞を使います。たとえば the day which I will never forget では、forget の目的語が欠けているので which(that)が入り、when は入りません。",
+          "examples": [
+            {
+              "en": "I still remember the day **when** I joined this company.",
+              "ja": "私はこの会社に入った日のことを今でも覚えている。",
+              "note": "I joined this company は完全な文。on which の代わりに when"
+            },
+            {
+              "en": "There are times **when** working alone is more efficient than working in a team.",
+              "ja": "チームで働くより一人で働く方が効率的な時もある。",
+              "note": "先行詞 times(時)を when 以下が説明している。when の後ろは完全な文"
+            }
+          ],
+          "cautions": [
+            "× the day when I will never forget → ○ the day which (that) I will never forget。forget の目的語が欠けているので関係代名詞"
+          ]
+        },
+        {
+          "heading": "why:先行詞は the reason。That's why と That's because の違い",
+          "explanation": "**why の先行詞は、ほぼ the reason に限られ、the reason why 〜 で「〜する理由」を表します。why = for which です。** the reason と why は、どちらか一方を省略することがよくあります。\n\n・The reason **why** he quit is unclear.\n・The reason he quit is unclear.(why を省略)\n・The reason **that** he quit is unclear.(why の代わりに that)\n・That is **why** he quit.(先行詞 the reason を省略)\n\n**That's why 〜 は「だから〜だ」(前の内容が原因で、後ろが結果)、That's because 〜 は「それは〜だからだ」(前の内容が結果で、後ろが原因)** です。向きが逆になるので、取り違えないようにします。\n\n・I missed the train. **That's why** I was late.(電車に乗り遅れた。だから遅刻した)\n・I was late. **That's because** I missed the train.(遅刻した。それは電車に乗り遅れたからだ)\n\nなお、The reason is that 〜(理由は〜ということだ)の形では、that を使うのが書き言葉の標準です。The reason is because 〜 は会話ではよく聞かれますが、「reason と because で理由の意味が重なる」として書き言葉では避けられることがあります。試験では that を選びます。",
+          "table": {
+            "caption": "理由の表し方",
+            "headers": ["形", "意味", "注意"],
+            "rows": [
+              ["the reason why 〜", "〜する理由", "why か the reason のどちらかを省略できる"],
+              ["the reason (that) 〜", "〜する理由", "that も使える"],
+              ["the reason for which 〜", "〜する理由", "かたい言い方"],
+              ["That's why 〜", "だから〜だ(後ろが結果)", "前の内容が原因"],
+              ["That's because 〜", "それは〜だからだ(後ろが原因)", "前の内容が結果"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Nobody knows **the reason why** the event was canceled at the last minute.",
+              "ja": "そのイベントが直前に中止になった理由は、誰も知らない。",
+              "note": "the event was canceled は完全な文。the reason の後ろで why(= for which)"
+            },
+            {
+              "en": "The printer ran out of ink. **That's why** the reports weren't ready on time.",
+              "ja": "プリンターのインクが切れた。だから報告書が時間どおりに用意できなかった。",
+              "note": "That's why の後ろは結果。the reason を省略した関係副詞 why の形"
+            }
+          ],
+          "cautions": [
+            "× the reason which he quit → ○ the reason why (that / for which) he quit。後ろが完全な文なので which だけでは入らない",
+            "That's why(だから)と That's because(それは〜だからだ)は、原因と結果の向きが逆"
+          ]
+        },
+        {
+          "heading": "how と the way:the way how は使わない",
+          "explanation": "**「〜するやり方・方法」は、how 〜 か the way 〜 のどちらかで表し、the way how 〜 とは言いません。** 現代の英語では、関係副詞 how は先行詞 the way と一緒に使わない、という決まりがあります。\n\n・This is **how** we reduced costs.(これが、私たちがコストを削減した方法だ)\n・This is **the way** we reduced costs.\n・This is **the way that** we reduced costs.\n・This is **the way in which** we reduced costs.(かたい言い方)\n・× This is the way how we reduced costs.\n\nwhy は the reason why と先行詞と一緒に使えますが、how は the way how とはできません。この違いは理屈よりも「the way と how はどちらか一方」と覚えておくのが確実です。\n\nhow の後ろも、ほかの関係副詞と同じく完全な文です(we reduced costs)。\n\n試験では、選択肢に how が並んでいて、空所の前に the way がある場合、how は選べません。逆に the way が無く、「〜する方法」の意味なら how を選びます。",
+          "table": {
+            "caption": "「〜する方法」の言い方",
+            "headers": ["形", "正誤", "文体"],
+            "rows": [
+              ["how 〜", "○", "ふつう"],
+              ["the way 〜", "○", "ふつう"],
+              ["the way that 〜", "○", "ふつう"],
+              ["the way in which 〜", "○", "かたい"],
+              ["the way how 〜", "×", "現代英語では使わない"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The manager explained **how** the new booking system works.",
+              "ja": "マネージャーは、新しい予約システムの仕組みを説明した。",
+              "note": "先行詞 the way を置かずに how だけで「〜する方法・仕方」"
+            },
+            {
+              "en": "I like **the way** our team leader handles difficult clients.",
+              "ja": "私は、チームリーダーの難しい顧客への対応の仕方が好きだ。",
+              "note": "the way を使うときは how を付けない。the way (that) / the way in which なら可"
+            }
+          ],
+          "cautions": [
+            "× I like the way how our team leader handles clients. → ○ I like the way our team leader handles clients. / I like how our team leader handles clients."
+          ]
+        },
+        {
+          "heading": "関係副詞か関係代名詞か:後ろが完全な文か不完全な文か",
+          "explanation": "**先行詞が場所や時でも、後ろの文が不完全(主語や目的語が欠けている)なら関係代名詞 which / that、完全なら関係副詞 where / when を使います。** 先行詞の種類だけで判断すると間違えます。これは試験で最もよく狙われるポイントの1つです。\n\n・This is the town **where** I grew up.(grew up は自動詞で、完全な文 → where)\n・This is the town **which** I visited last year.(visited の目的語が欠けている → which)\n・Kyoto is a city **which** attracts many tourists.(attracts の主語が欠けている → which)\n\n手順は次のとおりです。\n\n・手順1: 空所の後ろの文で、動詞を見つける。\n・手順2: 主語があるか確かめる。無ければ主格の関係代名詞(which / that)。\n・手順3: 動詞が他動詞なら、目的語があるか確かめる。無ければ目的格の関係代名詞(which / that)。\n・手順4: 前置詞で終わっていないか確かめる(前置詞の後ろの名詞が欠けていれば関係代名詞)。\n・手順5: 何も欠けていなければ、関係副詞(または前置詞 + which)。\n\n自動詞・他動詞の区別が判断の決め手になります。visit, reach, enter, attend, discuss などは他動詞なので、日本語の「〜に行く」「〜に着く」「〜に入る」「〜に出席する」に引っ張られて where を選ばないように注意します。",
+          "table": {
+            "caption": "先行詞が場所のとき",
+            "headers": ["空所の後ろ", "欠けているもの", "入る語"],
+            "rows": [
+              ["I grew up(自動詞)", "なし", "where / in which"],
+              ["I visited last year(他動詞)", "目的語", "which / that(省略可)"],
+              ["attracts many tourists", "主語", "which / that"],
+              ["I grew up in", "前置詞の目的語", "which / that(省略可)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Osaka is the city **where** I spent most of my childhood.",
+              "ja": "大阪は、私が子ども時代の大半を過ごした都市だ。",
+              "note": "spent most of my childhood は目的語もそろった完全な文なので where"
+            },
+            {
+              "en": "Osaka is a city **which** many tourists visit for its food.",
+              "ja": "大阪は、多くの観光客が食べ物を目当てに訪れる都市だ。",
+              "note": "visit は他動詞で目的語が欠けている。先行詞が場所でも関係代名詞の which"
+            },
+            {
+              "en": "The museum **that** we reached by noon was already crowded.",
+              "ja": "私たちが正午までに着いた博物館は、もう混んでいた。",
+              "note": "reach は他動詞(〜に着く)。目的語が欠けているので that(which)。where は入らない"
+            }
+          ],
+          "cautions": [
+            "× a city where many tourists visit → ○ a city which (that) many tourists visit。visit は他動詞",
+            "× Osaka is the city which I spent my childhood. → ○ Osaka is the city where (in which) I spent my childhood. 後ろが完全な文"
+          ]
+        },
+        {
+          "heading": "先行詞の省略・関係副詞の省略・that による代用",
+          "explanation": "**関係副詞の文では、先行詞を省略したり(This is where ...)、関係副詞を省略したり(the day I met her)、関係副詞の代わりに that を使ったり(the day that I met her)できます。どれができるかは、関係副詞によって少しずつ違います。**\n\n先行詞の省略: the place, the time, the reason のような一般的な先行詞は、省略されることがよくあります。省略されると、関係副詞の節は名詞節として働きます。\n\n・This is **where** I work.(ここが私の働いている所だ)\n・That was **when** everything changed.(その時、すべてが変わった)\n・That's **why** I called you.(だからあなたに電話した)\n\n関係副詞の省略: when と why は、先行詞があればよく省略されます(the day I met her, the reason he left)。where は、place, somewhere, anywhere, everywhere の後ろで省略されることがありますが(the place I was born はくだけた言い方)、具体的な場所の名詞の後ろでは省略しないのがふつうです。\n\nthat による代用: when, why の代わりには that がよく使われます(the day that ..., the reason that ...)。where の代わりに that を使うのは、place などの一般的な語の後ろに限られ、くだけた言い方です。\n\n試験では、先行詞が省略された This is where ... / That's why ... の形が正解になる問題や、the reason の後ろの why が省略された形を読み取る問題が出ます。",
+          "table": {
+            "caption": "省略と代用",
+            "headers": ["関係副詞", "先行詞の省略", "関係副詞の省略", "that で代用"],
+            "rows": [
+              ["when", "○(That was when ...)", "○(the day I met her)", "○"],
+              ["where", "○(This is where ...)", "△(place などの後ろ、くだけた言い方)", "△(place などの後ろ)"],
+              ["why", "○(That's why ...)", "○(the reason he left)", "○"],
+              ["how", "必ず先行詞なし", "the way だけを残す", "the way that ○"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "This is **where** the company's first factory once stood.",
+              "ja": "ここが、その会社の最初の工場がかつて建っていた場所だ。",
+              "note": "先行詞 the place が省略され、where 以下が is の補語(名詞節)になっている"
+            },
+            {
+              "en": "I will never forget **the moment** I heard the good news.",
+              "ja": "その良い知らせを聞いた瞬間を、私は決して忘れない。",
+              "note": "the moment の後ろの when が省略されている。後ろの I heard the good news は完全な文"
+            }
+          ],
+          "cautions": [
+            "先行詞が省略された where / when / why の節は名詞節になる。This is where ... の where を「どこ」(疑問詞)と訳しても意味は通るが、「〜する所」と読むと自然"
+          ]
+        },
+        {
+          "heading": "非制限用法の where と when",
+          "explanation": "**where と when は、カンマを付けた非制限用法でも使えます。「そしてそこで〜」「そしてその時〜」という意味で、先行詞に補足の情報を加えます。why と how には非制限用法がありません。**\n\n・We visited Nara, **where** we saw the Great Buddha.(奈良を訪れ、そこで大仏を見た)\n= We visited Nara, **and there** we saw the Great Buddha.\n・She moved to London in 2015, **when** she was 30.(2015年にロンドンに引っ越した。その時彼女は30歳だった)\n= ..., **and at that time** she was 30.\n\n固有名詞(Nara, London)や、特定の年(in 2015)は、どれのことかがすでに決まっているので、限定する必要がありません。このため、非制限用法を使います(第5節と同じ考え方)。\n\n非制限用法の where / when も、後ろは完全な文です。後ろの文に目的語や主語が欠けていれば、, which を使います(We visited Nara, which is famous for its deer.)。",
+          "examples": [
+            {
+              "en": "Last year we opened an office in Singapore, **where** we now employ fifty people.",
+              "ja": "昨年シンガポールに事務所を開き、現在そこで50人を雇っている。",
+              "note": "カンマ + where = and there。we now employ fifty people は完全な文"
+            },
+            {
+              "en": "The store will reopen in April, **when** the renovation is expected to be finished.",
+              "ja": "その店は4月に再開する予定で、その頃には改装が終わる見込みだ。",
+              "note": "カンマ + when = and then。特定の時(in April)を補足している"
+            }
+          ],
+          "cautions": [
+            "× We visited Nara, where is famous for its deer. → ○ We visited Nara, which is famous for its deer. 後ろに主語が欠けているので関係代名詞 which"
+          ]
+        },
+        {
+          "heading": "whereby:「それによって〜する(仕組み・取り決め)」",
+          "explanation": "**whereby は「それによって〜する」「それに従って〜する」という意味の関係詞で、by which と同じ働きをします。主に system, method, process, agreement, arrangement, plan, scheme などの名詞の後ろで、かたい書き言葉に使われます。** 後ろには完全な文が来るので、関係副詞として扱われることが多い語です(文法書によっては関係代名詞的な語として説明するものもあります)。\n\n・The company introduced a system **whereby** employees can work from home.\n= The company introduced a system **by which** employees can work from home.\n(会社は、社員が在宅勤務できる制度を導入した)\n\n仕組みは、employees can work from home **by** the system(その制度によって在宅勤務できる)の by the system が whereby になった、と考えます。\n\nwhereby の後ろの文は、主語・動詞・目的語がそろった完全な文です。このため、後ろが完全な文の空所で、先行詞が system, agreement などの「仕組み・取り決め」を表す名詞なら、whereby が正解になりやすくなります。which だけでは後ろの完全な文とつながらないので入りません。\n\nwhereas(〜である一方)、whereupon(するとすぐに)、wherever(どこでも)など、つづりの似た語と取り違えないように注意します。",
+          "table": {
+            "caption": "where- で始まる紛らわしい語",
+            "headers": ["語", "品詞・働き", "意味"],
+            "rows": [
+              ["whereby", "関係詞(= by which)", "それによって〜する(仕組み)"],
+              ["whereas", "接続詞", "〜である一方"],
+              ["whereupon", "接続詞", "するとすぐに、そこで"],
+              ["wherever", "複合関係副詞", "どこで〜しても、〜する所はどこでも"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The two firms reached an agreement **whereby** they will share the cost of research.",
+              "ja": "2社は、研究費を分担するという取り決めに合意した。",
+              "note": "whereby = by which(その取り決めによって)。後ろの they will share the cost of research は完全な文"
+            },
+            {
+              "en": "The city introduced a scheme **whereby** residents receive points for recycling.",
+              "ja": "市は、住民がリサイクルをするとポイントがもらえる制度を導入した。",
+              "note": "先行詞 a scheme(制度)の後ろで、仕組みの内容を説明している"
+            }
+          ],
+          "cautions": [
+            "× a scheme which residents receive points for recycling → ○ a scheme whereby (by which / under which) residents receive points for recycling。後ろが完全な文なので which だけでは入らない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の関係副詞の問題は、ほとんどが「後ろが完全な文か、不完全な文か」で解けます。手順は、(1) 空所の後ろの動詞を見つけ、自動詞か他動詞かを確かめる、(2) 主語・目的語が欠けていれば which / that、何も欠けていなければ where / when / why / whereby(または前置詞 + which)を選ぶ、です。ひっかけの典型は、先行詞が場所(city, office, venue)なのに後ろが不完全な文で which が正解になる問題と、visit / reach / attend のような他動詞を使って where を誘う問題です。また、the way how のような誤った形の選択肢や、whereby と whereas の取り違えもよく使われます。英検準1級の長文では、This is where ... / That's why ... のように先行詞が省略された形が多いので、「〜する所」「だから〜」とすばやく読めるようにしておきましょう。"
+    },
+    {
+      "id": "compound",
+      "title": "複合関係詞 whoever・whatever・whichever・wherever・whenever・however",
+      "intro": "関係詞に -ever が付いた複合関係詞を学びます。複合関係詞は先行詞を含み、「〜する人は誰でも」のような名詞節と、「誰が〜しても」のような譲歩の副詞節の2つの働きをします。whoever と whomever の選び方、however + 形容詞の語順、no matter + 疑問詞との書き換えが試験でよく問われます。",
+      "keywords": ["複合関係", "whatever", "whoever"],
+      "items": [
+        {
+          "heading": "複合関係詞とは:先行詞を含み、名詞節か譲歩の副詞節を作る",
+          "explanation": "**複合関係詞は、who, what, which, where, when, how に -ever が付いた語で、先行詞を自分の中に含みます。文の中で、(1) 名詞節(「〜する人は誰でも」「〜するものは何でも」)か、(2) 譲歩の副詞節(「誰が〜しても」「何が〜しても」)のどちらかを作ります。**\n\n**譲歩**とは、「たとえ〜しても(結果は変わらない)」という意味のことです。\n\n・**Whoever** wants the ticket can have it.(名詞節: そのチケットが欲しい人は誰でももらえる)→ Whoever wants the ticket が文の主語。\n・**Whoever** calls, tell them I'm out.(譲歩の副詞節: 誰が電話してきても、外出中だと伝えて)→ Whoever calls は文の主語ではなく、文全体を修飾している。\n\nどちらの働きかは、文の形で見分けます。複合関係詞の節を取り除いて、残りの部分が文として成り立てば副詞節、成り立たなければ(主語や目的語が足りなければ)名詞節です。\n\n複合関係詞は、what と同じく先行詞を含むので、前に名詞を置きません。また、関係詞節の中の働き(主語か目的語か)で格や語が決まる点は、ふつうの関係詞と同じです。",
+          "table": {
+            "caption": "複合関係詞の2つの働き",
+            "headers": ["複合関係詞", "名詞節(または場所・時の副詞節)の意味", "譲歩の副詞節の意味"],
+            "rows": [
+              ["whoever", "〜する人は誰でも(= anyone who)", "誰が〜しても(= no matter who)"],
+              ["whomever", "〜する人は誰でも(目的格、かたい)", "誰を〜しても(= no matter whom)"],
+              ["whatever", "〜するものは何でも(= anything that)", "何が(を)〜しても(= no matter what)"],
+              ["whichever", "〜するものはどれでも(= any one that)", "どれが(を)〜しても(= no matter which)"],
+              ["wherever", "〜する所ならどこでも(副詞節)", "どこへ(で)〜しても(= no matter where)"],
+              ["whenever", "〜する時はいつでも・〜するたびに(副詞節)", "いつ〜しても(= no matter when)"],
+              ["however", "どんなやり方で〜しても(= in whatever way)", "どんなに〜でも(= no matter how)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**Whoever** wants a copy of the handout can take one from the desk.",
+              "ja": "資料の写しが欲しい人は誰でも、机から1部取ってよい。",
+              "note": "Whoever wants a copy of the handout が文の主語になっている名詞節(= Anyone who wants ...)"
+            },
+            {
+              "en": "**Whoever** calls this afternoon, please tell them I'm in a meeting.",
+              "ja": "今日の午後誰が電話してきても、私は会議中だと伝えてください。",
+              "note": "Whoever calls this afternoon を取り除いても please tell ... が文として成り立つので、譲歩の副詞節"
+            }
+          ],
+          "cautions": [
+            "× Anyone whoever wants a copy can take one. → ○ Whoever wants a copy can take one. / Anyone who wants a copy can take one. 複合関係詞は先行詞を含むので、前に名詞を置かない"
+          ]
+        },
+        {
+          "heading": "whoever と whomever:格は「節の中」の働きで決まる",
+          "explanation": "**whoever と whomever のどちらを使うかは、文全体の中の位置ではなく、複合関係詞の節の中での働きで決まります。節の中で主語なら whoever、目的語なら whomever(くだけた文では whoever も使う)です。**\n\n最もよくあるひっかけは、前置詞や他動詞の直後に空所がある場合です。\n\n・Give this package to **whoever** answers the door.(ドアに出た人に誰でもいいからこの荷物を渡して)\n\nto の直後なので whomever(目的格)を選びたくなりますが、to の目的語は「whoever answers the door」という節全体です。節の中を見ると、whoever は answers の主語です。このため、主格の whoever が正しい形です。\n\n・You may invite **whomever** you like.(好きな人を誰でも招待してよい)\n\nこちらは、節の中で you like の目的語(like の後ろが欠けている)なので、正式には whomever です。ただし、現代の英語では whomever はかたい言い方で、会話やふつうの文章では whoever you like もよく使われます。\n\n手順: (1) 空所の後ろを見る。(2) 直後が動詞 → 主格の whoever。(3) 直後が「主語 + 他動詞」で目的語が欠けている → whomever(または whoever)。前置詞や動詞が空所の前にあっても、それは判断の材料にしません。",
+          "table": {
+            "caption": "whoever / whomever の決め方",
+            "headers": ["空所の後ろ", "節の中の働き", "正しい形"],
+            "rows": [
+              ["動詞 ...(to ___ answers the door)", "主語", "whoever"],
+              ["主語 + 他動詞(___ you like)", "目的語", "whomever(くだけた文では whoever)"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The prize will be awarded to **whoever** submits the most creative design.",
+              "ja": "賞は、最も独創的なデザインを提出した人に贈られる。",
+              "note": "前置詞 to の後ろだが、節の中で whoever は submits の主語。だから whomever ではなく whoever"
+            },
+            {
+              "en": "The committee may appoint **whomever** it considers most suitable.",
+              "ja": "委員会は、最も適任だと考える人を誰でも任命してよい。",
+              "note": "it considers O C(O を C と考える)の O が欠けている。目的格なので whomever"
+            }
+          ],
+          "cautions": [
+            "× Give this package to whomever answers the door. → ○ Give this package to whoever answers the door. 節の中で answers の主語なので主格",
+            "× The prize will be awarded to anyone whoever submits ... → ○ ... to whoever submits ... / ... to anyone who submits ..."
+          ]
+        },
+        {
+          "heading": "whatever:名詞節・譲歩・whatever + 名詞・否定の強調",
+          "explanation": "**whatever は、(1)「〜するものは何でも」(名詞節)、(2)「何が(を)〜しても」(譲歩)、(3)「whatever + 名詞」で「どんな〜でも」、(4) 否定文の名詞の後ろで「少しも」という強調、の4つの使い方があります。**\n\n(1) 名詞節: You can order **whatever** you like.(好きなものを何でも注文してよい)= anything that you like。\n\n(2) 譲歩: **Whatever** happens, don't give up.(何が起きても、あきらめるな)= No matter what happens。\n\n(3) whatever + 名詞: We will provide **whatever** support you need.(必要などんな支援でも提供します)。この whatever は名詞の前に付く形容詞の働きで、what + 名詞(第6節)の意味を強めた形です。\n\n(4) 否定の強調: There is **no** doubt **whatever** about it.(それについては少しの疑いもない)。no + 名詞 の後ろに whatever を置いて、「まったく〜ない」と強めます。at all とほぼ同じ意味です。whatsoever とも言います。\n\nwhat との違い: what は「〜するもの(特定のもの)」、whatever は「〜するものは何でも(範囲を限らない)」という意味です。what you need は「あなたが必要なもの」、whatever you need は「あなたが必要なものなら何でも」です。",
+          "examples": [
+            {
+              "en": "Guests can order **whatever** they like from the room service menu.",
+              "ja": "宿泊客は、ルームサービスのメニューから好きなものを何でも注文できる。",
+              "note": "名詞節。whatever they like = anything that they like。order の目的語になっている"
+            },
+            {
+              "en": "**Whatever** the outcome of the vote may be, we will respect the decision.",
+              "ja": "投票の結果がどうであれ、私たちはその決定を尊重する。",
+              "note": "譲歩の副詞節(= No matter what the outcome may be)。取り除いても後ろが文として成り立つ"
+            },
+            {
+              "en": "The investigation found **no** evidence **whatever** of wrongdoing.",
+              "ja": "調査では、不正の証拠はまったく見つからなかった。",
+              "note": "no + 名詞の後ろの whatever は否定の強調(= at all)"
+            }
+          ],
+          "cautions": [
+            "× What happens, don't give up. → ○ Whatever happens, don't give up. 「何が起きても」という譲歩は what ではなく whatever(または no matter what)で表す",
+            "× Please ask for no matter what you need. → ○ Please ask for whatever you need. 前置詞や動詞の目的語(名詞節)の位置に no matter what は使えない"
+          ]
+        },
+        {
+          "heading": "whichever:限られた選択肢の中から「どれでも」",
+          "explanation": "**whichever は、限られた選択肢(2つ、またはいくつか決まったもの)の中から「〜するものはどれでも」「どれが(を)〜しても」を表します。** whatever が「何でも(範囲を限らない)」なのに対し、whichever は「(この中の)どれでも」と、選択肢が決まっているときに使います。\n\n・名詞節: Take **whichever** you like.(どれでも好きなものを取って)= any one that you like\n・whichever + 名詞: You can choose **whichever** plan suits you.(どのプランでも合うものを選べる)\n・譲歩: **Whichever** route you take, it will take about an hour.(どの道を通っても、約1時間かかる)= No matter which route you take\n\nwhichever は、名詞の前に付けて「whichever + 名詞」の形でもよく使います。この形は、疑問詞の which + 名詞(Which plan do you prefer?)と同じ考え方です。\n\n人にも使えます(whichever of the candidates が選ばれても)。ただし、選択肢を前提としない「誰でも」は whoever です。",
+          "examples": [
+            {
+              "en": "You can pay by card or in cash, **whichever** is more convenient for you.",
+              "ja": "カードでも現金でも、ご都合のよい方でお支払いいただけます。",
+              "note": "カードと現金という2つの選択肢の中から「どちらでも」なので whichever。whatever ではない"
+            },
+            {
+              "en": "**Whichever** supplier we choose, we must confirm the delivery schedule.",
+              "ja": "どの仕入れ先を選んでも、配送の日程を確認しなければならない。",
+              "note": "whichever + 名詞の譲歩(= No matter which supplier we choose)"
+            }
+          ],
+          "cautions": [
+            "選択肢が限られているときは whichever、範囲を限らないときは whatever。「カードか現金か、都合のよい方」は whichever"
+          ]
+        },
+        {
+          "heading": "wherever と whenever:場所・時の「どこでも」「いつでも」",
+          "explanation": "**wherever は「〜する所ならどこでも」「どこへ(で)〜しても」、whenever は「〜する時はいつでも」「〜するたびに」「いつ〜しても」を表します。どちらも副詞節を作るのが基本で、後ろには完全な文が来ます。**\n\n・You can sit **wherever** you like.(どこでも好きな所に座ってよい)= at any place where you like\n・**Wherever** you go, you'll find people who speak English.(どこへ行っても、英語を話す人がいる)= No matter where you go\n・Call me **whenever** you need help.(助けが必要な時はいつでも電話して)= at any time when\n・**Whenever** I visit Kyoto, I stay at the same inn.(京都を訪れるたびに、同じ旅館に泊まる)= every time\n\nwhenever の「〜するたびに」は、every time / each time とほぼ同じ意味です。\n\nwherever / whenever の後ろが完全な文になるのは、関係副詞の where / when と同じく、副詞のかたまりの代わりをしているからです。後ろが不完全な文(目的語が欠けている)なら、whatever / whichever など名詞の働きをする複合関係詞を選びます。\n\nまた、wherever possible(できる所ではどこでも)、whenever necessary(必要な時はいつでも)のように、主語と be 動詞を省略した形もよく使われます。",
+          "examples": [
+            {
+              "en": "Our technicians can provide on-site support **wherever** our clients are located.",
+              "ja": "当社の技術者は、顧客がどこにいても現地での支援を提供できる。",
+              "note": "後ろの our clients are located は完全な文。場所について「どこでも」なので wherever"
+            },
+            {
+              "en": "**Whenever** the system detects an error, it sends an alert to the administrator.",
+              "ja": "システムはエラーを検知するたびに、管理者に警告を送る。",
+              "note": "whenever = every time(〜するたびに)。後ろは完全な文"
+            }
+          ],
+          "cautions": [
+            "× You can sit wherever you like it. → ○ You can sit wherever you like. wherever you like は wherever you like (to sit) の to sit が省略された形と考える。it は入れない"
+          ]
+        },
+        {
+          "heading": "however:「どんなに〜でも」は however + 形容詞・副詞 + 主語 + 動詞",
+          "explanation": "**譲歩の however は、「however + 形容詞(副詞)+ 主語 + 動詞」の語順で「どんなに〜でも」を表します。形容詞・副詞を however のすぐ後ろに置くのがポイントです。** また、however には「どんなやり方で〜しても」という意味もあります。\n\n・**However hard** you try, you can't finish it in a day.(どんなに頑張っても、1日では終わらない)= No matter how hard you try\n・**However tired** she is, she always cooks dinner.(どんなに疲れていても、彼女はいつも夕食を作る)\n\n語順に注意します。hard や tired は、関係詞節の中では try hard / she is tired のように後ろにありますが、however と一緒に前に出ます。疑問詞の how(How hard did you try?)と同じ語順の考え方です。\n\n・× However you try hard, ... → ○ However hard you try, ...\n\n方法の however: You can decorate the room **however** you like.(部屋はどんなふうに飾ってもよい)= in whatever way you like。この場合は、however の直後に主語が来ます。\n\n接続副詞の however(しかしながら)との区別も大切です。接続副詞の however は、文頭や文中にカンマと一緒に置かれ(However, the plan failed.)、後ろに形容詞を直接続けません。空所の後ろが「形容詞・副詞 + 主語 + 動詞」なら、譲歩の however です。",
+          "table": {
+            "caption": "however の3つの使い方",
+            "headers": ["使い方", "形", "例"],
+            "rows": [
+              ["譲歩(どんなに〜でも)", "however + 形容詞・副詞 + S + V", "**However** difficult it is, ..."],
+              ["方法(どんなやり方で〜しても)", "however + S + V", "**however** you like"],
+              ["接続副詞(しかしながら)", "However, + 文", "**However**, the plan failed."]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**However carefully** you check the data, some errors may remain.",
+              "ja": "どんなに注意深くデータを確認しても、いくつかの誤りは残るかもしれない。",
+              "note": "however + 副詞 carefully + 主語 you + 動詞 check の語順。= No matter how carefully"
+            },
+            {
+              "en": "**However busy** he is, Mr. Park always replies to emails within a day.",
+              "ja": "どんなに忙しくても、パクさんはいつもメールに1日以内に返信する。",
+              "note": "however + 形容詞 busy + he is。形容詞を however の直後に置く"
+            }
+          ],
+          "cautions": [
+            "× However he is busy, ... → ○ However busy he is, ...。形容詞・副詞を however の直後に置く",
+            "× Although busy he is, ... → ○ However busy he is, ... / Although he is busy, ...。「形容詞 + 主語 + 動詞」の語順をとれるのは however(no matter how)"
+          ]
+        },
+        {
+          "heading": "no matter + 疑問詞 との書き換えと、譲歩の節の中の時制",
+          "explanation": "**譲歩の副詞節の複合関係詞は、「no matter + 疑問詞」に書き換えられます(Whatever = No matter what、However = No matter how)。ただし、名詞節の複合関係詞は no matter に書き換えられません。**\n\n・**Whatever** happens, ... = **No matter what** happens, ...(譲歩 → 書き換えられる)\n・You can take **whatever** you want.(名詞節)→ × You can take no matter what you want.(書き換えられない)\n\nno matter + 疑問詞 は、「〜であっても関係ない」という意味の副詞のかたまりなので、文の主語や目的語にはなれません。この違いは、試験で no matter what と whatever を選び分ける問題の根拠になります。空所が動詞や前置詞の目的語の位置にあれば whatever、文頭にあって後ろにカンマと完全な文が続くなら、どちらも可能です。\n\n譲歩の副詞節の中の時制にも注意します。譲歩の副詞節は「たとえ〜しても」という条件に近い意味なので、未来のことでも現在形を使います(Whatever happens tomorrow, ...)。かたい文では、may を使うこともあります(Whatever the reason may be, ...)。\n\nまた、whatever の後ろの be 動詞が省略されることもあります(Whatever the reason, we must act now. 理由が何であれ)。",
+          "table": {
+            "caption": "no matter + 疑問詞 との対応",
+            "headers": ["複合関係詞(譲歩)", "書き換え", "名詞節での書き換え"],
+            "rows": [
+              ["whoever", "no matter who", "×(anyone who を使う)"],
+              ["whatever", "no matter what", "×(anything that を使う)"],
+              ["whichever", "no matter which", "×(any one that を使う)"],
+              ["wherever / whenever", "no matter where / when", "—(もともと副詞節)"],
+              ["however", "no matter how", "—"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**No matter what** the critics say, the film has been a commercial success.",
+              "ja": "批評家が何と言おうと、その映画は商業的に成功している。",
+              "note": "譲歩の副詞節なので、Whatever the critics say とも言える"
+            },
+            {
+              "en": "**Whatever** the reason, the delay has caused serious problems for our customers.",
+              "ja": "理由が何であれ、その遅れは顧客に深刻な問題を引き起こしている。",
+              "note": "Whatever the reason (may be) の may be が省略された形"
+            }
+          ],
+          "cautions": [
+            "× You can take no matter what you want. → ○ You can take whatever you want. 名詞節(目的語)の位置に no matter what は置けない",
+            "× Whatever will happen tomorrow, ... → ○ Whatever happens tomorrow, ...。譲歩の副詞節では、未来のことも現在形で表す"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、選択肢に whoever / whomever / whatever / whichever / however / wherever などが並ぶ問題や、however と although / no matter を選ばせる問題が出ます。解く手順は、(1) 空所の後ろが「形容詞・副詞 + 主語 + 動詞」なら however、(2) 後ろが完全な文なら wherever / whenever、(3) 後ろが不完全な文なら whoever / whatever / whichever で、人か物か・選択肢が限られているかで選ぶ、(4) whoever / whomever は節の中の働きで決める(空所の前の前置詞に惑わされない)、の順です。ひっかけとして、to ------- needs it のように前置詞の後ろで whomever を選ばせる形、名詞節の位置に no matter what を置いた形、接続副詞の however と譲歩の however を取り違えさせる形がよく使われます。"
+    },
+    {
+      "id": "pseudo",
+      "title": "疑似関係代名詞 as・than・but",
+      "intro": "本来は接続詞や前置詞である as, than, but が、関係代名詞のように働く用法を学びます。the same ... as、such ... as、as is often the case、more ... than is necessary など、決まった形で使われるものが中心です。as と which の違い、as it is often the case という誤りに注意します。",
+      "keywords": ["(as)"],
+      "items": [
+        {
+          "heading": "疑似関係代名詞とは:as が関係代名詞のように働く(the same ... as / such ... as)",
+          "explanation": "**as, than, but は、決まった形の中で、後ろの節の主語や目的語の代わりをし、関係代名詞のように働くことがあります。これを疑似関係代名詞(関係代名詞に似た働きをする語)と呼びます。** 代表的なのは、先行詞に the same, such, as が付いたときの as です。\n\n・This is **the same** model **as** I bought last year.(これは私が去年買ったのと同じ型だ)\n\nas の後ろの I bought last year は、bought の目的語が欠けた不完全な文です。as がその目的語の代わりをしているので、関係代名詞と同じ働きをしていると言えます。\n\n・We will provide **such** assistance **as** is necessary.(必要な支援を提供する)\n\nこの as は、is の主語の代わりをしています。such ... as の形は、かたい書き言葉で使われます。\n\n・Take **as many** brochures **as** you need.(必要なだけパンフレットを持って行って)\n\nas many + 名詞 + as は比較の形(第9章「比較」)ですが、後ろの need の目的語が欠けている点で、as が関係代名詞のように働いているとも考えられます。\n\nthe same ... as と the same ... that については、「as は同じ種類のもの、that はまさに同じもの」と区別する説明が伝統的にありますが、実際の英語ではこの区別は厳密ではありません。試験では、the same の後ろには as が使われることが多い、と覚えておけば十分です。",
+          "table": {
+            "caption": "as が疑似関係代名詞になる形",
+            "headers": ["形", "例", "as の働き"],
+            "rows": [
+              ["the same + 名詞 + as", "the same bag **as** I have", "have の目的語"],
+              ["such + 名詞 + as", "such help **as** is needed", "is の主語(かたい)"],
+              ["as + many / much + 名詞 + as", "as much food **as** you want", "want の目的語"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "She was wearing **the same** jacket **as** I bought last winter.",
+              "ja": "彼女は、私が去年の冬に買ったのと同じジャケットを着ていた。",
+              "note": "先行詞に the same が付いているので as。bought の目的語が欠けていて、as がその代わりをしている"
+            },
+            {
+              "en": "The landlord agreed to make **such** repairs **as** were necessary.",
+              "ja": "家主は、必要な修理を行うことに同意した。",
+              "note": "such + 名詞 + as の形。as が were の主語の代わりをしている(かたい言い方)"
+            }
+          ],
+          "cautions": [
+            "the same の後ろでは、which より as(または that)を使うのがふつう。○ the same jacket as I bought",
+            "× such repairs which were necessary → ○ such repairs as were necessary。such ... の後ろの関係詞は as を使う"
+          ]
+        },
+        {
+          "heading": "主節を受ける as:as is often the case(よくあることだが)",
+          "explanation": "**as は、非制限用法の which と同じように、主節(文の中心となる部分)の内容全体を受けることができます。as is often the case with 〜(〜にはよくあることだが)、as was expected(予想どおり)、as is usual(いつものように)などの決まった形でよく使われます。**\n\n・**As** is often the case with him, he was late again.(彼にはよくあることだが、また遅刻した)\n\nこの as は、「彼がまた遅刻したこと」という主節の内容を受け、関係詞節の中で is の主語になっています。このため、as の後ろには主語を置かずに、直接 is が続きます。\n\nwhich との違いは、**as の節は主節の前にも後ろにも置けるが、which の節は主節の後ろにしか置けない**ことです。\n\n・○ **As** was expected, the plan failed. / ○ The plan failed, **as** was expected.\n・○ The plan failed, **which** was expected.(which は後ろだけ)\n・× Which was expected, the plan failed.\n\nビジネス文書では、as is shown in the table(表に示されているとおり)、as is stated above(上記のとおり)のような形もよく使われます。as shown in the table / as mentioned above のように、is を省略した形も一般的です。",
+          "table": {
+            "caption": "主節を受ける as の決まった形",
+            "headers": ["形", "意味"],
+            "rows": [
+              ["as is often the case with 〜", "〜にはよくあることだが"],
+              ["as was expected / as expected", "予想どおり"],
+              ["as is usual / as usual", "いつものように"],
+              ["as is shown in 〜 / as shown in 〜", "〜に示されているとおり"],
+              ["as was mentioned above / as mentioned above", "上で述べたとおり"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "**As is** often the case with new software, the first version contained several bugs.",
+              "ja": "新しいソフトウエアにはよくあることだが、最初の版にはいくつかの不具合があった。",
+              "note": "as が主節の内容を受け、is の主語になっている。as の後ろに it は入れない"
+            },
+            {
+              "en": "**As** is shown in the chart, sales in Asia have doubled since 2020.",
+              "ja": "図表に示されているとおり、アジアでの売上は2020年以降2倍になった。",
+              "note": "as は主節の内容(売上が2倍になったこと)を受ける。主節の前に置けるのは as の特徴"
+            }
+          ],
+          "cautions": [
+            "× As it is often the case with him, he was late. → ○ As is often the case with him, he was late. as 自体が主語の働きをするので、it を入れない",
+            "× Which is often the case, he was late. → ○ As is often the case, he was late. 主節の前に置けるのは as だけ"
+          ]
+        },
+        {
+          "heading": "than が関係代名詞のように働く形(more ... than is necessary)",
+          "explanation": "**比較級の後ろの than が、後ろの節の主語や目的語の代わりをして、関係代名詞のように働くことがあります。more + 名詞 + than is necessary(必要以上の〜)、more + 名詞 + than expected(予想より多くの〜)が代表的です。**\n\n・Don't use **more** water **than** is necessary.(必要以上の水を使わないで)\n\nthan の後ろの is necessary には主語がありません。than が「(水の量が)必要であること」の主語の代わりをしているので、関係代名詞のように働いていると説明されます。\n\n・More people came **than** we had expected.(予想していたより多くの人が来た)\n\nこちらは、than の後ろの had expected の目的語が欠けていて、than がその代わりをしています。\n\nこの形は、than の後ろに主語が無い(または目的語が無い)ことに気づけば、意味は「〜より多くの」とすぐ分かります。than it is necessary のように主語を入れないように注意します。",
+          "examples": [
+            {
+              "en": "Please do not print **more** copies **than** are needed for the meeting.",
+              "ja": "会議に必要な部数より多く印刷しないでください。",
+              "note": "than の後ろの are needed に主語が無い。than が copies を受けて主語の代わりをしている"
+            },
+            {
+              "en": "The renovation cost **more than** the owners had budgeted.",
+              "ja": "その改装には、所有者が予算に組んでいた以上の費用がかかった。",
+              "note": "had budgeted の目的語(金額)が欠けていて、than がその代わりをしている"
+            }
+          ],
+          "cautions": [
+            "× more copies than they are needed → ○ more copies than are needed。than が主語の代わりをするので、they を入れない"
+          ]
+        },
+        {
+          "heading": "but が関係代名詞のように働く形(文語)",
+          "explanation": "**否定語の付いた先行詞の後ろで、but が「that ... not」(〜しない…)の意味の関係代名詞のように働くことがあります。ただし、これは古い言い方・かたい文語で、現代の英語ではほとんど使われません。** 読んで意味が分かれば十分で、自分で書くときは that ... not を使います。\n\n・There is no rule **but** has some exceptions.(例外の無い規則はない)\n= There is no rule **that does not have** some exceptions.\n\nbut の後ろの has some exceptions には主語がありません。but が「その規則が(〜しない)」という主語と否定の両方の働きをしています。否定語(no)と but の否定で、二重否定(否定が2つで強い肯定)になり、「どんな規則にも例外がある」という意味になります。\n\nこの形は、ことわざや古い文章、大学入試の文法問題で見かけることがありますが、TOEIC で正解として出ることはまず考えなくてよいでしょう。英検準1級の長文でも、出会ったときに意味が取れれば十分です。",
+          "examples": [
+            {
+              "en": "There is no rule **but** has some exceptions.",
+              "ja": "例外の無い規則はない。",
+              "note": "古い・かたい言い方。but = that ... not。現代では There is no rule that does not have exceptions. と言う"
+            }
+          ],
+          "cautions": [
+            "現代の英語で書くときは、but ではなく that ... not を使う(There is no one who does not know the story.)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、As ------- often the case with ... の空所に is を選ばせる問題や、空所に as / which / what / it を並べて as を選ばせる問題が出ることがあります。手順は、(1) 文頭にある節が主節の内容を受けていれば as(which は文頭に置けない)、(2) 先行詞に the same / such が付いていれば as、(3) as の後ろに it を入れた選択肢は誤り、です。また、ビジネス文書の as shown in / as mentioned above / as expected は、Part 6・7 の読解で頻繁に出てくるので、意味をすぐに取れるようにしておきましょう。than の疑似関係代名詞(more ... than is necessary)は、than の後ろに主語が無い形に戸惑わないことが大切です。"
+    },
+    {
+      "id": "clause-grammar",
+      "title": "関係詞節の中の一致・時制・態と、関係詞節の短縮",
+      "intro": "関係詞節の中の動詞の形(単数か複数か、時制、能動態か受動態か)の決め方を学びます。one of the 〜 who、the man who I think is ... のような連鎖関係詞節、関係代名詞を省略して分詞で表す形、二重限定も扱います。Part 5 では、関係詞の後ろの動詞の形を選ぶ問題として出ます。",
+      "keywords": ["関係詞節"],
+      "items": [
+        {
+          "heading": "主格の関係詞節の動詞は、先行詞の数と人称に合わせる",
+          "explanation": "**主格の関係代名詞(who, which, that)の後ろの動詞は、先行詞の数(単数か複数か)と人称に合わせます。** 関係代名詞そのものには単数・複数の区別が無いので、「誰が・何が」の中身である先行詞を見て決めます。\n\n・a manager who **has** ...(先行詞が単数)\n・managers who **have** ...(先行詞が複数)\n・I, who **am** your teacher, ...(先行詞が I なので am。かたい言い方)\n\n間違えやすいのは、先行詞と文全体の主語が違うときです。\n\n・A list of the employees who **have** completed the course **is** posted on the board.\n\nこの文では、関係詞節の先行詞は the employees(複数)なので、関係詞節の中は have。一方、文全体の主語は A list(単数)なので、文の動詞は is です。1つの文の中に、違う数の主語が2つあることになります。\n\n手順: (1) 関係詞の先行詞を決める(意味と、直前の名詞)。(2) 先行詞の数に合わせて、関係詞節の中の動詞を決める。(3) 文全体の主語を別に見つけて、文の動詞を合わせる。",
+          "examples": [
+            {
+              "en": "A list of the employees **who have** completed the course **is** posted on the board.",
+              "ja": "その講座を修了した社員の一覧が、掲示板に貼ってある。",
+              "note": "関係詞節の先行詞は the employees(複数)で have。文全体の主語は A list(単数)で is"
+            },
+            {
+              "en": "The documents **that are** on my desk need to be signed by Friday.",
+              "ja": "私の机の上にある書類は、金曜日までに署名が必要だ。",
+              "note": "先行詞 The documents が複数なので、関係詞節の中は are"
+            }
+          ],
+          "cautions": [
+            "× the employees who has completed the course → ○ the employees who have completed the course。関係詞節の動詞は先行詞(複数)に合わせる"
+          ]
+        },
+        {
+          "heading": "one of the + 複数名詞 + who + 複数の動詞 / the only one of ... who + 単数",
+          "explanation": "**one of the + 複数名詞 + who 〜 では、who の先行詞は「複数名詞」なので、関係詞節の動詞は複数の形にするのが文法の原則です。** ただし、the only one of the + 複数名詞 + who 〜 では、先行詞は the only one(単数)なので、動詞は単数になります。\n\n・She is one of **the engineers who have** worked on the project.\n(彼女は、そのプロジェクトに携わってきた技術者たちの1人だ)\n\n「プロジェクトに携わってきた」のは技術者たち(複数)で、彼女はその中の1人です。who の先行詞は the engineers なので have です。\n\n・She is **the only one** of the engineers **who has** worked on the project.\n(彼女は、技術者の中で、そのプロジェクトに携わってきた唯一の人だ)\n\nこちらは、「携わってきた」のは彼女1人なので、先行詞は the only one(単数)で has です。\n\n実際の英語では、one of the 〜 who の後ろに単数の動詞が使われることも少なくなく、用法に揺れがあります。ただし、試験や正式な文章では、複数の動詞を選ぶのが原則です。なお、文全体の主語が one of the 〜 のときは、文の動詞は単数です(One of the engineers **is** ...)。",
+          "table": {
+            "caption": "one of the 〜 who の一致",
+            "headers": ["形", "who の先行詞", "関係詞節の動詞"],
+            "rows": [
+              ["one of the engineers who ...", "the engineers(複数)", "複数(have)が原則"],
+              ["the only one of the engineers who ...", "the only one(単数)", "単数(has)"],
+              ["One of the engineers is ...(文の主語)", "—", "文の動詞は単数"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Ms. Ford is one of the managers **who have** worked overseas.",
+              "ja": "フォードさんは、海外勤務の経験がある管理職の1人だ。",
+              "note": "海外で働いたのは managers(複数)で、フォードさんはその1人。who の先行詞は複数なので have"
+            },
+            {
+              "en": "Ms. Ford is the only one of the managers **who has** worked overseas.",
+              "ja": "フォードさんは、管理職の中で唯一海外勤務の経験がある人だ。",
+              "note": "海外で働いたのはフォードさん1人。先行詞は the only one なので has"
+            }
+          ],
+          "cautions": [
+            "one of the 〜 who の後ろは複数の動詞が原則。the only one of the 〜 who の後ろは単数。only の有無で数が変わる"
+          ]
+        },
+        {
+          "heading": "関係詞節の中の態:先行詞が「する側」か「される側」か",
+          "explanation": "**関係詞節の動詞を能動態にするか受動態にするかは、先行詞がその動作を「する側」か「される側」かで決まります。** 受動態は「be 動詞 + 過去分詞」で、「〜される」という意味を表します。\n\n・the engineer who **designed** the system(システムを設計した技術者)→ 技術者は設計する側 → 能動態\n・the system which **was designed** by the engineer(技術者が設計したシステム)→ システムは設計される側 → 受動態\n\n日本語では「技術者が設計したシステム」のように、能動の形で物を説明することが多いですが、英語で主格の関係代名詞を使うと、先行詞(システム)が関係詞節の主語になるので、受動態が必要になります。\n\n手順は次のとおりです。\n\n・手順1: 先行詞と、関係詞節の動詞の意味の関係を考える(システムが設計する? される?)。\n・手順2: 他動詞の後ろに目的語があるか確かめる。主格の関係詞の後ろで、他動詞の後ろに目的語が無ければ受動態の可能性が高い。\n・手順3: 時制(過去か現在か、完了か)も合わせて決める(was designed / has been designed / will be designed)。\n\nPart 5 では、the items that ------- during shipping のような空所に、damaged / were damaged / have damaged などを並べる問題が出ます。品物は「傷つけられる」側なので were damaged を選びます。",
+          "examples": [
+            {
+              "en": "All products **that were damaged** during shipping will be replaced free of charge.",
+              "ja": "輸送中に傷ついた製品はすべて、無料で交換される。",
+              "note": "製品は「傷つけられる」側なので受動態 were damaged。damage の後ろに目的語が無いのも手がかり"
+            },
+            {
+              "en": "The consultant **who reviewed** our budget suggested several changes.",
+              "ja": "私たちの予算を見直したコンサルタントは、いくつかの変更を提案した。",
+              "note": "コンサルタントは見直す側なので能動態。reviewed の後ろに目的語 our budget がある"
+            }
+          ],
+          "cautions": [
+            "× products that damaged during shipping → ○ products that were damaged during shipping。製品は傷つけられる側なので受動態"
+          ]
+        },
+        {
+          "heading": "関係詞節の中の時制:主節とは別に、その出来事の時で決める",
+          "explanation": "**関係詞節の中の動詞の時制は、主節の時制に合わせるのではなく、関係詞節が表す出来事がいつのことかによって決めます。** 関係詞節は名詞を説明する部分なので、主節とは別の時の出来事を表すことができます。\n\n・The man who **will lead** the new project **joined** us last month.(新しいプロジェクトを率いる予定の男性は、先月入社した)→ 主節は過去、関係詞節は未来。\n・We **sold** the house that we **had lived** in for twenty years.(20年住んでいた家を売った)→ 家を売った時より前から住んでいたので、過去完了。\n\n手順: 関係詞節の中の出来事が、(1) 今のことか、(2) 主節の時より前か、(3) これから先のことかを、文中の時を表す語句(last month, for twenty years, next year など)で確かめます。\n\n例外として、「〜する人は誰でも」のように条件の意味を含む関係詞節では、未来のことでも現在形がよく使われます(Anyone who **arrives** late will not be admitted. 遅れて来た人は入場できない)。これは、時・条件の副詞節で未来のことを現在形で表すのと似た考え方です。",
+          "examples": [
+            {
+              "en": "The architect who **will design** our new headquarters visited the site last week.",
+              "ja": "当社の新本社を設計する予定の建築家が、先週現地を訪れた。",
+              "note": "主節は過去(visited)だが、設計するのはこれから先なので関係詞節は未来(will design)"
+            },
+            {
+              "en": "Visitors who **arrive** after 5 p.m. will not be allowed to enter the museum.",
+              "ja": "午後5時以降に来た来館者は、美術館に入ることができない。",
+              "note": "「〜する人は誰でも」という条件の意味を含むので、未来のことでも現在形 arrive"
+            }
+          ],
+          "cautions": [
+            "関係詞節の時制は、主節に機械的に合わせない。関係詞節の出来事がいつかを確かめる"
+          ]
+        },
+        {
+          "heading": "連鎖関係詞節:the man who I think is honest",
+          "explanation": "**関係代名詞の直後に I think, we believe, they say などが挟まった形を、連鎖関係詞節と呼びます。挟まった部分を取り除いて考えると、関係代名詞の格が分かります。**\n\n・He is the man **who** I think **is** honest.(彼は、私が正直だと思う男性だ)\n\nI think を取り除くと、the man who is honest になります。who は is の主語なので、主格の who が正しい形です。I think の目的語のように見えるからといって、whom にはしません。\n\n仕組みを2つの文で確かめてみます。\n\n・He is the man. + I think (that) **he** is honest.\n・→ he が who に変わって前に出る → the man who I think is honest\n\n元の文で he(主格)だったので、関係代名詞も主格の who になります。\n\n一方、think / believe の後ろに「O + to be」が続く形では、目的格の whom を使います。\n\n・He is the man **whom** I believed **to be** honest.(I believed him to be honest の him が whom に)\n\n連鎖関係詞節では、主格の関係代名詞でも省略されることがよくあります(the man I think is honest)。\n\n手順: 関係代名詞の直後に「主語 + think / believe / say など」があり、その後ろに動詞が続いていたら、挟まった部分を取り除いて格を決めます。",
+          "examples": [
+            {
+              "en": "We should hire the candidate **who** we believe **is** best suited for the role.",
+              "ja": "その役割に最も適していると私たちが考える候補者を採用すべきだ。",
+              "note": "we believe を取り除くと the candidate who is best suited。who は is の主語なので主格"
+            },
+            {
+              "en": "The restaurant **that** everyone says **serves** the best ramen in town is always crowded.",
+              "ja": "町一番のラーメンを出すと皆が言う店は、いつも混んでいる。",
+              "note": "everyone says が挟まっている。取り除くと the restaurant that serves ... で、that は主格"
+            }
+          ],
+          "cautions": [
+            "× the candidate whom we believe is best suited → ○ the candidate who we believe is best suited。挟まった we believe を取り除くと、who は is の主語"
+          ]
+        },
+        {
+          "heading": "関係詞節の短縮:「関係代名詞 + be」の省略と、-ing・過去分詞による言い換え",
+          "explanation": "**「主格の関係代名詞 + be 動詞」は省略でき、後ろの分詞(-ing / 過去分詞)・形容詞句・前置詞句が、直接名詞を後ろから説明する形になります。また、「主格の関係代名詞 + 一般動詞」は、動詞を -ing の形(現在分詞)にして短くできることがあります。**\n\n・The woman (**who is**) talking to Mr. Lee is our new client.(→ 現在分詞)\n・Products (**that are**) made in this factory are exported.(→ 過去分詞)\n・Anyone (**who is**) interested in the position should apply.(→ 形容詞句)\n・The files (**that are**) on the shared drive are outdated.(→ 前置詞句)\n・Employees **who wish** to attend → Employees **wishing** to attend(→ 一般動詞を -ing に)\n\nこの形は、分詞の形容詞的用法(第14章「分詞」)と同じものです。関係詞節を短くした形として理解しておくと、長い英文が読みやすくなります。\n\n注意点として、一般動詞を -ing にする言い換えは、状態や継続を表す場合、または一般的な説明に使います。過去に1回だけ起きた出来事を -ing で表すことはできません。\n\n・○ the man **who broke** the window yesterday\n・× the man breaking the window yesterday(昨日窓を割った男、の意味では不可)\n\n試験では、空所に who wish / wishing / wished / to wish を並べ、関係代名詞が無いときは -ing(または過去分詞)、関係代名詞があるときは動詞の形(wish)を選ばせる問題が出ます。",
+          "table": {
+            "caption": "関係詞節の短縮",
+            "headers": ["元の関係詞節", "短縮した形", "使われる形"],
+            "rows": [
+              ["the woman who is talking to Mr. Lee", "the woman talking to Mr. Lee", "現在分詞"],
+              ["products that are made in this factory", "products made in this factory", "過去分詞"],
+              ["anyone who is interested in the job", "anyone interested in the job", "形容詞句"],
+              ["employees who wish to attend", "employees wishing to attend", "一般動詞 → -ing"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "Employees **wishing** to attend the seminar should contact the HR department.",
+              "ja": "セミナーへの参加を希望する社員は、人事部に連絡してください。",
+              "note": "who wish to attend を短くした形。関係代名詞が無いので、動詞は -ing の形にする"
+            },
+            {
+              "en": "Most of the parts **used** in our cars are manufactured locally.",
+              "ja": "当社の車に使われている部品の大半は、国内で製造されている。",
+              "note": "that are used を短くした形。部品は「使われる」側なので過去分詞"
+            }
+          ],
+          "cautions": [
+            "× Employees wish to attend the seminar should contact ... → ○ Employees wishing (who wish) to attend ...。関係代名詞を省略したときは、動詞の形のまま残さない",
+            "× the man breaking the window yesterday → ○ the man who broke the window yesterday。過去に1回だけ起きた出来事は -ing で表せない"
+          ]
+        },
+        {
+          "heading": "二重限定:1つの先行詞に関係詞節を2つ重ねる",
+          "explanation": "**1つの先行詞に、関係詞節を2つ重ねて限定することがあります。これを二重限定と呼びます。** 1つ目の関係詞節で範囲をしぼり、2つ目の関係詞節でさらにしぼり込みます。\n\n・He is the only person **I know** **who** can speak Arabic.(彼は、私の知っている人の中で、アラビア語を話せる唯一の人だ)\n\n1つ目の関係詞節は (whom / that) I know(目的格が省略されている)、2つ目は who can speak Arabic です。2つの関係詞節が、どちらも the only person を説明しています。\n\n訳すときは、「私が知っている人の中で、〜できる唯一の人」のように、1つ目でしぼった範囲の中から、2つ目でさらに選ぶ、という順に考えます。\n\n2つ目の関係詞節を、1つ目の関係詞節の中の名詞(I know の I など)を説明していると取り違えないようにします。2つ目の関係詞節の内容が、先行詞の説明として意味が通るかを確かめます。",
+          "examples": [
+            {
+              "en": "Is there anything **you need** **that** we haven't prepared yet?",
+              "ja": "必要なもので、まだ私たちが用意していないものはありますか。",
+              "note": "anything を (that) you need と that we haven't prepared yet の2つの関係詞節が説明している"
+            },
+            {
+              "en": "She is the only person **I know** **who** has visited all 47 prefectures.",
+              "ja": "彼女は、私の知り合いの中で、47都道府県すべてを訪れたことのある唯一の人だ。",
+              "note": "I know で範囲をしぼり、who has visited ... でさらにしぼっている二重限定"
+            }
+          ],
+          "cautions": [
+            "2つ目の関係詞節の先行詞は、1つ目の関係詞節の中の語ではなく、最初の名詞(the only person)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、関係詞の後ろの動詞の形(数・態・時制)を選ぶ問題が出ます。手順は、(1) 先行詞を見つけて単数か複数かを確かめる、(2) 先行詞が動作を「する側」か「される側」か(他動詞の後ろに目的語があるか)で能動態・受動態を決める、(3) 時を表す語句で時制を決める、の順です。また、関係代名詞が無い場合に、名詞の後ろの空所に -ing / 過去分詞を選ばせる問題(関係詞節の短縮)もよく出ます。ひっかけとして、文全体の主語(A list of ...)と関係詞節の先行詞(the employees)の数を混同させる形や、one of the 〜 who と the only one of the 〜 who の数の違いを使う形があります。英検準1級の長文では、連鎖関係詞節や二重限定が出てきたときに、どの名詞を説明しているかを見失わないようにしましょう。"
+    }
+  ],
+  "summary": [
+    "関係詞は、名詞(先行詞)の後ろに「どんな〜か」を説明する節をつなぐ。日本語と違い、説明は名詞の後ろに来る",
+    "関係代名詞は「先行詞が人か物か」と「関係詞節の中の働き(格)」で選ぶ。直後が動詞なら主格、主語 + 他動詞で目的語が欠けていれば目的格、無冠詞の名詞が続けば whose",
+    "関係代名詞の後ろは名詞が欠けた不完全な文、関係副詞(where / when / why)と「前置詞 + 関係代名詞」の後ろは完全な文。先行詞が場所・時でも、後ろが不完全なら which / that",
+    "that は人にも物にも使え、最上級・the only・all・everything などの後ろで好まれる。カンマの後と前置詞の直後には使えない。目的格の関係代名詞は省略できる",
+    "前置詞の直後は whom(人)か which(物)だけ。前置詞は関係詞節の中の語(depend on, be responsible for)や先行詞(the extent to which, the rate at which)との結びつきで決まる",
+    "カンマの後の非制限用法は補足説明。that は使えず、省略もできない。, which は前の文全体も受けられる。, three of which / all of whom の which / whom を them に変えると誤り",
+    "what は先行詞を含み「〜すること・もの」を表す名詞節を作る。前に先行詞があれば which / that、後ろが完全な文なら接続詞の that を選ぶ",
+    "the way how とは言わない(how か the way のどちらか)。That's why は「だから」、That's because は「それは〜だから」",
+    "複合関係詞(-ever)は名詞節か譲歩の副詞節を作る。whoever / whomever は節の中の働きで決め、however は however + 形容詞・副詞 + 主語 + 動詞の語順",
+    "as is often the case の as は主節を受けて主語の働きをするので、it を入れない。the same / such の後ろの関係詞は as",
+    "関係詞節の動詞は先行詞の数に合わせ、先行詞が「される側」なら受動態にする。the man who I think is honest は、I think を取り除いて格を決める"
+  ],
+  "quiz": [
+    {
+      "id": "relative-q01",
+      "sentence": "The manager ------- hired me last year has just been promoted to vice president.",
+      "choices": [
+        { "label": "A", "text": "whom" },
+        { "label": "B", "text": "who" },
+        { "label": "C", "text": "which" },
+        { "label": "D", "text": "whose" }
+      ],
+      "answer": "B",
+      "explanation": "空所の直後が動詞 hired なので、関係詞節の主語が欠けている主格です。先行詞 The manager は人なので、主格の who が正解です。A の whom は目的格なので、直後に動詞が来る位置には入りません。C の which は人には使いません。D の whose は直後に名詞が必要で、whose hired とはできません。",
+      "translation": "去年私を採用したマネージャーは、副社長に昇進したばかりだ。"
+    },
+    {
+      "id": "relative-q02",
+      "sentence": "We met a novelist ------- books have been translated into more than twenty languages.",
+      "choices": [
+        { "label": "A", "text": "whose" },
+        { "label": "B", "text": "who" },
+        { "label": "C", "text": "whom" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "A",
+      "explanation": "空所の直後に冠詞の付かない名詞 books があり、「その小説家の本が翻訳された」という持ち主の関係なので、所有格の whose が正解です。B の who、C の whom を入れると who books / whom books となり、books と結びつきません。D の which は人の先行詞には使わず、which books の形で「その小説家の本」の意味も表せません。",
+      "translation": "私たちは、本が20以上の言語に翻訳されている小説家に会った。"
+    },
+    {
+      "id": "relative-q03",
+      "sentence": "The laptop ------- I bought last week has already stopped working.",
+      "choices": [
+        { "label": "A", "text": "who" },
+        { "label": "B", "text": "whose" },
+        { "label": "C", "text": "what" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "D",
+      "explanation": "空所の後ろの I bought last week は、bought の目的語が欠けた不完全な文なので目的格の関係代名詞が入ります。先行詞 The laptop は物なので which が正解です。A の who は人にしか使いません。B の whose は直後に名詞が必要です。C の what は先行詞を含むので、前に The laptop があるときは使えません。",
+      "translation": "先週買ったノートパソコンが、もう動かなくなった。"
+    },
+    {
+      "id": "relative-q04",
+      "sentence": "The conference room ------- the training session will be held is on the third floor.",
+      "choices": [
+        { "label": "A", "text": "which" },
+        { "label": "B", "text": "what" },
+        { "label": "C", "text": "in which" },
+        { "label": "D", "text": "whose" }
+      ],
+      "answer": "C",
+      "explanation": "空所の後ろの the training session will be held は、主語と受動態の動詞がそろった完全な文です。名詞が欠けていないので関係代名詞だけは入らず、「その会議室で」を表す前置詞 + 関係代名詞の in which(= where)が正解です。A の which は後ろが不完全な文のときに使います。B の what は先行詞がある位置には入りません。D の whose は直後に冠詞の付かない名詞が必要で、the training session とはつながりません。",
+      "translation": "研修会が開かれる会議室は、3階にある。"
+    },
+    {
+      "id": "relative-q05",
+      "sentence": "------- the consultant recommended in her report turned out to be too expensive.",
+      "choices": [
+        { "label": "A", "text": "What" },
+        { "label": "B", "text": "That" },
+        { "label": "C", "text": "Whose" },
+        { "label": "D", "text": "Where" }
+      ],
+      "answer": "A",
+      "explanation": "空所の前に先行詞が無く、後ろの the consultant recommended in her report は recommended の目的語が欠けた不完全な文です。空所から report までが文の主語になるので、先行詞を含む関係代名詞 What(〜すること・もの)が正解です。B の That は接続詞なら後ろに完全な文が必要で、ここでは目的語が欠けているので使えません。C の Whose は直後に名詞が必要です。D の Where は後ろに完全な文が必要です。",
+      "translation": "そのコンサルタントが報告書で推奨したものは、高すぎることが分かった。"
+    },
+    {
+      "id": "relative-q06",
+      "sentence": "The new policy, ------- was announced on Monday, will take effect next month.",
+      "choices": [
+        { "label": "A", "text": "that" },
+        { "label": "B", "text": "what" },
+        { "label": "C", "text": "it" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "D",
+      "explanation": "カンマで挟まれた非制限用法の関係詞節で、直後が動詞 was なので主格です。先行詞 The new policy は物なので which が正解です。A の that はカンマの後(非制限用法)には使えません。B の what は先行詞がある位置には入りません。C の it を入れると、接続詞が無いまま文の途中に別の文を入れたことになり、誤りです。",
+      "translation": "その新しい方針は月曜日に発表されたもので、来月から実施される。"
+    },
+    {
+      "id": "relative-q07",
+      "sentence": "The firm hired three consultants, all of ------- had previously worked in the energy sector.",
+      "choices": [
+        { "label": "A", "text": "them" },
+        { "label": "B", "text": "whom" },
+        { "label": "C", "text": "who" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "B",
+      "explanation": "カンマの後に接続詞が無いので、2つの文をつなぐには関係詞が必要です。先行詞 three consultants は人で、前置詞 of の後ろなので目的格の whom が正解です(all of whom = その全員)。A の them を入れると、接続詞が無いのに2つの文をカンマだけでつないだことになり誤りです(and all of them なら可)。C の who は前置詞の直後には置けません。D の which は人には使いません。",
+      "translation": "その会社はコンサルタントを3人雇ったが、その全員が以前エネルギー業界で働いていた。"
+    },
+    {
+      "id": "relative-q08",
+      "sentence": "Please give this form to ------- is in charge of the reception desk today.",
+      "choices": [
+        { "label": "A", "text": "whomever" },
+        { "label": "B", "text": "anyone" },
+        { "label": "C", "text": "whoever" },
+        { "label": "D", "text": "those" }
+      ],
+      "answer": "C",
+      "explanation": "前置詞 to の目的語は「空所 + is in charge of ...」という節全体です。節の中で空所は is の主語なので、主格の複合関係詞 whoever(〜する人は誰でも)が正解です。A の whomever は目的格なので、動詞 is の主語にはなれません(前置詞 to に惑わされないこと)。B の anyone、D の those は代名詞なので、後ろに who が無いと is in charge ... とつながりません(anyone who is ... なら可。those なら動詞も are になる)。",
+      "translation": "この用紙は、今日受付を担当している人に渡してください。"
+    },
+    {
+      "id": "relative-q09",
+      "sentence": "Nobody has explained the reason ------- the shipment was delayed.",
+      "choices": [
+        { "label": "A", "text": "which" },
+        { "label": "B", "text": "what" },
+        { "label": "C", "text": "how" },
+        { "label": "D", "text": "why" }
+      ],
+      "answer": "D",
+      "explanation": "空所の後ろの the shipment was delayed は完全な文なので、関係副詞が入ります。先行詞が the reason なので why(= for which)が正解です。A の which は後ろが不完全な文のときに使う関係代名詞で、ここでは for which なら可能です。B の what は先行詞がある位置には入りません。C の how は方法を表し、先行詞 the reason とは結びつきません。",
+      "translation": "出荷が遅れた理由を、誰も説明していない。"
+    },
+    {
+      "id": "relative-q10",
+      "sentence": "------- difficult the negotiations may become, we must reach an agreement by Friday.",
+      "choices": [
+        { "label": "A", "text": "Although" },
+        { "label": "B", "text": "However" },
+        { "label": "C", "text": "Whatever" },
+        { "label": "D", "text": "No matter" }
+      ],
+      "answer": "B",
+      "explanation": "空所の後ろが「形容詞 difficult + 主語 + 動詞」の語順になっているので、「どんなに〜でも」を表す譲歩の However が正解です(= No matter how difficult ...)。A の Although は後ろに「主語 + 動詞」を続ける接続詞で、Although the negotiations may become difficult の語順なら可能ですが、形容詞を前に出すことはできません。C の Whatever は名詞の代わりをする語で、形容詞と結びつきません。D の No matter は how が無いと使えません。",
+      "translation": "交渉がどんなに難しくなっても、私たちは金曜日までに合意に達しなければならない。"
+    },
+    {
+      "id": "relative-q11",
+      "sentence": "Passengers who ------- a connecting flight should proceed directly to the transfer desk.",
+      "choices": [
+        { "label": "A", "text": "have" },
+        { "label": "B", "text": "has" },
+        { "label": "C", "text": "having" },
+        { "label": "D", "text": "to have" }
+      ],
+      "answer": "A",
+      "explanation": "主格の関係代名詞 who の後ろには動詞が必要で、その形は先行詞 Passengers(複数)に合わせます。このため複数の主語に合う have が正解です。B の has は単数の主語に使う形です。C の having と D の to have は動詞の働きができないので、who の後ろに置いても関係詞節の動詞になりません(関係代名詞を使わずに Passengers having a connecting flight とするなら可)。",
+      "translation": "乗り継ぎ便がある乗客は、そのまま乗り継ぎカウンターへお進みください。"
+    },
+    {
+      "id": "relative-q12",
+      "sentence": "We are looking for a venue ------- can accommodate up to 300 guests for the annual banquet.",
+      "choices": [
+        { "label": "A", "text": "where" },
+        { "label": "B", "text": "what" },
+        { "label": "C", "text": "that" },
+        { "label": "D", "text": "whose" }
+      ],
+      "answer": "C",
+      "explanation": "空所の直後が助動詞 can + 動詞で、関係詞節の主語が欠けているので主格の関係代名詞が入ります。先行詞 a venue は物なので that が正解です。A の where は先行詞が場所でも、後ろに主語がそろった完全な文が来るときにしか使えません(ひっかけ)。B の what は先行詞がある位置には入りません。D の whose は直後に名詞が必要です。",
+      "translation": "私たちは、年次の祝賀会のために最大300人の招待客を収容できる会場を探している。"
+    },
+    {
+      "id": "relative-q13",
+      "sentence": "The two companies signed an agreement ------- they will share research data for five years.",
+      "choices": [
+        { "label": "A", "text": "whereby" },
+        { "label": "B", "text": "whereas" },
+        { "label": "C", "text": "whatever" },
+        { "label": "D", "text": "which" }
+      ],
+      "answer": "A",
+      "explanation": "空所の後ろの they will share research data for five years は、目的語までそろった完全な文です。先行詞 an agreement(取り決め)の内容を「それによって〜する」と説明する whereby(= by which / under which)が正解です。B の whereas は「〜である一方」という対比の接続詞で、意味が合いません。C の whatever は先行詞を含むので、前に an agreement があるときは使えません。D の which は後ろが不完全な文のときに使う関係代名詞で、完全な文とはつながりません。",
+      "translation": "2社は、5年間研究データを共有するという取り決めに署名した。"
+    }
+  ],
+  "related": ["pronoun", "conjunction", "participle", "agreement", "comparison", "inversion"]
+}

@@ -14,5 +14,5 @@ export default function Grammar() {
     (exclude?: string | null) => fetchGrammarQuestion(exclude, review, level),
     [review, level],
   );
-  return <ChoiceQuiz fetchQuestion={fetchQuestion} submitAnswer={submitGrammarAnswer} />;
+  return <ChoiceQuiz fetchQuestion={fetchQuestion} submitAnswer={submitGrammarAnswer} bookLink />;
 }
