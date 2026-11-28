@@ -1,0 +1,372 @@
+{
+  "id": "verb",
+  "no": 10,
+  "title": "動詞",
+  "lead": "動詞は、文の述語になり、主語の動作や状態を表します。動詞の後ろに何が続くか(目的語・補語・前置詞・不定詞・動名詞)は、動詞ごとに決まっています。TOEIC Part 5 では、自動詞と他動詞の区別、前置詞の要否、使役動詞の形、動詞と結びつく不定詞・動名詞の選び方がよく問われます。この章では、動詞の後ろの形を、語法としてまとめて確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "動詞の働きと、後ろに続く形",
+      "intro": "動詞は、文の述語になり、主語の動作や状態を表します。動詞の後ろには、目的語・補語・前置詞句・不定詞・動名詞などが続きますが、どれが続くかは動詞ごとに決まっています。この節では、文の型と、語法の考え方を確かめます。",
+      "keywords": ["動詞"],
+      "items": [
+        {
+          "heading": "動詞の後ろで決まる、文の型",
+          "explanation": "英語の文の骨組みは、動詞の後ろに何が続くかで決まります。\n\n・SV(第1文型): The meeting started.(会議が始まった)\n・SVC(第2文型): The plan became successful.(計画は成功した)\n・SVO(第3文型): We discussed the plan.(私たちは計画について話し合った)\n・SVOO(第4文型): The manager gave the team a deadline.(部長はチームに締め切りを与えた)\n・SVOC(第5文型): The board considers the plan successful.(取締役会は計画を成功と考えている)\n\n動詞の後ろの形を見れば、どの型かが分かります。",
+          "examples": [
+            { "en": "The meeting **started** at nine.", "ja": "会議は9時に始まった。", "note": "SV: 動詞の後ろに目的語がない" },
+            { "en": "We **discussed** the **plan** at the meeting.", "ja": "私たちは会議でその計画について話し合った。", "note": "SVO: discuss は直接目的語を取る" }
+          ]
+        },
+        {
+          "heading": "同じ動詞でも、句動詞のまとまりで意味が変わる",
+          "explanation": "動詞に前置詞や副詞が付いて、一つのまとまりで別の意味を表すものがあります。これを句動詞と言います。\n\n・look at(~を見る)、look for(~を探す)、look after(~の世話をする)\n・get: get the report(レポートを手に入れる)\n\n句動詞は、動詞と前置詞をセットで覚えます。",
+          "examples": [
+            { "en": "She **looked after** the new staff.", "ja": "彼女は新しいスタッフの世話をした。", "note": "look after は句動詞(まとまりで一つの意味)" },
+            { "en": "He **got** the report from the manager.", "ja": "彼は部長からそのレポートを受け取った。", "note": "get は目的語を直接取る" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の動詞問題は、空所の後ろに前置詞があるか、目的語があるかで判断します。"
+    },
+    {
+      "id": "transitive",
+      "title": "自動詞と他動詞: 前置詞を付けるか、付けないか",
+      "intro": "動詞には、目的語を直接取る他動詞と、目的語を取らない自動詞があります。自動詞の中には、前置詞を伴って使うものもあります。TOEIC では、他動詞に前置詞を付けてしまう誤りが、よく選択肢に並びます。",
+      "keywords": ["自動詞と他動詞", "discuss"],
+      "items": [
+        {
+          "heading": "自動詞: 目的語を取らず、前置詞を伴う",
+          "explanation": "自動詞は、後ろに目的語(~を)を直接置けません。前置詞を伴って使う形が多いです。\n\n・arrive at(~に着く)、arrive in(~に着く、大きな場所に)\n・depend on(~次第である)\n・agree with(~に賛成する)\n・result in(~という結果になる)\n\n前置詞の選び方も、動詞とセットで覚えます。",
+          "examples": [
+            { "en": "We will **arrive at** the station at nine.", "ja": "私たちは9時に駅に着く予定だ。", "note": "arrive at(~に着く)" },
+            { "en": "Our success **depends on** the team's effort.", "ja": "私たちの成功は、チームの努力次第だ。", "note": "depend on(~次第である)" }
+          ],
+          "cautions": ["× We will arrive the station at nine. → ○ We will arrive at the station at nine.(arrive は前置詞 at を伴う)"]
+        },
+        {
+          "heading": "前置詞を付けない他動詞: discuss・mention・attend など",
+          "explanation": "次の動詞は、直後に目的語を直接置きます。前置詞を付けると誤りになります。\n\n・discuss(~について話し合う): discuss the plan\n・mention(~に言及する): mention the problem\n・approach(~に近づく、~に取り組む): approach the problem\n・reach(~に着く、~に届く): reach the goal\n・attend(~に出席する): attend the meeting\n・enter(~に入る): enter the room\n・marry(~と結婚する): marry her\n・resemble(~に似ている): resemble his father",
+          "examples": [
+            { "en": "We need to **discuss** the plan before Friday.", "ja": "金曜日までに、その計画について話し合う必要がある。", "note": "discuss は前置詞を付けない" },
+            { "en": "Please **attend** the meeting on Monday.", "ja": "月曜日の会議に出席してください。", "note": "attend は直接目的語を取る(attend to は「世話をする」の意味)" }
+          ],
+          "cautions": ["× We discussed about the plan. → ○ We discussed the plan.(discuss に about は付けない)", "× She entered into the room. → ○ She entered the room.", "× He resembles with his father. → ○ He resembles his father."]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、discuss や attend に前置詞を付けた誤りの選択肢が多く出ます。空所の後ろに名詞が直接来るかを確かめます。"
+    },
+    {
+      "id": "svoo",
+      "title": "第4文型(SVOO)と、A of B・A with B・A to B のセット",
+      "intro": "第4文型(SVOO)は、「人に物を与える」型です。動詞によっては、前置詞の to や for を使って書き換えます。deprive、remind、notify、entrust などは、A と B の組み合わせで覚えます。",
+      "keywords": ["SVOO", "deprive A of B", "remind A of B", "notify A of B", "entrust A with B", "attribute A to B"],
+      "items": [
+        {
+          "heading": "第4文型と、to・for による書き換え",
+          "explanation": "第4文型(SVOO)は、「(人)に(物)を」の形です。同じ意味で、「物 + to / for + 人」の形に書き換えられます。\n\n・to を使う動詞: give、send、show、offer、tell など\n・for を使う動詞: make、buy、find、get など\n\n例: give the team a deadline = give a deadline to the team。make him a cup of tea = make a cup of tea for him。",
+          "examples": [
+            { "en": "The manager **gave** the team **a deadline**.", "ja": "部長はチームに締め切りを与えた。", "note": "SVOO(第4文型)" },
+            { "en": "The manager **gave** a deadline **to** the team.", "ja": "部長はチームに締め切りを与えた。", "note": "to を使った書き換え" }
+          ],
+          "cautions": ["× make to him a cup of tea → ○ make him a cup of tea(SVOO の形では前置詞を付けない)"]
+        },
+        {
+          "heading": "deprive・remind・notify: A of B(奪う・思い出させる・知らせる)",
+          "explanation": "次の動詞は、「人 + of + 物やこと」の形で使います。\n\n・deprive A of B: A から B を奪う(deprive the team of the chance)\n・remind A of B: A に B を思い出させる(remind me of the meeting)\n・notify A of B: A に B を知らせる(notify the staff of the change)",
+          "examples": [
+            { "en": "The delay **deprived** the team **of** the chance to win.", "ja": "遅れのせいで、チームは勝つ機会を失った。", "note": "deprive A of B" },
+            { "en": "Please **remind** me **of** the meeting tomorrow.", "ja": "明日の会議を、私に思い出させてください。", "note": "remind A of B" },
+            { "en": "We will **notify** you **of** any changes.", "ja": "変更があれば、お知らせします。", "note": "notify A of B" }
+          ]
+        },
+        {
+          "heading": "entrust・attribute: A with B・A to B",
+          "explanation": "次の形も、動詞とセットで覚えます。\n\n・entrust A with B: A に B を任せる(entrust the staff with the project)\n・attribute A to B: A の原因を B に帰する(attribute the success to the team)",
+          "examples": [
+            { "en": "The manager **entrusted** the new staff **with** the project.", "ja": "部長は新しいスタッフにそのプロジェクトを任せた。", "note": "entrust A with B" },
+            { "en": "We **attribute** the success **to** the team's hard work.", "ja": "私たちは、その成功をチームの努力のおかげだと考えている。", "note": "attribute A to B(原因を B に帰す)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、deprive A of B、remind A of B などの前置詞(of・with・to)の組み合わせを選ばせる問題が出ます。"
+    },
+    {
+      "id": "causative-perception",
+      "title": "使役と知覚: make・have・let・get・see・help",
+      "intro": "使役動詞(make、have、let、get、help など)と知覚動詞(see、hear、watch など)は、目的語の後ろに続く形で意味が変わります。「人に~させる」「~が…するのを見る」の形を確かめます。",
+      "keywords": ["使役", "動詞の形(知覚動詞)", "動詞の形(help + 原形)", "動詞の形(使役", "help + 原形"],
+      "items": [
+        {
+          "heading": "make・let・have + 人 + 原形: ~させる",
+          "explanation": "make、let、have は、「(人)に~させる」を表します。目的語の後ろには、動詞の原形が続きます。\n\n・make + 人 + 原形: 強制的に~させる(The manager made us work late.)\n・let + 人 + 原形: 許可して~させる(Let me help you.)\n・have + 人 + 原形: 頼んで~してもらう(I had the staff update the file.)",
+          "examples": [
+            { "en": "The manager **made** us **work** late.", "ja": "部長は私たちに遅くまで働かせた。", "note": "make + 人 + 原形(強制)" },
+            { "en": "Please **let** me **check** the report first.", "ja": "まず、私にレポートを確認させてください。", "note": "let + 人 + 原形(許可)" }
+          ]
+        },
+        {
+          "heading": "have・get + 物 + 過去分詞: ~してもらう",
+          "explanation": "have と get は、目的語が「される」側の場合に、過去分詞を使います。\n\n・have + 物 + 過去分詞: ~を(~に)してもらう\n・get + 物 + 過去分詞: ~を(~に)してもらう(口語)\n\nget の後ろには、人が目的語の場合に to 不定詞も置けます(get + 人 + to 不定詞)。",
+          "examples": [
+            { "en": "I will **have** the report **checked** by the team.", "ja": "チームにそのレポートを確認してもらう。", "note": "have + 物 + 過去分詞" },
+            { "en": "Let us **get** the car **repaired** before the trip.", "ja": "旅行の前に、車を修理してもらおう。", "note": "get + 物 + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "see・hear・watch + 人: 原形・-ing・過去分詞",
+          "explanation": "see、hear、watch、notice などの知覚動詞は、目的語の後ろに、次の形を取ります。\n\n・原形: 動作の一部始終を見た・聞いた(I saw him leave the office.)\n・-ing: 動作の途中を見た・聞いた(I saw him leaving the office.)\n・過去分詞: 何かをされるのを見た・聞いた(I saw the report discussed.)",
+          "examples": [
+            { "en": "I **saw** the manager **leave** the building.", "ja": "部長がビルを出て行くのを見た。", "note": "原形: 動作の始めから終わりまで" },
+            { "en": "I **heard** the phone **ringing** in the next room.", "ja": "隣の部屋で電話が鳴っているのが聞こえた。", "note": "-ing: 動作の途中" }
+          ]
+        },
+        {
+          "heading": "help + 人 + 原形・to 不定詞",
+          "explanation": "help の後ろには、原形も to 不定詞も続けられます。意味は変わりません。\n\n・help + 人 + 原形: The team helped me finish the report.\n・help + 人 + to 不定詞: The team helped me to finish the report.\n\nどちらも、チームがレポートを終えるのを手伝ってくれた、という意味です。",
+          "examples": [
+            { "en": "The team **helped** me **finish** the report.", "ja": "チームはレポートを終えるのを手伝ってくれた。", "note": "help + 人 + 原形" },
+            { "en": "The team **helped** me **to finish** the report.", "ja": "チームはレポートを終えるのを手伝ってくれた。", "note": "help + 人 + to 不定詞(意味は同じ)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、使役動詞の後ろの形(原形・過去分詞・to 不定詞)を選ばせる問題が出ます。have + 物 + 過去分詞の形は、「~してもらう」の意味で覚えておきます。"
+    },
+    {
+      "id": "gerund-only",
+      "title": "動名詞だけを取る動詞と、前置詞の to + -ing",
+      "intro": "動詞の中には、直後に動名詞(-ing)だけを取るものがあります。前置詞の to の後ろも、動名詞になります。「~に慣れている」「~に専念する」などは、語句のまとまりで覚えます。",
+      "keywords": ["suggest + doing", "avoid + doing", "refrain from", "be used to doing", "dedicate oneself to", "object to", "look forward to"],
+      "items": [
+        {
+          "heading": "動名詞だけを取る動詞: suggest・avoid・finish など",
+          "explanation": "次の動詞は、直後に動名詞(-ing)だけを取ります。to 不定詞は続けられません。\n\n・suggest、avoid、enjoy、finish、consider、mind、postpone、delay など\n\n・suggest + -ing(~することを提案する)\n・avoid + -ing(~することを避ける)",
+          "examples": [
+            { "en": "The consultant **suggested** **hiring** more staff.", "ja": "コンサルタントは、人を増やすことを提案した。", "note": "suggest + -ing" },
+            { "en": "We should **avoid** **making** the same mistake again.", "ja": "同じ間違いを二度としないようにすべきだ。", "note": "avoid + -ing" }
+          ],
+          "cautions": ["× The consultant suggested to hire more staff. → ○ The consultant suggested hiring more staff.(suggest は to 不定詞を取らない)"]
+        },
+        {
+          "heading": "前置詞の to + -ing: 慣れる・専念する・反対する",
+          "explanation": "to は前置詞としても使われ、その後ろには動名詞が来ます。\n\n・be used to -ing(~に慣れている)\n・dedicate oneself to -ing(~に専念する)\n・object to -ing(~することに反対する)\n・look forward to -ing(~を楽しみにする)\n\n「~に慣れている」の be used to と、「以前は~した」の used to(助動詞のような形)を区別します。",
+          "examples": [
+            { "en": "She **is used to** **working** late.", "ja": "彼女は遅くまで働くことに慣れている。", "note": "be used to -ing(慣れている)" },
+            { "en": "He **objected to** **changing** the plan.", "ja": "彼はその計画を変えることに反対した。", "note": "object to -ing" }
+          ],
+          "cautions": ["× She is used to work late. → ○ She is used to working late.(to の後ろは動名詞)"]
+        },
+        {
+          "heading": "refrain from・avoid: 控える・避ける",
+          "explanation": "refrain from は「~を控える」を表します。from の後ろには動名詞が来ます。\n\n・refrain from making comments(コメントを控える)\n・Please refrain from eating in the meeting room.(会議室での飲食はお控えください)",
+          "examples": [
+            { "en": "Please **refrain from** **eating** in the meeting room.", "ja": "会議室での飲食はお控えください。", "note": "refrain from + 動名詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、to の後ろが不定詞か動名詞かを選ばせる問題が出ます。前置詞の to(look forward to、object to など)は、後ろが動名詞になります。"
+    },
+    {
+      "id": "svoc",
+      "title": "第5文型(SVOC)と、deem・regard",
+      "intro": "第5文型(SVOC)は、目的語(O)の状態や呼び方を、補語(C)で説明する型です。consider、find、deem、regard などの動詞で使います。",
+      "keywords": ["SVOC", "deem", "regard"],
+      "items": [
+        {
+          "heading": "consider・find・keep + O + C",
+          "explanation": "第5文型では、補語(C)が目的語(O)の状態や性質を説明します。\n\n・consider + O + C: ~だと考える(We consider the plan successful.)\n・find + O + C: ~だと分かる(We found the report useful.)\n・keep + O + C: ~の状態に保つ(Keep the office clean.)",
+          "examples": [
+            { "en": "We **consider** the plan **successful**.", "ja": "私たちは、その計画は成功だと考えている。", "note": "consider O C(C は形容詞)" },
+            { "en": "We **found** the report **useful**.", "ja": "私たちは、そのレポートが役に立つと分かった。", "note": "find O C" }
+          ]
+        },
+        {
+          "heading": "deem・regard A as B: A を B とみなす",
+          "explanation": "deem は「~とみなす」を表し、直接 O + C の形を取ります。regard A as B は「A を B とみなす」で、as が必要です。\n\n・deem the proposal acceptable(その提案は受け入れられるとみなす)\n・regard the policy as a success(その方針を成功とみなす)",
+          "examples": [
+            { "en": "The board **deemed** the proposal **acceptable**.", "ja": "取締役会は、その提案を受け入れられるとみなした。", "note": "deem O C" },
+            { "en": "We **regard** the policy **as** a success.", "ja": "私たちは、その方針を成功とみなしている。", "note": "regard A as B(as が必要)" }
+          ],
+          "cautions": ["× We regard the policy successful. → ○ We regard the policy as successful.(regard の後ろには as が要る)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、regard の後ろに as が必要かどうかを問う問題が出ます。consider や find は、そのまま O + C の形を取ります。"
+    },
+    {
+      "id": "that-and-phrasal",
+      "title": "that 節をとる動詞と、句動詞",
+      "intro": "recommend、insist などの動詞は、that 節を取り、その中の動詞は原形になります。また、句動詞(come into effect、abide by など)は、語句のまとまりで覚えます。",
+      "keywords": ["recommend + that", "要求の that 節", "提案・要求の that 節", "come into effect", "abide by", "subject to", "語法(subject to)"],
+      "items": [
+        {
+          "heading": "recommend・insist など: that 節の動詞は原形",
+          "explanation": "recommend、insist、suggest、demand、propose などの後ろの that 節では、動詞は原形になります(仮定法現在。should + 原形の should を省略した形)。\n\n・The doctor recommended that he rest for a week.(医者は1週間休むよう勧めた)\n・She insisted that the contract be signed today.(彼女は、その契約を今日結ぶべきだと主張した)",
+          "examples": [
+            { "en": "The doctor **recommended** that he **rest** for a week.", "ja": "医者は、彼が1週間休むよう勧めた。", "note": "recommend + that + 原形" },
+            { "en": "She **insisted** that the contract **be** signed today.", "ja": "彼女は、その契約を今日結ぶべきだと主張した。", "note": "insist + that + be(原形)" }
+          ]
+        },
+        {
+          "heading": "come into effect・abide by: 句動詞",
+          "explanation": "句動詞は、動詞と副詞・前置詞がまとまって、一つの意味を表すものです。\n\n・come into effect: 効力を持つ、施行される(The new rule comes into effect next month.)\n・abide by: 守る(We must abide by the rules.)",
+          "examples": [
+            { "en": "The new policy will **come into effect** on April 1.", "ja": "新しい方針は4月1日から施行される。", "note": "come into effect(施行される)" },
+            { "en": "All employees must **abide by** the safety rules.", "ja": "全従業員は安全規則を守らなければならない。", "note": "abide by(守る)" }
+          ]
+        },
+        {
+          "heading": "subject to: ~に従って・~を条件として",
+          "explanation": "subject to は、「~に従って」「~を条件として」を表します。後ろには名詞が来ます(前置詞の章も参照)。\n\n・subject to approval(承認を条件として)\n・subject to change without notice(予告なく変更されることがある)",
+          "examples": [
+            { "en": "All prices are **subject to** change.", "ja": "価格は変更されることがある。", "note": "subject to + 名詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、句動詞の前置詞(come into effect の into、abide by の by)を選ばせる問題が出ます。"
+    },
+    {
+      "id": "infinitive-only",
+      "title": "不定詞だけを取る動詞と、不定詞・動名詞で意味が変わる動詞",
+      "intro": "decide、plan、hope などは、直後に to 不定詞を取ります。remember、forget、regret などは、不定詞と動名詞で意味が変わるので、注意します。",
+      "keywords": ["enable + to do", "forget to do", "regret to do", "be about to", "so as to"],
+      "items": [
+        {
+          "heading": "to 不定詞だけを取る動詞: decide・plan・agree など",
+          "explanation": "次の動詞は、直後に to 不定詞を取ります。動名詞は続けられません。\n\n・decide、plan、hope、agree、refuse、promise、expect、want など\n・enable A to do: A が~できるようにする\n\nThe new software enables staff to work from home.(新しいソフトウェアで、社員は在宅勤務ができる)",
+          "examples": [
+            { "en": "We **decided** **to postpone** the launch.", "ja": "私たちは発売を延期することに決めた。", "note": "decide + to 不定詞" },
+            { "en": "The new system **enables** staff **to access** the files remotely.", "ja": "新しいシステムで、社員はファイルに遠隔からアクセスできる。", "note": "enable + 人 + to 不定詞" }
+          ],
+          "cautions": ["× We decided postponing the launch. → ○ We decided to postpone the launch."]
+        },
+        {
+          "heading": "forget・remember・regret: 不定詞と動名詞で意味が変わる",
+          "explanation": "次の動詞は、直後の形で意味が変わります。\n\n・forget to do(~することを忘れる) / forget -ing(~したことを忘れる)\n・remember to do(忘れずに~する) / remember -ing(~したことを覚えている)\n・regret to do(残念ながら~する) / regret -ing(~したことを後悔する)",
+          "examples": [
+            { "en": "Please **remember** **to send** the report by Friday.", "ja": "金曜日までにレポートを送るのを忘れないでください。", "note": "remember to do(これから忘れずに)" },
+            { "en": "I still **remember** **sending** the first email.", "ja": "最初のメールを送ったことを、今でも覚えている。", "note": "remember -ing(過去にしたことを覚えている)" },
+            { "en": "We **regret** **to inform** you that the order is delayed.", "ja": "残念ながら、注文が遅れていることをお知らせします。", "note": "regret to do(残念ながら~する)" }
+          ]
+        },
+        {
+          "heading": "be about to・so as to: ~しようとしている・~するために",
+          "explanation": "be about to は「まさに~しようとしている」を表します。so as to は「~するために」を表す、目的の不定詞の改まった形です。\n\n・The train is about to leave.(電車はまさに出発しようとしている)\n・We worked late so as to finish the project on time.(期限どおりに終えるために、遅くまで働いた)",
+          "examples": [
+            { "en": "The meeting **is about to** start.", "ja": "会議はまさに始まろうとしている。", "note": "be about to + 原形" },
+            { "en": "We moved the meeting **so as to** include the client.", "ja": "顧客を含めるために、会議の日程を変えた。", "note": "so as to + 原形(目的)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、動詞の後ろが to 不定詞か動名詞かで、意味が変わるものを選ばせる問題が出ます。特に remember、forget、regret は注意します。"
+    }
+  ],
+  "summary": [
+    "動詞の後ろで、文の型(SV・SVC・SVO・SVOO・SVOC)が決まる。語ごとの型は覚える",
+    "自動詞は前置詞を伴う(arrive at、depend on)。discuss・attend・enter などは前置詞を付けない",
+    "第4文型は、to・for で書き換えられる動詞がある。deprive A of B、remind A of B などはセットで覚える",
+    "使役: make・let・have + 人 + 原形。have・get + 物 + 過去分詞は「~してもらう」。知覚動詞は原形と -ing を使い分ける",
+    "suggest・avoid・finish などは動名詞だけを取る。前置詞の to(be used to、object to)も後ろは動名詞",
+    "第5文型の regard は、A as B の形を取る",
+    "recommend・insist などの that 節の動詞は原形",
+    "remember・forget・regret は、to 不定詞と動名詞で意味が変わる"
+  ],
+  "quiz": [
+    {
+      "id": "verb-q01",
+      "sentence": "We need to ------- the budget before we make a final decision.",
+      "choices": [{ "label": "A", "text": "discuss" }, { "label": "B", "text": "discuss about" }, { "label": "C", "text": "discuss over" }, { "label": "D", "text": "discussing" }],
+      "answer": "A",
+      "explanation": "discuss は他動詞で、直後に目的語を直接取る。discuss the budget が正解。discuss about や discuss over のように前置詞を付けると誤り。discussing は動名詞や現在分詞で、動詞の位置には合わない。",
+      "translation": "最終決定をする前に、予算について話し合う必要がある。"
+    },
+    {
+      "id": "verb-q02",
+      "sentence": "We will ------- the station at nine.",
+      "choices": [{ "label": "A", "text": "arrive" }, { "label": "B", "text": "arrive at" }, { "label": "C", "text": "arrive to" }, { "label": "D", "text": "arrive in" }],
+      "answer": "B",
+      "explanation": "arrive は前置詞 at を伴う自動詞で、arrive at the station(駅に着く)が正解。arrive だけでは、後ろに場所を続けられない。arrive to と arrive in は、この文の意味や形に合わない。",
+      "translation": "私たちは9時に駅に着く予定だ。"
+    },
+    {
+      "id": "verb-q03",
+      "sentence": "Our profits ------- the success of the new product.",
+      "choices": [{ "label": "A", "text": "depend" }, { "label": "B", "text": "depend of" }, { "label": "C", "text": "depend on" }, { "label": "D", "text": "depend to" }],
+      "answer": "C",
+      "explanation": "depend on(~次第である)の形が正解。depend だけでは、後ろに名詞を続けられない。depend of と depend to は、前置詞の組み合わせとして誤り。",
+      "translation": "私たちの利益は、新製品の成功次第だ。"
+    },
+    {
+      "id": "verb-q04",
+      "sentence": "She ------- her mother very closely.",
+      "choices": [{ "label": "A", "text": "resembles with" }, { "label": "B", "text": "resembles to" }, { "label": "C", "text": "resembles of" }, { "label": "D", "text": "resembles" }],
+      "answer": "D",
+      "explanation": "resemble は他動詞で、前置詞を付けずに直接目的語を取る。resembles her mother が正解。resembles with、resembles to、resembles of は、前置詞を付けた誤りの形。",
+      "translation": "彼女は母親にとてもよく似ている。"
+    },
+    {
+      "id": "verb-q05",
+      "sentence": "We ------- the new sales plan at the meeting yesterday.",
+      "choices": [{ "label": "A", "text": "discussed" }, { "label": "B", "text": "discussed about" }, { "label": "C", "text": "discusses of" }, { "label": "D", "text": "discussion" }],
+      "answer": "A",
+      "explanation": "昨日の出来事を表す過去形 discussed が正解。discussed about は前置詞を付けた誤り。discusses of は形も前置詞も合わない。discussion は名詞で、動詞の位置には入らない。",
+      "translation": "私たちは昨日の会議で、新しい販売計画について話し合った。"
+    },
+    {
+      "id": "verb-q06",
+      "sentence": "Please do not ------- the room during the test.",
+      "choices": [{ "label": "A", "text": "enter into" }, { "label": "B", "text": "enter" }, { "label": "C", "text": "enter to" }, { "label": "D", "text": "enter at" }],
+      "answer": "B",
+      "explanation": "enter は他動詞で、直接目的語を取る。enter the room(部屋に入る)が正解。enter into は「(契約などを)結ぶ」の意味で、部屋に入る意味にはならない。enter to と enter at は誤った形。",
+      "translation": "テスト中は、部屋に入らないでください。"
+    },
+    {
+      "id": "verb-q07",
+      "sentence": "I was unable to ------- the meeting because I was sick.",
+      "choices": [{ "label": "A", "text": "attend to" }, { "label": "B", "text": "attend at" }, { "label": "C", "text": "attend" }, { "label": "D", "text": "attending" }],
+      "answer": "C",
+      "explanation": "attend は他動詞で、attend the meeting(会議に出席する)が正解。attend to は「~に注意を払う、~の世話をする」の意味で、会議には使えない。attending は動詞の形として、unable to の後ろに合わない。",
+      "translation": "体調が悪かったので、会議に出席できなかった。"
+    },
+    {
+      "id": "verb-q08",
+      "sentence": "The manager ------- every day.",
+      "choices": [{ "label": "A", "text": "made to us work" }, { "label": "B", "text": "made us to work" }, { "label": "C", "text": "made work us" }, { "label": "D", "text": "made us work" }],
+      "answer": "D",
+      "explanation": "make は使役動詞で、make + 人 + 原形の形を取る。made us work(私たちに働かせた)が正解。made to us や made us to work は、make の後ろの形として誤り。made work us は語順が違う。",
+      "translation": "部長は、私たちに毎日遅くまで働かせた。"
+    },
+    {
+      "id": "verb-q09",
+      "sentence": "I had my car ------- yesterday.",
+      "choices": [{ "label": "A", "text": "repairing" }, { "label": "B", "text": "repaired" }, { "label": "C", "text": "to repair" }, { "label": "D", "text": "repair" }],
+      "answer": "B",
+      "explanation": "have + 物 + 過去分詞で、「~を(~に)してもらう」を表す。had my car repaired が正解。repairing や to repair、repair は、目的語の後ろに置く形として合わない。",
+      "translation": "昨日、車を修理してもらった。"
+    },
+    {
+      "id": "verb-q10",
+      "sentence": "Last month, the manager ------- the new staff with the project.",
+      "choices": [{ "label": "A", "text": "entrusted to" }, { "label": "B", "text": "entrust" }, { "label": "C", "text": "entrusted of" }, { "label": "D", "text": "entrusted" }],
+      "answer": "D",
+      "explanation": "last month(先月)は過去の時を表すので、過去形 entrusted が正解。entrust は現在形で、過去の文に合わない。entrusted to と entrusted of は、entrust A with B の形に合わない。",
+      "translation": "先月、部長は新しいスタッフにそのプロジェクトを任せた。"
+    },
+    {
+      "id": "verb-q11",
+      "sentence": "We regret ------- you that the order has been delayed.",
+      "choices": [{ "label": "A", "text": "informing" }, { "label": "B", "text": "to informing" }, { "label": "C", "text": "to inform" }, { "label": "D", "text": "informed" }],
+      "answer": "C",
+      "explanation": "regret は、to 不定詞を取ると「残念ながら~する」の意味になる。regret to inform you(残念ながらお知らせします)が正解。regret -ing は「~したことを後悔する」で、この文の意味に合わない。to informing は形が誤り。",
+      "translation": "残念ながら、ご注文が遅れていることをお知らせします。"
+    },
+    {
+      "id": "verb-q12",
+      "sentence": "Please remember ------- the form before the deadline.",
+      "choices": [{ "label": "A", "text": "to fill" }, { "label": "B", "text": "filling" }, { "label": "C", "text": "filled" }, { "label": "D", "text": "fill" }],
+      "answer": "A",
+      "explanation": "remember to do は「忘れずに~する」を表す。remember to fill(忘れずに記入する)が正解。remember filling は「記入したことを覚えている」の意味になり、ここでは合わない。filled は過去分詞、fill は直接は続けられない。",
+      "translation": "締め切りの前に、必ず用紙に記入することを忘れないでください。"
+    }
+  ],
+  "related": ["mood", "tense", "voice"]
+}

@@ -1,0 +1,337 @@
+{
+  "id": "mood",
+  "no": 16,
+  "title": "法",
+  "lead": "法は、話し手が述べる内容を、事実として述べるか(直説法)、事実と違う仮定や願望として述べるか(仮定法)を、動詞の形で表す仕組みです。TOEIC Part 5 では、if の節と主節の時制の組み合わせ(仮定法過去・仮定法過去完了・混合)、if を省略した倒置、要求の that 節の動詞の形が、よく問われます。この章では、それぞれの形と意味の違いを確かめます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "法の基本: 直説法と仮定法",
+      "intro": "英語の法は、話し手が述べる内容が事実か、事実でない仮定かで、動詞の形を変えます。事実として述べる直説法と、事実と違う仮定や願望を述べる仮定法があります。この節では、その違いと、仮定法の基本の考え方を確かめます。",
+      "keywords": ["仮定法"],
+      "items": [
+        {
+          "heading": "直説法と仮定法の違い",
+          "explanation": "直説法は、事実や、実際に起こりうることを述べる形です。仮定法は、現実と違う、またはその可能性が低いことを、一歩離れて述べる形です。\n\n・直説法: If it rains tomorrow, we will cancel the event.(明日雨が降ったら、中止する)\n・仮定法: If it rained tomorrow, we would cancel the event.(もし明日雨が降るとしたら、中止するだろう)\n\n仮定法では、雨が降ることを現実味の薄いこととして扱っています。",
+          "examples": [
+            { "en": "If it **rains** tomorrow, we **will cancel** the event.", "ja": "明日雨が降ったら、そのイベントは中止する。", "note": "直説法: 実現する可能性がある" },
+            { "en": "If it **rained** tomorrow, we **would cancel** the event.", "ja": "もし明日雨が降るとしたら、そのイベントは中止するだろう。", "note": "仮定法: 現実味が薄い仮定" }
+          ]
+        },
+        {
+          "heading": "仮定法では、動詞の時制を一つ過去にずらす",
+          "explanation": "仮定法では、動詞の形を一つ過去にずらして、現実から距離を置きます。\n\n・現在の事実の反対 → 過去形(was、knew)\n・過去の事実の反対 → 過去完了(had + 過去分詞)\n\nこの時制のずれは、本当に過去の話をしているという意味ではなく、「事実と違う」ことを表すための形です。",
+          "examples": [
+            { "en": "If I **knew** the answer, I **would tell** you.", "ja": "答えを知っていれば、あなたに教えるのに。(実際は知らない)", "note": "過去形は現在の事実の反対" },
+            { "en": "If I **had known** the answer, I **would have told** you.", "ja": "答えを知っていたら、あなたに教えていたのに。(実際は知らなかった)", "note": "過去完了は過去の事実の反対" }
+          ]
+        },
+        {
+          "heading": "仮定法過去の be 動詞は、主語にかかわらず were",
+          "explanation": "仮定法過去で be 動詞を使うとき、主語が I、he、she、it でも、were を使うのが正式な形です。口語では was も使われますが、試験では were が正解になることが多いです。\n\n・If I were you, I would accept the offer.(私があなたなら、その申し出を受けるだろう)",
+          "examples": [
+            { "en": "If I **were** you, I **would accept** the offer.", "ja": "私があなたなら、その申し出を受けるだろう。", "note": "仮定法過去の be は were" }
+          ],
+          "cautions": ["× If I was you, ... → ○ If I were you, ...(仮定法では were を使う)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の仮定法問題は、if の節の動詞の形(過去形か過去完了か)を見て、主節の助動詞(would か would have か)を判断させる形で出ます。"
+    },
+    {
+      "id": "past-and-perfect",
+      "title": "仮定法過去・過去完了と、混合の形",
+      "intro": "仮定法過去は現在の事実と反対の仮定、仮定法過去完了は過去の事実と反対の仮定を表します。if の節と主節で時制が違う混合の形もあります。",
+      "keywords": ["仮定法過去完了", "仮定法過去", "仮定法の入れ子", "仮定法(混合)", "仮定法と条件の省略"],
+      "items": [
+        {
+          "heading": "仮定法過去: 現在の事実の反対",
+          "explanation": "仮定法過去は、現在の事実と反対の仮定を表します。\n\n形: If + 主語 + 過去形 ~, 主語 + would / could / might + 動詞の原形 ...\n\n・If the company had more staff, it could finish the project sooner.(もっと人手があれば、その会社はプロジェクトを早く終えられるのに)\n\n実際には人手が足りない、という現在の事実の反対を述べています。",
+          "examples": [
+            { "en": "If the company **had** more staff, it **could finish** the project sooner.", "ja": "もっと人手があれば、その会社はプロジェクトを早く終えられるのに。", "note": "現在の人手が足りない事実の反対" },
+            { "en": "If I **had** more time, I **would learn** a new language.", "ja": "もっと時間があれば、新しい言語を学ぶのに。", "note": "現在は時間がない事実の反対" }
+          ]
+        },
+        {
+          "heading": "仮定法過去完了: 過去の事実の反対",
+          "explanation": "仮定法過去完了は、過去の事実と反対の仮定を表します。\n\n形: If + 主語 + had + 過去分詞 ~, 主語 + would / could / might + have + 過去分詞 ...\n\n・If we had started earlier, we would have finished on time.(もっと早く始めていれば、期限どおりに終えていたのに)\n\n実際には、遅く始めて、期限に間に合わなかったことを示しています。",
+          "examples": [
+            { "en": "If we **had started** earlier, we **would have finished** on time.", "ja": "もっと早く始めていれば、期限どおりに終えていたのに。", "note": "実際は遅く始めた事実の反対" },
+            { "en": "If she **had** not **accepted** the offer, she **would have stayed** in Tokyo.", "ja": "その申し出を受けていなければ、彼女は東京にとどまっていただろう。", "note": "否定の過去完了の仮定" }
+          ]
+        },
+        {
+          "heading": "混合: 条件は過去、結果は現在",
+          "explanation": "if の節と主節で、時が違う形です。if の節は過去の条件(過去完了)、主節は現在の結果(would + 原形)を表します。\n\n・If I had taken the job, I would be living in London now.(あの仕事を引き受けていたら、今ごろロンドンに住んでいるだろう)\n\n「過去にしていたら、今こうなっているだろう」という内容を述べるときに使います。",
+          "examples": [
+            { "en": "If she **had studied** harder, she **would be** a doctor now.", "ja": "もっと勉強していたら、今ごろ医者になっているだろう。", "note": "条件は過去、結果は現在" }
+          ]
+        },
+        {
+          "heading": "with・without: if の節の代わりになる語句",
+          "explanation": "仮定の内容は、if の節ではなく、前置詞句で示されることがあります。with や without の後ろに名詞を置くと、「~があれば」「~がなければ」という条件になります。\n\n・With more time, we could finish the work.(もっと時間があれば、その仕事を終えられるのに)\n・Without your support, the team would have given up.(あなたの支えがなければ、チームは諦めていただろう)",
+          "examples": [
+            { "en": "**With** more staff, we **could finish** the project sooner.", "ja": "もっと人手があれば、そのプロジェクトを早く終えられるのに。", "note": "with + 名詞が if の節の代わり" },
+            { "en": "**Without** your support, the team **would have given up**.", "ja": "あなたの支えがなければ、チームは諦めていただろう。", "note": "without + 名詞(過去の反対の仮定)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、if の節の時制と主節の助動詞の組み合わせのひっかけが多く出ます。今の状況なら過去形と would、過去の出来事なら過去完了と would have を組み合わせます。"
+    },
+    {
+      "id": "wish-as-if",
+      "title": "I wish・as if・would rather: 願望と比喩",
+      "intro": "I wish は、現実と違う願望を表します。as if と as though は、事実と違うことをたとえて言うときに使います。would rather は「~してほしい」「むしろ~したい」を表します。",
+      "keywords": ["I wish", "wish", "as if", "as though", "would rather"],
+      "items": [
+        {
+          "heading": "I wish + 過去形: 現在の願望",
+          "explanation": "I wish の後ろに過去形を置くと、現在の事実と違う願望を表します。\n\n・I wish I knew the answer.(答えを知っていればいいのに)\n・I wish I were taller.(背が高ければいいのに)\n\n後ろが過去形でも、過去の話ではない点に注意します。",
+          "examples": [
+            { "en": "I **wish** I **knew** the new manager better.", "ja": "新しい部長をもっとよく知っていればいいのに。", "note": "現在の事実と違う願望" },
+            { "en": "I **wish** the team **were** here now.", "ja": "チームが今ここにいてくれればいいのに。", "note": "be 動詞は were" }
+          ]
+        },
+        {
+          "heading": "I wish + had + 過去分詞: 過去の後悔",
+          "explanation": "I wish の後ろに過去完了を置くと、過去の事実と違うことへの後悔や願望を表します。\n\n・I wish I had studied harder.(もっと勉強しておけばよかった)",
+          "examples": [
+            { "en": "I **wish** I **had accepted** the offer.", "ja": "その申し出を受けておけばよかった。", "note": "過去の後悔" },
+            { "en": "She **wishes** she **had** not **said** that.", "ja": "彼女はあんなことを言わなければよかったと思っている。", "note": "had not + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "as if・as though: まるで~のように",
+          "explanation": "as if と as though は、「まるで~のように」を表します。後ろに続く内容が事実と違うときは、仮定法を使います。\n\n・as if + 過去形: 現在のことを、事実と違う形でたとえる\n・as if + 過去完了: 過去のことを、事実と違う形でたとえる",
+          "examples": [
+            { "en": "He talks **as if** he **knew** everything.", "ja": "彼はまるで何でも知っているかのように話す。", "note": "実際は知らないことのたとえ" },
+            { "en": "She looked **as though** she **had seen** a ghost.", "ja": "彼女はまるで幽霊を見たかのような顔をしていた。", "note": "過去完了で過去の出来事のたとえ" }
+          ]
+        },
+        {
+          "heading": "would rather: ~してほしい・むしろ~したい",
+          "explanation": "would rather + 主語 + 過去形は、「(今)~してほしい」を表します。would rather + 原形は、「むしろ~したい」を表します。\n\n・I would rather you didn't send the email today.(今日はそのメールを送らないでほしい)\n・I would rather stay home.(むしろ家にいたい)",
+          "examples": [
+            { "en": "I would rather you **didn't** send the email today.", "ja": "今日はそのメールを送らないでほしい。", "note": "would rather + 主語 + 過去形(今の願い)" },
+            { "en": "I would rather **stay** home than go out tonight.", "ja": "今夜は、出かけるよりむしろ家にいたい。", "note": "would rather + 原形(むしろ~したい)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、I wish と as if の後ろの時制(過去形か過去完了か)を選ばせる問題が出ます。"
+    },
+    {
+      "id": "inversion",
+      "title": "倒置の仮定法と、if の省略",
+      "intro": "if を省略して、主語と動詞を倒置した形でも、仮定法を表せます。Were、Had、Should が文頭に出るのが典型的な形です。改まった文章で多く使われます。",
+      "keywords": ["仮定法(倒置", "仮定法過去完了(倒置", "倒置(仮定法過去完了)", "倒置(仮定法過去)", "仮定法(if の省略", "仮定法(Were", "仮定法(Should", "仮定法(Suppose", "仮定法(suppose", "仮定法(were to"],
+      "items": [
+        {
+          "heading": "Were + 主語 ~: 仮定法過去の倒置",
+          "explanation": "if I were ... を、if を省略して Were I ... の形にすると、仮定法過去の意味を表します。\n\n・If I were the manager, I would change the plan.\n・Were I the manager, I would change the plan.(私が部長なら、その計画を変えるだろう)",
+          "examples": [
+            { "en": "**Were** I in your position, I **would accept** the offer.", "ja": "私があなたの立場なら、その申し出を受けるだろう。", "note": "Were + 主語で if の代わり" },
+            { "en": "**Were** the price lower, more customers **would buy** it.", "ja": "もし価格がもっと安ければ、もっと多くの客が買うだろう。", "note": "Were + 主語 + 補語(形容詞)" }
+          ]
+        },
+        {
+          "heading": "Had + 主語 + 過去分詞: 仮定法過去完了の倒置",
+          "explanation": "if we had known を Had we known ... の形にすると、仮定法過去完了の意味を表します。\n\n・If we had known, we would have acted differently.\n・Had we known, we would have acted differently.(知っていたら、違う行動をとっていただろう)",
+          "examples": [
+            { "en": "**Had** we **known** about the delay, we **would have changed** the plan.", "ja": "遅れのことを知っていたら、計画を変えていただろう。", "note": "Had + 主語 + 過去分詞" },
+            { "en": "**Had** you **asked** me earlier, I **could have helped** you.", "ja": "もっと早く聞いてくれていたら、手伝えたのに。", "note": "過去の事実の反対" }
+          ]
+        },
+        {
+          "heading": "Should + 主語 + 原形: 万一~なら",
+          "explanation": "should を文頭に出すと、「万一~すれば」の意味になります。実現の可能性は低いが、起こったら、という仮定を表します。文書や案内でよく使われます。\n\n・Should you have any questions, please contact us.(万一ご質問があれば、ご連絡ください)",
+          "examples": [
+            { "en": "**Should** you need more information, please let us know.", "ja": "万一、さらに情報が必要でしたら、お知らせください。", "note": "Should + 主語 + 原形(万一)" },
+            { "en": "**Should** the project be delayed, we would inform you immediately.", "ja": "万一、プロジェクトが遅れたら、すぐにお知らせします。", "note": "主節は would + 原形" }
+          ]
+        },
+        {
+          "heading": "Suppose・were to: 仮に~だとしたら",
+          "explanation": "suppose は「もし~だとしたら」を表し、仮定法の節の前に置けます。were to は「仮に~するとしたら」で、実現する可能性がほとんどない仮定を表します。\n\n・Suppose you were the manager, what would you do?(仮に、あなたが部長だったら、何をしますか)\n・If the company were to fail, many employees would lose their jobs.(万一、その会社が倒産すれば、多くの社員が職を失うだろう)",
+          "examples": [
+            { "en": "**Suppose** you **were** the manager. What would you do?", "ja": "仮に、あなたが部長だったら、どうしますか。", "note": "suppose + 仮定法過去" },
+            { "en": "If the company **were to** fail, many employees would lose their jobs.", "ja": "万一その会社が倒産すれば、多くの社員が職を失うだろう。", "note": "were to は実現性の低い仮定" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、if の省略倒置が選択肢に並ぶ問題が出ます。文頭の Were・Had・Should の後ろの形(主語と動詞の順番)を見て判断します。"
+    },
+    {
+      "id": "but-for-without",
+      "title": "but for・without: 「~がなければ」",
+      "intro": "but for、without、If it were not for ~、Were it not for ~は、「~がなければ」という仮定を表します。現在の事実なら仮定法過去、過去の事実なら仮定法過去完了を使います。",
+      "keywords": ["but for", "But for", "without", "Were it not for"],
+      "items": [
+        {
+          "heading": "But for・Without: 現在と過去の仮定",
+          "explanation": "But for と Without は、「~がなければ」を表します。後ろには名詞が来ます。主節の時制で、現在の事実か過去の事実かを判断します。\n\n・現在: But for the rain, the event would be a success.(雨さえなければ、その行事は成功するのに)\n・過去: Without the rain, the event would have been a success.(雨がなければ、その行事は成功していただろう)",
+          "examples": [
+            { "en": "**But for** your help, the project would have failed.", "ja": "あなたの助けがなければ、そのプロジェクトは失敗していただろう。", "note": "過去の事実の反対(but for + 名詞)" },
+            { "en": "**Without** the new software, we would struggle every day.", "ja": "新しいソフトウェアがなければ、私たちは毎日苦労するだろう。", "note": "現在の事実の反対" }
+          ]
+        },
+        {
+          "heading": "Were it not for・If it had not been for: ~がなければ",
+          "explanation": "現在の事実の反対は、If it were not for ~ または Were it not for ~ の形で表します。Were it not for は、if を省略した倒置です。過去の事実の反対は、If it had not been for ~ を使います。\n\n・If it were not for the budget, we could hire more staff.(予算がなければ、もっと人を雇えるのに)\n・If it had not been for the storm, the flight would have arrived on time.(嵐がなければ、その便は定刻に着いていただろう)",
+          "examples": [
+            { "en": "**Were it not for** the storm, the flight **would arrive** on time.", "ja": "嵐がなければ、その便は定刻に着くだろう。", "note": "現在の事実の反対(Were it not for)" },
+            { "en": "**If it had not been for** the storm, the flight **would have arrived** on time.", "ja": "嵐がなければ、その便は定刻に着いていただろう。", "note": "過去の事実の反対(If it had not been for)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、but for と without が前置詞として使われ、後ろに名詞が来ることを見抜く問題が出ます。主節の助動詞で、現在か過去かを判断します。"
+    },
+    {
+      "id": "subjunctive",
+      "title": "提案・要求・必要の that 節と、仮定法現在",
+      "intro": "suggest、demand、insist などの提案・要求・命令の動詞や、important、vital などの必要を表す形容詞の後ろの that 節では、動詞は原形(仮定法現在)か、should + 原形になります。",
+      "keywords": ["仮定法現在", "仮定法(提案)", "It is time", "It is vital", "要求の that 節", "should の省略"],
+      "items": [
+        {
+          "heading": "提案・要求の that 節: 動詞は原形",
+          "explanation": "suggest、recommend、insist、demand、request、require、propose などの後ろの that 節では、動詞は原形を使います。should + 原形も正しい形で、should を省略して原形だけにすることが多いです。\n\n・The manager suggested that we start the project now.(部長は今すぐプロジェクトを始めるよう提案した)\n・The board recommended that the plan be approved.(取締役会は、その計画を承認するよう勧めた)",
+          "examples": [
+            { "en": "The manager **suggested** that we **start** the project now.", "ja": "部長は、今すぐプロジェクトを始めるよう提案した。", "note": "suggest の後の that 節は原形" },
+            { "en": "They **demanded** that the contract **be** revised.", "ja": "彼らは、その契約を改定するよう求めた。", "note": "be 動詞は be(原形)" }
+          ],
+          "cautions": ["× The manager suggested that we starts the project. → ○ The manager suggested that we start the project.(that 節の動詞は原形)"]
+        },
+        {
+          "heading": "必要・重要を表す形容詞の後ろの that 節",
+          "explanation": "It is necessary、vital、important、essential などの形容詞の後ろの that 節でも、動詞は原形か、should + 原形になります。\n\n・It is vital that the data be protected.(データを守ることは極めて重要だ)\n・It is essential that every employee attend the training.(全員が研修に出席することが不可欠だ)",
+          "examples": [
+            { "en": "It is **vital** that the data **be** protected.", "ja": "データを守ることは極めて重要だ。", "note": "vital の後ろの that 節は原形" },
+            { "en": "It is **essential** that every employee **attend** the training.", "ja": "全員が研修に出席することが不可欠だ。", "note": "essential の後ろの that 節は原形" }
+          ]
+        },
+        {
+          "heading": "It is (high) time + 過去形: もう~すべき時だ",
+          "explanation": "It is (high) time + 主語 + 過去形は、「もう~してもよい頃だ」「もう~すべき時だ」を表します。過去形で、今の状況への不満や促しを示します。\n\n・It is time we left.(もうそろそろ出発する時間だ)\n・It is high time the company changed its strategy.(会社はもう戦略を変えるべき時だ)",
+          "examples": [
+            { "en": "It is **high** time the company **changed** its strategy.", "ja": "会社はもう戦略を変えるべき時だ。", "note": "It is time の後ろは過去形" }
+          ]
+        },
+        {
+          "heading": "that 節の動詞の形を決める手順",
+          "explanation": "that 節の動詞の形は、主節の動詞や形容詞の種類で決まります。\n\n・命令・要求・提案・必要を表す語の後: 原形(または should + 原形)\n・仮定法の if の節: 過去形・過去完了形\n\n「that 節が、事実を述べているか、要求や提案を述べているか」を先に見分けます。",
+          "examples": [
+            { "en": "The judge ordered that the witness **be** present at the hearing.", "ja": "裁判官は、証人が審理に出頭するよう命じた。", "note": "命令の that 節は原形" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、suggest・demand などの後ろの that 節で、原形を選ばせる問題がよく出ます。主語が三人称単数でも、s を付けないことに注意します。"
+    }
+  ],
+  "summary": [
+    "法は、事実を述べる直説法と、事実と違う仮定を述べる仮定法に分かれる",
+    "仮定法過去は、if + 過去形、主語 + would + 原形(現在の事実の反対)。be は were が正式",
+    "仮定法過去完了は、if + had + 過去分詞、主語 + would have + 過去分詞(過去の事実の反対)",
+    "混合: if の節は過去、主節は現在(If + had + 過去分詞、主語 + would + 原形)",
+    "I wish + 過去形は現在の願望、I wish + had + 過去分詞は過去の後悔",
+    "as if・as though は、事実と違うたとえ。would rather + 過去形は「今~してほしい」",
+    "if を省略すると倒置: Were I ~、Had S + 過去分詞 ~、Should S + 原形 ~(万一)",
+    "but for・without・Were it not for は「~がなければ」。提案・要求の that 節では、動詞は原形"
+  ],
+  "quiz": [
+    {
+      "id": "mood-q01",
+      "sentence": "If I ------- more time, I would learn a new language.",
+      "choices": [{ "label": "A", "text": "had" }, { "label": "B", "text": "have" }, { "label": "C", "text": "will have" }, { "label": "D", "text": "would have" }],
+      "answer": "A",
+      "explanation": "現在は時間がない、という事実の反対を表す仮定法過去なので、if の節は過去形 had が正解。have は現在形で仮定法に合わず、will have と would have は if の節に助動詞を置く誤りになる。",
+      "translation": "もっと時間があれば、新しい言語を学ぶのに。"
+    },
+    {
+      "id": "mood-q02",
+      "sentence": "If she ------- harder for the test, she would have passed it.",
+      "choices": [{ "label": "A", "text": "studies" }, { "label": "B", "text": "had studied" }, { "label": "C", "text": "would study" }, { "label": "D", "text": "studied" }],
+      "answer": "B",
+      "explanation": "過去の事実(試験前に勉強しなかった)と反対の仮定なので、if の節は過去完了 had studied が正解。主節が would have passed という仮定法過去完了なので、if の節も過去完了にそろえる。studies、would study、studied はいずれも、この文の時制に合わない。",
+      "translation": "試験のためにもっと勉強していたら、彼女は合格していただろう。"
+    },
+    {
+      "id": "mood-q03",
+      "sentence": "I wish I ------- the answer to that question.",
+      "choices": [{ "label": "A", "text": "know" }, { "label": "B", "text": "have known" }, { "label": "C", "text": "knew" }, { "label": "D", "text": "will know" }],
+      "answer": "C",
+      "explanation": "現在の事実(答えを知らない)と違う願望を表す I wish の後ろには、過去形 knew が正解。know は直説法の現在形、have known は過去の後悔の形、will know は未来を表すので、現在の願望には合わない。",
+      "translation": "その質問の答えを知っていればいいのに。"
+    },
+    {
+      "id": "mood-q04",
+      "sentence": "She talks ------- she knew everything about the project.",
+      "choices": [{ "label": "A", "text": "because" }, { "label": "B", "text": "unless" }, { "label": "C", "text": "while" }, { "label": "D", "text": "as if" }],
+      "answer": "D",
+      "explanation": "「まるで~のように」を表す as if が正解。実際には知らないことを、たとえとして述べているので、後ろは過去形 knew になる。because、unless、while は、この文の意味に合わない。",
+      "translation": "彼女は、そのプロジェクトのことを何でも知っているかのように話す。"
+    },
+    {
+      "id": "mood-q05",
+      "sentence": "------- I the manager, I would change the plan.",
+      "choices": [{ "label": "A", "text": "Were" }, { "label": "B", "text": "Was" }, { "label": "C", "text": "Had" }, { "label": "D", "text": "Am" }],
+      "answer": "A",
+      "explanation": "if I were the manager の if を省略し、were を文頭に出した倒置の形で、Were が正解。Was は仮定法の倒置では使わない。Had は仮定法過去完了の倒置で、後ろに過去分詞が必要。Am は直説法の現在形で、仮定の意味が出ない。",
+      "translation": "私が部長なら、その計画を変えるだろう。"
+    },
+    {
+      "id": "mood-q06",
+      "sentence": "If it ------- for your help, the project would have failed.",
+      "choices": [{ "label": "A", "text": "were not" }, { "label": "B", "text": "had not been" }, { "label": "C", "text": "is not" }, { "label": "D", "text": "would not be" }],
+      "answer": "B",
+      "explanation": "過去の事実の反対を表す If it had not been for ~ の形が正解。were not は仮定法過去で、主節の would have failed(過去完了)と時制が合わない。is not と would not be は、この文の仮定の形に合わない。",
+      "translation": "あなたの助けがなければ、そのプロジェクトは失敗していただろう。"
+    },
+    {
+      "id": "mood-q07",
+      "sentence": "I would rather you ------- the email until tomorrow.",
+      "choices": [{ "label": "A", "text": "do not send" }, { "label": "B", "text": "will not send" }, { "label": "C", "text": "did not send" }, { "label": "D", "text": "not send" }],
+      "answer": "C",
+      "explanation": "would rather + 主語 + 過去形は、「(今)~してほしい」を表す。did not send が正解。do not send と will not send は、would rather の後ろの形として合わない。not send だけでは、主語の後ろに動詞の形が足りない。",
+      "translation": "明日までは、そのメールを送らないでほしい。"
+    },
+    {
+      "id": "mood-q08",
+      "sentence": "Should you ------- any problems, please contact the support team.",
+      "choices": [{ "label": "A", "text": "experiences" }, { "label": "B", "text": "experienced" }, { "label": "C", "text": "experiencing" }, { "label": "D", "text": "experience" }],
+      "answer": "D",
+      "explanation": "文頭の Should は「万一~すれば」を表し、後ろは主語 you と動詞の原形 experience の形になる。experiences と experienced は、should の後ろには使わない。experiencing は動名詞や現在分詞で、動詞の位置に合わない。",
+      "translation": "万一、何か問題が起きたら、サポートチームに連絡してください。"
+    },
+    {
+      "id": "mood-q09",
+      "sentence": "The manager suggested that the team ------- the report before the meeting.",
+      "choices": [{ "label": "A", "text": "review" }, { "label": "B", "text": "reviews" }, { "label": "C", "text": "reviewed" }, { "label": "D", "text": "is reviewing" }],
+      "answer": "A",
+      "explanation": "suggest の後ろの that 節は、原形で表すので review が正解。reviews は三人称単数の現在形、reviewed は過去形、is reviewing は進行形で、いずれも提案の that 節の形には合わない。",
+      "translation": "部長は、会議の前にチームがその報告書を確認するよう提案した。"
+    },
+    {
+      "id": "mood-q10",
+      "sentence": "It is essential that every employee ------- the safety rules.",
+      "choices": [{ "label": "A", "text": "follows" }, { "label": "B", "text": "follow" }, { "label": "C", "text": "is following" }, { "label": "D", "text": "followed" }],
+      "answer": "B",
+      "explanation": "essential(不可欠な)の後ろの that 節は、原形で表すので follow が正解。主語が every employee(単数扱い)でも、s は付けない。follows、is following、followed は、この形容詞の後ろの形に合わない。",
+      "translation": "全員が安全規則を守ることが不可欠だ。"
+    },
+    {
+      "id": "mood-q11",
+      "sentence": "It is high time we ------- a new office.",
+      "choices": [{ "label": "A", "text": "will move" }, { "label": "B", "text": "have moved" }, { "label": "C", "text": "moved" }, { "label": "D", "text": "move" }],
+      "answer": "C",
+      "explanation": "It is (high) time の後ろは、過去形で「もう~すべき時だ」を表す。moved が正解。will move は未来、have moved は現在完了、move は原形で、It is time の後ろの形としては合わない。",
+      "translation": "もう新しいオフィスに移るべき時だ。"
+    },
+    {
+      "id": "mood-q12",
+      "sentence": "Suppose you ------- the manager. What would you do first?",
+      "choices": [{ "label": "A", "text": "are" }, { "label": "B", "text": "have been" }, { "label": "C", "text": "will be" }, { "label": "D", "text": "were" }],
+      "answer": "D",
+      "explanation": "suppose(仮に~だとしたら)の後ろは、仮定法過去の形になり、be 動詞は were を使う。were が正解。are は直説法の現在形、have been は現在完了、will be は未来で、仮定の形に合わない。",
+      "translation": "仮に、あなたが部長だったら、まず何をしますか。"
+    }
+  ],
+  "related": ["conjunction", "tense", "inversion"]
+}
