@@ -24,7 +24,7 @@
               ["will", "would"],
               ["can", "could"],
               ["may", "might"],
-              ["must", "had to"]
+              ["must(義務)", "had to"]
             ]
           },
           "examples": [
@@ -54,6 +54,23 @@
           "examples": [
             { "en": "He said that he **might be** late for the meeting.", "ja": "彼は、会議に遅れるかもしれないと言った。", "note": "might は過去の形なので変わらない" },
             { "en": "She said that she **should** finish the report by noon.", "ja": "彼女は、正午までにレポートを終えるべきだと言った。", "note": "should は変わらない" }
+          ]
+        },
+        {
+          "heading": "報告の時点で事実が続くなら、現在形のまま言える",
+          "explanation": "時制の一致は、報告する人の立場で決めます。報告の時点でその内容が今も続いている事実なら、that 節の現在形をそのまま使い、今も続いていることを伝えます。\n\n・She told me that she works at the city hospital.(市立病院で今も働いていると、彼女は私に言った)\n・He told me that he had been a nurse before he became a teacher.(教師になる前は看護師だったと、彼は私に言った)\n\n一つ目は、今も続いている仕事なので現在形のままです。二つ目は、今の職業とは違う過去の出来事なので、時制の一致で過去完了にします。報告の時点で事実が今も続いているかどうかを確かめて、現在形と過去完了を選びます。",
+          "examples": [
+            { "en": "She told me that she **works** at the city hospital.", "ja": "彼女は、市立病院で今も働いていると私に言った。", "note": "今も続いている仕事なので、現在形のまま" },
+            { "en": "He told me that he **had been** a nurse before he became a teacher.", "ja": "彼は、教師になる前は看護師だったと私に言った。", "note": "今は教師なので、過去の出来事は過去完了で伝える" }
+          ]
+        },
+        {
+          "heading": "must・had better・ought to は、意味によって扱いが違う",
+          "explanation": "時制の一致で形が変わるのは、主に現在形と will・can・may・must です。must は、意味によって扱いが違うので注意します。\n\n・義務の must(〜しなければならない): had to に変わる\n・推量の must(〜に違いない): must のまま使える\n・had better(〜したほうがよい)と ought to(〜すべきだ): 時制の一致を受けず、そのまま使う\n\n直接話法の must が義務か推量かは、文脈で判断します。「〜しなければならない」と言ったのか、「〜に違いない」と推測したのかを見分けましょう。",
+          "examples": [
+            { "en": "She said that she **had to** finish the report by noon.", "ja": "彼女は、正午までにレポートを終えなければならないと言った。", "note": "義務の must → had to" },
+            { "en": "He said that the answer **must be** wrong.", "ja": "その答えは間違っているに違いないと、彼は言った。", "note": "推量の must はそのまま" },
+            { "en": "He told us that we **had better** leave before the rain starts.", "ja": "雨が降り出す前に出発したほうがよいと、彼は私たちに言った。", "note": "had better は変わらない" }
           ]
         }
       ],
@@ -104,11 +121,35 @@
           ]
         },
         {
+          "heading": "Yes/No 疑問文の間接話法: if・whether・or not",
+          "explanation": "「はい・いいえ」で答える疑問文(Do you ...? / Is it ...? など)は、間接話法では if か whether で始め、後ろは平叙文の語順にします。疑問文の語順(Do you ...)には戻しません。\n\n・直接: He asked me, \"Do you like coffee?\"\n・間接: He asked me if I liked coffee.(コーヒーが好きかどうか、彼は私に尋ねた)\n\nif と whether は、どちらも使えます。ただし、次の場合は if を使えず、whether を使います。\n\n・or not を続けるとき: whether or not(〜かどうか)\n・to 不定詞の前や、前置詞の後ろ: whether to go、about whether ...",
+          "examples": [
+            { "en": "He asked me **whether or not** I could attend the meeting.", "ja": "私が会議に出席できるかどうか、彼は私に尋ねた。", "note": "or not を続けるので whether を使う" },
+            { "en": "She asked us **whether to sign** the contract.", "ja": "契約に署名すべきかどうか、彼女は私たちに尋ねた。", "note": "whether + to 不定詞" },
+            { "en": "He asked **if** the train was late.", "ja": "電車は遅れているかと、彼は尋ねた。", "note": "if + 平叙文の語順" }
+          ],
+          "cautions": ["× She asked me if to go. → ○ She asked me whether to go.(if の後ろに to 不定詞は続かない)"]
+        },
+        {
           "heading": "過去完了の直接話法: 間接話法でも変わらない",
           "explanation": "直接話法の過去完了(had done)は、時制の一致で変わりません。過去完了はすでに過去より前の形なので、そのまま had done の形で伝えます。直接話法の過去形の部分は、間接話法で過去完了に変わります。",
           "examples": [
             { "en": "She said that she **had finished** the task.", "ja": "彼女は、その仕事を終えていたと言った。", "note": "had finished はそのまま" },
             { "en": "He told me that he **had seen** the movie before.", "ja": "彼は、その映画を前に見ていたと私に言った。", "note": "過去完了は変わらない" }
+          ]
+        },
+        {
+          "heading": "人称・指示語の変化: 報告する人の立場に合わせる",
+          "explanation": "間接話法では、人称代名詞(I、you、we など)を、報告する人の立場に合わせて変えます。直接話法の言い方をそのまま使うと、誰のことか分からなくなります。\n\n・I → he / she(報告する人とは別の人が話した場合)\n・you → I / me(報告の相手に向けて話された言葉の場合)\n・we → they(報告する人とその仲間を、別の人たちとして伝える場合)\n・my / our → his / her / their(所有格も同じように変える)\n\n指示語も同じように変わります。this → that、these → those です。主語が誰か、「私」が誰かを、報告する人の立場から確かめます。",
+          "table": {
+            "caption": "人称・指示語の変化の例",
+            "headers": ["直接", "間接"],
+            "rows": [["I", "he / she"], ["you(報告の相手に向けた言葉)", "I / me"], ["we", "they"], ["my / our", "his / her / their"], ["this / these", "that / those"]]
+          },
+          "examples": [
+            { "en": "He told me that **I** had made a mistake.", "ja": "私が間違えたと、彼は私に言った。", "note": "you → I(報告の相手に向けた言葉)" },
+            { "en": "They said that **their** team would win the game.", "ja": "自分たちのチームが試合に勝つだろうと、彼らは言った。", "note": "our → their" },
+            { "en": "She said that she did not like **those** shoes.", "ja": "あの靴は好きではないと、彼女は言った。", "note": "these → those" }
           ]
         }
       ],
@@ -155,6 +196,128 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、tell 人 to 不定詞・ask 人 to 不定詞の形や、suggest の後ろの動名詞(suggest + -ing)が出題されます。"
+    },
+    {
+      "id": "exclamation-suggestion",
+      "title": "感嘆文・提案文の間接話法: say how・suggest + -ing・that 節",
+      "intro": "感嘆文は say how・say what の形で、提案文は suggest の後ろに動名詞か that 節を続けて伝えます。Let's や Why don't you などの提案を、どの形に直すかを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "感嘆文の間接話法: say how・say what + 平叙文の語順",
+          "explanation": "感嘆文(How ... ! / What a ... !)は、間接話法では say how や say what を使い、後ろは平叙文の語順(主語 + 動詞)にします。感嘆の意味は、how や what が表します。\n\n・直接: She said, \"How beautiful the view is!\"\n・間接: She said how beautiful the view was.(その景色はなんて美しいのだろうと、彼女は言った)\n・直接: He said, \"What a great day it is!\"\n・間接: He said what a great day it was.(なんてすばらしい日なのだろうと、彼は言った)\n\n感嘆文を間接話法にしても、疑問文の語順には戻しません。how や what の後ろは、主語の後ろに動詞が来る形のままです。",
+          "examples": [
+            { "en": "She **said how** beautiful the view **was**.", "ja": "その景色はなんて美しいのだろうと、彼女は言った。", "note": "How + 形容詞 + 平叙文の語順" },
+            { "en": "He **said what** a great day **it was**.", "ja": "なんてすばらしい日なのだろうと、彼は言った。", "note": "What a + 名詞 + 平叙文の語順" }
+          ],
+          "cautions": ["× She said how beautiful was the view. → ○ She said how beautiful the view was.(疑問文の語順に戻さない)"]
+        },
+        {
+          "heading": "提案文の間接話法: suggest + -ing・suggest + that 節",
+          "explanation": "Let's ... や Why don't we ... ?、Shall we ... ? などの提案は、間接話法では suggest で表します。suggest の後ろは、次の2つの形のどちらかです。suggest は人を目的語に取らないので、「suggest 人 to 不定詞」とはしません。\n\n・suggest + -ing(〜することを提案する)\n・suggest + that 節(that の後ろの動詞は、原形、または should + 原形)\n\n直接: \"Let's take a short break.\" → 間接: She suggested taking a short break. / She suggested that we take a short break.\n\nthat 節の動詞は、アメリカ英語では原形、イギリス英語では should + 原形がよく使われます。Why don't you ... ? と言われたときも、同じ形で伝えられます。",
+          "examples": [
+            { "en": "She **suggested** that we **take** a short break.", "ja": "少し休憩しようと、彼女は提案した。", "note": "that 節の動詞は原形(take)" },
+            { "en": "He **suggested** **going** to the museum on Sunday.", "ja": "日曜日に美術館へ行くことを、彼は提案した。", "note": "suggest + 動名詞" },
+            { "en": "The doctor **suggested** that I **should** see a specialist.", "ja": "専門医に診てもらうよう、医師は私に勧めた。", "note": "should + 原形(イギリス英語で多い形)" }
+          ],
+          "cautions": ["× She suggested me to take a break. → ○ She suggested that I take a break.(suggest は人を目的語に取らない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、suggest の後ろに「人 + to 不定詞」を続けるひっかけや、suggest + 動名詞・that 節の形が出題されます。感嘆文の間接話法は、how・what の後ろを平叙文の語順で読めるかが、読み取りの目安になります。"
+    },
+    {
+      "id": "reporting-verbs",
+      "title": "伝達動詞の形: say・tell と、ask・order・advise・warn・promise など",
+      "intro": "伝達動詞は、後ろに人を取るか、that 節・to 不定詞・-ing・疑問詞の節のどれを続けるかで形が決まります。say と tell の違いを基本に、主な動詞の形をまとめて確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "say と tell: say は内容を、tell は人を取る",
+          "explanation": "say と tell は、どちらも「言う」という意味ですが、後ろに続く形が違います。\n\n・say: 言った内容(that 節)を続けます。人を続けるときは say to 人 の形にします。\n・tell: 人を目的語に取り、tell 人 that 節(〜と人に言う)の形にします。\n\n日本語で「私に言った」と書くとき、英語で say me とは言えません。誰に言ったかを書くなら tell、何と言ったかを中心に書くなら say、と覚えます。",
+          "table": {
+            "caption": "say と tell の形",
+            "headers": ["動詞", "形", "例文"],
+            "rows": [
+              ["say", "say that 節", "She said that the store was closed."],
+              ["say", "say to 人 that 節", "She said to me that the store was closed."],
+              ["tell", "tell 人 that 節", "She told me that the store was closed."],
+              ["tell", "tell 人 to 不定詞", "She told me to wait outside."]
+            ]
+          },
+          "examples": [
+            { "en": "She **told** me **that** the store was closed.", "ja": "店は閉まっていると、彼女は私に教えた。", "note": "tell + 人 + that 節" },
+            { "en": "She **said that** the store **was** closed.", "ja": "店は閉まっていると、彼女は言った。", "note": "say + that 節(人は続けない)" }
+          ],
+          "cautions": ["× She said me that the store was closed. → ○ She told me that the store was closed.(say は人を直接目的語に取らない)", "× He told that he was tired. → ○ He said that he was tired.(tell は人が必要。人がなければ say)"]
+        },
+        {
+          "heading": "ask・order・advise・warn: 人 + to 不定詞、人 + not to 不定詞",
+          "explanation": "依頼・命令・助言・警告の伝達動詞は、人を目的語に取ることが多く、続く形で意味が決まります。\n\n・ask 人 to 不定詞: 〜するよう頼む(依頼)\n・ask 人 if・whether・疑問詞の節: 〜かどうか・〜かを尋ねる(質問)\n・order 人 to 不定詞: 〜するよう命じる(命令)\n・advise 人 to 不定詞: 〜するよう勧める(助言)。人を取らないときは advise -ing(〜することを勧める)\n・warn 人 not to 不定詞: 〜しないよう注意する(警告)。warn 人 that 節で「〜だと警告する」の意味にもなる\n\n否定の形は、to の直前に not を置きます。人を目的語に取る動詞と、取らない動詞(advise -ing など)を区別します。",
+          "examples": [
+            { "en": "She **warned** me **not to** be late.", "ja": "遅れないよう、彼女は私に注意した。", "note": "warn 人 not to 不定詞(否定の警告)" },
+            { "en": "The doctor **advised** him **to** rest for a week.", "ja": "一週間休むよう、医者は彼に勧めた。", "note": "advise 人 to 不定詞" },
+            { "en": "The guide **asked** us **to** keep our voices down.", "ja": "声を小さくするよう、案内係は私たちに頼んだ。", "note": "ask 人 to 不定詞(依頼)" }
+          ],
+          "cautions": ["× He asked me going to the party. → ○ He asked me to go to the party.(ask は「人 + to 不定詞」。動名詞は続けない)", "× She warned me to not be late. → ○ She warned me not to be late.(not は to の直前に置く)"]
+        },
+        {
+          "heading": "promise・explain・admit・deny・reply・announce: 続く形を覚える",
+          "explanation": "次の動詞は、後ろに続く形がそれぞれ決まっています。意味から形を推測せず、表の形と一緒に覚えます。\n\nexplain は人を直接目的語に取らないので、「explain 人 that ...」とは言えません。「explain to 人 that ...」か、「explain + 疑問詞の節」の形にします。admit は、to 不定詞ではなく -ing を続けます。",
+          "table": {
+            "caption": "後ろに続く形",
+            "headers": ["動詞", "後ろに続く形", "例文"],
+            "rows": [
+              ["promise", "to 不定詞 / that 節", "She promised to call me back."],
+              ["explain", "that 節 / 疑問詞の節", "He explained why the plan had changed."],
+              ["admit", "-ing / that 節", "He admitted making a mistake in the report."],
+              ["deny", "-ing / that 節", "She denied that she had seen the file."],
+              ["reply", "that 節(人には to 人)", "He replied that he would think about it."],
+              ["announce", "that 節", "The company announced that prices would rise."]
+            ]
+          },
+          "examples": [
+            { "en": "She **promised** to **call** me back.", "ja": "折り返し電話すると、彼女は約束した。", "note": "promise + to 不定詞" },
+            { "en": "He **explained** **why** the plan **had changed**.", "ja": "計画が変わった理由を、彼は説明した。", "note": "explain + 疑問詞の節(語順は平叙文)" },
+            { "en": "She **denied** **being** at the office that day.", "ja": "その日オフィスにいたことを、彼女は否定した。", "note": "deny + -ing" },
+            { "en": "The company **announced** that **prices would rise**.", "ja": "会社は、価格が上がると発表した。", "note": "announce + that 節(will → would)" }
+          ],
+          "cautions": ["× He admitted to make a mistake. → ○ He admitted making a mistake.(admit の後ろは -ing。to 不定詞は続けない)", "× He explained me the reason. → ○ He explained the reason to me.(explain は人を直接目的語に取らない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、say と tell の取り違え(say me)、ask・advise・warn の「人 + to 不定詞」、explain の後ろの形が、空所の選択肢に並びます。動詞の直後が「人」か「that 節」か「to 不定詞」か「-ing」かを見ると、正解を絞れます。"
+    },
+    {
+      "id": "multi-sentence",
+      "title": "転換の手順と、2文以上の直接話法",
+      "intro": "直接話法を間接話法に直すときは、伝達動詞、時制、人称、副詞、文の形の順に確かめます。文が2つ以上あるときや、命令文と疑問文が混ざるときも、文ごとに転換して and でつなぎます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "間接話法への転換の手順: 伝達動詞・時制・人称・副詞の順に直す",
+          "explanation": "直接話法から間接話法への書き換えは、次の順に確かめると、抜けが減ります。\n\n1. 伝達動詞を決める: 平叙文は say・tell、疑問文は ask、命令文は tell・ask + 人 + to 不定詞\n2. 時制を、主節の時制に合わせる(時制の一致)\n3. 人称を、報告する人の立場に合わせる(I → he / she など)\n4. 時・場所の副詞と指示語を変える(now → then、this → that など)\n5. 疑問文は平叙文の語順に、命令文は不定詞の形に直す\n\n最後に、文の形が間接話法として正しいかを確かめます。疑問文の語順に戻っていないか、命令文に to 不定詞が入っているかを見ます。that は省略してもかまいません。",
+          "examples": [
+            { "en": "She **said** that she **was going** to the library **the next day**.", "ja": "次の日に図書館へ行く予定だと、彼女は言った。", "note": "am going → was going、tomorrow → the next day" },
+            { "en": "He **asked** me **where** his bag **was**, and **said** he **had left** it **there**.", "ja": "かばんはどこにあるかと、彼は私に尋ねた。そして、そこに置き忘れたと言った。", "note": "I → he、my → his、here → there、疑問文は平叙文の語順" }
+          ]
+        },
+        {
+          "heading": "2文以上の直接話法: 文ごとに転換し、and でつなぐ",
+          "explanation": "直接話法が2つ以上の文からできているときは、文ごとに間接話法に直し、and(または but)でつなぎます。2つ目の文の前の that は、省略しても、残してもかまいません。\n\n・直接: She said, \"I'm sorry. I forgot the file.\"\n・間接: She said that she was sorry, and that she had forgotten the file.\n\nどちらの文も、主節の said(過去形)に合わせて時制を変えます。I'm sorry は was sorry に、I forgot は had forgotten に変わります。",
+          "examples": [
+            { "en": "She **said** that she **was** sorry, and that she **had forgotten** the file.", "ja": "彼女はすまないと言い、ファイルを忘れていたとも言った。", "note": "文ごとに時制の一致を行い、and でつなぐ" },
+            { "en": "He **said** that the meeting **had been** cancelled, and that **they would have to** reschedule it.", "ja": "会議は中止になったと彼は言い、日程を組み直さなければならないとも言った。", "note": "has been → had been、will have to → would have to、we → they" }
+          ]
+        },
+        {
+          "heading": "命令文と疑問文が混ざった直接話法: 文ごとに転換する",
+          "explanation": "直接話法の中に、命令文と疑問文のように文の形が違う文が並ぶこともあります。その場合も、文ごとに間接話法に直します。命令文は tell 人 not to 不定詞、疑問文は疑問詞の後ろを平叙文の語順にします。\n\n・直接: He said, \"Don't be late. Where is the key?\"\n・間接: He told me not to be late, and asked where the key was.\n\n文の形ごとに伝達動詞が変わることに注意します。tell、asked と、文の形に合わせて選べば、意味が正しく伝わります。",
+          "examples": [
+            { "en": "He **told** me **not to** be late, and **asked** where the key **was**.", "ja": "遅れないようにと私に言い、鍵はどこにあるかと尋ねた。", "note": "命令文 → tell 人 not to、疑問文 → asked where + 平叙文の語順" },
+            { "en": "She **suggested** that we **leave** then, and **asked** whether I **was** ready.", "ja": "そのとき出発しようと提案し、私の準備はできているかと尋ねた。", "note": "Let's → suggested that we + 原形、Are you ready? → whether I was ready" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、直接話法から転換した後の時制や副詞(the next day など)を、空所で選ぶ形が出ます。長い英文の読解では、and でつながった2つ目の文が、どの伝達動詞の内容かを確かめることが大切です。"
     }
   ],
   "summary": [
@@ -165,7 +328,10 @@
     "疑問文の間接話法は、疑問詞や if・whether の後ろが平叙文の語順になる",
     "命令文は tell 人 to 不定詞、否定の命令は tell 人 not to 不定詞",
     "依頼文は ask 人 to 不定詞。suggest は人を取らず、動名詞か that 節を続ける",
-    "伝達動詞: say は that 節、tell は人 + that 節を取る"
+    "伝達動詞: say は that 節、tell は人 + that 節を取る",
+    "2文以上の直接話法は、文ごとに転換して and でつなぐ(時制の一致は文ごとに行う)",
+    "感嘆文は say how・say what + 平叙文の語順、提案は suggest + -ing か that 節(原形・should)",
+    "報告の時点で事実が今も続くなら現在形、過去の出来事なら過去完了で伝える"
   ],
   "quiz": [
     {

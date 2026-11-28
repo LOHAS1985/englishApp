@@ -2,7 +2,7 @@
   "id": "adjective",
   "no": 7,
   "title": "形容詞",
-  "lead": "形容詞は、名詞を説明したり、補語になったりして、人や物の性質・状態を表す語です。名詞の前に置く限定用法と、be 動詞などの後に置く叙述用法があり、使える位置が決まっている語もあります。TOEIC Part 5 では、many・much・few・little の使い分け、each・every の単数扱い、形容詞と前置詞の結びつき、語順がよく問われます。この章では、その基本を確かめます。",
+  "lead": "形容詞は、名詞を説明したり、補語になったりして、人や物の性質・状態を表す語です。名詞の前に置く限定用法と、be 動詞などの後に置く叙述用法があり、使える位置が決まっている語もあります。この章では、形容詞の位置と語順、数量を表す語、数詞、感情を表す形容詞、the + 形容詞、to 不定詞・that 節を続ける形容詞、位置で意味が変わる語を確かめます。TOEIC Part 5 では、many・much・few・little の使い分け、each・every の単数扱い、語順、形容詞と前置詞の結びつきがよく問われます。",
   "sections": [
     {
       "id": "basics",
@@ -42,6 +42,24 @@
             { "en": "We have **something important** to discuss.", "ja": "話し合うべき重要なことがある。", "note": "something + 形容詞" },
             { "en": "The manager **responsible for the budget** will join us.", "ja": "予算を担当している部長が、私たちに加わる。", "note": "形容詞句は名詞の後ろ" }
           ]
+        },
+        {
+          "heading": "限定用法にしか使えない語: main・mere・former・only",
+          "explanation": "次の語は、名詞の前に置く限定用法だけで使い、be 動詞の後ろ(叙述用法)には置けません。\n\n・main(主な)、mere(単なる)、former(前の・元の)、only(唯一の)\n\n日本語の「その理由は主なものだ」の感覚で The reason is main. と言うのは誤りです。英語では、the main reason のように名詞の前に置きます。\n\n同じ仲間の elder(年上の)も、my elder sister(私の姉)とは言えますが、叙述用法では older を使います。",
+          "examples": [
+            { "en": "The **mere** mention of the price made him nervous.", "ja": "値段の話が出ただけで、彼は緊張した。", "note": "mere は名詞の前だけ(単なる〜)" },
+            { "en": "The **former** manager now runs a small company.", "ja": "元の部長は今、小さな会社を経営している。", "note": "former は名詞の前で使う(前の〜)" }
+          ],
+          "cautions": ["× The reason is main. → ○ The main reason is the budget.(main は名詞の前に置く)", "× My sister is elder. → ○ My sister is older.(叙述用法では older を使う)"]
+        },
+        {
+          "heading": "叙述用法にしか使えない語: alive・asleep・alone・aware",
+          "explanation": "次の語は、be 動詞や become などの後ろでだけ使います(叙述用法)。名詞の前に置くときは、別の語を使うか、修飾語を付けた形にします。\n\n・alive(生きている)→ 名詞の前は living(生きている〜): a living legend(生きた伝説)\n・asleep(眠っている)→ 名詞の前は sleeping: a sleeping cat(眠っている猫)\n・alone(ひとりで)→ 名詞の前は lone(ただ一人の): a lone traveler(ひとり旅の人)。lonely は「寂しい」で意味が違う\n・aware(気づいている)→ 単独では名詞の前に置けないが、a socially aware company(社会問題に意識の高い会社)のように修飾語を伴えば使える",
+          "examples": [
+            { "en": "The child was **asleep** when we arrived home.", "ja": "私たちが家に着いたとき、子どもは眠っていた。", "note": "asleep は be 動詞の後ろで使う" },
+            { "en": "Customers are **aware** of the new charges.", "ja": "客は、新しい料金に気づいている。", "note": "aware of ~(~に気づいている)は叙述用法" }
+          ],
+          "cautions": ["× an asleep baby → ○ a sleeping baby(名詞の前では sleeping)", "× the alive fish → ○ the living fish(名詞の前では living)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、形容詞を名詞の前に置けるかどうか(afraid の位置)や、something の後ろの語順が問われます。"
@@ -92,6 +110,62 @@
             { "en": "The meeting is held **every other** week.", "ja": "その会議は一週間おきに開かれる。", "note": "every other + 単数名詞" },
             { "en": "The two teams support **each other** during busy periods.", "ja": "二つのチームは、忙しい時期に互いに支え合う。", "note": "each other(お互い)" }
           ]
+        },
+        {
+          "heading": "some・any: 肯定文・依頼と、否定文・疑問文",
+          "explanation": "some と any は「いくつかの・いくらかの」を表します。数えられる名詞にも、数えられない名詞にも使えます。\n\n・some は、肯定文と、勧めや依頼の疑問文(Would you like some tea?)で使う\n・any は、否定文(not ~ any)と、疑問文・if 節で使う\n\nany は「どんな〜でも」の意味で、肯定文でも使えます(Any employee can apply.)。否定文では、some ではなく not ~ any を使うのが普通です。",
+          "examples": [
+            { "en": "Would you like **some** more coffee?", "ja": "コーヒーをもう少しいかがですか。", "note": "勧めの疑問文では some を使う" },
+            { "en": "We do not have **any** spare chairs for the event.", "ja": "そのイベント用の予備の椅子は一つもない。", "note": "否定文では any を使う" },
+            { "en": "**Any** employee can apply for the training program.", "ja": "どの社員でも、その研修に申し込める。", "note": "any は「どんな〜でも」(肯定文)" }
+          ],
+          "cautions": ["× We don't have some time. → ○ We don't have any time.(否定文では any)"]
+        },
+        {
+          "heading": "several: いくつかの(数えられる複数名詞に使う)",
+          "explanation": "several は「いくつかの」を表し、数えられる複数名詞の前に置きます。辞書では、「二つより多いが、多くはない」と説明されることが多い語です。数えられない名詞には使えません。\n\n・several employees(数人の社員)\n・several reasons(いくつかの理由)\n\nseveral は、数を正確に示さず、「いくつか」と伝えたいときに使います。",
+          "examples": [
+            { "en": "**Several** employees asked for a change to the schedule.", "ja": "数人の社員が、予定の変更を求めた。", "note": "several + 数えられる複数名詞" },
+            { "en": "The team received **several** complaints about the new app.", "ja": "チームは、新しいアプリについて複数の苦情を受けた。", "note": "several complaints(いくつかの苦情)" }
+          ],
+          "cautions": ["× several information → ○ some information(information は数えられない名詞)"]
+        },
+        {
+          "heading": "a lot of・lots of・plenty of: たくさんの・十分な",
+          "explanation": "a lot of、lots of、plenty of は「たくさんの」を表し、数えられる名詞にも、数えられない名詞にも使えます。many・much は、ふつう否定文と疑問文で使い、肯定文では a lot of を使うのが普通です。lots of は口語的な言い方です。\n\nplenty of は「十分にある」の感覚を含みます(plenty of time = 十分な時間)。a great deal of は、数えられない名詞だけに使います(a great deal of time)。\n\n・a lot of customers(多くの客) / a lot of time(多くの時間)",
+          "examples": [
+            { "en": "We received **a lot of** questions after the price change.", "ja": "値段を変えた後、多くの問い合わせが寄せられた。", "note": "a lot of + 数えられる名詞" },
+            { "en": "There is **plenty of** parking near the station.", "ja": "駅の近くには、十分な駐車場がある。", "note": "plenty of は「十分にある」" },
+            { "en": "**Plenty of** seats are still available.", "ja": "まだ座席は十分に空いている。", "note": "plenty of + 複数名詞なので、動詞は複数" }
+          ],
+          "cautions": ["× We have many time. → ○ We have a lot of time.(数えられない名詞には many を使わない)"]
+        },
+        {
+          "heading": "基数と序数: one・two と first・second・third",
+          "explanation": "数を表すことばには、基数(one、two、three)と序数(first、second、third)があります。基数は数の量を、序数は順番を表します。\n\n序数は、the と組んで「〜番目の」を表すことが多いです。the third floor(3階)、the second half of the year(その年の後半)のように使います。\n\n序数の多くは、基数に -th を付けた形です(fourth、fifth、twentieth)。数字で書くときは、1st、2nd、3rd、4th のように語尾を付けます。",
+          "examples": [
+            { "en": "Our office is on the **third** floor of the building.", "ja": "私たちの事務所は、そのビルの3階にある。", "note": "the + 序数 + 名詞(〜番目の)" },
+            { "en": "We will publish the results in the **second** half of the year.", "ja": "結果は、その年の後半に発表する予定だ。", "note": "the second half(後半)" }
+          ],
+          "cautions": ["× the three floor → ○ the third floor(順番を表すときは序数)"]
+        },
+        {
+          "heading": "分数: two-thirds・one-third と、動詞の一致",
+          "explanation": "分数は、分子を基数、分母を序数で表します(two-thirds は3分の2)。分子が2以上のときは、分母を複数形にします(two-thirds、three-fifths)。分子が1のとき(one-third)は、分母は単数形です。\n\n分数の後ろの of の名詞に、動詞を合わせます。two-thirds of the budget(予算の3分の2)は budget が単数なので単数扱い、one-third of the employees(社員の3分の1)は employees が複数なので複数扱いです。\n\n「半分」は half を使います(half of the budget、half the time)。",
+          "examples": [
+            { "en": "**Two-thirds** of the budget has already been spent.", "ja": "予算の3分の2は、すでに使われた。", "note": "of の後ろの budget(単数)に合わせて has" },
+            { "en": "**One-third** of the employees are working from home today.", "ja": "社員の3分の1が、今日は在宅で働いている。", "note": "of の後ろの employees(複数)に合わせて are" }
+          ],
+          "cautions": ["× Two-third of the budget → ○ Two-thirds of the budget(分子が2以上なら分母は複数形)"]
+        },
+        {
+          "heading": "年号と年代: nineteen ninety-eight と the 1990s",
+          "explanation": "年号は、2けたずつ区切って読みます。1998 は nineteen ninety-eight、2005 は two thousand five です(英国では two thousand and five と and を入れることもあります)。2026 年は、two thousand twenty-six と読みます。\n\n10年代は the 1990s(the nineties)、世紀は the twentieth century のように、序数を使います。前置詞は in を使い、in 1998、in the 1990s のように言います。",
+          "examples": [
+            { "en": "The company was founded in **1998**, and it opened an office in Osaka in **2005**.", "ja": "その会社は1998年に創業し、2005年に大阪に事務所を開いた。", "note": "年号は数字で書き、in + 年号" },
+            { "en": "Prices rose sharply in **the 1970s**, after the oil crisis.", "ja": "石油危機のあと、1970年代に物価は急に上がった。", "note": "the + 年代(複数形)" }
+          ],
+          "cautions": ["× in the 1998 → ○ in 1998、または in the year 1998(年号の前に the だけを置かない)"]
         }
       ],
       "examNote": "TOEIC Part 5 では、few と a few、little と a little の区別(否定か肯定か)や、each・every の後ろの単数名詞が問われます。"
@@ -151,17 +225,172 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、必要・重要の形容詞と前置詞(to)の組み合わせ、It is ~ that の形が出題されます。"
+    },
+    {
+      "id": "word-order",
+      "title": "形容詞の語順と後置修飾: a beautiful old house・the only option available",
+      "intro": "形容詞が二つ以上並ぶときの順番と、形容詞が名詞の後ろに置かれる形を確かめます。語順を知っていると、並べ替えの問題や、長い名詞句を読むときに迷いにくくなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "形容詞の語順: 意見・大きさ・新旧・色・材料の順",
+          "explanation": "形容詞が名詞の前に二つ以上並ぶとき、英語には一般的な順番があります。目安は、意見(beautiful、nice)→ 大きさ(large、small)→ 新旧・年齢(old、new)→ 形(round)→ 色(red)→ 由来(Japanese)→ 材料(wooden、leather)の順です。\n\n・a beautiful old stone house(美しい古い石の家)\n・a small red leather bag(小さな赤い革のバッグ)\n\n日本語では「古い美しい家」と順番を変えても通じることがありますが、英語では、この順番から外れると不自然になります。この順番は一般的な目安で、試験では、語順が正しい形を選ぶ問題として出ます。",
+          "examples": [
+            { "en": "She bought a **beautiful old** house near the station.", "ja": "彼女は、駅の近くに美しい古い家を買った。", "note": "意見 → 新旧の順" },
+            { "en": "He carries a **small red leather** bag to work.", "ja": "彼は、小さな赤い革のバッグを会社に持っていく。", "note": "大きさ → 色 → 材料の順" }
+          ],
+          "cautions": ["× a wooden old table → ○ an old wooden table(新旧は材料より前)", "× a red big car → ○ a big red car(大きさは色より前)"]
+        },
+        {
+          "heading": "名詞の後ろに置く possible・available: all the documents available",
+          "explanation": "形容詞は、ふつう名詞の前に置きますが、all、only、最上級(the best など)が名詞を修飾するとき、possible や available は名詞の後ろに置くことがあります。\n\n・all the documents available(利用できる資料すべて)\n・the only option available(利用できる唯一の選択肢)\n・the best offer possible(可能な中で最善の提案)\n\nthe best possible offer のように、possible を名詞の前に置く形もよく使われます。どちらも自然な英語で、意味はほぼ同じです。",
+          "examples": [
+            { "en": "We reviewed **all the documents available** before the meeting.", "ja": "会議の前に、利用できる資料をすべて確認した。", "note": "all the + 名詞 + available(後ろから修飾)" },
+            { "en": "It is the **only option available** at this time.", "ja": "現時点で利用できる選択肢は、これだけだ。", "note": "the only + 名詞 + available" }
+          ]
+        },
+        {
+          "heading": "enough の位置: enough time と good enough",
+          "explanation": "enough(十分な・十分に)は、名詞の前に置くと「十分な〜」、形容詞や副詞の後ろに置くと「十分に〜だ」を表します。\n\n・enough time(十分な時間): enough は名詞の前\n・good enough(十分に良い): enough は形容詞の後ろ\n\nenough を名詞の後ろに置く語順(time enough)は文語的で、今ではほとんど使いません。enough to do(~するのに十分な)の形は、第13章「不定詞」で扱います。",
+          "examples": [
+            { "en": "Do we have **enough** chairs for everyone?", "ja": "全員分の椅子は足りるだろうか。", "note": "enough + 複数名詞(名詞の前)" },
+            { "en": "The new software is **good enough** for our small team.", "ja": "その新しいソフトは、私たちの小さなチームには十分良い。", "note": "形容詞 + enough" }
+          ],
+          "cautions": ["× time enough → ○ enough time(enough は名詞の前に置くのが普通)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、形容詞の語順(a beautiful old house)や、名詞の後ろに置く available・possible の形が問われることがあります。enough は、enough + 名詞と、形容詞 + enough の形を区別します。"
+    },
+    {
+      "id": "emotion-the",
+      "title": "感情を表す形容詞と the + 形容詞: pleased with・the elderly",
+      "intro": "感情を表す -ed と -ing は、感じる人が主語なら -ed、感じさせる物が主語なら -ing を使います。また、the + 形容詞で、「〜な人々」を表すことがあります。この節では、形容詞として使うときの型を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "人が主語の -ed: be pleased with・be surprised by",
+          "explanation": "感情を表す形容詞の -ed は、感じる人の状態を表します。日本語では「その結果に驚いた」と言いますが、英語では「人が驚かされた」と考え、be surprised by(~に驚く)のように受け身の形で表します。\n\n感情の -ed は、前置詞と結びつくことが多いので、語句のまとまりで覚えます。\n\n・be surprised at / by(~に驚く)\n・be pleased with(~に満足している)\n・be satisfied with(~に満足している)\n・be interested in(~に興味がある)\n\n-ed と -ing の対応は、第14章「分詞」で詳しく扱います。",
+          "examples": [
+            { "en": "The customers were **pleased with** the new service.", "ja": "客は、新しいサービスに満足していた。", "note": "人が主語。pleased with(満足している)" },
+            { "en": "We were **surprised by** the sudden drop in sales.", "ja": "私たちは、売上の急な落ち込みに驚いた。", "note": "原因は by で表す" }
+          ],
+          "cautions": ["× I am interesting in the plan. → ○ I am interested in the plan.(人の気持ちは -ed)"]
+        },
+        {
+          "heading": "物が主語の -ing: The report was encouraging.",
+          "explanation": "感情を表す -ing は、感じさせる物や出来事の性質を表します。主語が物や出来事のとき、-ing を使うのが基本です。\n\n・The meeting was boring.(その会議は退屈だった)\n・The news was encouraging.(そのニュースは励みになるものだった)\n\n名詞の前に置くときも同じです。an encouraging sign(励みになる兆し)、a boring meeting(退屈な会議)。\n\n注意: 自分を主語にして I am boring と言うと、「私は退屈な人間だ」の意味になります。自分が退屈なら I am bored です。",
+          "examples": [
+            { "en": "The **report** was **encouraging**, and the team felt more confident.", "ja": "その報告は励みになるもので、チームはより自信を持てた。", "note": "物が主語なので -ing" },
+            { "en": "The **training** was **boring** because the slides were too long.", "ja": "研修は、スライドが長すぎて退屈だった。", "note": "物・出来事が「退屈させる」ので -ing" }
+          ],
+          "cautions": ["× I am boring in the meeting. → ○ I am bored in the meeting.(自分が退屈なら -ed)"]
+        },
+        {
+          "heading": "the + 形容詞: the elderly・the unemployed(〜な人々)",
+          "explanation": "the + 形容詞で、「〜な人々」や「〜なもの」を表します。the rich(裕福な人々)、the elderly(お年寄り)、the unemployed(失業者)のように、人々の集まりを指します。\n\nこの形は複数の人々を指すので、動詞は複数扱いです。\n\n一人の人を指すときは、the rich man(その裕福な男性)のように名詞を続けます。国民を表す the Japanese(日本人)も同じ形です。抽象的なもの(the unknown、未知のもの)にも使えます。",
+          "examples": [
+            { "en": "The **elderly** often find new technology difficult to use.", "ja": "お年寄りは、新しい技術を使いこなすのが難しいと感じることが多い。", "note": "the elderly(お年寄り)は複数扱い(find)" },
+            { "en": "The government is offering training to **the unemployed**.", "ja": "政府は、失業者に研修を提供している。", "note": "the unemployed(失業者)" }
+          ],
+          "cautions": ["× The rich is generous. → ○ The rich are generous.(the + 形容詞は複数扱い)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、感情の形容詞と前置詞(pleased with、surprised by)の組み合わせや、人か物かで -ed / -ing を選ぶ問題が出ます。the + 形容詞(the elderly)の動詞は複数扱いです。"
+    },
+    {
+      "id": "meaning-change",
+      "title": "位置で意味が変わる形容詞: the late・the present・a certain",
+      "intro": "同じ形容詞でも、名詞の前に置くか後ろに置くか、be 動詞の後ろにあるかで意味が変わるものがあります。辞書の一つ目の意味だけで覚えると、文脈で迷うので、位置とセットで覚えます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "late: 遅れた・遅い / the late(故〜)",
+          "explanation": "late の基本の意味は「遅れた・遅い」です(The train was late.)。名詞の前に the late を置くと、「故〜」(亡くなった〜)の意味になります。\n\n・the late Mr. Sato(故佐藤氏)\n\n故人を表すときは、the late を名前や肩書きの前に置きます。late を副詞として使うと「遅く・遅れて」の意味です(arrive late)。lately は「最近」の副詞で、別の語です。",
+          "examples": [
+            { "en": "The company was founded by **the late** Mr. Sato in 1985.", "ja": "その会社は、故佐藤氏が1985年に創業した。", "note": "the late + 名前(故〜)" },
+            { "en": "The meeting started **late** because of the snow.", "ja": "雪のため、会議は遅れて始まった。", "note": "late は副詞(遅れて)" }
+          ],
+          "cautions": ["× late Mr. Sato → ○ the late Mr. Sato(故人を表すときは the late を付ける)"]
+        },
+        {
+          "heading": "present: 現在の / その場にいる(出席している)",
+          "explanation": "present は、名詞の前では「現在の」、be 動詞の後ろでは「出席している・その場にいる」の意味になります。名詞の後ろに置くと、「その場にいる」の意味で、前の節で扱った後置修飾と同じ形になります。\n\n・the present system(現在の仕組み)\n・be present at the meeting(会議に出席している)\n・the people present(その場にいた人々)",
+          "examples": [
+            { "en": "The **present** system has several problems.", "ja": "現在の仕組みには、いくつか問題がある。", "note": "present(現在の)は名詞の前で使う" },
+            { "en": "Everyone **present** agreed to the new budget.", "ja": "その場にいた全員が、新しい予算に賛成した。", "note": "everyone present(その場にいる全員)は後ろに置く" }
+          ],
+          "cautions": ["× the present people → ○ the people present(前に置くと「現在の人々」の意味になる)"]
+        },
+        {
+          "heading": "certain: 確かな・確信している / ある〜",
+          "explanation": "certain は、be 動詞の後ろでは「確かな・確信している」、名詞の前では「ある〜」「ある種の〜」の意味になります。\n\n・be certain that ~(~だと確信している)\n・a certain customer(ある客)\n\n名詞の前の a certain は、名前や詳しい情報を出さずに、ある一人や一つを指すときに使います。for certain は「確かに」の意味で、文末に置くことが多いです(We do not know for certain.)。",
+          "examples": [
+            { "en": "The manager is **certain** that the project will succeed.", "ja": "部長は、そのプロジェクトが成功すると確信している。", "note": "be certain that ~(確信している)" },
+            { "en": "A **certain** employee left the file on the train.", "ja": "ある社員が、そのファイルを電車に置き忘れた。", "note": "a certain + 名詞(ある〜)" }
+          ],
+          "cautions": ["× I am certain the plan. → ○ I am certain of the plan.(確信している対象は of で表す)"]
+        },
+        {
+          "heading": "ill: 病気で(叙述用法)と、名詞の前の ill(悪い〜)",
+          "explanation": "ill は、be 動詞の後ろでは「病気で・気分が悪い」の意味です(be ill、fall ill)。名詞の前では「悪い・有害な」の意味で、ill health(健康の不調)、ill effects(悪影響)のような決まった語句で使います。\n\n名詞の前で「病気の」と言うときは、ふつう sick を使います。an ill child は文語的な言い方で、a sick child が一般的です。",
+          "examples": [
+            { "en": "The new rule had **ill** effects on morale.", "ja": "新しい規則は、社員の士気に悪影響を与えた。", "note": "ill effects(悪影響)は名詞の前" },
+            { "en": "Several staff members were **ill** last week.", "ja": "先週は、数人のスタッフが病気で休んでいた。", "note": "be ill(病気である)は叙述用法" }
+          ],
+          "cautions": ["× an ill employee → ○ a sick employee(名詞の前で「病気の」は sick が普通)"]
+        },
+        {
+          "heading": "right: 正しい・適切な / ちょうど / 権利",
+          "explanation": "right は、形容詞では「正しい・適切な」(You are right.、the right answer)、副詞では「ちょうど・すぐ」(right after the meeting)、名詞では「権利」(the right to vote)の意味があります。反対の意味の形容詞は wrong です。\n\n・the right person for the job(その仕事に適任の人)\n\n名詞の前では、the right + 名詞で「適切な〜」を表すことが多いです。「右」の意味では right side(右側)のように使います。",
+          "examples": [
+            { "en": "She is the **right** person for the job.", "ja": "彼女はその仕事に適任だ。", "note": "the right + 名詞(適切な〜)" },
+            { "en": "The new team members will start **right** after the holiday.", "ja": "新しいメンバーは、休暇明けすぐに仕事を始める。", "note": "right after(~のすぐ後に)は副詞" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 や英検準1級では、the late(故〜)、the people present(その場にいる人々)、a certain(ある〜)のように、位置による意味の違いを文脈から判断する問題が出ることがあります。"
+    },
+    {
+      "id": "adj-to-that",
+      "title": "形容詞の後ろの to 不定詞・that 節: be afraid to・be sure that",
+      "intro": "形容詞の中には、後ろに to 不定詞や that 節を続けるものがあります。同じ形容詞でも、to と that で意味が変わることがあるので、二つを対比して覚えます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "be afraid to ~ と be afraid that ~: 〜するのが怖い / 残念ながら〜だ",
+          "explanation": "afraid(恐れている)は、後ろに to 不定詞と that 節のどちらも続けられますが、意味が変わります。\n\n・be afraid to + 動詞: 〜するのが怖い(怖くて〜できない)\n・be afraid that + 節: 〜ではないかと心配だ、残念ながら〜だ\n\n丁寧な断りでよく使う I'm afraid that ~ は、「残念ながら〜だ」の意味です。「〜を恐れる」と名詞に続けるときは be afraid of + 名詞、または be afraid of -ing を使います。",
+          "examples": [
+            { "en": "I am **afraid to** tell the client about the delay.", "ja": "私は、遅れのことを取引先に伝えるのが怖い。", "note": "be afraid to + 動詞(〜するのが怖い)" },
+            { "en": "I am **afraid that** we cannot accept your offer.", "ja": "残念ながら、ご提案をお受けすることはできません。", "note": "be afraid that + 節(残念ながら〜)" }
+          ],
+          "cautions": ["× be afraid of to do → ○ be afraid to do(to 不定詞の前に of は置かない)"]
+        },
+        {
+          "heading": "be sure to ~ と be sure that ~: 必ず〜する / 〜だと確信している",
+          "explanation": "sure(確かな・確信している)も、to と that で意味が変わります。\n\n・be sure to + 動詞: 必ず〜する(相手に念を押すときに使う)\n・be sure that + 節: 〜だと確信している、きっと〜だ\n\nbe sure to は、Please be sure to ~ のように、念を押す依頼によく使います。be sure that は、話し手の確信を表します。be glad that、be aware that のように、that 節を続ける形容詞もあります。",
+          "examples": [
+            { "en": "Please be **sure to** lock the door before you leave.", "ja": "帰るときは、必ずドアの鍵を閉めてください。", "note": "be sure to + 動詞(必ず〜する)" },
+            { "en": "We are **sure that** the new product will sell well.", "ja": "私たちは、新製品がよく売れると確信している。", "note": "be sure that + 節(確信している)" }
+          ],
+          "cautions": ["× I am sure of that the plan will succeed. → ○ I am sure that the plan will succeed.(of の後ろに that 節は続けない)"]
+        }
+      ],
+      "examNote": "英検準1級・TOEIC では、be afraid to / be afraid that、be sure to / be sure that の使い分けが、語彙・文法問題で問われます。of の後ろに that 節は続けられない、という点もひっかけになります。"
     }
   ],
   "summary": [
     "形容詞は、名詞の前(限定用法)か、be 動詞・become の後(叙述用法)に置く",
-    "名詞の前に置けない形容詞(afraid・alive・asleep)、名詞の前だけの形容詞(main・former)がある",
-    "something の後ろの形容詞は、名詞のように後ろに置く(something important)",
-    "数えられる名詞には many・few、数えられない名詞には much・little",
-    "a few・a little は「少しある」(肯定)。few・little は「ほとんどない」(否定)",
-    "each・every の後ろは単数名詞、動詞も単数扱い。every other は「一つおきの」",
-    "liable for(責任がある)、in high demand(需要が高い)は、語のまとまりで覚える",
-    "It is imperative that ~ の後ろは原形。vital・essential は to + 名詞と組む"
+    "名詞の前だけの語(main・mere・former)と、名詞の前に置けない語(afraid・alive・asleep)がある",
+    "形容詞が並ぶときは、意見・大きさ・新旧・色・材料の順に置く(a beautiful old stone house)",
+    "something の後ろの形容詞、all・only・最上級の後ろの possible・available は、名詞の後ろに置く",
+    "数えられる名詞には many・few、数えられない名詞には much・little。few・little は「ほとんどない」",
+    "a few・a little は「少しある」(肯定)。some は肯定文・依頼、any は否定文・疑問文で使う",
+    "each・every の後ろは単数名詞で単数扱い。分数は分子が2以上なら分母を複数形にする",
+    "年号は2けたずつ区切って読む(1998 は nineteen ninety-eight)。10年代は the 1990s",
+    "人が主語なら -ed(be pleased with)、物が主語なら -ing(boring)。the + 形容詞は「〜な人々」で複数扱い",
+    "late・present・certain などは、位置で意味が変わる(the late Mr. Sato は「故佐藤氏」)",
+    "be afraid to ~(〜するのが怖い)と be afraid that ~(残念ながら〜だ)は意味が違う",
+    "liable for・in high demand・vital to ~ は語句のまとまりで覚える。It is imperative that ~ の後ろは原形"
   ],
   "quiz": [
     {

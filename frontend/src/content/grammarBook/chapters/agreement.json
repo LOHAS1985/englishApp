@@ -2,7 +2,7 @@
   "id": "agreement",
   "no": 21,
   "title": "一致",
-  "lead": "主語と動詞の一致は、主語が単数か複数かによって、動詞の形を合わせることです。主語と動詞が離れていたり、主語が二つ並んでいたり、a number of のような数量の表現が使われたりすると、どの名詞が主語の中心かを見極める必要があります。TOEIC Part 5 では、この一致の判断が頻繁に問われます。この章では、主語の中心を見つけて、動詞の形を決める方法を確かめます。",
+  "lead": "主語と動詞の一致は、主語が単数か複数かによって、動詞の形を合わせることです。主語と動詞が離れていたり、主語が二つ並んでいたり、a number of のような数量の表現が使われたりすると、どの名詞が主語の中心かを見極める必要があります。TOEIC Part 5 では、この一致の判断が頻繁に問われます。この章では、主語の中心を見つけて、動詞の形を決める方法を確かめます。後半では、each や none などの不定代名詞の一致、a variety of や分数 + of などの数量の表現、倒置文と主語・補語の一致も扱います。",
   "sections": [
     {
       "id": "basics",
@@ -31,15 +31,41 @@
           "explanation": "news(知らせ)、physics、economics、statistics などの学問名は、複数形の形でも単数扱いになります。また、金額・時間・距離を表す語句も単数扱いです。\n\n・The news is good for the company.(その知らせは、会社にとって良い)\n・Five thousand yen is the fee for the course.(5,000円が、その講座の料金だ)",
           "examples": [
             { "en": "The **news is** good for the company.", "ja": "その知らせは、会社にとって良いものだ。", "note": "news は単数扱い" },
-            { "en": "Five thousand yen **is** the fee for the course.", "ja": "5,000円が、その講座の料金だ。", "note": "金額は単数扱い" }
+            { "en": "Five thousand yen **is** the fee for the course.", "ja": "5,000円が、その講座の料金だ。", "note": "金額は単数扱い" },
+            { "en": "**Economics is** a required course for first-year students.", "ja": "経済学は、1年生全員が必ず履修する科目だ。", "note": "学問名は -s で終わっても単数扱い" },
+            { "en": "**Ten miles is** too far to walk in this heat.", "ja": "この暑さの中、10マイルは歩くには遠すぎる。", "note": "距離は一まとまりとして単数扱い" }
           ]
         },
         {
           "heading": "集合名詞: 一つのまとまりとして単数扱い",
-          "explanation": "family、team、staff、committee、police などの集合名詞は、一つのまとまりとして考えるときは単数扱いにするのが基本です。TOEIC では、単数扱いの形で出題されることが多いです。\n\n・The team is ready for the launch.(チームは発売の準備ができている)",
+          "explanation": "family、team、staff、committee などの集合名詞は、一つのまとまりとして考えるときは単数扱いにするのが基本です。TOEIC では、単数扱いの形で出題されることが多いです。\n\n・The team is ready for the launch.(チームは発売の準備ができている)",
           "examples": [
             { "en": "The **committee has** approved the plan.", "ja": "委員会はその計画を承認した。", "note": "集合名詞は単数扱いが基本" },
             { "en": "The **team is** preparing for the event.", "ja": "チームはそのイベントの準備をしている。", "note": "まとまりとして単数扱い" }
+          ]
+        },
+        {
+          "heading": "複数扱いの集合名詞: people・police・the + 形容詞",
+          "explanation": "**people(人々)、police(警察)、the + 形容詞(the elderly、the rich など「〜な人々」の意味)は、いつも複数扱いです。** 個々の人を集めた「人々」を表すので、動詞は複数の形になります。\n\n・The police are investigating the cause of the fire.(警察が出火の原因を調べている)\n・The elderly need more support from their communities.(高齢者には、地域からのより多くの支えが必要だ)\n\npolice officer(警察官)のように、単数の名詞として使うときは単数扱いです。family、team、committee などは、前の項目のように「まとまり」を表すと単数扱いになります。イギリス英語では、team や committee を、メンバーを個々に考えて複数扱いにすることもあり、用法が揺れます。",
+          "examples": [
+            { "en": "**The police are** investigating the cause of the fire.", "ja": "警察が、火事の原因を調べている。", "note": "police は常に複数扱い(a police officer は単数)" },
+            { "en": "**People in** this town **are** very friendly to visitors.", "ja": "この町の人たちは、観光客にとても親切だ。", "note": "people は複数扱い" },
+            { "en": "**The elderly need** more support from the community.", "ja": "高齢者には、地域からのより多くの支えが必要だ。", "note": "the + 形容詞で「〜な人々」を表し、複数扱い" }
+          ],
+          "cautions": [
+            "× The police is coming. → ○ The police are coming. police は複数扱いで、単数の動詞を付けない"
+          ]
+        },
+        {
+          "heading": "国名・病名・作品名: 複数形の見た目でも単数扱い",
+          "explanation": "**国名や病名、作品名は、語尾が -s でも、一つのものとして扱うので単数扱いです。** The United States や The Netherlands は、複数形の見た目でも国全体を一つとして考えるので、動詞は単数の形になります。\n\n病名の measles(はしか)や mumps(おたふくかぜ)も、-s で終わっても一つの病気として単数扱いです。本や映画などの作品名も、一つの作品として単数扱いです。\n\n・The United States is the largest market for our product.(アメリカ合衆国は、当社の製品にとって最大の市場だ)\n・Measles is a contagious disease that spreads quickly.(はしかは、すばやく広がる感染症だ)",
+          "examples": [
+            { "en": "**The United States is** the largest market for our product.", "ja": "アメリカ合衆国は、当社の製品にとって最大の市場だ。", "note": "国名は、複数形の見た目でも単数扱い" },
+            { "en": "**Measles is** a contagious disease that spreads quickly.", "ja": "はしかは、すばやく広がる感染症だ。", "note": "病名は -s で終わっても単数扱い" },
+            { "en": "**Gulliver's Travels is** a classic novel for young readers.", "ja": "『ガリバー旅行記』は、若い読者にとっての古典的な小説だ。", "note": "作品名は一つの作品として単数扱い" }
+          ],
+          "cautions": [
+            "× The United States are a large country. → ○ The United States is a large country. 国名は単数扱い"
           ]
         }
       ],
@@ -64,7 +90,8 @@
           "explanation": "主語が名詞節(what 節や that 節など)、to 不定詞、動名詞のときは、単数扱いになります。\n\n・What the manager said was surprising.(部長の言ったことは驚きだった)\n・Reviewing the reports takes a lot of time.(レポートを見直すには、多くの時間がかかる)",
           "examples": [
             { "en": "**What** the team needs **is** more time.", "ja": "チームに必要なのは、もっと時間だ。", "note": "what 節は単数扱い" },
-            { "en": "**Reviewing** the reports **takes** a lot of time.", "ja": "レポートを見直すには、多くの時間がかかる。", "note": "動名詞の主語は単数扱い" }
+            { "en": "**Reviewing** the reports **takes** a lot of time.", "ja": "レポートを見直すには、多くの時間がかかる。", "note": "動名詞の主語は単数扱い" },
+            { "en": "**To finish** the project on time **is** difficult for a small team.", "ja": "期限どおりにプロジェクトを終えるのは、小さなチームには難しい。", "note": "to 不定詞の主語も単数扱い" }
           ]
         },
         {
@@ -72,6 +99,19 @@
           "explanation": "コンマで挟まれた挿入句や、together with などの語句は、主語に含まれません。動詞は、主語の中心(The manager)に合わせます。\n\n・The manager, together with two assistants, is leaving for Osaka.(部長は、二人の補佐と一緒に大阪へ出発する)",
           "examples": [
             { "en": "The manager, together with two assistants, **is** leaving for Osaka.", "ja": "部長は、二人の補佐と一緒に大阪へ出発する。", "note": "together with の語句は主語に含まれない" }
+          ]
+        },
+        {
+          "heading": "疑問詞が主語のとき: who・what は単数扱い",
+          "explanation": "**疑問詞(who, what, which など)が主語になる疑問文では、動詞は疑問詞の数で決まります。who と what は単数扱いで、動詞は三単現の形になります。** 疑問詞の後ろの名詞は、主語ではなく補語(疑問詞の答えを説明する語)であることが多いので、動詞をその名詞に合わせてはいけません。\n\n・Who is responsible for the budget?(予算の責任者は誰か)\n・What causes the delay in the shipment?(出荷が遅れる原因は何か)\n\n「which one of the + 複数名詞」の場合は、主語の one が単数なので、動詞も単数になります。\n\n・Which one of the proposals is the best?(提案のうち、どれが一番よいか)\n\n見分け方は、疑問詞の後ろの名詞が主語か補語かを確かめることです。Who are the managers?(部長たちは誰か)では、主語は the managers(複数)なので are になります。",
+          "examples": [
+            { "en": "**Who is** responsible for the budget?", "ja": "予算の責任者は誰ですか。", "note": "疑問詞 who は単数扱い。後ろの名詞に合わせない" },
+            { "en": "**What causes** the delay in the shipment?", "ja": "出荷が遅れる原因は何ですか。", "note": "what は単数扱い" },
+            { "en": "**Which one of the** proposals **is** the best?", "ja": "提案のうち、どれが一番よいですか。", "note": "主語の one が単数なので is" }
+          ],
+          "cautions": [
+            "× Who is the managers? → ○ Who are the managers? 主語は the managers(複数)なので are",
+            "× Who are responsible for the budget? → ○ Who is responsible for the budget? who は単数扱い"
           ]
         }
       ],
@@ -104,6 +144,18 @@
           "examples": [
             { "en": "The **manager** as well as the staff **is** attending the event.", "ja": "スタッフだけでなく、部長もイベントに出席する。", "note": "動詞は manager(A)に合わせる" },
             { "en": "The **report** along with the charts **was** sent yesterday.", "ja": "グラフと一緒に、そのレポートは昨日送られた。", "note": "動詞は report(A)に合わせる" }
+          ]
+        },
+        {
+          "heading": "A and B は複数扱い(一つのまとまりは単数扱い)・both A and B は複数扱い",
+          "explanation": "**A and B は、ふつう複数扱いです。** A と B が別々の二つのものを指すときは、動詞は複数の形になります。ただし、A and B が一つのものを表すとき(bread and butter など)や、each・every が付くとき(every A and B)は、単数扱いです。\n\n**both A and B(AもBも両方とも)は、常に複数扱いです。** A と B がどちらも単数でも、動詞は複数の形になります。\n\n・The manager and the secretary are attending the meeting.(部長と秘書が会議に出席する)\n・Bread and butter is a simple breakfast for many families.(パンとバターは、多くの家庭にとって簡単な朝食だ)\n・Both the manager and the assistant are responsible for the budget.(部長も補佐も、どちらも予算に責任がある)\n\nこれは、either A or B(B に合わせる)や neither A nor B とは違うので注意します。",
+          "examples": [
+            { "en": "**The manager and the secretary are** attending the meeting.", "ja": "部長と秘書が、会議に出席する。", "note": "二人を並べた A and B は複数扱い" },
+            { "en": "**Bread and butter is** a simple breakfast for many families.", "ja": "パンとバターは、多くの家庭にとって簡単な朝食だ。", "note": "一つのまとまりを表すので単数扱い" },
+            { "en": "**Both the manager and the assistant are** responsible for the budget.", "ja": "部長と補佐の両方が、予算に責任を負っている。", "note": "both A and B は、A と B が単数でも複数扱い" }
+          ],
+          "cautions": [
+            "× Both the manager and the assistant is responsible. → ○ Both the manager and the assistant are responsible. both A and B は複数扱い"
           ]
         }
       ],
@@ -145,9 +197,165 @@
             { "en": "**Most of the staff are** ready for the event.", "ja": "スタッフの大部分は、イベントの準備ができている。", "note": "of の後ろの staff(複数)" },
             { "en": "**Some of the work is** finished already.", "ja": "仕事の一部は、すでに終わっている。", "note": "of の後ろの work(不可算・単数)" }
           ]
+        },
+        {
+          "heading": "one of the + 複数名詞 + who: 関係詞の後ろの動詞は、先行詞で決める",
+          "explanation": "**one of the + 複数名詞 + who の後ろの動詞は、who の先行詞(複数名詞)に合わせて複数の形になります。** 一方、the only one of the + 複数名詞 + who の場合は、主語の中心が「唯一の一人(one)」なので、後ろの動詞は単数の形になります。\n\n・She is one of the engineers who have designed the system.(彼女は、そのシステムを設計した技術者の一人だ)\n・She is the only one of the engineers who has passed the exam.(彼女は、その試験に合格した技術者の中で唯一の人だ)\n\nこの二つは、one の前に the only が付くかどうかで決まります。the only one of 〜 が見えたら、関係詞の後ろの動詞は単数にします。",
+          "examples": [
+            { "en": "She is **one of the engineers who have** designed the system.", "ja": "彼女は、そのシステムを設計した技術者の一人だ。", "note": "先行詞は the engineers(複数)なので、関係詞節の動詞は have" },
+            { "en": "She is **the only one of the** engineers **who has** passed the exam.", "ja": "彼女は、その試験に合格した技術者の中で唯一の人だ。", "note": "主語の中心は the only one(単数)なので、who has" }
+          ],
+          "cautions": [
+            "× She is the only one of the engineers who have passed the exam. → ○ ... who has passed the exam. 主語の中心は one(単数)"
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、a number of と the number of の違い、There is / are の動詞の形、most of の後ろの名詞に合わせる問題が出ます。"
+    },
+    {
+      "id": "indefinite-pronouns",
+      "title": "不定代名詞の一致: each・every・neither・none・both など",
+      "intro": "each、every、everyone、neither、either、none、both、several、few、many は、語ごとに単数扱いか複数扱いかが決まっています。of の後ろに名詞が続くと、その名詞に引きずられて動詞を選びやすいので、主語の語そのものを見て動詞を決めます。代名詞の一致もここで扱います。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "each・every・everyone は単数扱い",
+          "explanation": "**each(それぞれ)、every(どの〜も)、everyone(みんな)、everybody、everything は、単数扱いです。** 一人ずつ、一つずつと個々を見るので、動詞は三単現の形になります。\n\n・Each of the employees has a locker.(社員はそれぞれロッカーを持っている)\n・Every employee is required to attend.(どの社員も出席が求められる)\n\n注意したいのは each of the + 複数名詞です。of の後ろは複数名詞ですが、主語の中心は each(単数)なので、動詞は単数扱いになります。every は単独で主語にはならず、every + 単数名詞(every employee)か、every one of the + 複数名詞の形で使います。",
+          "examples": [
+            { "en": "**Each of** the reports **is** due on Friday.", "ja": "報告書は、どれも金曜日が締め切りだ。", "note": "each of は単数扱い。of の後ろの reports に合わせない" },
+            { "en": "**Everyone in** the department **has** received the new schedule.", "ja": "部署の全員が、新しい予定表を受け取った。", "note": "everyone は単数扱い。in the department は修飾語" },
+            { "en": "**Every** employee **is** required to complete the training.", "ja": "どの社員も、研修を修了することが求められる。", "note": "every + 単数名詞は単数扱い" }
+          ],
+          "cautions": [
+            "× Each of the managers are invited. → ○ Each of the managers is invited. 動詞は、of の後ろの managers ではなく each に合わせる"
+          ]
+        },
+        {
+          "heading": "neither・either(of the + 複数名詞)は単数扱い",
+          "explanation": "**neither(どちらも〜ない)と either(どちらか)は、単数扱いが基本です。** of the + 複数名詞が続いても、主語の中心は neither / either(単数)なので、動詞は単数の形になります。\n\n・Neither of the proposals is acceptable.(どちらの提案も受け入れられない)\n・Either of the options is fine.(どちらの案でもよい)\n\n前の節の neither A nor B や either A or B は、動詞を B に合わせる形でした。この項目は、neither / either の後ろに「of + 複数名詞」が続く形を扱います。くだけた英語では、neither of the + 複数名詞に複数の動詞を付けることもありますが、ここでは単数扱いを基本として覚えます。",
+          "examples": [
+            { "en": "**Neither of the** two proposals **is** acceptable as it stands.", "ja": "二つの提案のどちらも、このままでは受け入れられない。", "note": "neither は単数扱い。two proposals は of の後ろの修飾語" },
+            { "en": "**Either of the** options **is** fine with me.", "ja": "どちらの案でも、私はかまわない。", "note": "either of + 複数名詞でも、基本は単数扱い" }
+          ],
+          "cautions": [
+            "× Neither of the managers are ready. → ○ Neither of the managers is ready. neither は「どちらも〜ない」の単数扱い"
+          ]
+        },
+        {
+          "heading": "none は単数扱いにも複数扱いにもなる",
+          "explanation": "**none(一つも〜ない、誰も〜ない)は、単数扱いと複数扱いの両方があります。** none は not one(一つも〜ない)の意味なので、かたい文では単数扱いが基本とされます。一方、none of the + 複数名詞 の形では、複数の動詞が使われることも多くあります。\n\n・None of the candidates has the required experience.(必要な経験を持つ候補者は一人もいない)\n・None of the employees were informed of the change.(その変更を知らされた社員は一人もいなかった)\n\n試験で単数か複数かを一つに決める問題では、none だけで判断せず、文全体の意味と、他の選択肢が文法的に成り立つかを確かめます。",
+          "examples": [
+            { "en": "**None of the** candidates **has** the required experience.", "ja": "必要な経験を持つ候補者は、一人もいない。", "note": "none は not one の意味で、単数扱い(has)" },
+            { "en": "**None of the** employees **were** informed about the change.", "ja": "その変更について知らされた社員は、一人もいなかった。", "note": "none of the + 複数名詞には、複数扱いも使われる" }
+          ]
+        },
+        {
+          "heading": "both・several・few・many は複数扱い",
+          "explanation": "**both(両方)、several(いくつかの)、few(ほとんどない)、many(多くの)は、複数扱いです。** of の後ろに複数名詞が来ても、動詞はその名詞ではなく、この語に合わせて複数の形になります。\n\n・Both of the managers are attending the meeting.(両方の部長が会議に出席する)\n・Many of the customers prefer online payment.(多くの顧客がオンライン決済を好む)\n\nfew(ほとんどない)と a few(少しある)は、意味が反対です。few は否定的な意味になるので、文の意味を取り違えないようにします(数量形容詞は第7章「形容詞」で扱います)。",
+          "examples": [
+            { "en": "**Several of the** reports **have** already been reviewed.", "ja": "報告書のいくつかは、すでに確認されている。", "note": "several は複数扱い。of の後ろの reports に合わせる" },
+            { "en": "**Few of the** employees **know** about the new policy.", "ja": "新しい方針について知っている社員は、ほとんどいない。", "note": "few は「ほとんどない」の意味。複数扱い" }
+          ],
+          "cautions": [
+            "× Few of them is ready. → ○ Few of them are ready. several・few・many も複数扱い"
+          ]
+        },
+        {
+          "heading": "代名詞の一致: each ... his or her、one ... one's、単数の they",
+          "explanation": "**代名詞は、それが指す名詞(代名詞の元になる名詞)の数に合わせます。** each、every、everyone、one は単数扱いなので、それを受ける代名詞も単数になります。\n\n・Each employee must submit his or her report by Friday.(社員はそれぞれ、金曜日までに報告書を提出しなければならない)\n・One should always keep one's promises.(人は、いつも自分の約束を守るべきだ)\n\nhis or her は、男女どちらかに決めずに書くかたい言い方です。one を受けるときは one's(one の所有格)を使うのが、かたい言い方です。\n\n最近は、each や everyone を their(単数の they)で受けることも広く使われています。\n\n・Everyone should bring their own laptop to the training.(研修には、全員が自分のノートパソコンを持参すること)\n\n単数の they は、会話や最近の文章では広く使われていますが、かたい文章・試験では his or her を使う形もまだ多いので、文脈で判断します。",
+          "examples": [
+            { "en": "**Each** employee must submit **his or her** timesheet by Friday.", "ja": "社員は各自、金曜日までに勤務表を提出しなければならない。", "note": "Each は単数なので、受ける代名詞も単数の his or her" },
+            { "en": "**One** should always keep **one's** promises.", "ja": "人は、いつも自分の約束を守るべきだ。", "note": "one を受ける所有格は one's" },
+            { "en": "**Everyone** should bring **their** own laptop to the training.", "ja": "研修には、各自が自分のノートパソコンを持参してください。", "note": "単数の they(their)。会話や最近の文章で広く使われる" }
+          ],
+          "cautions": [
+            "× Each of the students bring their own bags. → ○ Each of the students brings his or her own bag. each に合わせて、動詞も代名詞も単数にする"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、each of・neither of・none of などの後ろに複数名詞が続く形で、動詞の単数・複数を選ばせる問題が出ることがあります。手順は、(1) 主語の語(each, neither, both, few など)が単数か複数かを先に確かめる、(2) of の後ろの名詞に引きずられない、の順です。代名詞の問題では、先行詞が each や everyone のように単数かを見て、his or her などを選びます。"
+    },
+    {
+      "id": "quantity-expressions",
+      "title": "数量を表す語句の一致: a variety of・the majority of・分数 + of など",
+      "intro": "a variety of、the majority of、half of、percent of など、「数量を表す語 + of + 名詞」の形では、動詞の単数・複数を、of の前の語で決める場合と、of の後ろの名詞で決める場合があります。冠詞の a と the で扱いが変わる語もあるので、一つずつ確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "a variety of と the variety of: 冠詞で単数・複数が変わる",
+          "explanation": "**a variety of + 複数名詞は複数扱いです。the variety of + 名詞は単数扱いです。** variety(種類)が主語の中心になるかどうかで、扱いが変わります。a variety of は「いろいろな〜」という意味で、後ろの複数名詞に合わせて複数の動詞を使います(a wide variety of も同じです)。一方、the variety of は「〜の多様さ」という意味で、主語の中心が variety(単数)なので、単数扱いです。\n\n・A variety of products are sold at this store.(この店では、さまざまな商品が売られている)\n・The variety of products is impressive.(商品の種類の豊富さは印象的だ)",
+          "examples": [
+            { "en": "**A wide variety of** tools **are** available in the store.", "ja": "その店には、非常に多くの種類の道具がそろっている。", "note": "a variety of + 複数名詞は複数扱い" },
+            { "en": "**The variety of** options **is** what attracts customers.", "ja": "選べる種類の多さが、客を引きつけている。", "note": "the variety of は単数扱い。主語の中心は variety" }
+          ],
+          "cautions": [
+            "× The variety of options are impressive. → ○ The variety of options is impressive. 主語の中心は variety(単数)"
+          ]
+        },
+        {
+          "heading": "分数・percent + of + 名詞: of の後ろの名詞に合わせる",
+          "explanation": "**two-thirds(3分の2)、half(半分)、a third(3分の1)、percent(〜パーセント)などの後ろに of が続くときは、動詞は of の後ろの名詞に合わせます。** 数字は全体のどれだけかを表すだけで、主語の中心は of の後ろの名詞です。\n\n・Two-thirds of the members are women.(会員の3分の2は女性だ)\n・Twenty percent of the budget is spent on advertising.(予算の2割が広告に使われている)\n\nつまり、後ろの名詞が複数なら複数扱い、不可算名詞や単数の名詞なら単数扱いになります。",
+          "examples": [
+            { "en": "**Half of the** employees **were** absent on Monday.", "ja": "月曜日は、社員の半分が欠席した。", "note": "half of + 複数名詞は複数扱い" },
+            { "en": "**Ten percent of the** budget **is** reserved for emergencies.", "ja": "予算の一割は、緊急時のために確保されている。", "note": "percent of の後ろの budget(不可算・単数)に合わせる" }
+          ],
+          "cautions": [
+            "× Twenty percent of the employees is absent. → ○ Twenty percent of the employees are absent. percent の後ろの名詞 employees に合わせる"
+          ]
+        },
+        {
+          "heading": "the majority of・the rest of・a lot of: of の後ろの名詞に合わせる",
+          "explanation": "**the majority of(大部分)、the rest of(残り)、a lot of(たくさんの)は、of の後ろの名詞に合わせます。** これらの語句は「大部分」「残り」「たくさん」という量を表し、後ろの名詞がその範囲を示すので、動詞は後ろの名詞の数に合わせます。\n\n・The majority of the employees support the plan.(社員の大多数がその計画を支持している)\n・The rest of the report is still unclear.(報告書の残りの部分は、まだ分かりにくい)\n\nmajority は、後ろが複数名詞なら複数扱い、単数名詞や不可算名詞なら単数扱いです。a lot of も同じように、後ろの名詞で決まります。",
+          "examples": [
+            { "en": "**The majority of the** students **prefer** online classes.", "ja": "学生の大多数は、オンライン授業を好む。", "note": "majority of + 複数名詞は複数扱い" },
+            { "en": "**A lot of** time **is** needed to finish the survey.", "ja": "調査を終えるには、多くの時間が必要だ。", "note": "a lot of の後ろの time(不可算)に合わせて単数扱い" }
+          ],
+          "cautions": [
+            "× The majority of the students is happy with the plan. → ○ The majority of the students are happy with the plan. 動詞は majority ではなく、of の後ろの students に合わせる"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、a variety of と the variety of の冠詞の違い、half of や percent of の後ろの名詞に合わせる問題が出ることがあります。主語の中心が数量の語(variety, majority など)なのか、of の後ろの名詞なのかは、語ごとに確かめます。"
+    },
+    {
+      "id": "inversion-complement",
+      "title": "倒置文と主語・補語の一致: 動詞は主語に合わせる",
+      "intro": "動詞は、直前にある名詞ではなく、主語に合わせます。Here comes the bus. や Among them is ... のように動詞が主語の前に出る倒置の文、また The problem is the delays. のように補語が複数形の文では、動詞の近くの語ではなく、主語を探して数を合わせます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "倒置文: 動詞の後ろにある主語に合わせる",
+          "explanation": "**Here、There、場所を表す語句(Among ~ など)が文頭に出て、動詞が主語より前に来る倒置の文では、動詞は後ろにある主語に合わせます。** 日本語の「ほら、バスが来た」「その中に〜がいる」と同じく、英語では主語が動詞の後ろに来ます。\n\n・Here comes the bus.(ほら、バスが来た)\n・Here come the buses.(ほら、バスがたくさん来た)\n\n動詞が Here の直後に来るので、動詞だけを見て主語を決めると誤ります。動詞の後ろの名詞(bus, buses)が主語で、その数に合わせます。There is / There are の文(前の節)も、同じく後ろの名詞に合わせます。",
+          "examples": [
+            { "en": "**Here come** the new **employees**.", "ja": "ほら、新入社員たちが来た。", "note": "倒置。動詞は後ろの employees(複数)に合わせて come" },
+            { "en": "**Among the applicants is** a candidate with ten years of experience.", "ja": "応募者の中に、十年の経験を持つ候補者が一人いる。", "note": "倒置。主語は a candidate(単数)なので is" },
+            { "en": "**Among them are** two engineers from Osaka.", "ja": "そのうちの二人は、大阪から来た技術者だ。", "note": "倒置。主語は two engineers(複数)なので are" }
+          ],
+          "cautions": [
+            "× Here comes the employees. → ○ Here come the employees. 主語 the employees は複数なので come"
+          ]
+        },
+        {
+          "heading": "主語と補語の数が違うとき: 動詞は主語に合わせる",
+          "explanation": "**動詞は、補語(be 動詞の後ろで主語を説明する語)ではなく、主語に合わせます。** 補語が複数形でも、主語が単数なら単数の動詞を使います。The problem is the delays.(問題は、遅れだ)では、補語の delays が複数ですが、主語 The problem が単数なので、動詞は is です。\n\n・The problem is the delays in the shipments.(問題は、出荷の遅れだ)\n・Our biggest concerns are the cost and the schedule.(私たちの最大の懸念は、費用と日程だ)\n\n日本語では「問題は遅れだ」のように、後ろの語に目が行きやすいので、動詞の前にある主語の数を必ず確かめます。上の二つ目の例のように、主語が複数で補語が単数のときは、複数の動詞を使います。",
+          "examples": [
+            { "en": "The **main reason** for the decline **is** the rising costs.", "ja": "売上が落ちた主な理由は、費用の上昇だ。", "note": "主語 reason(単数)に合わせて is。補語 costs は複数" },
+            { "en": "The **cause** of the failures **is** old equipment.", "ja": "故障の原因は、古い機械だ。", "note": "主語 cause(単数)に合わせて is。of the failures は修飾語" }
+          ],
+          "cautions": [
+            "× The problem are the delays in the shipments. → ○ The problem is the delays in the shipments. 補語 delays(複数)に引きずられない"
+          ]
+        },
+        {
+          "heading": "What 節が主語で補語が複数のとき: is と are の両方がある",
+          "explanation": "**What 節(名詞節)が主語のとき、動詞は単数扱いが基本です。** what 節は「〜のこと」という一つのまとまりとして扱うためです(前の節の名詞節の項目を参照)。ただし、補語が複数形のときは、動詞を補語に合わせて are とする形もよく使われ、文法的に認められています。\n\n・What the company needs is a clear strategy.(会社に必要なのは、明確な戦略だ)\n・What we need are new ideas.(私たちに必要なのは、新しい発想だ)\n\n試験で is と are のどちらかを選ぶ問題では、主語の what 節を単数扱いと考え、is を選ぶ方が安全です。",
+          "examples": [
+            { "en": "**What** our customers want **is** faster delivery.", "ja": "お客様が求めているのは、より速い配送だ。", "note": "what 節は単数扱い。補語 faster delivery も単数" },
+            { "en": "**What** the project needs most **are** skilled engineers.", "ja": "プロジェクトにいちばん必要なのは、熟練した技術者だ。", "note": "補語 skilled engineers が複数なので are" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、Here・There や場所の語句で文が始まる倒置の文で、文頭の語ではなく後ろの主語に合わせる問題が出ることがあります。主語と補語の数が違う文では、補語に引きずられず、文の主語を確かめます。"
     }
   ],
   "summary": [
@@ -158,7 +366,11 @@
     "either A or B・neither A nor B・not only A but also B は、動詞を B に合わせる",
     "as well as・along with は、動詞を前の名詞(A)に合わせる",
     "a number of は複数扱い、the number of は単数扱い。one of the + 複数名詞は単数扱い",
-    "There is / are は後ろの名詞に合わせる。most of などは of の後ろの名詞に合わせる"
+    "There is / are は後ろの名詞に合わせる。most of などは of の後ろの名詞に合わせる",
+    "each・every・everyone・neither・either は単数扱い、both・several・few・many は複数扱い。none は単数にも複数にもなる",
+    "a variety of は複数扱い、the variety of は単数扱い。分数 + of や percent of は、of の後ろの名詞に合わせる",
+    "倒置文(Here comes ..., Among them is ...)は、動詞の後ろにある主語に合わせる",
+    "主語と補語の数が違うときは、動詞を主語に合わせる(The problem is the delays.)"
   ],
   "quiz": [
     {

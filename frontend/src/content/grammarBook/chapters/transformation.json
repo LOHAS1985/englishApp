@@ -2,7 +2,7 @@
   "id": "transformation",
   "no": 24,
   "title": "文の転換",
-  "lead": "文の転換は、意味をほぼ変えずに、文の形だけを書き換える問題です。感嘆文や条件文への書き換え、接続詞と前置詞の入れ替え、too ~ to や比較などの構文の書き換えが代表的です。TOEIC では、同じ意味の文を選ぶ形で出題されます。この章では、書き換えの型を覚え、どの語が変わるのかを確かめます。",
+  "lead": "文の転換は、意味をほぼ変えずに、文の形だけを書き換える問題です。感嘆文や条件文への書き換え、接続詞と前置詞の入れ替え、too ~ to や比較などの構文の書き換えが代表的です。TOEIC では、同じ意味の文を選ぶ形で出題されます。この章では、書き換えの型を覚え、どの語が変わるのかを確かめます。態(能動態と受動態)、第3文型と第4文型、分詞構文、関係詞、名詞句と that 節、単文と複文、強調構文、比較、動詞と名詞の言い換えも扱います。",
   "sections": [
     {
       "id": "sentence-kinds",
@@ -192,6 +192,326 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、無生物主語の文を because や if の文に言い換える問題が出題されます。"
+    },
+    {
+      "id": "voice-pattern",
+      "title": "態と文型の書き換え: 能動態・受動態、第3文型と第4文型",
+      "intro": "能動態と受動態、第3文型と第4文型(SVOO)は、意味を変えずに書き換えられます。この節では、目的語を主語にする受動態の作り方、第4文型の受動態が2通りになる理由、to と for を使う書き換えを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "能動態から受動態へ: 目的語を主語にして、be + 過去分詞",
+          "explanation": "**能動態の目的語を受動態の主語にし、動詞を be + 過去分詞に変えるのが基本です。** 能動態は「誰が(主語)」が動作をする文で、受動態は「何が(主語)」が動作を受ける文です。元の主語は by の後ろに置きます。\n\n・The committee approved the plan. → The plan was approved by the committee.\n\n手順は次のとおりです。(1) 能動態の目的語(the plan)を文頭の主語の位置に出す。(2) 動詞を be 動詞 + 過去分詞にする。be の形は、元の文の時制と、新しい主語の数(単数か複数か)に合わせる。(3) 元の主語(the committee)を by の後ろに置く。元の主語が one や people などの一般の人のときは、by 〜 を省くことが多い。\n\n助動詞や完了形の文でも、動詞の部分だけを変えます。will finish は will be finished、has finished は has been finished になります。",
+          "examples": [
+            {
+              "en": "The plan **was approved** by the committee in May.",
+              "ja": "その計画は5月に委員会によって承認された。",
+              "note": "The committee approved the plan. の目的語 the plan が主語になり、動詞は be の過去形 + 過去分詞"
+            },
+            {
+              "en": "The new report **will be finished** by Friday.",
+              "ja": "新しい報告書は、金曜日までに仕上げられる予定だ。",
+              "note": "Someone will finish the new report by Friday. の will を残し、動詞を be + 過去分詞に変える"
+            },
+            {
+              "en": "Has the contract **been signed** yet?",
+              "ja": "契約書は、もう署名されましたか。",
+              "note": "Has someone signed the contract yet? の完了形を、has been + 過去分詞に変えた形"
+            }
+          ],
+          "cautions": [
+            "× The plan was approve by the committee. → ○ The plan was approved by the committee.(受動態では過去分詞 approved を使う)",
+            "× The plan is approved by the committee last week. → ○ The plan was approved by the committee last week.(last week は過去の表現なので、be は was)"
+          ]
+        },
+        {
+          "heading": "第4文型の受動態: 人を主語にする形と、物を主語にする形",
+          "explanation": "第4文型(SVOO)は、目的語が2つあります。人を表す間接目的語(me)と、物を表す直接目的語(a watch)です。受動態にするときは、**どちらを主語にするかで、2つの形ができます。** どちらも意味は同じです。\n\n・My uncle gave me a watch. → I was given a watch by my uncle.(人が主語)\n・My uncle gave me a watch. → A watch was given to me by my uncle.(物が主語)\n\n人を主語にする形が、ふつうよく使われます。物を主語にする形では、人の前に to が必要です。give, send, show, teach, tell など、人に物を渡す・伝える動詞は、どちらの形も使えます。主語にならなかった目的語は、動詞の後ろに残ります。",
+          "examples": [
+            {
+              "en": "**I was given** a watch by my uncle on my birthday.",
+              "ja": "誕生日に、おじから腕時計をもらった。",
+              "note": "人(me)を主語にした形。a watch は過去分詞 given の後ろに残る"
+            },
+            {
+              "en": "A watch **was given to** me by my uncle.",
+              "ja": "腕時計は、おじから私に贈られた。",
+              "note": "物(a watch)を主語にした形。人は to me の形で動詞の後ろに残る"
+            }
+          ],
+          "cautions": [
+            "× A watch was given me by my uncle. → ○ A watch was given to me by my uncle.(物を主語にする形では、人の前に to を付ける)"
+          ]
+        },
+        {
+          "heading": "第3文型と第4文型の書き換え(to): give 型の動詞",
+          "explanation": "第3文型(SVO + to + 人)と第4文型(SVOO)は、同じ意味で書き換えられます。**give, send, show, teach, tell, lend などの「物を相手に渡す・伝える」動詞は、「物 to 人」と「人 物」の2つの形をとれます。** 第4文型にするときは、人(間接目的語)を先に、物(直接目的語)を後ろに置き、to を消します。\n\n・She gave the book to her brother. → She gave her brother the book.\n\n一方、explain(説明する)、introduce(紹介する)、suggest(提案する)などは、第3文型でしか使えません。人を先に置く第4文型にはできないので、注意が必要です。",
+          "examples": [
+            {
+              "en": "She gave the book **to** her brother.",
+              "ja": "彼女は、その本を弟に渡した。",
+              "note": "第3文型: 物(the book)の後ろに to + 人を置く"
+            },
+            {
+              "en": "She gave **her brother** the book.",
+              "ja": "彼女は弟にその本を渡した。",
+              "note": "第4文型: 人(her brother)を先に置き、to は消える"
+            }
+          ],
+          "cautions": [
+            "× She explained us the rule. → ○ She explained the rule to us.(explain は第3文型だけ。人を先に置けない)",
+            "× She gave to her brother the book. → ○ She gave the book to her brother.(to + 人 は、物の後ろに置く)"
+          ]
+        },
+        {
+          "heading": "第3文型と第4文型の書き換え(for): buy 型・make 型の動詞",
+          "explanation": "make, buy, cook, get, find, choose など「人のために物を作る・買う・探す」動詞は、「物 for 人」の第3文型で書き換えられます。**第4文型にするときは、for を消して、人を物の前に置きます。** to と for の違いは、to が「渡す相手」を、for が「〜のために」を表すことです。\n\n・He bought a ticket for me. → He bought me a ticket.\n\n動詞によって、使う前置詞が決まっています。give, send, show(物を渡す・見せる)は to、buy, make, cook(物を作る・買う)は for と覚えると、書き換えで迷いません。",
+          "examples": [
+            {
+              "en": "He bought a ticket **for** me.",
+              "ja": "彼は私のために切符を買ってくれた。",
+              "note": "第3文型: 物(a ticket)の後ろに for + 人。for は「〜のために」の意味"
+            },
+            {
+              "en": "My mother cooked me a special dinner on my birthday.",
+              "ja": "母は誕生日に、私のために特別な夕食を作ってくれた。",
+              "note": "第4文型: cook + 人 + 物。元の文は cooked a special dinner for me"
+            }
+          ],
+          "cautions": [
+            "× He bought for me a ticket. → ○ He bought me a ticket.(第4文型では for を消し、人を物の前に置く)",
+            "× He bought a ticket to me. → ○ He bought me a ticket.(buy は to ではなく for と組む)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、受動態(be + 過去分詞)の形を選ぶ問題や、to と for のどちらを選ぶかが問われます。to は「相手」、for は「〜のために」を表す、と意味から考えるのが手順です。第4文型の受動態は、主語になっている語が人か物かを見て、後ろに残る語を確かめます。"
+    },
+    {
+      "id": "clause-phrase",
+      "title": "節・句の書き換え: 分詞構文・関係詞・名詞句・単文と複文",
+      "intro": "節と句は、互いに書き換えられます。分詞構文、非制限用法の関係詞、名詞句と that 節、前置詞句と節(単文と複文)、重文と複文の書き換えで、同じ内容を別の形で表す力を付けます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "時の接続詞と分詞構文: When S V → 動詞の -ing",
+          "explanation": "分詞構文は、副詞節(when, while, after など)を、接続詞と主語を省いて、動詞を -ing の形にした句です。**副詞節の主語が主節の主語と同じなら、接続詞と主語を消し、動詞を -ing にします。** 時の関係(〜したとき、〜する間に)は、接続詞が無くても文脈から分かります。\n\n・When she entered the room, she turned on the light. → Entering the room, she turned on the light.\n\n書き換えの手順は次のとおりです。(1) 接続詞を消す。(2) 副詞節の主語が主節の主語と同じなら、主語を消す。(3) 副詞節の動詞を -ing にする。(4) 分詞構文は、主節の前か後ろに置く。\n\n接続詞を残すと、時の関係がはっきりします。分詞構文は、かたい文章でよく使われます。",
+          "examples": [
+            {
+              "en": "**Entering** the room, she turned on the light.",
+              "ja": "部屋に入ると、彼女は明かりをつけた。",
+              "note": "When she entered the room の書き換え。she は主節の主語と同じなので消した"
+            },
+            {
+              "en": "**While walking** to the station, I met an old friend.",
+              "ja": "駅へ歩いている途中で、私は旧友に会った。",
+              "note": "While I was walking の書き換え。接続詞 while は残し、主語 I を消して -ing にした形"
+            }
+          ],
+          "cautions": [
+            "× Entering the room, the phone rang. → ○ When I entered the room, the phone rang.(部屋に入ったのは電話ではないので、主語が合わない)"
+          ]
+        },
+        {
+          "heading": "理由を表す分詞構文と完了形: Having + 過去分詞、Being の省略",
+          "explanation": "節の出来事が主節より前のときは、Having + 過去分詞(完了形の分詞構文)にします。**Because she had finished the work の「終えた」の方が前のことなので、Having finished の形になります。** 受け身の分詞構文では、being を省略し、過去分詞だけを残すことが多くあります。\n\n・Because she had finished the work, she went home. → Having finished the work, she went home.\n・Because the letter was written in a hurry, it had several mistakes. → Written in a hurry, the letter had several mistakes.\n\n分詞構文は、理由・譲歩・条件などの意味を明示しません。読む人が文脈から判断します。試験でも、どの接続詞に言い換えられるかを考えて、意味に合う形を選びます。",
+          "examples": [
+            {
+              "en": "**Having finished** the report, she went home early.",
+              "ja": "報告書を仕上げたので、彼女は早めに帰宅した。",
+              "note": "Because she had finished the report の書き換え。完了形 Having + 過去分詞は、主節より前の出来事を表す"
+            },
+            {
+              "en": "**Written** in a hurry, the letter had several mistakes.",
+              "ja": "急いで書かれたため、その手紙にはいくつか間違いがあった。",
+              "note": "Because the letter was written in a hurry の書き換え。Being が省略され、過去分詞だけが残っている"
+            }
+          ],
+          "cautions": [
+            "× Having finish the report, she went home. → ○ Having finished the report, she went home.(完了形の分詞構文は、Having の後ろに過去分詞を置く)"
+          ]
+        },
+        {
+          "heading": "非制限用法の関係詞と「接続詞 + 代名詞」: and he・and this",
+          "explanation": "非制限用法(カンマの後の who / which)は、前の名詞や文の内容を補足する説明です。**カンマの後の関係詞は、and + 代名詞 に書き換えられます。** 人なら and he / she / they、物なら and it / they、前の文の内容全体なら and this を置きます。\n\n・Mr. Tanaka, who lives next door, is a dentist. → Mr. Tanaka is a dentist, and he lives next door.\n・He failed the test, which surprised everyone. → He failed the test, and this surprised everyone.\n\n書き換えの前に、関係詞の前の語(先行詞)が何を指すか、関係詞節の中で何の代わりをしているかを確かめます。前の文の全体を指す which は、and this に当たります。書き換えた後の2つの文は、どちらも独立して成り立ちます。逆接の意味が読み取れるときは、and の代わりに but を使うこともあります。",
+          "examples": [
+            {
+              "en": "Mr. Tanaka, **who** lives next door, is a dentist.",
+              "ja": "隣に住んでいる田中さんは、歯科医だ。",
+              "note": "カンマの後の who は補足の説明。and he lives next door に書き換えられる"
+            },
+            {
+              "en": "He failed the test, **which** surprised everyone.",
+              "ja": "彼がそのテストに落ちたことは、全員を驚かせた。",
+              "note": "which は前の文の内容全体を指す。and this surprised everyone に書き換えられる"
+            }
+          ],
+          "cautions": [
+            "× Mr. Tanaka, and he lives next door, is a dentist. → ○ Mr. Tanaka, who lives next door, is a dentist.(and he に書き換えるのは、文を2つに分けられるときだけ。文の途中では使えない)"
+          ]
+        },
+        {
+          "heading": "名詞句と that 節の書き換え: 名詞の中身を文にする",
+          "explanation": "名詞句(the announcement of ~ など)は、名詞の中に「誰が何をした」という内容を、of や to の後ろの語句で押し込んだ形です。**名詞句の中身を、that 節(主語 + 動詞の文)に戻すと、動詞(announce など)と that 節の文に書き換えられます。** ビジネス英語や論説文は名詞句が多いので、読むときに役立ちます。\n\n・The announcement of a new policy surprised the staff. → The company announced that it would introduce a new policy.\n\n名詞句 the announcement of a new policy には、「会社が新しい方針を導入する(と発表した)」という内容が入っています。that 節では、主語(it = the company)と動詞(would introduce)を、文の形で書きます。\n\n名詞句は主語や目的語によく使われ、that 節は「〜ということ」という内容を表します。どちらに書き換えるかは、元の文の主語・動詞の形で決まります。",
+          "examples": [
+            {
+              "en": "The announcement of a new policy surprised the staff.",
+              "ja": "新しい方針の発表は、社員を驚かせた。",
+              "note": "the announcement of ~ の名詞句。中に「方針が発表された」という内容がある"
+            },
+            {
+              "en": "The company announced that it would introduce a new policy.",
+              "ja": "会社は、新しい方針を導入すると発表した。",
+              "note": "名詞句の内容を、announced that 節(主語 + 動詞)の文に言い換えた形"
+            }
+          ],
+          "cautions": [
+            "× The company announced of a new policy. → ○ The company announced that it would introduce a new policy.(announce は of を取らず、目的語に名詞か that 節をとる)"
+          ]
+        },
+        {
+          "heading": "単文と複文の書き換え: 前置詞句を、接続詞 + 主語 + 動詞に",
+          "explanation": "単文は、主語と動詞が1組だけの文です。時・場所・条件などは、前置詞 + 名詞のかたまり(前置詞句)で表せます。複文は、接続詞でつないだ節(主語 + 動詞)を含む文です。**前置詞句は、接続詞 + 主語 + 動詞 の節に書き換えられます。** 前置詞の後ろの名詞が、節の主語と動詞に変わります。\n\n・During our trip to Italy, we visited many museums. → While we were traveling in Italy, we visited many museums.\n・In the event of rain, the game will be canceled. → If it rains, the game will be canceled.\n\nduring は前置詞で「〜の間ずっと」、while は接続詞で「〜している間(に)」を表します。in the event of は「〜の場合には」の意味で、if の節に書き換えられます。前置詞の意味(いつ・どんな場合か)を、接続詞の意味に合わせることが大切です。",
+          "examples": [
+            {
+              "en": "**During our trip** to Italy, we visited many museums.",
+              "ja": "イタリア旅行の間に、私たちは多くの美術館を訪れた。",
+              "note": "前置詞 During + 名詞句の単文。前置詞の後ろに主語と動詞は続かない"
+            },
+            {
+              "en": "**While we were traveling** in Italy, we visited many museums.",
+              "ja": "イタリアを旅行している間に、私たちは多くの美術館を訪れた。",
+              "note": "複文: While + 主語 + 動詞。during の前置詞句を節にした形"
+            }
+          ],
+          "cautions": [
+            "× During we were traveling in Italy, we visited many museums. → ○ While we were traveling in Italy, we visited many museums.(during は前置詞なので、後ろに主語 + 動詞は続けられない)"
+          ]
+        },
+        {
+          "heading": "重文と複文の書き換え: but と although、so と since",
+          "explanation": "重文は、and・but・so などの等位接続詞で、2つの文を対等につないだ文です。複文は、although・since などの従属接続詞で、片方の文を従属節にした文です。**逆接の but は although(though)に、結果の so は、理由を表す since(as, because)に書き換えられます。** 文どうしの意味の関係(逆接・結果)を読み取って、接続詞を選び直すのが手順です。\n\n・She was tired, but she kept working. → Although she was tired, she kept working.\n・It rained all day, so we stayed at home. → Since it rained all day, we stayed at home.\n\nbut の文を although にするときは、but を消します。so の文は、結果を表す文を主節にし、原因を表す文を since の節にします。",
+          "examples": [
+            {
+              "en": "**Although she was tired**, she kept working on the report.",
+              "ja": "彼女は疲れていたが、報告書の作業を続けた。",
+              "note": "but(逆接)を although の節で表した複文。but は消す"
+            },
+            {
+              "en": "**Since it rained all day**, we stayed at home.",
+              "ja": "一日中雨が降っていたので、私たちは家にいた。",
+              "note": "so(結果)の文を、since(理由)の節で表した複文"
+            }
+          ],
+          "cautions": [
+            "× Although she was tired, but she kept working. → ○ Although she was tired, she kept working.(although と but は一緒に使わない)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、空所に入る分詞構文・関係詞・接続詞の形を選ぶ問題が出ます。分詞構文は、分詞の意味上の主語が主節の主語と同じかを確かめ、完了形なら Having + 過去分詞を選びます。非制限用法は、カンマの後の内容が前の名詞や文の補足になっているかを見て判断します。"
+    },
+    {
+      "id": "emphasis-comparison-noun",
+      "title": "強調・比較・名詞化の書き換え",
+      "intro": "強調構文、比較の言い換え、動詞と名詞の言い換えは、TOEIC の言い換え問題や英文の書き換え問題でよく使われます。どの形になるかを、元の文の要素(主語・目的語・比較の対象)に当てはめて確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "強調構文: It is ... that ... と通常の文の書き換え",
+          "explanation": "強調構文は、文の一部(主語・目的語・副詞句)を It is / It was と that(人なら who も)で挟み、その部分を強く言う形です。**強調する語句を It is と that の間に入れ、残りの部分を that の後ろに続けます。** 元の文に戻すには、It is と that(who)を取り除き、強調した語句を元の位置に戻します。\n\n・Tom broke the window yesterday. → It was **Tom** that broke the window yesterday.(主語の強調)\n・Tom broke the window yesterday. → It was **yesterday** that Tom broke the window.(副詞句の強調)\n\n見分け方は、It is と that を取り除いて、残りが普通の文として成り立つかを確かめることです。It is important that ... のように It is の後ろが形容詞の文は、強調構文ではありません(形式主語の文)。",
+          "examples": [
+            {
+              "en": "It was **Tom** that broke the window yesterday.",
+              "ja": "昨日窓を割ったのは、トムだ。",
+              "note": "主語 Tom を It was ... that の間に入れた強調構文。that の後ろは元の文の残りの部分"
+            },
+            {
+              "en": "It was **yesterday** that Tom broke the window.",
+              "ja": "トムが窓を割ったのは、昨日のことだ。",
+              "note": "副詞句 yesterday を強調する形。that の後ろは元の文の残りがそのまま続く"
+            }
+          ],
+          "cautions": [
+            "× It was that Tom broke the window yesterday. → ○ It was Tom that broke the window yesterday.(It is ... that の間には、必ず強調する語句を入れる)"
+          ]
+        },
+        {
+          "heading": "Nothing is more ... than と最上級の書き換え",
+          "explanation": "Nothing is more 形容詞 than A は、「A ほど~なものはない」という意味で、A is the most 形容詞 と同じことを表します。**比較級の否定が、最上級と同じ意味になる関係です。** 「何も A より~ではない」と言うことで、「A が一番~だ」と言い切っています。\n\n・Nothing is more important than your health. → Your health is the most important thing in life.\n\nこの形は、There is nothing more 形容詞 than A とも書けます。意味は同じです。最上級の the most と、比較級の more は、一緒に使わないことも覚えておきましょう。",
+          "examples": [
+            {
+              "en": "Nothing is **more important** than your health.",
+              "ja": "あなたの健康ほど大切なものはない。",
+              "note": "比較級 more + than A の否定。「A が最も大切だ」と同じ意味"
+            },
+            {
+              "en": "Your health is **the most important** thing in life.",
+              "ja": "健康は、人生で最も大切なものだ。",
+              "note": "最上級 the most + 形容詞 + thing で言い換えた形"
+            }
+          ],
+          "cautions": [
+            "× Nothing is the most important than health. → ○ Nothing is more important than health.(than の前は比較級。the most と一緒には使わない)"
+          ]
+        },
+        {
+          "heading": "2つを比べる文: the 比較級 of the two と比較級 than",
+          "explanation": "2つのものを比べて「どちらか一方の方が~だ」と言うときは、the + 比較級 + of the two(2つのうちの~の方)と書きます。標準的な文法では、2つの比較に最上級を使わず、比較級を使います。\n\n・Mary is the taller of the two sisters. → Mary is taller than her sister.\n\n「the 比較級 of the two」は、2つの中から一方を選ぶ言い方です。「比較級 than + 相手」は、一方をもう一方と直接比べる言い方です。どちらも、同じ内容を表します。",
+          "examples": [
+            {
+              "en": "Mary is **the taller** of the two sisters.",
+              "ja": "メアリーは、2人姉妹のうち背が高い方だ。",
+              "note": "2つを比べるときは、the + 比較級 + of the two"
+            },
+            {
+              "en": "Mary is **taller than** her sister.",
+              "ja": "メアリーは、もう一人の姉妹より背が高い。",
+              "note": "比べる相手を than の後ろに置いた形。意味は上の文と同じ"
+            }
+          ],
+          "cautions": [
+            "× Mary is taller of the two sisters. → ○ Mary is the taller of the two sisters.(the 比較級 of the two の the を忘れない)"
+          ]
+        },
+        {
+          "heading": "動詞を名詞にする: decide → make a decision",
+          "explanation": "同じ意味を、動詞の代わりに「動作を表す名詞」で言うことがあります。ビジネス英語や説明文では、名詞を使う形がよく見られ、文がかたく、簡潔な印象になります。**動詞の代わりに、make / have / give + a + 名詞 の形を使うのが基本です。** 名詞の後ろには、to 不定詞(decision to ~)や、on / about などの前置詞を続けます。\n\n・They decided to expand overseas. → They made a decision to expand overseas.\n・The team presented the new sales results. → The team gave a presentation on the new sales results.\n\n名詞の語形は、動詞と違うことがあります(decide → decision)。数えられる名詞の単数形の前には、a / an / the が必要です。",
+          "examples": [
+            {
+              "en": "They **made a decision** to expand overseas.",
+              "ja": "彼らは海外へ事業を広げることを決めた。",
+              "note": "decide(動詞)を make a decision(名詞)に言い換えた形"
+            },
+            {
+              "en": "The team **gave a presentation** on the new sales results.",
+              "ja": "チームは、新しい売上の結果について発表した。",
+              "note": "present(動詞)を give a presentation(名詞)に言い換えた形。on で話題を示す"
+            }
+          ],
+          "cautions": [
+            "× They made a decide to expand overseas. → ○ They made a decision to expand overseas.(make の後ろは動詞ではなく名詞の decision)"
+          ]
+        },
+        {
+          "heading": "動詞と名詞の言い換え: discuss → a discussion about",
+          "explanation": "動詞を名詞にするときは、前置詞が変わることがあります。**discuss(〜について話し合う)は他動詞なので、前置詞を付けずに、直接目的語を取ります。名詞の discussion にすると、about や on が必要になります。** discuss about とは言わない点が、ひっかけになりやすいところです。\n\n・We discussed the budget. → We had a discussion about the budget.\n\n動詞と名詞で、語形そのものが変わる語もあります。succeed(成功する)の名詞は success です。\n\n・The new plan succeeded. → The new plan was a success.\n\n語形が変わる名詞(-tion, -ment, -ance, -ess など)は、動詞と一緒に覚えます。動詞の使い方(前置詞の有無)と、名詞の前置詞(about, on, of など)をセットで覚えると、書き換えでも迷いません。",
+          "examples": [
+            {
+              "en": "We had **a discussion about** the budget.",
+              "ja": "私たちは予算について話し合った。",
+              "note": "discuss(動詞)を名詞 discussion にすると、about が必要になる"
+            },
+            {
+              "en": "The new plan was **a success**.",
+              "ja": "新しい計画は成功だった。",
+              "note": "succeed(動詞)の名詞形 success を使った言い換え。語形が変わる"
+            }
+          ],
+          "cautions": [
+            "× We discussed about the budget. → ○ We discussed the budget.(discuss は前置詞を付けずに目的語を取る)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、It is ... that の形で強調する語を選ぶ問題や、比較の言い換え(Nothing is more ... than など)が出題されることがあります。動詞と名詞の言い換えは、make a decision や have a discussion のように、動詞の形と名詞の形のどちらが入るかを、前後の語から判断することが大切です。"
     }
   ],
   "summary": [
@@ -202,7 +522,11 @@
     "too 形容詞 to 不定詞 = so 形容詞 that 主語 cannot 動詞",
     "形容詞 enough to 不定詞 = so 形容詞 that 主語 can 動詞",
     "No other ~ is as 形容詞 as A = A is 比較級 than any other ~",
-    "in order to 動詞の原形 = so that 主語 can 動詞。無生物主語は because や if の節に言い換える"
+    "in order to 動詞の原形 = so that 主語 can 動詞。無生物主語は because や if の節に言い換える",
+    "能動態 ↔ 受動態: 目的語を主語にして be + 過去分詞。第4文型は、人か物のどちらを主語にするかで2通り",
+    "第3文型 ↔ 第4文型: give 型は to、buy 型は for。第4文型では to / for を消して、人を物の前に置く",
+    "分詞構文: 接続詞と、主節と同じ主語を消し、動詞を -ing にする。前の出来事は Having + 過去分詞",
+    "強調構文は It is ... that ...。Nothing is more ... than A = A is the most ...。decide → make a decision"
   ],
   "quiz": [
     {

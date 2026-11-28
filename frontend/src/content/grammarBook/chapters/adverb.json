@@ -2,7 +2,7 @@
   "id": "adverb",
   "no": 8,
   "title": "副詞",
-  "lead": "副詞は、動詞・形容詞・副詞・文全体を説明して、どのように・いつ・どれくらい・どう思うかを表す語です。副詞の位置は、修飾する語によって変わります。TOEIC Part 5 では、文全体を修飾する副詞(accordingly、seemingly など)の意味、否定の副詞(hardly、seldom)の位置、enough や as soon as possible の語順がよく問われます。この章では、その基本を確かめます。",
+  "lead": "副詞は、動詞・形容詞・副詞・文全体を説明して、どのように・いつ・どれくらい・どう思うかを表す語です。副詞の位置は、修飾する語によって変わります。TOEIC Part 5 では、文全体を修飾する副詞(accordingly、seemingly など)の意味、否定の副詞(hardly、seldom)の位置、enough や as soon as possible の語順がよく問われます。この章では、副詞の働きと位置、種類と語順、形が似ていて意味が違う副詞、程度を表す語(enough、too、so、such、very と much)、完了や時間を表す語(already、yet、still、ago、since など)、準否定と「〜も」の表現までを順に確かめます。",
   "sections": [
     {
       "id": "basics",
@@ -134,17 +134,249 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、hardly の前に not を置いた誤り、good enough と enough time の語順、as soon as possible の形が出題されます。"
+    },
+    {
+      "id": "kinds-and-order",
+      "title": "副詞の種類と語順: 様態・場所・時・頻度",
+      "intro": "副詞は、「どのように・どこで・いつ・どれくらい」など、表す内容によって種類が分かれます。複数の副詞を並べるときの語順や、頻度を表す副詞(always、often など)の位置を知らないと、語順の誤りで点を落とします。この節では、副詞の種類と並べ方を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "副詞の種類: 様態・場所・時・頻度・程度・文修飾",
+          "explanation": "副詞は、表す内容によって次のように分けられます。\n\n・様態(どのように): carefully(注意深く)、quickly(速く)\n・場所(どこで): here(ここで)、abroad(海外で)\n・時(いつ): yesterday(昨日)、soon(まもなく)\n・頻度(どれくらい頻繁に): always(いつも)、sometimes(ときどき)\n・程度(どれくらい): very(非常に)、quite(かなり)\n・文修飾(文全体への話し手の判断): fortunately(幸いにも)、frankly(率直に言えば)\n\nTOEIC では、副詞の種類の名前を覚えるより、「空所の前後がどの語句を説明しているか」で正解を選ぶ問題が多く出ます。種類は、その判断の手がかりとして使います。",
+          "table": {
+            "caption": "副詞の種類と例",
+            "headers": ["種類", "表す内容", "例"],
+            "rows": [
+              ["様態", "どのように", "carefully(注意深く)、quickly(速く)"],
+              ["場所", "どこで", "here(ここで)、abroad(海外で)"],
+              ["時", "いつ", "yesterday(昨日)、soon(まもなく)"],
+              ["頻度", "どれくらい頻繁に", "always(いつも)、sometimes(ときどき)"],
+              ["程度", "どれくらい", "very(非常に)、quite(かなり)"],
+              ["文修飾", "文全体への判断", "fortunately(幸いにも)、frankly(率直に言えば)"]
+            ]
+          },
+          "examples": [
+            { "en": "She **carefully** checked every figure in the report.", "ja": "彼女は、報告書のすべての数字を注意深く確かめた。", "note": "様態を表す carefully。動詞 checked を修飾" },
+            { "en": "Our team travels **abroad** three times a year.", "ja": "私たちのチームは、年に3回海外へ出張する。", "note": "場所を表す abroad。動詞 travels を修飾" },
+            { "en": "**Fortunately**, nobody was hurt in the accident.", "ja": "幸いにも、その事故でけがをした人はいなかった。", "note": "文全体への判断を表す fortunately" }
+          ]
+        },
+        {
+          "heading": "副詞の語順: 様態・場所・時の順に並べる",
+          "explanation": "1つの文に、様態・場所・時を表す副詞や語句が並ぶときは、「様態 → 場所 → 時」の順に置くのが基本です。英語では、行動の仕方を先に、場所を次に、時を最後に言うと覚えておくと便利です。\n\n・様態(動詞の前後) + 場所(目的語の後) + 時(文末): She spoke calmly to the board yesterday.\n\n日本語では「昨日、役員会で、落ち着いて話した」のように、時を先に言うことがあります。英語では、時を文末に置くのが自然です。文頭に時を置くこともできますが、まず基本の語順を覚えます。",
+          "examples": [
+            { "en": "The manager **quickly** sent the report **to the client** **this morning**.", "ja": "部長は今朝、そのレポートをすぐに取引先へ送った。", "note": "様態(quickly)は動詞の前、場所(to the client)は目的語の後、時(this morning)は文末" },
+            { "en": "We walked **slowly** **to the station** **after dinner**.", "ja": "私たちは夕食の後、駅までゆっくり歩いた。", "note": "様態・場所・時の順に並べている" }
+          ],
+          "cautions": ["× I went yesterday to the library. → ○ I went to the library yesterday.(場所を先に、時を文末に置く)"]
+        },
+        {
+          "heading": "頻度副詞の位置: 一般動詞の前、be 動詞の後",
+          "explanation": "頻度を表す副詞(always、usually、often、sometimes、seldom、rarely、never など)は、位置が決まっています。\n\n・一般動詞の前: We often have meetings on Monday.\n・be 動詞の後: She is always calm during a negotiation.\n・助動詞の後(動詞の前): The printer will sometimes stop working.\n・文頭・文末: Sometimes the printer stops working. / The printer stops working sometimes.\n\nalways、usually、often、sometimes は、文頭や文末にも置けます。一方、never、seldom、rarely は、原則として一般動詞の前や be 動詞の後に置きます。never を文頭に出すと、Never have I seen ... のように倒置が起きます(第23章「倒置・省略・強調・挿入」)。",
+          "examples": [
+            { "en": "We **often** have meetings on Monday.", "ja": "私たちは月曜日によく会議をする。", "note": "一般動詞 have の前に置く" },
+            { "en": "She is **always** calm during a negotiation.", "ja": "交渉の間、彼女はいつも落ち着いている。", "note": "be 動詞 is の後に置く" },
+            { "en": "I **never** check my email before breakfast.", "ja": "私は朝食の前に、メールを確認することは一度もない。", "note": "一般動詞 check の前。never は否定の意味なので not と重ねない" }
+          ],
+          "cautions": ["× I do not never eat meat. → ○ I never eat meat.(never に not を重ねない)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、副詞の位置(一般動詞の前か後か)や、時を表す語句の位置を問う問題が出ます。空所の前後にある動詞と、修飾される語句を先に確かめると、語順で迷いにくくなります。"
+    },
+    {
+      "id": "similar-form-adverbs",
+      "title": "形が似て意味が違う副詞: near・high・most・close・direct・free・short",
+      "intro": "副詞には、形容詞と同じ形で使う語(fast、hard、near など)や、-ly をつけると意味が大きく変わる語(high と highly、most と mostly)があります。見た目だけで判断すると、文の意味を取り違えるので、ここで区別を確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "near と nearly: 近くに と ほとんど",
+          "explanation": "near は、副詞として使うときは「近くに」の意味で、come near(近づく)のように場所の近さを表します。一方 nearly は、副詞として「ほとんど、もう少しで」の意味で、完成の度合いや数量のおよその大きさを表します。\n\n・near(近くに): The storm came near the coast.(嵐が海岸の近くまで来た)\n・nearly(ほとんど): The project is nearly finished.(そのプロジェクトは、ほぼ終わっている)\n\n形が似ているので、nearly を「近くに」と読むと誤読します。「ほとんど〜だ」の意味は、nearly で表します。",
+          "examples": [
+            { "en": "The project is **nearly** finished.", "ja": "そのプロジェクトは、ほぼ終わっている。", "note": "nearly(ほとんど)は、完成の度合いを表す" },
+            { "en": "The total cost was **nearly** three million yen.", "ja": "総費用は、ほぼ300万円だった。", "note": "nearly + 数字で、およその大きさを表す" }
+          ],
+          "cautions": ["× The report is near complete. → ○ The report is nearly complete.(「ほとんど」の意味は nearly)"]
+        },
+        {
+          "heading": "high と highly: 高く と 大いに(高く評価して)",
+          "explanation": "high は、副詞として「高く」の意味で、場所や目標の高さを表します(aim high で「高い目標をめざす」)。highly は「大いに、非常に、高く評価して」の意味で、評価や程度を強めます。\n\n・high(高く): The bird flew high above the trees.(鳥は木々の上高く飛んだ)\n・highly(大いに・高く評価して): The company values its employees highly.(その会社は社員を高く評価している)\n\n「強くお勧めする」は highly recommended です。high を使って high recommended とは言いません。",
+          "examples": [
+            { "en": "The company values its employees **highly**.", "ja": "その会社は、社員を高く評価している。", "note": "highly(高く評価して)。value A highly の形" },
+            { "en": "This restaurant is **highly** recommended by our staff.", "ja": "このレストランは、私たちのスタッフが強くお勧めしている。", "note": "highly recommended(強くお勧めする)" }
+          ],
+          "cautions": ["× This plan is high recommended. → ○ This plan is highly recommended.(評価や程度を表すのは highly)"]
+        },
+        {
+          "heading": "most と mostly: 最も・非常に と 主に",
+          "explanation": "most は、副詞として「非常に」(very に近い強め)の意味で使うことがあります。ただし、改まった文で使うことが多く、a most useful guide のように形容詞の前で使います。mostly は副詞として「主に、大部分は」の意味で、話の内容を限定します。\n\n・mostly(主に): The members are mostly students.(メンバーは主に学生だ)\n・most(非常に・改まった文): a most useful guide(非常に役に立つ案内)\n\nTOEIC では、most と mostly の取り違えが出ます。空所に「主に」の意味が入るなら mostly、「非常に」の意味で形容詞の前に入るなら most と考えます。",
+          "examples": [
+            { "en": "The staff are **mostly** from the sales team.", "ja": "スタッフは、主に営業チームの人たちだ。", "note": "mostly(主に)は、大部分を表す副詞" },
+            { "en": "This is a **most** useful guide for new employees.", "ja": "これは新入社員にとって、非常に役に立つ案内だ。", "note": "most は、形容詞 useful を強める(改まった文)" }
+          ]
+        },
+        {
+          "heading": "close・direct・free・short と、-ly をつけた形",
+          "explanation": "close、direct、free、short は、副詞として-ly をつけない形でも使えます。-ly をつけた形と、意味が違うものがあります。\n\n・close(近くに)と closely(注意深く、綿密に)\n・direct(まっすぐに)と directly(直接に)\n・free(無料で、口語)と freely(自由に、遠慮なく)\n・short(急に・途中で)と shortly(まもなく)\n\n-ly をつけた形は、「注意深く」「直接に」「自由に」「まもなく」の意味になることが多いです。文の意味を確かめるときは、語の形より、文が何を説明しているかで判断します。",
+          "table": {
+            "caption": "副詞の形と意味",
+            "headers": ["語", "副詞の意味", "-ly の形の意味"],
+            "rows": [
+              ["close", "近くに", "closely: 注意深く、綿密に"],
+              ["direct", "まっすぐに、直接に", "directly: 直接に、すぐに(英国では「まもなく」の意味でも使う)"],
+              ["free", "無料で(口語)", "freely: 自由に、遠慮なく"],
+              ["short", "急に、途中で", "shortly: まもなく"]
+            ]
+          },
+          "examples": [
+            { "en": "Please watch the children **closely** near the pool.", "ja": "プールの近くでは、子どもたちを注意深く見ていてください。", "note": "closely(注意深く)は、見る動作を説明する" },
+            { "en": "The new manager will join our team **shortly**.", "ja": "新しい部長が、まもなく私たちのチームに加わる。", "note": "shortly(まもなく)は soon とほぼ同じ意味" },
+            { "en": "Students can use the library **freely** after school.", "ja": "放課後、学生は図書館を自由に使える。", "note": "freely(自由に)は use を修飾する" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、hardly と hard、mostly と most、highly と high など、形が近い副詞の取り違えが出題されます。語の形だけで決めず、文の意味が通るかを確かめます。"
+    },
+    {
+      "id": "degree-words",
+      "title": "程度を表す語: enough・too・so・such・very と much",
+      "intro": "enough、too、so、such、very、much は、どれくらいの程度かを表す語です。形容詞・副詞・名詞のどれを修飾するか、そして後ろに to 不定詞や that 節が続くかで、使い分けが決まります。語順の誤りや、very と much の取り違えがよく問われます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "too と enough: 〜すぎる と 〜するのに十分な",
+          "explanation": "too は「〜すぎる」(望ましくない程度)、enough は「十分に〜」の意味です。どちらも、後ろに to 不定詞を続けて、「〜するには〜すぎる」「〜するのに十分〜だ」を表します。\n\n・too + 形容詞・副詞 + to 不定詞: The box is too heavy to carry.(箱は重すぎて運べない)\n・形容詞・副詞 + enough + to 不定詞: The room is large enough to hold fifty people.(その部屋は、50人が入れるほど十分に広い)\n\ntoo ... to の文は、「so 〜 that ... cannot」で言い換えられます(第24章「文の転換」)。to の後ろに、もう一度目的語を置かないのが決まりです。",
+          "examples": [
+            { "en": "The box is **too** heavy **to carry** by yourself.", "ja": "その箱は重すぎて、ひとりでは運べない。", "note": "too heavy to carry(重すぎて運べない)" },
+            { "en": "The room is **large enough to hold** fifty people.", "ja": "その部屋は、50人が入れるほど十分に広い。", "note": "形容詞 large の後ろに enough を置く" }
+          ],
+          "cautions": ["× The box is too heavy to carry it. → ○ The box is too heavy to carry.(to の後ろに目的語を重ねない)"]
+        },
+        {
+          "heading": "so と such: 〜なので…。so は形容詞・副詞、such は名詞",
+          "explanation": "so と such は、「とても〜なので…だ」の形で使います。so は形容詞・副詞を修飾し、such は名詞のかたまりを修飾します。どちらの後ろにも that 節が続きます。\n\n・so + 形容詞・副詞 + that 節: The project was so complex that we needed more time.\n・such + (a/an) + 形容詞 + 名詞 + that 節: It was such a complex project that we needed more time.\n\nso の後ろには形容詞・副詞だけが続き、such の後ろには「(a/an) + 形容詞 + 名詞」が続きます。so many(数えられる名詞)と so much(数えられない名詞)は、名詞の前で使う例外です。",
+          "examples": [
+            { "en": "The project was **so** complex **that** we needed more time.", "ja": "そのプロジェクトはとても複雑だったので、もっと時間が必要だった。", "note": "so + 形容詞 complex + that 節" },
+            { "en": "It was **such** a complex project **that** we needed more time.", "ja": "それはとても複雑なプロジェクトだったので、もっと時間が必要だった。", "note": "such + a + 形容詞 + 名詞 + that 節" }
+          ],
+          "cautions": ["× It was so a complex project that ... → ○ It was such a complex project that ...(so は a の前に置けない)"]
+        },
+        {
+          "heading": "very と much: 原級を強めるのは very、比較級を強めるのは much",
+          "explanation": "very と much は、どちらも「とても、非常に」の意味がありますが、強める語が違います。very は形容詞・副詞の原級(比較級でない形)を強め、much は比較級・最上級や、動詞を強めるときに使います。\n\n・very + 形容詞・副詞の原級: very important、very quickly\n・much + 比較級・最上級: much better、much the best\n・動詞を強める: thank you very much、like it very much\n\n例外として、感情を表す過去分詞(interested、tired など)は形容詞として扱われるので、very を使います(very interested)。一方、much appreciated(大変ありがたい)や much needed(ぜひ必要な)のように、動詞性の強い過去分詞には much を使えます。",
+          "examples": [
+            { "en": "The new system is **much** better than the old one.", "ja": "新しいシステムは、古いものよりずっとよい。", "note": "比較級 better を強めるので much" },
+            { "en": "I am **very** interested in the new project.", "ja": "私は、その新しいプロジェクトにとても興味がある。", "note": "interested は形容詞として使うので very" },
+            { "en": "Thank you **very much** for your help.", "ja": "ご協力、本当にありがとうございました。", "note": "動詞の感謝を強める very much" }
+          ],
+          "cautions": ["× I am much interested in art. → ○ I am very interested in art.(感情の過去分詞は very で強める)", "× This is very better than before. → ○ This is much better than before.(比較級は much で強める)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、so と such の取り違え(such a complex project と so complex)や、比較級の前の very の誤りが出題されます。直後が形容詞・副詞か、名詞のかたまりかを先に見ると判断できます。"
+    },
+    {
+      "id": "completion-time",
+      "title": "完了・継続・時間を表す副詞: already・yet・still・ago・before・since",
+      "intro": "already、yet、still は「もう」「まだ」を表しますが、使う文の種類と位置が違います。また、ago、before、since は時間の基準の置き方が違うので、使う時制も決まっています。この節では、現在完了と一緒に使う副詞の使い分けを確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "already・yet・still: もう・まだ・まだ〜し続けている",
+          "explanation": "already、yet、still は、「もう」「まだ」を表しますが、使う文の種類と位置が違います。\n\n・already(もう): 肯定文で使い、have と過去分詞の間に置く。\n・yet(まだ・もう): 否定文では「まだ」(not ... yet、文末)、疑問文では「もう」(文末)に使う。肯定文では通常使わない。\n・still(まだ〜している): 状態や動作が続いていることを表し、be 動詞の後、一般動詞の前に置く。\n\n日本語の「まだ」を一語で置き換えると、yet と still を取り違えます。「まだ終わっていない」は has not finished yet(完了の否定)、「まだ検討している」は is still reviewing(継続)と考えます。",
+          "examples": [
+            { "en": "The team has **already** sent the report to the client.", "ja": "チームは、もうその報告書を取引先に送った。", "note": "肯定文の already は has と sent の間に置く" },
+            { "en": "The shipment has **not** arrived **yet**.", "ja": "荷物は、まだ届いていない。", "note": "否定文の yet は文末に置き、「まだ」を表す" },
+            { "en": "The manager is **still** reviewing the contract.", "ja": "部長は、まだその契約書を検討している。", "note": "still は be 動詞の後、続いている動作を表す" }
+          ],
+          "cautions": ["× The report has yet been sent. → ○ The report has already been sent.(肯定文で「もう」は already)"]
+        },
+        {
+          "heading": "just・ever・never・once: ちょうど・今までに・一度も・1回",
+          "explanation": "just、ever、never、once は、現在完了(have + 過去分詞)の中で、完了や経験を表すときによく使われます。位置は、have と過去分詞の間です。\n\n・just(ちょうど、たった今): have just finished(たった今終えた)\n・ever(今までに): 疑問文で「今までに〜したことがあるか」を表す。Have you ever ...?\n・never(一度も〜ない): 否定の意味を持つので、not と重ねない。have never ...\n・once(1回、かつて): 過去の経験や、once a month(月に1回)のような頻度を表す。\n\nこれらの語を現在完了で使うときは、yesterday や last year などの、過去の一点を表す語句と一緒に使えません。",
+          "examples": [
+            { "en": "I have **just** finished the report, so I can send it now.", "ja": "たった今レポートを書き終えたので、今送れます。", "note": "have と過去分詞 finished の間に just(たった今)" },
+            { "en": "Have you **ever** visited a traditional tea house?", "ja": "伝統的な茶室を訪れたことはありますか。", "note": "疑問文の ever(今までに)" },
+            { "en": "I have **never** seen such a large crowd.", "ja": "これほど大勢の人が集まったのを、一度も見たことがない。", "note": "経験の否定。never に not を重ねない" },
+            { "en": "We meet **once** a month to review the budget.", "ja": "私たちは、予算を見直すために月に1回会う。", "note": "once は頻度(1回)を表す" }
+          ],
+          "cautions": ["× I have seen him yesterday. → ○ I saw him yesterday.(現在完了と、yesterday などの過去の語句は一緒に使わない)"]
+        },
+        {
+          "heading": "ago・before・since: 今から前・基準より前・〜以来",
+          "explanation": "ago、before、since は、時間の基準の置き方が違うので、使う時制も決まっています。\n\n・ago(〜前): 今(現在)から何時間・何年前かを表す。過去形と使う。\n・before(〜より前): 過去のある時点より前、または「以前に」の意味。過去完了と使うことが多い。\n・since(〜以来): 過去のある時点から今までの期間を表す。現在完了と使う。\n\n「〜前」を ago で言うからといって、現在完了と組み合わせるのは誤りです。現在完了の文では、since(〜以来)や for(〜の間)で期間を表します。",
+          "examples": [
+            { "en": "The shipment left the warehouse **three days ago**.", "ja": "その荷物は、3日前に倉庫を出た。", "note": "ago は今からさかのぼるので、過去形と使う" },
+            { "en": "She had left the office **two hours before** we arrived.", "ja": "私たちが着く2時間前に、彼女はオフィスを出ていた。", "note": "before は過去の基準(we arrived)より前を表す。過去完了と使う" },
+            { "en": "I have worked for this company **since** 2018.", "ja": "私は2018年からこの会社で働いている。", "note": "since は過去の起点から今までを表し、現在完了と使う" }
+          ],
+          "cautions": ["× I have finished the work an hour ago. → ○ I finished the work an hour ago.(ago は過去形と使う)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、現在完了と ago・yesterday の組み合わせや、yet と already の取り違えが出ます。文の時制(現在完了か過去形か)を先に決めると、副詞が絞れます。"
+    },
+    {
+      "id": "negative-additive-only",
+      "title": "準否定・「〜も」・only の位置: barely・also・too・either・So do I・only",
+      "intro": "barely や rarely は、not を使わずに「ほとんど〜ない」の意味を表します。also、too、either、as well は「〜も」を表しますが、肯定文と否定文で使い分けます。また、only は修飾する語の直前に置くことで、意味が変わります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "準否定: barely・rarely は not を重ねずに「ほとんど〜ない」",
+          "explanation": "barely(ほとんど〜ない、やっと〜だけ)と rarely(めったに〜ない)は、否定に近い意味を持つ準否定語です。hardly、scarcely、seldom と同じく、not と一緒に使いません。\n\n・barely: ほとんど〜ない、やっと〜だけ。barely enough(やっと足りる程度)\n・rarely: めったに〜ない。頻度を否定する\n\n準否定の語を含む文は、すでに否定の文です。not を入れると二重否定になり、文法の誤りになります。試験では、準否定の語が出ている文を肯定の文と読み違えないようにします。",
+          "examples": [
+            { "en": "The new staff **barely** had time to read the manual.", "ja": "新しいスタッフは、マニュアルを読む時間がほとんどなかった。", "note": "barely(ほとんど〜ない)は、否定に近い意味を持つ" },
+            { "en": "Our manager **rarely** works on weekends.", "ja": "私たちの部長は、週末に働くことはめったにない。", "note": "rarely(めったに〜ない)は頻度を表す準否定語" }
+          ],
+          "cautions": ["× I do not rarely go to the gym. → ○ I rarely go to the gym.(準否定の語に not を重ねない)"]
+        },
+        {
+          "heading": "also・too・either・as well: 「〜も」の位置と肯定・否定",
+          "explanation": "「〜も」を表す語は、文の中の位置と、肯定文か否定文かで使い分けます。\n\n・also: 肯定文で、動詞の前か be 動詞の後に置く(She also speaks French.)。文末に置くと、改まった感じになる。\n・too: 肯定文の文末に置く(I like it too.)。\n・either: 否定文の文末に置く(I don't like it either.)。\n・as well: 肯定文の文末に置く。口語的で、too と同じように使える(I like it as well.)。\n\n典型的なひっかけは、too と either の取り違えです。肯定文の too、否定文の either と覚えます。",
+          "examples": [
+            { "en": "Our new office **also** has a small garden.", "ja": "新しいオフィスには、小さな庭もある。", "note": "also は has の前に置く" },
+            { "en": "My colleague likes the new design, and I like it **too**.", "ja": "同僚は新しいデザインが気に入っていて、私も気に入っている。", "note": "肯定文の文末の too" },
+            { "en": "He did not attend the first meeting, and he did not attend the second one **either**.", "ja": "彼は最初の会議に出なかったし、2回目にも出なかった。", "note": "否定文の文末の either" }
+          ],
+          "cautions": ["× I don't like it too. → ○ I don't like it either.(否定文では either)"]
+        },
+        {
+          "heading": "So do I・Neither do I: 「私もそうだ」「私もそうではない」",
+          "explanation": "相手の文に同意するとき、英語では同じ動詞(助動詞)を使って答えます。\n\n・肯定の文に同意する: So + 助動詞(be 動詞)+ 主語。例: I like jazz. → So do I.\n・否定の文に同意する: Neither + 助動詞 + 主語。例: I don't like jazz. → Neither do I.\n\n動詞は、相手の文と同じ形にします。be 動詞なら So am I、Neither am I のように am / is / are を使い、can なら So can I、Neither can I です。So の後ろは「助動詞 + 主語」の語順なので、So I do とは言いません。口語では、Me too(私も)、Me neither(私もそうではない)もよく使われます。",
+          "examples": [
+            { "en": "I have never been to Spain. **Neither have I.**", "ja": "私はスペインに行ったことがない。私もない。", "note": "否定の文に同意する Neither + have + 主語" },
+            { "en": "I can speak a little Spanish, and **so can my brother**.", "ja": "私は少しスペイン語を話せるし、弟もそうだ。", "note": "肯定の文に同意する so + 助動詞 + 主語(名詞の主語)" },
+            { "en": "We don't need extra staff, and **neither does the finance team**.", "ja": "私たちは追加の人員を必要としないし、経理チームも必要としない。", "note": "主語が三人称単数なので does" }
+          ],
+          "cautions": ["× So I do. → ○ So do I.(So の後ろは「助動詞 + 主語」の語順)"]
+        },
+        {
+          "heading": "only の位置: 修飾する語の直前に置く",
+          "explanation": "only(〜だけ)は、すぐ後ろの語句を修飾します。そのため、置く位置を変えると、意味が変わります。\n\n・Only Mr. Sato can approve the budget.(予算を承認できるのは、佐藤さんだけだ)\n・Mr. Sato can approve only the small budgets.(佐藤さんは、小さな予算だけを承認できる)\n\n主語だけを限定するときは、主語の前に only を置きます。動詞の前に only を置くと、動詞・目的語・時のどれを修飾しているか曖昧になりやすいので、文章では修飾する語の直前に置くのが基本です。文頭に only + 時を表す語句を置くと、倒置が起きます(第23章「倒置・省略・強調・挿入」)。",
+          "examples": [
+            { "en": "**Only** Mr. Sato can approve the budget.", "ja": "予算を承認できるのは、佐藤さんだけだ。", "note": "only は主語 Mr. Sato を修飾する" },
+            { "en": "The store is open **only** on weekdays.", "ja": "その店は、平日だけ開いている。", "note": "only は on weekdays を修飾する" },
+            { "en": "**Only after** the meeting **did** she understand the plan.", "ja": "会議の後になって、彼女はようやくその計画を理解した。", "note": "文頭の Only after + did she の倒置" }
+          ],
+          "cautions": ["× The store only is open on weekdays. → ○ The store is open only on weekdays.(only は修飾する語の直前に置く)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、hardly や rarely の前に not を置いた誤り、too と either の取り違え、only の位置による意味の違いが出題されます。準否定の語を見たら、文は否定だと考えます。"
     }
   ],
   "summary": [
-    "副詞は、動詞・形容詞・副詞・文全体を修飾する。名詞は修飾しない",
+    "副詞は、動詞・形容詞・副詞・文全体を修飾する。名詞は修飾しない(名詞の前に置く語は形容詞)",
     "副詞の位置は修飾する語で決まる: 一般動詞の前、be 動詞の後、文頭や文末",
+    "副詞の語順は「様態 → 場所 → 時」が基本。頻度副詞(always、often、never)は一般動詞の前、be 動詞の後",
     "hard(一生懸命に)と hardly(ほとんど~ない)、late(遅く)と lately(最近)は意味が違う",
-    "accordingly は前の内容を受けて「それに応じて」、seemingly は「一見~らしく」",
-    "exceptionally は「例外的に」、inadvertently は「うっかり」、substantially は「大幅に」",
-    "hardly・scarcely・seldom は否定の意味を含むので、not と重ねない",
-    "as soon as possible は「できるだけ早く」。enough は形容詞・副詞の後ろに置く",
-    "名詞の前に置く語は形容詞(quick response)。副詞(quickly)を置かない"
+    "near と nearly、high と highly、most と mostly など、形が近くても意味が違う副詞がある",
+    "too ... to / enough to、so ... that / such ... that。very は原級を、much は比較級を強める",
+    "already は肯定文、yet は否定文・疑問文で使う。still は「まだ~している」(継続)",
+    "ago は過去形、since は現在完了、before は過去の基準より前(過去完了と使うことが多い)",
+    "just・ever・never・once は現在完了の中で使う。yesterday などの過去の語句とは一緒に使えない",
+    "hardly・scarcely・barely・seldom・rarely は準否定。not と重ねない",
+    "「〜も」は肯定文で too、否定文で either。So do I(肯定への同意)、Neither do I(否定への同意)",
+    "only は修飾する語の直前に置く。文頭の Only after ... は倒置を起こす"
   ],
   "quiz": [
     {

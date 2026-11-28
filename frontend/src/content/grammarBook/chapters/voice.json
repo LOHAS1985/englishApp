@@ -33,6 +33,20 @@
             { "en": "She **resembles** her mother very closely.", "ja": "彼女は母親にとてもよく似ている。", "note": "resemble は受動態にしない" }
           ],
           "cautions": ["× Her mother is resembled by her. → ○ She resembles her mother.(resemble は能動態で使う)"]
+        },
+        {
+          "heading": "受動態にできない動詞の確認: have・fit・suit・lack・resemble",
+          "explanation": "前の項目で見たとおり、目的語を取っても受動態にできない動詞があります。ここでは、have、fit、suit、lack、resemble を例文で確かめます。\n\nこれらは、「持っている」「似ている」「足りない」「合う」など、動作ではなく状態や関係を表す動詞です。動作を受ける意味にならないので、受動態にはせず、能動態の形で使います。\n\n・能動態のみ: The company lacks skilled engineers.(その会社には、熟練した技術者が不足している)\n・能動態のみ: This jacket fits you well.(この上着は、あなたによく合う)\n\n例外として、fit が「(部品などを)取り付ける」の意味のときは、受動態にできます(The new windows were fitted last week.)。動詞の形は同じでも意味が変わるので、文の意味で判断します。",
+          "examples": [
+            { "en": "Our new office **has** three meeting rooms and a small kitchen.", "ja": "私たちの新しいオフィスには、会議室が3つと小さな台所がある。", "note": "have(持っている)は状態を表すので、受動態にしない" },
+            { "en": "This jacket **fits** you well.", "ja": "この上着は、あなたによく合っている。", "note": "fit(寸法が合う)は能動態で使う" },
+            { "en": "The company **lacks** skilled engineers.", "ja": "その会社には、熟練した技術者が不足している。", "note": "lack(不足している)は能動態で使う" },
+            { "en": "The new schedule **suits** everyone on the team.", "ja": "新しい日程は、チーム全員に都合がよい。", "note": "suit(都合がよい)は能動態で使う" }
+          ],
+          "cautions": [
+            "× You are fitted by this jacket. → ○ This jacket fits you well.(寸法が合う意味の fit は受動態にしない)",
+            "× Engineers are lacked by the company. → ○ The company lacks engineers.(lack は「~が欠けている」の能動態で使う)"
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、自動詞の受動態(is happened)や、受動態にできない動詞(is resembled)の誤りが選択肢に出ます。"
@@ -65,6 +79,40 @@
           "examples": [
             { "en": "The report **will be sent** to all managers tomorrow.", "ja": "レポートは、明日すべての部長に送られる。", "note": "will be + 過去分詞" },
             { "en": "The task **must have been finished** by now.", "ja": "その作業は、今ごろ終わっているに違いない。", "note": "must have been + 過去分詞" }
+          ]
+        },
+        {
+          "heading": "過去進行の受動態: was / were being + 過去分詞",
+          "explanation": "過去のある時点で進行中だった動作を受動態で表すときは、was / were being + 過去分詞を使います。現在進行形の受動態(is being + 過去分詞)の過去形です。「~されているところだった」と訳すと分かりやすくなります。\n\n・The road was being repaired when we arrived.(私たちが着いたとき、道路は修理されているところだった)\n・The old files were being deleted at that time.(当時、古いファイルは削除されているところだった)\n\n過去形の was repaired は、「修理された(作業が終わった)」の意味になります。過去のある時点で進行中だったことは、was being repaired で表す点を区別します。",
+          "examples": [
+            { "en": "The road **was being repaired** when we arrived at the station.", "ja": "私たちが駅に着いたとき、道路は修理されているところだった。", "note": "過去の進行形の受動態(was being + 過去分詞)" },
+            { "en": "The old files **were being deleted** while the system was updated.", "ja": "システムが更新されている間、古いファイルは削除されているところだった。", "note": "were being + 過去分詞。while の節と時間が重なる動作" }
+          ],
+          "cautions": [
+            "× The road was repaired when we arrived. → ○ The road was being repaired when we arrived.(到着時に進行中の意味にしたいなら being が必要)"
+          ]
+        },
+        {
+          "heading": "過去完了・未来完了の受動態: had been / will have been + 過去分詞",
+          "explanation": "過去のある時点までに完了していたことは、had been + 過去分詞で表します。未来のある時点までに完了している予定のことは、will have been + 過去分詞で表します。どちらも完了形の受動態で、be 動詞の部分だけが時制に合わせて変わります。\n\n・The order had been shipped before the customer called.(顧客が電話をかけてきたときには、注文の品はすでに発送されていた)\n・All the data will have been backed up by midnight.(真夜中までには、すべてのデータのバックアップが終わっているだろう)\n\nbefore(~より前に)や by(~までに)などの語句は、完了の時点を示します。時点を示す語句と完了の形を合わせて見ると、判断しやすくなります。",
+          "examples": [
+            { "en": "The order **had been shipped** before the customer called us.", "ja": "顧客が私たちに電話をしてきたとき、注文の品はすでに発送されていた。", "note": "過去完了の受動態(had been + 過去分詞)" },
+            { "en": "All the data **will have been backed up** by midnight.", "ja": "真夜中までには、すべてのデータのバックアップが終わっているだろう。", "note": "未来完了の受動態(will have been + 過去分詞)" }
+          ],
+          "cautions": [
+            "× The order had shipped before the customer called. → ○ The order had been shipped before the customer called.(注文の品は「発送された」なので、受動態の been が必要)"
+          ]
+        },
+        {
+          "heading": "助動詞 + have been + 過去分詞: 過去についての推量・後悔",
+          "explanation": "助動詞の後ろに have been + 過去分詞を続けると、過去の出来事について推量や後悔を表します。must have been(~だったに違いない)、may / might have been(~だったかもしれない)、could have been(~されえた)、should have been(~されるべきだった)などがあります。\n\n・The problem could have been avoided with better planning.(もっと良い計画があれば、その問題は避けられたはずだ)\n・The data may have been lost during the transfer.(転送の途中で、データが失われた可能性がある)\n\ncould have been や should have been は、実際にはそうならなかったことへの後悔を表すことが多いです。may have been や might have been は、過去の出来事への推量を表します。どちらの意味になるかは、前後の文脈で判断します。",
+          "examples": [
+            { "en": "The problem **could have been avoided** with better planning.", "ja": "もっと良い計画があれば、その問題は避けられたはずだ。", "note": "could have been + 過去分詞(実際には避けられなかったという後悔)" },
+            { "en": "The data **may have been lost** during the transfer.", "ja": "転送の途中で、データが失われた可能性がある。", "note": "may have been + 過去分詞(過去についての推量)" },
+            { "en": "The form **should have been signed** before the meeting.", "ja": "その書類は、会議の前に署名されておくべきだった。", "note": "should have been + 過去分詞(本来そうすべきだったという意味)" }
+          ],
+          "cautions": [
+            "× The problem could have avoided. → ○ The problem could have been avoided.(「避けられた」は受動態で表す)"
           ]
         }
       ],
@@ -99,6 +147,30 @@
             { "en": "The old computer needs to **get repaired** soon.", "ja": "その古いパソコンは、すぐに修理してもらう必要がある。", "note": "get + 過去分詞(口語)" },
             { "en": "The work will **get finished** by Friday.", "ja": "その作業は金曜日までに終わるだろう。", "note": "get + 過去分詞" }
           ]
+        },
+        {
+          "heading": "受動態で to が戻る: be made to do・be seen to do・be allowed to do",
+          "explanation": "能動態で使役動詞の make や知覚動詞の see、hear は、目的語の後ろに動詞の原形を続けます(make him work、see him enter)。受動態にして、目的語を主語にすると、後ろの原形の前に to が戻ります。\n\n・能動態: The manager made him work late.(部長は彼に遅くまで働かせた)\n・受動態: He was made to work late.(彼は遅くまで働かされた)\n・能動態: They saw the man enter the building.\n・受動態: The man was seen to enter the building.(その男性が、ビルに入るのを目撃された)\n\n知覚動詞の受動態では、to 不定詞の代わりに -ing(was seen entering)もよく使われます。let は受動態で使わず、be allowed to で言い換えます。",
+          "examples": [
+            { "en": "He **was made to** work late every night last week.", "ja": "彼は先週、毎晩遅くまで働かされた。", "note": "make の受動態では、原形の前に to が戻る" },
+            { "en": "The man **was seen to** enter the building at midnight.", "ja": "その男性は、真夜中にそのビルに入るところを目撃された。", "note": "知覚動詞 see の受動態。to enter の to が戻る" },
+            { "en": "The customers **were allowed to** use the new lounge.", "ja": "顧客は、新しいラウンジを利用することを許された。", "note": "let の受動態の代わりに be allowed to を使う" }
+          ],
+          "cautions": [
+            "× He was made work late. → ○ He was made to work late.(受動態では to が必要)"
+          ]
+        },
+        {
+          "heading": "get + 過去分詞の注意: 出来事を表す。get + 形容詞と区別する",
+          "explanation": "get + 過去分詞は、口語で、偶然の出来事や状況の変化を表すときによく使われます。get hurt(けがをする)、get married(結婚する)、get injured(けがをする)などが代表的です。主語にとって思いがけず起きたことや、結果そのものを強調するときに向いています。\n\n注意点は2つです。1つ目は、get は be 動詞の代わりなので、be を重ねないことです。2つ目は、get + 形容詞(get tired、get ready など)は受動態ではなく、「~になる」の意味の動詞だということです。tired は過去分詞の形ですが、ここでは「疲れた」という形容詞です。\n\nまた、報告書や契約書などの改まった文章では、be + 過去分詞を使うのが普通です。",
+          "examples": [
+            { "en": "My brother **got hurt** while playing soccer on Sunday.", "ja": "兄は日曜日にサッカーをしているとき、けがをした。", "note": "get + 過去分詞(偶然の出来事)" },
+            { "en": "She **got married** to a doctor last spring.", "ja": "彼女は去年の春、医者と結婚した。", "note": "get married は、marry の受動態の代わりによく使う(相手は to で示す)" },
+            { "en": "I **got tired** after the long meeting.", "ja": "長い会議のあと、私は疲れた。", "note": "tired は形容詞。get + 形容詞なので受動態ではない" }
+          ],
+          "cautions": [
+            "× I was got hurt. → ○ I got hurt.(get の受動態で be を重ねない)"
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、第4文型の受動態(was shown the system)や、第5文型の補語の残し方、get + 過去分詞の形が出題されます。"
@@ -122,6 +194,63 @@
           "explanation": "by の後ろには、動作をした人や物を置きます。受動態では、行為者を示す必要がなければ、by 以下を省きます。\n\n・The novel was written by a famous author.(その小説は、有名な作家によって書かれた)\n・The door was opened.(ドアが開けられた。誰が開けたかは重要ではない)",
           "examples": [
             { "en": "The article was **written by** a famous author.", "ja": "その記事は、有名な作家によって書かれた。", "note": "by + 行為者" }
+          ]
+        },
+        {
+          "heading": "be made of・be made from・be made into: 材料と変化の前置詞",
+          "explanation": "「~でできている」「~から作られる」「~に作り変えられる」は、前置詞の使い分けで区別します。見分けるポイントは、材料がもとの形で残っているか、材料が変化して別のものになったかです。\n\n・be made of: 材料の形が見分けられる(木製の机、ガラスの窓など)\n・be made from: 材料が変化して、もとの形が分からない(ぶどうから作ったワインなど)\n・be made into: 別のものに作り変えられる(古い倉庫がショッピングモールになる)\n\n日本語では、どれも「~でできている」「~から作られる」と訳せることがあるので、英語では材料がどう変わったかで使い分けます。",
+          "table": {
+            "caption": "材料を表す前置詞",
+            "headers": ["材料の様子", "前置詞", "例"],
+            "rows": [
+              ["材料の形が見分けられる", "of", "be made of wood(木でできている)"],
+              ["材料が変化して、別のものになる", "from", "be made from grapes(ぶどうから作られる)"],
+              ["別のものに作り変えられる", "into", "be made into a park(公園に作り変えられる)"]
+            ]
+          },
+          "examples": [
+            { "en": "This desk **is made of** solid oak.", "ja": "この机は、頑丈なオーク材でできている。", "note": "be made of(木の形が残っている)" },
+            { "en": "This wine **is made from** local grapes.", "ja": "このワインは、地元のぶどうから作られている。", "note": "be made from(ぶどうが変化してワインになる)" },
+            { "en": "The old warehouse **was made into** a shopping mall.", "ja": "その古い倉庫は、ショッピングモールに作り変えられた。", "note": "be made into(別のものに作り変えられる)" }
+          ],
+          "cautions": [
+            "× This desk is made from oak. → ○ This desk is made of oak.(木の形が残っている材料には of を使う)"
+          ]
+        },
+        {
+          "heading": "感情を表す受動態と前置詞: be surprised at・be pleased with・be concerned about",
+          "explanation": "驚き・満足・心配などの感情を表す受動態は、後ろに続く前置詞が決まっています。前置詞は、感情の対象や原因を示します。\n\n・be surprised at(~に驚く)\n・be pleased with(~に満足している・喜ぶ)\n・be disappointed with / at(~にがっかりする)\n・be concerned about / worried about(~を心配している)\n\nsurprised の後ろは at、pleased の後ろは with、concerned の後ろは about のように、前置詞を語のまとまりで覚えます。「~によって驚かされる」と原因を強調する場合は、be surprised by の形も使われます。",
+          "examples": [
+            { "en": "The board **was surprised at** the sudden drop in sales.", "ja": "取締役会は、売上の急な落ち込みに驚いた。", "note": "be surprised at(驚いた対象を示す)" },
+            { "en": "We **are pleased with** the results of the survey.", "ja": "私たちは、その調査の結果に満足している。", "note": "be pleased with(満足している)" },
+            { "en": "Many parents **are concerned about** their children's safety online.", "ja": "多くの親が、子どもたちのネット上の安全を心配している。", "note": "be concerned about(心配している)" }
+          ],
+          "cautions": [
+            "× I was surprised for the news. → ○ I was surprised at the news.(驚く対象の前は at)"
+          ]
+        },
+        {
+          "heading": "状態・関係を表す受動態と前置詞: be involved in・be equipped with・be composed of",
+          "explanation": "受動態の形で、「関わっている」「備えている」「構成されている」など、状態や関係を表す言い方も、後ろの前置詞が決まっています。\n\n・be involved in(~に関わっている)\n・be equipped with(~を備えている)\n・be composed of(~で構成されている)\n・be located in(~に位置している)\n・be married to(~と結婚している)\n\n「~に関わる」は involve、「~を備える」は equip、「~で構成される」は compose の受動態で、それぞれの動詞と結びつく前置詞を覚えます。一語ずつ見ると、動詞の意味から前置詞を推測しやすくなります。",
+          "examples": [
+            { "en": "She **is involved in** the planning of the new project.", "ja": "彼女は、その新しいプロジェクトの計画に関わっている。", "note": "be involved in(関わっている)" },
+            { "en": "The factory **is equipped with** the latest machines.", "ja": "その工場には、最新の機械が備えられている。", "note": "be equipped with(備えている)" },
+            { "en": "Our headquarters **is located in** central Tokyo.", "ja": "私たちの本社は、東京の中心部にある。", "note": "be located in(位置している)" }
+          ],
+          "cautions": [
+            "× The committee is composed by five members. → ○ The committee is composed of five members.(compose の後ろは of)"
+          ]
+        },
+        {
+          "heading": "be known to・be known for・be known as: 知られている相手・理由・呼び名",
+          "explanation": "「~に知られている」「~で有名だ」「~として知られている」は、後ろに続く前置詞で意味が変わります。\n\n・be known to + 人(~に知られている): The fact is known to most employees.(その事実は、ほとんどの社員に知られている)\n・be known for + 理由・特徴(~のことで有名だ): The city is known for its gardens.(その町は、庭園で有名だ)\n・be known as + 呼び名・役割(~として知られている): The area is known as a center of textiles.(その地域は、繊維の中心地として知られている)\n\nby を使う「~によって知られている」は、名前や特徴で見分けられるという意味合いになるため、「~で有名」「~として知られている」の意味では to / for / as を使うのが普通です。",
+          "examples": [
+            { "en": "This brand **is known to** most young customers in Japan.", "ja": "このブランドは、日本のほとんどの若い顧客に知られている。", "note": "be known to + 人(知られている相手)" },
+            { "en": "The city **is known for** its beautiful gardens.", "ja": "その町は、美しい庭園で有名だ。", "note": "be known for + 理由・特徴" },
+            { "en": "Kyoto **is known as** the old capital of Japan.", "ja": "京都は、日本の古都として知られている。", "note": "be known as + 呼び名・役割" }
+          ],
+          "cautions": [
+            "× The fact is known for most employees. → ○ The fact is known to most employees.(「知られている相手」を示すときは to を使う)"
           ]
         }
       ],
@@ -147,6 +276,18 @@
           "examples": [
             { "en": "All staff **are required to** attend the training.", "ja": "全スタッフは、研修に出席することが求められている。", "note": "be required to(要求)" },
             { "en": "The team **was asked to** revise the plan by Friday.", "ja": "チームは、金曜日までに計画を修正するよう頼まれた。", "note": "be asked to(依頼)" }
+          ]
+        },
+        {
+          "heading": "It is said that ... と S is said to ... の書き換え",
+          "explanation": "「~と言われている」「~と考えられている」は、It is said that ... の形で表せます。that 節の主語を文の主語にすると、S is said to ... の形に書き換えられます。say のほかに、report(報じる)、believe(信じる)、think(考える)、expect(予想する)なども同じ形を取ります。\n\n書き換えるときは、that 節の時制によって、to の後ろの形が決まります。that 節の動詞が現在や未来の内容を表すときは、to 不定詞の単純形(to be、to double など)を使います。that 節の動詞が過去の内容を表すときは、to have + 過去分詞を使います。\n\n・It is said that the company will double its sales.(→ The company is said to double its sales.)\n・It is said that the company has developed a new battery.(→ The company is said to have developed a new battery.)\n\nwill は to 不定詞の中では使えないので、未来の内容は単純形で表します。",
+          "examples": [
+            { "en": "The new bridge **is said to be** the longest in the country.", "ja": "その新しい橋は、国内で最も長いと言われている。", "note": "It is said that the bridge is ... → is said to be(現在の状態)" },
+            { "en": "The company **is said to have developed** a new battery.", "ja": "その会社は、新しい電池を開発したと言われている。", "note": "that 節の動詞が過去(has developed)なので、to have + 過去分詞" },
+            { "en": "The old factory **was reported to have closed** last year.", "ja": "その古い工場は、昨年閉鎖されたと報じられた。", "note": "It was reported that the factory closed last year. の書き換え" }
+          ],
+          "cautions": [
+            "× It is said he to be rich. → ○ He is said to be rich.(that 節の主語を、文の主語にする)"
           ]
         }
       ],
@@ -176,6 +317,98 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、過去分詞が受動態か形容詞かを、文の構造から見分けさせる問題が出ます。"
+    },
+    {
+      "id": "imperative-negative-question",
+      "title": "命令文・否定文・疑問文の受動態",
+      "intro": "受動態は、平叙文だけでなく、命令文・否定文・疑問文にも使えます。文の形が変わっても、be 動詞 + 過去分詞の形は変わりません。命令文では、be 動詞 + 形容詞の文と、受動態の文を見分ける必要があります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "命令文の受動態: Be + 過去分詞、Don't be + 過去分詞",
+          "explanation": "命令文の受動態は、Be + 過去分詞(~されなさい)の形になります。否定の命令は、Don't be + 過去分詞(~されないように)です。\n\n注意したいのは、Be の後ろに形容詞が続く命令文です。Be quiet.(静かにしなさい)や Be careful.(気をつけなさい)は、quiet や careful が形容詞なので、受動態ではありません。動作を受ける意味の過去分詞か、状態を表す形容詞かを、後ろの語で判断します。\n\n・Don't be fooled by false advertisements.(誤った広告にだまされないように)\n・Please be informed of any schedule changes in advance.(予定の変更は、事前に知らされておいてください)\n・Be careful with the glass.(形容詞の命令文。受動態ではない)",
+          "examples": [
+            { "en": "**Don't be fooled** by false advertisements online.", "ja": "ネット上の誤った広告にだまされないように。", "note": "Don't be + 過去分詞(否定の受動態の命令)" },
+            { "en": "**Please be informed** of any schedule changes in advance.", "ja": "予定の変更は、あらかじめ知っておいてください。", "note": "Be + 過去分詞(丁寧な依頼の受動態の命令)" },
+            { "en": "**Be careful** with the glass.", "ja": "ガラス製品は、気をつけて扱ってください。", "note": "careful は形容詞。be + 形容詞の命令文で、受動態ではない" }
+          ],
+          "cautions": [
+            "× Don't is fooled by false advertisements. → ○ Don't be fooled by false advertisements.(否定の命令では、Don't の後ろに be を置く)"
+          ]
+        },
+        {
+          "heading": "否定文の受動態: be 動詞の後ろに not を置く",
+          "explanation": "否定文の受動態は、be 動詞の後ろに not を置きます。助動詞がある場合は、助動詞の後ろに not を置きます。was not(wasn't)、has not been、will not be、must not be のように、受動態の be 動詞の位置に not が入ります。\n\n・The package was not delivered on time.(その荷物は期限どおりには届かなかった)\n・The contract has not been signed yet.(その契約には、まだ署名されていない)\n\n一般動詞の否定文では do not を使いますが、受動態では do は使いません。do not と be 動詞の否定を混同しないようにします。",
+          "examples": [
+            { "en": "The package **was not delivered** on time.", "ja": "その荷物は、期限どおりには届かなかった。", "note": "be 動詞の後ろに not(do は使わない)" },
+            { "en": "The contract **has not been signed** yet.", "ja": "その契約には、まだ署名されていない。", "note": "完了形の受動態の否定(has not been + 過去分詞)" },
+            { "en": "Personal information **must not be shared** with third parties.", "ja": "個人情報を、第三者と共有してはならない。", "note": "助動詞 + not + be + 過去分詞(禁止)" }
+          ],
+          "cautions": [
+            "× The package didn't delivered. → ○ The package wasn't delivered.(didn't の後ろに過去分詞は続けない)"
+          ]
+        },
+        {
+          "heading": "疑問文の受動態: Was ... written by ...? と疑問詞の疑問文",
+          "explanation": "疑問文の受動態は、be 動詞(または助動詞)を主語の前に出し、主語の後ろに過去分詞を続けます。\n\n・Was the letter written by Ms. Sato?(その手紙は佐藤さんによって書かれたのですか)\n・答え方: Yes, it was. / No, it was not.\n\n疑問詞を使う場合は、疑問詞がどの働きをするかで形が変わります。疑問詞が by の目的語になるときは、Who was the letter written by?(その手紙は誰によって書かれましたか)のように、文末に by を残します。前置詞を文頭に出す By whom was the letter written? は、改まった文章で使われます。\n\nまた、疑問詞が時を尋ねる When was the contract signed?(その契約はいつ署名されましたか)のような形も、同じ語順です。",
+          "examples": [
+            { "en": "**Was** the letter **written** by Ms. Sato?", "ja": "その手紙は、佐藤さんによって書かれたのですか。", "note": "be 動詞を主語の前に出す(Was ... written)" },
+            { "en": "**Who** was the letter **written** by?", "ja": "その手紙は、誰によって書かれたのですか。", "note": "疑問詞 who は by の目的語。by を文末に残す" },
+            { "en": "**When** was the contract **signed**?", "ja": "その契約は、いつ署名されたのですか。", "note": "疑問詞 + be 動詞 + 過去分詞(受動態の疑問文)" }
+          ],
+          "cautions": [
+            "× Is the report wrote by him? → ○ Was the report written by him?(疑問文でも、動詞は be + 過去分詞の形にする)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、否定文の not の位置(was not delivered)や、疑問文で be 動詞を主語の前に出す形(Was the letter written)が問われることがあります。Don't be + 過去分詞(Don't be fooled)も、選択肢に出ることがあります。"
+    },
+    {
+      "id": "phrasal-and-active-passive",
+      "title": "群動詞の受動態と、能動態で受動の意味",
+      "intro": "動詞と前置詞・副詞が組み合わさった群動詞も、受動態にできます。また、sell や read のように、能動態の形で「~される」「~できる」の意味を表す動詞もあります。どちらも、文の意味と後ろに続く語で判断します。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "群動詞の受動態: be looked after・be taken care of・be laughed at",
+          "explanation": "群動詞(look after、take care of、laugh at、look down on など、動詞と前置詞・副詞が組み合わさって1つの動詞のように働くもの)は、受動態になっても、動詞と前置詞のかたまりを切り離しません。前置詞を忘れると誤りになるので、群動詞として1かたまりで覚えます。\n\n・能動態: The nurse looks after the patients.(看護師が患者の世話をする)\n・受動態: The patients are looked after by the nurse.(患者は看護師に世話をされる)\n\nbe 動詞の後ろに続く過去分詞は、群動詞の動詞の部分です。その後ろの前置詞(after、of、at、on)は、そのまま残します。動作をする人は、by + 人で示します。",
+          "table": {
+            "caption": "群動詞の受動態",
+            "headers": ["能動態の群動詞", "受動態", "受動態の意味"],
+            "rows": [
+              ["look after(~の世話をする)", "be looked after", "世話をされる"],
+              ["take care of(~の世話をする・~を処理する)", "be taken care of", "世話をされる・処理される"],
+              ["laugh at(~を笑う)", "be laughed at", "笑われる・からかわれる"],
+              ["look down on(~を見下す)", "be looked down on", "見下される"]
+            ]
+          },
+          "examples": [
+            { "en": "The children **were looked after** by their grandparents.", "ja": "子どもたちは、祖父母に世話をしてもらった。", "note": "look after の受動態。after を残す" },
+            { "en": "The new staff **are taken care of** by a senior manager.", "ja": "新しいスタッフは、先輩の管理職に面倒を見てもらっている。", "note": "take care of の受動態。of を残す" },
+            { "en": "He **was laughed at** for his strange idea.", "ja": "彼は、奇妙な考えのせいで笑われた。", "note": "laugh at の受動態。at を残す" },
+            { "en": "Those who work hard should never **be looked down on**.", "ja": "一生懸命働く人は、決して見下されるべきではない。", "note": "look down on の受動態。on を残す" }
+          ],
+          "cautions": [
+            "× The child was looked by the nurse. → ○ The child was looked after by the nurse.(群動詞の前置詞(after)を忘れない)",
+            "× He was laughed by his friends. → ○ He was laughed at by his friends.(laugh は at と組んで「笑う」の意味になる)"
+          ]
+        },
+        {
+          "heading": "能動態で受動の意味を表す動詞: sell well・read well・wash easily・need -ing",
+          "explanation": "sell(売れる)、read(読まれる・読める)、wash(洗える)、write(書ける)などの動詞は、能動態の形で「~される」「~できる」という受動の意味を表すことがあります。主語は動作をするのではなく、動作を受ける側(商品・本・布など)です。\n\n・This product sells well.(この製品はよく売れる)\n・This fabric washes easily.(この生地は簡単に洗える)\n\nこの形は、well や easily などの副詞と組むことが多いのが特徴です。売れ行きを表すときは、受動態(is sold well)ではなく、能動態で sells well と言うのが普通です。\n\n同じ仕組みで、need、want、require + -ing も「~される必要がある」の意味を表します。The car needs washing.(その車は洗われる必要がある)は、The car needs to be washed. と同じ意味です。need + to 不定詞(能動の意味)とは区別します。",
+          "examples": [
+            { "en": "This product **sells well** in Asian markets.", "ja": "この製品は、アジア市場でよく売れる。", "note": "sell + well(主語が売られる側)" },
+            { "en": "This short story **reads well** and is easy to follow.", "ja": "この短編は読みやすく、話の流れも追いやすい。", "note": "read + well(読みやすい・読んで面白い)" },
+            { "en": "This fabric **washes easily** and dries quickly.", "ja": "この生地は簡単に洗えて、すぐに乾く。", "note": "wash + easily(洗える)" },
+            { "en": "The car **needs washing** before the trip.", "ja": "その車は、旅行の前に洗う必要がある。", "note": "need + -ing(受動の意味。= needs to be washed)" }
+          ],
+          "cautions": [
+            "× The product is sold well by the customers. → ○ The product sells well.(「よく売れる」は能動態の形で言い、by を付けない)",
+            "× The car needs to wash. → ○ The car needs washing.(need + -ing か、needs to be washed の形にする)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、群動詞の前置詞を抜かさないこと(was looked after)や、能動態で受け身の意味を表す形(sells well)が問われることがあります。"
     }
   ],
   "summary": [
@@ -186,7 +419,11 @@
     "第4文型は人か物を主語にする(were shown the system)。第5文型は補語が残る(was considered the best)",
     "get + 過去分詞は、口語の受動態(get repaired)",
     "by 以外の前置詞: be satisfied with、be interested in、be covered with、be known to",
-    "be expected to・be required to・be asked to は、to 不定詞と組む"
+    "be expected to・be required to・be asked to は、to 不定詞と組む",
+    "命令文は Be + 過去分詞、否定は Don't be + 過去分詞。Be careful は be + 形容詞で、受動態ではない",
+    "否定文は be 動詞の後ろに not。疑問文は be 動詞を主語の前に出す(Was the letter written by ...?)",
+    "It is said that ... は S is said to ... と書き換える(that 節が過去なら to have + 過去分詞)",
+    "群動詞の受動態は前置詞を残す(be looked after、be laughed at)。能動態で受け身の意味も出る(sell well)"
   ],
   "quiz": [
     {

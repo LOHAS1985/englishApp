@@ -50,6 +50,104 @@
       "examNote": "TOEIC Part 5 では、助動詞の後ろに -s や to を付けた誤り(He cans、He can to swim)や、否定の位置の誤りが出ます。"
     },
     {
+      "id": "ability-permission",
+      "title": "能力・許可・依頼: can・could・may",
+      "intro": "can と could は、能力・可能・許可・依頼を表す、日常でもっともよく使う助動詞です。過去の能力と1回の成功の違い、許可や依頼を丁寧に言う形を、この節で確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "can・could の能力と可能: 今の能力と過去の能力",
+          "explanation": "can は「~できる」という現在の能力や、可能性を表します。could は can の過去形で、「過去に~できた」という能力を表します。ただし、ある1回の出来事で「~することができた」と言うときは、肯定文では could より was able to や managed to を使うのが普通です。\n\n・I can swim.(私は泳げる)\n・When I was young, I could swim fast.(若いころ、私は速く泳げた)\n・We were able to finish the project on time.(期限までにプロジェクトを終えることができた)",
+          "examples": [
+            { "en": "Our new software **can** process ten thousand orders in an hour.", "ja": "新しいソフトは、1時間に1万件の注文を処理できる。", "note": "can(現在の能力・可能)" },
+            { "en": "When I was a child, I **could** read English novels.", "ja": "子どものころ、私は英語の小説を読めた。", "note": "could(過去の能力)" },
+            { "en": "It was difficult, but we **were able to** finish the project before the deadline.", "ja": "難しかったが、締め切りまでにプロジェクトを終えることができた。", "note": "1回の出来事の成功は was able to で表す" }
+          ],
+          "cautions": [
+            "× I could finish the report yesterday. → ○ I was able to finish the report yesterday. 肯定文で1回の出来事の成功を言うときは、could より was able to が普通"
+          ]
+        },
+        {
+          "heading": "Can・Could・May: 許可と依頼の丁寧さ",
+          "explanation": "「~してもいいですか」と許可を求めたり、「~してくれますか」と依頼したりするときは、can・could・may を使います。日常では Can I ~? が最も一般的で、Could I ~? はそれより丁寧です。May I ~? は、さらに改まった言い方です。\n\n依頼では、Can you ~? よりも Could you ~? のほうが丁寧です。許可を与えるときは、Yes, you can.(どうぞ)のように can で答えるのが普通です。\n\n・Can I borrow your pen?(ペンを借りてもいいですか)\n・Could you send me the file?(そのファイルを送っていただけますか)\n・May I leave the meeting early?(会議を早めに抜けてもよろしいでしょうか)",
+          "examples": [
+            { "en": "**Could** you send me the report by noon?", "ja": "正午までにレポートを送っていただけますか。", "note": "Could you ~? は丁寧な依頼" },
+            { "en": "**May** I leave the meeting a little early today?", "ja": "今日は会議を少し早めに抜けてもよろしいでしょうか。", "note": "May I ~? は改まった許可の求め方" },
+            { "en": "**Can** I borrow your dictionary for a moment?", "ja": "少しの間、辞書を借りてもいいですか。", "note": "Can I ~? は日常的な許可の求め方" }
+          ],
+          "cautions": [
+            "× May you send me the file? → ○ Could you send me the file? May you ~ は「~しますように」という願いの形で、相手への依頼には使わない"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、can(能力)と was able to(1回の成功)の違い、Could you ~? の丁寧な依頼が問われます。依頼・許可の文では、空所の前後の語(Could you、May I など)の形を見て選びます。"
+    },
+    {
+      "id": "will-habit",
+      "title": "意志・習慣・好み: will・used to・would rather",
+      "intro": "will は、その場で決めた意志や依頼を表します。過去の習慣を表す used to と would、「むしろ~したい」を表す would rather は、日本語にない区別があるので、意味と形を分けて確かめます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "will: その場の意志・依頼・習慣",
+          "explanation": "will は、話している瞬間に決めた意志(~しよう)や、相手への依頼(~してくれますか)を表します。前もって決めていた予定は、will ではなく be going to で言うのが普通です。また、will は「いつもそうする」という習慣や、よくある傾向にも使います。\n\n・The phone is ringing. I will answer it.(電話が鳴っている。私が出よう)\n・Will you help me carry these boxes?(この箱を運ぶのを手伝ってくれますか)\n・My father will sit in the garden for hours.(父は庭に何時間も座っていることがよくある)",
+          "examples": [
+            { "en": "**I'll** call the client right away.", "ja": "すぐにお客様に電話します。", "note": "will(その場で決めた意志)" },
+            { "en": "**Will** you help me carry these boxes?", "ja": "この箱を運ぶのを手伝ってくれますか。", "note": "Will you ~? は依頼" },
+            { "en": "My father **will** sit in the garden for hours, reading the newspaper.", "ja": "父は庭に何時間も座って、新聞を読んでいることがよくある。", "note": "will(習慣・よくある傾向)" }
+          ],
+          "cautions": [
+            "× I will to call you. → ○ I will call you. will の後ろに to は付けず、原形を続ける"
+          ]
+        },
+        {
+          "heading": "used to と would: 過去の習慣と過去の状態",
+          "explanation": "used to と would は、どちらも「昔よく~したものだ」という過去の習慣を表します。違いは、would は繰り返しの動作にだけ使い、状態(住んでいた、好きだった、持っていたなど)には使えないことです。used to は、動作にも状態にも使えます。\n\nused to は「今はそうではない」という意味を含みます。否定文・疑問文は did を使い、did not use to(英国英語では used not to も使う)や Did you use to ~? の形になります。\n\n過去の習慣を表すときは、まず「状態かどうか」を確かめてから、used to か would を選びます。",
+          "table": {
+            "caption": "used to と would の違い",
+            "headers": ["", "used to", "would"],
+            "rows": [
+              ["過去の繰り返しの動作", "○ used to play tennis", "○ would play tennis"],
+              ["過去の状態(今は違う)", "○ used to live in Osaka", "× would live in Osaka"]
+            ]
+          },
+          "examples": [
+            { "en": "I **used to** live in Osaka, but I moved to Tokyo last year.", "ja": "以前は大阪に住んでいたが、去年東京に引っ越した。", "note": "used to + 原形(今はそうではない状態)" },
+            { "en": "When I was a boy, I **would** climb trees every summer.", "ja": "子どものころ、私は毎夏、木に登ったものだった。", "note": "would(過去の繰り返しの動作)" },
+            { "en": "**Did** you **use to** play the piano when you were young?", "ja": "若いころ、ピアノを弾いていたのですか。", "note": "疑問文は did を使い、use to の形になる" }
+          ],
+          "cautions": [
+            "× I would live in Tokyo when I was a child. → ○ I used to live in Tokyo when I was a child. would は「住んでいた」のような状態を表せない"
+          ]
+        },
+        {
+          "heading": "be used to と get used to: 慣れている・慣れる",
+          "explanation": "be used to と get used to は、「~に慣れている」「~に慣れる」を表します。to は前置詞なので、後ろには名詞か動名詞(-ing)が来ます。動詞の原形は続きません。used to(昔よく~した)とは、形は似ていますが、意味はまったく違います。\n\n見分け方は、to の後ろを見ることです。名詞か -ing が続けば「~に慣れている」、動詞の原形が続けば「昔~した」です。\n\n・I am used to working late.(私は遅くまで働くことに慣れている)\n・I got used to the new office.(私は新しいオフィスに慣れた)",
+          "examples": [
+            { "en": "I **am used to** working late, so the new schedule is no problem.", "ja": "私は遅くまで働くことに慣れているので、新しい予定は問題ない。", "note": "be used to + -ing(~に慣れている)" },
+            { "en": "It took a month, but I finally **got used to** the new office.", "ja": "1か月かかったが、ついに新しいオフィスに慣れた。", "note": "get used to + 名詞(~に慣れる)" },
+            { "en": "She **used to** get up early, but now she sleeps until nine.", "ja": "彼女は以前は早起きしていたが、今は9時まで寝ている。", "note": "used to + 原形(昔の習慣)。形は似るが意味が違う" }
+          ],
+          "cautions": [
+            "× I am used to live alone. → ○ I am used to living alone. to の後ろは名詞か -ing で、原形は続かない"
+          ]
+        },
+        {
+          "heading": "would rather: むしろ~したい、~してほしい",
+          "explanation": "would rather + 原形は、「むしろ~したい」「~するほうがよい」を表します。「AするよりむしろBしたい」は would rather B than A で表し、than の後ろも原形を置きます。would rather の後ろに「人 + that 節」を続けると、「(人)に~してほしい」の意味になります。このとき、that 節の動詞は過去形にします(現在の事実に反する仮定の形)。\n\n提案・要求の that 節で should を使う形は、第16章「法」で扱います。",
+          "examples": [
+            { "en": "I **would rather** stay home and rest tonight.", "ja": "今夜は、むしろ家でゆっくり休みたい。", "note": "would rather + 原形(むしろ~したい)" },
+            { "en": "We **would rather** take the train **than** drive in this snow.", "ja": "この雪の中を車で行くより、むしろ電車で行きたい。", "note": "would rather A than B(Bするより、Aしたい)" },
+            { "en": "I **would rather** you didn't tell him about the plan yet.", "ja": "まだ、その計画を彼に話さないでほしい。", "note": "would rather + 人 + 過去形(相手に~してほしい)" }
+          ],
+          "cautions": [
+            "× I would rather you don't go. → ○ I would rather you didn't go. would rather の後ろに「人 + that 節」が来るとき、that 節の動詞は過去形にする"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、used to(今はない習慣・状態)と be used to(慣れている)の取り違え、would rather A than B の形が問われます。used to の後ろが原形か、to の後ろが -ing かを見て判断します。"
+    },
+    {
       "id": "obligation",
       "title": "義務・必要・禁止・不要: must・have to・should",
       "intro": "must と have to は、どちらも「~しなければならない」を表しますが、義務の出どころが違います。また、must not(禁止)と don't have to(不要)は、意味が大きく違います。",
@@ -81,6 +179,58 @@
         }
       ],
       "examNote": "TOEIC Part 5 では、must not(禁止)と don't have to(不要)の取り違えや、過去の形 had to が出題されます。"
+    },
+    {
+      "id": "idioms",
+      "title": "慣用表現: had better・may as well・cannot help -ing・shall",
+      "intro": "had better や may as well のように、助動詞を使った決まった言い方は、意味を覚えておかないと読み間違えます。cannot help -ing や cannot ... too のような強い表現や、shall の使い方も、試験でよく問われます。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "had better: ~したほうがよい(強い忠告)",
+          "explanation": "had better + 原形は、「~したほうがよい」と、強く忠告する言い方です。形は過去形ですが、過去のことを表すわけではありません。否定は had better not + 原形で、「~しないほうがよい」を表します。\n\n強い言い方なので、目上の人への忠告では、命令や警告のように聞こえることがあります。日常では、「そうしないと困る」という状況で使うのが自然です。",
+          "examples": [
+            { "en": "You **had better** submit the report before noon.", "ja": "正午までにレポートを提出したほうがいい。", "note": "had better + 原形(強い忠告)" },
+            { "en": "We **had better not** miss the last train.", "ja": "終電に乗り遅れないほうがいい。", "note": "had better not + 原形(~しないほうがよい)" }
+          ],
+          "cautions": [
+            "× You had better to go. → ○ You had better go. had better の後ろに to は付けない"
+          ]
+        },
+        {
+          "heading": "may as well: ~したほうがいい(ほかに良い方法がない)",
+          "explanation": "may as well + 原形は、「~してもいいだろう」「~するのも悪くない」を表します。ほかにもっと良い選択肢がないので、「~するのが一番まし」というニュアンスの提案です。may as well A as B は、「Bするくらいなら、Aしたほうがましだ」の意味になります。\n\n・We may as well take a taxi; the last bus has already left.(最終バスはもう出てしまったから、タクシーに乗るのがいいだろう)",
+          "examples": [
+            { "en": "The meeting is canceled, so we **may as well** go home early.", "ja": "会議は中止になったので、早く帰ってもいいだろう。", "note": "may as well + 原形(ほかにすることがない)" },
+            { "en": "If you are going to be late anyway, you **may as well** take your time.", "ja": "どうせ遅れるのなら、ゆっくり行けばいい。", "note": "may as well(どうせ~なら、~しても損はない)" }
+          ],
+          "cautions": [
+            "× You may as well to go home. → ○ You may as well go home. may as well の後ろは原形(to は付けない)"
+          ]
+        },
+        {
+          "heading": "cannot help -ing と cannot ... too: ~せずにはいられない / いくら~してもしすぎない",
+          "explanation": "cannot help -ing は、「~せずにはいられない」を表します。help の後ろには、動名詞(-ing)が来ます。cannot help but + 原形も、同じ意味で使われます。\n\n「cannot ... too + 形容詞・副詞」は、「いくら~しても、しすぎることはない」を表します。too の前には、形容詞・副詞が入ります。cannot thank you too much のように、動詞を入れることもできます。どちらも、否定語の cannot を使いますが、意味は肯定的な強調です。\n\n・I cannot help worrying about my exam results.(試験の結果が気になって仕方がない)\n・You cannot be too careful with personal data.(個人情報は、いくら注意してもしすぎることはない)",
+          "examples": [
+            { "en": "I **cannot help** worrying about the exam results.", "ja": "試験の結果が気になって仕方がない。", "note": "cannot help + -ing(~せずにはいられない)" },
+            { "en": "You **cannot be too** careful when you sign a contract.", "ja": "契約書に署名するときは、いくら注意してもしすぎることはない。", "note": "cannot be too + 形容詞(いくら~してもしすぎない)" },
+            { "en": "We **cannot thank** you **too much** for your support.", "ja": "ご支援には、どれほど感謝してもしきれません。", "note": "cannot ... too much(いくら~してもしすぎない)" }
+          ],
+          "cautions": [
+            "× I cannot help to laugh. → ○ I cannot help laughing. help の後ろは -ing で、to 不定詞は続かない"
+          ]
+        },
+        {
+          "heading": "shall: 申し出・提案の Shall I ~? と、契約書の shall",
+          "explanation": "shall は、現代英語では主に2つの場面で使われます。一つは、Shall I ~? / Shall we ~? の形で、相手の意向を聞く申し出(~しましょうか)と、提案(~しませんか)です。もう一つは、契約書や規則で、義務を表す shall(~しなければならない)です。\n\nI shall / We shall で未来を表すのは、主にイギリス英語の堅い書き方です。会話や日常の文では will が普通です。shall は、申し出と提案、契約書の義務、の3つを中心に覚えると判断しやすくなります。",
+          "examples": [
+            { "en": "**Shall** I open the window? It is getting hot in here.", "ja": "窓を開けましょうか。中が暑くなってきました。", "note": "Shall I ~? は相手の意向を聞く申し出" },
+            { "en": "**Shall** we meet at the station at ten?", "ja": "10時に駅で待ち合わせしましょうか。", "note": "Shall we ~? は提案" },
+            { "en": "The tenant **shall** pay the rent by the first day of each month.", "ja": "借主は、毎月1日までに家賃を支払わなければならない。", "note": "契約書の shall(義務)" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、had better(~したほうがよい)、cannot help -ing(~せずにはいられない)、cannot ... too(いくら~しても…)の形が問われます。help の後ろは -ing、had better の後ろは原形(to は付けない)と覚えると、空所の後ろから判断できます。"
     },
     {
       "id": "deduction",
@@ -143,9 +293,43 @@
             { "en": "You **need not have come** so early.", "ja": "そんなに早く来る必要はなかったのに。", "note": "need not have + 過去分詞(不要だった)" },
             { "en": "We **need not have booked** a room, since the meeting was canceled.", "ja": "会議は中止になったので、部屋を予約する必要はなかった。", "note": "need not have booked" }
           ]
+        },
+        {
+          "heading": "can't have + 過去分詞: 過去のことが~のはずがない",
+          "explanation": "can't have + 過去分詞は、「過去に~したはずがない」という否定の推量を表します。現在の「~のはずがない」(can't be)を、過去のことに当てはめた形です。根拠を持って、過去の出来事を否定するときに使います。\n\n・He can't have finished the report already.(彼がもうレポートを終えたはずがない)\n\n肯定の過去の推量は、must have(~したに違いない)や may have(~したかもしれない)で表します。can have を肯定の推量に使うことはありません。",
+          "examples": [
+            { "en": "He **can't have** finished the report already; he only started yesterday.", "ja": "彼がもうレポートを終えたはずがない。昨日始めたばかりなのだから。", "note": "can't have + 過去分詞(過去に~したはずがない)" },
+            { "en": "She **can't have** seen the message, because her phone was turned off.", "ja": "彼女がそのメッセージを見たはずがない。電話の電源が切れていたのだから。", "note": "can't have + 過去分詞(否定の推量)" }
+          ],
+          "cautions": [
+            "× He can have finished the report. → ○ He must have finished the report. 肯定の過去の推量は must have(~に違いない)で表す"
+          ]
+        },
+        {
+          "heading": "may・might・could have + 過去分詞: 過去のことかもしれない",
+          "explanation": "may have + 過去分詞、might have + 過去分詞、could have + 過去分詞は、「過去に~したかもしれない」という、確信の低い推量を表します。may と might は、どちらも「かもしれない」の意味で使い、might のほうが可能性がやや低い感じになります。\n\ncould have + 過去分詞は、推量のほかに「~できたのに(しなかった)」という後悔の意味にもなります(You could have called me.)。どちらの意味かは、文脈で判断します。\n\n・The train may have been delayed by the snow.(雪のせいで、電車は遅れたのかもしれない)",
+          "examples": [
+            { "en": "The train **may have been** delayed by the snow.", "ja": "雪のせいで、電車は遅れたのかもしれない。", "note": "may have + 過去分詞(過去の推量・確信は低い)" },
+            { "en": "He **could have missed** the bus; he was not at the station.", "ja": "彼はバスに乗り遅れたのかもしれない。駅にいなかったのだから。", "note": "could have + 過去分詞(過去の可能性)" },
+            { "en": "They **might have forgotten** the meeting, since they did not reply.", "ja": "返事がないので、彼らは会議のことを忘れてしまったのかもしれない。", "note": "might have + 過去分詞(可能性がやや低い)" }
+          ],
+          "cautions": [
+            "× He may has missed the bus. → ○ He may have missed the bus. 助動詞の後ろは have(has にしない)"
+          ]
+        },
+        {
+          "heading": "would have + 過去分詞: 過去の仮定の結論",
+          "explanation": "would have + 過去分詞は、主に「もし~だったら、~していただろう」という、過去の事実に反する仮定の結論を表します。if 節には had + 過去分詞が入ります。この形は仮定法過去完了と呼ばれ、詳しくは第16章「法」で扱います。\n\n・If I had known about the sale, I would have bought the shoes.(セールのことを知っていたら、その靴を買っていただろう)\n\nwould have + 過去分詞は、過去の推量(~だったろう)にも使われます。ただ、試験では仮定法の結論として出ることが多いので、if 節との対応を確かめます。",
+          "examples": [
+            { "en": "If I had known about the sale, I **would have bought** the shoes.", "ja": "セールのことを知っていたら、その靴を買っていただろう。", "note": "would have + 過去分詞(仮定法過去完了の結論)" },
+            { "en": "Without your help, we **would not have finished** the project on time.", "ja": "あなたの助けがなかったら、私たちは期限までにプロジェクトを終えられなかっただろう。", "note": "would not have + 過去分詞(過去に~できなかっただろう)" }
+          ],
+          "cautions": [
+            "× If I knew about the sale, I would have bought the shoes. → ○ If I had known about the sale, I would have bought the shoes. 過去の事実に反する if 節は had + 過去分詞"
+          ]
         }
       ],
-      "examNote": "TOEIC Part 5 では、should have(後悔)、must have(推量)、need not have(不要だった)の使い分けが出題されます。"
+      "examNote": "TOEIC Part 5 では、should have(後悔)、must have(推量)、need not have(不要だった)、can't have(~したはずがない)の使い分けが出題されます。"
     }
   ],
   "summary": [
@@ -156,7 +340,11 @@
     "推量: must(~に違いない)、may・might(~かもしれない)、can't(~のはずがない)",
     "助動詞 + have + 過去分詞: must have(過去の推量)、should have(後悔)、need not have(不要だった)",
     "should は助言、ought to は should とほぼ同じ意味",
-    "will は意志・予想、would は過去の習慣や丁寧な依頼"
+    "will は意志・予想、would は過去の習慣や丁寧な依頼",
+    "can は現在の能力、could は過去の能力。1回の出来事の成功は was able to で表す",
+    "依頼は Could you ~? が丁寧。許可は Can I ~? や May I ~? で尋ねる",
+    "used to は過去の習慣と状態、would は過去の繰り返しの動作だけ(状態には使わない)",
+    "had better は「~したほうがよい」、cannot help -ing は「~せずにはいられない」"
   ],
   "quiz": [
     {

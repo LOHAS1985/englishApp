@@ -2,7 +2,7 @@
   "id": "noun",
   "no": 3,
   "title": "名詞",
-  "lead": "名詞は、人・物・ことがらを表す語です。数えられる名詞(可算名詞)と、数えられない名詞(不可算名詞)に分かれ、それぞれ冠詞や動詞の形が変わります。TOEIC Part 5 では、不可算名詞に a や複数形を付けてしまう誤り、動詞から派生した名詞の語尾、似た綴りの名詞の組、前置詞と結びつく名詞の表現がよく問われます。この章では、それぞれの使い方を確かめます。",
+  "lead": "名詞は、人・物・ことがらを表す語です。数えられる名詞(可算名詞)と、数えられない名詞(不可算名詞)に分かれ、それぞれ冠詞や動詞の形が変わります。この章では、まず名詞の5分類(普通・固有・物質・抽象・集合名詞)と、主語・目的語・補語・同格としての働きを確かめます。次に、複数形の作り方、複数形にならない語、所有格('s と of)、数量の表し方(a number of、many、few など)を学びます。最後に、派生名詞の語尾、紛らわしい名詞の組、複合名詞を扱います。\n\nTOEIC Part 5 では、不可算名詞に a や複数形を付けてしまう誤り、動詞から派生した名詞の語尾、似た綴りの名詞の組、前置詞と結びつく名詞の表現がよく問われます。a number of と the number of のように、名詞の数が動詞の形を決める問題も出ます。英検準1級の長文でも、名詞の数と働きを見抜く力が、正確に読むための土台になります。",
   "sections": [
     {
       "id": "basics",
@@ -93,9 +93,464 @@
               "note": "several の後ろは複数"
             }
           ]
+        },
+        {
+          "heading": "名詞の働き: 主語・目的語・前置詞の後ろ",
+          "explanation": "名詞は、文の中でいろいろな働きをします。もっとも基本の働きは、文の主語、動詞の目的語、前置詞の目的語です。\n\n・主語: 文の中心になる名詞(Sales が rose の主語)\n・目的語: 他動詞の後ろに来る名詞(proposal が reviewed の目的語)\n・前置詞の目的語: 前置詞の後ろに来る名詞(meeting が after の目的語)\n\n日本語では「は」「を」などの助詞で働きを示しますが、英語は語の位置で働きを示します。ふつうは、名詞が動詞の前にあれば主語、動詞の後ろにあれば目的語と考えます。前置詞の後ろの名詞は、前置詞の目的語です。",
+          "examples": [
+            {
+              "en": "**Sales** rose sharply after the new product launch.",
+              "ja": "新製品の発売後、売り上げが急に伸びた。",
+              "note": "Sales は動詞 rose の前にあり、文の主語"
+            },
+            {
+              "en": "The team reviewed the **proposal** after the **meeting**.",
+              "ja": "チームは会議の後で、その提案を検討した。",
+              "note": "proposal は他動詞 reviewed の目的語、meeting は前置詞 after の目的語"
+            }
+          ]
+        },
+        {
+          "heading": "名詞の働き: 補語と同格",
+          "explanation": "補語は、主語や目的語が「何であるか」「どんな状態か」を説明する名詞です。\n\n・主語の補語(SVC): 主語 = 補語(She is a manager.)\n・目的語の補語(SVOC): 目的語 = 補語(They made him chairman.)\n\n同格は、名詞の後ろに、同じものを言い換える名詞を置く形です。Tom, my brother のように、カンマで区切って言い換えます。同格の部分は、カンマで囲まれた補足として読むと、主語と動詞を見失いにくくなります。",
+          "examples": [
+            {
+              "en": "Ms. Kato became a **senior manager** last year.",
+              "ja": "加藤さんは昨年、上級マネージャーになった。",
+              "note": "senior manager は、主語 Ms. Kato を説明する補語(SVC)"
+            },
+            {
+              "en": "Tom, **my brother**, works as a nurse in Osaka.",
+              "ja": "私の兄のトムは、大阪で看護師として働いている。",
+              "note": "my brother は Tom と同じ人を言い換える同格"
+            },
+            {
+              "en": "The board **made** him **chairman** in March.",
+              "ja": "取締役会は三月、彼を議長に任命した。",
+              "note": "chairman は、目的語 him を説明する補語(SVOC)"
+            }
+          ]
         }
       ],
       "examNote": "TOEIC Part 5 では、不可算名詞に a や複数形を付けた誤りの選択肢(an advice、informations)が出ます。"
+    },
+    {
+      "id": "classes",
+      "title": "名詞の5分類: 普通・固有・物質・抽象・集合名詞",
+      "intro": "名詞は、表す内容によって、普通名詞・固有名詞・物質名詞・抽象名詞・集合名詞の5つに分けられます。分類によって、数えられるか、a や the を付けるか、動詞を単数で受けるか複数で受けるかが変わります。語の種類を見分けられると、冠詞や動詞の形で迷いにくくなります。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "名詞の5分類: 普通・固有・物質・抽象・集合名詞",
+          "explanation": "英語の名詞は、表す内容によって5つに分けられます。分類ごとに、数えられるか、a を付けるか、動詞を単数で受けるか複数で受けるかが変わるので、まず全体像をつかみます。\n\n・普通名詞: 同じ種類のものに共通して使う名詞。多くは数えられる(book、city、manager)\n・固有名詞: 特定の人・場所・組織の名前。大文字で始める(Tokyo、Mr. Sato、Google)\n・物質名詞: 材料や液体など、形の定まらない物質(water、gold、paper)\n・抽象名詞: 性質・状態・出来事など、形のないもの(courage、happiness、experience)\n・集合名詞: 人や物の集まりを一語で表す名詞(family、committee、police)\n\n日本語の感覚では「家族」「警察」を一つのまとまりとして数えたくなりますが、英語では、単数扱いか複数扱いかを文脈で判断します。",
+          "table": {
+            "caption": "5分類と、数え方の基本",
+            "headers": ["分類", "例", "数え方の基本"],
+            "rows": [
+              ["普通名詞", "book、city、manager", "数えられる(a book、two cities)"],
+              ["固有名詞", "Tokyo、Mr. Sato、Google", "ふつう数えない。a や the を付けないのが基本"],
+              ["物質名詞", "water、gold、paper", "数えられない(不可算)。数えるときは a glass of water のように言う"],
+              ["抽象名詞", "courage、happiness、experience", "一般的な意味では数えられない(不可算)"],
+              ["集合名詞", "family、committee、police", "family や committee は、一つのまとまりとして数える(a family、two committees)。police は複数扱い"]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The **manager** bought some **paper** for the meeting in **Tokyo**.",
+              "ja": "部長は、東京での会議に使う紙を買った。",
+              "note": "manager は普通名詞、paper は物質名詞(数えない)、Tokyo は固有名詞(大文字で始める)"
+            },
+            {
+              "en": "The **committee** has approved the plan after a long **discussion**.",
+              "ja": "委員会は長い話し合いの後、その計画を承認した。",
+              "note": "committee は集合名詞。has が示すとおり、一つのまとまりとして単数扱い"
+            }
+          ]
+        },
+        {
+          "heading": "固有名詞は大文字で始め、ふつう冠詞を付けない",
+          "explanation": "人名・地名・会社名など、特定のものだけを表す名前を固有名詞といいます。固有名詞は、文のどこにあっても、大文字で始めます。\n\n固有名詞には、ふつう a や the を付けません。「ある〜」「その〜」という意味は、名前そのものが表しているからです。日本語で「その東京」と言わないのと同じ感覚です。\n\n例外として、川・海・山脈・新聞などの名前には the を付けるものがあります(the Thames、the Pacific、the Alps)。名前に the が付くかどうかは、語ごとに確認します。",
+          "examples": [
+            {
+              "en": "**Mr. Sato** will visit **Osaka** next month.",
+              "ja": "佐藤さんは来月、大阪を訪れる予定だ。",
+              "note": "Mr. Sato と Osaka は固有名詞。大文字で始め、冠詞を付けない"
+            },
+            {
+              "en": "The company's office overlooks **the Thames**.",
+              "ja": "その会社のオフィスは、テムズ川を見下ろしている。",
+              "note": "川の名前には the を付ける"
+            }
+          ],
+          "cautions": [
+            "× a Japan → ○ Japan(国名に a は付けない)",
+            "× the Mr. Sato → ○ Mr. Sato(人名に the は付けない)"
+          ]
+        },
+        {
+          "heading": "物質名詞: 材料・液体は、ふつう数えられない",
+          "explanation": "水(water)、金(gold)、紙(paper)のように、材料や物質を表す名詞を物質名詞といいます。物質そのものを指すときは数えられないので、a や複数形を付けません。\n\nただし、同じ語が「その材料でできた一つの物」を表すと、数えられる名詞になります。a glass(グラス)、a paper(論文・新聞記事・答案)などです。\n\n物質名詞を数えるときは、「一杯の水」「一枚の紙」のように、量や形を表す語を使います。a glass of water、a sheet of paper のように、数える語を a や複数形にして数えます。",
+          "examples": [
+            {
+              "en": "The new office uses recycled **paper** for all reports.",
+              "ja": "新しいオフィスでは、すべての報告書に再生紙を使っている。",
+              "note": "paper は材料の意味で数えられない。a を付けない"
+            },
+            {
+              "en": "Please bring a **glass** of **water** to the guest.",
+              "ja": "お客様に、水を一杯持ってきてください。",
+              "note": "water は数えられないので、入れ物の glass を使って数える"
+            }
+          ],
+          "cautions": [
+            "× I need a paper for the printer. → ○ I need paper for the printer.(材料の紙は数えられない。a paper は論文・新聞記事などを表す)",
+            "× Two waters, please. → ○ Two glasses of water, please.(水は数えられないので、入れ物で数える)"
+          ]
+        },
+        {
+          "heading": "抽象名詞: 一般的な意味では数えず、一つの出来事では数える",
+          "explanation": "courage(勇気)、happiness(幸福)、knowledge(知識)のように、性質・状態・考えを表す名詞を抽象名詞といいます。一般的な意味で使うときは、数えられません。\n\nただし、同じ語が「一つの出来事」や「成功したこと」を表すと、数えられる名詞になります。experience は、「経験(全般)」なら数えられませんが、「一つの体験」なら an experience と言います。success も、「成功(全般)」なら数えませんが、「成功した出来事」なら a success と言います。\n\n名詞が「一般の意味で使われているか、一つの出来事か」を見分けることが、a の有無を決める鍵になります。",
+          "examples": [
+            {
+              "en": "She has a lot of **experience** in sales.",
+              "ja": "彼女は、営業の経験が豊富だ。",
+              "note": "経験(全般)の意味では数えられないので、a を付けず a lot of で量を表す"
+            },
+            {
+              "en": "The conference was a **success**, and everyone enjoyed the **experience**.",
+              "ja": "その会議は成功し、全員がその体験を楽しんだ。",
+              "note": "a success は「成功した出来事」を表すので数えられる。the experience は、その会議という一つの出来事を指す"
+            }
+          ],
+          "cautions": [
+            "× She has many experience. → ○ She has a lot of experience.(experience は数えられない。many は数えられる語に使う)"
+          ]
+        },
+        {
+          "heading": "集合名詞: family・committee は、まとまりか一人ひとりか",
+          "explanation": "family(家族)、committee(委員会)、audience(観客)のように、人の集まりを一語で表す名詞を集合名詞といいます。集合名詞は、「一つのまとまり」と見れば単数扱い、「その中の一人ひとり」と見れば複数扱いになります。\n\n・一つのまとまり: The committee has approved the plan.(委員会が計画を承認した)\n・一人ひとり: The committee are divided on the issue.(委員たちの意見が分かれている)\n\n英米で差があり、アメリカ英語では単数扱いが一般的です。イギリス英語では、複数扱いも多く見られます。試験では、動詞が単数形か複数形かを見て、どちらの扱いかを判断します。数えるときは、a family、two families のように、まとまりを数えます。",
+          "examples": [
+            {
+              "en": "The **audience** was delighted with the final performance.",
+              "ja": "観客は、最後の演技に大喜びした。",
+              "note": "audience を一つのまとまりと見て、was と単数扱いにしている"
+            },
+            {
+              "en": "The **family** is planning a trip to Hokkaido in July.",
+              "ja": "その家族は、七月に北海道へ旅行する計画を立てている。",
+              "note": "家族全体を一つのまとまりと見て、is と単数扱いにしている"
+            }
+          ],
+          "cautions": [
+            "× two family → ○ two families(家族を二つ数えるときは、families と複数形にする)"
+          ]
+        },
+        {
+          "heading": "police・people は、ふつう複数扱い",
+          "explanation": "police(警察)は、s が付いていなくても、いつも複数扱いです。動詞は are や were を使います。警察官を一人と数えるときは、a police officer と言います。\n\npeople(人々)も、ふつう複数扱いです。Many people(多くの人々)のように、複数の名詞として使います。peoples は、民族や国民の意味で使われます(the peoples of Asia)。\n\nほかにも、cattle(牛の群れ)のように、形は単数でも複数扱いの語があります。",
+          "examples": [
+            {
+              "en": "The **police** are investigating the cause of the fire.",
+              "ja": "警察は、その火事の原因を調べている。",
+              "note": "police は単数の形だが、複数扱い(are)"
+            },
+            {
+              "en": "Many **people** were waiting outside the station.",
+              "ja": "多くの人が、駅の外で待っていた。",
+              "note": "people は複数扱い。Many の後ろに複数の名詞として置く"
+            }
+          ],
+          "cautions": [
+            "× A police is here. → ○ The police are here.(police は複数扱い)",
+            "× a police → ○ a police officer(警察官を一人と数える)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、固有名詞に冠詞を付けた選択肢や、抽象名詞・物質名詞に a を付けた選択肢が、ひっかけとして並ぶことがあります。空所の前の冠詞と、名詞の種類を見て判断します。"
+    },
+    {
+      "id": "plural",
+      "title": "複数形の規則・不規則・複数形のみの語と、複数形にならない語",
+      "intro": "名詞の複数形は、-s を付けるだけではありません。-es、-ies、-ves の形、不規則な形、単数と複数が同じ形の語、複数形でしか使わない語があります。また、数えられない名詞は、複数形にせず数える語を使います。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "複数形の規則: -s・-es・-ies・-ves",
+          "explanation": "ほとんどの名詞は、語尾に -s を付けて複数形にします(book → books)。ただし、語尾によって、次の形になります。\n\n・-s、-x、-ch、-sh で終わる: -es を付ける(bus → buses、box → boxes、church → churches)\n・子音字 + y で終わる: y を i に変えて -es を付ける(city → cities)。母音字 + y なら -s だけ(day → days)\n・-f、-fe で終わる: f を v に変えて -es を付ける(leaf → leaves、knife → knives)。ただし roof → roofs、chief → chiefs のように -s だけの語もある\n\n-o で終わる語は、語ごとに違うので、覚えます(photo → photos、hero → heroes)。",
+          "examples": [
+            {
+              "en": "Several **cities** in the region joined the new project.",
+              "ja": "その地域のいくつかの都市が、新しいプロジェクトに参加した。",
+              "note": "city は子音字 + y なので、y を i に変えて -ies"
+            },
+            {
+              "en": "The contractor replaced all the broken **shelves** in the warehouse.",
+              "ja": "業者は、倉庫の壊れた棚をすべて交換した。",
+              "note": "shelf は -f を v に変えて -ves"
+            }
+          ],
+          "cautions": [
+            "× two citys → ○ two cities(子音字 + y は -ies にする)",
+            "× three knifes → ○ three knives(-fe は v に変えて -ves にする)"
+          ]
+        },
+        {
+          "heading": "不規則な複数形と、単数・複数が同じ形の語",
+          "explanation": "英語には、-s を付けない不規則な複数形があります。child → children、person → people、man → men、woman → women、foot → feet などです。\n\nまた、単数と複数が同じ形の語もあります。sheep(羊)、deer(シカ)、fish(魚)、series(連続物)、species(種)などです。a sheep の複数は two sheep と言い、two sheeps とは言いません。\n\n単数か複数かは、前に付く数の語(a、one、two など)と、動詞の形で判断します。",
+          "examples": [
+            {
+              "en": "Two **sheep** were grazing near the river.",
+              "ja": "二頭の羊が、川の近くで草を食べていた。",
+              "note": "sheep は単数と複数が同じ形。two と一緒に使っても形は変わらない"
+            },
+            {
+              "en": "The **men** and **women** in the team worked late.",
+              "ja": "チームの男性と女性は、遅くまで働いた。",
+              "note": "man → men、woman → women の不規則な複数形"
+            }
+          ],
+          "cautions": [
+            "× two childs → ○ two children(child は不規則な複数形)",
+            "× two sheeps → ○ two sheep(単数と複数が同じ形)"
+          ]
+        },
+        {
+          "heading": "複数形のみの語: trousers・scissors・glasses",
+          "explanation": "trousers(ズボン)、scissors(はさみ)、glasses(眼鏡)のように、複数形の形でしか使わない語があります。これらは、動詞も複数扱い(are、were)にします。\n\n一つ、二つと数えるときは、a pair of(一組の)を使います。a pair of scissors(はさみ一つ)、two pairs of glasses(眼鏡二つ)のように、pair の方を複数形にします。\n\nほかにも、goods(商品)、belongings(持ち物)、savings(貯金)、premises(建物と敷地)などがあります。",
+          "examples": [
+            {
+              "en": "My **trousers** are wet because of the heavy rain.",
+              "ja": "大雨で、私のズボンがぬれている。",
+              "note": "trousers は複数形のみの語なので、動詞も are を使う"
+            },
+            {
+              "en": "Please bring a **pair of** **scissors** to the workshop.",
+              "ja": "ワークショップに、はさみを一つ持ってきてください。",
+              "note": "scissors は複数形のみ。数えるときは a pair of を使う"
+            }
+          ],
+          "cautions": [
+            "× a scissors → ○ a pair of scissors(数えるときは pair を使う)",
+            "× The scissors is on the desk. → ○ The scissors are on the desk.(複数形のみの語は、動詞も複数扱い)"
+          ]
+        },
+        {
+          "heading": "数えられない名詞は、数える語を使う(a piece of など)",
+          "explanation": "不可算名詞には、a や複数形を付けません。数えるときは、数える語(単位の語)を使い、その語を数えます。どんな形・量のものかによって、数える語を選びます。\n\n・a piece of: 情報・助言・家具・証拠などの一つ(a piece of advice)\n・a sheet of: 紙などの一枚(a sheet of paper)\n・a glass of、a cup of、a bottle of: 飲み物の一杯、一本(a glass of water)\n・a loaf of: パンの一斤(a loaf of bread)\n・a slice of: パンやケーキの一切れ(a slice of cake)\n・a bar of: 石けんやチョコレートの一個(a bar of soap)\n\n数えるときは、数える語の方を複数形にします(two pieces of advice、three sheets of paper)。",
+          "examples": [
+            {
+              "en": "The consultant gave us two **pieces of** useful **advice**.",
+              "ja": "コンサルタントは、私たちに役立つ助言を二つくれた。",
+              "note": "advice は数えられない。二つと数えるときは、pieces of を複数形にする"
+            },
+            {
+              "en": "Please buy three **sheets of** **paper** for the printer.",
+              "ja": "プリンター用に、紙を三枚買ってください。",
+              "note": "paper は数えられない。sheet を使い、sheets と複数形にして数える"
+            }
+          ],
+          "cautions": [
+            "× two advices → ○ two pieces of advice(advice は数えられない)",
+            "× three papers(紙を三枚のつもり) → ○ three sheets of paper"
+          ]
+        },
+        {
+          "heading": "複数形にならない語: information・advice・news・progress など",
+          "explanation": "information(情報)、advice(助言)、knowledge(知識)、news(ニュース)、evidence(証拠)、research(研究活動)、progress(進み具合)は、不可算名詞です。日本語で「情報を三つ」「助言を二件」と数えたくなりますが、英語では a や -s を付けず、数える語を使います。\n\n・a / an を付けない(an advice は誤り)\n・-s を付けない(informations は誤り)\n・動詞は単数扱いにする(The news is good.)\n\n数えるときは、a piece of information、a piece of news、a piece of research のように言います。研究を数えるときは、a study(一つの研究)のように言い換えることもあります。",
+          "examples": [
+            {
+              "en": "The team made good **progress** on the project this week.",
+              "ja": "チームは今週、そのプロジェクトで順調に進んだ。",
+              "note": "progress は不可算名詞。good で修飾するが、a は付けない"
+            },
+            {
+              "en": "The **news** of the merger was a surprise to the staff.",
+              "ja": "合併のニュースは、社員にとって驚きだった。",
+              "note": "news は -s で終わるが不可算名詞で、動詞も単数扱い(was)"
+            }
+          ],
+          "cautions": [
+            "× informations → ○ information(-s を付けない)",
+            "× an advice → ○ advice(または a piece of advice)",
+            "× The news are good. → ○ The news is good.(news は単数扱い)"
+          ]
+        },
+        {
+          "heading": "物の集まりを表す語: furniture・equipment・luggage など",
+          "explanation": "furniture(家具)、equipment(設備・機材)、luggage(手荷物)、machinery(機械類)は、いくつかの物をまとめて言う不可算名詞です。一つ、二つと数えるときは、a piece of furniture、two pieces of equipment のように、数える語を使います。\n\n・furniture: 家具(a piece of furniture)\n・equipment: 機材・設備(a piece of equipment)\n・luggage: 手荷物(three pieces of luggage、または three bags)\n\n英国英語では luggage、米国英語では baggage がよく使われます。どちらも不可算名詞です。",
+          "examples": [
+            {
+              "en": "The office needs new **furniture** for the meeting room.",
+              "ja": "会議室に、新しい家具が必要だ。",
+              "note": "furniture は不可算。複数の家具でも furnitures とは言わない"
+            },
+            {
+              "en": "Our **equipment** was damaged during the move to the new building.",
+              "ja": "新しい建物へ移転する間に、当社の機材が壊れた。",
+              "note": "equipment は不可算で、動詞は単数扱い(was)"
+            }
+          ],
+          "cautions": [
+            "× furnitures → ○ furniture(不可算なので -s を付けない)",
+            "× three luggages → ○ three pieces of luggage(または three bags)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、複数形にならない名詞に -s や a を付けた選択肢(informations、an advice など)が、ひっかけとして並びます。また、trousers・scissors のように複数形でしか使わない語は、動詞の形と数え方で判断します。"
+    },
+    {
+      "id": "possessive",
+      "title": "所有格: 's・of・二重所有格",
+      "intro": "名詞の持ち主を表すには、's(アポストロフィ + s)と of を使います。どちらを使うかは、持ち主が人か物かで決まります。「父の友人の一人」のように、一人・一つを表す二重所有格も、試験でよく使われる形です。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "'s と of: 持ち主の表し方",
+          "explanation": "持ち主が人や動物のときは、名詞に 's を付けます(my sister's car、the manager's office)。複数形が -s で終わる名詞には、's ではなく ' だけを付けます(the employees' lounge、the students' council)。複数形が -s で終わらない名詞(children、men)には 's を付けます(the children's room)。\n\n物や抽象的なことがらには、ふつう of を使います(the results of the survey、the cover of the book)。ただし、会社や国などの組織は、's を使うことが多いです(the company's policy、Japan's economy)。\n\n・人・動物: 's(my sister's car)\n・物・抽象的なこと: of(the price of the ticket)\n・組織・国: 's が多い(the company's policy)",
+          "examples": [
+            {
+              "en": "The **results** of the survey will be posted on Friday.",
+              "ja": "調査の結果は、金曜日に掲示される。",
+              "note": "結果は物ではなく抽象的なことがらなので、of を使う"
+            },
+            {
+              "en": "**My sister's** car is parked in front of the office.",
+              "ja": "妹の車が、オフィスの前に止まっている。",
+              "note": "持ち主が人なので、名詞に 's を付ける"
+            }
+          ],
+          "cautions": [
+            "× the employee's lounge(社員全員の休憩室のつもり) → ○ the employees' lounge(複数の社員の持ち物なので、s の後ろに ' だけを付ける)"
+          ]
+        },
+        {
+          "heading": "二重所有格: a friend of my father's",
+          "explanation": "「父の友人の一人」のように、いくつかあるうちの一人・一つを表すときは、二重所有格を使います。a、one、some、this などの語 + 名詞 + of + 持ち主(所有代名詞、または名詞's)の形です。\n\n・a friend of my father's(父の友人の一人)\n・a colleague of mine(私の同僚の一人)\n\n冠詞の a と、所有格の my や 's を並べることはできません。a my friend や a John's car は誤りです。冠詞を使うときは、of を使って二重所有格にします。",
+          "examples": [
+            {
+              "en": "**A colleague of mine** will join us for lunch.",
+              "ja": "私の同僚の一人が、昼食に加わる予定だ。",
+              "note": "a colleague(一人)と、of mine(私のもの)を組み合わせている"
+            },
+            {
+              "en": "She is a friend of my **mother's** from college.",
+              "ja": "彼女は、母の大学時代の友人の一人だ。",
+              "note": "a friend(一人)と my mother's(母の)を、of で組み合わせる"
+            }
+          ],
+          "cautions": [
+            "× a my father's friend → ○ a friend of my father's(a と my を並べない)",
+            "× a John's car → ○ a car of John's(ジョンの車の一台)"
+          ]
+        },
+        {
+          "heading": "時間・距離の 's と、ハイフンでつなぐ形容詞",
+          "explanation": "時間や距離を表す語には、's を付けて「〜分の」「〜の」の意味を表すことがあります。\n\n・a day's work(一日分の仕事)\n・two hours' drive(車で二時間の道のり)\n\n名詞を修飾する形容詞として使うときは、's を使わず、ハイフン(-)で語をつなぎます。a ten-minute walk(歩いて十分の道のり)のように、minute を複数形にしません。",
+          "examples": [
+            {
+              "en": "The new employee finished a **day's** work in three hours.",
+              "ja": "新人は、一日分の仕事を三時間で終えた。",
+              "note": "a day's work は「一日分の仕事」。's の後ろの work が中心の名詞"
+            },
+            {
+              "en": "It is a **ten-minute** walk from the station to our office.",
+              "ja": "駅から会社までは、歩いて十分の距離だ。",
+              "note": "walk を修飾する形容詞なので、ten-minute とハイフンでつなぐ"
+            }
+          ],
+          "cautions": [
+            "× a ten-minutes walk → ○ a ten-minute walk(形容詞として使うときは、複数形にしない)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、空所の後ろの名詞が人か物かで、's と of のどちらを選ぶかが問われます。a friend of my father's のような二重所有格では、a my father's のように冠詞と所有格を並べた選択肢が、ひっかけとして出ることがあります。"
+    },
+    {
+      "id": "quantity",
+      "title": "数量の表し方: a number of・many・much・few・little",
+      "intro": "「多くの」「少しの」を表す語は、名詞が数えられるか、数えられないかで使い分けます。a number of と the number of は、動詞の単数・複数の扱いが違うので注意が必要です。many・few は数えられる名詞に、much・little は数えられない名詞に使います。",
+      "keywords": [],
+      "items": [
+        {
+          "heading": "a number of と the number of: 複数扱いと単数扱い",
+          "explanation": "a number of は「多くの〜」の意味で、後ろに複数名詞を置き、動詞は複数扱い(are、were)にします。\n\nthe number of は「〜の数」の意味で、動詞は単数扱い(is、was)にします。文の主語の中心は number(数)なので、単数扱いになります。\n\n・A number of employees are working from home.(多くの社員が在宅勤務をしている)\n・The number of employees has grown this year.(社員の数が今年増えた)\n\n迷ったら、冠詞の a か the かを見ます。a number of は「多くの」、the number of は「数」の意味です。",
+          "examples": [
+            {
+              "en": "A **number of** employees are working from home.",
+              "ja": "多くの社員が、在宅勤務をしている。",
+              "note": "a number of は「多くの」の意味で、動詞は複数扱い(are)"
+            },
+            {
+              "en": "The **number of** employees has grown this year.",
+              "ja": "今年、社員の数が増えた。",
+              "note": "the number of は「〜の数」の意味で、動詞は単数扱い(has)"
+            }
+          ],
+          "cautions": [
+            "× The number of employees are growing. → ○ The number of employees is growing.(主語は number なので単数扱い)"
+          ]
+        },
+        {
+          "heading": "many・much・a lot of: 数えられるか、数えられないか",
+          "explanation": "many(多くの)は、数えられる複数の名詞に使います。much(多くの)は、数えられない名詞に使います。\n\n・many: many people、many questions、many reasons\n・much: much information、much time、much money\n\n肯定文では、a lot of や lots of がよく使われます。a lot of は、数えられる名詞にも数えられない名詞にも使えるので、迷ったときに便利です。many と much は、否定文や疑問文でよく使われます(How much time do we have?)。",
+          "examples": [
+            {
+              "en": "We did not receive **many** complaints about the new system.",
+              "ja": "新しいシステムについて、苦情はあまり届かなかった。",
+              "note": "complaints は数えられる複数名詞なので、many を使う"
+            },
+            {
+              "en": "How **much** time do we have before the meeting starts?",
+              "ja": "会議が始まるまで、どれくらい時間がありますか。",
+              "note": "time は数えられない名詞なので、much を使う"
+            }
+          ],
+          "cautions": [
+            "× many information → ○ much information(information は数えられない)",
+            "× much employees → ○ many employees(employees は数えられる複数名詞)"
+          ]
+        },
+        {
+          "heading": "few・little と a few・a little: 少ない(否定)と、少しはある(肯定)",
+          "explanation": "few と little は、「ほとんどない」という否定的な意味です。few は数えられる複数名詞に、little は数えられない名詞に使います。\n\n一方、a few と a little は、「少しはある」という肯定的な意味です。\n\n・few people(ほとんどの人はいない)\n・a few people(数人はいる)\n・little time(ほとんど時間がない)\n・a little time(少し時間がある)\n\na の有無で、文の意味の向きが変わる点に注意します。",
+          "examples": [
+            {
+              "en": "**Few** employees knew about the change in the policy.",
+              "ja": "方針の変更について知っている社員は、ほとんどいなかった。",
+              "note": "few は「ほとんどない」の否定的な意味。employees は複数の名詞"
+            },
+            {
+              "en": "There is **a little** time left, so let's start now.",
+              "ja": "時間は少し残っているので、今すぐ始めよう。",
+              "note": "a little は「少しはある」の肯定的な意味。time は数えられない名詞"
+            }
+          ],
+          "cautions": [
+            "× A few time is left. → ○ A little time is left.(time は数えられないので little を使う)"
+          ]
+        },
+        {
+          "heading": "a large amount of と a large number of: 数えられないか、数えられるか",
+          "explanation": "「大量の〜」「多数の〜」を表す語も、名詞が数えられるかどうかで使い分けます。\n\n・a large amount of + 数えられない名詞: a large amount of money(多額のお金)、a large amount of time\n・a large number of + 数えられる複数名詞: a large number of customers(多数の顧客)\n\namount(量)は数えられない名詞の量を、number(数)は数えられる名詞の数を表す、と覚えると分かりやすくなります。a great deal of(大量の)は数えられない名詞に使います。plenty of と a lot of は、両方に使えます。",
+          "examples": [
+            {
+              "en": "The company spent a **large amount** of **money** on research.",
+              "ja": "その会社は、研究に多額の資金を使った。",
+              "note": "money は数えられない名詞なので、amount で量を表す"
+            },
+            {
+              "en": "A **large number** of **customers** signed up for the new service.",
+              "ja": "多数の顧客が、新しいサービスに申し込んだ。",
+              "note": "customers は数えられる複数名詞なので、number で数を表す"
+            }
+          ],
+          "cautions": [
+            "× a large number of money → ○ a large amount of money(money は数えられない)",
+            "× a large amount of customers → ○ a large number of customers(customers は数えられる)"
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、a number of と the number of の動詞の単数・複数が、よく問われます。空所の後ろの名詞が数えられるかどうかで many・much、few・little を選ぶ問題も出ます。空所の前後を見て、数え方を判断してください。"
     },
     {
       "id": "derived",
@@ -278,14 +733,17 @@
     }
   ],
   "summary": [
-    "数えられる名詞には a や複数形を付け、不可算名詞には a や -s を付けない。数えるときは piece of などを使う",
-    "不規則な複数形: child → children、person → people。複数と同じ形の語(sheep)もある",
-    "-ation(行為・結果)、-ment(結果)、-ure(手続き・措置)は、名詞の典型的な語尾",
-    "erosion は不可算名詞。the erosion of ~ の形で使う",
-    "review は検討・評価、revision は改訂。collection は集めたもの、collective は共同の",
-    "admission は入場・入学、admittance は立ち入りの許可(No admittance)",
-    "複合名詞の前の名詞は、普通は複数形にしない(sales report)",
-    "compliance with(遵守)と in recognition of(評価して)は、前置詞とセットで覚える"
+    "数えられる名詞には a や複数形を付け、数えられない名詞には a や -s を付けない。数えるときは a piece of などの数える語を使い、その語を複数形にする(two pieces of advice)",
+    "名詞は5分類(普通・固有・物質・抽象・集合)で整理する。固有名詞は大文字で始め、ふつう冠詞を付けない",
+    "複数形: 子音字 + y は -ies、-f・-fe は -ves(roof → roofs など例外あり)。不規則(child → children)、単複同形(sheep)、複数形のみの語(trousers、scissors)に注意",
+    "information・advice・news・progress・furniture などは複数形にならない。-s や a を付けず、a piece of などで数える",
+    "police と people は複数扱い。family や committee は、一つのまとまりとして単数扱い、一人ひとりとして複数扱いになる",
+    "所有は、人なら 's、物や抽象的なことがらなら of。a friend of my father's(二重所有格)では、a と my を並べない",
+    "a number of は複数扱い、the number of は単数扱い。many は数えられる名詞、much は数えられない名詞に使う。few・little は否定、a few・a little は肯定",
+    "名詞は、主語・目的語・前置詞の目的語・補語・同格になる。働きは語の位置と文の型で判断する",
+    "-ation(行為・結果)、-ment(結果)、-ure(手続き・措置)は、名詞の典型的な語尾。erosion は不可算名詞で、the erosion of ~ の形で使う",
+    "review は検討・評価、revision は改訂。collection は集めたもの、collective は共同の。admission は入場・入学、admittance は立ち入りの許可(No admittance)",
+    "複合名詞の前の名詞は、普通は複数形にしない(sales report)。compliance with(遵守)と in recognition of(評価して)は、前置詞とセットで覚える"
   ],
   "quiz": [
     {
