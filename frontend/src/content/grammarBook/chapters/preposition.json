@@ -1,0 +1,450 @@
+{
+  "id": "preposition",
+  "no": 20,
+  "title": "前置詞",
+  "lead": "前置詞は、名詞(代名詞・動名詞を含む)の前に置いて、時・場所・原因・関係などを表す語です。TOEIC Part 5 では、空所の後ろに名詞があるか、主語と動詞があるかで、前置詞と接続詞のどちらを選ぶかが頻繁に問われます。この章では、前置詞の基本、時・場所・原因・譲歩などの使い分け、群前置詞(前置詞のまとまり)を学びます。",
+  "sections": [
+    {
+      "id": "basics",
+      "title": "前置詞の基本: 後ろは名詞のかたまり",
+      "intro": "前置詞は、名詞・代名詞・動名詞の前に置かれ、その語句と文の他の部分との関係(時・場所・原因など)を表します。前置詞のあとに「主語 + 動詞」は続けられません。この節では、この基本と、接続詞との見分け方を確かめます。",
+      "keywords": ["前置詞"],
+      "items": [
+        {
+          "heading": "前置詞の後ろに来るもの",
+          "explanation": "前置詞の後ろには、名詞・代名詞・動名詞(-ing)が来ます。冠詞や形容詞を含む名詞のかたまりも、ひとつの名詞として扱います。\n\n・名詞: after the meeting\n・代名詞: after it\n・動名詞: after reviewing the report\n\n前置詞の後ろに「主語 + 動詞」が続く形は、文法的に正しくありません。その場合は、接続詞を使います。",
+          "examples": [
+            { "en": "We will update you **after** the **meeting**.", "ja": "会議のあとで、お知らせします。", "note": "after の後ろは名詞 meeting" },
+            { "en": "She left the office **after** **reviewing** the report.", "ja": "彼女はそのレポートを確認してから、オフィスを出た。", "note": "after の後ろは動名詞 reviewing" }
+          ],
+          "cautions": ["× Despite it was raining, we went out. → ○ Despite the rain, we went out.(despite は前置詞なので、後ろは名詞)"]
+        },
+        {
+          "heading": "前置詞か接続詞か: 後ろを見て決める",
+          "explanation": "意味が似ていても、後ろに名詞が来るか、「主語 + 動詞」が来るかで、前置詞と接続詞を使い分けます。TOEIC Part 5 では、空所の後ろを見て、この違いで正解を選ばせる問題がよく出ます。\n\n次の表で、同じ意味の前置詞と接続詞を並べて確かめます。",
+          "table": {
+            "caption": "同じ意味の前置詞と接続詞",
+            "headers": ["前置詞(後ろは名詞)", "接続詞(後ろは主語 + 動詞)"],
+            "rows": [
+              ["despite / in spite of", "although / though"],
+              ["because of / owing to", "because / as / since"],
+              ["during", "while"],
+              ["before / after / until(前置詞)", "before / after / until(接続詞)"]
+            ]
+          },
+          "examples": [
+            { "en": "**Although** it was cold, the event went on.", "ja": "寒かったが、そのイベントは続けられた。", "note": "although の後ろは主語 it + 動詞 was" },
+            { "en": "**Despite** the cold weather, the event went on.", "ja": "寒さにもかかわらず、そのイベントは続けられた。", "note": "despite の後ろは名詞のかたまり the cold weather" }
+          ]
+        },
+        {
+          "heading": "前置詞句の働き: 名詞を修飾するか、動詞を修飾するか",
+          "explanation": "前置詞と名詞のかたまり(前置詞句)は、文の中で形容詞の働き(名詞を修飾)か、副詞の働き(動詞などを修飾)をします。\n\n・名詞を修飾: the report on sales(売上についてのレポート)\n・動詞を修飾: We met at the station.(駅で会った)\n\n前置詞句は、省いても文が成り立つことが多いので、文の骨組みを見分けるときは、前置詞句を外して考えます。",
+          "examples": [
+            { "en": "The **report on sales** was approved.", "ja": "売上についてのレポートが承認された。", "note": "on sales が名詞 report を修飾する" },
+            { "en": "We met **at the station**.", "ja": "私たちは駅で会った。", "note": "at the station が動詞 met を修飾する" }
+          ]
+        },
+        {
+          "heading": "前置詞 to と、to 不定詞の違い",
+          "explanation": "to は、前置詞としても、不定詞の印としても使われます。前置詞の to の後ろには名詞や動名詞が来ます。to 不定詞の to の後ろには、動詞の原形が来ます。\n\n・前置詞の to: to the office(オフィスへ)\n・前置詞の to + 動名詞: look forward to hearing from you(ご連絡をお待ちする)\n\n「~を楽しみにする」の look forward to は、to の後ろに動名詞を置くことに注意します。",
+          "examples": [
+            { "en": "We look forward to **hearing** from you.", "ja": "ご連絡をお待ちしています。", "note": "前置詞 to の後ろは動名詞 hearing" },
+            { "en": "The company is going **to the airport**.", "ja": "その会社は空港へ向かっている。", "note": "前置詞 to の後ろは名詞 the airport" }
+          ],
+          "cautions": ["× We look forward to hear from you. → ○ We look forward to hearing from you.(前置詞 to の後ろは動名詞)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の前置詞問題は、空所の後ろが名詞か、主語と動詞か、を見て判断します。前置詞と接続詞の見分けが最も重要です。"
+    },
+    {
+      "id": "time",
+      "title": "時を表す前置詞: at・on・in・by・until・during など",
+      "intro": "時を表す前置詞は、時刻・日付・期間などで使い分けます。意味が似て見えるものも、ひとつずつ区別すると、空所問題で迷いにくくなります。",
+      "keywords": ["前置詞(時刻)", "前置詞(日付)", "by と until", "前置詞(until)", "前置詞(during", "throughout", "from ... to", "from A to B", "by + 差", "within", "前置詞(〜の前に)"],
+      "items": [
+        {
+          "heading": "at・on・in: 時刻・日・月・年",
+          "explanation": "時刻には at、日付や曜日には on、月・年・季節・時間帯(午前・午後など)には in を使います。\n\n・at: at 9 a.m.、at noon、at night\n・on: on Monday、on June 3、on the morning of June 3\n・in: in June、in 2026、in the afternoon",
+          "examples": [
+            { "en": "The meeting starts **at** 9 a.m. **on** Monday.", "ja": "会議は月曜日の午前9時に始まる。", "note": "時刻には at、曜日には on" },
+            { "en": "The new office will open **in** April.", "ja": "新しいオフィスは4月に開設される。", "note": "月には in" }
+          ],
+          "cautions": ["× on 2026 → ○ in 2026(年には in)"]
+        },
+        {
+          "heading": "by と until: 期限と継続",
+          "explanation": "by は「その時までに(期限)」、until は「その時まで(継続)」を表します。\n\n・by: 期限を表す。The report is due by Friday.(金曜日が期限だ)\n・until: 状態や動作が、その時まで続く。We will stay open until 8 p.m.(午後8時まで開いている)\n\n期限を表す文では、by が正しいことが多いです。",
+          "examples": [
+            { "en": "Please submit the form **by** Friday.", "ja": "金曜日までに、用紙を提出してください。", "note": "期限を表す by" },
+            { "en": "The store stays open **until** 9 p.m.", "ja": "その店は午後9時まで開いている。", "note": "継続を表す until" }
+          ],
+          "cautions": ["× Please submit the form until Friday. → ○ Please submit the form by Friday.(期限を表すときは by)"]
+        },
+        {
+          "heading": "during と for: 期間の中と、期間の長さ",
+          "explanation": "during は「~の間に(ある期間の中で)」を表し、後ろには期間を表す名詞(the holiday season など)が来ます。for は「~の長さの間」を表し、後ろには期間の長さ(three months など)が来ます。\n\n・during: during the summer(夏の間に)\n・for: for three days(3日間)\n\nwhile は接続詞なので、後ろに「主語 + 動詞」が続きます。",
+          "examples": [
+            { "en": "The shop was closed **during** the holiday season.", "ja": "その店は、休暇シーズンの間、閉まっていた。", "note": "during の後ろは期間を表す名詞" },
+            { "en": "We worked on the project **for** three months.", "ja": "私たちは3か月間、そのプロジェクトに取り組んだ。", "note": "for の後ろは期間の長さ" }
+          ],
+          "cautions": ["× during three months → ○ for three months(期間の長さには for を使う)"]
+        },
+        {
+          "heading": "within・throughout・from A to B: 範囲を表す",
+          "explanation": "within は「~以内に」、throughout は「~の間ずっと、~の全体にわたって」、from A to B は「A から B まで」を表します。\n\n・within: within a week(1週間以内に)\n・throughout: throughout the year(1年中)\n・from ... to: from May to July(5月から7月まで)",
+          "examples": [
+            { "en": "Please reply **within** two days.", "ja": "2日以内に返信してください。", "note": "within は期限の範囲(以内)" },
+            { "en": "The factory operates **throughout** the year.", "ja": "その工場は1年中稼働している。", "note": "throughout は全体にわたって" },
+            { "en": "Our office is open **from** 9 a.m. **to** 6 p.m.", "ja": "事務所は午前9時から午後6時まで開いている。", "note": "from A to B で範囲を示す" }
+          ]
+        },
+        {
+          "heading": "before・after・by: 基準の前後と、差",
+          "explanation": "before は「~より前に」、after は「~の後で」を表します。前置詞として使うと、後ろには名詞が来ます(before the meeting、after lunch)。\n\n差を表す by は、数字の差を示します。Sales rose by 10 percent.(売上は10%上がった)",
+          "examples": [
+            { "en": "We will review the plan **before** the **meeting**.", "ja": "会議の前に、その計画を確認する。", "note": "before の後ろは名詞 meeting" },
+            { "en": "Sales rose **by** 10 percent **from** last year.", "ja": "売上は昨年から10%上がった。", "note": "by は増えた差を表す" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、by と until、during と for、in と within など、時の前置詞の組が選択肢に並ぶ問題が多く出ます。期限(by)・継続(until)・期間の長さ(for)を、文の意味で判断します。"
+    },
+    {
+      "id": "place",
+      "title": "場所・位置を表す前置詞",
+      "intro": "場所や位置を表す前置詞は、「中」「上」「間」「隣」などの位置関係で使い分けます。between と among のように、数の違いで選ぶものもあります。",
+      "keywords": ["前置詞(場所)", "across", "over", "beyond", "beside", "next to", "adjacent to", "against", "among", "amid", "between"],
+      "items": [
+        {
+          "heading": "at・in・on: 場所の基本",
+          "explanation": "場所を表す基本の前置詞は、次のとおりです。\n\n・at: 地点・場所(at the station、at the desk)\n・in: 中・囲まれた空間(in the room、in Tokyo)\n・on: 表面・接している(on the table、on the wall)",
+          "examples": [
+            { "en": "The documents are **on** the desk **in** the office.", "ja": "書類はオフィスの机の上にある。", "note": "表面は on、建物の中は in" },
+            { "en": "Please wait for me **at** the entrance.", "ja": "入り口で待っていてください。", "note": "地点は at" }
+          ]
+        },
+        {
+          "heading": "between と among: 2つと、3つ以上",
+          "explanation": "between は2つのものの間、among は3つ以上のものの中に含まれることを表します。\n\n・between: between the two offices(2つのオフィスの間)\n・among: among the five candidates(5人の候補者の中で)\n\n数が多くても、一人ひとりの関係を示す場合は between を使うことがありますが、試験では「2つなら between、3つ以上なら among」と覚えておくと確実です。",
+          "examples": [
+            { "en": "The contract was signed **between** the two companies.", "ja": "その契約は、2社の間で結ばれた。", "note": "2つ(2社)の間" },
+            { "en": "She was chosen **among** the five candidates.", "ja": "彼女は5人の候補者の中から選ばれた。", "note": "3つ以上の中から" }
+          ],
+          "cautions": ["× between the five candidates → ○ among the five candidates(3つ以上の中から選ぶときは among)"]
+        },
+        {
+          "heading": "across・over・beyond: 横切る・越える・範囲を超える",
+          "explanation": "across は「~を横切って」、over は「~の上を越えて・~の上に」、beyond は「~の向こうに・~を超えて」を表します。\n\n・across: across the street(通りの向こう側へ)\n・beyond: beyond our budget(予算を超えて)",
+          "examples": [
+            { "en": "The bridge stretches **across** the river.", "ja": "その橋は川を横切って延びている。", "note": "across は横切る" },
+            { "en": "The cost is **beyond** our budget.", "ja": "その費用は予算を超えている。", "note": "beyond は範囲を超える" }
+          ]
+        },
+        {
+          "heading": "next to・beside・against: 隣・そば・接触・反対",
+          "explanation": "next to と beside は「隣に、そばに」を表します。against は「~に寄りかかって・接して」、または「~に反対して」を表します。\n\n・next to / beside: 隣接する場所(next to the entrance)\n・against: 接している、または反対(against the wall、against the plan)\n\nbeside は「~の横に」の意味で、besides(~に加えて)とは別の語です。",
+          "examples": [
+            { "en": "The new cafeteria is located **next to** the main entrance.", "ja": "新しい食堂は、正面入口の隣にある。", "note": "next to は隣接" },
+            { "en": "The team voted **against** the plan.", "ja": "チームは、その計画に反対票を投じた。", "note": "against は反対" }
+          ],
+          "cautions": ["× besides the window → ○ beside the window(窓のそば。besides は「~に加えて」の意味)"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の場所の前置詞は、between と among、in と at のように、対になる語のどちらかを選ばせる問題が多いです。数(2つか3つ以上か)、場所の種類(地点か、囲まれた空間か)で判断します。"
+    },
+    {
+      "id": "cause-means",
+      "title": "原因・理由・手段を表す前置詞",
+      "intro": "「~のために」「~によって」を表す前置詞は、because(接続詞)と区別して使います。後ろに名詞が来るときは、due to、owing to、because of などを使います。",
+      "keywords": ["due to", "owing to", "前置詞(手段・by)", "by dint of", "by virtue of", "on account of", "in light of", "in view of", "given"],
+      "items": [
+        {
+          "heading": "due to・owing to・because of: 原因を表す",
+          "explanation": "due to、owing to、because of は、いずれも「~が原因で」の意味で、後ろに名詞が来ます。because は接続詞なので、後ろに「主語 + 動詞」が続きます。\n\n・名詞の前: due to the storm(嵐のため)\n・主語と動詞の前: because the storm was strong(嵐が強かったので)",
+          "examples": [
+            { "en": "The event was canceled **due to** the storm.", "ja": "その行事は嵐のため中止された。", "note": "due to の後ろは名詞" },
+            { "en": "The event was canceled **because** the storm was strong.", "ja": "嵐が強かったので、その行事は中止された。", "note": "because の後ろは主語 + 動詞" }
+          ],
+          "cautions": ["× because the storm → ○ because of the storm(because の後ろに名詞だけは来ない)"]
+        },
+        {
+          "heading": "by(手段)・by dint of・by virtue of: 手段と根拠",
+          "explanation": "by は「~によって(手段)」を表します。by dint of は「~の力によって」、by virtue of は「~の効力によって」という、やや改まった表現です。\n\n・by + 手段: by email、by train\n・by dint of + 名詞: 努力によって\n・by virtue of + 名詞: 規則によって、権利によって",
+          "examples": [
+            { "en": "Please send the file **by** email.", "ja": "そのファイルはメールで送ってください。", "note": "手段を表す by" },
+            { "en": "She succeeded **by dint of** hard work.", "ja": "彼女は、ひたむきな努力によって成功した。", "note": "by dint of は努力などの力" }
+          ]
+        },
+        {
+          "heading": "in light of・in view of・given: 考慮して",
+          "explanation": "in light of と in view of は、「~を考慮すると」「~を踏まえて」を表します。given も「~を考えると」の意味で、前置詞として使われます。\n\n・in light of the results(結果を踏まえて)\n・in view of the budget(予算を考慮して)\n・given the situation(状況を考えると)",
+          "examples": [
+            { "en": "**In light of** the new data, we will revise the plan.", "ja": "新しいデータを踏まえて、計画を見直す。", "note": "in light of は、情報を踏まえての判断" },
+            { "en": "**Given** the high cost, the project was postponed.", "ja": "費用が高いことを考えると、そのプロジェクトは延期された。", "note": "given は「~を考えると」" }
+          ]
+        },
+        {
+          "heading": "on account of: 理由を表す群前置詞",
+          "explanation": "on account of は「~の理由で」を表す、やや改まった群前置詞です。because of と同じ働きをしますが、後ろには名詞が来ます。\n\n・on account of illness(病気のため)\n・because of illness(病気のため)",
+          "examples": [
+            { "en": "The store closed early **on account of** the power outage.", "ja": "停電のため、その店は早く閉まった。", "note": "on account of の後ろは名詞 the power outage" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、due to と because が並んだ問題がよく出ます。空所の後ろに名詞だけがあれば前置詞(due to など)、主語と動詞があれば接続詞(because)です。"
+    },
+    {
+      "id": "concession",
+      "title": "譲歩・除外・対比を表す前置詞",
+      "intro": "「~にもかかわらず」「~を除いて」「~と違って」などを表す前置詞は、後ろに名詞が来ます。although や except(接続詞)と混同しやすいので、後ろの形を必ず確かめます。",
+      "keywords": ["notwithstanding", "despite", "regardless", "barring", "except for", "apart from", "unlike", "as opposed to", "in the face of", "save for"],
+      "items": [
+        {
+          "heading": "despite・in spite of: ~にもかかわらず",
+          "explanation": "despite と in spite of は、「~にもかかわらず」を表す前置詞です。後ろには名詞(動名詞を含む)が来ます。although(接続詞)と同じ意味ですが、後ろの形が違います。\n\n・despite + 名詞: despite the rain(雨にもかかわらず)\n・although + 主語 + 動詞: although it rained(雨が降ったけれど)",
+          "examples": [
+            { "en": "**Despite** the heavy rain, the match went ahead.", "ja": "大雨にもかかわらず、試合は予定どおり行われた。", "note": "despite の後ろは名詞" },
+            { "en": "**In spite of** being tired, she finished the report.", "ja": "疲れていたにもかかわらず、彼女はレポートを終えた。", "note": "in spite of の後ろは動名詞" }
+          ],
+          "cautions": ["× Despite it rained heavily, the match went ahead. → ○ Despite the heavy rain, the match went ahead.(despite の後ろに主語 + 動詞は置けない)"]
+        },
+        {
+          "heading": "notwithstanding・regardless of: 関係なく・それでも",
+          "explanation": "notwithstanding は「~にもかかわらず」、regardless of は「~に関係なく」を表します。どちらも後ろに名詞が来ます。notwithstanding は改まった文書でよく使われます。\n\n・notwithstanding the objections(反対意見にもかかわらず)\n・regardless of cost(費用に関係なく)",
+          "examples": [
+            { "en": "The plan will proceed **notwithstanding** the objections.", "ja": "反対意見はあるが、その計画は進められる。", "note": "notwithstanding は改まった言い方" },
+            { "en": "The service is free **regardless of** your location.", "ja": "場所に関係なく、そのサービスは無料だ。", "note": "regardless of は「~に関係なく」" }
+          ]
+        },
+        {
+          "heading": "except for・apart from・barring: 除外",
+          "explanation": "except for、apart from、barring は、「~を除いて」を表します。\n\n・except for: 含まれない例外を示す(except for Sunday、日曜日を除いて)\n・apart from: 除外に加えて「~のほかに」の意味も持つ\n・barring: 予期しない事情などを除いて(barring problems、問題がなければ)",
+          "examples": [
+            { "en": "The office is open every day **except for** Sunday.", "ja": "その事務所は、日曜日を除いて毎日開いている。", "note": "except for の後ろは名詞(曜日)" },
+            { "en": "**Apart from** the budget, we need more staff.", "ja": "予算のほかに、人手も必要だ。", "note": "apart from は「~のほかに」" }
+          ]
+        },
+        {
+          "heading": "unlike・as opposed to: 対比",
+          "explanation": "unlike は「~と違って」、as opposed to は「~とは対照的に」を表します。どちらも、比べる相手を後ろに名詞で置きます。\n\n・unlike the old system(古いシステムと違って)\n・as opposed to paper records(紙の記録とは対照的に)",
+          "examples": [
+            { "en": "**Unlike** the old system, the new one is easy to use.", "ja": "古いシステムと違って、新しいシステムは使いやすい。", "note": "unlike の後ろは名詞" },
+            { "en": "We chose digital files **as opposed to** paper copies.", "ja": "紙の複写ではなく、デジタルファイルを選んだ。", "note": "as opposed to は対照" }
+          ]
+        },
+        {
+          "heading": "in the face of: 困難を前にして",
+          "explanation": "in the face of は「~に直面して、~にもかかわらず」を表します。困難や逆境の前で、という意味で使います。\n\n・in the face of competition(競争が激しい中で)",
+          "examples": [
+            { "en": "The company grew **in the face of** strong competition.", "ja": "その会社は、激しい競争の中で成長した。", "note": "in the face of は困難に直面して" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 では、despite と although、except for と except の区別が問われます。despite・except for の後ろは名詞、although・except(接続詞)の後ろは主語と動詞です。"
+    },
+    {
+      "id": "relation",
+      "title": "関連・追加・付随を表す群前置詞",
+      "intro": "「~に関して」「~に加えて」「~に従って」などの意味の群前置詞(前置詞のまとまり)は、ビジネス文書で非常によく使われます。まとまりごと覚えると、選択肢を見ただけで判断しやすくなります。",
+      "keywords": ["前置詞(〜に関して)", "前置詞(regarding / concerning)", "regarding", "with regard to", "in terms of", "pertaining to", "in addition to", "along with", "in conjunction with", "in accordance with", "on behalf of", "前置詞(per)", "pursuant to", "on par with"],
+      "items": [
+        {
+          "heading": "regarding・concerning・with regard to: ~について",
+          "explanation": "regarding、concerning、with regard to は、「~について」を表します。文書では regarding がよく使われます。\n\n・regarding the new policy(新しい方針について)\n・concerning the budget(予算について)\n・with regard to the schedule(予定について)",
+          "examples": [
+            { "en": "Please contact me **regarding** the new contract.", "ja": "新しい契約について、私に連絡してください。", "note": "regarding は「~について」" },
+            { "en": "**With regard to** the schedule, we will confirm it next week.", "ja": "予定については、来週確認します。", "note": "with regard to は改まった言い方" }
+          ]
+        },
+        {
+          "heading": "in terms of・in addition to・along with: 観点・追加・一緒に",
+          "explanation": "in terms of は「~の点で、~の観点から」を表します。in addition to と along with は、「~に加えて」「~と一緒に」を表します。\n\n・in terms of cost(費用の点では)\n・in addition to the salary(給料のほかに)\n・along with the report(レポートと一緒に)",
+          "examples": [
+            { "en": "The plan is good **in terms of** cost.", "ja": "その計画は、費用の点で良い。", "note": "in terms of は観点" },
+            { "en": "We offer free training **in addition to** the salary.", "ja": "給料に加えて、無料の研修を提供している。", "note": "in addition to は追加" },
+            { "en": "Please send the form **along with** your ID.", "ja": "身分証と一緒に、用紙を送ってください。", "note": "along with は一緒に" }
+          ]
+        },
+        {
+          "heading": "in accordance with・pursuant to・on behalf of: 従って・代表して",
+          "explanation": "in accordance with と pursuant to は「~に従って、~に基づいて」を表します。on behalf of は「~の代わりに、~を代表して」を表します。\n\n・in accordance with the rules(規則に従って)\n・pursuant to Section 3(第3条に基づいて)\n・on behalf of the company(会社を代表して)",
+          "examples": [
+            { "en": "The refund will be processed **in accordance with** the policy.", "ja": "返金は、方針に従って処理される。", "note": "in accordance with は基準に従う" },
+            { "en": "I am writing **on behalf of** our team.", "ja": "私たちのチームを代表して、ご連絡しています。", "note": "on behalf of は代表・代理" }
+          ]
+        },
+        {
+          "heading": "pertaining to・per・on par with: その他の群前置詞",
+          "explanation": "pertaining to は「~に関係する」、per は「~につき、~ごとに」、on par with は「~と同等の」を表します。\n\n・pertaining to safety(安全に関係する)\n・per person(1人につき)\n・on par with competitors(競合他社と同等の)",
+          "examples": [
+            { "en": "The fee is 500 yen **per** person.", "ja": "料金は1人500円だ。", "note": "per は単位あたり" },
+            { "en": "The new model is **on par with** the market leader.", "ja": "その新機種は、市場の首位と同等の性能だ。", "note": "on par with は同等" }
+          ]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の群前置詞は、意味の似た語句が選択肢に並ぶことが多いです。in addition to と in place of(~の代わりに)のように、意味が反対になるものもあるので、文の意味で確かめます。"
+    },
+    {
+      "id": "conditions",
+      "title": "条件・時点・その他の群前置詞",
+      "intro": "条件(subject to)、時点(as of)、代わり(in lieu of)、超過(in excess of)など、ビジネス文書で使われる群前置詞です。意味を覚えておくと、文書の読解にも役立ちます。",
+      "keywords": ["subject to", "contingent upon", "in lieu of", "prior to", "as of", "pending", "in excess of", "on the verge of", "in anticipation of", "in the absence of", "with a view to", "in the wake of", "on the condition that", "動詞+前置詞", "前置詞(〜として)", "群前置詞"],
+      "items": [
+        {
+          "heading": "subject to・contingent upon: ~を条件として",
+          "explanation": "subject to は「~に従って・~を条件として」、contingent upon は「~次第で」を表します。\n\n・subject to approval(承認を条件として)\n・contingent upon the weather(天候次第で)",
+          "examples": [
+            { "en": "All orders are **subject to** availability.", "ja": "すべての注文は、在庫があることが条件だ。", "note": "subject to は条件" },
+            { "en": "The launch date is **contingent upon** the test results.", "ja": "発売日は、テスト結果次第だ。", "note": "contingent upon は「~次第」" }
+          ]
+        },
+        {
+          "heading": "as of・prior to・pending: 時点・前・結論待ち",
+          "explanation": "as of は「~現在で、~から」、prior to は「~より前に」、pending は「~の結論が出るまで」を表します。\n\n・as of June 1(6月1日付けで)\n・prior to the meeting(会議の前に)\n・pending approval(承認待ちの)",
+          "examples": [
+            { "en": "The rules will change **as of** next month.", "ja": "規則は来月から変わる。", "note": "as of は、その時点から" },
+            { "en": "Please finish the review **prior to** the meeting.", "ja": "会議の前に、確認を終えてください。", "note": "prior to は改まった「~より前に」" },
+            { "en": "The case is still **pending** before the court.", "ja": "その件は、まだ裁判所で結論が出ていない。", "note": "pending は結論待ち" }
+          ]
+        },
+        {
+          "heading": "in lieu of・in excess of・in the absence of",
+          "explanation": "in lieu of は「~の代わりに」、in excess of は「~を超えて」、in the absence of は「~がない場合には・~がないので」を表します。\n\n・in lieu of a fee(手数料の代わりに)\n・in excess of 100 people(100人を超える)\n・in the absence of evidence(証拠がないので)",
+          "examples": [
+            { "en": "Employees can work from home **in lieu of** commuting.", "ja": "社員は、通勤の代わりに在宅勤務ができる。", "note": "in lieu of は代わり" },
+            { "en": "Attendance was **in excess of** 200 people.", "ja": "出席者は200人を超えた。", "note": "in excess of は超過" }
+          ]
+        },
+        {
+          "heading": "on the verge of・in anticipation of・with a view to",
+          "explanation": "on the verge of は「~の寸前で」、in anticipation of は「~を見込んで・~を予想して」、with a view to doing は「~する目的で」を表します。\n\n・on the verge of bankruptcy(倒産寸前で)\n・in anticipation of demand(需要を見込んで)\n・with a view to expanding(拡大を目指して)",
+          "examples": [
+            { "en": "The company is **on the verge of** bankruptcy.", "ja": "その会社は倒産寸前だ。", "note": "on the verge of は寸前" },
+            { "en": "The factory increased production **in anticipation of** demand.", "ja": "需要を見込んで、工場は生産を増やした。", "note": "in anticipation of は予想して" },
+            { "en": "They merged **with a view to** expanding overseas.", "ja": "海外展開を目指して、両社は合併した。", "note": "with a view to doing は目的" }
+          ]
+        },
+        {
+          "heading": "動詞と前置詞のセット(動詞+前置詞)",
+          "explanation": "動詞の中には、決まった前置詞と結びついて使われるものがあります。語句のまとまりで覚えると、空所問題で迷いにくくなります。\n\n・depend on(~次第である)\n・consist of(~からなる)\n・result in(~という結果になる)\n・look forward to(~を楽しみにする)",
+          "examples": [
+            { "en": "Our success **depends on** the team's effort.", "ja": "私たちの成功は、チームの努力次第だ。", "note": "depend on は依存・次第" },
+            { "en": "The project **consists of** three phases.", "ja": "そのプロジェクトは3つの段階からなる。", "note": "consist of は構成" }
+          ],
+          "cautions": ["× consist from → ○ consist of", "× depend of → ○ depend on"]
+        }
+      ],
+      "examNote": "TOEIC Part 5 の群前置詞・動詞+前置詞は、語句のまとまりで覚えておくと、空所の選択が速くなります。"
+    }
+  ],
+  "summary": [
+    "前置詞の後ろには、名詞・代名詞・動名詞が来る。「主語 + 動詞」は来ない",
+    "前置詞と接続詞の見分けは、後ろを見る。名詞なら前置詞(despite)、主語と動詞なら接続詞(although)",
+    "時: at は時刻、on は日付・曜日、in は月・年。by は期限、until は継続。during は期間の中、for は期間の長さ",
+    "場所: between は2つの間、among は3つ以上の中。next to は隣、across は横切る",
+    "原因: due to・owing to・because of は名詞の前。because は主語と動詞の前",
+    "譲歩・除外: despite・in spite of は名詞の前で「~にもかかわらず」。except for は「~を除いて」",
+    "群前置詞(in terms of、in accordance with、on behalf of など)は、まとまりで覚える",
+    "紛らわしい組: by と until、during と while、between と among、despite と although"
+  ],
+  "quiz": [
+    {
+      "id": "preposition-q01",
+      "sentence": "The meeting will be held ------- Friday afternoon.",
+      "choices": [{ "label": "A", "text": "on" }, { "label": "B", "text": "at" }, { "label": "C", "text": "in" }, { "label": "D", "text": "by" }],
+      "answer": "A",
+      "explanation": "曜日(Friday)の前には on を使う。on Friday afternoon が正解。at と in は曜日には使わない。by は期限を表すので、ここには合わない。",
+      "translation": "会議は金曜日の午後に開かれる。"
+    },
+    {
+      "id": "preposition-q02",
+      "sentence": "Please submit the report ------- Monday at the latest.",
+      "choices": [{ "label": "A", "text": "until" }, { "label": "B", "text": "by" }, { "label": "C", "text": "during" }, { "label": "D", "text": "within" }],
+      "answer": "B",
+      "explanation": "期限(~までに)を表す by が正解。until は継続(その時まで続く)、during は期間の中、within は範囲の中を表すので、期限の意味には合わない。",
+      "translation": "遅くとも月曜日までに報告書を提出してください。"
+    },
+    {
+      "id": "preposition-q03",
+      "sentence": "The city's population grew rapidly ------- the 1990s.",
+      "choices": [{ "label": "A", "text": "by" }, { "label": "B", "text": "until" }, { "label": "C", "text": "during" }, { "label": "D", "text": "since" }],
+      "answer": "C",
+      "explanation": "1990年代という期間の中で増えたことを表す during が正解。since は現在完了の文で使うので、過去形の grew とは合わない。by と until は、ここでは意味が合わない。",
+      "translation": "その市の人口は、1990年代に急速に増えた。"
+    },
+    {
+      "id": "preposition-q04",
+      "sentence": "The flight was delayed ------- the heavy snow.",
+      "choices": [{ "label": "A", "text": "because" }, { "label": "B", "text": "although" }, { "label": "C", "text": "however" }, { "label": "D", "text": "because of" }],
+      "answer": "D",
+      "explanation": "名詞 the heavy snow の前に入る because of が正解。because と although は接続詞なので、後ろに主語と動詞が必要。however は副詞なので、前置詞句は作れない。",
+      "translation": "大雪のため、その便は遅れた。"
+    },
+    {
+      "id": "preposition-q05",
+      "sentence": "She was chosen ------- the five candidates as the best speaker.",
+      "choices": [{ "label": "A", "text": "among" }, { "label": "B", "text": "between" }, { "label": "C", "text": "beyond" }, { "label": "D", "text": "across" }],
+      "answer": "A",
+      "explanation": "5人(3つ以上)の中から選ばれたことを表す among が正解。between は2つの間に使うので、ここには合わない。beyond は「~を超えて」、across は「横切って」で、意味が合わない。",
+      "translation": "彼女は5人の候補者の中から、最優秀のスピーカーに選ばれた。"
+    },
+    {
+      "id": "preposition-q06",
+      "sentence": "------- the heavy rain, the event was held as planned.",
+      "choices": [{ "label": "A", "text": "Although" }, { "label": "B", "text": "However" }, { "label": "C", "text": "Despite" }, { "label": "D", "text": "Because" }],
+      "answer": "C",
+      "explanation": "後ろに名詞 the heavy rain が来るので、前置詞の Despite(~にもかかわらず)が正解。Although と Because は接続詞なので主語と動詞が必要。However は副詞で、前置詞句を作れない。",
+      "translation": "大雨にもかかわらず、そのイベントは予定どおり開かれた。"
+    },
+    {
+      "id": "preposition-q07",
+      "sentence": "The new policy will take effect ------- April 1.",
+      "choices": [{ "label": "A", "text": "in" }, { "label": "B", "text": "at" }, { "label": "C", "text": "during" }, { "label": "D", "text": "on" }],
+      "answer": "D",
+      "explanation": "日付(April 1)の前には on を使う。on April 1 が正解。in は月(April)に、at は時刻に使う。during は期間の中を表すので、特定の日付には合わない。",
+      "translation": "新しい方針は、4月1日から施行される。"
+    },
+    {
+      "id": "preposition-q08",
+      "sentence": "The new cafeteria is located ------- the main entrance.",
+      "choices": [{ "label": "A", "text": "next to" }, { "label": "B", "text": "due to" }, { "label": "C", "text": "despite" }, { "label": "D", "text": "except for" }],
+      "answer": "A",
+      "explanation": "場所(入口の隣)を表す next to が正解。due to は原因、despite は譲歩、except for は除外を表すので、場所の意味には合わない。",
+      "translation": "新しい食堂は、正面入口の隣にある。"
+    },
+    {
+      "id": "preposition-q09",
+      "sentence": "The team finished the project on time ------- the shortage of staff.",
+      "choices": [{ "label": "A", "text": "although" }, { "label": "B", "text": "in spite of" }, { "label": "C", "text": "because" }, { "label": "D", "text": "so that" }],
+      "answer": "B",
+      "explanation": "名詞 the shortage of staff の前に入り、「~にもかかわらず」を表す in spite of が正解。although と because は接続詞なので、後ろに主語と動詞が必要。so that も接続詞なので、ここでは合わない。",
+      "translation": "人手が足りなかったにもかかわらず、チームは期限どおりにプロジェクトを終えた。"
+    },
+    {
+      "id": "preposition-q10",
+      "sentence": "The contract must be signed ------- June 30.",
+      "choices": [{ "label": "A", "text": "until" }, { "label": "B", "text": "during" }, { "label": "C", "text": "by" }, { "label": "D", "text": "since" }],
+      "answer": "C",
+      "explanation": "期限(6月30日までに)を表す by が正解。until は、その日まで続くという継続の意味になるので、署名の期限には合わない。during と since も、期限の意味にはならない。",
+      "translation": "その契約は、6月30日までに署名しなければならない。"
+    },
+    {
+      "id": "preposition-q11",
+      "sentence": "The plan is good ------- cost.",
+      "choices": [{ "label": "A", "text": "in charge of" }, { "label": "B", "text": "on behalf of" }, { "label": "C", "text": "in favor of" }, { "label": "D", "text": "in terms of" }],
+      "answer": "D",
+      "explanation": "「費用の点で」の意味の in terms of が正解。in charge of は「~を担当して」、on behalf of は「~の代わりに」、in favor of は「~に賛成して」の意味で、ここでは意味が合わない。",
+      "translation": "その計画は、費用の点では良い。"
+    },
+    {
+      "id": "preposition-q12",
+      "sentence": "Please review the document ------- the meeting.",
+      "choices": [{ "label": "A", "text": "except for" }, { "label": "B", "text": "prior to" }, { "label": "C", "text": "regardless of" }, { "label": "D", "text": "in addition to" }],
+      "answer": "B",
+      "explanation": "会議の前に、の意味の prior to が正解。except for は除外、regardless of は「~に関係なく」、in addition to は「~に加えて」で、時間の前後を表さない。",
+      "translation": "会議の前に、その資料を確認してください。"
+    }
+  ],
+  "related": ["parts-of-speech", "conjunction"]
+}
