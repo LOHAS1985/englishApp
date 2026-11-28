@@ -30,6 +30,7 @@ english-app/
 - ライティング問題画面:出題 → 回答入力(語数カウント付き)→ AI採点(4観点・16点満点)
 - スピーキング問題画面:出題 → 録音(`features/speaking/Recorder.tsx`)と同時に、ブラウザの音声認識(Web Speech API。無料。Chrome / Edge / Safari)で文字起こし → 文字起こしを直して AI 採点(`PartPractice.tsx`。4観点・16点満点)。音声はブラウザの外に送らず、採点に送るのは文字起こしだけ。音声認識に対応していないブラウザでは文字起こしを手入力する
 - 単語帳の読み方の再生:ブラウザの読み上げ(Web Speech API の `speechSynthesis`。無料。米国英語の声を優先)で1語ずつ読む(`features/wordbook/pronounce.ts`)。サーバーの音声は使わない(新しい API は無い)
+- 文法の教科書(`/grammar-book`):章の本文(`content/grammarBook/chapters/<章>.json`)を画面に同梱し、章ごとに読み込む(`features/grammarBook/loadChapter.ts`)。読了・しおり・確認問題の最高点は端末ごとにブラウザへ保存する(`features/grammarBook/bookProgress.ts`)。内容の書き方は `docs/grammar-book.md`。新しい API は無い
 
 ## バックエンド
 
